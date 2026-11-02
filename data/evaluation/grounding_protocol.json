@@ -1,0 +1,27 @@
+{
+  "n": 18,
+  "metric": "frozen_pattern_proxy_with_separate_full_response_review",
+  "design": "New application scenarios over reviewed rule families; not a rule-disjoint or institution-disjoint test. Both systems receive identical source passages and structured facts.",
+  "arms": [
+    "qwen_shared_evidence",
+    "qwen_plus_veto",
+    "rules_and_gate",
+    "full"
+  ],
+  "shared_calls": "Generate once per question; reuse the identical raw draft for postprocessing ablations. Deterministic decisions do not call Qwen.",
+  "constraints": [
+    "No test labels passed to runtime. Freeze implementation, sources, facts, requests and gold before generation.",
+    "No tuning or criterion changes after viewing these outputs.",
+    "Rule conclusions are limited subconditions, not overall eligibility or actual disbursement.",
+    "AI-authored gold, structured facts and rule mappings; no independent expert review."
+  ],
+  "metrics": [
+    "overall_strict_pass",
+    "answer_coverage",
+    "accuracy_among_answers",
+    "unanswerable_false_assertions",
+    "unnecessary_abstentions"
+  ],
+  "model": "Qwen3-4B Q4_K_M, temperature 0, seed 42, no thinking, 384 output tokens",
+  "verifier": "mDeBERTa NLI veto only; failed development automatic-approval criterion; MiniCheck evaluated but not used for Korean approval"
+}

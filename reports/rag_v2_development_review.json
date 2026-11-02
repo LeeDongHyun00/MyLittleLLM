@@ -1,0 +1,24 @@
+{
+  "scope": "Old development questions only; examined after preset selection, no new test response inspection and no further prompt changes.",
+  "independent_human_review": false,
+  "selection_result": "Both candidates 0/4 on old frozen strict rubric; minimal chosen only by the predefined completion-token tie-break.",
+  "findings": [
+    {
+      "id": "A04",
+      "finding": "Retrieval missed the relevant rule page. Compact stated the broad permissions but omitted the correction-request procedure; minimal reversed the permissions."
+    },
+    {
+      "id": "A12",
+      "finding": "Compact gives the correct prohibition but old regex omits the common wording 없습니다. Minimal gives the prohibition but omits the two track names required by that rubric. Preserve the original scores."
+    },
+    {
+      "id": "S04",
+      "finding": "Both candidates overstate priority support as a payment guarantee; JSON schema does not prevent this factual error."
+    },
+    {
+      "id": "S06",
+      "finding": "Retrieval missed the rate clause. Compact abstains; minimal invents 10,000 won. The short prompt is not validated as more accurate."
+    }
+  ],
+  "deployment": "Retain the legacy default; expose the new path only through the explicit experimental --pipeline improved option."
+}

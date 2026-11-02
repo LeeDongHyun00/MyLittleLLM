@@ -1,0 +1,301 @@
+[
+  {
+    "id": "G01",
+    "preflight_route": "reviewed_rule",
+    "request_sha256": "08be9a8ad05d1511a0c96b61e37c3610e2bb9d7761bb06b4f6d77a32f87de14c",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p9:block0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 9,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p9:block1",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 9,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G02",
+    "preflight_route": "reviewed_rule",
+    "request_sha256": "953fdb4877be60104253b24cc870c6be6b28f514c866f63f691f03e4f9efa0df",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p9:block0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 9,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p9:block1",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 9,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G03",
+    "preflight_route": "reviewed_rule",
+    "request_sha256": "e46eac6d0381b548a61ce0803815625f1666b2a3229795a27eff5a65f9966473",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p9:block0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 9,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p9:block1",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 9,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G04",
+    "preflight_route": "reviewed_rule",
+    "request_sha256": "91a4c82391d9f1f78d5ff1bb35852e177f00c89bb16c8fc77d6a177683c4a597",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p10:block2",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 10,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G05",
+    "preflight_route": "reviewed_rule",
+    "request_sha256": "4e6acd468261b1a7b574a9ae363bc5ab1af80c592dcb67742573b8fe430a5da1",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p10:block2",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 10,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G06",
+    "preflight_route": "reviewed_rule",
+    "request_sha256": "5c21c57188bad520f91d4207089239f3b8c467642a54589636fd5534097eab90",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p11:block0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 11,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p11:block1",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 11,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G07",
+    "preflight_route": "reviewed_rule",
+    "request_sha256": "6ccad128f521fea1cff396158b114fc3b9be77eb5641c84faf8086009b710e6e",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p10:block0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 10,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G08",
+    "preflight_route": "reviewed_rule",
+    "request_sha256": "e7303e8744a441c71701b09438e055d73bc0563a78ff88072977cc5c6c060893",
+    "sources": [
+      {
+        "chunk_id": "pusan-2026-susi:p24:block1",
+        "source_id": "pusan-2026-susi",
+        "pdf_page": 24,
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+      }
+    ]
+  },
+  {
+    "id": "G09",
+    "preflight_route": "verified_calculator",
+    "request_sha256": "d4c0103b178e0f9d5015ab528231e69e346699eefd5593ec48bc0cb45dff70ea",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p10:block1",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 10,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p10:block2",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 10,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G10",
+    "preflight_route": "reviewed_rule",
+    "request_sha256": "93c694fc7b2aa14504539b821cda054ab9f0d7782facb30135f71f4741c06c1e",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p8:table0:row32",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 8,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p5:block0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 5,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G11",
+    "preflight_route": "missing_rule_facts",
+    "request_sha256": "0b22b7b4ed850eb498e9843ffc3ccf69200747921ee4d8e90045440e83741952",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p9:block0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 9,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p9:block1",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 9,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G12",
+    "preflight_route": "missing_rule_facts",
+    "request_sha256": "674a67134a52bce2a76e6232688ed42d58d01d805c9399f301e1c3c727e08b1a",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p10:block2",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 10,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G13",
+    "preflight_route": "personal_event_not_in_policy",
+    "request_sha256": "e8d1d3aa059b2d096bfd0a367c1cd8011fd49afe529ac42ee8cc8393fb19f5c1",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p25:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 25,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p10:c740",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 10,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G14",
+    "preflight_route": "no_scoped_evidence",
+    "request_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "sources": []
+  },
+  {
+    "id": "G15",
+    "preflight_route": null,
+    "request_sha256": "03747e5db75721420c925804f106b93d57b9d908ea9acc8155821c338f535ffb",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p21:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 21,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p22:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 22,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G16",
+    "preflight_route": null,
+    "request_sha256": "d973948f755447402e885c37f8bed76902d6ddd91496eedd1927315956169093",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p11:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 11,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p23:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 23,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G17",
+    "preflight_route": null,
+    "request_sha256": "b391cfdfe0d6e7dbfc37fbbf5da597e10284871a6526e611c7665903a57f258c",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p10:c740",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 10,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p3:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 3,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "G18",
+    "preflight_route": null,
+    "request_sha256": "6e3b448d79bf535d6cb8c10a4135370b1ac2e0cb2cab0e25b4478f636ed7f6c5",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p10:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 10,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p19:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 19,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  }
+]

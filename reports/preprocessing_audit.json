@@ -1,0 +1,1979 @@
+{
+  "purpose": "post_hoc_development_diagnostic_not_fresh_test",
+  "model_generations": 0,
+  "production_settings_changed": false,
+  "metric": "original_frozen_support_patterns_not_semantic_or_answer_accuracy",
+  "scope_limit": "document_metadata_only; section/row applicability not verified",
+  "budget_limit": "expanded variants are NOT capped at 900 tokens; characters are not tokens",
+  "selection": "question/scope or previously frozen candidates; no gold-driven document selection",
+  "data_access": "full retrieved text remains ignored locally; report contains IDs, hashes, counts only",
+  "input_sha256": {
+    "outputs/rag-v2-inputs/test.jsonl": "7cf9b4c2f600a3dd0abe1dff82df9aae256e463733fbbe25da78bd3623cee07f",
+    "outputs/index.jsonl": "29e47d2249b5d997e64d30470df8190673b7337399c97ba9de611e3b221b9c94",
+    "outputs/rag-v2/parents.jsonl": "401bb8ae58f6cb1482798cb634898d4a051670d52fe2208dc5e3046cf40a306e",
+    "outputs/rag-v2/leaves.jsonl": "d75fabe788dcb4eb166bfaf173d399dc78d020a6120f1e13a759f37e6ef7328d",
+    "data/evaluation/rag_v2_gold.jsonl": "9838bcac2b93087751d0653e6f1696171f3c4bd5d39180291006b83c56c55fc9",
+    "data/retrieval_snapshot.jsonl": "69817ece873289e1a777394e59e309c671a027cd6e5ca93db3d1570792e4fac0",
+    "mylittlellm/retrieval.py": "d084c3bafbd08f374800e183309c5d437a59d1ebc5c9f39ce3fb2b46f221ea5d",
+    "mylittlellm/evaluation_v2.py": "cf5c2e21d8d4640417f6f7235653e6a87d27f4221f5939ab98827c59087ebf53",
+    "mylittlellm/hierarchical.py": "f919e4e813a349c1b1ab034728ac1f28cab947ec0b62fc300860a6777f773ddc",
+    "scripts/audit_preprocessing_options.py": "4719e279a93e352961c226b457a9eb776cfc4b60d7c485b60fd0ba860a2fb374",
+    "data/extracted/3142bba7110fe43f33864a20bc39392e7ce76eac1bcea8b50dec7f604d52767c.jsonl": "6d7626d6abf5e1a6550ab294744d333d1e6938d32450011e3f1a0c0b7e9c42c6",
+    "data/extracted/47c10d341ef8038d27981a87785151a83a051001f373d0ebeae04e9bd1ee0537.jsonl": "acf35be5ae1700bf22815c771e9065fec8f4d175814124384c2652a209c4e380",
+    "data/extracted/a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3.jsonl": "e184fc57492912a397b9a08eb9fc603d80eebe83a3d022d3c36795a9ccde78d7",
+    "data/extracted/8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c.jsonl": "8b53b9e5a2be114394a690e52ebb79a0826fad6de2c9c63506462168474309fd",
+    "data/extracted/33c3022ef442d486d95ef3861a5889e196d946432fa1bc815a081bf5d372f3ca.jsonl": "872e9029ad9d4271c5ec720e5e935236fe9051fd4617042382af49a9560c48b7",
+    "data/extracted/dbfa4cdb7cf03afb4020c7e1d869ec9def7787298e4985831c0d5c133725b2bc.jsonl": "68dc4818c620605cc4fb89a3dbe41b3dc0a8f541ebe2b86eed234e9e5fa38961",
+    "data/extracted/d046ef71ff9995521d31930fc00696d38ac0dab2b5bdd8088a58c08b18cb6408.jsonl": "f72c4fb1b5401aa910b44ca02737d4b9bc6a85d54b2c5c475bd23273976a2164",
+    "data/extracted/b302189339c4850213ecf3cd3818c0c74ff2fdd8d66d5f55459f5dc8a89f1a0c.jsonl": "f4050f3772d78cfa2e7063be91399299c7f151f750a98cd3b6a59965fb435eb4"
+  },
+  "summary": {
+    "legacy_bm25_k2": {
+      "n": 16,
+      "clause_pattern_hits": 12,
+      "median_characters": 1550.0,
+      "max_characters": 1800,
+      "median_documents": 2.0,
+      "miss_ids": [
+        "E04",
+        "E08",
+        "H02",
+        "H03"
+      ],
+      "additional_hits_vs_hierarchical_selected": [
+        "E02",
+        "E06",
+        "E07",
+        "H01",
+        "H05",
+        "H06",
+        "H07"
+      ]
+    },
+    "legacy_bm25_k4": {
+      "n": 16,
+      "clause_pattern_hits": 13,
+      "median_characters": 2994.5,
+      "max_characters": 3398,
+      "median_documents": 4.0,
+      "miss_ids": [
+        "E04",
+        "E08",
+        "H02"
+      ],
+      "additional_hits_vs_hierarchical_selected": [
+        "E02",
+        "E06",
+        "E07",
+        "H01",
+        "H05",
+        "H06",
+        "H07"
+      ]
+    },
+    "legacy_bm25_k8": {
+      "n": 16,
+      "clause_pattern_hits": 14,
+      "median_characters": 5943.5,
+      "max_characters": 6636,
+      "median_documents": 8.0,
+      "miss_ids": [
+        "E04",
+        "H02"
+      ],
+      "additional_hits_vs_hierarchical_selected": [
+        "E02",
+        "E06",
+        "E07",
+        "H01",
+        "H05",
+        "H06",
+        "H07"
+      ]
+    },
+    "hierarchical_selected": {
+      "n": 16,
+      "clause_pattern_hits": 8,
+      "median_characters": 971.5,
+      "max_characters": 1292,
+      "median_documents": 2.0,
+      "miss_ids": [
+        "E02",
+        "E04",
+        "E06",
+        "E07",
+        "H01",
+        "H05",
+        "H06",
+        "H07"
+      ],
+      "additional_hits_vs_hierarchical_selected": []
+    },
+    "hierarchical_all8_candidate_leaves": {
+      "n": 16,
+      "clause_pattern_hits": 14,
+      "median_characters": 1832.5,
+      "max_characters": 2224,
+      "median_documents": 8.0,
+      "miss_ids": [
+        "E04",
+        "H02"
+      ],
+      "additional_hits_vs_hierarchical_selected": [
+        "E02",
+        "E06",
+        "E07",
+        "H01",
+        "H05",
+        "H06",
+        "H07"
+      ]
+    },
+    "hierarchical_all8_candidate_parents": {
+      "n": 16,
+      "clause_pattern_hits": 15,
+      "median_characters": 4355.5,
+      "max_characters": 6405,
+      "median_documents": 7.0,
+      "miss_ids": [
+        "E04"
+      ],
+      "additional_hits_vs_hierarchical_selected": [
+        "E02",
+        "E06",
+        "E07",
+        "H01",
+        "H05",
+        "H06",
+        "H07"
+      ]
+    },
+    "hierarchical_selected_full_pages": {
+      "n": 16,
+      "clause_pattern_hits": 9,
+      "median_characters": 2307.0,
+      "max_characters": 2714,
+      "median_documents": 2.0,
+      "miss_ids": [
+        "E02",
+        "E04",
+        "E07",
+        "H01",
+        "H05",
+        "H06",
+        "H07"
+      ],
+      "additional_hits_vs_hierarchical_selected": [
+        "E06"
+      ]
+    },
+    "hierarchical_all8_candidate_full_pages": {
+      "n": 16,
+      "clause_pattern_hits": 15,
+      "median_characters": 7050.0,
+      "max_characters": 10828,
+      "median_documents": 5.5,
+      "miss_ids": [
+        "E04"
+      ],
+      "additional_hits_vs_hierarchical_selected": [
+        "E02",
+        "E06",
+        "E07",
+        "H01",
+        "H05",
+        "H06",
+        "H07"
+      ]
+    },
+    "union_bm25_k2_and_hierarchical_selected": {
+      "n": 16,
+      "clause_pattern_hits": 15,
+      "median_characters": 2467.5,
+      "max_characters": 2994,
+      "median_documents": 4.0,
+      "miss_ids": [
+        "E04"
+      ],
+      "additional_hits_vs_hierarchical_selected": [
+        "E02",
+        "E06",
+        "E07",
+        "H01",
+        "H05",
+        "H06",
+        "H07"
+      ]
+    }
+  },
+  "items": [
+    {
+      "id": "E01",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 1800,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p27:c740",
+            "pusan-2026-susi:p31:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 3349,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p27:c740",
+            "pusan-2026-susi:p31:c0",
+            "pusan-2026-susi:p32:c0",
+            "pusan-2026-susi:p22:c740"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 5291,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p27:c740",
+            "pusan-2026-susi:p31:c0",
+            "pusan-2026-susi:p32:c0",
+            "pusan-2026-susi:p22:c740",
+            "pusan-2026-susi:p8:c740",
+            "pusan-2026-susi:p26:c740",
+            "pusan-2026-susi:p28:c0",
+            "pusan-2026-susi:p17:c1480"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 1109,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p31:h1",
+            "pusan-2026-susi:p31:h0"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 2015,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p31:h1:l0",
+            "pusan-2026-susi:p31:h0:l0",
+            "pusan-2026-susi:p30:h0:l0",
+            "pusan-2026-susi:p26:h1:l208",
+            "pusan-2026-susi:p32:h0:l0",
+            "pusan-2026-susi:p27:h2:l0",
+            "pusan-2026-susi:p32:h0:l502",
+            "pusan-2026-susi:p27:h1:l245"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 4575,
+          "documents": 7,
+          "chunk_ids": [
+            "pusan-2026-susi:p31:h1",
+            "pusan-2026-susi:p31:h0",
+            "pusan-2026-susi:p30:h0",
+            "pusan-2026-susi:p26:h1",
+            "pusan-2026-susi:p32:h0",
+            "pusan-2026-susi:p27:h2",
+            "pusan-2026-susi:p27:h1"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 1075,
+          "documents": 1,
+          "chunk_ids": [
+            "pusan-2026-susi:p31:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 7250,
+          "documents": 5,
+          "chunk_ids": [
+            "pusan-2026-susi:p31:full",
+            "pusan-2026-susi:p30:full",
+            "pusan-2026-susi:p26:full",
+            "pusan-2026-susi:p32:full",
+            "pusan-2026-susi:p27:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2909,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p27:c740",
+            "pusan-2026-susi:p31:c0",
+            "pusan-2026-susi:p31:h1",
+            "pusan-2026-susi:p31:h0"
+          ]
+        }
+      }
+    },
+    {
+      "id": "E02",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 1800,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:c0",
+            "pusan-2026-susi:p44:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 2769,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:c0",
+            "pusan-2026-susi:p44:c0",
+            "pusan-2026-susi:p81:c740",
+            "pusan-2026-susi:p79:c740"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 5890,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:c0",
+            "pusan-2026-susi:p44:c0",
+            "pusan-2026-susi:p81:c740",
+            "pusan-2026-susi:p79:c740",
+            "pusan-2026-susi:p80:c740",
+            "pusan-2026-susi:p34:c0",
+            "pusan-2026-susi:p32:c740",
+            "pusan-2026-susi:p46:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": false,
+          "characters": 1145,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p50:h0",
+            "pusan-2026-susi:p79:h1:l215"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 2182,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p50:h0:l0",
+            "pusan-2026-susi:p79:h1:l215",
+            "pusan-2026-susi:p30:h0:l0",
+            "pusan-2026-susi:p81:h1:l0",
+            "pusan-2026-susi:p89:h1:l0",
+            "pusan-2026-susi:p44:h0:l420",
+            "pusan-2026-susi:p30:h0:l222",
+            "pusan-2026-susi:p112:h1:l465"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 4828,
+          "documents": 7,
+          "chunk_ids": [
+            "pusan-2026-susi:p50:h0",
+            "pusan-2026-susi:p79:h1",
+            "pusan-2026-susi:p30:h0",
+            "pusan-2026-susi:p81:h1",
+            "pusan-2026-susi:p89:h1",
+            "pusan-2026-susi:p44:h0",
+            "pusan-2026-susi:p112:h1"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": false,
+          "characters": 2663,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p50:full",
+            "pusan-2026-susi:p79:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 8562,
+          "documents": 7,
+          "chunk_ids": [
+            "pusan-2026-susi:p50:full",
+            "pusan-2026-susi:p79:full",
+            "pusan-2026-susi:p30:full",
+            "pusan-2026-susi:p81:full",
+            "pusan-2026-susi:p89:full",
+            "pusan-2026-susi:p44:full",
+            "pusan-2026-susi:p112:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2945,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:c0",
+            "pusan-2026-susi:p44:c0",
+            "pusan-2026-susi:p50:h0",
+            "pusan-2026-susi:p79:h1:l215"
+          ]
+        }
+      }
+    },
+    {
+      "id": "E03",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 1800,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p92:c0",
+            "pusan-2026-susi:p32:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 3061,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p92:c0",
+            "pusan-2026-susi:p32:c0",
+            "pusan-2026-susi:p8:c740",
+            "pusan-2026-susi:p28:c0"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 5383,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p92:c0",
+            "pusan-2026-susi:p32:c0",
+            "pusan-2026-susi:p8:c740",
+            "pusan-2026-susi:p28:c0",
+            "pusan-2026-susi:p90:c0",
+            "pusan-2026-susi:p91:c740",
+            "pusan-2026-susi:p100:c0",
+            "pusan-2026-susi:p96:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 1109,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p31:h1",
+            "pusan-2026-susi:p31:h0"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 2036,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p31:h1:l0",
+            "pusan-2026-susi:p31:h0:l598",
+            "pusan-2026-susi:p22:h1:l453",
+            "pusan-2026-susi:p32:h0:l0",
+            "pusan-2026-susi:p32:h0:l502",
+            "pusan-2026-susi:p92:h0:l0",
+            "pusan-2026-susi:p30:h0:l0",
+            "pusan-2026-susi:p22:h0:l0"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 5369,
+          "documents": 7,
+          "chunk_ids": [
+            "pusan-2026-susi:p31:h1",
+            "pusan-2026-susi:p31:h0",
+            "pusan-2026-susi:p22:h1",
+            "pusan-2026-susi:p32:h0",
+            "pusan-2026-susi:p92:h0",
+            "pusan-2026-susi:p30:h0",
+            "pusan-2026-susi:p22:h0"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 1075,
+          "documents": 1,
+          "chunk_ids": [
+            "pusan-2026-susi:p31:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 7097,
+          "documents": 5,
+          "chunk_ids": [
+            "pusan-2026-susi:p31:full",
+            "pusan-2026-susi:p22:full",
+            "pusan-2026-susi:p32:full",
+            "pusan-2026-susi:p92:full",
+            "pusan-2026-susi:p30:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2909,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p92:c0",
+            "pusan-2026-susi:p32:c0",
+            "pusan-2026-susi:p31:h1",
+            "pusan-2026-susi:p31:h0"
+          ]
+        }
+      }
+    },
+    {
+      "id": "E04",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": false,
+          "characters": 992,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2025-susi:p87:c740",
+            "pusan-2025-susi:p99:c740"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": false,
+          "characters": 2181,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2025-susi:p87:c740",
+            "pusan-2025-susi:p99:c740",
+            "pusan-2025-susi:p91:c740",
+            "pusan-2025-susi:p25:c1480"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": false,
+          "characters": 3554,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2025-susi:p87:c740",
+            "pusan-2025-susi:p99:c740",
+            "pusan-2025-susi:p91:c740",
+            "pusan-2025-susi:p25:c1480",
+            "pusan-2025-susi:p1:c0",
+            "pusan-2025-susi:p53:c2220",
+            "pusan-2025-susi:p88:c0",
+            "pusan-2025-susi:p41:c1480"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": false,
+          "characters": 824,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2025-susi:p91:h1",
+            "pusan-2025-susi:p67:h1:l652"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": false,
+          "characters": 991,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2025-susi:p91:h1:l609",
+            "pusan-2025-susi:p67:h1:l652",
+            "pusan-2025-susi:p17:h1:l527",
+            "pusan-2025-susi:p87:h1:l0",
+            "pusan-2025-susi:p95:h2:l0",
+            "pusan-2025-susi:p63:h1:l408",
+            "pusan-2025-susi:p97:h2:l0",
+            "pusan-2025-susi:p29:h1:l749"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": false,
+          "characters": 3942,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2025-susi:p91:h1",
+            "pusan-2025-susi:p67:h1",
+            "pusan-2025-susi:p17:h1",
+            "pusan-2025-susi:p87:h1",
+            "pusan-2025-susi:p95:h2",
+            "pusan-2025-susi:p63:h1",
+            "pusan-2025-susi:p97:h2",
+            "pusan-2025-susi:p29:h1"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": false,
+          "characters": 2454,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2025-susi:p91:full",
+            "pusan-2025-susi:p67:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": false,
+          "characters": 10710,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2025-susi:p91:full",
+            "pusan-2025-susi:p67:full",
+            "pusan-2025-susi:p17:full",
+            "pusan-2025-susi:p87:full",
+            "pusan-2025-susi:p95:full",
+            "pusan-2025-susi:p63:full",
+            "pusan-2025-susi:p97:full",
+            "pusan-2025-susi:p29:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": false,
+          "characters": 1816,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2025-susi:p87:c740",
+            "pusan-2025-susi:p99:c740",
+            "pusan-2025-susi:p91:h1",
+            "pusan-2025-susi:p67:h1:l652"
+          ]
+        }
+      }
+    },
+    {
+      "id": "E05",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 1800,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p32:c0",
+            "pusan-2026-susi:p27:c740"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 2928,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p32:c0",
+            "pusan-2026-susi:p27:c740",
+            "pusan-2026-susi:p17:c1480",
+            "pusan-2026-susi:p56:c0"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 6528,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p32:c0",
+            "pusan-2026-susi:p27:c740",
+            "pusan-2026-susi:p17:c1480",
+            "pusan-2026-susi:p56:c0",
+            "pusan-2026-susi:p66:c0",
+            "pusan-2026-susi:p60:c0",
+            "pusan-2026-susi:p70:c0",
+            "pusan-2026-susi:p38:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 1194,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p32:h0",
+            "pusan-2026-susi:p32:h1:l515"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 2224,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p32:h0:l0",
+            "pusan-2026-susi:p32:h1:l515",
+            "pusan-2026-susi:p31:h1:l0",
+            "pusan-2026-susi:p32:h0:l242",
+            "pusan-2026-susi:p42:h0:l213",
+            "pusan-2026-susi:p27:h1:l724",
+            "pusan-2026-susi:p27:h1:l475",
+            "pusan-2026-susi:p27:h1:l245"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 3847,
+          "documents": 5,
+          "chunk_ids": [
+            "pusan-2026-susi:p32:h0",
+            "pusan-2026-susi:p32:h1",
+            "pusan-2026-susi:p31:h1",
+            "pusan-2026-susi:p42:h0",
+            "pusan-2026-susi:p27:h1"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 1684,
+          "documents": 1,
+          "chunk_ids": [
+            "pusan-2026-susi:p32:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 6243,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p32:full",
+            "pusan-2026-susi:p31:full",
+            "pusan-2026-susi:p42:full",
+            "pusan-2026-susi:p27:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2994,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p32:c0",
+            "pusan-2026-susi:p27:c740",
+            "pusan-2026-susi:p32:h0",
+            "pusan-2026-susi:p32:h1:l515"
+          ]
+        }
+      }
+    },
+    {
+      "id": "E06",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 774,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:c740",
+            "pusan-2026-susi:p17:c1480"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 2387,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:c740",
+            "pusan-2026-susi:p17:c1480",
+            "pusan-2026-susi:p111:c0",
+            "pusan-2026-susi:p112:c740"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 5448,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:c740",
+            "pusan-2026-susi:p17:c1480",
+            "pusan-2026-susi:p111:c0",
+            "pusan-2026-susi:p112:c740",
+            "pusan-2026-susi:p8:c740",
+            "pusan-2026-susi:p40:c0",
+            "pusan-2026-susi:p26:c0",
+            "pusan-2026-susi:p108:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": false,
+          "characters": 1292,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:h0",
+            "pusan-2026-susi:p89:h1"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 1789,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:h0:l0",
+            "pusan-2026-susi:p89:h1:l216",
+            "pusan-2026-susi:p30:h1:l260",
+            "pusan-2026-susi:p30:h1:l0",
+            "pusan-2026-susi:p17:h2:l0",
+            "pusan-2026-susi:p27:h0:l462",
+            "pusan-2026-susi:p27:h2:l0",
+            "pusan-2026-susi:p112:h1:l465"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 3868,
+          "documents": 7,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:h0",
+            "pusan-2026-susi:p89:h1",
+            "pusan-2026-susi:p30:h1",
+            "pusan-2026-susi:p17:h2",
+            "pusan-2026-susi:p27:h0",
+            "pusan-2026-susi:p27:h2",
+            "pusan-2026-susi:p112:h1"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 2389,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:full",
+            "pusan-2026-susi:p89:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 7551,
+          "documents": 5,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:full",
+            "pusan-2026-susi:p89:full",
+            "pusan-2026-susi:p17:full",
+            "pusan-2026-susi:p27:full",
+            "pusan-2026-susi:p112:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2066,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p30:c740",
+            "pusan-2026-susi:p17:c1480",
+            "pusan-2026-susi:p30:h0",
+            "pusan-2026-susi:p89:h1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "E07",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 1241,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p24:c740",
+            "pusan-2026-susi:p70:c740"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 2688,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p24:c740",
+            "pusan-2026-susi:p70:c740",
+            "pusan-2026-susi:p66:c740",
+            "pusan-2026-susi:p51:c0"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 5621,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p24:c740",
+            "pusan-2026-susi:p70:c740",
+            "pusan-2026-susi:p66:c740",
+            "pusan-2026-susi:p51:c0",
+            "pusan-2026-susi:p56:c740",
+            "pusan-2026-susi:p60:c740",
+            "pusan-2026-susi:p42:c0",
+            "pusan-2026-susi:p38:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": false,
+          "characters": 1026,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p60:h1",
+            "pusan-2026-susi:p70:h1"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 1940,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p60:h1:l200",
+            "pusan-2026-susi:p70:h1:l0",
+            "pusan-2026-susi:p47:h0:l444",
+            "pusan-2026-susi:p70:h1:l195",
+            "pusan-2026-susi:p24:h0:l635",
+            "pusan-2026-susi:p24:h0:l0",
+            "pusan-2026-susi:p24:h1:l0",
+            "pusan-2026-susi:p38:h0:l213"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 4136,
+          "documents": 6,
+          "chunk_ids": [
+            "pusan-2026-susi:p60:h1",
+            "pusan-2026-susi:p70:h1",
+            "pusan-2026-susi:p47:h0",
+            "pusan-2026-susi:p24:h0",
+            "pusan-2026-susi:p24:h1",
+            "pusan-2026-susi:p38:h0"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": false,
+          "characters": 2689,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p60:full",
+            "pusan-2026-susi:p70:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 7003,
+          "documents": 5,
+          "chunk_ids": [
+            "pusan-2026-susi:p60:full",
+            "pusan-2026-susi:p70:full",
+            "pusan-2026-susi:p47:full",
+            "pusan-2026-susi:p24:full",
+            "pusan-2026-susi:p38:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2267,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p24:c740",
+            "pusan-2026-susi:p70:c740",
+            "pusan-2026-susi:p60:h1",
+            "pusan-2026-susi:p70:h1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "E08",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": false,
+          "characters": 1598,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p34:c0",
+            "pusan-2026-susi:p56:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": false,
+          "characters": 3398,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p34:c0",
+            "pusan-2026-susi:p56:c0",
+            "pusan-2026-susi:p66:c0",
+            "pusan-2026-susi:p60:c0"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 6636,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p34:c0",
+            "pusan-2026-susi:p56:c0",
+            "pusan-2026-susi:p66:c0",
+            "pusan-2026-susi:p60:c0",
+            "pusan-2026-susi:p70:c0",
+            "pusan-2026-susi:p38:c0",
+            "pusan-2026-susi:p42:c0",
+            "pusan-2026-susi:p24:c740"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 731,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p24:h1",
+            "pusan-2026-susi:p56:h0:l454"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 1916,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p24:h1:l398",
+            "pusan-2026-susi:p56:h0:l454",
+            "pusan-2026-susi:p66:h0:l454",
+            "pusan-2026-susi:p27:h0:l462",
+            "pusan-2026-susi:p25:h0:l0",
+            "pusan-2026-susi:p34:h0:l0",
+            "pusan-2026-susi:p38:h0:l452",
+            "pusan-2026-susi:p61:h1:l0"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 6405,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p24:h1",
+            "pusan-2026-susi:p56:h0",
+            "pusan-2026-susi:p66:h0",
+            "pusan-2026-susi:p27:h0",
+            "pusan-2026-susi:p25:h0",
+            "pusan-2026-susi:p34:h0",
+            "pusan-2026-susi:p38:h0",
+            "pusan-2026-susi:p61:h1"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 2714,
+          "documents": 2,
+          "chunk_ids": [
+            "pusan-2026-susi:p24:full",
+            "pusan-2026-susi:p56:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 10828,
+          "documents": 8,
+          "chunk_ids": [
+            "pusan-2026-susi:p24:full",
+            "pusan-2026-susi:p56:full",
+            "pusan-2026-susi:p66:full",
+            "pusan-2026-susi:p27:full",
+            "pusan-2026-susi:p25:full",
+            "pusan-2026-susi:p34:full",
+            "pusan-2026-susi:p38:full",
+            "pusan-2026-susi:p61:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2329,
+          "documents": 4,
+          "chunk_ids": [
+            "pusan-2026-susi:p34:c0",
+            "pusan-2026-susi:p56:c0",
+            "pusan-2026-susi:p24:h1",
+            "pusan-2026-susi:p56:h0:l454"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H01",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 1655,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p12:c0",
+            "kosaf-2026-housing-plan-faq:p22:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 3330,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p12:c0",
+            "kosaf-2026-housing-plan-faq:p22:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p25:c0"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 6039,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p12:c0",
+            "kosaf-2026-housing-plan-faq:p22:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p2:c2220",
+            "kosaf-2026-housing-plan-faq:p23:c0",
+            "kosaf-2026-housing-plan-faq:p18:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": false,
+          "characters": 932,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p12:h1",
+            "kosaf-2026-housing-plan-faq:p14:h0"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 1642,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p12:h1:l0",
+            "kosaf-2026-housing-plan-faq:p14:h0:l644",
+            "kosaf-2026-housing-plan-faq:p14:h0:l0",
+            "kosaf-2026-housing-plan-faq:p25:h1:l0",
+            "kosaf-2026-housing-plan-faq:p25:h1:l181",
+            "kosaf-2026-housing-plan-faq:p22:h0:l0",
+            "kosaf-2026-housing-plan-faq:p2:h2:l295",
+            "kosaf-2026-housing-plan-faq:p12:h0:l202"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 3526,
+          "documents": 6,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p12:h1",
+            "kosaf-2026-housing-plan-faq:p14:h0",
+            "kosaf-2026-housing-plan-faq:p25:h1",
+            "kosaf-2026-housing-plan-faq:p22:h0",
+            "kosaf-2026-housing-plan-faq:p2:h2",
+            "kosaf-2026-housing-plan-faq:p12:h0"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": false,
+          "characters": 1814,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p12:full",
+            "kosaf-2026-housing-plan-faq:p14:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 6991,
+          "documents": 5,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p12:full",
+            "kosaf-2026-housing-plan-faq:p14:full",
+            "kosaf-2026-housing-plan-faq:p25:full",
+            "kosaf-2026-housing-plan-faq:p22:full",
+            "kosaf-2026-housing-plan-faq:p2:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2587,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p12:c0",
+            "kosaf-2026-housing-plan-faq:p22:c0",
+            "kosaf-2026-housing-plan-faq:p12:h1",
+            "kosaf-2026-housing-plan-faq:p14:h0"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H02",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": false,
+          "characters": 1481,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p20:c0",
+            "kosaf-2026-housing-plan-faq:p19:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": false,
+          "characters": 3156,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p20:c0",
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p4:c0"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": false,
+          "characters": 6347,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p20:c0",
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p4:c0",
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p12:c0",
+            "kosaf-2026-housing-plan-faq:p17:c0",
+            "kosaf-2026-housing-plan-faq:p16:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 1011,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p18:h0",
+            "kosaf-2026-housing-plan-faq:p14:h0:l221"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": false,
+          "characters": 1704,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p18:h0:l0",
+            "kosaf-2026-housing-plan-faq:p14:h0:l221",
+            "kosaf-2026-housing-plan-faq:p4:h0:l678",
+            "kosaf-2026-housing-plan-faq:p20:h0:l420",
+            "kosaf-2026-housing-plan-faq:p25:h2:l171",
+            "kosaf-2026-housing-plan-faq:p12:h0:l202",
+            "kosaf-2026-housing-plan-faq:p25:h1:l181",
+            "kosaf-2026-housing-plan-faq:p13:h0:l179"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 5568,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p18:h0",
+            "kosaf-2026-housing-plan-faq:p14:h0",
+            "kosaf-2026-housing-plan-faq:p4:h0",
+            "kosaf-2026-housing-plan-faq:p20:h0",
+            "kosaf-2026-housing-plan-faq:p25:h2",
+            "kosaf-2026-housing-plan-faq:p12:h0",
+            "kosaf-2026-housing-plan-faq:p25:h1",
+            "kosaf-2026-housing-plan-faq:p13:h0"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 1786,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p18:full",
+            "kosaf-2026-housing-plan-faq:p14:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 6601,
+          "documents": 7,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p18:full",
+            "kosaf-2026-housing-plan-faq:p14:full",
+            "kosaf-2026-housing-plan-faq:p4:full",
+            "kosaf-2026-housing-plan-faq:p20:full",
+            "kosaf-2026-housing-plan-faq:p25:full",
+            "kosaf-2026-housing-plan-faq:p12:full",
+            "kosaf-2026-housing-plan-faq:p13:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2492,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p20:c0",
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p18:h0",
+            "kosaf-2026-housing-plan-faq:p14:h0:l221"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H03",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": false,
+          "characters": 1675,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 3276,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p4:c0",
+            "kosaf-2026-housing-plan-faq:p16:c0"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 6541,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p4:c0",
+            "kosaf-2026-housing-plan-faq:p16:c0",
+            "kosaf-2026-housing-plan-faq:p11:c0",
+            "kosaf-2026-housing-plan-faq:p21:c0",
+            "kosaf-2026-housing-plan-faq:p22:c0",
+            "kosaf-2026-housing-plan-faq:p19:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 911,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p16:h0",
+            "kosaf-2026-housing-plan-faq:p25:h2:l0"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 1778,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p16:h0:l0",
+            "kosaf-2026-housing-plan-faq:p25:h2:l0",
+            "kosaf-2026-housing-plan-faq:p4:h1:l0",
+            "kosaf-2026-housing-plan-faq:p14:h0:l644",
+            "kosaf-2026-housing-plan-faq:p14:h0:l221",
+            "kosaf-2026-housing-plan-faq:p2:h2:l295",
+            "kosaf-2026-housing-plan-faq:p12:h0:l202",
+            "kosaf-2026-housing-plan-faq:p14:h0:l416"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 3557,
+          "documents": 6,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p16:h0",
+            "kosaf-2026-housing-plan-faq:p25:h2",
+            "kosaf-2026-housing-plan-faq:p4:h1",
+            "kosaf-2026-housing-plan-faq:p14:h0",
+            "kosaf-2026-housing-plan-faq:p2:h2",
+            "kosaf-2026-housing-plan-faq:p12:h0"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 2177,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p16:full",
+            "kosaf-2026-housing-plan-faq:p25:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 7914,
+          "documents": 6,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p16:full",
+            "kosaf-2026-housing-plan-faq:p25:full",
+            "kosaf-2026-housing-plan-faq:p4:full",
+            "kosaf-2026-housing-plan-faq:p14:full",
+            "kosaf-2026-housing-plan-faq:p2:full",
+            "kosaf-2026-housing-plan-faq:p12:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2586,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p16:h0",
+            "kosaf-2026-housing-plan-faq:p25:h2:l0"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H04",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 1583,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p21:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 3284,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p21:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p12:c0"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 6264,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p21:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p12:c0",
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p22:c0",
+            "kosaf-2026-housing-plan-faq:p23:c0",
+            "kosaf-2026-housing-plan-faq:p20:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 1021,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p21:h0",
+            "kosaf-2026-housing-plan-faq:p25:h1:l181"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 1858,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p21:h0:l472",
+            "kosaf-2026-housing-plan-faq:p25:h1:l181",
+            "kosaf-2026-housing-plan-faq:p12:h0:l0",
+            "kosaf-2026-housing-plan-faq:p14:h0:l416",
+            "kosaf-2026-housing-plan-faq:p25:h2:l171",
+            "kosaf-2026-housing-plan-faq:p14:h0:l644",
+            "kosaf-2026-housing-plan-faq:p21:h0:l228",
+            "kosaf-2026-housing-plan-faq:p13:h0:l179"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 4113,
+          "documents": 6,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p21:h0",
+            "kosaf-2026-housing-plan-faq:p25:h1",
+            "kosaf-2026-housing-plan-faq:p12:h0",
+            "kosaf-2026-housing-plan-faq:p14:h0",
+            "kosaf-2026-housing-plan-faq:p25:h2",
+            "kosaf-2026-housing-plan-faq:p13:h0"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 2284,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p21:full",
+            "kosaf-2026-housing-plan-faq:p25:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 4688,
+          "documents": 5,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p21:full",
+            "kosaf-2026-housing-plan-faq:p25:full",
+            "kosaf-2026-housing-plan-faq:p12:full",
+            "kosaf-2026-housing-plan-faq:p14:full",
+            "kosaf-2026-housing-plan-faq:p13:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2604,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p21:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p21:h0",
+            "kosaf-2026-housing-plan-faq:p25:h1:l181"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H05",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 1517,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p17:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 2634,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p17:c0",
+            "kosaf-2026-housing-plan-faq:p4:c740",
+            "kosaf-2026-housing-plan-faq:p25:c0"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 5966,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p17:c0",
+            "kosaf-2026-housing-plan-faq:p4:c740",
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p11:c0",
+            "kosaf-2026-housing-plan-faq:p22:c0",
+            "kosaf-2026-housing-plan-faq:p18:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": false,
+          "characters": 926,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h2",
+            "kosaf-2026-housing-plan-faq:p12:h0:l202"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 1680,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h2:l0",
+            "kosaf-2026-housing-plan-faq:p12:h0:l202",
+            "kosaf-2026-housing-plan-faq:p25:h1:l181",
+            "kosaf-2026-housing-plan-faq:p19:h0:l199",
+            "kosaf-2026-housing-plan-faq:p25:h2:l171",
+            "kosaf-2026-housing-plan-faq:p14:h0:l416",
+            "kosaf-2026-housing-plan-faq:p22:h0:l0",
+            "kosaf-2026-housing-plan-faq:p11:h0:l390"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 4755,
+          "documents": 7,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h2",
+            "kosaf-2026-housing-plan-faq:p12:h0",
+            "kosaf-2026-housing-plan-faq:p25:h1",
+            "kosaf-2026-housing-plan-faq:p19:h0",
+            "kosaf-2026-housing-plan-faq:p14:h0",
+            "kosaf-2026-housing-plan-faq:p22:h0",
+            "kosaf-2026-housing-plan-faq:p11:h0"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": false,
+          "characters": 2332,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:full",
+            "kosaf-2026-housing-plan-faq:p12:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 5938,
+          "documents": 6,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:full",
+            "kosaf-2026-housing-plan-faq:p12:full",
+            "kosaf-2026-housing-plan-faq:p19:full",
+            "kosaf-2026-housing-plan-faq:p14:full",
+            "kosaf-2026-housing-plan-faq:p22:full",
+            "kosaf-2026-housing-plan-faq:p11:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2443,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p17:c0",
+            "kosaf-2026-housing-plan-faq:p25:h2",
+            "kosaf-2026-housing-plan-faq:p12:h0:l202"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H06",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 1481,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p20:c0",
+            "kosaf-2026-housing-plan-faq:p19:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 2897,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p20:c0",
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p15:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 5944,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p20:c0",
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p15:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p12:c0",
+            "kosaf-2026-housing-plan-faq:p23:c0",
+            "kosaf-2026-housing-plan-faq:p16:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": false,
+          "characters": 763,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h1",
+            "kosaf-2026-housing-plan-faq:p4:h0:l678"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 1647,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h1:l181",
+            "kosaf-2026-housing-plan-faq:p4:h0:l678",
+            "kosaf-2026-housing-plan-faq:p20:h0:l420",
+            "kosaf-2026-housing-plan-faq:p24:h0:l0",
+            "kosaf-2026-housing-plan-faq:p14:h0:l221",
+            "kosaf-2026-housing-plan-faq:p12:h0:l202",
+            "kosaf-2026-housing-plan-faq:p19:h0:l604",
+            "kosaf-2026-housing-plan-faq:p20:h0:l0"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 4663,
+          "documents": 7,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h1",
+            "kosaf-2026-housing-plan-faq:p4:h0",
+            "kosaf-2026-housing-plan-faq:p20:h0",
+            "kosaf-2026-housing-plan-faq:p24:h0",
+            "kosaf-2026-housing-plan-faq:p14:h0",
+            "kosaf-2026-housing-plan-faq:p12:h0",
+            "kosaf-2026-housing-plan-faq:p19:h0"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": false,
+          "characters": 2488,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:full",
+            "kosaf-2026-housing-plan-faq:p4:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 6267,
+          "documents": 7,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:full",
+            "kosaf-2026-housing-plan-faq:p4:full",
+            "kosaf-2026-housing-plan-faq:p20:full",
+            "kosaf-2026-housing-plan-faq:p24:full",
+            "kosaf-2026-housing-plan-faq:p14:full",
+            "kosaf-2026-housing-plan-faq:p12:full",
+            "kosaf-2026-housing-plan-faq:p19:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2244,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p20:c0",
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p25:h1",
+            "kosaf-2026-housing-plan-faq:p4:h0:l678"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H07",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 1503,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 3257,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p22:c0",
+            "kosaf-2026-housing-plan-faq:p25:c0"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 5943,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p22:c0",
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p11:c0",
+            "kosaf-2026-housing-plan-faq:p23:c0",
+            "kosaf-2026-housing-plan-faq:p9:c740",
+            "kosaf-2026-housing-plan-faq:p12:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": false,
+          "characters": 914,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h2",
+            "kosaf-2026-housing-plan-faq:p22:h0:l0"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 1858,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h2:l0",
+            "kosaf-2026-housing-plan-faq:p22:h0:l0",
+            "kosaf-2026-housing-plan-faq:p25:h1:l181",
+            "kosaf-2026-housing-plan-faq:p19:h0:l199",
+            "kosaf-2026-housing-plan-faq:p2:h2:l295",
+            "kosaf-2026-housing-plan-faq:p12:h0:l202",
+            "kosaf-2026-housing-plan-faq:p24:h0:l0",
+            "kosaf-2026-housing-plan-faq:p14:h0:l0"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 5091,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h2",
+            "kosaf-2026-housing-plan-faq:p22:h0",
+            "kosaf-2026-housing-plan-faq:p25:h1",
+            "kosaf-2026-housing-plan-faq:p19:h0",
+            "kosaf-2026-housing-plan-faq:p2:h2",
+            "kosaf-2026-housing-plan-faq:p12:h0",
+            "kosaf-2026-housing-plan-faq:p24:h0",
+            "kosaf-2026-housing-plan-faq:p14:h0"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": false,
+          "characters": 2330,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:full",
+            "kosaf-2026-housing-plan-faq:p22:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 8139,
+          "documents": 7,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:full",
+            "kosaf-2026-housing-plan-faq:p22:full",
+            "kosaf-2026-housing-plan-faq:p19:full",
+            "kosaf-2026-housing-plan-faq:p2:full",
+            "kosaf-2026-housing-plan-faq:p12:full",
+            "kosaf-2026-housing-plan-faq:p24:full",
+            "kosaf-2026-housing-plan-faq:p14:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2417,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p14:c0",
+            "kosaf-2026-housing-plan-faq:p25:h2",
+            "kosaf-2026-housing-plan-faq:p22:h0:l0"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H08",
+      "variants": {
+        "legacy_bm25_k2": {
+          "clause_pattern_hit": true,
+          "characters": 1371,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p13:c0"
+          ]
+        },
+        "legacy_bm25_k4": {
+          "clause_pattern_hit": true,
+          "characters": 2096,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p13:c0",
+            "kosaf-2026-housing-plan-faq:p4:c740",
+            "kosaf-2026-housing-plan-faq:p2:c2220"
+          ]
+        },
+        "legacy_bm25_k8": {
+          "clause_pattern_hit": true,
+          "characters": 5134,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p13:c0",
+            "kosaf-2026-housing-plan-faq:p4:c740",
+            "kosaf-2026-housing-plan-faq:p2:c2220",
+            "kosaf-2026-housing-plan-faq:p19:c0",
+            "kosaf-2026-housing-plan-faq:p10:c0",
+            "kosaf-2026-housing-plan-faq:p3:c0",
+            "kosaf-2026-housing-plan-faq:p11:c0"
+          ]
+        },
+        "hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 917,
+          "documents": 2,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h1",
+            "kosaf-2026-housing-plan-faq:p25:h2:l171"
+          ]
+        },
+        "hierarchical_all8_candidate_leaves": {
+          "clause_pattern_hit": true,
+          "characters": 1807,
+          "documents": 8,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h1:l181",
+            "kosaf-2026-housing-plan-faq:p25:h1:l0",
+            "kosaf-2026-housing-plan-faq:p25:h2:l171",
+            "kosaf-2026-housing-plan-faq:p25:h2:l0",
+            "kosaf-2026-housing-plan-faq:p14:h0:l0",
+            "kosaf-2026-housing-plan-faq:p12:h0:l202",
+            "kosaf-2026-housing-plan-faq:p2:h2:l295",
+            "kosaf-2026-housing-plan-faq:p13:h0:l179"
+          ]
+        },
+        "hierarchical_all8_candidate_parents": {
+          "clause_pattern_hit": true,
+          "characters": 3805,
+          "documents": 6,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:h1",
+            "kosaf-2026-housing-plan-faq:p25:h2",
+            "kosaf-2026-housing-plan-faq:p14:h0",
+            "kosaf-2026-housing-plan-faq:p12:h0",
+            "kosaf-2026-housing-plan-faq:p2:h2",
+            "kosaf-2026-housing-plan-faq:p13:h0"
+          ]
+        },
+        "hierarchical_selected_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 1412,
+          "documents": 1,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:full"
+          ]
+        },
+        "hierarchical_all8_candidate_full_pages": {
+          "clause_pattern_hit": true,
+          "characters": 6663,
+          "documents": 5,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:full",
+            "kosaf-2026-housing-plan-faq:p14:full",
+            "kosaf-2026-housing-plan-faq:p12:full",
+            "kosaf-2026-housing-plan-faq:p2:full",
+            "kosaf-2026-housing-plan-faq:p13:full"
+          ]
+        },
+        "union_bm25_k2_and_hierarchical_selected": {
+          "clause_pattern_hit": true,
+          "characters": 2288,
+          "documents": 4,
+          "chunk_ids": [
+            "kosaf-2026-housing-plan-faq:p25:c0",
+            "kosaf-2026-housing-plan-faq:p13:c0",
+            "kosaf-2026-housing-plan-faq:p25:h1",
+            "kosaf-2026-housing-plan-faq:p25:h2:l171"
+          ]
+        }
+      }
+    }
+  ]
+}

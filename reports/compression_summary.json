@@ -1,0 +1,19 @@
+{
+  "compressor": "microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank",
+  "revision": "5f0c82792b7ea14c6484e015b6a072009496b7f2",
+  "budget_tokenizer": "Qwen3-4B (local; replaces llmlingua default GPT tokenizer accounting)",
+  "examples_sha256": "c23357ef81e9e1cab3e808103a6b99cada76f3b985c90f0aa2e1229638514075",
+  "requested_rate": 0.5,
+  "documents": 5,
+  "load_seconds": 0.4948,
+  "original_qwen_tokens": 3783,
+  "raw_qwen_tokens": 1867,
+  "guarded_qwen_tokens": 3728,
+  "guarded_retention_fraction": 0.985461274121068,
+  "protected_spans": 41,
+  "raw_protected_spans_retained": 2,
+  "guarded_protected_spans_retained": 41,
+  "fallback_documents": 4,
+  "accuracy_measured": false,
+  "limitation": "Conservative lexical guards are not a proof of semantic completeness; no end-to-end speed claim."
+}

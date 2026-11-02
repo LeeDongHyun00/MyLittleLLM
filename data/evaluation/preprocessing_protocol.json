@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-11-02T13:25:58.266946+00:00",
+  "gold_sha256": "d3bc23564d59571afc6cd7b586e7030aab217fb90e8991ef251c6971f9016691",
+  "n": 12,
+  "answerable": 10,
+  "unanswerable": 2,
+  "groups": 12,
+  "old_rule_groups_overlap": false,
+  "source_documents_shared_with_development": true,
+  "test_model_answers_seen": false,
+  "rubric": "frozen answer/support patterns plus status; manual review reported separately",
+  "independent_human_review": false,
+  "scope": "new rule questions within known sources, not institution or document holdout"
+}

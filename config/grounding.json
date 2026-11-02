@@ -1,0 +1,10 @@
+{
+  "verifier_backend": "multilingual_nli",
+  "support_threshold": 0.5,
+  "contradiction_threshold": 0.8,
+  "mode": "fallible_veto_only",
+  "calibration_passed": false,
+  "selection_note": "Neither backend passed the predeclared Korean automatic-approval development criterion. MiniCheck loses Korean text to unknown tokens. Multilingual NLI is used only to veto unsupported/contradictory drafts at fixed thresholds, never to override a source-bound rule or certify truth.",
+  "minicheck": {"repo":"lytang/MiniCheck-Flan-T5-Large","revision":"96eafd01cee2d16cf81aaa2fb226b14f422a37b3","path":"models/MiniCheck-Flan-T5-Large"},
+  "multilingual_nli": {"repo":"MoritzLaurer/mDeBERTa-v3-base-mnli-xnli","revision":"8adb042d524ecd5c26d3e3ba0e3fbcf7e2d0864c","path":"models/mDeBERTa-nli"}
+}

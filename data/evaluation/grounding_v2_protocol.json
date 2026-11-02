@@ -1,0 +1,18 @@
+{
+  "n": 12,
+  "design": "Engineering scenarios for three newly implemented rule families and two gate questions; not unseen-rule generalization.",
+  "arms": [
+    "qwen_same_evidence",
+    "expanded_rules_gate"
+  ],
+  "model": "Qwen3-4B Q4_K_M; no training; temperature 0, seed 42, 384 output tokens, thinking off",
+  "controls": "Same source clauses and explicit scenario facts. One draft per scenario, reused for fallback. No answer labels sent to runtime.",
+  "locked_before_generation": true,
+  "independent_expert_review": false,
+  "limitations": [
+    "AI authored rules, facts and answer keys; new cases share reviewed rules and documents.",
+    "No natural-language slot extraction; guided intake asks explicit questions.",
+    "Pattern scores are proxies. Review every complete answer separately and preserve original scores.",
+    "Do not tune the implementation or patterns after reading these outputs. Report failures."
+  ]
+}

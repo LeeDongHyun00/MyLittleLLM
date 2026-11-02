@@ -1,0 +1,46 @@
+{
+  "config": {
+    "model": "Qwen/Qwen3-4B",
+    "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+    "local_model": "models/Qwen3-4B-HF",
+    "compressor": "microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank",
+    "compressor_revision": "5f0c82792b7ea14c6484e015b6a072009496b7f2",
+    "local_compressor": "models/llmlingua-2",
+    "dtype": "bfloat16",
+    "quantization": null,
+    "lora_rank": 4,
+    "lora_alpha": 8,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "learning_rate": 0.0001,
+    "max_sequence_tokens": 1024,
+    "rollout_tokens": 24,
+    "seed": 42,
+    "threads": 4,
+    "scope": "RAFT-style evidence with distractors + answer/explanation multi-task SFT + OPSD-style dense self-distillation; not a paper reproduction"
+  },
+  "device": "cpu",
+  "torch": "2.9.1+cpu",
+  "transformers": "4.57.6",
+  "peft": "0.18.1",
+  "examples_sha256": "c23357ef81e9e1cab3e808103a6b99cada76f3b985c90f0aa2e1229638514075",
+  "examples": 5,
+  "sft_steps": 10,
+  "opsd_steps": 3,
+  "trainable_parameters": 1474560,
+  "adapter_parameter_delta_l2": 0.9423415277510142,
+  "peak_rss_mib": 9753.34765625,
+  "elapsed_seconds": 1531.064,
+  "smoke_only": true,
+  "held_out_accuracy": null,
+  "training_completed": true,
+  "teacher": "fixed initial BF16 base; reference solution in teacher context only",
+  "limitations": [
+    "Tiny public development data; no independent human review or held-out test",
+    "24-token rollout cap may truncate answers; this is an optimizer smoke test",
+    "RAFT and step-by-step are adapted recipes; no reproduction claim",
+    "Unquantized BF16 LoRA; QLoRA deliberately excluded"
+  ]
+}

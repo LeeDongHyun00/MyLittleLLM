@@ -39,15 +39,18 @@ def validate_answer(value, evidence, mode):
 
 
 def ask(question, *, year, task="admissions", institution=None, semester=None,
-        mode="rag", facts=None, base_url=None, max_tokens=384, index=None):
+        mode="rag", facts=None, base_url=None, max_tokens=384, index=None,
+        compress_context=False, compression_rate=.5):
     if mode not in {"rag", "closed"}:
         raise ValueError("Unknown inference mode")
     if not isinstance(question, str) or not 0 < len(question) <= 2000:
         raise ValueError("Question must contain 1–2000 characters")
     if facts is not None and (task != "housing" or mode != "rag"):
         raise ValueError("Structured facts are supported for housing RAG only")
+    if compress_context and mode != "rag":
+        raise ValueError("Context compression requires RAG mode")
     start = time.monotonic()
-    evidence, calculation = [], None
+    evidence, calculation, compression = [], None, None
     if facts is not None:
         if facts.get("year") != year or facts.get("semester") != semester:
             raise ValueError("Calculation year/semester differs from query scope")
@@ -72,6 +75,9 @@ def ask(question, *, year, task="admissions", institution=None, semester=None,
             if not matches:
                 raise ValueError("Calculation evidence is missing from the index")
             evidence.append(dict(matches[0], score=None, retrieval_method="calculator_rule_lookup"))
+        if compress_context:
+            from .compression import compress_documents
+            evidence, compression = compress_documents(evidence, compression_rate)
     payload = {"mode": "검색" if mode == "rag" else "외부 문서 없음", "question": question,
                "scope": {"year": year, "institution": institution, "semester": semester, "task": task},
                "evidence": [{k:r[k] for k in ["chunk_id", "pdf_page", "year", "text"]} for r in evidence],
@@ -105,5 +111,5 @@ def ask(question, *, year, task="admissions", institution=None, semester=None,
                   sources=[{k:r[k] for k in ["chunk_id", "source_id", "pdf_page", "sha256", "url"]}
                            for r in evidence if r["chunk_id"] in result["citations"]],
                   retrieved=[{k:v for k,v in r.items() if k != "text"} for r in evidence],
-                  verified_calculation=calculation)
+                  verified_calculation=calculation, compression=compression)
     return result

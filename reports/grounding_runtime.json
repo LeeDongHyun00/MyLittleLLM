@@ -1,0 +1,29 @@
+{
+  "observed_at": "2026-11-02T15:30:59.528533+00:00",
+  "python": "3.12.14",
+  "packages": {
+    "z3-solver": "4.15.4.0",
+    "torch": "2.9.1+cpu",
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2"
+  },
+  "memory_max": "17179869184",
+  "memory_events_before": "low 0\nhigh 0\nmax 590277\noom 2\noom_kill 1\noom_group_kill 0\n",
+  "source_review": "assistant only, not independent human expert",
+  "tests_before_frozen_run": 57,
+  "execution_note": "Generator stopped during verifier development probes, then restarted. No neural retriever loaded in the new generation run. NLI verification happens after all Qwen generations.",
+  "completed_checks_at": "2026-11-02T15:44:40.706199+00:00",
+  "memory_events_after": "low 0\nhigh 0\nmax 590277\noom 2\noom_kill 1\noom_group_kill 0\n",
+  "new_oom_events": 0,
+  "new_oom_kills": 0,
+  "server_health": {
+    "status": "ok"
+  },
+  "tests_after_post_evaluation_fixes": 59,
+  "qwen_generations": 17,
+  "compared_decisions": 72,
+  "verifier_development_pairs_per_model": {
+    "korean": 8,
+    "english": 1
+  }
+}

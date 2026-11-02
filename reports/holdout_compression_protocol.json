@@ -1,0 +1,20 @@
+{
+  "frozen_at": "2026-11-02T08:54:12.883445+00:00",
+  "model_outputs_seen": false,
+  "questions": "All 8 prespecified free-answer questions, same retrieval and rubric",
+  "arm": "opsd_guarded_llmlingua2",
+  "requested_rate": 0.5,
+  "compressor_revision": "5f0c82792b7ea14c6484e015b6a072009496b7f2",
+  "unchanged_input_rule": "Reuse original OPSD response only if complete request JSON is identical; count as reused, not a new inference",
+  "changed_input_rule": "One additional inference per changed request; no retry, tuning, or rubric changes",
+  "latency_rule": "Report compression preprocessing cost and token counts; no paired speedup claim from reused or non-interleaved runs",
+  "hashes": {
+    "outputs/evaluation-v1/inputs.jsonl": "d1639fd7fd156e53c5d9daa0ac81558fd323456da3860361afa2f15c583184f7",
+    "outputs/evaluation-v1/gold.jsonl": "b9100d6d05d89dfc35dc596ec31f736b5b89501ad8cd073c2ba2d67620c6564c",
+    "outputs/evaluation-run-v1/requests.jsonl": "edb1a3fc5a59b19ef907fd679b41f96dd6f04d84853298fb93e0eb530d713c23",
+    "config/distillation.json": "3ab6f7dfa80de144753794ebdeb43d564a9cf29d811f205fe8c43d9fe9371289",
+    "mylittlellm/compression.py": "e60bad871223a8d9676fc1ec38381e85c01c772f1191016e8f95b9e83e60b3cc",
+    "mylittlellm/evaluation.py": "2fe594e3ae81c4339f8d400e4ca0cc7c362c1878f43128edb24f78fa855763ad",
+    "scripts/evaluate_holdout_compression.py": "09c41e6153491276742ebdfbdfcf1a471790cfe46868df2348815e2270a33c9c"
+  }
+}

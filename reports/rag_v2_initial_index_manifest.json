@@ -1,0 +1,93 @@
+{
+  "parents": 1269,
+  "leaves": 3971,
+  "sources": [
+    "snu-2025-susi",
+    "snu-2026-susi",
+    "pusan-2025-susi",
+    "pusan-2026-susi",
+    "khu-2025-susi",
+    "khu-2026-susi",
+    "moe-2025-scholarship-plan",
+    "kosaf-2026-housing-plan-faq"
+  ],
+  "config": {
+    "embedding": {
+      "repo": "Qwen/Qwen3-Embedding-0.6B",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "path": "models/Qwen3-Embedding-0.6B"
+    },
+    "reranker": {
+      "repo": "Qwen/Qwen3-Reranker-0.6B",
+      "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+      "path": "models/Qwen3-Reranker-0.6B"
+    },
+    "threads": 4,
+    "dtype": "float32",
+    "runtime_quantization": "torch_dynamic_int8_linear",
+    "embedding_batch_size": 4,
+    "leaf_tokens": 192,
+    "parent_tokens": 640,
+    "rerank_candidates": 8,
+    "context_tokens": 900,
+    "top_k": 2,
+    "rrf_constant": 60,
+    "instruction": "Given a Korean university admissions or scholarship question, retrieve official policy passages that answer it, preserving eligibility conditions, exceptions, dates and amounts."
+  },
+  "quarantined_pages": [
+    [
+      "snu-2026-susi",
+      29
+    ],
+    [
+      "snu-2026-susi",
+      37
+    ],
+    [
+      "snu-2026-susi",
+      46
+    ],
+    [
+      "pusan-2025-susi",
+      13
+    ],
+    [
+      "pusan-2025-susi",
+      19
+    ],
+    [
+      "pusan-2025-susi",
+      85
+    ],
+    [
+      "pusan-2026-susi",
+      10
+    ],
+    [
+      "pusan-2026-susi",
+      11
+    ],
+    [
+      "pusan-2026-susi",
+      94
+    ],
+    [
+      "khu-2025-susi",
+      17
+    ],
+    [
+      "khu-2026-susi",
+      16
+    ],
+    [
+      "khu-2026-susi",
+      17
+    ]
+  ],
+  "embedding_seconds": 1271.1324862340007,
+  "hashes": {
+    "parents.jsonl": "f707c434ed76d0116db3195226ad45a68db9ce9efe8ba7002aff772e4889162d",
+    "leaves.jsonl": "4a9f82400f7c0651cbbf7f2b46e135c8d6efdd27b63005d927cc59ad05009272",
+    "vectors.npy": "69a1b0b80ee75c6cf14864ec072960894511803d2c6cc4395e354b4fd4a97f97"
+  }
+}

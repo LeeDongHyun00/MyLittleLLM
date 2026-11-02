@@ -1,0 +1,77 @@
+[
+  {
+    "id": "khu-2025-susi:p29",
+    "sha256": "b302189339c4850213ecf3cd3818c0c74ff2fdd8d66d5f55459f5dc8a89f1a0c",
+    "original_qwen_tokens": 969,
+    "raw_qwen_tokens": 492,
+    "guarded_qwen_tokens": 969,
+    "raw_seconds": 0.7927,
+    "raw_protected_spans_retained": 1,
+    "guarded": {
+      "protected_spans": 12,
+      "protected_spans_retained": 12,
+      "fallback_to_original": true,
+      "elapsed_seconds": 0.0009
+    }
+  },
+  {
+    "id": "khu-2026-susi:p29",
+    "sha256": "dbfa4cdb7cf03afb4020c7e1d869ec9def7787298e4985831c0d5c133725b2bc",
+    "original_qwen_tokens": 1033,
+    "raw_qwen_tokens": 521,
+    "guarded_qwen_tokens": 1033,
+    "raw_seconds": 1.1514,
+    "raw_protected_spans_retained": 1,
+    "guarded": {
+      "protected_spans": 11,
+      "protected_spans_retained": 11,
+      "fallback_to_original": true,
+      "elapsed_seconds": 0.0003
+    }
+  },
+  {
+    "id": "kosaf-2026-housing-plan-faq:p10",
+    "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+    "original_qwen_tokens": 1047,
+    "raw_qwen_tokens": 491,
+    "guarded_qwen_tokens": 992,
+    "raw_seconds": 1.168,
+    "raw_protected_spans_retained": 0,
+    "guarded": {
+      "protected_spans": 8,
+      "protected_spans_retained": 8,
+      "fallback_to_original": false,
+      "elapsed_seconds": 0.3822
+    }
+  },
+  {
+    "id": "snu-2025-susi:p18",
+    "sha256": "47c10d341ef8038d27981a87785151a83a051001f373d0ebeae04e9bd1ee0537",
+    "original_qwen_tokens": 357,
+    "raw_qwen_tokens": 179,
+    "guarded_qwen_tokens": 357,
+    "raw_seconds": 0.3826,
+    "raw_protected_spans_retained": 0,
+    "guarded": {
+      "protected_spans": 5,
+      "protected_spans_retained": 5,
+      "fallback_to_original": true,
+      "elapsed_seconds": 0.0001
+    }
+  },
+  {
+    "id": "snu-2026-susi:p18",
+    "sha256": "33c3022ef442d486d95ef3861a5889e196d946432fa1bc815a081bf5d372f3ca",
+    "original_qwen_tokens": 377,
+    "raw_qwen_tokens": 184,
+    "guarded_qwen_tokens": 377,
+    "raw_seconds": 0.3853,
+    "raw_protected_spans_retained": 0,
+    "guarded": {
+      "protected_spans": 5,
+      "protected_spans_retained": 5,
+      "fallback_to_original": true,
+      "elapsed_seconds": 0.0001
+    }
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "frozen_at": "2026-11-02T10:41:56.911067+00:00",
+  "questions": 16,
+  "rule_groups": 15,
+  "old_rule_group_overlap": 0,
+  "gold_sha256": "9838bcac2b93087751d0653e6f1696171f3c4bd5d39180291006b83c56c55fc9",
+  "independent_human_review": false,
+  "test_used_for_prompt_selection": false,
+  "scope": "All 16 questions are answerable procedural rules; not a new abstention or admissions prediction benchmark.",
+  "primary_metric": "JSON completion + all required fact patterns + cited passages themselves match supporting clause patterns; not human semantic accuracy"
+}

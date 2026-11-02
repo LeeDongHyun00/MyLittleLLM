@@ -1,0 +1,8 @@
+{
+  "checked_queries": 12,
+  "scope_conflicts": [],
+  "maximum_evidence_tokens": 1800,
+  "all_mixed_schedule_passages_are_structured_rows": true,
+  "labels_used": false,
+  "model_responses_read": false
+}

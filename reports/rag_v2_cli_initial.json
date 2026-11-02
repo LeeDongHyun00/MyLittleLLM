@@ -1,0 +1,101 @@
+{
+  "purpose": "Integration smoke on an already-used training rule, excluded from the 16-question evaluation",
+  "command": [
+    ".venv/bin/python",
+    "chat.py",
+    "--pipeline",
+    "improved",
+    "--year",
+    "2026",
+    "--task",
+    "housing",
+    "--institution",
+    "한국장학재단",
+    "--semester",
+    "1",
+    "--question",
+    "2026년 1학기 주거안정장학금의 월 지원 상한은 얼마인가요?"
+  ],
+  "returncode": 0,
+  "wall_seconds": 57.65841602599903,
+  "cli_process_peak_rss_kib": 7114996,
+  "memory_note": "CLI process only; the separate generator server is excluded.",
+  "result": {
+    "status": "invalid_response",
+    "answer": "모델 출력 검증에 실패했습니다.",
+    "citations": [],
+    "follow_up": [],
+    "validation_error": "URLError: <urlopen error [Errno 111] Connection refused>",
+    "raw_response": "",
+    "pipeline": "hierarchical_qwen_rag_v2",
+    "examples_enabled": true,
+    "llm_called": true,
+    "retrieval": {
+      "seconds": 4.1205,
+      "context_tokens": 758,
+      "candidates": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:h2:l0",
+          "parent_id": "kosaf-2026-housing-plan-faq:p25:h2",
+          "dense_score": 0.717450737953186,
+          "rrf_score": 0.029827662395050816,
+          "reranker_score": 0.5784202814102173
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p2:h2:l295",
+          "parent_id": "kosaf-2026-housing-plan-faq:p2:h2",
+          "dense_score": 0.7441656589508057,
+          "rrf_score": 0.03200204813108039,
+          "reranker_score": 0.2546876072883606
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p3:h0:l227",
+          "parent_id": "kosaf-2026-housing-plan-faq:p3:h0",
+          "dense_score": 0.721946120262146,
+          "rrf_score": 0.02817460317460317,
+          "reranker_score": 0.12143818289041519
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:h1:l0",
+          "parent_id": "kosaf-2026-housing-plan-faq:p25:h1",
+          "dense_score": 0.7302501797676086,
+          "rrf_score": 0.03131881575727918,
+          "reranker_score": 0.055106405168771744
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p24:h0:l222",
+          "parent_id": "kosaf-2026-housing-plan-faq:p24:h0",
+          "dense_score": 0.7418633103370667,
+          "rrf_score": 0.028125,
+          "reranker_score": 0.02309119887650013
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p12:h0:l202",
+          "parent_id": "kosaf-2026-housing-plan-faq:p12:h0",
+          "dense_score": 0.7687011361122131,
+          "rrf_score": 0.029906956136464335,
+          "reranker_score": 0.02261856198310852
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p3:h0:l0",
+          "parent_id": "kosaf-2026-housing-plan-faq:p3:h0",
+          "dense_score": 0.7368991374969482,
+          "rrf_score": 0.030309988518943745,
+          "reranker_score": 0.011559548787772655
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p14:h0:l0",
+          "parent_id": "kosaf-2026-housing-plan-faq:p14:h0",
+          "dense_score": 0.7437826991081238,
+          "rrf_score": 0.031024531024531024,
+          "reranker_score": 0.011336123570799828
+        }
+      ]
+    },
+    "example_id": "triplet-housing",
+    "usage": null,
+    "generation_seconds": 0.0018,
+    "elapsed_seconds": 4.2738,
+    "sources": []
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "phase": "development_not_holdout",
+  "independent_human_review": false,
+  "frozen_scores_changed": false,
+  "automatic_selection": "legacy384",
+  "profile_used_for_fresh_retrieval_comparison": "minimal384",
+  "selection_override_disclosed": true,
+  "findings": [
+    {"id": "E07", "arm": "legacy384", "automatic_strict_pass": true, "issue": "The answer correctly exempts the GED score certificate but additionally and incorrectly exempts the GED pass certificate. PNU2026 PDF page24 requires one pass certificate for applicants without online provision. This is a false positive of a required-facts-only rubric."},
+    {"id": "H01", "arm": "minimal384", "automatic_strict_pass": false, "issue": "The answer starts the five-year retention period after the payment request; the source starts it at scholarship payment. A real factual error."},
+    {"id": "E04", "arm": "minimal384", "automatic_strict_pass": false, "issue": "It says the date is not specified in the admissions guide, although only the retrieved passages lack it. Cannot conclude absence from the full guide."},
+    {"id": "H02", "arm": "both384", "automatic_strict_pass": false, "issue": "Both state that family consent is required, but the selected evidence does not satisfy the frozen clause pattern for the welfare-confirmed exception. Do not silently relabel the old metric."}
+  ],
+  "interpretation": "384-token budget restored completion. Prompt accuracy superiority was not established. The minimal/schema profile is fixed for controlled fresh retrieval comparisons, with its known development errors retained."
+}

@@ -1,0 +1,15 @@
+{
+  "examples": 5,
+  "supervision_tasks": [
+    "answer",
+    "explanation"
+  ],
+  "supervision_rows": 10,
+  "groups": 3,
+  "independently_reviewed": false,
+  "context_protocol": "oracle_plus_distractor_not_retrieval_evaluation",
+  "qa_sha256": "5991c551040201eab30caff4b2f70dbe6ff6059dd49eb447c2683cde3cbc7a3a",
+  "annotations_sha256": "4517858eb70e0ddb38e3e81c605314e635f5e133154e651d903df79ae4e86673",
+  "examples_sha256": "c23357ef81e9e1cab3e808103a6b99cada76f3b985c90f0aa2e1229638514075",
+  "final_test_set_created": false
+}

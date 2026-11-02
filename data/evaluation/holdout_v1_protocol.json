@@ -1,0 +1,48 @@
+{
+  "version": "holdout-v1",
+  "frozen_at": "2026-11-02T08:39:12.346999+00:00",
+  "mcq_questions": 28,
+  "free_questions": 8,
+  "rule_groups": 15,
+  "seed": 20261103,
+  "models": [
+    "base",
+    "sft",
+    "opsd"
+  ],
+  "model_selection_after_test": false,
+  "base_model": "Qwen3-4B-Q4_K_M.gguf",
+  "backend": "llama.cpp b11960; same base quantization for all arms",
+  "oracle_mcq": "Explicit evidence snippets; four options; grammar restricts output to A/B/C/D; no reasoning or full-advice claim",
+  "free_rag": "8 prespecified questions without options; BM25 k=2 frozen; schema NOT constrained; max_tokens=160; count malformed/truncated responses as failures",
+  "generation": {
+    "temperature": 0,
+    "seed": 42,
+    "enable_thinking": false,
+    "cache_prompt": false
+  },
+  "mcq_scoring": "Exact selected-letter accuracy; paired discordances; rule-group bootstrap confidence intervals",
+  "free_scoring": "Frozen required/forbidden patterns + JSON + relevant-year evidence ID; report structural and strict content separately; inspect errors without changing rubric",
+  "independent_human_review": false,
+  "training_qa_count": 5,
+  "overlap_training_pages": 0,
+  "overlap_training_rule_groups": 0,
+  "limitations": [
+    "One held-out admissions institution, plus national scholarship policy; not representative of Korea",
+    "Pretraining exposure cannot be excluded",
+    "Gold is assistant source-checked, not independent human adjudication",
+    "MCQ and free subset are different protocols, never pooled into one accuracy",
+    "BF16-trained adapters evaluated on the same quantized deployment base; not BF16 results"
+  ],
+  "hashes": {
+    "gold.jsonl": "b9100d6d05d89dfc35dc596ec31f736b5b89501ad8cd073c2ba2d67620c6564c",
+    "inputs.jsonl": "d1639fd7fd156e53c5d9daa0ac81558fd323456da3860361afa2f15c583184f7"
+  },
+  "input_index_sha256": "29e47d2249b5d997e64d30470df8190673b7337399c97ba9de611e3b221b9c94",
+  "training_examples_sha256": "c23357ef81e9e1cab3e808103a6b99cada76f3b985c90f0aa2e1229638514075",
+  "model_files": {
+    "models/Qwen3-4B-Q4_K_M.gguf": "7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5",
+    "outputs/sft-adapter-f32.gguf": "a148611d2b557852f3ea9b819ee8a435dc092cee3d9da04891688ad965b2e3e3",
+    "outputs/opsd-adapter-f32.gguf": "8d343f6fd85c5590dc10d8514902115df9f426574cd32258f94dfc2585e7ad21"
+  }
+}

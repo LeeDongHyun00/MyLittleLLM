@@ -1,0 +1,22 @@
+{
+  "initial_connection_error": "URLError: <urlopen error [Errno 111] Connection refused>",
+  "initial_cli_peak_rss_kib": 7114996,
+  "final_cli_peak_rss_kib": 5009832,
+  "peak_rss_reduction_fraction": 0.2958770461712136,
+  "server_disappeared_and_oom_kill_counter_observed": true,
+  "kernel_event_timestamp_not_available": true,
+  "low_memory_fix": "In-place dynamic INT8 conversion and returning unused allocator pages; frozen evaluation constructor unchanged.",
+  "successful_cli_request": true,
+  "server_healthy_afterwards": true,
+  "oom_counters_unchanged_during_successful_retry": true,
+  "cli_quality_review": {
+    "answer_amount_matches_known_training_rule": true,
+    "cited_parent_contains_cap_clause": false,
+    "citation_ids": [
+      "kosaf-2026-housing-plan-faq:p25:h2"
+    ],
+    "conclusion": "Integration succeeds, but the selected citation does not contain the 200,000-won cap. Do not count this smoke as a factual-grounding success or a new test item."
+  },
+  "new_test_regenerated": false,
+  "independent_human_review": false
+}

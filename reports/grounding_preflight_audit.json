@@ -1,0 +1,114 @@
+{
+  "queries": 18,
+  "gold_in_requests": false,
+  "cases": [
+    {
+      "id": "G01",
+      "evidence": 2,
+      "payload_chars": 3161,
+      "preflight_route": "reviewed_rule"
+    },
+    {
+      "id": "G02",
+      "evidence": 2,
+      "payload_chars": 2986,
+      "preflight_route": "reviewed_rule"
+    },
+    {
+      "id": "G03",
+      "evidence": 2,
+      "payload_chars": 2967,
+      "preflight_route": "reviewed_rule"
+    },
+    {
+      "id": "G04",
+      "evidence": 1,
+      "payload_chars": 2310,
+      "preflight_route": "reviewed_rule"
+    },
+    {
+      "id": "G05",
+      "evidence": 1,
+      "payload_chars": 2301,
+      "preflight_route": "reviewed_rule"
+    },
+    {
+      "id": "G06",
+      "evidence": 2,
+      "payload_chars": 3286,
+      "preflight_route": "reviewed_rule"
+    },
+    {
+      "id": "G07",
+      "evidence": 1,
+      "payload_chars": 2702,
+      "preflight_route": "reviewed_rule"
+    },
+    {
+      "id": "G08",
+      "evidence": 1,
+      "payload_chars": 3082,
+      "preflight_route": "reviewed_rule"
+    },
+    {
+      "id": "G09",
+      "evidence": 2,
+      "payload_chars": 2934,
+      "preflight_route": "verified_calculator"
+    },
+    {
+      "id": "G10",
+      "evidence": 2,
+      "payload_chars": 3493,
+      "preflight_route": "reviewed_rule"
+    },
+    {
+      "id": "G11",
+      "evidence": 2,
+      "payload_chars": 3113,
+      "preflight_route": "missing_rule_facts"
+    },
+    {
+      "id": "G12",
+      "evidence": 1,
+      "payload_chars": 2253,
+      "preflight_route": "missing_rule_facts"
+    },
+    {
+      "id": "G13",
+      "evidence": 2,
+      "payload_chars": 3104,
+      "preflight_route": "personal_event_not_in_policy"
+    },
+    {
+      "id": "G14",
+      "evidence": 0,
+      "payload_chars": 4,
+      "preflight_route": "no_scoped_evidence"
+    },
+    {
+      "id": "G15",
+      "evidence": 2,
+      "payload_chars": 3384,
+      "preflight_route": "generation"
+    },
+    {
+      "id": "G16",
+      "evidence": 2,
+      "payload_chars": 3238,
+      "preflight_route": "generation"
+    },
+    {
+      "id": "G17",
+      "evidence": 2,
+      "payload_chars": 2736,
+      "preflight_route": "generation"
+    },
+    {
+      "id": "G18",
+      "evidence": 2,
+      "payload_chars": 3356,
+      "preflight_route": "generation"
+    }
+  ]
+}

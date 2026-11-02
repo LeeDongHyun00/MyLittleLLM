@@ -1,0 +1,3 @@
+-r requirements-preprocessing.txt
+z3-solver==4.15.4.0
+# The existing retrieval environment supplies torch 2.9.1 and transformers 4.57.6.

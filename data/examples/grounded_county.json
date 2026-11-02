@@ -1,0 +1,10 @@
+{
+  "rule_id": "housing_county_distance",
+  "year": 2026,
+  "semester": 1,
+  "task": "housing",
+  "institution": "한국장학재단",
+  "outside_metro_county": true,
+  "same_county": true,
+  "exception_approved": false
+}

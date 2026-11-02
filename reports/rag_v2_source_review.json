@@ -1,0 +1,39 @@
+{
+  "checked_at": "2026-11-02T10:48:30.655089+00:00",
+  "reviewer": "assistant",
+  "independent_human_review": false,
+  "method": "All gold support patterns and reference answers checked against local source text before freezing; three deadline/date pages additionally visually checked from rendered PDFs before any test generation.",
+  "gold_sha256": "9838bcac2b93087751d0653e6f1696171f3c4bd5d39180291006b83c56c55fc9",
+  "visual_checks": [
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 31,
+      "verified": "No deposit, online document registration; tuition deadline 2026-02-05 16:00."
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 28,
+      "verified": "Tuition deadline 2025-02-12 16:00."
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 25,
+      "verified": "Second student application period ends 2026-03-17; this is a plan table, not a live-policy guarantee."
+    }
+  ],
+  "unicode_boundary_review": {
+    "initial_parents_with_replacement": 59,
+    "initial_leaves_with_replacement": 348,
+    "corrected_parents_with_replacement": 0,
+    "corrected_leaves_with_replacement": 0,
+    "source_pages_with_replacement": 0,
+    "tested_before_new_test_generation": true
+  },
+  "quarantined_page_comparison": {
+    "legacy_count": 12,
+    "new_count": 12,
+    "identical": true,
+    "only_legacy": [],
+    "only_new": []
+  }
+}

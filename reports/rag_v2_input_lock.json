@@ -1,0 +1,18 @@
+{
+  "files": {
+    "dev.jsonl": "ddabdc080268c96f56db902b7f4eb68b8436b6118cab249c22db8d8d4db410c3",
+    "test.jsonl": "7cf9b4c2f600a3dd0abe1dff82df9aae256e463733fbbe25da78bd3623cee07f"
+  },
+  "index_sha256": "3214dd5f4852166453d0b013e1348a38262cb0dc8687560554dee6aeb31c87a2",
+  "legacy_index_sha256": "29e47d2249b5d997e64d30470df8190673b7337399c97ba9de611e3b221b9c94",
+  "examples_sha256": "2dd28ec759253be89f2d5886965404cd6f48ab4d2076172f8cf387b7156728ae",
+  "retrieval_asset_files_verified": true,
+  "model_load_and_example_embedding_seconds": 16.894639673999336,
+  "test_reference_answers_passed_to_retrieval": false,
+  "development_ids": [
+    "A04",
+    "A12",
+    "S04",
+    "S06"
+  ]
+}

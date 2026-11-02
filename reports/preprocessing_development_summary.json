@@ -1,0 +1,39 @@
+{
+  "phase": "development_not_holdout",
+  "arms": {
+    "legacy160": {
+      "n": 8,
+      "valid": 2,
+      "facts_pass": 1,
+      "citation_clause_pass": 1,
+      "strict_pass": 1,
+      "truncated": 6,
+      "median_seconds": 68.00855,
+      "mean_completion_tokens": 150.5
+    },
+    "legacy384": {
+      "n": 8,
+      "valid": 8,
+      "facts_pass": 7,
+      "citation_clause_pass": 6,
+      "strict_pass": 6,
+      "truncated": 0,
+      "median_seconds": 85.89930000000001,
+      "mean_completion_tokens": 189.125
+    },
+    "minimal384": {
+      "n": 8,
+      "valid": 8,
+      "facts_pass": 6,
+      "citation_clause_pass": 6,
+      "strict_pass": 5,
+      "truncated": 0,
+      "median_seconds": 51.05275,
+      "mean_completion_tokens": 60.25
+    }
+  },
+  "selected_arm": "legacy384",
+  "selected_prompt": "legacy",
+  "max_tokens": 384,
+  "independent_human_review": false
+}

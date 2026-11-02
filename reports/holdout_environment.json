@@ -1,0 +1,19 @@
+{
+  "base": "Qwen3-4B Q4_K_M",
+  "adapter_conversion": "llama.cpp b11960 official convert_lora_to_gguf.py, f32",
+  "conversion_archive_sha256": "2b37ffa871595f90b94164f6c510ad9a34bd7f94da21557cc9878587e163af37",
+  "conversion_exact_tensors": {
+    "sft": 144,
+    "opsd": 144
+  },
+  "lora_alpha": 8,
+  "lora_rank": 4,
+  "cpu_quota": "400000 100000",
+  "memory_limit": "17179869184",
+  "rag_system_sha256": "25df108e4cbea9fe5309932a646bb859596c57e52b68b105990f3484d65fc39b",
+  "code_sha256": {
+    "mylittlellm/evaluation.py": "2fe594e3ae81c4339f8d400e4ca0cc7c362c1878f43128edb24f78fa855763ad",
+    "scripts/run_holdout.py": "dbdbf522364dd4fe04037af9af7f2d52d7eb34b06bdb6b7ffbd01350c969320c",
+    "scripts/build_holdout.py": "b086b4b89bb2bd6ee06f9fd11cae8f93ba1cc6a314ed7835118f0c71ec730071"
+  }
+}

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "P01",
+    "arm": "bm25_budget",
+    "llm_called": true,
+    "payload_sha256": "7a344598330aa47f0fcf4396da09af595ab691227ac1750e343bf69d42849503"
+  },
+  {
+    "id": "P01",
+    "arm": "concise_k2",
+    "llm_called": true,
+    "payload_sha256": "b0182862a15bde7cf21ed9bccb314011c8c0c5b57bec2c0c3f0e376c1eefe0cb"
+  },
+  {
+    "id": "P01",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "09d5d874491369fd712a664845ec4b5bc78ef0367c97f93a36d2d9b5b3f275bf"
+  },
+  {
+    "id": "P02",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "5cb5e9cb0640582275056418a2a788774b0fb52e2da178496250cba97e3c92d3"
+  },
+  {
+    "id": "P02",
+    "arm": "bm25_budget",
+    "llm_called": true,
+    "payload_sha256": "040bcc287fb21b67752c29f13b61e8277068123de848fe15c9bfe26eda1a21e4"
+  },
+  {
+    "id": "P02",
+    "arm": "concise_k2",
+    "llm_called": true,
+    "payload_sha256": "bc133bf36ee053a5c36c8de11c4a988d668321223205caa9b6290d2e12499ad5"
+  },
+  {
+    "id": "P03",
+    "arm": "bm25_budget",
+    "llm_called": true,
+    "payload_sha256": "81223f44e4cc1f5fc1bcce64f9b80c0ba7920ed98dfd1d27f7f9939d68330b58"
+  },
+  {
+    "id": "P03",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "9afaa847ce745c1dd9f6e3a44a24711ee02d782a4491534e587cd1b1f1780ed7"
+  },
+  {
+    "id": "P03",
+    "arm": "concise_k2",
+    "llm_called": true,
+    "payload_sha256": "2ee5f8d0d1b74835c55600471362864356d7d422090a49c71e2d2b798fdb04a5"
+  },
+  {
+    "id": "P04",
+    "arm": "bm25_budget",
+    "llm_called": true,
+    "payload_sha256": "684e03f47c367aa269447b8cd23b624068e28892d391fb9bc041f3c17799a46f"
+  },
+  {
+    "id": "P04",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "0fcdb203e2ddda850e08d3ebb53e42ef929cd992a684d488b8e9a6e07850d60d"
+  },
+  {
+    "id": "P04",
+    "arm": "concise_k2",
+    "llm_called": true,
+    "payload_sha256": "7353a7e8ead3c64efe034c42a693df100d43443a69285f56b7afeb67fbc4e59a"
+  },
+  {
+    "id": "P05",
+    "arm": "bm25_budget",
+    "llm_called": true,
+    "payload_sha256": "41c82ecb5d4ed6f56f29c4d792a58d9ec80c29d8ccc368427de10dbf6e84ce85"
+  },
+  {
+    "id": "P05",
+    "arm": "concise_k2",
+    "llm_called": true,
+    "payload_sha256": "b5f939bda41ff4a6292b8a7ccd6a32ff5aa51328e1cca26297f0bd5e4d973efd"
+  },
+  {
+    "id": "P05",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "1608f86b9ddaae71379d1b77ae2491f9cae631ba4d7c1c42de7d70c52bb5aa64"
+  },
+  {
+    "id": "P06",
+    "arm": "concise_k2",
+    "llm_called": true,
+    "payload_sha256": "8b7bae32804db193538cc233b0552ceed3463722e13b78570a5223e3e111db87"
+  },
+  {
+    "id": "P06",
+    "arm": "bm25_budget",
+    "llm_called": true,
+    "payload_sha256": "8b7bae32804db193538cc233b0552ceed3463722e13b78570a5223e3e111db87"
+  },
+  {
+    "id": "P06",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "fc60bbcdfd1cd5051aa2587956e81c3b0a7e7cc7dde56a6ef94327c7c98feea3"
+  },
+  {
+    "id": "P07",
+    "arm": "bm25_budget",
+    "llm_called": true,
+    "payload_sha256": "97590bb06d7b6013755794d331da8130cddf8ea55a190ad8ce7b480bfb79ebb0"
+  },
+  {
+    "id": "P07",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "5d867257b66ebf97187d7d6eb11b1210d9c51cb4a65488c3adba1d24c97ecc3a"
+  },
+  {
+    "id": "P07",
+    "arm": "concise_k2",
+    "llm_called": true,
+    "payload_sha256": "97590bb06d7b6013755794d331da8130cddf8ea55a190ad8ce7b480bfb79ebb0"
+  },
+  {
+    "id": "P08",
+    "arm": "bm25_budget",
+    "llm_called": true,
+    "payload_sha256": "949c467bee5c8eb54365eb71d6e3bcadad4eca04739c9f36164a5513a2f9dd13"
+  },
+  {
+    "id": "P08",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "2991c2e653122ba852b51b4c25c2b0bd28c0a213e3f3888b402fa83a78f5f76f"
+  },
+  {
+    "id": "P08",
+    "arm": "concise_k2",
+    "llm_called": true,
+    "payload_sha256": "1119d1940a2bb104847aed098ba829f1a5f68604e6475f75f3420997bec2d1bb"
+  },
+  {
+    "id": "P09",
+    "arm": "bm25_budget",
+    "llm_called": true,
+    "payload_sha256": "2d79a6944dcd49c10b02cc759e1a3419a7ff297d399cf40e19e62f503fb5b3f1"
+  },
+  {
+    "id": "P09",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "bd08f88b45649eab09126e5861e186f009a2e09bc02c5eb7c88b99a07f4bb503"
+  },
+  {
+    "id": "P09",
+    "arm": "concise_k2",
+    "llm_called": true,
+    "payload_sha256": "317573b47f41783eb14f0b91e50e4db5be75787ba2d91a9802171fce6aa23a3a"
+  },
+  {
+    "id": "P10",
+    "arm": "bm25_budget",
+    "llm_called": true,
+    "payload_sha256": "9c277c649b1ab4052a89eba7d73e5db06ea358e6d6c882bc9e22e4b49b25dbe8"
+  },
+  {
+    "id": "P10",
+    "arm": "concise_k2",
+    "llm_called": true,
+    "payload_sha256": "aee497da1eb08afe0c829e91c1ac6c237730beadfa90b549fd27b97b5a477834"
+  },
+  {
+    "id": "P10",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "bab59009b70ec82dfe5b901e2b4511046329cb6d90b8853f5171c648a7fc7d3d"
+  },
+  {
+    "id": "P11",
+    "arm": "concise_k2",
+    "llm_called": false,
+    "payload_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  {
+    "id": "P11",
+    "arm": "bm25_budget",
+    "llm_called": false,
+    "payload_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  {
+    "id": "P11",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "8c6452269a911a060ca25574a2ec27560edc3b6d8419e4e6e4f4433c16832ff8"
+  },
+  {
+    "id": "P12",
+    "arm": "preprocessed",
+    "llm_called": true,
+    "payload_sha256": "3553fe2175de27b452a53907dbe23518ca2ab8a8aacb87524d4fd69c4b346a36"
+  },
+  {
+    "id": "P12",
+    "arm": "bm25_budget",
+    "llm_called": true,
+    "payload_sha256": "c59bd1df567d159e85f7a08cb6b28a7336ce7e8e180cc60378e2b9a8c0442e8c"
+  },
+  {
+    "id": "P12",
+    "arm": "concise_k2",
+    "llm_called": true,
+    "payload_sha256": "4449a04572300edacff8145fedfc0576c3b89715395eca9a8ccc635f3b8b581f"
+  }
+]

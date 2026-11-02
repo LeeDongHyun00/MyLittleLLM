@@ -1,0 +1,315 @@
+{
+  "checked_at": "2026-11-02T16:36:37.870005+00:00",
+  "kind": "development_regression_not_independent_accuracy",
+  "baseline_commit": "e93e0803779d5d9a5345a9ff7a1ee1912d07d980",
+  "baseline_gate_module_sha256": "9e87ab011f6ff7631071f1cf7c5eb616671c7e1b7a24607d7454812e0a0fa8d0",
+  "new_scenario_preflight": [
+    {
+      "id": "V01",
+      "status": "answer",
+      "decision": "true",
+      "sources": [
+        "pusan-2026-susi:p27:block0"
+      ]
+    },
+    {
+      "id": "V02",
+      "status": "answer",
+      "decision": "false",
+      "sources": [
+        "pusan-2026-susi:p27:block0"
+      ]
+    },
+    {
+      "id": "V03",
+      "status": "cannot_determine",
+      "decision": null,
+      "sources": [
+        "pusan-2026-susi:p27:block0"
+      ]
+    },
+    {
+      "id": "V04",
+      "status": "answer",
+      "decision": "true",
+      "sources": [
+        "pusan-2026-susi:p54:block1"
+      ]
+    },
+    {
+      "id": "V05",
+      "status": "answer",
+      "decision": "false",
+      "sources": [
+        "pusan-2026-susi:p54:block1"
+      ]
+    },
+    {
+      "id": "V06",
+      "status": "cannot_determine",
+      "decision": null,
+      "sources": [
+        "pusan-2026-susi:p54:block1"
+      ]
+    },
+    {
+      "id": "V07",
+      "status": "answer",
+      "decision": "true",
+      "sources": [
+        "pusan-2026-susi:p54:block1"
+      ]
+    },
+    {
+      "id": "V08",
+      "status": "answer",
+      "decision": "false",
+      "sources": [
+        "pusan-2026-susi:p54:block1"
+      ]
+    },
+    {
+      "id": "V09",
+      "status": "cannot_determine",
+      "decision": null,
+      "sources": [
+        "pusan-2026-susi:p54:block1"
+      ]
+    },
+    {
+      "id": "V10",
+      "status": "answer",
+      "decision": "false",
+      "sources": [
+        "pusan-2026-susi:p54:block1"
+      ]
+    },
+    {
+      "id": "V11",
+      "status": "cannot_determine",
+      "decision": null,
+      "sources": [
+        "kosaf-2026-housing-plan-faq:p23:c0",
+        "kosaf-2026-housing-plan-faq:p14:c0"
+      ]
+    },
+    {
+      "id": "V12",
+      "status": "generation_required",
+      "decision": null,
+      "sources": [
+        "kosaf-2026-housing-plan-faq:p23:c0",
+        "kosaf-2026-housing-plan-faq:p3:c0"
+      ]
+    }
+  ],
+  "old_18_checks": [
+    {
+      "id": "G01",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G02",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G03",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G04",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G05",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G06",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G07",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G08",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G09",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G10",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G11",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": true
+    },
+    {
+      "id": "G12",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": true
+    },
+    {
+      "id": "G13",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G14",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G15",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G16",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G17",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    },
+    {
+      "id": "G18",
+      "request_identical": true,
+      "decision_identical": true,
+      "follow_up_changed": false
+    }
+  ],
+  "gate_pairs": [
+    {
+      "question": "제 계좌에 실제 입금되는 날짜를 알려주세요.",
+      "expected_record_or_outcome_gate": true,
+      "before_gated": true,
+      "after_gated": true,
+      "before_correct": true,
+      "after_correct": true
+    },
+    {
+      "question": "입금됐나요?",
+      "expected_record_or_outcome_gate": true,
+      "before_gated": false,
+      "after_gated": true,
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "question": "제 계좌로 언제 들어오나요?",
+      "expected_record_or_outcome_gate": true,
+      "before_gated": false,
+      "after_gated": true,
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "question": "확인 방법과 실제 입금됐는지 알려 주세요.",
+      "expected_record_or_outcome_gate": true,
+      "before_gated": false,
+      "after_gated": true,
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "question": "저는 선발되었나요?",
+      "expected_record_or_outcome_gate": true,
+      "before_gated": true,
+      "after_gated": true,
+      "before_correct": true,
+      "after_correct": true
+    },
+    {
+      "question": "제 지원 결과와 실제 입금 날짜를 알려 주세요.",
+      "expected_record_or_outcome_gate": true,
+      "before_gated": false,
+      "after_gated": true,
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "question": "제 지급 결과는 어디서 확인하나요?",
+      "expected_record_or_outcome_gate": false,
+      "before_gated": false,
+      "after_gated": false,
+      "before_correct": true,
+      "after_correct": true
+    },
+    {
+      "question": "제가 입금됐는지 확인하는 방법을 알려 주세요.",
+      "expected_record_or_outcome_gate": false,
+      "before_gated": true,
+      "after_gated": false,
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "question": "저는 기숙사생입니다. 입금 기준의 월 지원 상한은 얼마인가요?",
+      "expected_record_or_outcome_gate": false,
+      "before_gated": true,
+      "after_gated": false,
+      "before_correct": false,
+      "after_correct": true
+    },
+    {
+      "question": "사업계획의 일반 지급 기간은 언제인가요?",
+      "expected_record_or_outcome_gate": false,
+      "before_gated": false,
+      "after_gated": false,
+      "before_correct": true,
+      "after_correct": true
+    },
+    {
+      "question": "계산상 금액만 묻고 실제 지급 완료는 묻지 않습니다.",
+      "expected_record_or_outcome_gate": false,
+      "before_gated": false,
+      "after_gated": false,
+      "before_correct": true,
+      "after_correct": true
+    },
+    {
+      "question": "최종 합격자 발표 절차를 설명해 주세요.",
+      "expected_record_or_outcome_gate": false,
+      "before_gated": true,
+      "after_gated": false,
+      "before_correct": false,
+      "after_correct": true
+    }
+  ],
+  "tests_passed": 74
+}

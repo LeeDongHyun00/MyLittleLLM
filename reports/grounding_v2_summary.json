@@ -1,0 +1,28 @@
+{
+  "completed_at": "2026-11-02T16:49:22.354802+00:00",
+  "arms": {
+    "qwen_same_evidence": {
+      "n": 12,
+      "strict_pass": 5,
+      "answered": 11,
+      "false_assertions": 4,
+      "unnecessary_abstentions": 0,
+      "llm_calls": 12
+    },
+    "expanded_rules_gate": {
+      "n": 12,
+      "strict_pass": 11,
+      "answered": 7,
+      "false_assertions": 0,
+      "unnecessary_abstentions": 0,
+      "llm_calls": 1
+    }
+  },
+  "actual_model_calls": 12,
+  "decisions": 24,
+  "generation_errors": 0,
+  "truncated": 1,
+  "independent_expert_review": false,
+  "metric": "frozen_pattern_proxy_with_separate_manual_review",
+  "model_training": false
+}

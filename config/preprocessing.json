@@ -1,0 +1,30 @@
+{
+  "description": "Experimental preprocessing; source layout annotations, never question/answer mappings.",
+  "review_status": "assistant_source_checked_not_independently_human_reviewed",
+  "tokenizer": "models/Qwen3-4B-HF/tokenizer.json",
+  "context_tokens": 1800,
+  "top_k": 4,
+  "paragraph_target_tokens": 480,
+  "annotation_source_sha256": {"pusan-2026-susi": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"},
+  "pdfplumber_sources": ["pusan-2025-susi", "pusan-2026-susi", "kosaf-2026-housing-plan-faq"],
+  "track_ranges": {
+    "pusan-2026-susi": [
+      {"pages": [36, 42], "track": "학생부교과"},
+      {"pages": [43, 57], "track": "학생부종합"},
+      {"pages": [58, 60], "track": "논술"},
+      {"pages": [61, 70], "track": "실기/실적"},
+      {"pages": [77, 79], "track": "학생부종합"},
+      {"pages": [80, 80], "track": "논술"},
+      {"pages": [81, 88], "track": "실기/실적"}
+    ]
+  },
+  "reviewed_schedule": {
+    "source_id": "kosaf-2026-housing-plan-faq",
+    "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+    "pdf_page": 25,
+    "table_bbox": [59.488, 142.404, 538.39, 739.471],
+    "rows": 30,
+    "semester_row_ranges": [{"rows": [2, 16], "semester": 1}, {"rows": [17, 28], "semester": 2}],
+    "note": "Zero-based extracted rows. Review of merged cells, semester blocks and schedule-change footnotes. Unannotated rows are annual, not semester-specific. Unstructured text on this mixed-semester page is excluded from this experimental pipeline."
+  }
+}
