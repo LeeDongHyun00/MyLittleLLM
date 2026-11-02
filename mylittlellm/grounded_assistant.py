@@ -20,14 +20,29 @@ def abstain(reason, detail, follow='적용 조건이나 공식 확인 자료를 
 def sufficiency_gate(row, evidence):
     if not evidence:return abstain('no_scoped_evidence','해당 대학·학년도·학기에 적용되는 근거가 없습니다.')
     q=row['question']
-    personal=re.search(r'(?<![가-힣])(?:내|제)\s*(?:계좌|통장|입금|지급|합격|선발)|저에게|제게|저는|제가|나의',q)
-    event=re.search(r'입금|수령|지급.*(?:완료|됐|되었|날짜|시각)|(?:합격|선발).*(?:확정|됐|되었)',q)
-    if personal and event:
+    if requires_personal_record(q):
         return abstain('personal_event_not_in_policy','일반 모집요강·사업계획만으로 개인의 실제 선발·지급 여부나 입금 날짜·시각을 확인할 수 없습니다.',
                        '해당 대학의 개인별 처리 내역을 확인해 주세요.')
-    if re.search(r'최종.*(?:합격|선발)|(?:합격|선발).*(?:보장|확실)',q):
+    if re.search(r'(?:합격|선발).{0,15}(?:보장|확실|확정해)',q):
         return abstain('outcome_not_in_policy','규정의 조건 충족만으로 최종 합격·선발을 확정할 수 없습니다.')
     return None
+
+
+def requires_personal_record(question):
+    """Limited Korean intent gate; policy procedures are not personal records."""
+    for clause in re.split(r'[.!?。！？\n]+',question):
+        clause=re.sub(r'(?:입금|지급|수령|합격|선발)[^,;]{0,20}(?:묻지|질문하지|확인하지)\s*않[^,;]{0,5}', '', clause)
+        procedural=re.search(r'방법|절차|어디(?:서|에서)|어떻게|메뉴|경로',clause)
+        # A request for a procedure must not hide a separate request for an event.
+        mixed=re.search(r'(?:와|과|그리고|또한|뿐만).*(?:실제|정확한|됐는지|되었는지)',clause)
+        if procedural and not mixed:continue
+        personal=re.search(r'(?<![가-힣])(?:내|제)\s*(?:계좌|통장|입금|지급|지원|합격|선발)|저에게|제게|저는|제가|나의',clause)
+        event=re.search(r'(?:입금|지급|수령|합격|선발).{0,16}(?:됐|되었|했|완료|확정|여부|결과)|(?:계좌|통장).*(?:들어왔|들어오|들어올)',clause)
+        timing=re.search(r'(?:입금|지급|수령).*(?:언제|날짜|시각)|(?:언제|날짜|시각).*(?:입금|지급|수령)',clause)
+        direct_status=re.search(r'(?:입금|지급|수령|합격|선발)(?:이|은|는|을|이\s*)?\s*(?:됐|되었|했).{0,4}(?:나요|는지|어요|습니까)|입금됐어|선발됐어|합격했어',clause)
+        if direct_status or (personal and (event or timing)):
+            return True
+    return False
 
 
 def grounded_request(row, evidence, facts=None):
@@ -57,9 +72,16 @@ class GroundedAssistant:
                 if isinstance(facts,dict) and 'rule_id' in facts:
                     proof,evidence=self.rules.evaluate(row,facts)
                     if proof['decision']=='unknown':
-                        if proof['reason']=='missing_facts':
+                        if proof['reason'] in {'missing_facts','missing_applicability'}:
                             decision=abstain('missing_rule_facts','입력 조건만으로 '+proof['label']+'을 판정할 수 없습니다.',
-                                             '다음 조건을 확인해 주세요: '+', '.join(proof.get('missing',[])))
+                                             '판정에 필요한 조건을 확인해 주세요.')
+                            decision['follow_up']=[q['prompt'] for q in proof['questions']]
+                            decision['questions']=proof['questions']
+                        elif proof['reason']=='outside_rule_scope':
+                            decision=abstain('outside_rule_scope','입력한 상황은 이 규칙의 적용 범위에 포함되지 않습니다.',
+                                             '해당 전형·학교 제도에 맞는 별도 규정이나 담당 기관을 확인해 주세요.')
+                        elif proof['reason']=='solver_unresolved':
+                            decision=abstain('solver_unresolved','정해진 처리 시간 안에 조건을 판정하지 못했습니다.')
                         else:
                             decision=abstain('inconsistent_rule_facts','서로 모순되거나 판정할 수 없는 입력 조건이 있어 답변을 보류합니다.',
                                              '학교별 실적과 전체 누적 실적 등 입력 조건을 다시 확인해 주세요.')

@@ -34,12 +34,13 @@ def compile_ast(node, variables, depth=0):
     raise ValueError('Unsupported AST operation or arity')
 
 
-def solve_rule(rule, facts):
+def rule_problem(rule, facts, suffix=''):
+    """Build a bounded problem without treating omitted values as false."""
     import z3
     solver=z3.Solver();solver.set(timeout=1000)
     variables={}
     for name,spec in rule['fields'].items():
-        variables[name]=z3.Bool(name) if spec['type']=='bool' else z3.Int(name)
+        variables[name]=z3.Bool(name+suffix) if spec['type']=='bool' else z3.Int(name+suffix)
         if spec['type']=='int':solver.add(variables[name]>=spec['min'],variables[name]<=spec['max'])
         if name in facts:
             value=facts[name]
@@ -49,13 +50,44 @@ def solve_rule(rule, facts):
             solver.add(variables[name]==value)
     for constraint in rule.get('constraints',[]):
         solver.add(compile_ast(constraint,variables))
-    if solver.check()!=z3.sat:return dict(decision='unknown',reason='inconsistent_or_unresolved_facts')
-    expression=compile_ast(rule['expression'],variables)
+    return solver,variables,compile_ast(rule['expression'],variables)
+
+
+def relevant_missing(rule, facts):
+    """Ask only about variables which can change the conclusion.
+
+    Compare two legal worlds that agree on every other variable. A timeout
+    retains the question conservatively; it never establishes a decision.
+    """
+    import z3
+    left,lv,le=rule_problem(rule,facts,'__left')
+    right,rv,re=rule_problem(rule,facts,'__right')
+    relevant=[]
+    for name in rule['fields']:
+        if name in facts:continue
+        solver=z3.Solver();solver.set(timeout=1000)
+        solver.add(*left.assertions(),*right.assertions(),le!=re)
+        solver.add(*[lv[k]==rv[k] for k in lv if k!=name])
+        if solver.check()!=z3.unsat:relevant.append(name)
+    # Equality constraints may require several omitted variables to vary together.
+    # In that case retain all omissions rather than leave an undecidable case
+    # with no way for the user to supply the missing information.
+    if not relevant:relevant=[k for k in rule['fields'] if k not in facts]
+    return relevant
+
+
+def solve_rule(rule, facts):
+    import z3
+    solver,variables,expression=rule_problem(rule,facts)
+    feasibility=solver.check()
+    if feasibility!=z3.sat:
+        return dict(decision='unknown',reason='inconsistent_facts' if feasibility==z3.unsat else 'solver_unresolved')
     solver.push();solver.add(z3.Not(expression));negative=solver.check();solver.pop()
     solver.push();solver.add(expression);positive=solver.check();solver.pop()
     decision='true' if negative==z3.unsat else 'false' if positive==z3.unsat else 'unknown'
-    return dict(decision=decision,reason='symbolic_entailment' if decision!='unknown' else 'missing_facts',
-                missing=[k for k in rule['fields'] if k not in facts],
+    unresolved=negative==z3.unknown or positive==z3.unknown
+    return dict(decision=decision,reason='symbolic_entailment' if decision!='unknown' else 'solver_unresolved' if unresolved else 'missing_facts',
+                missing=relevant_missing(rule,facts) if decision=='unknown' and not unresolved else [],
                 facts_used={k:facts[k] for k in rule['fields'] if k in facts})
 
 
@@ -86,10 +118,20 @@ class PolicyRules:
         if not re.search(rule['question_pattern'],row['question']):raise ValueError('Question does not match selected rule topic')
         extras=set(facts)-set(rule['fields'])-set(rule['scope'])-{'rule_id'}
         if extras:raise ValueError('Unrecognized facts: '+', '.join(sorted(extras)))
-        for k,v in rule.get('applicability',{}).items():
-            if facts.get(k) is not v:raise ValueError('Rule applicability must be explicitly confirmed: '+k)
         docs=self.documents(rule)
-        result=solve_rule(rule,facts)
+        applicability=rule.get('applicability',{})
+        # Validate supplied values even when an applicability confirmation is absent.
+        rule_problem(rule,facts)
+        if any(k in facts and facts[k] is not v for k,v in applicability.items()):
+            result=dict(decision='unknown',reason='outside_rule_scope',missing=[])
+        elif any(k not in facts for k in applicability):
+            result=dict(decision='unknown',reason='missing_applicability',missing=[k for k in applicability if k not in facts])
+        else:
+            result=solve_rule(rule,facts)
+        result['questions']=[dict(field=k,prompt=rule['fields'][k].get('question',k),
+                                  type=rule['fields'][k]['type'],
+                                  **{b:rule['fields'][k][b] for b in ['min','max'] if b in rule['fields'][k]})
+                             for k in result.get('missing',[])]
         result.update(rule_id=rule['id'],label=rule['label'],sources=[d['chunk_id'] for d in docs],
                       explanation=rule['explanation'],review_status=self.config['review_status'])
         return result,docs

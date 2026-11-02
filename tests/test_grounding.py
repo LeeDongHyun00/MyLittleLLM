@@ -45,7 +45,7 @@ class GroundingTests(unittest.TestCase):
         rule=self.rules['housing_benefit_count']
         result=solve_rule(rule,dict(academic_years=4,school_used=4,personal_used=2))
         self.assertEqual(result['decision'],'unknown')
-        self.assertEqual(result['reason'],'inconsistent_or_unresolved_facts')
+        self.assertEqual(result['reason'],'inconsistent_facts')
 
     def test_negated_county_rule_and_explicit_exception(self):
         rule=self.rules['housing_county_distance']
