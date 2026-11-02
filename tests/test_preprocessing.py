@@ -69,6 +69,14 @@ class PreprocessingTests(unittest.TestCase):
         with self.assertRaises(ValueError):validate_calculated_amount('20만원입니다.',calc)
         with self.assertRaises(ValueError):validate_calculated_amount('12만원과 추가 5만원입니다.',calc)
 
+    def test_calculator_preserves_sign_and_fractional_won(self):
+        calc=dict(amount_krw=120000,monthly_cap_krw=200000)
+        validate_calculated_amount('계산 결과는 12.0만원입니다.',calc)
+        for answer in ['-12만원입니다.','−120,000원입니다.','120000.9원입니다.',
+                       '12만원이고 별도로 -20만원입니다.']:
+            with self.subTest(answer=answer), self.assertRaises(ValueError):
+                validate_calculated_amount(answer,calc)
+
     def test_retrieval_budget_never_slices_exception_or_imports_wrong_year(self):
         r=PreprocessedRetriever.__new__(PreprocessedRetriever)
         r.config=dict(context_tokens=70,top_k=4,track_ranges={},reviewed_schedule=dict(source_id='mixed',pdf_page=25))

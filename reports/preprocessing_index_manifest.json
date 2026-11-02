@@ -1,0 +1,4110 @@
+{
+  "config": {
+    "description": "Experimental preprocessing; source layout annotations, never question/answer mappings.",
+    "review_status": "assistant_source_checked_not_independently_human_reviewed",
+    "tokenizer": "models/Qwen3-4B-HF/tokenizer.json",
+    "context_tokens": 1800,
+    "top_k": 4,
+    "paragraph_target_tokens": 480,
+    "annotation_source_sha256": {
+      "pusan-2026-susi": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+    },
+    "pdfplumber_sources": [
+      "pusan-2025-susi",
+      "pusan-2026-susi",
+      "kosaf-2026-housing-plan-faq"
+    ],
+    "track_ranges": {
+      "pusan-2026-susi": [
+        {
+          "pages": [
+            36,
+            42
+          ],
+          "track": "학생부교과"
+        },
+        {
+          "pages": [
+            43,
+            57
+          ],
+          "track": "학생부종합"
+        },
+        {
+          "pages": [
+            58,
+            60
+          ],
+          "track": "논술"
+        },
+        {
+          "pages": [
+            61,
+            70
+          ],
+          "track": "실기/실적"
+        },
+        {
+          "pages": [
+            77,
+            79
+          ],
+          "track": "학생부종합"
+        },
+        {
+          "pages": [
+            80,
+            80
+          ],
+          "track": "논술"
+        },
+        {
+          "pages": [
+            81,
+            88
+          ],
+          "track": "실기/실적"
+        }
+      ]
+    },
+    "reviewed_schedule": {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+      "pdf_page": 25,
+      "table_bbox": [
+        59.488,
+        142.404,
+        538.39,
+        739.471
+      ],
+      "rows": 30,
+      "semester_row_ranges": [
+        {
+          "rows": [
+            2,
+            16
+          ],
+          "semester": 1
+        },
+        {
+          "rows": [
+            17,
+            28
+          ],
+          "semester": 2
+        }
+      ],
+      "note": "Zero-based extracted rows. Review of merged cells, semester blocks and schedule-change footnotes. Unannotated rows are annual, not semester-specific. Unstructured text on this mixed-semester page is excluded from this experimental pipeline."
+    }
+  },
+  "units": 3529,
+  "elapsed_seconds": 74.172,
+  "index_sha256": "429e7ae1c4a38fa72a82a4c09b9f1c888ce382e75ab6208e446a542a4ba20bea",
+  "config_sha256": "9f389e971b3ab3de14767862f94b1b377bfe354be5069190cec861cad65d6ce0",
+  "builder_sha256": "3823cd275b6cb00a0aa1f3ea8bc00d2ec1cb7a04b27e3b90d8385537b6b81488",
+  "tokenizer_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "source_hashes": {
+    "snu-2025-susi": "47c10d341ef8038d27981a87785151a83a051001f373d0ebeae04e9bd1ee0537",
+    "snu-2026-susi": "33c3022ef442d486d95ef3861a5889e196d946432fa1bc815a081bf5d372f3ca",
+    "pusan-2025-susi": "3142bba7110fe43f33864a20bc39392e7ce76eac1bcea8b50dec7f604d52767c",
+    "pusan-2026-susi": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+    "khu-2025-susi": "b302189339c4850213ecf3cd3818c0c74ff2fdd8d66d5f55459f5dc8a89f1a0c",
+    "khu-2026-susi": "dbfa4cdb7cf03afb4020c7e1d869ec9def7787298e4985831c0d5c133725b2bc",
+    "moe-2025-scholarship-plan": "d046ef71ff9995521d31930fc00696d38ac0dab2b5bdd8088a58c08b18cb6408",
+    "kosaf-2026-housing-plan-faq": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+  },
+  "page_audit": [
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 1,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 2,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 3,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 4,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 5,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 6,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 7,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 8,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 9,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 10,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 11,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 12,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 13,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 14,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 15,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 16,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 17,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 18,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 19,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 20,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 21,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 22,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 23,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 24,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 25,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 26,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 27,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 28,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 29,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 30,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 31,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 32,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 33,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 34,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 35,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 36,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 37,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 38,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 39,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 40,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 41,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 42,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 43,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 44,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 45,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 46,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 47,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 48,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 49,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 50,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 51,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 52,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 53,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 54,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 55,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 56,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 57,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 58,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 59,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 60,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 61,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 62,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 63,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 64,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 65,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 66,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 67,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 68,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 69,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 70,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 71,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 72,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 73,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 74,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 75,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2025-susi",
+      "pdf_page": 76,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 1,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 2,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 3,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 4,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 5,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 6,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 7,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 8,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 9,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 10,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 11,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 12,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 13,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 14,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 15,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 16,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 17,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 18,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 19,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 20,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 21,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 22,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 23,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 24,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 25,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 26,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 27,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 28,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 29,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 30,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 31,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 32,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 33,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 34,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 35,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 36,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 37,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 38,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 39,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 40,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 41,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 42,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 43,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 44,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 45,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 46,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 47,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 48,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 49,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 50,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 51,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 52,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 53,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 54,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 55,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 56,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 57,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 58,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 59,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 60,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 61,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 62,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 63,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 64,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 65,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 66,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 67,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 68,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 69,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 70,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 71,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 72,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 73,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 74,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 75,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 76,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 1,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 2,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 3,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 4,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 5,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 6,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 7,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 8,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 9,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 10,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 11,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 12,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 13,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 14,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 15,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 16,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 17,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 18,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 19,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 20,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 21,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 22,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 23,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 24,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 25,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 26,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 27,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 28,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 29,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 30,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 31,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 32,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 33,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 34,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 35,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 36,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 37,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 38,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 39,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 40,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 41,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 42,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 43,
+      "status": "parsed",
+      "tables": 3
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 44,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 45,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 46,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 47,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 48,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 49,
+      "status": "parsed",
+      "tables": 3
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 50,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 51,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 52,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 53,
+      "status": "parsed",
+      "tables": 3
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 54,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 55,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 56,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 57,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 58,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 59,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 60,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 61,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 62,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 63,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 64,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 65,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 66,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 67,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 68,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 69,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 70,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 71,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 72,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 73,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 74,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 75,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 76,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 77,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 78,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 79,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 80,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 81,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 82,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 83,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 84,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 85,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 86,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 87,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 88,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 89,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 90,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 91,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 92,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 93,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 94,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 95,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 96,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 97,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 98,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 99,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 100,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 101,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 102,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 103,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 104,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 105,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 106,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 107,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 108,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 109,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 110,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 1,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 2,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 3,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 4,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 5,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 6,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 7,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 8,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 9,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 10,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 11,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 12,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 13,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 14,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 15,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 16,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 17,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 18,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 19,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 20,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 21,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 22,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 23,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 24,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 25,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 26,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 27,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 28,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 29,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 30,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 31,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 32,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 33,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 34,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 35,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 36,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 37,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 38,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 39,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 40,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 41,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 42,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 43,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 44,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 45,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 46,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 47,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 48,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 49,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 50,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 51,
+      "status": "parsed",
+      "tables": 3
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 52,
+      "status": "parsed",
+      "tables": 3
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 53,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 54,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 55,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 56,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 57,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 58,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 59,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 60,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 61,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 62,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 63,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 64,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 65,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 66,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 67,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 68,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 69,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 70,
+      "status": "parsed",
+      "tables": 3
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 71,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 72,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 73,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 74,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 75,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 76,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 77,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 78,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 79,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 80,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 81,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 82,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 83,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 84,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 85,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 86,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 87,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 88,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 89,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 90,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 91,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 92,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 93,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 94,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 95,
+      "status": "parsed",
+      "tables": 3
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 96,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 97,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 98,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 99,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 100,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 101,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 102,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 103,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 104,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 105,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 106,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 107,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 108,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 109,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 110,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 111,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 112,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 113,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 114,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 115,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 116,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 1,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 2,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 3,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 4,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 5,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 6,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 7,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 8,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 9,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 10,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 11,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 12,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 13,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 14,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 15,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 16,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 17,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 18,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 19,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 20,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 21,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 22,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 23,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 24,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 25,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 26,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 27,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 28,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 29,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 30,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 31,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 32,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 33,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 34,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 35,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 36,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 37,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 38,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 39,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 40,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 41,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 42,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 43,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 44,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 45,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 46,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 47,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 48,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 49,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 50,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 51,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 52,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 53,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 54,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 55,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 56,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 57,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 58,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 59,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 60,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 61,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 62,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 63,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 64,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 65,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 66,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 67,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 68,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 69,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 70,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 71,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 72,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 73,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 74,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 75,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 76,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 77,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 78,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 79,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 80,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 81,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 82,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 83,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 84,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 85,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 86,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 87,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 88,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 89,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 90,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 91,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 92,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 93,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 94,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 95,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 96,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 97,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 98,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 99,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 100,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 101,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 102,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 103,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 104,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 105,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 106,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 107,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 108,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 109,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 110,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 111,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 112,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 113,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 114,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 115,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 116,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 117,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 118,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 119,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 120,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 121,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 122,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 123,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 124,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 125,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 126,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 127,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 128,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 1,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 2,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 3,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 4,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 5,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 6,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 7,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 8,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 9,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 10,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 11,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 12,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 13,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 14,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 15,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 16,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 17,
+      "status": "multi_year_quarantine"
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 18,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 19,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 20,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 21,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 22,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 23,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 24,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 25,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 26,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 27,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 28,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 29,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 30,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 31,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 32,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 33,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 34,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 35,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 36,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 37,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 38,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 39,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 40,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 41,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 42,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 43,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 44,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 45,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 46,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 47,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 48,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 49,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 50,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 51,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 52,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 53,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 54,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 55,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 56,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 57,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 58,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 59,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 60,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 61,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 62,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 63,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 64,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 65,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 66,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 67,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 68,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 69,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 70,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 71,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 72,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 73,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 74,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 75,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 76,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 77,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 78,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 79,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 80,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 81,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 82,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 83,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 84,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 85,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 86,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 87,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 88,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 89,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 90,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 91,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 92,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 93,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 94,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 95,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 96,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 97,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 98,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 99,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 100,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 101,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 102,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 103,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 104,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 105,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 106,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 107,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 108,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 109,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 110,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 111,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 112,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 113,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 114,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 115,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 116,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 117,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 118,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 119,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 120,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 121,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 122,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 123,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 124,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 125,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 126,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 127,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 128,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "moe-2025-scholarship-plan",
+      "pdf_page": 1,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "moe-2025-scholarship-plan",
+      "pdf_page": 2,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "moe-2025-scholarship-plan",
+      "pdf_page": 3,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "moe-2025-scholarship-plan",
+      "pdf_page": 4,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "moe-2025-scholarship-plan",
+      "pdf_page": 5,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "moe-2025-scholarship-plan",
+      "pdf_page": 6,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "moe-2025-scholarship-plan",
+      "pdf_page": 7,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "moe-2025-scholarship-plan",
+      "pdf_page": 8,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "moe-2025-scholarship-plan",
+      "pdf_page": 9,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "moe-2025-scholarship-plan",
+      "pdf_page": 10,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "moe-2025-scholarship-plan",
+      "pdf_page": 11,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 1,
+      "status": "low_text_requires_ocr"
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 2,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 3,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 4,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 5,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 6,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 7,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 8,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 9,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 10,
+      "status": "parsed",
+      "tables": 1
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 11,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 12,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 13,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 14,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 15,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 16,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 17,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 18,
+      "status": "parsed",
+      "tables": 2
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 19,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 20,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 21,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 22,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 23,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 24,
+      "status": "parsed",
+      "tables": 0
+    },
+    {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 25,
+      "status": "parsed",
+      "tables": 1
+    }
+  ],
+  "pdfplumber_version": "0.11.8",
+  "limits": [
+    "No OCR performed; low text pages require review.",
+    "Table structure extracted automatically except reviewed housing schedule scope.",
+    "Admission metadata covers reviewed 2026 PNU track families, not every subtrack.",
+    "Page-wide notes are retained but not automatically resolved to individual rows."
+  ]
+}

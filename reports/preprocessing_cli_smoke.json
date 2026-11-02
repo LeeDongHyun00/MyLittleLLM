@@ -1,0 +1,350 @@
+{
+  "observed_at": "2026-11-02T14:22:43.493546+00:00",
+  "purpose": "integration_smoke_not_holdout_accuracy",
+  "new_model_calls": 2,
+  "rows": [
+    {
+      "name": "admissions",
+      "args": [
+        ".venv/bin/python",
+        "chat.py",
+        "--pipeline",
+        "preprocessed",
+        "--max-tokens",
+        "384",
+        "--year",
+        "2026",
+        "--institution",
+        "부산대학교",
+        "--admission-track",
+        "논술",
+        "--question",
+        "2026학년도 부산대 논술전형에 지원한 검정고시 출신자입니다. 온라인 제공이 안 되어 서류를 내야 할 때, 검정고시 성적증명서도 반드시 제출하나요? 합격증명서는 묻지 않습니다."
+      ],
+      "returncode": 0,
+      "wall_seconds": 107.74085099199874,
+      "max_rss_kib": 5008636,
+      "response": {
+        "status": "answer",
+        "answer": "논술전형의 경우 검정고시 성적증명서는 제출하지 않아요.",
+        "citations": [
+          "pusan-2026-susi:p24:c740"
+        ],
+        "follow_up": [],
+        "pipeline": "preprocessed",
+        "llm_called": true,
+        "retrieval": {
+          "seconds": 5.8271,
+          "context_tokens": 1717,
+          "admission_track": "논술",
+          "semantic_enabled": true,
+          "focused_query": "논술전형에 지원한 검정고시 출신자입니다. 온라인 제공이 안 되어 서류를 내야 할 때, 검정고시 성적증명서도 반드시 제출하나요? 합격증명서는 묻지 않습니다.",
+          "candidate_pages": [
+            [
+              "pusan-2026-susi",
+              70
+            ],
+            [
+              "pusan-2026-susi",
+              47
+            ],
+            [
+              "pusan-2026-susi",
+              24
+            ],
+            [
+              "pusan-2026-susi",
+              38
+            ],
+            [
+              "pusan-2026-susi",
+              51
+            ]
+          ],
+          "skipped": [
+            {
+              "chunk_id": "pusan-2026-susi:p60:block1",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 930
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p24:table2:row1",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 237
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p26:c740",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 371
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p60:table1:row1",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 356
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p24:table2:row2",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 209
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p76:c0",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 721
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p24:table2:row1",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 237
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p24:block2",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 136
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p23:c0",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 633
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p60:table0:row1",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 342
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p89:c740",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 246
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p60:table1:row2",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 330
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p30:c0",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 611
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p60:table0:row4",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 348
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p112:c0",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 674
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p24:table2:row2",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 209
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p60:table0:row2",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 398
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p60:table0:row3",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 349
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p76:block0",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 981
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p89:block1",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 128
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p23:block2",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 391
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p26:block1",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 956
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p112:block1",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 406
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p27:block3",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 196
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p27:block0",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 465
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p33:block1",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 728
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p112:block0",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 477
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p28:block0",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 284
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p16:block0",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 382
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p100:block2",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 457
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p30:block0",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 494
+            },
+            {
+              "chunk_id": "pusan-2026-susi:p22:block2",
+              "reason": "whole_unit_exceeds_remaining_budget",
+              "tokens": 378
+            }
+          ],
+          "method": "lexical_retention_structural_units_semantic_candidate_pages",
+          "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+        },
+        "verified_calculation": null,
+        "max_tokens": 384,
+        "usage": {
+          "completion_tokens": 56,
+          "prompt_tokens": 2209,
+          "total_tokens": 2265,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "generation_seconds": 83.587,
+        "elapsed_seconds": 89.431,
+        "sources": [
+          {
+            "chunk_id": "pusan-2026-susi:p24:c740",
+            "source_id": "pusan-2026-susi",
+            "pdf_page": 24,
+            "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+            "url": "https://go.pusan.ac.kr/college_2016/pages/index.asp?b=B_1_1&bn=48469&f=ALL&m=read&nPage=1&p=50"
+          }
+        ]
+      },
+      "review": "답변과 인용 조항이 논술전형의 검정고시 성적증명서 제출 예외에 일치한다. 이미 개발에 사용한 질문이므로 새 시험 정확도에 합산하지 않는다.",
+      "numeric_or_asked_fact_correct": true,
+      "semantic_limitation_observed": false
+    },
+    {
+      "name": "housing",
+      "args": [
+        ".venv/bin/python",
+        "chat.py",
+        "--pipeline",
+        "preprocessed",
+        "--lexical-only",
+        "--task",
+        "housing",
+        "--max-tokens",
+        "384",
+        "--year",
+        "2026",
+        "--semester",
+        "1",
+        "--institution",
+        "한국장학재단",
+        "--facts",
+        "outputs/preprocessing-cli-facts.json",
+        "--question",
+        "2026년 1학기 주거안정장학금의 4월 인정 주거비 지출은 12만원입니다. 선발과 지급 승인이 확인되었고 중복 수혜가 없습니다. 조건에 따른 지원액을 계산해 주세요."
+      ],
+      "returncode": 0,
+      "wall_seconds": 94.78693967099753,
+      "max_rss_kib": 176092,
+      "response": {
+        "status": "answer",
+        "answer": "2026년 1학기 주거안정장학금의 4월 인정 주거비 지출 12만원은 월 최대 20만원 한도 내에서 지원되었습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block1",
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": [],
+        "pipeline": "preprocessed",
+        "llm_called": true,
+        "retrieval": {
+          "seconds": 0.0385,
+          "context_tokens": 1404,
+          "admission_track": null,
+          "semantic_enabled": false,
+          "focused_query": "1학기  의 4월 인정 주거비 지출은 12만원입니다. 선발과 지급 승인이 확인되었고 중복 수혜가 없습니다. 조건에 따른 지원액을 계산해 주세요.",
+          "candidate_pages": [],
+          "skipped": [],
+          "method": "lexical_retention_structural_units_semantic_candidate_pages",
+          "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+        },
+        "verified_calculation": {
+          "amount_krw": 120000,
+          "monthly_cap_krw": 200000,
+          "basis": "recognized_expense_capped",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 10,
+          "note": "사용자가 제공한 승인·지출 조건에 따른 시나리오 계산; 실제 지급 결정 아님"
+        },
+        "max_tokens": 384,
+        "usage": {
+          "completion_tokens": 100,
+          "prompt_tokens": 2072,
+          "total_tokens": 2172,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "generation_seconds": 93.71,
+        "elapsed_seconds": 93.788,
+        "sources": [
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p10:block1",
+            "source_id": "kosaf-2026-housing-plan-faq",
+            "pdf_page": 10,
+            "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+            "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560"
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p10:block2",
+            "source_id": "kosaf-2026-housing-plan-faq",
+            "pdf_page": 10,
+            "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+            "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560"
+          }
+        ]
+      },
+      "review": "계산값 120,000원과 한도 200,000원 및 인용은 일치한다. 그러나 “지원되었습니다”는 실제 지급 완료를 확인한 것처럼 표현해 부적절하다. 금액 검사 통과가 의미 정확도 통과는 아니다.",
+      "numeric_or_asked_fact_correct": true,
+      "semantic_limitation_observed": true
+    }
+  ],
+  "server_health": {
+    "status": "ok"
+  },
+  "memory_events_before": "low 0\nhigh 0\nmax 586229\noom 2\noom_kill 1\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 590277\noom 2\noom_kill 1\noom_group_kill 0\n",
+  "oom_kill_delta": 0,
+  "memory_note": "Neural retrieval CLI plus generator approached the 16 GiB cgroup limit; memory max events increased. No new OOM kill observed. CLI max_rss_kib excludes the separate generator. Housing lexical-only avoids neural model loading; these two different questions do not establish a latency comparison."
+}

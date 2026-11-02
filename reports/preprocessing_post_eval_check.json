@@ -1,0 +1,200 @@
+{
+  "checked_at": "2026-11-02T14:21:08.280353+00:00",
+  "frozen_code_commit": "ebbc891fbbe1f6cc10ed6ccfd79d4359f81fa2cb",
+  "change": "After frozen evaluation completed, reject negative and fractional KRW in optional calculator output instead of discarding sign or truncating decimals.",
+  "old_module_sha256": "4113e3c5694fe0b685a6f6b655ec09b1d63dc90d1c62eb4c62428f4b9ab582d6",
+  "new_module_sha256": "c17333f41549d9d6ec624ada9a7184e644a2f34b16b060a873b7bd6a7bb3dc1e",
+  "changed_frozen_dependencies": [
+    "mylittlellm/preprocessed_assistant.py"
+  ],
+  "stored_inputs_and_requests_unchanged": true,
+  "identical_requests": 36,
+  "total_requests": 36,
+  "calculator_requests_in_holdout": 0,
+  "holdout_regenerated": false,
+  "checks": [
+    {
+      "id": "P01",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P01",
+      "arm": "concise_k2",
+      "identical": true
+    },
+    {
+      "id": "P01",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P02",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P02",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P02",
+      "arm": "concise_k2",
+      "identical": true
+    },
+    {
+      "id": "P03",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P03",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P03",
+      "arm": "concise_k2",
+      "identical": true
+    },
+    {
+      "id": "P04",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P04",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P04",
+      "arm": "concise_k2",
+      "identical": true
+    },
+    {
+      "id": "P05",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P05",
+      "arm": "concise_k2",
+      "identical": true
+    },
+    {
+      "id": "P05",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P06",
+      "arm": "concise_k2",
+      "identical": true
+    },
+    {
+      "id": "P06",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P06",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P07",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P07",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P07",
+      "arm": "concise_k2",
+      "identical": true
+    },
+    {
+      "id": "P08",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P08",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P08",
+      "arm": "concise_k2",
+      "identical": true
+    },
+    {
+      "id": "P09",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P09",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P09",
+      "arm": "concise_k2",
+      "identical": true
+    },
+    {
+      "id": "P10",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P10",
+      "arm": "concise_k2",
+      "identical": true
+    },
+    {
+      "id": "P10",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P11",
+      "arm": "concise_k2",
+      "identical": true
+    },
+    {
+      "id": "P11",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P11",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P12",
+      "arm": "preprocessed",
+      "identical": true
+    },
+    {
+      "id": "P12",
+      "arm": "bm25_budget",
+      "identical": true
+    },
+    {
+      "id": "P12",
+      "arm": "concise_k2",
+      "identical": true
+    }
+  ],
+  "tests_passed": 45,
+  "test_command": ".venv/bin/python -m unittest discover -s tests -q",
+  "reproduction": "Use frozen_code_commit for strict old-run lock verification. The post-run validation fix was not exercised by any holdout item."
+}

@@ -33,8 +33,8 @@ def calculation_evidence(facts, row, retriever):
 
 def validate_calculated_amount(answer, calculation):
     from decimal import Decimal
-    amounts={int(Decimal(number.replace(',',''))*(10000 if unit.startswith('만') else 1))
-             for number,unit in re.findall(r'(\d[\d,]*(?:\.\d+)?)\s*(만\s*원|원)',answer)}
+    amounts={Decimal(number.replace(',','').replace('−','-'))*(10000 if unit.startswith('만') else 1)
+             for number,unit in re.findall(r'([+\-−]?\d[\d,]*(?:\.\d+)?)\s*(만\s*원|원)',answer)}
     allowed={calculation['amount_krw'],calculation['monthly_cap_krw']}
     if calculation['amount_krw'] not in amounts or not amounts<=allowed:
         raise ValueError('Generated money amounts differ from the verified calculation')

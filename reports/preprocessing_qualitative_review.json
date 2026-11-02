@@ -1,0 +1,814 @@
+{
+  "reviewed_at": "2026-11-02T14:19:03.327133+00:00",
+  "reviewer": "AI assistant; not an independent admissions or scholarship expert",
+  "reviewed_responses": 36,
+  "automatic_scores_changed": false,
+  "review_type": "post_run_semantic_review_not_a_new_blinded_accuracy_metric",
+  "observations": [
+    "P01–P09: asked facts match in all three arms; not a certification of every implied condition.",
+    "P10: all three reverse an explicit negative rule despite retrieving it.",
+    "P11: preprocessed exposes relevant planning evidence but fails explicit abstention; no invented exact date.",
+    "P12: all three give a documented general range instead of refusing individual date/time confirmation.",
+    "unsafe_assertions is the frozen status=answer proxy on unanswerable items, not a count of fabricated specific dates."
+  ],
+  "rows": [
+    {
+      "id": "P01",
+      "arm": "bm25_budget",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 수시 제출서류의 성명이나 주민등록번호가 서로 다릅니다. 이 경우 추가로 어떤 서류를 내야 하나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "성명 또는 주민등록번호가 다른 경우 주민등록초본을 추가로 제출해야 합니다.",
+        "citations": [
+          "pusan-2026-susi:p50:c740",
+          "pusan-2026-susi:p56:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p50:c740",
+          "pdf_page": 50,
+          "source_id": "pusan-2026-susi"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p56:c0",
+          "pdf_page": 56,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "성명·주민등록번호 불일치에 주민등록초본을 요구한다는 핵심 답은 일치한다. 인용된 전형별 반복 조항과 공통 제출 규정을 대조했다. 전형 범위 자동 분류가 완전하다는 의미는 아니다."
+    },
+    {
+      "id": "P01",
+      "arm": "concise_k2",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 수시 제출서류의 성명이나 주민등록번호가 서로 다릅니다. 이 경우 추가로 어떤 서류를 내야 하나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "성명 또는 주민등록번호가 다른 경우 주민등록초본을 추가로 제출해야 합니다.",
+        "citations": [
+          "pusan-2026-susi:p50:c740"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p50:c740",
+          "pdf_page": 50,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "성명·주민등록번호 불일치에 주민등록초본을 요구한다는 핵심 답은 일치한다. 인용된 전형별 반복 조항과 공통 제출 규정을 대조했다. 전형 범위 자동 분류가 완전하다는 의미는 아니다."
+    },
+    {
+      "id": "P01",
+      "arm": "preprocessed",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 수시 제출서류의 성명이나 주민등록번호가 서로 다릅니다. 이 경우 추가로 어떤 서류를 내야 하나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "제출서류의 성명 또는 주민등록번호가 다른 경우 주민등록초본을 제출해야 합니다.",
+        "citations": [
+          "pusan-2026-susi:p50:c740",
+          "pusan-2026-susi:p50:block2"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p50:c740",
+          "pdf_page": 50,
+          "source_id": "pusan-2026-susi"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p50:block2",
+          "pdf_page": 50,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "성명·주민등록번호 불일치에 주민등록초본을 요구한다는 핵심 답은 일치한다. 인용된 전형별 반복 조항과 공통 제출 규정을 대조했다. 전형 범위 자동 분류가 완전하다는 의미는 아니다."
+    },
+    {
+      "id": "P02",
+      "arm": "preprocessed",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대에서 하나의 지원자격으로 두 전형에 지원했습니다. 증빙서류는 한 묶음만 보내도 되나요, 전형별로 각각 내야 하나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "하나의 지원자격으로 두 전형에 지원하는 경우, 각 전형별로 별도의 서류를 제출해야 합니다.",
+        "citations": [
+          "pusan-2026-susi:p23:c0",
+          "pusan-2026-susi:p50:c740"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p23:c0",
+          "pdf_page": 23,
+          "source_id": "pusan-2026-susi"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p50:c740",
+          "pdf_page": 50,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "복수 지원 시 각 지원 전형별로 서류를 별도 제출한다는 답이 일치한다."
+    },
+    {
+      "id": "P02",
+      "arm": "bm25_budget",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대에서 하나의 지원자격으로 두 전형에 지원했습니다. 증빙서류는 한 묶음만 보내도 되나요, 전형별로 각각 내야 하나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "하나의 지원자격으로 두 전형에 지원하는 경우 제출서류는 각각 제출해야 합니다.",
+        "citations": [
+          "pusan-2026-susi:p23:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p23:c0",
+          "pdf_page": 23,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "복수 지원 시 각 지원 전형별로 서류를 별도 제출한다는 답이 일치한다."
+    },
+    {
+      "id": "P02",
+      "arm": "concise_k2",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대에서 하나의 지원자격으로 두 전형에 지원했습니다. 증빙서류는 한 묶음만 보내도 되나요, 전형별로 각각 내야 하나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "하나의 지원자격으로 두 전형에 지원하는 경우 각 전형별로 별도의 서류를 제출해야 합니다.",
+        "citations": [
+          "pusan-2026-susi:p23:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p23:c0",
+          "pdf_page": 23,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "복수 지원 시 각 지원 전형별로 서류를 별도 제출한다는 답이 일치한다."
+    },
+    {
+      "id": "P03",
+      "arm": "bm25_budget",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 논술전형의 모집요강상 전형료는 얼마인가요? 면제 사유가 없는 경우입니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "2026학년도 부산대 논술전형의 전형료는 60,000원입니다.",
+        "citations": [
+          "pusan-2026-susi:p33:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p33:c0",
+          "pdf_page": 33,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "논술전형 전형료 60,000원이라는 답이 일치한다."
+    },
+    {
+      "id": "P03",
+      "arm": "preprocessed",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 논술전형의 모집요강상 전형료는 얼마인가요? 면제 사유가 없는 경우입니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "2026학년도 부산대 논술전형의 전형료는 60,000원입니다.",
+        "citations": [
+          "pusan-2026-susi:p33:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p33:c0",
+          "pdf_page": 33,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "논술전형 전형료 60,000원이라는 답이 일치한다."
+    },
+    {
+      "id": "P03",
+      "arm": "concise_k2",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 논술전형의 모집요강상 전형료는 얼마인가요? 면제 사유가 없는 경우입니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "2026학년도 부산대 논술전형의 전형료는 60,000원입니다.",
+        "citations": [
+          "pusan-2026-susi:p33:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p33:c0",
+          "pdf_page": 33,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "논술전형 전형료 60,000원이라는 답이 일치한다."
+    },
+    {
+      "id": "P04",
+      "arm": "bm25_budget",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 원서접수에 입력하는 전형료 환불 계좌는 본인 명의만 되나요? 보호자 명의 계좌도 가능한가요?",
+      "answer": {
+        "status": "answer",
+        "answer": "전형료 환불 계좌는 본인 또는 보호자의 계좌만 가능합니다.",
+        "citations": [
+          "pusan-2026-susi:p34:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p34:c0",
+          "pdf_page": 34,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "환불 계좌의 명의자는 지원자 본인 또는 부모라는 질문 범위의 답이 일치한다. 자유 입출금 계좌라는 추가 조건을 모두 설명한 것은 아니다."
+    },
+    {
+      "id": "P04",
+      "arm": "preprocessed",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 원서접수에 입력하는 전형료 환불 계좌는 본인 명의만 되나요? 보호자 명의 계좌도 가능한가요?",
+      "answer": {
+        "status": "answer",
+        "answer": "전형료 환불 계좌는 본인 또는 보호자의 계좌만 가능합니다.",
+        "citations": [
+          "pusan-2026-susi:p34:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p34:c0",
+          "pdf_page": 34,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "환불 계좌의 명의자는 지원자 본인 또는 부모라는 질문 범위의 답이 일치한다. 자유 입출금 계좌라는 추가 조건을 모두 설명한 것은 아니다."
+    },
+    {
+      "id": "P04",
+      "arm": "concise_k2",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 원서접수에 입력하는 전형료 환불 계좌는 본인 명의만 되나요? 보호자 명의 계좌도 가능한가요?",
+      "answer": {
+        "status": "answer",
+        "answer": "전형료 환불 계좌는 본인 또는 보호자의 계좌만 가능합니다.",
+        "citations": [
+          "pusan-2026-susi:p34:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p34:c0",
+          "pdf_page": 34,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "환불 계좌의 명의자는 지원자 본인 또는 부모라는 질문 범위의 답이 일치한다. 자유 입출금 계좌라는 추가 조건을 모두 설명한 것은 아니다."
+    },
+    {
+      "id": "P05",
+      "arm": "bm25_budget",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 입학전형료에 잔액이 생기면 언제까지 반환한다고 요강에 명시되어 있나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "2026학년도 부산대 입학전형료 잔액이 생기면 2026년 4월 30일까지 반환한다고 요강에 명시되어 있습니다.",
+        "citations": [
+          "pusan-2026-susi:p34:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p34:c0",
+          "pdf_page": 34,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "잔액 반환 기한 2026년 4월 30일이라는 답이 일치한다."
+    },
+    {
+      "id": "P05",
+      "arm": "concise_k2",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 입학전형료에 잔액이 생기면 언제까지 반환한다고 요강에 명시되어 있나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "2026학년도 부산대 입학전형료 잔액이 생기면 2026년 4월 30일까지 반환한다고 요강에 명시되어 있습니다.",
+        "citations": [
+          "pusan-2026-susi:p34:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p34:c0",
+          "pdf_page": 34,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "잔액 반환 기한 2026년 4월 30일이라는 답이 일치한다."
+    },
+    {
+      "id": "P05",
+      "arm": "preprocessed",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026학년도 부산대 입학전형료에 잔액이 생기면 언제까지 반환한다고 요강에 명시되어 있나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 4월 30일까지 반환합니다",
+        "citations": [
+          "pusan-2026-susi:p34:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "pusan-2026-susi:p34:c0",
+          "pdf_page": 34,
+          "source_id": "pusan-2026-susi"
+        }
+      ],
+      "note": "잔액 반환 기한 2026년 4월 30일이라는 답이 일치한다."
+    },
+    {
+      "id": "P06",
+      "arm": "concise_k2",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금에서 일반 재학생의 직전학기 이수학점과 100점 만점 성적 기준은 각각 얼마인가요? 학년제나 예외 대상은 아닙니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 주거안정장학금 일반 재학생의 직전학기 이수학점은 12학점 이상이며, 100점 만점 성적 기준은 70점 이상입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p9:c0",
+          "pdf_page": 9,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "일반 재학생 기준 직전 학기 12학점, 백분위 70점이라는 답이 일치한다."
+    },
+    {
+      "id": "P06",
+      "arm": "bm25_budget",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금에서 일반 재학생의 직전학기 이수학점과 100점 만점 성적 기준은 각각 얼마인가요? 학년제나 예외 대상은 아닙니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 주거안정장학금 일반 재학생의 직전학기 이수학점은 12학점 이상이며, 100점 만점 성적 기준은 70점 이상입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p9:c0",
+          "pdf_page": 9,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "일반 재학생 기준 직전 학기 12학점, 백분위 70점이라는 답이 일치한다."
+    },
+    {
+      "id": "P06",
+      "arm": "preprocessed",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금에서 일반 재학생의 직전학기 이수학점과 100점 만점 성적 기준은 각각 얼마인가요? 학년제나 예외 대상은 아닙니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 주거안정장학금 일반 재학생의 직전학기 이수학점은 12학점 이상이며, 100점 만점의 70점 이상을 획득해야 합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p9:c0",
+          "pdf_page": 9,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "일반 재학생 기준 직전 학기 12학점, 백분위 70점이라는 답이 일치한다."
+    },
+    {
+      "id": "P07",
+      "arm": "bm25_budget",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금 시행계획에서 4년제 대학의 학제별 최대 지원 횟수는 몇 회인가요? 다른 학교 수혜 이력은 없습니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "4년제 대학의 학제별 최대 지원 횟수는 8회입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p11:c0",
+          "pdf_page": 11,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "4년제 대학의 최대 수혜 횟수 8회라는 답이 일치한다."
+    },
+    {
+      "id": "P07",
+      "arm": "preprocessed",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금 시행계획에서 4년제 대학의 학제별 최대 지원 횟수는 몇 회인가요? 다른 학교 수혜 이력은 없습니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "4년제 대학의 학제별 최대 지원 횟수는 8회입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p11:c0",
+          "pdf_page": 11,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "4년제 대학의 최대 수혜 횟수 8회라는 답이 일치한다."
+    },
+    {
+      "id": "P07",
+      "arm": "concise_k2",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금 시행계획에서 4년제 대학의 학제별 최대 지원 횟수는 몇 회인가요? 다른 학교 수혜 이력은 없습니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "4년제 대학의 학제별 최대 지원 횟수는 8회입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p11:c0",
+          "pdf_page": 11,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "4년제 대학의 최대 수혜 횟수 8회라는 답이 일치한다."
+    },
+    {
+      "id": "P08",
+      "arm": "bm25_budget",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금에서 방학 중 계절학기를 수강하는 경우도 지원할 수 있나요? 다른 요건은 모두 충족했습니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "계절학기를 수강하는 경우도 방학 중에 지원할 수 있습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p11:c0",
+          "pdf_page": 11,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "계절학기를 수강하는 경우 방학 지원이 가능하다는 답이 일치한다."
+    },
+    {
+      "id": "P08",
+      "arm": "preprocessed",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금에서 방학 중 계절학기를 수강하는 경우도 지원할 수 있나요? 다른 요건은 모두 충족했습니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "계절학기를 수강하는 경우도 지원 가능합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p11:c0",
+          "pdf_page": 11,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "계절학기를 수강하는 경우 방학 지원이 가능하다는 답이 일치한다."
+    },
+    {
+      "id": "P08",
+      "arm": "concise_k2",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금에서 방학 중 계절학기를 수강하는 경우도 지원할 수 있나요? 다른 요건은 모두 충족했습니다.",
+      "answer": {
+        "status": "answer",
+        "answer": "계절학기를 수강하는 경우도 지원 가능합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p11:c0",
+          "pdf_page": 11,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "계절학기를 수강하는 경우 방학 지원이 가능하다는 답이 일치한다."
+    },
+    {
+      "id": "P09",
+      "arm": "bm25_budget",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금에서 보증금을 월차임으로 환산할 때 준용하는 연 환산율은 몇 퍼센트인가요?",
+      "answer": {
+        "status": "answer",
+        "answer": "연 4%",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:c740"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p10:c740",
+          "pdf_page": 10,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "임차보증금 환산에 연 4%를 적용한다는 답이 일치한다."
+    },
+    {
+      "id": "P09",
+      "arm": "preprocessed",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금에서 보증금을 월차임으로 환산할 때 준용하는 연 환산율은 몇 퍼센트인가요?",
+      "answer": {
+        "status": "answer",
+        "answer": "연 4%",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:c740"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p10:c740",
+          "pdf_page": 10,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "임차보증금 환산에 연 4%를 적용한다는 답이 일치한다."
+    },
+    {
+      "id": "P09",
+      "arm": "concise_k2",
+      "finding": "asked_fact_matches_reviewed_source",
+      "question": "2026년 1학기 주거안정장학금에서 보증금을 월차임으로 환산할 때 준용하는 연 환산율은 몇 퍼센트인가요?",
+      "answer": {
+        "status": "answer",
+        "answer": "연4%",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:c740"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p10:c740",
+          "pdf_page": 10,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "임차보증금 환산에 연 4%를 적용한다는 답이 일치한다."
+    },
+    {
+      "id": "P10",
+      "arm": "bm25_budget",
+      "finding": "negation_reversed",
+      "question": "2026년 1학기 주거안정장학금에서 광역교통권에 속하지 않는 군 지역 소재 대학은 어느 범위까지 원거리로 인정하지 않나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "군 지역 소재 대학은 해당 군 지역 범위 내까지 원거리 인정합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p5:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p5:c0",
+          "pdf_page": 5,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "세 조건 모두 원문의 “해당 군 지역 범위 이내까지만 원거리 인정 불가”를 인정한다고 뒤집었다. 정답 조항을 검색하고도 부정을 오독한 실제 사실 오류다."
+    },
+    {
+      "id": "P10",
+      "arm": "concise_k2",
+      "finding": "negation_reversed",
+      "question": "2026년 1학기 주거안정장학금에서 광역교통권에 속하지 않는 군 지역 소재 대학은 어느 범위까지 원거리로 인정하지 않나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 주거안정장학금에서 광역교통권에 속하지 않는 군 지역 소재 대학은 해당군지역범위이내까지만 원거리로 인정합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p5:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p5:c0",
+          "pdf_page": 5,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "세 조건 모두 원문의 “해당 군 지역 범위 이내까지만 원거리 인정 불가”를 인정한다고 뒤집었다. 정답 조항을 검색하고도 부정을 오독한 실제 사실 오류다."
+    },
+    {
+      "id": "P10",
+      "arm": "preprocessed",
+      "finding": "negation_reversed",
+      "question": "2026년 1학기 주거안정장학금에서 광역교통권에 속하지 않는 군 지역 소재 대학은 어느 범위까지 원거리로 인정하지 않나요?",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 주거안정장학금에서 광역교통권에 속하지 않는 군 지역 소재 대학은 해당 군 지역 범위 이내까지만 원거리 인정합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p8:table0:row32"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p8:table0:row32",
+          "pdf_page": 8,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "세 조건 모두 원문의 “해당 군 지역 범위 이내까지만 원거리 인정 불가”를 인정한다고 뒤집었다. 정답 조항을 검색하고도 부정을 오독한 실제 사실 오류다."
+    },
+    {
+      "id": "P11",
+      "arm": "concise_k2",
+      "finding": "appropriate_no_evidence_abstention",
+      "question": "수집된 2026년 주거안정장학금 시행계획의 추진 일정표만 보고 2학기 학생 신청 마감 날짜를 확정해 주세요.",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "해당 대학·연도·학기의 근거를 찾지 못했습니다.",
+        "citations": [],
+        "follow_up": [
+          "해당 범위의 공식 안내 자료를 확인해 주세요."
+        ]
+      },
+      "cited_pages": [],
+      "note": "기존 검색 두 조건은 2학기 자료를 찾지 못해 생성 없이 보류했다. 전처리 조건은 반영 예정인 2학기 일정 행을 읽고도 status=answer로 응답했다. 구체적인 마감 날짜를 만들어내지는 않았으나, 현재 문서로 확정할 수 없음을 명시적으로 답하지 못했다."
+    },
+    {
+      "id": "P11",
+      "arm": "bm25_budget",
+      "finding": "appropriate_no_evidence_abstention",
+      "question": "수집된 2026년 주거안정장학금 시행계획의 추진 일정표만 보고 2학기 학생 신청 마감 날짜를 확정해 주세요.",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "해당 대학·연도·학기의 근거를 찾지 못했습니다.",
+        "citations": [],
+        "follow_up": [
+          "해당 범위의 공식 안내 자료를 확인해 주세요."
+        ]
+      },
+      "cited_pages": [],
+      "note": "기존 검색 두 조건은 2학기 자료를 찾지 못해 생성 없이 보류했다. 전처리 조건은 반영 예정인 2학기 일정 행을 읽고도 status=answer로 응답했다. 구체적인 마감 날짜를 만들어내지는 않았으나, 현재 문서로 확정할 수 없음을 명시적으로 답하지 못했다."
+    },
+    {
+      "id": "P11",
+      "arm": "preprocessed",
+      "finding": "insufficient_explicit_abstention",
+      "question": "수집된 2026년 주거안정장학금 시행계획의 추진 일정표만 보고 2학기 학생 신청 마감 날짜를 확정해 주세요.",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 2학기 주거안정장학금 신청 마감 날짜는 ’26년 2학기 일정에 따라 확정되며, 구체적인 날짜는 재단 내부 협의 및 외부 업무 협의에 따라 변경될 수 있습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p25:table0:row19"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:table0:row19",
+          "pdf_page": 25,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "기존 검색 두 조건은 2학기 자료를 찾지 못해 생성 없이 보류했다. 전처리 조건은 반영 예정인 2학기 일정 행을 읽고도 status=answer로 응답했다. 구체적인 마감 날짜를 만들어내지는 않았으나, 현재 문서로 확정할 수 없음을 명시적으로 답하지 못했다."
+    },
+    {
+      "id": "P12",
+      "arm": "preprocessed",
+      "finding": "general_schedule_substituted_for_individual_confirmation",
+      "question": "2026년 1학기 주거안정장학금의 이 시행계획만으로 부산대가 제 계좌에 실제 입금할 날짜와 시각을 확정해 주세요.",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 주거안정장학금의 입금 날짜는 4월부터 9월까지 예정입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p25:table0:row15"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:table0:row15",
+          "pdf_page": 25,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "세 조건 모두 4–9월이라는 사업 일정 범위를 답했다. 원문에 있는 범위이므로 특정 날짜·시각을 날조한 것은 아니다. 그러나 개인 계좌의 실제 입금 날짜·시각을 현재 계획만으로 확정할 수 없다는 질문에 명시적으로 보류하지 못했고, 대학별 자체 운영 조건도 빠뜨렸다."
+    },
+    {
+      "id": "P12",
+      "arm": "bm25_budget",
+      "finding": "general_schedule_substituted_for_individual_confirmation",
+      "question": "2026년 1학기 주거안정장학금의 이 시행계획만으로 부산대가 제 계좌에 실제 입금할 날짜와 시각을 확정해 주세요.",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 주거안정장학금 지급은 2026년 4월부터 9월중에 이루어짐",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p25:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:c0",
+          "pdf_page": 25,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "세 조건 모두 4–9월이라는 사업 일정 범위를 답했다. 원문에 있는 범위이므로 특정 날짜·시각을 날조한 것은 아니다. 그러나 개인 계좌의 실제 입금 날짜·시각을 현재 계획만으로 확정할 수 없다는 질문에 명시적으로 보류하지 못했고, 대학별 자체 운영 조건도 빠뜨렸다."
+    },
+    {
+      "id": "P12",
+      "arm": "concise_k2",
+      "finding": "general_schedule_substituted_for_individual_confirmation",
+      "question": "2026년 1학기 주거안정장학금의 이 시행계획만으로 부산대가 제 계좌에 실제 입금할 날짜와 시각을 확정해 주세요.",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 주거안정장학금 지급은 2026년 4월부터 9월중에 이루어질 예정입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p25:c0"
+        ],
+        "follow_up": []
+      },
+      "cited_pages": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:c0",
+          "pdf_page": 25,
+          "source_id": "kosaf-2026-housing-plan-faq"
+        }
+      ],
+      "note": "세 조건 모두 4–9월이라는 사업 일정 범위를 답했다. 원문에 있는 범위이므로 특정 날짜·시각을 날조한 것은 아니다. 그러나 개인 계좌의 실제 입금 날짜·시각을 현재 계획만으로 확정할 수 없다는 질문에 명시적으로 보류하지 못했고, 대학별 자체 운영 조건도 빠뜨렸다."
+    }
+  ]
+}
