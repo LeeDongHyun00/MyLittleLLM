@@ -1,0 +1,13 @@
+{
+  "prompt_name": "minimal",
+  "max_tokens": 384,
+  "examples": false,
+  "temperature": 0,
+  "seed": 42,
+  "thinking": false,
+  "decision": "manual_development_review_override_before_fresh_test",
+  "automatic_proxy_recommendation": "legacy384",
+  "reason": "The automatic rule preferred legacy384 6/8 over minimal384 5/8, but it counted legacy E07 as passing despite a false additional claim that the GED pass certificate need not be submitted. Minimal H01 also used the wrong retention start date. Neither prompt is established as more accurate. Keep the requested concise schema profile as the shared retrieval-comparison control; 384 tokens eliminated development truncation in both profiles and minimal generated fewer tokens.",
+  "development_only": true,
+  "new_test_responses_seen_at_selection": false
+}

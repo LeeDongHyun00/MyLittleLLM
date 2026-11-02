@@ -1,0 +1,1733 @@
+{
+  "phase": "development_post_hoc_not_new_test",
+  "n": 16,
+  "clause_hits": 15,
+  "items": [
+    {
+      "id": "E01",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.3401,
+        "context_tokens": 1720,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "수시 합격자의 등록의사는 어떤 방식으로 확인하나요? 예치금을 내야 하나요?",
+        "candidate_pages": [
+          [
+            "pusan-2026-susi",
+            31
+          ],
+          [
+            "pusan-2026-susi",
+            30
+          ],
+          [
+            "pusan-2026-susi",
+            26
+          ],
+          [
+            "pusan-2026-susi",
+            32
+          ],
+          [
+            "pusan-2026-susi",
+            27
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "pusan-2026-susi:p27:block3",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 196
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p27:block3",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 196
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p32:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 627
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p31:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 606
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p31:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 606
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p22:c740",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 502
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p8:c740",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 289
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p32:block2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 455
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p32:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 298
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p26:c740",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 371
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p32:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 298
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p32:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 391
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p28:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 680
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p32:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 391
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p32:block2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 455
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p17:c1480",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 199
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p22:block2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 378
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p30:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 403
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p31:table1:row3",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 160
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p27:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 465
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p31:table1:row1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 170
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p30:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 494
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p31:table1:row2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 170
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p31:table1:row3",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 160
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p22:table1:row1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 270
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p31:table1:row1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 170
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p22:table1:row5",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 277
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p31:table1:row2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 170
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p22:table1:row6",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 277
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p26:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 956
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p22:table1:row7",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 277
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p27:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 371
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p28:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 284
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p31:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 90
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p22:table1:row2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 271
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p22:table1:row3",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 271
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p22:table1:row4",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 271
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p55:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 266
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p30:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 494
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p22:table1:row8",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 263
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p22:table0:row6",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 274
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p31:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 90
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p27:c740",
+          "pdf_page": 27,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p27:block2",
+          "pdf_page": 27,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p31:c0",
+          "pdf_page": 31,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "E02",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.3022,
+        "context_tokens": 1599,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "수시에서 필수 면접고사 하나에 결시했습니다. 다른 전형요소를 치렀더라도 불합격 등 처리 대상인가요?",
+        "candidate_pages": [
+          [
+            "pusan-2026-susi",
+            50
+          ],
+          [
+            "pusan-2026-susi",
+            79
+          ],
+          [
+            "pusan-2026-susi",
+            30
+          ],
+          [
+            "pusan-2026-susi",
+            81
+          ],
+          [
+            "pusan-2026-susi",
+            89
+          ],
+          [
+            "pusan-2026-susi",
+            44
+          ],
+          [
+            "pusan-2026-susi",
+            112
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "pusan-2026-susi:p44:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 713
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p30:c0",
+          "pdf_page": 30,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p81:block2",
+          "pdf_page": 81,
+          "source_id": "pusan-2026-susi",
+          "admission_track": "실기/실적",
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p30:block0",
+          "pdf_page": 30,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p79:block1",
+          "pdf_page": 79,
+          "source_id": "pusan-2026-susi",
+          "admission_track": "학생부종합",
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "E03",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.3009,
+        "context_tokens": 1797,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "에 적힌 등록금 납부 최종 날짜와 시각은 언제인가요?",
+        "candidate_pages": [
+          [
+            "pusan-2026-susi",
+            31
+          ],
+          [
+            "pusan-2026-susi",
+            22
+          ],
+          [
+            "pusan-2026-susi",
+            32
+          ],
+          [
+            "pusan-2026-susi",
+            92
+          ],
+          [
+            "pusan-2026-susi",
+            30
+          ]
+        ],
+        "skipped": [],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p92:c0",
+          "pdf_page": 92,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p31:block2",
+          "pdf_page": 31,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p32:c0",
+          "pdf_page": 32,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p8:c740",
+          "pdf_page": 8,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "E04",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.2518,
+        "context_tokens": 1654,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "에 적힌 등록금 납부 최종 날짜와 시각은 언제인가요?",
+        "candidate_pages": [
+          [
+            "pusan-2025-susi",
+            91
+          ],
+          [
+            "pusan-2025-susi",
+            67
+          ],
+          [
+            "pusan-2025-susi",
+            17
+          ],
+          [
+            "pusan-2025-susi",
+            87
+          ],
+          [
+            "pusan-2025-susi",
+            95
+          ],
+          [
+            "pusan-2025-susi",
+            63
+          ],
+          [
+            "pusan-2025-susi",
+            97
+          ],
+          [
+            "pusan-2025-susi",
+            29
+          ]
+        ],
+        "skipped": [],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "pusan-2025-susi:p87:c740",
+          "pdf_page": 87,
+          "source_id": "pusan-2025-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2025-susi:p28:block2",
+          "pdf_page": 28,
+          "source_id": "pusan-2025-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2025-susi:p29:block1",
+          "pdf_page": 29,
+          "source_id": "pusan-2025-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2025-susi:p99:c740",
+          "pdf_page": 99,
+          "source_id": "pusan-2025-susi",
+          "admission_track": null,
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "E05",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.3281,
+        "context_tokens": 1593,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "수시에서 등록 포기 신청이 이미 완료됐습니다. 완료된 등록 포기를 번복할 수 있나요?",
+        "candidate_pages": [
+          [
+            "pusan-2026-susi",
+            32
+          ],
+          [
+            "pusan-2026-susi",
+            31
+          ],
+          [
+            "pusan-2026-susi",
+            42
+          ],
+          [
+            "pusan-2026-susi",
+            27
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "pusan-2026-susi:p27:c740",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 619
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p32:block2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 455
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p32:c0",
+          "pdf_page": 32,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p32:block0",
+          "pdf_page": 32,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p27:block2",
+          "pdf_page": 27,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p17:c1480",
+          "pdf_page": 17,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "E06",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.3052,
+        "context_tokens": 1367,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "수시 요강에서 부정한 방법의 지원 때문에 입학이 취소되면, 취소일부터 몇 년간  에 입학할 수 없나요?",
+        "candidate_pages": [
+          [
+            "pusan-2026-susi",
+            30
+          ],
+          [
+            "pusan-2026-susi",
+            89
+          ],
+          [
+            "pusan-2026-susi",
+            17
+          ],
+          [
+            "pusan-2026-susi",
+            27
+          ],
+          [
+            "pusan-2026-susi",
+            112
+          ]
+        ],
+        "skipped": [],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p30:c740",
+          "pdf_page": 30,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p30:block1",
+          "pdf_page": 30,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p17:c1480",
+          "pdf_page": 17,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p112:block1",
+          "pdf_page": 112,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "E07",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.1694,
+        "context_tokens": 1761,
+        "admission_track": "논술",
+        "semantic_enabled": true,
+        "focused_query": "논술전형에 지원한 검정고시 출신자입니다. 온라인 제공이 안 되어 서류를 내야 할 때, 검정고시 성적증명서도 반드시 제출하나요? 합격증명서는 묻지 않습니다.",
+        "candidate_pages": [
+          [
+            "pusan-2026-susi",
+            60
+          ],
+          [
+            "pusan-2026-susi",
+            70
+          ],
+          [
+            "pusan-2026-susi",
+            47
+          ],
+          [
+            "pusan-2026-susi",
+            24
+          ],
+          [
+            "pusan-2026-susi",
+            38
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "pusan-2026-susi:p60:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 930
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 930
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p26:c740",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 371
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table1:row1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 356
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p24:table2:row1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 237
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p76:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 721
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p24:table2:row1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 237
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table1:row1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 356
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p23:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 633
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table0:row1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 342
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p24:block2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 136
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p89:c740",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 246
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table1:row2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 330
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table1:row2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 330
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p30:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 611
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table0:row4",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 348
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table0:row1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 342
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p112:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 674
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p24:table2:row2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 209
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table0:row4",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 348
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table0:row2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 398
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p24:table2:row2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 209
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table0:row3",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 349
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table0:row2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 398
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p76:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 981
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p60:table0:row3",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 349
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p89:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 128
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p24:c740",
+          "pdf_page": 24,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p24:block1",
+          "pdf_page": 24,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p60:c740",
+          "pdf_page": 60,
+          "source_id": "pusan-2026-susi",
+          "admission_track": "논술",
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p60:block0",
+          "pdf_page": 60,
+          "source_id": "pusan-2026-susi",
+          "admission_track": "논술",
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "E08",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.323,
+        "context_tokens": 1798,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "수시 원서를 접수했습니다. 수능성적 자료를 별도로 제출해야 하나요?",
+        "candidate_pages": [
+          [
+            "pusan-2026-susi",
+            24
+          ],
+          [
+            "pusan-2026-susi",
+            56
+          ],
+          [
+            "pusan-2026-susi",
+            66
+          ],
+          [
+            "pusan-2026-susi",
+            27
+          ],
+          [
+            "pusan-2026-susi",
+            25
+          ],
+          [
+            "pusan-2026-susi",
+            34
+          ],
+          [
+            "pusan-2026-susi",
+            38
+          ],
+          [
+            "pusan-2026-susi",
+            61
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "pusan-2026-susi:p56:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 689
+          },
+          {
+            "chunk_id": "pusan-2026-susi:p66:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 688
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p34:c0",
+          "pdf_page": 34,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p24:block2",
+          "pdf_page": 24,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p34:block0",
+          "pdf_page": 34,
+          "source_id": "pusan-2026-susi",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p38:block1",
+          "pdf_page": 38,
+          "source_id": "pusan-2026-susi",
+          "admission_track": "학생부교과",
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "H01",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.0342,
+        "context_tokens": 1742,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "1학기   지급요청서에 적은 지출의 증빙서류는 언제부터 몇 년간 보관해야 하나요?",
+        "candidate_pages": [
+          [
+            "kosaf-2026-housing-plan-faq",
+            12
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            14
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            25
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            22
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            2
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p14:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 597
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p12:c0",
+          "pdf_page": 12,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p12:block2",
+          "pdf_page": 12,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p22:c0",
+          "pdf_page": 22,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p14:block1",
+          "pdf_page": 14,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "H02",
+      "clause_hit": false,
+      "retrieval": {
+        "seconds": 0.0409,
+        "context_tokens": 1761,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "1학기  을 신청합니다. 기초·차상위 자격 확인이 끝났어도 부모 주소 확인을 위한 가구원 동의가 필요한가요?",
+        "candidate_pages": [
+          [
+            "kosaf-2026-housing-plan-faq",
+            18
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            14
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            4
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            20
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            25
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            12
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            13
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p16:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 336
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p14:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 597
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p14:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 488
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p4:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 675
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p14:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 488
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p18:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 766
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p12:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 690
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p20:c0",
+          "pdf_page": 20,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p4:block1",
+          "pdf_page": 4,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p19:c0",
+          "pdf_page": 19,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p19:block1",
+          "pdf_page": 19,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "H03",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.0628,
+        "context_tokens": 1732,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "1학기   신청에서 학교 정보를 잘못 입력했습니다. 현재 재학 중인 대학이 대학 정보를 수정할 수 있나요?",
+        "candidate_pages": [
+          [
+            "kosaf-2026-housing-plan-faq",
+            16
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            25
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            4
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            14
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            2
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            12
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p11:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 444
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p16:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 560
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p17:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 380
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p11:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 785
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p12:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 583
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p21:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 609
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p16:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 336
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p22:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 739
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p18:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 766
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p4:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 295
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p19:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 599
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p14:c0",
+          "pdf_page": 14,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p16:block0",
+          "pdf_page": 16,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p4:c0",
+          "pdf_page": 4,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:table0:row3",
+          "pdf_page": 25,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": 1
+        }
+      ]
+    },
+    {
+      "id": "H04",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.0357,
+        "context_tokens": 1678,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "1학기   탈락 후 원거리 인정 여부에 소명할 사유가 있습니다. 탈락 사유 소명서는 어디에 제출해야 하나요?",
+        "candidate_pages": [
+          [
+            "kosaf-2026-housing-plan-faq",
+            21
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            25
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            12
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            14
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            13
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p12:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 583
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p12:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 690
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p5:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 890
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p21:c0",
+          "pdf_page": 21,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p21:block1",
+          "pdf_page": 21,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p14:c0",
+          "pdf_page": 14,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:table0:row10",
+          "pdf_page": 25,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": 1
+        }
+      ]
+    },
+    {
+      "id": "H05",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.052,
+        "context_tokens": 1699,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "1학기   서류는 장학금 신청일을 기준으로 언제부터 발급된 서류를 인정하나요?",
+        "candidate_pages": [
+          [
+            "kosaf-2026-housing-plan-faq",
+            25
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            12
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            19
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            14
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            22
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            11
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p11:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 444
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p19:c0",
+          "pdf_page": 19,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p17:block1",
+          "pdf_page": 17,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p17:c0",
+          "pdf_page": 17,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p4:c740",
+          "pdf_page": 4,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "H06",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.0421,
+        "context_tokens": 1790,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "1학기   가구원 동의에서 부모가 고령이라 인증서를 이용하기 어렵습니다. 오프라인 서류 동의가 가능한가요?",
+        "candidate_pages": [
+          [
+            "kosaf-2026-housing-plan-faq",
+            25
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            4
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            20
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            24
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            14
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            12
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            19
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p19:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 243
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p15:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 516
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p19:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 243
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p14:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 488
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p14:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 597
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p16:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 336
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p25:table0:row5",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 205
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p12:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 690
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p25:table0:row5",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 205
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p25:table0:row6",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 203
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p4:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 675
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p25:table0:row6",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 203
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p4:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 295
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p23:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 508
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p2:block2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 411
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p24:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 218
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p14:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 488
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p12:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 583
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p17:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 290
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p14:block1",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 156
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p20:c0",
+          "pdf_page": 20,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p19:c0",
+          "pdf_page": 19,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p15:block0",
+          "pdf_page": 15,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p15:block1",
+          "pdf_page": 15,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "H07",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.053,
+        "context_tokens": 1652,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "1학기  에 위조 서류를 제출한 경우, 발견일부터 최대 몇 년 동안 장학금 제한자로 분류될 수 있나요?",
+        "candidate_pages": [
+          [
+            "kosaf-2026-housing-plan-faq",
+            25
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            22
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            19
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            2
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            12
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            24
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            14
+          ]
+        ],
+        "skipped": [
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p22:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 739
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p11:block0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 444
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p11:c0",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 785
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p9:block2",
+            "reason": "whole_unit_exceeds_remaining_budget",
+            "tokens": 384
+          }
+        ],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p19:c0",
+          "pdf_page": 19,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p14:c0",
+          "pdf_page": 14,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p22:block0",
+          "pdf_page": 22,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p24:block0",
+          "pdf_page": 24,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        }
+      ]
+    },
+    {
+      "id": "H08",
+      "clause_hit": true,
+      "retrieval": {
+        "seconds": 0.0318,
+        "context_tokens": 1201,
+        "admission_track": null,
+        "semantic_enabled": true,
+        "focused_query": "1학기    의 추진 일정표 기준으로 학생 2차 신청의 마감 날짜는 언제인가요?",
+        "candidate_pages": [
+          [
+            "kosaf-2026-housing-plan-faq",
+            25
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            14
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            12
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            2
+          ],
+          [
+            "kosaf-2026-housing-plan-faq",
+            13
+          ]
+        ],
+        "skipped": [],
+        "method": "lexical_retention_structural_units_semantic_candidate_pages",
+        "scope_limit": "reviewed track families and housing schedule rows; other scopes remain document-level"
+      },
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p13:c0",
+          "pdf_page": 13,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p4:block1",
+          "pdf_page": 4,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:table0:row4",
+          "pdf_page": 25,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": 1
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p2:c2220",
+          "pdf_page": 2,
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "admission_track": null,
+          "section_semester": null
+        }
+      ]
+    }
+  ]
+}
