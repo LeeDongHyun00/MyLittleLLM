@@ -1,0 +1,16 @@
+{
+  "test_generations": 64,
+  "development_generations": 8,
+  "test_api_errors": 0,
+  "unique_test_requests": 64,
+  "frozen_request_and_nonmodel_dependency_hashes_rechecked": true,
+  "generator_weight_hash_verified_before_and_after_test": true,
+  "unit_tests_passed": 35,
+  "cli_initial_attempt": "connection refused, retained",
+  "cli_retry": "connection and generation succeed; citation remains unsuitable, recorded separately",
+  "new_test_rerun_after_runtime_memory_fix": false,
+  "base_server_health": {
+    "status": "ok"
+  },
+  "adapters": []
+}

@@ -1,0 +1,23 @@
+{
+  "prompt_name": "minimal",
+  "selected_at": "2026-11-02T11:09:59.517365+00:00",
+  "metrics": {
+    "compact": {
+      "strict_pass": 0,
+      "mean_completion_tokens": 84.75
+    },
+    "minimal": {
+      "strict_pass": 0,
+      "mean_completion_tokens": 64.25
+    }
+  },
+  "development_ids": [
+    "A04",
+    "A12",
+    "S04",
+    "S06"
+  ],
+  "selection_protocol_sha256": "48ab1c0e96538afa6771087be4870aee064dcd25c8ee0ded7529e1904b07dae4",
+  "prompt_module_sha256": "458f4245e700a146390c99680d07fe060f887111a0dc48848e99edd1693368cb",
+  "new_test_used": false
+}

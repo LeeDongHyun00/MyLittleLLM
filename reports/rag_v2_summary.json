@@ -1,0 +1,176 @@
+{
+  "arms": {
+    "legacy": {
+      "valid": 3,
+      "facts_pass": 2,
+      "citation_clause_pass": 2,
+      "strict_pass": 2,
+      "retrieval_clause_hit": 12,
+      "n": 16,
+      "strict_rate": 0.125,
+      "strict_cluster_95_ci": [
+        0.0,
+        0.3333333333333333
+      ],
+      "truncated": 13,
+      "errors": 0,
+      "median_retrieval_seconds": 0.038719923999451566,
+      "median_generation_seconds": 71.24119999999999,
+      "median_estimated_warm_total_seconds": 71.25305438850006,
+      "mean_prompt_tokens": 1607.375,
+      "mean_completion_tokens": 153.125,
+      "by_task": {
+        "admissions": {
+          "n": 8,
+          "strict_pass": 1
+        },
+        "housing": {
+          "n": 8,
+          "strict_pass": 1
+        }
+      }
+    },
+    "retrieval": {
+      "valid": 5,
+      "facts_pass": 2,
+      "citation_clause_pass": 3,
+      "strict_pass": 2,
+      "retrieval_clause_hit": 8,
+      "n": 16,
+      "strict_rate": 0.125,
+      "strict_cluster_95_ci": [
+        0.0,
+        0.29411764705882354
+      ],
+      "truncated": 11,
+      "errors": 0,
+      "median_retrieval_seconds": 4.5597,
+      "median_generation_seconds": 57.94325,
+      "median_estimated_warm_total_seconds": 62.51695,
+      "mean_prompt_tokens": 1247.375,
+      "mean_completion_tokens": 149.5,
+      "by_task": {
+        "admissions": {
+          "n": 8,
+          "strict_pass": 1
+        },
+        "housing": {
+          "n": 8,
+          "strict_pass": 1
+        }
+      }
+    },
+    "prompt_schema": {
+      "valid": 14,
+      "facts_pass": 9,
+      "citation_clause_pass": 8,
+      "strict_pass": 6,
+      "retrieval_clause_hit": 8,
+      "n": 16,
+      "strict_rate": 0.375,
+      "strict_cluster_95_ci": [
+        0.17647058823529413,
+        0.6
+      ],
+      "truncated": 2,
+      "errors": 0,
+      "median_retrieval_seconds": 4.5597,
+      "median_generation_seconds": 46.3662,
+      "median_estimated_warm_total_seconds": 50.95865,
+      "mean_prompt_tokens": 1193.375,
+      "mean_completion_tokens": 79.4375,
+      "by_task": {
+        "admissions": {
+          "n": 8,
+          "strict_pass": 2
+        },
+        "housing": {
+          "n": 8,
+          "strict_pass": 4
+        }
+      }
+    },
+    "triplet": {
+      "valid": 16,
+      "facts_pass": 10,
+      "citation_clause_pass": 8,
+      "strict_pass": 7,
+      "retrieval_clause_hit": 8,
+      "n": 16,
+      "strict_rate": 0.4375,
+      "strict_cluster_95_ci": [
+        0.2,
+        0.6666666666666666
+      ],
+      "truncated": 0,
+      "errors": 0,
+      "median_retrieval_seconds": 4.5597,
+      "median_generation_seconds": 54.017849999999996,
+      "median_estimated_warm_total_seconds": 58.72649747250077,
+      "mean_prompt_tokens": 1501.375,
+      "mean_completion_tokens": 79.125,
+      "by_task": {
+        "admissions": {
+          "n": 8,
+          "strict_pass": 3
+        },
+        "housing": {
+          "n": 8,
+          "strict_pass": 4
+        }
+      }
+    }
+  },
+  "paired_comparisons": {
+    "legacy_vs_retrieval": {
+      "improved": 1,
+      "regressed": 1,
+      "unchanged": 14,
+      "exact_mcnemar_p_descriptive_only": 1.0,
+      "warning": "Question-level McNemar does not account for dependent rule variants; use grouped CI for uncertainty.",
+      "paired_delta_cluster_95_ci": [
+        -0.2,
+        0.16666666666666666
+      ]
+    },
+    "retrieval_vs_prompt_schema": {
+      "improved": 4,
+      "regressed": 0,
+      "unchanged": 12,
+      "exact_mcnemar_p_descriptive_only": 0.125,
+      "warning": "Question-level McNemar does not account for dependent rule variants; use grouped CI for uncertainty.",
+      "paired_delta_cluster_95_ci": [
+        0.058823529411764705,
+        0.47058823529411764
+      ]
+    },
+    "prompt_schema_vs_triplet": {
+      "improved": 1,
+      "regressed": 0,
+      "unchanged": 15,
+      "exact_mcnemar_p_descriptive_only": 1.0,
+      "warning": "Question-level McNemar does not account for dependent rule variants; use grouped CI for uncertainty.",
+      "paired_delta_cluster_95_ci": [
+        0.0,
+        0.2
+      ]
+    },
+    "legacy_vs_triplet": {
+      "improved": 6,
+      "regressed": 1,
+      "unchanged": 9,
+      "exact_mcnemar_p_descriptive_only": 0.125,
+      "warning": "Question-level McNemar does not account for dependent rule variants; use grouped CI for uncertainty.",
+      "paired_delta_cluster_95_ci": [
+        0.058823529411764705,
+        0.5625
+      ]
+    }
+  },
+  "responses": 64,
+  "independent_human_review": false,
+  "metric_is_pattern_proxy": true,
+  "latency_note": "Warm retrieval and example selection measured once, plus separate serial generation; excludes cold model/index loads and preprocessing.",
+  "run_lock_sha256": "5c6bf614111d682b09d62398ef043b7ecfc560ae3b1892bdc9b2bc0c37456bab",
+  "completed_at": "2026-11-02T12:12:12.288130+00:00"
+}

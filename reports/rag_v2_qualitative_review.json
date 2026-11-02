@@ -1,0 +1,102 @@
+{
+  "reviewer": "assistant",
+  "independent_human_review": false,
+  "responses_reviewed": 64,
+  "frozen_scores_changed": false,
+  "findings": [
+    {
+      "ids": [
+        "E01"
+      ],
+      "type": "rubric_false_negative",
+      "arms": [
+        "prompt_schema"
+      ],
+      "detail": "예치금 납부는 필요하지 않습니다 is correct and cited, but the frozen no-deposit regex omits 필요하지 않다. This is the only scored difference between prompt_schema and triplet; the extra 1/16 cannot establish a semantic accuracy improvement from examples."
+    },
+    {
+      "ids": [
+        "E08"
+      ],
+      "type": "rubric_false_negative_and_requirement_mismatch",
+      "arms": [
+        "retrieval",
+        "prompt_schema",
+        "triplet"
+      ],
+      "detail": "All three correctly say separate CSAT submission is unnecessary. The regex omits 필요하지 않습니다. prompt_schema also omits the rubric-required online-consent explanation, although the direct yes/no question is answered."
+    },
+    {
+      "ids": [
+        "E02"
+      ],
+      "type": "alternative_clause_requires_scope_review",
+      "arms": [
+        "retrieval",
+        "prompt_schema",
+        "triplet"
+      ],
+      "detail": "The retrieved/cited p79 interview guide explicitly says interview absentees fail, but the fixed pattern expects the universal p30 wording 어느 하나라도 결시. The p79 header limits it to specified student-record comprehensive/interregional interview tracks. Expert review should assess this alternative scope; do not silently replace the general-rule gold."
+    },
+    {
+      "ids": [
+        "E06"
+      ],
+      "type": "correct_page_missing_target_clause",
+      "arms": [
+        "retrieval",
+        "prompt_schema",
+        "triplet"
+      ],
+      "detail": "p30 parent h0 discusses cancellation but stops before the three-year bar. A correct page ID and correct-looking answer do not supply the cited numerical evidence."
+    },
+    {
+      "ids": [
+        "E07"
+      ],
+      "type": "actual_content_error",
+      "arms": [
+        "retrieval",
+        "prompt_schema",
+        "triplet"
+      ],
+      "detail": "The new search misses the essay-track exception and the model incorrectly requires the GED score certificate."
+    },
+    {
+      "ids": [
+        "H01"
+      ],
+      "type": "actual_content_error",
+      "arms": [
+        "prompt_schema",
+        "triplet"
+      ],
+      "detail": "prompt_schema invents ten-year retention; triplet says five years but invents a September submission deadline and omits the start point. The retrieved evidence lacks the retention clause."
+    },
+    {
+      "ids": [
+        "H05"
+      ],
+      "type": "cross_semester_content_leak",
+      "arms": [
+        "retrieval",
+        "prompt_schema",
+        "triplet"
+      ],
+      "detail": "The source document is tagged semester 1, but its schedule page includes semester 2. New retrieval selects that section, and answers incorrectly use the second semester or August instead of one month before application. Document-level filtering is insufficient."
+    },
+    {
+      "ids": [
+        "E04",
+        "H07"
+      ],
+      "type": "truncation_and_placeholder_copy",
+      "arms": [
+        "prompt_schema",
+        "triplet"
+      ],
+      "detail": "prompt_schema repeats literal tags and truncates despite a JSON schema; triplet completes the JSON but copies vague follow-up placeholders while the answer clause is absent."
+    }
+  ],
+  "conclusion": "Output completion improved under the fixed 160-token cap, but the new retrieval configuration regressed on frozen clause-pattern coverage and produced real factual errors. Keep the pipeline opt-in. Prioritize a separately evaluated BM25 + concise/schema condition and better clause/semester annotation; neither improvement is claimed as measured here."
+}

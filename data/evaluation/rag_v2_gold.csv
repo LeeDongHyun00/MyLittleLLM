@@ -1,0 +1,17 @@
+﻿id,leakage_group,year,task,question,gold_answer,source_id,gold_page
+E01,pnu-registration-method,2026,admissions,2026학년도 부산대 수시 합격자의 등록의사는 어떤 방식으로 확인하나요? 예치금을 내야 하나요?,예치금 납부 없이 온라인 문서등록으로 등록의사를 확인합니다.,pusan-2026-susi,31
+E02,pnu-missing-assessment,2026,admissions,2026학년도 부산대 수시에서 필수 면접고사 하나에 결시했습니다. 다른 전형요소를 치렀더라도 불합격 등 처리 대상인가요?,네. 전형요소 중 하나라도 결시하면 합격취소·불합격 또는 지원자격 상실 관련 사유에 해당합니다.,pusan-2026-susi,30
+E03,pnu-tuition-payment-deadline,2026,admissions,2026학년도 부산대 수시 모집요강에 적힌 등록금 납부 최종 날짜와 시각은 언제인가요?,2026년 2월 5일 16시입니다.,pusan-2026-susi,31
+E04,pnu-tuition-payment-deadline,2025,admissions,2025학년도 부산대 수시 모집요강에 적힌 등록금 납부 최종 날짜와 시각은 언제인가요?,2025년 2월 12일 16시입니다.,pusan-2025-susi,28
+E05,pnu-withdrawal-finality,2026,admissions,2026학년도 부산대 수시에서 등록 포기 신청이 이미 완료됐습니다. 완료된 등록 포기를 번복할 수 있나요?,등록 포기가 완료되면 번복할 수 없습니다.,pusan-2026-susi,32
+E06,pnu-fraud-readmission-bar,2026,admissions,"2026학년도 부산대 수시 요강에서 부정한 방법의 지원 때문에 입학이 취소되면, 취소일부터 몇 년간 부산대에 입학할 수 없나요?",입학이 취소된 날부터 3년간 부산대학교에 입학할 수 없습니다.,pusan-2026-susi,30
+E07,pnu-ged-essay-transcript-exception,2026,admissions,"2026학년도 부산대 논술전형에 지원한 검정고시 출신자입니다. 온라인 제공이 안 되어 서류를 내야 할 때, 검정고시 성적증명서도 반드시 제출하나요? 합격증명서는 묻지 않습니다.",논술전형은 검정고시 성적증명서를 제출할 필요가 없습니다.,pusan-2026-susi,24
+E08,pnu-csat-online-consent,2026,admissions,2026학년도 부산대 수시 원서를 접수했습니다. 수능성적 자료를 별도로 제출해야 하나요?,"별도 제출은 필요 없으며, 원서 접수 시 수능성적 자료 온라인 제공에 동의한 것으로 간주합니다.",pusan-2026-susi,24
+H01,housing-receipt-retention,2026,housing,2026년 1학기 주거안정장학금 지급요청서에 적은 지출의 증빙서류는 언제부터 몇 년간 보관해야 하나요?,장학금 지급일로부터 5년간 보관해야 합니다.,kosaf-2026-housing-plan-faq,22
+H02,housing-family-consent,2026,housing,2026년 1학기 주거안정장학금을 신청합니다. 기초·차상위 자격 확인이 끝났어도 부모 주소 확인을 위한 가구원 동의가 필요한가요?,네. 원거리 심사를 위한 부모 주소 확인 때문에 가구원 동의가 필요합니다.,kosaf-2026-housing-plan-faq,18
+H03,housing-school-info-correction,2026,housing,2026년 1학기 주거안정장학금 신청에서 학교 정보를 잘못 입력했습니다. 현재 재학 중인 대학이 대학 정보를 수정할 수 있나요?,네. 현재 재학 중인 대학에서 대학 정보를 변경하여 수정할 수 있습니다.,kosaf-2026-housing-plan-faq,16
+H04,housing-selection-appeal-destination,2026,housing,2026년 1학기 주거안정장학금 탈락 후 원거리 인정 여부에 소명할 사유가 있습니다. 탈락 사유 소명서는 어디에 제출해야 하나요?,소속 대학에 주거안정장학금 탈락 사유 소명서를 제출해야 합니다.,kosaf-2026-housing-plan-faq,21
+H05,housing-document-issue-window,2026,housing,2026년 1학기 주거안정장학금 서류는 장학금 신청일을 기준으로 언제부터 발급된 서류를 인정하나요?,학생의 장학금 신청일 전 1개월부터 발급된 서류를 인정합니다.,kosaf-2026-housing-plan-faq,19
+H06,housing-offline-consent-option,2026,housing,2026년 1학기 주거안정장학금 가구원 동의에서 부모가 고령이라 인증서를 이용하기 어렵습니다. 오프라인 서류 동의가 가능한가요?,가능합니다. 인증서 동의가 어려운 고령 가구원은 동의서류를 제출할 수 있으며 재단 상담센터에 문의합니다.,kosaf-2026-housing-plan-faq,20
+H07,housing-fraud-restriction,2026,housing,"2026년 1학기 주거안정장학금에 위조 서류를 제출한 경우, 발견일부터 최대 몇 년 동안 장학금 제한자로 분류될 수 있나요?",발견일부터 최대 2년 동안 제한자로 분류될 수 있습니다.,kosaf-2026-housing-plan-faq,19
+H08,housing-second-application-period,2026,housing,2026년 1학기 주거안정장학금 시행계획의 추진 일정표 기준으로 학생 2차 신청의 마감 날짜는 언제인가요?,계획표에 기재된 2차 신청 마감은 2026년 3월 17일입니다.,kosaf-2026-housing-plan-faq,25

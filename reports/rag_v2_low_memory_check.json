@@ -1,0 +1,12 @@
+{
+  "development_id": "A04",
+  "evidence_ids_identical": true,
+  "max_score_difference": 0.0,
+  "server_health": {
+    "status": "ok"
+  },
+  "process_peak_rss_kib": 5010960,
+  "memory_events_before": "low 0\nhigh 0\nmax 585933\noom 2\noom_kill 1\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 585933\noom 2\noom_kill 1\noom_group_kill 0\n",
+  "new_test_rerun": false
+}

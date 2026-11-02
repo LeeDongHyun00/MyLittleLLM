@@ -1,0 +1,450 @@
+[
+  {
+    "id": "E01",
+    "arm": "prompt_schema",
+    "payload_sha256": "b22fd4753762333f4665c144616d02758a83fd45ae15e4391e9f6899ce7b036f",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "E01",
+    "arm": "retrieval",
+    "payload_sha256": "9791fb110c9a735ed0430d5d1531d297e5bff2c809c7e62057b420bd4c2a9b4f",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E01",
+    "arm": "triplet",
+    "payload_sha256": "a381ed5b35a9c0ab29b13e742ff57276b171b4e95b501a6d0042aff447d57cff",
+    "response_format": "json_schema",
+    "example_id": "triplet-A08"
+  },
+  {
+    "id": "E01",
+    "arm": "legacy",
+    "payload_sha256": "32cb02b975515f824690dd9e5a20ad517ff308aa99f6cf7bbccae463cd47de74",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E02",
+    "arm": "triplet",
+    "payload_sha256": "658f2cd9d850976ee97ff4a8bbdbdc265271bc0b91927f89d86ab3747602ceef",
+    "response_format": "json_schema",
+    "example_id": "triplet-A08"
+  },
+  {
+    "id": "E02",
+    "arm": "prompt_schema",
+    "payload_sha256": "ddcfe1908de5bcaf4b5179809ee0113cb194bb059fb3d00223b70f2912addc5a",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "E02",
+    "arm": "legacy",
+    "payload_sha256": "2077cb87bd31b25c10d4f1e28b3533e4d130248f7016b3772e72e40586871376",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E02",
+    "arm": "retrieval",
+    "payload_sha256": "8487bedc54e0aa1923358f5d1ef90350cf7bf477ef08323aab57c991da664d0b",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E03",
+    "arm": "retrieval",
+    "payload_sha256": "dc05b8d1c845f7adc6f82cfd1656666bd0a994a8a0c69662c7bb7f8bb2017044",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E03",
+    "arm": "triplet",
+    "payload_sha256": "6f87bd387dad97503ff87b8b868c78e96d74f3e8933ab9057091a969e4ea6941",
+    "response_format": "json_schema",
+    "example_id": "triplet-A08"
+  },
+  {
+    "id": "E03",
+    "arm": "prompt_schema",
+    "payload_sha256": "0fff7ed1f420ef61bc0a29ed98ef3858d6941db2b476921418b7b36f15f643f2",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "E03",
+    "arm": "legacy",
+    "payload_sha256": "13ecfee8f96d5bb3d7f2dd00ed83e6ba09151263305f59adff87962deeee5677",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E04",
+    "arm": "retrieval",
+    "payload_sha256": "c3df878afa1f2118352c54f31d378630de46260543302fae5c3027f5d5d240ed",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E04",
+    "arm": "prompt_schema",
+    "payload_sha256": "faa7016a423573dfca15bf0deaa6b1d2e59142cf93a16120533ec1d5f84d74d1",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "E04",
+    "arm": "legacy",
+    "payload_sha256": "ac08be12fa9a6727fb691df1a323f89624e1eed0197cd53c6ab4779689227a5c",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E04",
+    "arm": "triplet",
+    "payload_sha256": "e4a407dd85418b87656f43f7d35f74e73d10331e1af29b685821b1507628361e",
+    "response_format": "json_schema",
+    "example_id": "triplet-A08"
+  },
+  {
+    "id": "E05",
+    "arm": "retrieval",
+    "payload_sha256": "20e8ce55ae9bb71069cc6eeb5292f32e624c8cca4977e0440b61a32866369a05",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E05",
+    "arm": "prompt_schema",
+    "payload_sha256": "2f09682c90c62c32dc88d6b895ab1afac9b9e797fc82bb9f4affd566328991d5",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "E05",
+    "arm": "triplet",
+    "payload_sha256": "459abe041e457a47de1da10589f0bc5d12c62754ac8ef68ee680f9185b950713",
+    "response_format": "json_schema",
+    "example_id": "triplet-A08"
+  },
+  {
+    "id": "E05",
+    "arm": "legacy",
+    "payload_sha256": "3e01e0f9ef39882a4079a1fd4d9cfdb370f6ac8f0055d6b14198d84f1f0fd8e6",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E06",
+    "arm": "retrieval",
+    "payload_sha256": "be6629d06aff4188e0a00a9598c2cab6b0d4286304cffef366a328d11c010a0d",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E06",
+    "arm": "triplet",
+    "payload_sha256": "584a10005ec0b6e4b2b5c40202a9edeb3886fa5808b058dffd40904828983cb3",
+    "response_format": "json_schema",
+    "example_id": "triplet-A08"
+  },
+  {
+    "id": "E06",
+    "arm": "prompt_schema",
+    "payload_sha256": "582df737a939ca4f4036b50937d9ae93696b8cc26e1c0e59a73db5a2977d5887",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "E06",
+    "arm": "legacy",
+    "payload_sha256": "e2e0c8bdc0651415a8789a27b9e33455e4cb2349a864d7f130a1705c009e5c21",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E07",
+    "arm": "prompt_schema",
+    "payload_sha256": "f15d03efd16591747fad87f38dc01a55e9ebceb6b5acee5131a51c4727b4dc3a",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "E07",
+    "arm": "retrieval",
+    "payload_sha256": "98f2837eca5bf225e2f220fdf037832f24db2ffce7c6e0860aba4d7cbb4a88fa",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E07",
+    "arm": "legacy",
+    "payload_sha256": "5f4c9ad987c8f8cdb5eeec997401d0165b093c394bd71689ef3bbbe0726749d3",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E07",
+    "arm": "triplet",
+    "payload_sha256": "f1715ac32ae204b6d3a36a547828358eb538cf9c0369ff3ec72a18a94f0cb1f5",
+    "response_format": "json_schema",
+    "example_id": "triplet-A02"
+  },
+  {
+    "id": "E08",
+    "arm": "retrieval",
+    "payload_sha256": "dd4529d70cdd6401f961dc92805b8925462eab85a94145133d30905ece1a45e4",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E08",
+    "arm": "triplet",
+    "payload_sha256": "903f5348a6c65d21eaaec7cce71cef7d975b45d5e11f6c7b08b38358b72310a5",
+    "response_format": "json_schema",
+    "example_id": "triplet-A08"
+  },
+  {
+    "id": "E08",
+    "arm": "legacy",
+    "payload_sha256": "a7ac9dfe8035a9a20ff8f31a37f6a4230402048c228291ca3a216aad9473a274",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "E08",
+    "arm": "prompt_schema",
+    "payload_sha256": "e4db7cd5f1b7cd2f7ae39c3f1cd96b654d01bed7b114dedef98fc85e6c031cdb",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "H01",
+    "arm": "legacy",
+    "payload_sha256": "d90a0e18657461e7d5dd031c638fe5688114ec719fb196cc2a7d4873ad5a2a6d",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H01",
+    "arm": "prompt_schema",
+    "payload_sha256": "3a27454fb79e8b5ab91c5cca752e78d4533089b054f11eeccd0a8b7ef709a8a5",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "H01",
+    "arm": "retrieval",
+    "payload_sha256": "8cfc068d049e68326c044beb845a6e1e4d51de1950614b2e1dcc245908072acd",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H01",
+    "arm": "triplet",
+    "payload_sha256": "1f5ed8c45246f4dcb1e8bdcbf8bb5755944b3fedbce031786c90e2dd77cfae7d",
+    "response_format": "json_schema",
+    "example_id": "triplet-housing"
+  },
+  {
+    "id": "H02",
+    "arm": "prompt_schema",
+    "payload_sha256": "39873607084a7421bfa984bee528f2739e2b89d703bc23de55b83570666f0938",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "H02",
+    "arm": "triplet",
+    "payload_sha256": "b1fb27168947c9bc24f77401862b537f189726ab87557790975965c297568be5",
+    "response_format": "json_schema",
+    "example_id": "triplet-housing"
+  },
+  {
+    "id": "H02",
+    "arm": "legacy",
+    "payload_sha256": "9242696ffe0e0e04b209dca412096eee56c802ae8466dc3af9e097b4d123824f",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H02",
+    "arm": "retrieval",
+    "payload_sha256": "e5e25811d80373954e335deff2fc480d44d3192fa7ee004de31d5aab7d3ed552",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H03",
+    "arm": "prompt_schema",
+    "payload_sha256": "acb75eae7d3ce218598dda827fac00e5b1bda42e66f62ce8bd68ddf1bd53dfd8",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "H03",
+    "arm": "retrieval",
+    "payload_sha256": "194cd3ab04ecda35ec7758e356767515d2bd0f2f4f1b8949fec8aa6a0b3d0a07",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H03",
+    "arm": "triplet",
+    "payload_sha256": "6b43522cf71f4291d80d629f0c7b19dfe74e79b1a14b49bd19c049f7375b1394",
+    "response_format": "json_schema",
+    "example_id": "triplet-housing"
+  },
+  {
+    "id": "H03",
+    "arm": "legacy",
+    "payload_sha256": "00ed56a2361e08cb51cb1b68249ca22afd652a4e37e323906acc0b736e34b34d",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H04",
+    "arm": "triplet",
+    "payload_sha256": "ea96aecb7aecd2759c38aa3e042a9e5584666128db73722896fc8090b56c2a02",
+    "response_format": "json_schema",
+    "example_id": "triplet-housing"
+  },
+  {
+    "id": "H04",
+    "arm": "prompt_schema",
+    "payload_sha256": "abf23c6c900b63350dca54481fe6256530bbf8ab05f4782e0a6adbdc009d4aa8",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "H04",
+    "arm": "retrieval",
+    "payload_sha256": "46c4811853d846e962bd0347e0dc31d4e4602f119ddee184f84cf8084a1343cf",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H04",
+    "arm": "legacy",
+    "payload_sha256": "7c8efcb4bae784aa3aefdb72e117d022a4cd854d0aba90b3df64b23f4dfbf405",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H05",
+    "arm": "triplet",
+    "payload_sha256": "68a202a79fd7a8c77a58890d8573870d9cb63d3bef7d11fc49809464b7762cf5",
+    "response_format": "json_schema",
+    "example_id": "triplet-housing"
+  },
+  {
+    "id": "H05",
+    "arm": "retrieval",
+    "payload_sha256": "8ccfcf17ee6a88c2e5584e8fd310cbc9918f95c86fb8a0a522d1c52d557aee23",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H05",
+    "arm": "legacy",
+    "payload_sha256": "888daa6333178c5a95e15298959d480b494a785ea51c4c4b360b336c70daf95b",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H05",
+    "arm": "prompt_schema",
+    "payload_sha256": "baf7fffb090a111b24f85b508a6d6e8d01d3f5d713f05808646a9d04f7eb5dbc",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "H06",
+    "arm": "prompt_schema",
+    "payload_sha256": "40078fa1139564893bc5b23227a02ef0a783093f5dc99815441ec1a8c38c430f",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "H06",
+    "arm": "triplet",
+    "payload_sha256": "84f3e28101a135a4736be8a9b38fe507b03c354f3b21033980de44bfdc04eb51",
+    "response_format": "json_schema",
+    "example_id": "triplet-housing"
+  },
+  {
+    "id": "H06",
+    "arm": "retrieval",
+    "payload_sha256": "4c0deaee21c850ca608d008e340b72f4b29fd2e01e2115a6bc44863424781e93",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H06",
+    "arm": "legacy",
+    "payload_sha256": "c424a5a5927caa47bc724377603d4d107599b8f1ef88079fe42263936b70a446",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H07",
+    "arm": "legacy",
+    "payload_sha256": "474f0e229e85fa97518156118462b5b17873905eb2ca189ca37898c6eb978a8f",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H07",
+    "arm": "retrieval",
+    "payload_sha256": "32cfec37ffbe78e18d30b5332b932e0cd9abeba4fa1e8516a52a17f47f5a8bba",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H07",
+    "arm": "triplet",
+    "payload_sha256": "4f0b0f59dc6a0059270e975bd4b062bf4559f7479dc4f576267ee93b30b71954",
+    "response_format": "json_schema",
+    "example_id": "triplet-housing"
+  },
+  {
+    "id": "H07",
+    "arm": "prompt_schema",
+    "payload_sha256": "8f2afd81d20abbabd35142cb29eb5d4edb931d1645ebd562b92eaab8c56748b9",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "H08",
+    "arm": "triplet",
+    "payload_sha256": "f28c66351df574e88f07e88269e8ac0438182658d44f1dce6118fb93b21fb45a",
+    "response_format": "json_schema",
+    "example_id": "triplet-housing"
+  },
+  {
+    "id": "H08",
+    "arm": "legacy",
+    "payload_sha256": "b7dd06dbabd2b3e586e9d18706f102d6ca18668297e9a488f04f6a5a4a013d33",
+    "response_format": "json_object",
+    "example_id": null
+  },
+  {
+    "id": "H08",
+    "arm": "prompt_schema",
+    "payload_sha256": "5e970ba06d823ad66dc021a4d808d22168a054343517f2a3053390a629878904",
+    "response_format": "json_schema",
+    "example_id": null
+  },
+  {
+    "id": "H08",
+    "arm": "retrieval",
+    "payload_sha256": "a1aff0c2c20cedd813dc9e50045a2033bbf02a39f049892f3db529a7631f6e19",
+    "response_format": "json_object",
+    "example_id": null
+  }
+]

@@ -1,0 +1,818 @@
+[
+  {
+    "id": "E01",
+    "example_id": "triplet-A08",
+    "example_selection_seconds": 0.1516798739976366,
+    "legacy": {
+      "seconds": 0.07772882400240633,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p27:c740",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 27,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p31:c0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 31,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.4741,
+      "clause_hit": true,
+      "context_tokens": 841,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p31:h1",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 31,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p31:h0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 31,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "parent_expansion"
+        }
+      ]
+    }
+  },
+  {
+    "id": "E02",
+    "example_id": "triplet-A08",
+    "example_selection_seconds": 0.1638092629982566,
+    "legacy": {
+      "seconds": 0.06907958900046651,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p30:c0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 30,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p44:c0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 44,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.5867,
+      "clause_hit": false,
+      "context_tokens": 832,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p50:h0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 50,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p79:h1:l215",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 79,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "leaf_budget_fallback"
+        }
+      ]
+    }
+  },
+  {
+    "id": "E03",
+    "example_id": "triplet-A08",
+    "example_selection_seconds": 0.15607297400129028,
+    "legacy": {
+      "seconds": 0.07135640200067428,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p92:c0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 92,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p32:c0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 32,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.5605,
+      "clause_hit": true,
+      "context_tokens": 841,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p31:h1",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 31,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p31:h0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 31,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "parent_expansion"
+        }
+      ]
+    }
+  },
+  {
+    "id": "E04",
+    "example_id": "triplet-A08",
+    "example_selection_seconds": 0.17503733200283023,
+    "legacy": {
+      "seconds": 0.06518544600112364,
+      "clause_hit": false,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "pusan-2025-susi:p87:c740",
+          "source_id": "pusan-2025-susi",
+          "pdf_page": 87,
+          "year": 2025,
+          "sha256": "3142bba7110fe43f33864a20bc39392e7ce76eac1bcea8b50dec7f604d52767c",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "pusan-2025-susi:p99:c740",
+          "source_id": "pusan-2025-susi",
+          "pdf_page": 99,
+          "year": 2025,
+          "sha256": "3142bba7110fe43f33864a20bc39392e7ce76eac1bcea8b50dec7f604d52767c",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 3.8464,
+      "clause_hit": false,
+      "context_tokens": 635,
+      "documents": [
+        {
+          "chunk_id": "pusan-2025-susi:p91:h1",
+          "source_id": "pusan-2025-susi",
+          "pdf_page": 91,
+          "year": 2025,
+          "sha256": "3142bba7110fe43f33864a20bc39392e7ce76eac1bcea8b50dec7f604d52767c",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "pusan-2025-susi:p67:h1:l652",
+          "source_id": "pusan-2025-susi",
+          "pdf_page": 67,
+          "year": 2025,
+          "sha256": "3142bba7110fe43f33864a20bc39392e7ce76eac1bcea8b50dec7f604d52767c",
+          "retrieval_method": "leaf_budget_fallback"
+        }
+      ]
+    }
+  },
+  {
+    "id": "E05",
+    "example_id": "triplet-A08",
+    "example_selection_seconds": 0.16232798600321985,
+    "legacy": {
+      "seconds": 0.07270050100123626,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p32:c0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 32,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p27:c740",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 27,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.5912,
+      "clause_hit": true,
+      "context_tokens": 785,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p32:h0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 32,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "auto_merge_parent"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p32:h1:l515",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 32,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "leaf_budget_fallback"
+        }
+      ]
+    }
+  },
+  {
+    "id": "E06",
+    "example_id": "triplet-A08",
+    "example_selection_seconds": 0.1870084849979321,
+    "legacy": {
+      "seconds": 0.06916263399762101,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p30:c740",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 30,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p17:c1480",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 17,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.9926,
+      "clause_hit": false,
+      "context_tokens": 869,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p30:h0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 30,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p89:h1",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 89,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "parent_expansion"
+        }
+      ]
+    }
+  },
+  {
+    "id": "E07",
+    "example_id": "triplet-A02",
+    "example_selection_seconds": 0.36541632000080426,
+    "legacy": {
+      "seconds": 0.07018846700157155,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p24:c740",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 24,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p70:c740",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 70,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 5.6302,
+      "clause_hit": false,
+      "context_tokens": 793,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p60:h1",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 60,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p70:h1",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 70,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "auto_merge_parent"
+        }
+      ]
+    }
+  },
+  {
+    "id": "E08",
+    "example_id": "triplet-A08",
+    "example_selection_seconds": 0.14430514400009997,
+    "legacy": {
+      "seconds": 0.08226823500081082,
+      "clause_hit": false,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p34:c0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 34,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p56:c0",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 56,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.5589,
+      "clause_hit": true,
+      "context_tokens": 563,
+      "documents": [
+        {
+          "chunk_id": "pusan-2026-susi:p24:h1",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 24,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "pusan-2026-susi:p56:h0:l454",
+          "source_id": "pusan-2026-susi",
+          "pdf_page": 56,
+          "year": 2026,
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "retrieval_method": "leaf_budget_fallback"
+        }
+      ]
+    }
+  },
+  {
+    "id": "H01",
+    "example_id": "triplet-housing",
+    "example_selection_seconds": 0.1670483919988328,
+    "legacy": {
+      "seconds": 0.012254401997779496,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p12:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 12,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p22:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 22,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.4752,
+      "clause_hit": false,
+      "context_tokens": 709,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p12:h1",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 12,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p14:h0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 14,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "auto_merge_parent"
+        }
+      ]
+    }
+  },
+  {
+    "id": "H02",
+    "example_id": "triplet-housing",
+    "example_selection_seconds": 0.17223969300175668,
+    "legacy": {
+      "seconds": 0.01210350700057461,
+      "clause_hit": false,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p20:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 20,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p19:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 19,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.5937,
+      "clause_hit": true,
+      "context_tokens": 832,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p18:h0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 18,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p14:h0:l221",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 14,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "leaf_budget_fallback"
+        }
+      ]
+    }
+  },
+  {
+    "id": "H03",
+    "example_id": "triplet-housing",
+    "example_selection_seconds": 0.16254549199948087,
+    "legacy": {
+      "seconds": 0.01184617200124194,
+      "clause_hit": false,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 25,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p14:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 14,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.4232,
+      "clause_hit": true,
+      "context_tokens": 731,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p16:h0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 16,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:h2:l0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 25,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "leaf_budget_fallback"
+        }
+      ]
+    }
+  },
+  {
+    "id": "H04",
+    "example_id": "triplet-housing",
+    "example_selection_seconds": 0.17219264700179338,
+    "legacy": {
+      "seconds": 0.011605269999563461,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p21:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 21,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p14:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 14,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.5643,
+      "clause_hit": true,
+      "context_tokens": 787,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p21:h0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 21,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "auto_merge_parent"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:h1:l181",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 25,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "leaf_budget_fallback"
+        }
+      ]
+    }
+  },
+  {
+    "id": "H05",
+    "example_id": "triplet-housing",
+    "example_selection_seconds": 0.16324391099988134,
+    "legacy": {
+      "seconds": 0.011463548999017803,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p19:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 19,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p17:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 17,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.5075,
+      "clause_hit": false,
+      "context_tokens": 817,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:h2",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 25,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "auto_merge_parent"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p12:h0:l202",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 12,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "leaf_budget_fallback"
+        }
+      ]
+    }
+  },
+  {
+    "id": "H06",
+    "example_id": "triplet-housing",
+    "example_selection_seconds": 0.1689387930018711,
+    "legacy": {
+      "seconds": 0.01219738199870335,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p20:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 20,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p19:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 19,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.5276,
+      "clause_hit": false,
+      "context_tokens": 690,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:h1",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 25,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p4:h0:l678",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 4,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "leaf_budget_fallback"
+        }
+      ]
+    }
+  },
+  {
+    "id": "H07",
+    "example_id": "triplet-housing",
+    "example_selection_seconds": 0.19362891700075124,
+    "legacy": {
+      "seconds": 0.012029034998704446,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p19:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 19,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p14:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 14,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.5772,
+      "clause_hit": false,
+      "context_tokens": 817,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:h2",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 25,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "parent_expansion"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p22:h0:l0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 22,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "leaf_budget_fallback"
+        }
+      ]
+    }
+  },
+  {
+    "id": "H08",
+    "example_id": "triplet-housing",
+    "example_selection_seconds": 0.1635660280007869,
+    "legacy": {
+      "seconds": 0.010384527002315735,
+      "clause_hit": true,
+      "context_tokens": null,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 25,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p13:c0",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 13,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "legacy_bm25"
+        }
+      ]
+    },
+    "improved": {
+      "seconds": 4.4829,
+      "clause_hit": true,
+      "context_tokens": 832,
+      "documents": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:h1",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 25,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "auto_merge_parent"
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p25:h2:l171",
+          "source_id": "kosaf-2026-housing-plan-faq",
+          "pdf_page": 25,
+          "year": 2026,
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "retrieval_method": "leaf_budget_fallback"
+        }
+      ]
+    }
+  }
+]

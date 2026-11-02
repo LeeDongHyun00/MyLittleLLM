@@ -1,0 +1,15 @@
+{
+  "embedding": {"repo": "Qwen/Qwen3-Embedding-0.6B", "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3", "path": "models/Qwen3-Embedding-0.6B"},
+  "reranker": {"repo": "Qwen/Qwen3-Reranker-0.6B", "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473", "path": "models/Qwen3-Reranker-0.6B"},
+  "threads": 4,
+  "dtype": "float32",
+  "runtime_quantization": "torch_dynamic_int8_linear",
+  "embedding_batch_size": 4,
+  "leaf_tokens": 192,
+  "parent_tokens": 640,
+  "rerank_candidates": 8,
+  "context_tokens": 900,
+  "top_k": 2,
+  "rrf_constant": 60,
+  "instruction": "Given a Korean university admissions or scholarship question, retrieve official policy passages that answer it, preserving eligibility conditions, exceptions, dates and amounts."
+}

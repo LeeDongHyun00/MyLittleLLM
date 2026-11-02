@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-11-02T11:04:28.908052+00:00",
+  "requests_sha256": "e7d1d0d8d2e16bde9c1a53981fd16d1bff807a9913f6ac218fe25e3961a6e494",
+  "development_ids": [
+    "A04",
+    "A12",
+    "S04",
+    "S06"
+  ],
+  "development_gold_sha256": "c8aa9c32f32e7b93f32dc364e4ad3a6b1ebc0be7bc605e3a762395dc9e574231",
+  "selection": "maximize old frozen strict rubric passes, then minimize mean completion tokens, then candidate name",
+  "feedback_basis": "Old holdout-v1 truncation, redundant follow-up and long answers; two assistant-authored candidates, not an external optimizer model.",
+  "new_test_responses_seen": false
+}
