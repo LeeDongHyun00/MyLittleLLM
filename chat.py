@@ -15,6 +15,8 @@ def main():
     parser.add_argument("--mode", choices=["rag", "closed"], default="rag")
     parser.add_argument("--facts", type=Path)
     parser.add_argument("--base-url")
+    parser.add_argument("--compress-context", action="store_true", help="Use guarded LLMLingua-2; requires training dependencies and assets")
+    parser.add_argument("--compression-rate", type=float, default=.5)
     args = parser.parse_args()
     if args.task == "admissions" and not args.institution:
         parser.error("--institution is required for admissions")
@@ -27,7 +29,8 @@ def main():
             if question == "/quit": break
             if not question: continue
             result = ask(question, year=args.year, task=args.task, institution=args.institution,
-                         semester=args.semester, mode=args.mode, facts=facts, base_url=args.base_url)
+                         semester=args.semester, mode=args.mode, facts=facts, base_url=args.base_url,
+                         compress_context=args.compress_context, compression_rate=args.compression_rate)
             print(json.dumps(result, ensure_ascii=False, indent=2))
         except (EOFError, KeyboardInterrupt):
             break

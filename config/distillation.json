@@ -1,0 +1,19 @@
+{
+  "model": "Qwen/Qwen3-4B",
+  "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "local_model": "models/Qwen3-4B-HF",
+  "compressor": "microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank",
+  "compressor_revision": "5f0c82792b7ea14c6484e015b6a072009496b7f2",
+  "local_compressor": "models/llmlingua-2",
+  "dtype": "bfloat16",
+  "quantization": null,
+  "lora_rank": 4,
+  "lora_alpha": 8,
+  "target_modules": ["q_proj", "v_proj"],
+  "learning_rate": 0.0001,
+  "max_sequence_tokens": 1024,
+  "rollout_tokens": 24,
+  "seed": 42,
+  "threads": 4,
+  "scope": "RAFT-style evidence with distractors + answer/explanation multi-task SFT + OPSD-style dense self-distillation; not a paper reproduction"
+}
