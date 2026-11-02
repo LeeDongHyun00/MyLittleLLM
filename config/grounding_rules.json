@@ -1,0 +1,433 @@
+{
+  "review_status": "assistant_source_checked_not_independent_expert_review",
+  "method": "hand-reviewed AST and Z3; no automatic NL2Logic parser or original-paper replication",
+  "facts_policy": "Explicit structured user facts; no truth inferred from absent facts. Query prose is not automatically parsed into factual slots.",
+  "rules": [
+    {
+      "id": "housing_academic",
+      "label": "성적·이수학점 요건",
+      "question_pattern": "성적|학점|백분위",
+      "scope": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단"
+      },
+      "fields": {
+        "ordinary_semester_system": {
+          "type": "bool"
+        },
+        "first_semester_exempt": {
+          "type": "bool"
+        },
+        "disabled": {
+          "type": "bool"
+        },
+        "care_leaver": {
+          "type": "bool"
+        },
+        "graduation_or_excess": {
+          "type": "bool"
+        },
+        "credits": {
+          "type": "int",
+          "min": 0,
+          "max": 60
+        },
+        "required_credits": {
+          "type": "int",
+          "min": 1,
+          "max": 24
+        },
+        "score": {
+          "type": "int",
+          "min": 0,
+          "max": 100
+        }
+      },
+      "expression": {
+        "and": [
+          {
+            "or": [
+              {
+                "var": "first_semester_exempt"
+              },
+              {
+                "var": "disabled"
+              },
+              {
+                "var": "graduation_or_excess"
+              },
+              {
+                "ge": [
+                  {
+                    "var": "credits"
+                  },
+                  {
+                    "var": "required_credits"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "or": [
+              {
+                "var": "first_semester_exempt"
+              },
+              {
+                "var": "disabled"
+              },
+              {
+                "var": "care_leaver"
+              },
+              {
+                "ge": [
+                  {
+                    "var": "score"
+                  },
+                  70
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sources": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p9:block0",
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "anchors": [
+            "12학점",
+            "70점"
+          ]
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p9:block1",
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "anchors": [
+            "장애인 학생",
+            "자립준비청년",
+            "졸업 또는 초과학기"
+          ]
+        }
+      ],
+      "explanation": "성적·이수학점만 판정한 결과입니다. 학교가 확인한 최저 이수학점을 입력해야 하며 다른 선발 조건과 실제 지급은 별도입니다.",
+      "applicability": {
+        "ordinary_semester_system": true
+      }
+    },
+    {
+      "id": "housing_expense_combination",
+      "label": "보증금 환산액·이자 병행 청구 요건",
+      "question_pattern": "보증금|이자|중복.*청구",
+      "scope": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단"
+      },
+      "fields": {
+        "deposit_conversion": {
+          "type": "bool"
+        },
+        "housing_loan_interest": {
+          "type": "bool"
+        },
+        "rent_loan_interest": {
+          "type": "bool"
+        }
+      },
+      "expression": {
+        "not": [
+          {
+            "and": [
+              {
+                "var": "deposit_conversion"
+              },
+              {
+                "var": "housing_loan_interest"
+              }
+            ]
+          }
+        ]
+      },
+      "sources": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p10:block2",
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "anchors": [
+            "중복청구할수없음",
+            "월세대출이자는가능"
+          ]
+        }
+      ],
+      "explanation": "보증금 환산액과 주택임차차입금 이자의 병행 청구 제한만 판정했습니다. 월세대출 이자는 이 제한의 예외이며 월 한도·지출 인정은 별도입니다.",
+      "applicability": {}
+    },
+    {
+      "id": "housing_duplicate_support",
+      "label": "동일 연월 중복수혜 제한 회피 요건",
+      "question_pattern": "중복|겹치|동시|하루",
+      "scope": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단"
+      },
+      "fields": {
+        "same_year_month": {
+          "type": "bool"
+        },
+        "other_program_is_conflicting": {
+          "type": "bool"
+        },
+        "overlap_days": {
+          "type": "int",
+          "min": 0,
+          "max": 31
+        }
+      },
+      "expression": {
+        "not": [
+          {
+            "and": [
+              {
+                "var": "same_year_month"
+              },
+              {
+                "var": "other_program_is_conflicting"
+              },
+              {
+                "ge": [
+                  {
+                    "var": "overlap_days"
+                  },
+                  1
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sources": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p10:block0",
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "anchors": [
+            "하루라도",
+            "자격상실일 포함",
+            "중복수혜"
+          ]
+        }
+      ],
+      "explanation": "중복수혜 제한만 판정했습니다. 타 사업이 제한 대상인지와 자격 중복 일수는 확인된 값을 입력해야 하며 다른 자격이나 지급을 확정하지 않습니다.",
+      "applicability": {}
+    },
+    {
+      "id": "housing_benefit_count",
+      "label": "학제별·개인별 잔여 수혜 횟수 요건",
+      "question_pattern": "수혜|횟수|몇.*회|한도",
+      "scope": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단"
+      },
+      "fields": {
+        "academic_years": {
+          "type": "int",
+          "min": 2,
+          "max": 6
+        },
+        "school_used": {
+          "type": "int",
+          "min": 0,
+          "max": 30
+        },
+        "personal_used": {
+          "type": "int",
+          "min": 0,
+          "max": 50
+        }
+      },
+      "expression": {
+        "and": [
+          {
+            "lt": [
+              {
+                "var": "school_used"
+              },
+              {
+                "mul": [
+                  {
+                    "var": "academic_years"
+                  },
+                  2
+                ]
+              }
+            ]
+          },
+          {
+            "lt": [
+              {
+                "var": "personal_used"
+              },
+              {
+                "ite": [
+                  {
+                    "eq": [
+                      {
+                        "var": "academic_years"
+                      },
+                      6
+                    ]
+                  },
+                  12,
+                  {
+                    "ite": [
+                      {
+                        "eq": [
+                          {
+                            "var": "academic_years"
+                          },
+                          5
+                        ]
+                      },
+                      10,
+                      8
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sources": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p11:block0",
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "anchors": [
+            "4회 6회 8회 10회 12회"
+          ]
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p11:block1",
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "anchors": [
+            "개인별 누적 한도 8회",
+            "모든 학교"
+          ]
+        }
+      ],
+      "explanation": "다음 1회 수혜를 위한 횟수 한도만 판정했습니다. 학교별 실적은 신·편입/재입학 처리 규정에 맞춰 산정된 값을 입력해야 합니다. 다른 자격은 별도입니다.",
+      "applicability": {}
+    },
+    {
+      "id": "housing_county_distance",
+      "label": "광역교통권 밖 군 지역의 원거리 요건",
+      "question_pattern": "원거리|같은.*군|군.*범위",
+      "scope": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단"
+      },
+      "fields": {
+        "outside_metro_county": {
+          "type": "bool"
+        },
+        "same_county": {
+          "type": "bool"
+        },
+        "exception_approved": {
+          "type": "bool"
+        }
+      },
+      "expression": {
+        "or": [
+          {
+            "not": [
+              {
+                "var": "same_county"
+              }
+            ]
+          },
+          {
+            "var": "exception_approved"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p8:table0:row32",
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "anchors": [
+            "원거리 인정 불가"
+          ]
+        },
+        {
+          "chunk_id": "kosaf-2026-housing-plan-faq:p5:block0",
+          "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+          "anchors": [
+            "원거리"
+          ]
+        }
+      ],
+      "explanation": "광역교통권 밖 군 지역 조건에서만 판정했습니다. 같은 군이면 원칙적으로 인정되지 않으며 특별 사유는 대학·재단의 예외 인정 여부를 확인해야 합니다.",
+      "applicability": {
+        "outside_metro_county": true
+      }
+    },
+    {
+      "id": "admissions_ged_certificate",
+      "label": "검정고시 증명서 제출 의무",
+      "question_pattern": "검정고시|증명서",
+      "scope": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교"
+      },
+      "fields": {
+        "ged_offline": {
+          "type": "bool"
+        },
+        "essay_track": {
+          "type": "bool"
+        },
+        "score_certificate": {
+          "type": "bool"
+        }
+      },
+      "expression": {
+        "not": [
+          {
+            "and": [
+              {
+                "var": "essay_track"
+              },
+              {
+                "var": "score_certificate"
+              }
+            ]
+          }
+        ]
+      },
+      "sources": [
+        {
+          "chunk_id": "pusan-2026-susi:p24:block1",
+          "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+          "anchors": [
+            "검정고시 합격증명서",
+            "성적증명서(논술전형의 경우 제출 불필요)"
+          ]
+        }
+      ],
+      "explanation": "온라인 제공 미동의·불가인 검정고시 지원자 기준입니다. 참이면 해당 증명서 제출이 필요하고 거짓이면 면제입니다. 성적증명서의 논술 예외를 합격증명서에 확대하지 않습니다.",
+      "applicability": {
+        "ged_offline": true
+      }
+    }
+  ]
+}
