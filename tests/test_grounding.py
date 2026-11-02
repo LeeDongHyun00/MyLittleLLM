@@ -39,7 +39,13 @@ class GroundingTests(unittest.TestCase):
         rule=self.rules['housing_benefit_count']
         self.assertEqual(solve_rule(rule,dict(academic_years=2,school_used=0,personal_used=8))['decision'],'false')
         self.assertEqual(solve_rule(rule,dict(academic_years=6,school_used=11,personal_used=11))['decision'],'true')
-        self.assertEqual(solve_rule(rule,dict(academic_years=6,school_used=12,personal_used=1))['decision'],'false')
+        self.assertEqual(solve_rule(rule,dict(academic_years=6,school_used=12,personal_used=12))['decision'],'false')
+
+    def test_inconsistent_count_totals_do_not_prove_an_answer(self):
+        rule=self.rules['housing_benefit_count']
+        result=solve_rule(rule,dict(academic_years=4,school_used=4,personal_used=2))
+        self.assertEqual(result['decision'],'unknown')
+        self.assertEqual(result['reason'],'inconsistent_or_unresolved_facts')
 
     def test_negated_county_rule_and_explicit_exception(self):
         rule=self.rules['housing_county_distance']
@@ -80,5 +86,15 @@ class GroundingTests(unittest.TestCase):
         assistant=GroundedAssistant.__new__(GroundedAssistant);assistant.verifier=None
         result,review=assistant.postcheck(dict(status='answer',answer='12만원이 지급되었습니다.',citations=['x']),[])
         self.assertEqual(result['status'],'cannot_determine');self.assertIsNone(assistant.verifier)
+
+    def test_claim_checker_is_an_explicit_option(self):
+        a=GroundedAssistant.__new__(GroundedAssistant)
+        value=dict(status='cannot_determine',answer='근거 부족',citations=[],follow_up=[])
+        a.plan=Mock(return_value=dict(preflight=None,proof=None,evidence=[]))
+        a.generate=Mock(return_value=dict(llm_called=True));a.parse=Mock(return_value=value)
+        a.postcheck=Mock(return_value=(value,dict(applied=True)))
+        scope=dict(year=2026,task='housing',institution='한국장학재단',semester=1)
+        a.ask('질문',**scope);a.postcheck.assert_not_called()
+        a.ask('질문',claim_check=True,**scope);a.postcheck.assert_called_once()
 
 if __name__=='__main__':unittest.main()

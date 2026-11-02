@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-11-02T15:45:11.983725+00:00",
+  "purpose": "Post-evaluation inconsistent count CLI smoke; excluded from frozen scores",
+  "facts": {
+    "rule_id": "housing_benefit_count",
+    "year": 2026,
+    "semester": 1,
+    "task": "housing",
+    "institution": "한국장학재단",
+    "academic_years": 4,
+    "school_used": 4,
+    "personal_used": 2
+  },
+  "result": {
+    "status": "cannot_determine",
+    "answer": "서로 모순되거나 판정할 수 없는 입력 조건이 있어 답변을 보류합니다.",
+    "citations": [],
+    "follow_up": [
+      "학교별 실적과 전체 누적 실적 등 입력 조건을 다시 확인해 주세요."
+    ],
+    "reason": "inconsistent_rule_facts",
+    "pipeline": "grounded",
+    "llm_called": false,
+    "elapsed_seconds": 0.1005,
+    "proof": {
+      "decision": "unknown",
+      "reason": "inconsistent_or_unresolved_facts",
+      "rule_id": "housing_benefit_count",
+      "label": "학제별·개인별 잔여 수혜 횟수 요건",
+      "sources": [
+        "kosaf-2026-housing-plan-faq:p11:block0",
+        "kosaf-2026-housing-plan-faq:p11:block1"
+      ],
+      "explanation": "다음 1회 수혜를 위한 횟수 한도만 판정했습니다. 학교별 실적은 신·편입/재입학 처리 규정에 맞춰 산정된 값을 입력해야 합니다. 다른 자격은 별도입니다.",
+      "review_status": "assistant_source_checked_not_independent_expert_review"
+    },
+    "verification": {
+      "applied": false,
+      "reason": "source_bound_deterministic_output"
+    },
+    "generation": null,
+    "sources": []
+  }
+}

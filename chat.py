@@ -21,6 +21,7 @@ def main():
     parser.add_argument("--max-tokens",type=int,help="Output cap: defaults to legacy/concise/preprocessed=384, improved=160")
     parser.add_argument("--admission-track",choices=["논술","학생부교과","학생부종합","실기/실적"])
     parser.add_argument("--lexical-only",action="store_true",help="Preprocessed retrieval without loading neural retrieval models")
+    parser.add_argument("--claim-check",action="store_true",help="Experimental neural veto for grounded freeform answers; may reject correct answers")
     parser.add_argument("--compress-context", action="store_true", help="Use guarded LLMLingua-2; requires training dependencies and assets")
     parser.add_argument("--compression-rate", type=float, default=.5)
     args = parser.parse_args()
@@ -42,6 +43,7 @@ def main():
         parser.error("Use --pipeline preprocessed or legacy for --facts")
     if args.pipeline=='grounded' and (args.mode!='rag' or args.compress_context or (args.max_tokens is not None and args.max_tokens!=384)):
         parser.error("grounded uses RAG with a fixed 384-token comparison profile and no compression")
+    if args.claim_check and args.pipeline!='grounded':parser.error('--claim-check requires --pipeline grounded')
     facts = json.loads(args.facts.read_text()) if args.facts else None
     retriever = bank = None
     if args.pipeline=='grounded':
@@ -71,7 +73,7 @@ def main():
             if not question: continue
             if args.pipeline=='grounded':
                 result=grounded.ask(question,year=args.year,task=args.task,institution=args.institution,
-                                    semester=args.semester,facts=facts,base_url=args.base_url)
+                                    semester=args.semester,facts=facts,base_url=args.base_url,claim_check=args.claim_check)
             elif args.pipeline == "improved":
                 result = ask_v2(question, year=args.year, task=args.task, institution=args.institution,
                                 semester=args.semester, base_url=args.base_url, retriever=retriever, bank=bank,

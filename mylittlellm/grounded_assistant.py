@@ -57,8 +57,12 @@ class GroundedAssistant:
                 if isinstance(facts,dict) and 'rule_id' in facts:
                     proof,evidence=self.rules.evaluate(row,facts)
                     if proof['decision']=='unknown':
-                        decision=abstain('missing_rule_facts','입력 조건만으로 '+proof['label']+'을 판정할 수 없습니다.',
-                                         '다음 조건을 확인해 주세요: '+', '.join(proof.get('missing',[])))
+                        if proof['reason']=='missing_facts':
+                            decision=abstain('missing_rule_facts','입력 조건만으로 '+proof['label']+'을 판정할 수 없습니다.',
+                                             '다음 조건을 확인해 주세요: '+', '.join(proof.get('missing',[])))
+                        else:
+                            decision=abstain('inconsistent_rule_facts','서로 모순되거나 판정할 수 없는 입력 조건이 있어 답변을 보류합니다.',
+                                             '학교별 실적과 전체 누적 실적 등 입력 조건을 다시 확인해 주세요.')
                     else:
                         if proof['rule_id']=='admissions_ged_certificate':
                             conclusion='해당 증명서를 제출해야 합니다.' if proof['decision']=='true' else '해당 성적증명서 제출은 면제입니다.'
@@ -105,7 +109,7 @@ class GroundedAssistant:
             return abstain('claim_not_verified','생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.'),review
         return value,review
 
-    def ask(self, question, *, year, task, institution, semester=None, facts=None, base_url=None):
+    def ask(self, question, *, year, task, institution, semester=None, facts=None, base_url=None, claim_check=False):
         start=time.monotonic();row=dict(question=question,year=year,task=task,institution=institution,semester=semester)
         plan=self.plan(row,facts)
         response=None;verification=dict(applied=False,reason='source_bound_deterministic_output')
@@ -113,7 +117,8 @@ class GroundedAssistant:
         else:
             response=self.generate(plan,base_url)
             value=self.parse(response,plan['evidence'])
-            value,verification=self.postcheck(value,plan['evidence'])
+            if claim_check:value,verification=self.postcheck(value,plan['evidence'])
+            else:verification=dict(applied=False,reason='optional_neural_veto_disabled_after_comparison')
         return dict(value,pipeline='grounded',llm_called=response is not None and response['llm_called'],
                     elapsed_seconds=round(time.monotonic()-start,4),proof=plan['proof'],verification=verification,
                     generation=response,sources=[{k:d[k] for k in ['chunk_id','source_id','pdf_page','sha256','url']}

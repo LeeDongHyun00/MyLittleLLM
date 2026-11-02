@@ -1,0 +1,109 @@
+{
+  "observed_at": "2026-11-02T15:27:47.362145+00:00",
+  "cases": [
+    {
+      "name": "county",
+      "response": {
+        "status": "answer",
+        "answer": "광역교통권 밖 군 지역의 원거리 요건을 충족하지 않습니다. 광역교통권 밖 군 지역 조건에서만 판정했습니다. 같은 군이면 원칙적으로 인정되지 않으며 특별 사유는 대학·재단의 예외 인정 여부를 확인해야 합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p8:table0:row32",
+          "kosaf-2026-housing-plan-faq:p5:block0"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "false",
+        "pipeline": "grounded",
+        "llm_called": false,
+        "elapsed_seconds": 0.2042,
+        "proof": {
+          "decision": "false",
+          "reason": "symbolic_entailment",
+          "missing": [],
+          "facts_used": {
+            "outside_metro_county": true,
+            "same_county": true,
+            "exception_approved": false
+          },
+          "rule_id": "housing_county_distance",
+          "label": "광역교통권 밖 군 지역의 원거리 요건",
+          "sources": [
+            "kosaf-2026-housing-plan-faq:p8:table0:row32",
+            "kosaf-2026-housing-plan-faq:p5:block0"
+          ],
+          "explanation": "광역교통권 밖 군 지역 조건에서만 판정했습니다. 같은 군이면 원칙적으로 인정되지 않으며 특별 사유는 대학·재단의 예외 인정 여부를 확인해야 합니다.",
+          "review_status": "assistant_source_checked_not_independent_expert_review"
+        },
+        "verification": {
+          "applied": false,
+          "reason": "source_bound_deterministic_output"
+        },
+        "generation": null,
+        "sources": [
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p8:table0:row32",
+            "source_id": "kosaf-2026-housing-plan-faq",
+            "pdf_page": 8,
+            "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+            "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560"
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p5:block0",
+            "source_id": "kosaf-2026-housing-plan-faq",
+            "pdf_page": 5,
+            "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+            "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560"
+          }
+        ]
+      }
+    },
+    {
+      "name": "payment",
+      "response": {
+        "status": "answer",
+        "answer": "입력한 승인·지출 조건에 따른 계산상 지원액은 120,000원입니다. 실제 지급 완료를 확인한 결과는 아닙니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block1",
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": [],
+        "reason": "verified_calculator",
+        "pipeline": "grounded",
+        "llm_called": false,
+        "elapsed_seconds": 1.4501,
+        "proof": {
+          "calculation": {
+            "amount_krw": 120000,
+            "monthly_cap_krw": 200000,
+            "basis": "recognized_expense_capped",
+            "source_id": "kosaf-2026-housing-plan-faq",
+            "pdf_page": 10,
+            "note": "사용자가 제공한 승인·지출 조건에 따른 시나리오 계산; 실제 지급 결정 아님"
+          }
+        },
+        "verification": {
+          "applied": false,
+          "reason": "source_bound_deterministic_output"
+        },
+        "generation": null,
+        "sources": [
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p10:block1",
+            "source_id": "kosaf-2026-housing-plan-faq",
+            "pdf_page": 10,
+            "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+            "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560"
+          },
+          {
+            "chunk_id": "kosaf-2026-housing-plan-faq:p10:block2",
+            "source_id": "kosaf-2026-housing-plan-faq",
+            "pdf_page": 10,
+            "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+            "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560"
+          }
+        ]
+      }
+    }
+  ],
+  "not_accuracy_evaluation": true
+}

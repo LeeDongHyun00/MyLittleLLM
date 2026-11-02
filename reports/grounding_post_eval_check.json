@@ -1,0 +1,147 @@
+{
+  "checked_at": "2026-11-02T15:40:14.199898+00:00",
+  "frozen_code_commit": "829f712af32875ada9e825de7ab0a718a624710d",
+  "changes": [
+    "After evaluation, add source-consistent personal_used >= school_used invariant to reject contradictory counts. This issue was identified during generation; none of the frozen scenarios has inconsistent counts.",
+    "Qualify academic-minimum-credit explanatory text so exempt students are not told a minimum credit input is mandatory; remove internal true/false wording in certificate explanation.",
+    "Expose optional --claim-check; grounded default now corresponds to the evaluated rules_and_gate arm. This runtime selection follows the disclosed comparison, not a second independent confirmation."
+  ],
+  "frozen_outputs_and_scores_changed": false,
+  "requests_identical": 18,
+  "policy_decisions_identical": 18,
+  "explanation_changed_ids": [
+    "G01",
+    "G02",
+    "G03",
+    "G08"
+  ],
+  "checks": [
+    {
+      "id": "G01",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": true
+    },
+    {
+      "id": "G02",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": true
+    },
+    {
+      "id": "G03",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": true
+    },
+    {
+      "id": "G04",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G05",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G06",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G07",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G08",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": true
+    },
+    {
+      "id": "G09",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G10",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G11",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G12",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G13",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G14",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G15",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G16",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G17",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    },
+    {
+      "id": "G18",
+      "request_identical": true,
+      "decision_identical": true,
+      "explanation_changed": false
+    }
+  ],
+  "changed_frozen_dependencies": [
+    {
+      "path": "mylittlellm/policy_rules.py",
+      "old_sha256": "c4947209d84cb223d091dd5f9b386dc337dd188a47a341f019f3440ed43f9a93",
+      "new_sha256": "0586a337ac96c5ae8f9652bcbda0a5be440e660cee27bc2af2579aceec10c88e"
+    },
+    {
+      "path": "mylittlellm/grounded_assistant.py",
+      "old_sha256": "10835915d2d278dd8f9feeb7316f01f80e776994680076999628ab6aeb7a8414",
+      "new_sha256": "9e87ab011f6ff7631071f1cf7c5eb616671c7e1b7a24607d7454812e0a0fa8d0"
+    },
+    {
+      "path": "config/grounding_rules.json",
+      "old_sha256": "59b3a96ae29f5cd1100818fbdf2fa2090d8ddb1376873a75e6fa327f69cefb13",
+      "new_sha256": "6eacd77273e368e48da4085f7f57bf402280897db38583b7faf265a2e8b01730"
+    }
+  ],
+  "tests_passed": 59,
+  "holdout_regenerated": false
+}

@@ -1,0 +1,1097 @@
+{
+  "reviewed_at": "2026-11-02T15:41:30.493297+00:00",
+  "reviewer": "AI assistant, not independent expert",
+  "responses_reviewed": 72,
+  "automatic_scores_changed": false,
+  "interpretation": "18/18 is an automatic partial-decision/scenario score. It is not a claim of perfect prose, factual citation completeness, independent gold quality, or real-world admissions accuracy.",
+  "main_findings": [
+    "Qwen fails loan-interest exception and combined count limits; neural veto accepts both errors.",
+    "Neural veto fails to evaluate scenario facts and may reject useful long source passages. It is not calibrated for this task.",
+    "Rules/gates fix the five automatic failures within the reviewed structured scope.",
+    "Two rule answers contain overbroad minimum-credit instructions for exempt students; the conditional template is corrected only after this frozen run.",
+    "New rules are human-readable but assistant-reviewed, and structured fact collection is outside the experiment."
+  ],
+  "rows": [
+    {
+      "id": "G01",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "성적 및 이수학점 요건은 충족하지 못했습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "기본 모델의 부분요건 불충족 결론은 맞다. 규칙도 학점 11<12로 거짓을 증명한다. 자립준비청년의 점수 면제를 전체 학점 면제로 확장하지 않는다."
+    },
+    {
+      "id": "G01",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "answer",
+        "answer": "성적 및 이수학점 요건은 충족하지 못했습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "기본 모델의 부분요건 불충족 결론은 맞다. 규칙도 학점 11<12로 거짓을 증명한다. 자립준비청년의 점수 면제를 전체 학점 면제로 확장하지 않는다."
+    },
+    {
+      "id": "G01",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "성적·이수학점 요건을 충족하지 않습니다. 성적·이수학점만 판정한 결과입니다. 학교가 확인한 최저 이수학점을 입력해야 하며 다른 선발 조건과 실제 지급은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0",
+          "kosaf-2026-housing-plan-faq:p9:block1"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "false"
+      },
+      "automatic_pass": true,
+      "review": "기본 모델의 부분요건 불충족 결론은 맞다. 규칙도 학점 11<12로 거짓을 증명한다. 자립준비청년의 점수 면제를 전체 학점 면제로 확장하지 않는다."
+    },
+    {
+      "id": "G01",
+      "arm": "full",
+      "answer": {
+        "status": "answer",
+        "answer": "성적·이수학점 요건을 충족하지 않습니다. 성적·이수학점만 판정한 결과입니다. 학교가 확인한 최저 이수학점을 입력해야 하며 다른 선발 조건과 실제 지급은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0",
+          "kosaf-2026-housing-plan-faq:p9:block1"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "false"
+      },
+      "automatic_pass": true,
+      "review": "기본 모델의 부분요건 불충족 결론은 맞다. 규칙도 학점 11<12로 거짓을 증명한다. 자립준비청년의 점수 면제를 전체 학점 면제로 확장하지 않는다."
+    },
+    {
+      "id": "G02",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 일반 학기제의 장애인 재학생은 성적·학점 기준 미적용으로 탈락하지 않습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0",
+          "kosaf-2026-housing-plan-faq:p9:block1"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "장애인 성적·학점 미적용이라는 기본 답과 규칙 결론은 맞다. NLI는 맞는 기본 답을 거절했다. 고정 규칙 템플릿의 최소 학점 입력 안내는 면제자에게 불필요한 의무로 읽힐 수 있어 실행 후 조건부 표현으로 수정했다."
+    },
+    {
+      "id": "G02",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": false,
+      "review": "장애인 성적·학점 미적용이라는 기본 답과 규칙 결론은 맞다. NLI는 맞는 기본 답을 거절했다. 고정 규칙 템플릿의 최소 학점 입력 안내는 면제자에게 불필요한 의무로 읽힐 수 있어 실행 후 조건부 표현으로 수정했다."
+    },
+    {
+      "id": "G02",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "성적·이수학점 요건을 충족합니다. 성적·이수학점만 판정한 결과입니다. 학교가 확인한 최저 이수학점을 입력해야 하며 다른 선발 조건과 실제 지급은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0",
+          "kosaf-2026-housing-plan-faq:p9:block1"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "true"
+      },
+      "automatic_pass": true,
+      "review": "장애인 성적·학점 미적용이라는 기본 답과 규칙 결론은 맞다. NLI는 맞는 기본 답을 거절했다. 고정 규칙 템플릿의 최소 학점 입력 안내는 면제자에게 불필요한 의무로 읽힐 수 있어 실행 후 조건부 표현으로 수정했다."
+    },
+    {
+      "id": "G02",
+      "arm": "full",
+      "answer": {
+        "status": "answer",
+        "answer": "성적·이수학점 요건을 충족합니다. 성적·이수학점만 판정한 결과입니다. 학교가 확인한 최저 이수학점을 입력해야 하며 다른 선발 조건과 실제 지급은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0",
+          "kosaf-2026-housing-plan-faq:p9:block1"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "true"
+      },
+      "automatic_pass": true,
+      "review": "장애인 성적·학점 미적용이라는 기본 답과 규칙 결론은 맞다. NLI는 맞는 기본 답을 거절했다. 고정 규칙 템플릿의 최소 학점 입력 안내는 면제자에게 불필요한 의무로 읽힐 수 있어 실행 후 조건부 표현으로 수정했다."
+    },
+    {
+      "id": "G03",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "첫 학기 신입생은 성적 및 이수학점 기준이 면제됩니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "신입생 첫 학기 면제라는 기본 답과 규칙 결론은 맞다. 고정 규칙 템플릿의 최소 학점 입력 안내는 면제자에게 과도한 요구가 되어 실행 후 조건부 표현으로 수정했다."
+    },
+    {
+      "id": "G03",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "answer",
+        "answer": "첫 학기 신입생은 성적 및 이수학점 기준이 면제됩니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "신입생 첫 학기 면제라는 기본 답과 규칙 결론은 맞다. 고정 규칙 템플릿의 최소 학점 입력 안내는 면제자에게 과도한 요구가 되어 실행 후 조건부 표현으로 수정했다."
+    },
+    {
+      "id": "G03",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "성적·이수학점 요건을 충족합니다. 성적·이수학점만 판정한 결과입니다. 학교가 확인한 최저 이수학점을 입력해야 하며 다른 선발 조건과 실제 지급은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0",
+          "kosaf-2026-housing-plan-faq:p9:block1"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "true"
+      },
+      "automatic_pass": true,
+      "review": "신입생 첫 학기 면제라는 기본 답과 규칙 결론은 맞다. 고정 규칙 템플릿의 최소 학점 입력 안내는 면제자에게 과도한 요구가 되어 실행 후 조건부 표현으로 수정했다."
+    },
+    {
+      "id": "G03",
+      "arm": "full",
+      "answer": {
+        "status": "answer",
+        "answer": "성적·이수학점 요건을 충족합니다. 성적·이수학점만 판정한 결과입니다. 학교가 확인한 최저 이수학점을 입력해야 하며 다른 선발 조건과 실제 지급은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0",
+          "kosaf-2026-housing-plan-faq:p9:block1"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "true"
+      },
+      "automatic_pass": true,
+      "review": "신입생 첫 학기 면제라는 기본 답과 규칙 결론은 맞다. 고정 규칙 템플릿의 최소 학점 입력 안내는 면제자에게 과도한 요구가 되어 실행 후 조건부 표현으로 수정했다."
+    },
+    {
+      "id": "G04",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "보증금 월환산액과 월세대출 이자는 병행 청구 제한에 따라 허용되지 않습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": false,
+      "review": "기본 모델은 월세대출 이자 예외를 놓쳐 병행 청구 불가라고 답했다. NLI도 이 오답에 약 0.984의 지지 점수를 주었다. 규칙은 주택임차차입금 이자와 월세대출 이자를 구분해 허용되는 조합으로 판정했다."
+    },
+    {
+      "id": "G04",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "answer",
+        "answer": "보증금 월환산액과 월세대출 이자는 병행 청구 제한에 따라 허용되지 않습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": false,
+      "review": "기본 모델은 월세대출 이자 예외를 놓쳐 병행 청구 불가라고 답했다. NLI도 이 오답에 약 0.984의 지지 점수를 주었다. 규칙은 주택임차차입금 이자와 월세대출 이자를 구분해 허용되는 조합으로 판정했다."
+    },
+    {
+      "id": "G04",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "보증금 환산액·이자 병행 청구 요건을 충족합니다. 보증금 환산액과 주택임차차입금 이자의 병행 청구 제한만 판정했습니다. 월세대출 이자는 이 제한의 예외이며 월 한도·지출 인정은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "true"
+      },
+      "automatic_pass": true,
+      "review": "기본 모델은 월세대출 이자 예외를 놓쳐 병행 청구 불가라고 답했다. NLI도 이 오답에 약 0.984의 지지 점수를 주었다. 규칙은 주택임차차입금 이자와 월세대출 이자를 구분해 허용되는 조합으로 판정했다."
+    },
+    {
+      "id": "G04",
+      "arm": "full",
+      "answer": {
+        "status": "answer",
+        "answer": "보증금 환산액·이자 병행 청구 요건을 충족합니다. 보증금 환산액과 주택임차차입금 이자의 병행 청구 제한만 판정했습니다. 월세대출 이자는 이 제한의 예외이며 월 한도·지출 인정은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "true"
+      },
+      "automatic_pass": true,
+      "review": "기본 모델은 월세대출 이자 예외를 놓쳐 병행 청구 불가라고 답했다. NLI도 이 오답에 약 0.984의 지지 점수를 주었다. 규칙은 주택임차차입금 이자와 월세대출 이자를 구분해 허용되는 조합으로 판정했다."
+    },
+    {
+      "id": "G05",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "보증금 월환산액과 주택임차차입금 이자는 중복청구할 수 없으므로 조합의 청구 요건은 충족하지 않습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "주택임차차입금 이자의 중복 청구 불가라는 기본 답과 규칙 결론은 맞다. NLI가 정답을 거절했다."
+    },
+    {
+      "id": "G05",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": false,
+      "review": "주택임차차입금 이자의 중복 청구 불가라는 기본 답과 규칙 결론은 맞다. NLI가 정답을 거절했다."
+    },
+    {
+      "id": "G05",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "보증금 환산액·이자 병행 청구 요건을 충족하지 않습니다. 보증금 환산액과 주택임차차입금 이자의 병행 청구 제한만 판정했습니다. 월세대출 이자는 이 제한의 예외이며 월 한도·지출 인정은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "false"
+      },
+      "automatic_pass": true,
+      "review": "주택임차차입금 이자의 중복 청구 불가라는 기본 답과 규칙 결론은 맞다. NLI가 정답을 거절했다."
+    },
+    {
+      "id": "G05",
+      "arm": "full",
+      "answer": {
+        "status": "answer",
+        "answer": "보증금 환산액·이자 병행 청구 요건을 충족하지 않습니다. 보증금 환산액과 주택임차차입금 이자의 병행 청구 제한만 판정했습니다. 월세대출 이자는 이 제한의 예외이며 월 한도·지출 인정은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "false"
+      },
+      "automatic_pass": true,
+      "review": "주택임차차입금 이자의 중복 청구 불가라는 기본 답과 규칙 결론은 맞다. NLI가 정답을 거절했다."
+    },
+    {
+      "id": "G06",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "3년제 학교의 수혜 횟수 한도는 6회이지만, 개인별 누적 한도는 8회로, 현재 4회 수혜는 한도 내에 있으므로 조건은 충족됨",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:block0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": false,
+      "review": "기본 모델은 현 학교 4회와 모든 학교 합산 8회를 혼동해 가능하다고 답했다. NLI도 약 0.815로 통과시켰다. 규칙은 학교별·개인별 한도를 모두 적용해 불충족으로 판정했다."
+    },
+    {
+      "id": "G06",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "answer",
+        "answer": "3년제 학교의 수혜 횟수 한도는 6회이지만, 개인별 누적 한도는 8회로, 현재 4회 수혜는 한도 내에 있으므로 조건은 충족됨",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:block0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": false,
+      "review": "기본 모델은 현 학교 4회와 모든 학교 합산 8회를 혼동해 가능하다고 답했다. NLI도 약 0.815로 통과시켰다. 규칙은 학교별·개인별 한도를 모두 적용해 불충족으로 판정했다."
+    },
+    {
+      "id": "G06",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "학제별·개인별 잔여 수혜 횟수 요건을 충족하지 않습니다. 다음 1회 수혜를 위한 횟수 한도만 판정했습니다. 학교별 실적은 신·편입/재입학 처리 규정에 맞춰 산정된 값을 입력해야 합니다. 다른 자격은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:block0",
+          "kosaf-2026-housing-plan-faq:p11:block1"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "false"
+      },
+      "automatic_pass": true,
+      "review": "기본 모델은 현 학교 4회와 모든 학교 합산 8회를 혼동해 가능하다고 답했다. NLI도 약 0.815로 통과시켰다. 규칙은 학교별·개인별 한도를 모두 적용해 불충족으로 판정했다."
+    },
+    {
+      "id": "G06",
+      "arm": "full",
+      "answer": {
+        "status": "answer",
+        "answer": "학제별·개인별 잔여 수혜 횟수 요건을 충족하지 않습니다. 다음 1회 수혜를 위한 횟수 한도만 판정했습니다. 학교별 실적은 신·편입/재입학 처리 규정에 맞춰 산정된 값을 입력해야 합니다. 다른 자격은 별도입니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:block0",
+          "kosaf-2026-housing-plan-faq:p11:block1"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "false"
+      },
+      "automatic_pass": true,
+      "review": "기본 모델은 현 학교 4회와 모든 학교 합산 8회를 혼동해 가능하다고 답했다. NLI도 약 0.815로 통과시켰다. 규칙은 학교별·개인별 한도를 모두 적용해 불충족으로 판정했다."
+    },
+    {
+      "id": "G07",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "중복수혜 제한 회피 요건은 충족하지 않습니다. 2026년 4월에 하루만 겹친 경우도 중복수혜로 판단됩니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "자격상실일 하루도 중복에 해당한다는 기본 답과 규칙 결론은 맞다. NLI는 이중 부정 표현과 조건을 지지하지 못해 정답을 거절했다."
+    },
+    {
+      "id": "G07",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": false,
+      "review": "자격상실일 하루도 중복에 해당한다는 기본 답과 규칙 결론은 맞다. NLI는 이중 부정 표현과 조건을 지지하지 못해 정답을 거절했다."
+    },
+    {
+      "id": "G07",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "동일 연월 중복수혜 제한 회피 요건을 충족하지 않습니다. 중복수혜 제한만 판정했습니다. 타 사업이 제한 대상인지와 자격 중복 일수는 확인된 값을 입력해야 하며 다른 자격이나 지급을 확정하지 않습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block0"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "false"
+      },
+      "automatic_pass": true,
+      "review": "자격상실일 하루도 중복에 해당한다는 기본 답과 규칙 결론은 맞다. NLI는 이중 부정 표현과 조건을 지지하지 못해 정답을 거절했다."
+    },
+    {
+      "id": "G07",
+      "arm": "full",
+      "answer": {
+        "status": "answer",
+        "answer": "동일 연월 중복수혜 제한 회피 요건을 충족하지 않습니다. 중복수혜 제한만 판정했습니다. 타 사업이 제한 대상인지와 자격 중복 일수는 확인된 값을 입력해야 하며 다른 자격이나 지급을 확정하지 않습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block0"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "false"
+      },
+      "automatic_pass": true,
+      "review": "자격상실일 하루도 중복에 해당한다는 기본 답과 규칙 결론은 맞다. NLI는 이중 부정 표현과 조건을 지지하지 못해 정답을 거절했다."
+    },
+    {
+      "id": "G08",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "검정고시 출신자로 온라인 제공이 불가능한 경우 합격증명서를 제출해야 합니다.",
+        "citations": [
+          "pusan-2026-susi:p24:block1"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "합격증명서 제출 의무는 기본 답과 규칙 모두 맞다. NLI는 인용 구간이 512토큰을 넘어 보류했다. 규칙 설명의 내부 참/거짓 표현은 실행 후 제거했다."
+    },
+    {
+      "id": "G08",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": false,
+      "review": "합격증명서 제출 의무는 기본 답과 규칙 모두 맞다. NLI는 인용 구간이 512토큰을 넘어 보류했다. 규칙 설명의 내부 참/거짓 표현은 실행 후 제거했다."
+    },
+    {
+      "id": "G08",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "해당 증명서를 제출해야 합니다. 온라인 제공 미동의·불가인 검정고시 지원자 기준입니다. 참이면 해당 증명서 제출이 필요하고 거짓이면 면제입니다. 성적증명서의 논술 예외를 합격증명서에 확대하지 않습니다.",
+        "citations": [
+          "pusan-2026-susi:p24:block1"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "true"
+      },
+      "automatic_pass": true,
+      "review": "합격증명서 제출 의무는 기본 답과 규칙 모두 맞다. NLI는 인용 구간이 512토큰을 넘어 보류했다. 규칙 설명의 내부 참/거짓 표현은 실행 후 제거했다."
+    },
+    {
+      "id": "G08",
+      "arm": "full",
+      "answer": {
+        "status": "answer",
+        "answer": "해당 증명서를 제출해야 합니다. 온라인 제공 미동의·불가인 검정고시 지원자 기준입니다. 참이면 해당 증명서 제출이 필요하고 거짓이면 면제입니다. 성적증명서의 논술 예외를 합격증명서에 확대하지 않습니다.",
+        "citations": [
+          "pusan-2026-susi:p24:block1"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "true"
+      },
+      "automatic_pass": true,
+      "review": "합격증명서 제출 의무는 기본 답과 규칙 모두 맞다. NLI는 인용 구간이 512토큰을 넘어 보류했다. 규칙 설명의 내부 참/거짓 표현은 실행 후 제거했다."
+    },
+    {
+      "id": "G09",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 5월에 선발 및 지급 승인이 확인되었고, 중복수혜가 없으므로 인정 지출 185,000원은 조건부 지원액으로 인정합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block1"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "기본 답의 조건부 계산 금액 185000원은 맞다. 다만 상한 조항만 인용하고 실제 지출 지원 조항을 인용하지 않아 근거 설명이 불완전하다. NLI는 올바른 금액을 모순으로 판정했다. 규칙 계산은 상한·실제 지출 조항을 함께 인용하고 실제 지급 완료가 아님을 명시한다."
+    },
+    {
+      "id": "G09",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": false,
+      "review": "기본 답의 조건부 계산 금액 185000원은 맞다. 다만 상한 조항만 인용하고 실제 지출 지원 조항을 인용하지 않아 근거 설명이 불완전하다. NLI는 올바른 금액을 모순으로 판정했다. 규칙 계산은 상한·실제 지출 조항을 함께 인용하고 실제 지급 완료가 아님을 명시한다."
+    },
+    {
+      "id": "G09",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "입력한 승인·지출 조건에 따른 계산상 지원액은 185,000원입니다. 실제 지급 완료를 확인한 결과는 아닙니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block1",
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": [],
+        "reason": "verified_calculator"
+      },
+      "automatic_pass": true,
+      "review": "기본 답의 조건부 계산 금액 185000원은 맞다. 다만 상한 조항만 인용하고 실제 지출 지원 조항을 인용하지 않아 근거 설명이 불완전하다. NLI는 올바른 금액을 모순으로 판정했다. 규칙 계산은 상한·실제 지출 조항을 함께 인용하고 실제 지급 완료가 아님을 명시한다."
+    },
+    {
+      "id": "G09",
+      "arm": "full",
+      "answer": {
+        "status": "answer",
+        "answer": "입력한 승인·지출 조건에 따른 계산상 지원액은 185,000원입니다. 실제 지급 완료를 확인한 결과는 아닙니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block1",
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": [],
+        "reason": "verified_calculator"
+      },
+      "automatic_pass": true,
+      "review": "기본 답의 조건부 계산 금액 185000원은 맞다. 다만 상한 조항만 인용하고 실제 지출 지원 조항을 인용하지 않아 근거 설명이 불완전하다. NLI는 올바른 금액을 모순으로 판정했다. 규칙 계산은 상한·실제 지출 조항을 함께 인용하고 실제 지급 완료가 아님을 명시한다."
+    },
+    {
+      "id": "G10",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "원거리 요건은 충족하지 않음",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p8:table0:row32"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "이번 표현·구조화 조건에서는 기본 모델도 원거리 불인정을 맞혔다. 이전 다른 시험의 원거리 오답과 혼동하여 모든 표현에서 모델이 실패한다고 주장하지 않는다. 규칙도 부정과 예외 미인정을 유지했다."
+    },
+    {
+      "id": "G10",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "answer",
+        "answer": "원거리 요건은 충족하지 않음",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p8:table0:row32"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "이번 표현·구조화 조건에서는 기본 모델도 원거리 불인정을 맞혔다. 이전 다른 시험의 원거리 오답과 혼동하여 모든 표현에서 모델이 실패한다고 주장하지 않는다. 규칙도 부정과 예외 미인정을 유지했다."
+    },
+    {
+      "id": "G10",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "광역교통권 밖 군 지역의 원거리 요건을 충족하지 않습니다. 광역교통권 밖 군 지역 조건에서만 판정했습니다. 같은 군이면 원칙적으로 인정되지 않으며 특별 사유는 대학·재단의 예외 인정 여부를 확인해야 합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p8:table0:row32",
+          "kosaf-2026-housing-plan-faq:p5:block0"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "false"
+      },
+      "automatic_pass": true,
+      "review": "이번 표현·구조화 조건에서는 기본 모델도 원거리 불인정을 맞혔다. 이전 다른 시험의 원거리 오답과 혼동하여 모든 표현에서 모델이 실패한다고 주장하지 않는다. 규칙도 부정과 예외 미인정을 유지했다."
+    },
+    {
+      "id": "G10",
+      "arm": "full",
+      "answer": {
+        "status": "answer",
+        "answer": "광역교통권 밖 군 지역의 원거리 요건을 충족하지 않습니다. 광역교통권 밖 군 지역 조건에서만 판정했습니다. 같은 군이면 원칙적으로 인정되지 않으며 특별 사유는 대학·재단의 예외 인정 여부를 확인해야 합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p8:table0:row32",
+          "kosaf-2026-housing-plan-faq:p5:block0"
+        ],
+        "follow_up": [],
+        "reason": "reviewed_rule",
+        "decision": "false"
+      },
+      "automatic_pass": true,
+      "review": "이번 표현·구조화 조건에서는 기본 모델도 원거리 불인정을 맞혔다. 이전 다른 시험의 원거리 오답과 혼동하여 모든 표현에서 모델이 실패한다고 주장하지 않는다. 규칙도 부정과 예외 미인정을 유지했다."
+    },
+    {
+      "id": "G11",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 일반 학기제 재학생으로, 10학점 이수 및 73점 성적은 최소 이수학점 기준을 충족했습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": false,
+      "review": "학교 최소 학점을 모르는 상황에서 기본 모델은 10학점으로 충족을 확정했고 NLI도 약 0.957로 통과시켰다. 규칙은 필요한 입력이 없어 보류했다."
+    },
+    {
+      "id": "G11",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 1학기 일반 학기제 재학생으로, 10학점 이수 및 73점 성적은 최소 이수학점 기준을 충족했습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p9:block0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": false,
+      "review": "학교 최소 학점을 모르는 상황에서 기본 모델은 10학점으로 충족을 확정했고 NLI도 약 0.957로 통과시켰다. 규칙은 필요한 입력이 없어 보류했다."
+    },
+    {
+      "id": "G11",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "입력 조건만으로 성적·이수학점 요건을 판정할 수 없습니다.",
+        "citations": [],
+        "follow_up": [
+          "다음 조건을 확인해 주세요: required_credits"
+        ],
+        "reason": "missing_rule_facts"
+      },
+      "automatic_pass": true,
+      "review": "학교 최소 학점을 모르는 상황에서 기본 모델은 10학점으로 충족을 확정했고 NLI도 약 0.957로 통과시켰다. 규칙은 필요한 입력이 없어 보류했다."
+    },
+    {
+      "id": "G11",
+      "arm": "full",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "입력 조건만으로 성적·이수학점 요건을 판정할 수 없습니다.",
+        "citations": [],
+        "follow_up": [
+          "다음 조건을 확인해 주세요: required_credits"
+        ],
+        "reason": "missing_rule_facts"
+      },
+      "automatic_pass": true,
+      "review": "학교 최소 학점을 모르는 상황에서 기본 모델은 10학점으로 충족을 확정했고 NLI도 약 0.957로 통과시켰다. 규칙은 필요한 입력이 없어 보류했다."
+    },
+    {
+      "id": "G12",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "보증금 월환산액은 주택임차차입금 이자와 중복청구할 수 없으므로, 월세대출 이자만 청구 가능합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": false,
+      "review": "기본 답은 이자 종류별 일반 규정을 말했지만 질문자의 이자 유형을 모르는 상태에서 확정할 수 없다고 명시하지 않았다. 사실을 날조한 오류와는 구별되는 보류·질문 대응 실패다. 규칙은 이자 유형 입력을 요청했다."
+    },
+    {
+      "id": "G12",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "answer",
+        "answer": "보증금 월환산액은 주택임차차입금 이자와 중복청구할 수 없으므로, 월세대출 이자만 청구 가능합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:block2"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": false,
+      "review": "기본 답은 이자 종류별 일반 규정을 말했지만 질문자의 이자 유형을 모르는 상태에서 확정할 수 없다고 명시하지 않았다. 사실을 날조한 오류와는 구별되는 보류·질문 대응 실패다. 규칙은 이자 유형 입력을 요청했다."
+    },
+    {
+      "id": "G12",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "입력 조건만으로 보증금 환산액·이자 병행 청구 요건을 판정할 수 없습니다.",
+        "citations": [],
+        "follow_up": [
+          "다음 조건을 확인해 주세요: housing_loan_interest, rent_loan_interest"
+        ],
+        "reason": "missing_rule_facts"
+      },
+      "automatic_pass": true,
+      "review": "기본 답은 이자 종류별 일반 규정을 말했지만 질문자의 이자 유형을 모르는 상태에서 확정할 수 없다고 명시하지 않았다. 사실을 날조한 오류와는 구별되는 보류·질문 대응 실패다. 규칙은 이자 유형 입력을 요청했다."
+    },
+    {
+      "id": "G12",
+      "arm": "full",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "입력 조건만으로 보증금 환산액·이자 병행 청구 요건을 판정할 수 없습니다.",
+        "citations": [],
+        "follow_up": [
+          "다음 조건을 확인해 주세요: housing_loan_interest, rent_loan_interest"
+        ],
+        "reason": "missing_rule_facts"
+      },
+      "automatic_pass": true,
+      "review": "기본 답은 이자 종류별 일반 규정을 말했지만 질문자의 이자 유형을 모르는 상태에서 확정할 수 없다고 명시하지 않았다. 사실을 날조한 오류와는 구별되는 보류·질문 대응 실패다. 규칙은 이자 유형 입력을 요청했다."
+    },
+    {
+      "id": "G13",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "2026년 4월 22일부터 9월 중에 지급일정이 예정되어 있습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p25:c0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": false,
+      "review": "기본 모델은 개인 입금 날짜·시각 대신 4월22일~9월이라는 범위를 제시했다. 원문의 일반 지급 4~9월과 선발/사업비 관련 4월22일 일정을 혼합한 문제도 있다. NLI의 보류는 의미 이해 성공이 아니라 긴 인용 구간의 검증 불가 때문이었다. 사전 보류 검사는 개인 기록이 없다는 이유를 정확히 설명했다."
+    },
+    {
+      "id": "G13",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": true,
+      "review": "기본 모델은 개인 입금 날짜·시각 대신 4월22일~9월이라는 범위를 제시했다. 원문의 일반 지급 4~9월과 선발/사업비 관련 4월22일 일정을 혼합한 문제도 있다. NLI의 보류는 의미 이해 성공이 아니라 긴 인용 구간의 검증 불가 때문이었다. 사전 보류 검사는 개인 기록이 없다는 이유를 정확히 설명했다."
+    },
+    {
+      "id": "G13",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "일반 모집요강·사업계획만으로 개인의 실제 선발·지급 여부나 입금 날짜·시각을 확인할 수 없습니다.",
+        "citations": [],
+        "follow_up": [
+          "해당 대학의 개인별 처리 내역을 확인해 주세요."
+        ],
+        "reason": "personal_event_not_in_policy"
+      },
+      "automatic_pass": true,
+      "review": "기본 모델은 개인 입금 날짜·시각 대신 4월22일~9월이라는 범위를 제시했다. 원문의 일반 지급 4~9월과 선발/사업비 관련 4월22일 일정을 혼합한 문제도 있다. NLI의 보류는 의미 이해 성공이 아니라 긴 인용 구간의 검증 불가 때문이었다. 사전 보류 검사는 개인 기록이 없다는 이유를 정확히 설명했다."
+    },
+    {
+      "id": "G13",
+      "arm": "full",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "일반 모집요강·사업계획만으로 개인의 실제 선발·지급 여부나 입금 날짜·시각을 확인할 수 없습니다.",
+        "citations": [],
+        "follow_up": [
+          "해당 대학의 개인별 처리 내역을 확인해 주세요."
+        ],
+        "reason": "personal_event_not_in_policy"
+      },
+      "automatic_pass": true,
+      "review": "기본 모델은 개인 입금 날짜·시각 대신 4월22일~9월이라는 범위를 제시했다. 원문의 일반 지급 4~9월과 선발/사업비 관련 4월22일 일정을 혼합한 문제도 있다. NLI의 보류는 의미 이해 성공이 아니라 긴 인용 구간의 검증 불가 때문이었다. 사전 보류 검사는 개인 기록이 없다는 이유를 정확히 설명했다."
+    },
+    {
+      "id": "G14",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "해당 범위의 근거가 없습니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "no_scoped_evidence"
+      },
+      "automatic_pass": true,
+      "review": "모든 조건에서 2027년 근거가 없어 보류했다. 모델을 호출하지 않았다."
+    },
+    {
+      "id": "G14",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "해당 범위의 근거가 없습니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "no_scoped_evidence"
+      },
+      "automatic_pass": true,
+      "review": "모든 조건에서 2027년 근거가 없어 보류했다. 모델을 호출하지 않았다."
+    },
+    {
+      "id": "G14",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "해당 대학·학년도·학기에 적용되는 근거가 없습니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "no_scoped_evidence"
+      },
+      "automatic_pass": true,
+      "review": "모든 조건에서 2027년 근거가 없어 보류했다. 모델을 호출하지 않았다."
+    },
+    {
+      "id": "G14",
+      "arm": "full",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "해당 대학·학년도·학기에 적용되는 근거가 없습니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "no_scoped_evidence"
+      },
+      "automatic_pass": true,
+      "review": "모든 조건에서 2027년 근거가 없어 보류했다. 모델을 호출하지 않았다."
+    },
+    {
+      "id": "G15",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "학생은 재단 홈페이지 또는 모바일을 통해 선발 결과를 확인하고, 소명 사유가 있는 경우 소속 대학에 주거안정장학금 탈락 사유 소명서를 제출해야 합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p21:c0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "기본 답은 소속 대학에 소명서를 제출한다는 규정을 올바르게 설명한다. 전체 결합 조건에서는 긴 인용 구간 때문에 정답을 거절했다."
+    },
+    {
+      "id": "G15",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": false,
+      "review": "기본 답은 소속 대학에 소명서를 제출한다는 규정을 올바르게 설명한다. 전체 결합 조건에서는 긴 인용 구간 때문에 정답을 거절했다."
+    },
+    {
+      "id": "G15",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "학생은 재단 홈페이지 또는 모바일을 통해 선발 결과를 확인하고, 소명 사유가 있는 경우 소속 대학에 주거안정장학금 탈락 사유 소명서를 제출해야 합니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p21:c0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "기본 답은 소속 대학에 소명서를 제출한다는 규정을 올바르게 설명한다. 전체 결합 조건에서는 긴 인용 구간 때문에 정답을 거절했다."
+    },
+    {
+      "id": "G15",
+      "arm": "full",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": false,
+      "review": "기본 답은 소속 대학에 소명서를 제출한다는 규정을 올바르게 설명한다. 전체 결합 조건에서는 긴 인용 구간 때문에 정답을 거절했다."
+    },
+    {
+      "id": "G16",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "국가장학금 수혜 횟수는 주거안정장학금과 별도로 합산하지 않음",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:c0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "타 장학금 횟수를 합산하지 않는다는 기본 답의 핵심은 맞다. 전체 결합 조건은 긴 인용 구간 때문에 정답을 거절했다."
+    },
+    {
+      "id": "G16",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": false,
+      "review": "타 장학금 횟수를 합산하지 않는다는 기본 답의 핵심은 맞다. 전체 결합 조건은 긴 인용 구간 때문에 정답을 거절했다."
+    },
+    {
+      "id": "G16",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "국가장학금 수혜 횟수는 주거안정장학금과 별도로 합산하지 않음",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p11:c0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "타 장학금 횟수를 합산하지 않는다는 기본 답의 핵심은 맞다. 전체 결합 조건은 긴 인용 구간 때문에 정답을 거절했다."
+    },
+    {
+      "id": "G16",
+      "arm": "full",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": false,
+      "review": "타 장학금 횟수를 합산하지 않는다는 기본 답의 핵심은 맞다. 전체 결합 조건은 긴 인용 구간 때문에 정답을 거절했다."
+    },
+    {
+      "id": "G17",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "기숙사 거주를 위해 낸 사용료는 주거비 지원 범위에 포함됩니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:c740"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "기숙사 거주 사용료가 지원 범위에 들어간다는 기본 답은 맞고 NLI도 통과시켰다."
+    },
+    {
+      "id": "G17",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "answer",
+        "answer": "기숙사 거주를 위해 낸 사용료는 주거비 지원 범위에 포함됩니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:c740"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "기숙사 거주 사용료가 지원 범위에 들어간다는 기본 답은 맞고 NLI도 통과시켰다."
+    },
+    {
+      "id": "G17",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "기숙사 거주를 위해 낸 사용료는 주거비 지원 범위에 포함됩니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:c740"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "기숙사 거주 사용료가 지원 범위에 들어간다는 기본 답은 맞고 NLI도 통과시켰다."
+    },
+    {
+      "id": "G17",
+      "arm": "full",
+      "answer": {
+        "status": "answer",
+        "answer": "기숙사 거주를 위해 낸 사용료는 주거비 지원 범위에 포함됩니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:c740"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "기숙사 거주 사용료가 지원 범위에 들어간다는 기본 답은 맞고 NLI도 통과시켰다."
+    },
+    {
+      "id": "G18",
+      "arm": "qwen_shared_evidence",
+      "answer": {
+        "status": "answer",
+        "answer": "국토부 주거급여는 가구단위로 지원되므로, 학생의 중복수혜 지원 제한 대상에 무조건 포함되지 않습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:c0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "기본 답은 가구 단위 국토부 주거급여의 제한 대상 제외 취지를 설명한다. “무조건 포함되지”는 부정 범위가 다소 모호하지만 질문의 무조건 포함 여부에는 부정으로 답했다. 전체 결합 조건은 긴 인용 구간 때문에 거절했다."
+    },
+    {
+      "id": "G18",
+      "arm": "qwen_plus_veto",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": false,
+      "review": "기본 답은 가구 단위 국토부 주거급여의 제한 대상 제외 취지를 설명한다. “무조건 포함되지”는 부정 범위가 다소 모호하지만 질문의 무조건 포함 여부에는 부정으로 답했다. 전체 결합 조건은 긴 인용 구간 때문에 거절했다."
+    },
+    {
+      "id": "G18",
+      "arm": "rules_and_gate",
+      "answer": {
+        "status": "answer",
+        "answer": "국토부 주거급여는 가구단위로 지원되므로, 학생의 중복수혜 지원 제한 대상에 무조건 포함되지 않습니다.",
+        "citations": [
+          "kosaf-2026-housing-plan-faq:p10:c0"
+        ],
+        "follow_up": []
+      },
+      "automatic_pass": true,
+      "review": "기본 답은 가구 단위 국토부 주거급여의 제한 대상 제외 취지를 설명한다. “무조건 포함되지”는 부정 범위가 다소 모호하지만 질문의 무조건 포함 여부에는 부정으로 답했다. 전체 결합 조건은 긴 인용 구간 때문에 거절했다."
+    },
+    {
+      "id": "G18",
+      "arm": "full",
+      "answer": {
+        "status": "cannot_determine",
+        "answer": "생성한 답변을 인용 근거와 충분히 대조하지 못해 답변을 보류합니다.",
+        "citations": [],
+        "follow_up": [
+          "적용 조건이나 공식 확인 자료를 보완해 주세요."
+        ],
+        "reason": "claim_not_verified"
+      },
+      "automatic_pass": false,
+      "review": "기본 답은 가구 단위 국토부 주거급여의 제한 대상 제외 취지를 설명한다. “무조건 포함되지”는 부정 범위가 다소 모호하지만 질문의 무조건 포함 여부에는 부정으로 답했다. 전체 결합 조건은 긴 인용 구간 때문에 거절했다."
+    }
+  ]
+}

@@ -47,6 +47,8 @@ def solve_rule(rule, facts):
             if type(value) is not expected:raise ValueError('Wrong fact type: '+name)
             if expected is int and not spec['min']<=value<=spec['max']:raise ValueError('Fact out of range: '+name)
             solver.add(variables[name]==value)
+    for constraint in rule.get('constraints',[]):
+        solver.add(compile_ast(constraint,variables))
     if solver.check()!=z3.sat:return dict(decision='unknown',reason='inconsistent_or_unresolved_facts')
     expression=compile_ast(rule['expression'],variables)
     solver.push();solver.add(z3.Not(expression));negative=solver.check();solver.pop()
