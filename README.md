@@ -19,6 +19,7 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 - [검토용 시험셋 CSV](data/evaluation/holdout_v1.csv)
 - [계층형 검색·Qwen 의미 검색·예시·출력 개선 구현](docs/rag_v2.md)
 - [새 16문항·64회 비교 결과와 실패 분석](reports/rag_v2_report.md)
+- [설정 조정·도구 결합·입력 전처리 조사와 검색 사후 진단](docs/preprocessing_research.md)
 
 ## 2026-11-02 현재 상태
 
