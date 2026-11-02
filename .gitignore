@@ -1,0 +1,11 @@
+models/
+data/raw/
+data/extracted/
+data/private/
+outputs/
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+!.env.example
