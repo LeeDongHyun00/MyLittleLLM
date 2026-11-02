@@ -1,0 +1,80 @@
+{
+  "checked_at": "2026-11-02T16:37:40.017372+00:00",
+  "purpose": "Scripted CLI integration checks, not independent human evaluation",
+  "cases": [
+    {
+      "id": "count_five",
+      "command": [
+        ".venv/bin/python",
+        "chat.py",
+        "--pipeline",
+        "grounded",
+        "--year",
+        "2026",
+        "--task",
+        "admissions",
+        "--institution",
+        "부산대학교",
+        "--guided-rule",
+        "admissions_susi_application_limit",
+        "--question",
+        "수시 추가 한 번 지원의 횟수 요건을 판정해 주세요."
+      ],
+      "scripted_input": "예\n5\n",
+      "transcript": "확인된 조건만 입력해 주세요. 모르면 모름, 중단하려면 /quit을 입력하세요.\n이번 지원이 수시 6회 제한에 포함되는 전형인가요? 산업·전문대 및 요강에 열거된 제외 특별전형 여부를 먼저 확인하세요. [예/아니요/모름] > 이번 지원 직전까지 6회 제한에 산입되는 수시 원서접수는 총 몇 회인가요? 같은 대학의 여러 전형도 각각 셉니다. [0~50 정수/모름] > {\n  \"status\": \"answer\",\n  \"answer\": \"수시 추가 1회 지원의 횟수 요건을 충족합니다. 6회 제한에 포함되는 전형의 추가 1회 지원 횟수만 판정했습니다. 제외 전형의 분류와 기존 접수 횟수는 확인한 값을 입력해야 합니다. 대학 내 복수지원 조합, 전형별 자격, 최종 합격은 별도입니다.\",\n  \"citations\": [\n    \"pusan-2026-susi:p27:block0\"\n  ],\n  \"follow_up\": [],\n  \"reason\": \"reviewed_rule\",\n  \"decision\": \"true\",\n  \"pipeline\": \"grounded\",\n  \"llm_called\": false,\n  \"elapsed_seconds\": 0.1189,\n  \"proof\": {\n    \"decision\": \"true\",\n    \"reason\": \"symbolic_entailment\",\n    \"missing\": [],\n    \"facts_used\": {\n      \"counted_application\": true,\n      \"counted_applications\": 5\n    },\n    \"questions\": [],\n    \"rule_id\": \"admissions_susi_application_limit\",\n    \"label\": \"수시 추가 1회 지원의 횟수 요건\",\n    \"sources\": [\n      \"pusan-2026-susi:p27:block0\"\n    ],\n    \"explanation\": \"6회 제한에 포함되는 전형의 추가 1회 지원 횟수만 판정했습니다. 제외 전형의 분류와 기존 접수 횟수는 확인한 값을 입력해야 합니다. 대학 내 복수지원 조합, 전형별 자격, 최종 합격은 별도입니다.\",\n    \"review_status\": \"assistant_source_checked_not_independent_expert_review\"\n  },\n  \"verification\": {\n    \"applied\": false,\n    \"reason\": \"source_bound_deterministic_output\"\n  },\n  \"generation\": null,\n  \"sources\": [\n    {\n      \"chunk_id\": \"pusan-2026-susi:p27:block0\",\n      \"source_id\": \"pusan-2026-susi\",\n      \"pdf_page\": 27,\n      \"sha256\": \"a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3\",\n      \"url\": \"https://go.pusan.ac.kr/college_2016/pages/index.asp?b=B_1_1&bn=48469&f=ALL&m=read&nPage=1&p=50\"\n    }\n  ]\n}\n",
+      "status": "answer",
+      "decision": "true",
+      "llm_called": false
+    },
+    {
+      "id": "count_unknown",
+      "command": [
+        ".venv/bin/python",
+        "chat.py",
+        "--pipeline",
+        "grounded",
+        "--year",
+        "2026",
+        "--task",
+        "admissions",
+        "--institution",
+        "부산대학교",
+        "--guided-rule",
+        "admissions_susi_application_limit",
+        "--question",
+        "수시 추가 한 번 지원의 횟수 요건을 판정해 주세요."
+      ],
+      "scripted_input": "예\n모름\n",
+      "transcript": "확인된 조건만 입력해 주세요. 모르면 모름, 중단하려면 /quit을 입력하세요.\n이번 지원이 수시 6회 제한에 포함되는 전형인가요? 산업·전문대 및 요강에 열거된 제외 특별전형 여부를 먼저 확인하세요. [예/아니요/모름] > 이번 지원 직전까지 6회 제한에 산입되는 수시 원서접수는 총 몇 회인가요? 같은 대학의 여러 전형도 각각 셉니다. [0~50 정수/모름] > {\n  \"status\": \"cannot_determine\",\n  \"answer\": \"입력 조건만으로 수시 추가 1회 지원의 횟수 요건을 판정할 수 없습니다.\",\n  \"citations\": [],\n  \"follow_up\": [\n    \"이번 지원 직전까지 6회 제한에 산입되는 수시 원서접수는 총 몇 회인가요? 같은 대학의 여러 전형도 각각 셉니다.\"\n  ],\n  \"reason\": \"missing_rule_facts\",\n  \"questions\": [\n    {\n      \"field\": \"counted_applications\",\n      \"prompt\": \"이번 지원 직전까지 6회 제한에 산입되는 수시 원서접수는 총 몇 회인가요? 같은 대학의 여러 전형도 각각 셉니다.\",\n      \"type\": \"int\",\n      \"min\": 0,\n      \"max\": 50\n    }\n  ],\n  \"pipeline\": \"grounded\",\n  \"llm_called\": false,\n  \"elapsed_seconds\": 0.0743,\n  \"proof\": {\n    \"decision\": \"unknown\",\n    \"reason\": \"missing_facts\",\n    \"missing\": [\n      \"counted_applications\"\n    ],\n    \"facts_used\": {\n      \"counted_application\": true\n    },\n    \"questions\": [\n      {\n        \"field\": \"counted_applications\",\n        \"prompt\": \"이번 지원 직전까지 6회 제한에 산입되는 수시 원서접수는 총 몇 회인가요? 같은 대학의 여러 전형도 각각 셉니다.\",\n        \"type\": \"int\",\n        \"min\": 0,\n        \"max\": 50\n      }\n    ],\n    \"rule_id\": \"admissions_susi_application_limit\",\n    \"label\": \"수시 추가 1회 지원의 횟수 요건\",\n    \"sources\": [\n      \"pusan-2026-susi:p27:block0\"\n    ],\n    \"explanation\": \"6회 제한에 포함되는 전형의 추가 1회 지원 횟수만 판정했습니다. 제외 전형의 분류와 기존 접수 횟수는 확인한 값을 입력해야 합니다. 대학 내 복수지원 조합, 전형별 자격, 최종 합격은 별도입니다.\",\n    \"review_status\": \"assistant_source_checked_not_independent_expert_review\"\n  },\n  \"verification\": {\n    \"applied\": false,\n    \"reason\": \"source_bound_deterministic_output\"\n  },\n  \"generation\": null,\n  \"sources\": []\n}\n",
+      "status": "cannot_determine",
+      "decision": null,
+      "llm_called": false
+    },
+    {
+      "id": "first_semester",
+      "command": [
+        ".venv/bin/python",
+        "chat.py",
+        "--pipeline",
+        "grounded",
+        "--year",
+        "2026",
+        "--task",
+        "housing",
+        "--institution",
+        "한국장학재단",
+        "--guided-rule",
+        "housing_academic",
+        "--question",
+        "성적·이수학점 요건만 확인해 주세요.",
+        "--semester",
+        "1"
+      ],
+      "scripted_input": "예\n예\n",
+      "transcript": "확인된 조건만 입력해 주세요. 모르면 모름, 중단하려면 /quit을 입력하세요.\n대학에서 확인한 성적 제도가 일반 학기제인가요? 학년제는 현재 판정 범위 밖입니다. [예/아니요/모름] > 신입·편입·재입학한 첫 학기로 성적·이수학점 심사 면제 대상인가요? [예/아니요/모름] > {\n  \"status\": \"answer\",\n  \"answer\": \"성적·이수학점 요건을 충족합니다. 성적·이수학점만 판정한 결과입니다. 일반 학점 기준을 적용하는 경우 학교가 확인한 최소 학점이 필요하며, 다른 선발 조건과 실제 지급은 별도입니다.\",\n  \"citations\": [\n    \"kosaf-2026-housing-plan-faq:p9:block0\",\n    \"kosaf-2026-housing-plan-faq:p9:block1\"\n  ],\n  \"follow_up\": [],\n  \"reason\": \"reviewed_rule\",\n  \"decision\": \"true\",\n  \"pipeline\": \"grounded\",\n  \"llm_called\": false,\n  \"elapsed_seconds\": 0.0126,\n  \"proof\": {\n    \"decision\": \"true\",\n    \"reason\": \"symbolic_entailment\",\n    \"missing\": [],\n    \"facts_used\": {\n      \"ordinary_semester_system\": true,\n      \"first_semester_exempt\": true\n    },\n    \"questions\": [],\n    \"rule_id\": \"housing_academic\",\n    \"label\": \"성적·이수학점 요건\",\n    \"sources\": [\n      \"kosaf-2026-housing-plan-faq:p9:block0\",\n      \"kosaf-2026-housing-plan-faq:p9:block1\"\n    ],\n    \"explanation\": \"성적·이수학점만 판정한 결과입니다. 일반 학점 기준을 적용하는 경우 학교가 확인한 최소 학점이 필요하며, 다른 선발 조건과 실제 지급은 별도입니다.\",\n    \"review_status\": \"assistant_source_checked_not_independent_expert_review\"\n  },\n  \"verification\": {\n    \"applied\": false,\n    \"reason\": \"source_bound_deterministic_output\"\n  },\n  \"generation\": null,\n  \"sources\": [\n    {\n      \"chunk_id\": \"kosaf-2026-housing-plan-faq:p9:block0\",\n      \"source_id\": \"kosaf-2026-housing-plan-faq\",\n      \"pdf_page\": 9,\n      \"sha256\": \"8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c\",\n      \"url\": \"https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560\"\n    },\n    {\n      \"chunk_id\": \"kosaf-2026-housing-plan-faq:p9:block1\",\n      \"source_id\": \"kosaf-2026-housing-plan-faq\",\n      \"pdf_page\": 9,\n      \"sha256\": \"8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c\",\n      \"url\": \"https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560\"\n    }\n  ]\n}\n",
+      "status": "answer",
+      "decision": "true",
+      "llm_called": false
+    }
+  ]
+}

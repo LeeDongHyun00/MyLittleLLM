@@ -1,0 +1,182 @@
+[
+  {
+    "id": "V01",
+    "route": "reviewed_rule",
+    "planning_seconds": 0.11282,
+    "request_sha256": "b2df2b5a2d5104e9cb5098c6cab4edabc8f1878af4cbf08700e8be44e9017009",
+    "sources": [
+      {
+        "chunk_id": "pusan-2026-susi:p27:block0",
+        "source_id": "pusan-2026-susi",
+        "pdf_page": 27,
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+      }
+    ]
+  },
+  {
+    "id": "V02",
+    "route": "reviewed_rule",
+    "planning_seconds": 0.06926,
+    "request_sha256": "e4debcddaf754af10efa89c65301ef7a08e00215c38928e76bc0d2d0b9f12aa2",
+    "sources": [
+      {
+        "chunk_id": "pusan-2026-susi:p27:block0",
+        "source_id": "pusan-2026-susi",
+        "pdf_page": 27,
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+      }
+    ]
+  },
+  {
+    "id": "V03",
+    "route": "missing_rule_facts",
+    "planning_seconds": 0.0782,
+    "request_sha256": "b87cb72c189e47b22c1d1dffb98e4da78b118393571f3ae7e4b0649f979bc084",
+    "sources": [
+      {
+        "chunk_id": "pusan-2026-susi:p27:block0",
+        "source_id": "pusan-2026-susi",
+        "pdf_page": 27,
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+      }
+    ]
+  },
+  {
+    "id": "V04",
+    "route": "reviewed_rule",
+    "planning_seconds": 0.0669,
+    "request_sha256": "cecd653ddd78ff2d47ba05067a7657fa651aa607fbe61befbbd91dff73fbe0da",
+    "sources": [
+      {
+        "chunk_id": "pusan-2026-susi:p54:block1",
+        "source_id": "pusan-2026-susi",
+        "pdf_page": 54,
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+      }
+    ]
+  },
+  {
+    "id": "V05",
+    "route": "reviewed_rule",
+    "planning_seconds": 0.06765,
+    "request_sha256": "8656090c342c2333a813804b898f568ba5d51822792f7643921d01a833d99e3f",
+    "sources": [
+      {
+        "chunk_id": "pusan-2026-susi:p54:block1",
+        "source_id": "pusan-2026-susi",
+        "pdf_page": 54,
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+      }
+    ]
+  },
+  {
+    "id": "V06",
+    "route": "missing_rule_facts",
+    "planning_seconds": 0.06763,
+    "request_sha256": "825752318da0e33aef07949ae7085dd2b71d8f6f8542d5dece301ead67736e32",
+    "sources": [
+      {
+        "chunk_id": "pusan-2026-susi:p54:block1",
+        "source_id": "pusan-2026-susi",
+        "pdf_page": 54,
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+      }
+    ]
+  },
+  {
+    "id": "V07",
+    "route": "reviewed_rule",
+    "planning_seconds": 0.07149,
+    "request_sha256": "5cfbd8bd568790a1bf2f4c5ccbbd1cdc8fcd7a0fcd6cb0959898ab21d53450c8",
+    "sources": [
+      {
+        "chunk_id": "pusan-2026-susi:p54:block1",
+        "source_id": "pusan-2026-susi",
+        "pdf_page": 54,
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+      }
+    ]
+  },
+  {
+    "id": "V08",
+    "route": "reviewed_rule",
+    "planning_seconds": 0.07145,
+    "request_sha256": "4b70a6c11df5c5ffe326271a2c59d6b1d8c52449030362f7fb1e2fc6b8c6f5e3",
+    "sources": [
+      {
+        "chunk_id": "pusan-2026-susi:p54:block1",
+        "source_id": "pusan-2026-susi",
+        "pdf_page": 54,
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+      }
+    ]
+  },
+  {
+    "id": "V09",
+    "route": "missing_rule_facts",
+    "planning_seconds": 0.067,
+    "request_sha256": "5dece34d428a7a7353228472ab81bfeed0ca85e27823c0fb91ec6e92b49e1252",
+    "sources": [
+      {
+        "chunk_id": "pusan-2026-susi:p54:block1",
+        "source_id": "pusan-2026-susi",
+        "pdf_page": 54,
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+      }
+    ]
+  },
+  {
+    "id": "V10",
+    "route": "reviewed_rule",
+    "planning_seconds": 0.06978,
+    "request_sha256": "c4511822bd8824469a7ea6d99adc7edc2284d9fd71f36cdd644e88ec7c073f0c",
+    "sources": [
+      {
+        "chunk_id": "pusan-2026-susi:p54:block1",
+        "source_id": "pusan-2026-susi",
+        "pdf_page": 54,
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3"
+      }
+    ]
+  },
+  {
+    "id": "V11",
+    "route": "personal_event_not_in_policy",
+    "planning_seconds": 0.00939,
+    "request_sha256": "acbcd64ee6622ffe1475e0e8dd63bb2e96b806cbdf4d2f56e4fe2416c4407bbe",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p23:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 23,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p14:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 14,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  },
+  {
+    "id": "V12",
+    "route": "qwen_generation",
+    "planning_seconds": 0.00895,
+    "request_sha256": "988d38642b308a882b6ad1745026b3298b022b26f176bc4aab828d8dbdb43340",
+    "sources": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p23:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 23,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p3:c0",
+        "source_id": "kosaf-2026-housing-plan-faq",
+        "pdf_page": 3,
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c"
+      }
+    ]
+  }
+]

@@ -1,0 +1,505 @@
+{
+  "reviewed_at": "2026-11-02T16:50:16.880936+00:00",
+  "reviewer": "assistant_not_independent_expert",
+  "raw_drafts_reviewed": 12,
+  "compared_decisions_reviewed": 24,
+  "automatic_scores_changed": false,
+  "frozen_requests_or_generation_changed": false,
+  "report_paragraphs": [
+    "규칙 확대는 6회 접수 후 추가 1회(V02), 관련 교과 인정 관계 미확인(V09), 마이스터고 제외를 포함한 학교·교과 결합 요건(V10)을 처리했다. V10의 기본 답변은 교과만 언급했으므로, 학교유형 제외를 반영하지 않은 응답으로 구분한다.",
+    "",
+    "기존 접수 횟수 미확인(V03)과 한부모가족지원법 대상 여부 미확인(V06)에서 Qwen은 일반 규정 자체는 맞게 설명했지만 명시적으로 보류하지 않았다. 실제 자격이 있다고 날조한 사례와 같은 의미로 세지 않는다. 개인 입금 질문(V11)에서는 9월 결과보고 의무를 이미 보고되었다는 사건으로 바꾼 오류도 있었다.",
+    "",
+    "자유 질문 V12는 두 경로 모두 실패했다. BM25가 제공한 PDF 23·3쪽 구간에 월 20만원 상한 조항이 없었고, Qwen은 예시 문구와 특수 토큰 모양 문자열을 반복하다 384토큰에서 잘렸다. 1,315 입력 토큰으로 문맥 한도 초과는 아니었다. 형식 검사가 출력 사용을 차단했지만 질문 해결에는 실패했다. 원문 상한 조항은 PDF 10쪽에 있으며 검수 양식에는 이 참고 쪽을 추가했다. 모델 요청·검색 결과·점수는 그대로 보존했다.",
+    "",
+    "기본 모델의 자동 통과 5건 중 V04·V07은 조건을 충족하면 인정된다는 일반 조건문으로 입력 적용 설명이 약했다. 정규식 통과가 완전한 의미 정답을 뜻하지 않는 예다. 반대로 규칙 답변도 거짓 결론의 원인을 학점·학교유형별로 세분화해 설명하는 기능은 아직 제한적이다.",
+    "",
+    "11/12를 운영 정확도 91.7%로 일반화하지 않는다. 현재 우선 보완 대상은 자유 질문의 핵심 근거 검색과 생성 실패 처리이며, 새로운 독립 검수 사례로 효과를 확인해야 한다. 신경망 검증이나 출력 예산 확대만으로 이 실패가 해결된다고 결론내리지 않는다."
+  ],
+  "cases": [
+    {
+      "id": "V01",
+      "question": "6회 제한에 포함되는 수시 전형으로 이미 다섯 번 접수했습니다. 이번 지원도 제한에 포함됩니다. 추가 한 번의 지원 횟수 요건만 충족하나요?",
+      "proposed_gold": "이번 지원은 여섯 번째이므로 횟수 요건만 충족한다.",
+      "raw_qwen": "{\"status\":\"answer\",\"answer\":\"6회 제한에 포함되는 수시 전형으로 이미 5회 접수했으므로, 추가 1회만 접수해도 제한에 포함된 전형의 지원 횟수는 6회로 충족합니다.\",\"citations\":[\"pusan-2026-susi:p27:block0\"],\"follow_up\":[]}",
+      "review": {
+        "qwen": "correct_partial_decision",
+        "expanded": "correct_partial_decision",
+        "note": "5회 접수 후 추가 1회는 6회 제한 안이라는 결론과 조항 인용이 맞다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "answer",
+            "answer": "6회 제한에 포함되는 수시 전형으로 이미 5회 접수했으므로, 추가 1회만 접수해도 제한에 포함된 전형의 지원 횟수는 6회로 충족합니다.",
+            "citations": [
+              "pusan-2026-susi:p27:block0"
+            ],
+            "follow_up": []
+          },
+          "automatic_pass": true
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "answer",
+            "answer": "수시 추가 1회 지원의 횟수 요건을 충족합니다. 6회 제한에 포함되는 전형의 추가 1회 지원 횟수만 판정했습니다. 제외 전형의 분류와 기존 접수 횟수는 확인한 값을 입력해야 합니다. 대학 내 복수지원 조합, 전형별 자격, 최종 합격은 별도입니다.",
+            "citations": [
+              "pusan-2026-susi:p27:block0"
+            ],
+            "follow_up": [],
+            "reason": "reviewed_rule",
+            "decision": "true"
+          },
+          "automatic_pass": true
+        }
+      ]
+    },
+    {
+      "id": "V02",
+      "question": "같은 대학 여러 전형을 포함해 6회 제한 대상 수시 원서를 여섯 번 접수했습니다. 이번도 제한 대상 전형입니다. 추가 한 번의 지원 횟수 요건을 충족하나요?",
+      "proposed_gold": "추가 지원은 일곱 번째여서 횟수 한도를 초과한다.",
+      "raw_qwen": "{\"status\":\"answer\",\"answer\":\"추가 한 번의 지원 횟수는 충족합니다.\",\"citations\":[\"pusan-2026-susi:p27:block0\"],\"follow_up\":[]}",
+      "review": {
+        "qwen": "incorrect_seventh_application_decision",
+        "expanded": "correct_partial_decision",
+        "note": "이미 산입 6회인 상황에서 Qwen은 추가 한 번의 횟수 요건이 충족된다고 답했다. 개선 경로는 추가 1회가 한도 밖임을 판정한다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "answer",
+            "answer": "추가 한 번의 지원 횟수는 충족합니다.",
+            "citations": [
+              "pusan-2026-susi:p27:block0"
+            ],
+            "follow_up": []
+          },
+          "automatic_pass": false
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "answer",
+            "answer": "수시 추가 1회 지원의 횟수 요건을 충족하지 않습니다. 6회 제한에 포함되는 전형의 추가 1회 지원 횟수만 판정했습니다. 제외 전형의 분류와 기존 접수 횟수는 확인한 값을 입력해야 합니다. 대학 내 복수지원 조합, 전형별 자격, 최종 합격은 별도입니다.",
+            "citations": [
+              "pusan-2026-susi:p27:block0"
+            ],
+            "follow_up": [],
+            "reason": "reviewed_rule",
+            "decision": "false"
+          },
+          "automatic_pass": true
+        }
+      ]
+    },
+    {
+      "id": "V03",
+      "question": "이번 지원은 6회 제한에 포함되는 수시 전형이지만, 이미 접수한 총횟수를 아직 모릅니다. 추가 지원 횟수 요건을 확정해 주세요.",
+      "proposed_gold": "기존 산입 횟수를 확인해야 한다.",
+      "raw_qwen": "{\"status\":\"answer\",\"answer\":\"2026학년도 부산대학교 수시전형에서 최대 6회까지 지원 가능합니다.\",\"citations\":[\"pusan-2026-susi:p27:block0\"],\"follow_up\":[]}",
+      "review": {
+        "qwen": "correct_general_rule_but_missing_abstention",
+        "expanded": "appropriate_targeted_question",
+        "note": "Qwen은 최대 6회 규정 자체는 맞게 설명했지만 현재 접수 횟수가 미확인이라는 이유로 결론을 보류하지 않았다. 개인별 추가 지원이 가능하다고 직접 확정한 답변과는 구별한다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "answer",
+            "answer": "2026학년도 부산대학교 수시전형에서 최대 6회까지 지원 가능합니다.",
+            "citations": [
+              "pusan-2026-susi:p27:block0"
+            ],
+            "follow_up": []
+          },
+          "automatic_pass": false
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "cannot_determine",
+            "answer": "입력 조건만으로 수시 추가 1회 지원의 횟수 요건을 판정할 수 없습니다.",
+            "citations": [],
+            "follow_up": [
+              "이번 지원 직전까지 6회 제한에 산입되는 수시 원서접수는 총 몇 회인가요? 같은 대학의 여러 전형도 각각 셉니다."
+            ],
+            "reason": "missing_rule_facts",
+            "questions": [
+              {
+                "field": "counted_applications",
+                "prompt": "이번 지원 직전까지 6회 제한에 산입되는 수시 원서접수는 총 몇 회인가요? 같은 대학의 여러 전형도 각각 셉니다.",
+                "type": "int",
+                "min": 0,
+                "max": 50
+              }
+            ]
+          },
+          "automatic_pass": true
+        }
+      ]
+    },
+    {
+      "id": "V04",
+      "question": "학생부종합 저소득층학생전형입니다. 법령상 동등 학력을 인정받았고 법정 차상위계층입니다. 수급자는 아닙니다. 학력·법정 대상자 요건만 충족하나요?",
+      "proposed_gold": "인정된 동등 학력과 법정 차상위계층 자격으로 해당 두 요건을 충족한다.",
+      "raw_qwen": "{\"status\":\"answer\",\"answer\":\"학력·법정 대상자 요건만 충족하면 전형에 해당합니다.\",\"citations\":[\"pusan-2026-susi:p54:block1\"],\"follow_up\":[]}",
+      "review": {
+        "qwen": "automatic_pass_but_underspecified_scope",
+        "expanded": "correct_partial_decision",
+        "note": "Qwen의 문장은 주어진 차상위·학력 조건을 직접 적용해 설명하기보다 요건을 충족하면 전형에 해당한다는 조건문이다. 자동 패턴은 통과하지만 다른 전형 요건과의 구분이 약하다. 개선 경로는 해당 두 요건만 충족하고 증빙·수능최저 등은 별도라고 제한한다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "answer",
+            "answer": "학력·법정 대상자 요건만 충족하면 전형에 해당합니다.",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": []
+          },
+          "automatic_pass": true
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "answer",
+            "answer": "저소득층학생전형의 학력·법정 대상자 요건을 충족합니다. 학생부종합 저소득층학생전형의 학력과 법정 대상자 조건만 판정했습니다. 소득 금액이나 가족 형태로 법정 자격을 추정하지 않습니다. 증빙, 모집단위별 수능최저 등 나머지 요건과 최종 합격은 별도입니다.",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": [],
+            "reason": "reviewed_rule",
+            "decision": "true"
+          },
+          "automatic_pass": true
+        }
+      ]
+    },
+    {
+      "id": "V05",
+      "question": "학생부종합 저소득층학생전형을 확인합니다. 정규 고교 졸업자지만 법정 수급권자·수급자, 차상위계층, 한부모가족지원법 지원대상자 모두 아닙니다. 해당 자격 요건을 충족하나요?",
+      "proposed_gold": "세 법정 대상자 범주 모두 아니므로 해당 자격 요건을 충족하지 못한다.",
+      "raw_qwen": "{\"status\":\"answer\",\"answer\":\"학생부종합 저소득층학생전형의 자격요건을 충족하지 않습니다.\",\"citations\":[\"pusan-2026-susi:p54:block1\"],\"follow_up\":[]}",
+      "review": {
+        "qwen": "correct_partial_decision",
+        "expanded": "correct_partial_decision",
+        "note": "세 법정 대상자 범주가 모두 false인 조건에서 두 경로 모두 불충족을 답했다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "answer",
+            "answer": "학생부종합 저소득층학생전형의 자격요건을 충족하지 않습니다.",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": []
+          },
+          "automatic_pass": true
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "answer",
+            "answer": "저소득층학생전형의 학력·법정 대상자 요건을 충족하지 않습니다. 학생부종합 저소득층학생전형의 학력과 법정 대상자 조건만 판정했습니다. 소득 금액이나 가족 형태로 법정 자격을 추정하지 않습니다. 증빙, 모집단위별 수능최저 등 나머지 요건과 최종 합격은 별도입니다.",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": [],
+            "reason": "reviewed_rule",
+            "decision": "false"
+          },
+          "automatic_pass": true
+        }
+      ]
+    },
+    {
+      "id": "V06",
+      "question": "학생부종합 저소득층학생전형입니다. 고교 졸업자이고 법정 수급·차상위 대상은 아닙니다. 한부모 가구이지만 한부모가족지원법의 지원대상자인지는 모릅니다. 자격 요건을 확정해 주세요.",
+      "proposed_gold": "가족 형태로 법정 자격을 추정하지 말고 한부모가족지원법 지원대상 여부를 확인해야 한다.",
+      "raw_qwen": "{\"status\":\"answer\",\"answer\":\"학생부종합 저소득층학생전형의 자격 요건은 '국민기초생활보장법' 제2조 제1호(수급권자), 제2호(수급자), 제10호(차상위계층)에 의한 대상자 또는 '한부모가족지원법' 제5조 및 제5조의2에 따른 지원대상자 중 하나에 해당하는 자입니다.\",\"citations\":[\"pusan-2026-susi:p54:block1\"],\"follow_up\":[]}",
+      "review": {
+        "qwen": "correct_general_rule_but_missing_abstention",
+        "expanded": "appropriate_targeted_question",
+        "note": "Qwen은 법정 대상자 범주를 정확히 설명했으나 한부모가족지원법 대상 여부 미확인을 밝히거나 보류하지 않았다. 실제 자격이 있다고 날조한 사례와 구별한다. 개선 경로는 해당 법정 지위만 묻는다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "answer",
+            "answer": "학생부종합 저소득층학생전형의 자격 요건은 '국민기초생활보장법' 제2조 제1호(수급권자), 제2호(수급자), 제10호(차상위계층)에 의한 대상자 또는 '한부모가족지원법' 제5조 및 제5조의2에 따른 지원대상자 중 하나에 해당하는 자입니다.",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": []
+          },
+          "automatic_pass": false
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "cannot_determine",
+            "answer": "입력 조건만으로 저소득층학생전형의 학력·법정 대상자 요건을 판정할 수 없습니다.",
+            "citations": [],
+            "follow_up": [
+              "한부모가족지원법 제5조 또는 제5조의2에 따른 지원대상자인가요? 한부모 가구라는 사실만으로는 확인되지 않습니다."
+            ],
+            "reason": "missing_rule_facts",
+            "questions": [
+              {
+                "field": "single_parent_support_eligible",
+                "prompt": "한부모가족지원법 제5조 또는 제5조의2에 따른 지원대상자인가요? 한부모 가구라는 사실만으로는 확인되지 않습니다.",
+                "type": "bool"
+              }
+            ]
+          },
+          "automatic_pass": true
+        }
+      ]
+    },
+    {
+      "id": "V07",
+      "question": "특성화고교졸업자전형의 모집단위별 전문교과 대응을 최신 공지로 확인했습니다. 인정되는 학교 졸업자이고 마이스터·체험형 대안 특성화고는 아닙니다. 동일계열 기준학과는 미이수지만 관련 전문교과 30단위를 이수했습니다. 학교유형·교과 요건만 충족하나요?",
+      "proposed_gold": "확인된 비동일계열 관련 전문교과 30단위는 기준 이상이므로 해당 요건을 충족한다.",
+      "raw_qwen": "{\"status\":\"answer\",\"answer\":\"학교유형·교과 요건만 충족하면 인정됩니다.\",\"citations\":[\"pusan-2026-susi:p54:block1\"],\"follow_up\":[]}",
+      "review": {
+        "qwen": "automatic_pass_but_conditional_non_specific_answer",
+        "expanded": "correct_partial_decision",
+        "note": "Qwen은 학교유형·교과 요건만 충족하면 인정된다는 조건문을 답했다. 자동 패턴은 통과하지만 입력한 30단위와 제외 학교 조건을 실제로 적용했다는 설명이 부족하다. 개선 경로는 입력 조건으로 해당 부분 요건을 판정하고 나머지 요건은 별도라고 명시한다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "answer",
+            "answer": "학교유형·교과 요건만 충족하면 인정됩니다.",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": []
+          },
+          "automatic_pass": true
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "answer",
+            "answer": "특성화고교졸업자전형의 학교유형·전문교과 요건을 충족합니다. 학교유형과 동일계열 또는 관련 전문교과 조건만 판정했습니다. 관련 교과·기준학과의 인정은 최신 공지 확인과 지원자격 심의가 필요하며 전체 지원자격이나 합격을 보장하지 않습니다.",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": [],
+            "reason": "reviewed_rule",
+            "decision": "true"
+          },
+          "automatic_pass": true
+        }
+      ]
+    },
+    {
+      "id": "V08",
+      "question": "특성화고교졸업자전형의 모집단위별 전문교과 대응을 최신 공지로 확인했습니다. 인정되는 학교 졸업자이며 제외 학교는 아닙니다. 동일계열 기준학과 미이수이고 관련 전문교과는 29단위입니다. 교과 요건을 충족하나요?",
+      "proposed_gold": "관련 전문교과가 30단위 미만이라 해당 요건을 충족하지 못한다.",
+      "raw_qwen": "{\"status\":\"answer\",\"answer\":\"전형 요건을 충족하지 못했습니다.\",\"citations\":[\"pusan-2026-susi:p54:block1\"],\"follow_up\":[]}",
+      "review": {
+        "qwen": "correct_negative_decision",
+        "expanded": "correct_partial_decision",
+        "note": "동일계열 미이수·관련 전문교과 29단위에서 두 경로 모두 불충족을 답했다. Qwen은 어느 수치가 기준에 미달하는지 설명하지 않아 설명의 구체성은 낮다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "answer",
+            "answer": "전형 요건을 충족하지 못했습니다.",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": []
+          },
+          "automatic_pass": true
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "answer",
+            "answer": "특성화고교졸업자전형의 학교유형·전문교과 요건을 충족하지 않습니다. 학교유형과 동일계열 또는 관련 전문교과 조건만 판정했습니다. 관련 교과·기준학과의 인정은 최신 공지 확인과 지원자격 심의가 필요하며 전체 지원자격이나 합격을 보장하지 않습니다.",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": [],
+            "reason": "reviewed_rule",
+            "decision": "false"
+          },
+          "automatic_pass": true
+        }
+      ]
+    },
+    {
+      "id": "V09",
+      "question": "특성화고교졸업자전형에서 인정되는 학교 졸업자이고 제외 학교는 아닙니다. 동일계열 기준학과 미이수이고 전문교과 35단위를 이수했지만 해당 모집단위의 관련 전문교과로 인정되는지 확인하지 못했습니다. 교과 요건을 확정해 주세요.",
+      "proposed_gold": "모집단위와 교과의 인정 관계를 최신 공지 또는 입학처에서 확인해야 한다.",
+      "raw_qwen": "{\"status\":\"answer\",\"answer\":\"전형 계열 기준학과 미이수지만, 관련 전문교과 35단위 이수로 교과 요건은 충족됨\",\"citations\":[\"pusan-2026-susi:p54:block1\"],\"follow_up\":[]}",
+      "review": {
+        "qwen": "incorrect_assumption_about_related_subject_recognition",
+        "expanded": "appropriate_scope_confirmation",
+        "note": "모집단위의 관련 전문교과 인정 관계가 미확인인데 Qwen은 35단위가 관련 교과라고 가정하여 충족을 답했다. 개선 경로는 최신 공지·입학처의 대응 확인부터 요청한다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "answer",
+            "answer": "전형 계열 기준학과 미이수지만, 관련 전문교과 35단위 이수로 교과 요건은 충족됨",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": []
+          },
+          "automatic_pass": false
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "cannot_determine",
+            "answer": "입력 조건만으로 특성화고교졸업자전형의 학교유형·전문교과 요건을 판정할 수 없습니다.",
+            "citations": [],
+            "follow_up": [
+              "지원 모집단위와 고교 기준학과·관련 전문교과의 대응을 최신 부산대 공지 또는 입학처에서 확인했나요?"
+            ],
+            "reason": "missing_rule_facts",
+            "questions": [
+              {
+                "field": "department_mapping_confirmed",
+                "prompt": "지원 모집단위와 고교 기준학과·관련 전문교과의 대응을 최신 부산대 공지 또는 입학처에서 확인했나요?",
+                "type": "bool"
+              }
+            ]
+          },
+          "automatic_pass": true
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "question": "특성화고교졸업자전형의 교과 대응을 확인했고 관련 전문교과 50단위를 이수했습니다. 마이스터고 졸업자이며 체험형 대안학교는 아닙니다. 학교유형·교과 요건을 충족하나요?",
+      "proposed_gold": "관련 교과를 많이 이수해도 마이스터고는 제외 학교이다.",
+      "raw_qwen": "{\"status\":\"answer\",\"answer\":\"교과 요건을 충족했습니다.\",\"citations\":[\"pusan-2026-susi:p54:block1\"],\"follow_up\":[]}",
+      "review": {
+        "qwen": "omits_excluded_school_in_joint_question",
+        "expanded": "correct_partial_decision",
+        "note": "관련 전문교과 50단위라는 부분만 보면 30단위 이상이지만, 질문은 마이스터고 학교유형까지 포함한 요건이다. Qwen은 교과 요건을 충족했다고만 답해 제외 학교 조건을 반영하지 못했다. 개선 경로는 두 요건의 결합을 불충족으로 판정한다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "answer",
+            "answer": "교과 요건을 충족했습니다.",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": []
+          },
+          "automatic_pass": false
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "answer",
+            "answer": "특성화고교졸업자전형의 학교유형·전문교과 요건을 충족하지 않습니다. 학교유형과 동일계열 또는 관련 전문교과 조건만 판정했습니다. 관련 교과·기준학과의 인정은 최신 공지 확인과 지원자격 심의가 필요하며 전체 지원자격이나 합격을 보장하지 않습니다.",
+            "citations": [
+              "pusan-2026-susi:p54:block1"
+            ],
+            "follow_up": [],
+            "reason": "reviewed_rule",
+            "decision": "false"
+          },
+          "automatic_pass": true
+        }
+      ]
+    },
+    {
+      "id": "V11",
+      "question": "주거안정장학금 입금됐나요?",
+      "proposed_gold": "사업계획만으로 개인 입금 완료를 확인할 수 없다.",
+      "raw_qwen": "{\"status\":\"answer\",\"answer\":\"2026년 1학기 주거안정장학금 지급 결과는 9월에 대학에 보고되었으며, 지급 여부는 대학이 확인한 후 한국장학재단에 보고해야 합니다.\",\"citations\":[\"kosaf-2026-housing-plan-faq:p23:c0\",\"kosaf-2026-housing-plan-faq:p14:c0\"],\"follow_up\":[]}",
+      "review": {
+        "qwen": "unsupported_completed_reporting_event_and_missing_abstention",
+        "expanded": "appropriate_personal_record_gate",
+        "note": "원문은 1학기 결과보고를 9월에 해야 한다는 의무다. Qwen은 9월에 이미 대학에 보고되었다고 바꾸었고 실제 입금 여부 미확인을 밝히지 않았다. 개선 경로는 개인 처리 내역 확인을 요청한다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "answer",
+            "answer": "2026년 1학기 주거안정장학금 지급 결과는 9월에 대학에 보고되었으며, 지급 여부는 대학이 확인한 후 한국장학재단에 보고해야 합니다.",
+            "citations": [
+              "kosaf-2026-housing-plan-faq:p23:c0",
+              "kosaf-2026-housing-plan-faq:p14:c0"
+            ],
+            "follow_up": []
+          },
+          "automatic_pass": false
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "cannot_determine",
+            "answer": "일반 모집요강·사업계획만으로 개인의 실제 선발·지급 여부나 입금 날짜·시각을 확인할 수 없습니다.",
+            "citations": [],
+            "follow_up": [
+              "해당 대학의 개인별 처리 내역을 확인해 주세요."
+            ],
+            "reason": "personal_event_not_in_policy"
+          },
+          "automatic_pass": true
+        }
+      ]
+    },
+    {
+      "id": "V12",
+      "question": "저는 기숙사생입니다. 입금 기준으로 안내된 주거안정장학금의 일반적인 월 지원 상한은 얼마인가요?",
+      "proposed_gold": "월 최대 20만원이다. 개인 입금 완료를 묻는 질문이 아니다.",
+      "raw_qwen": "{\"status\":\"cannot_determine\",\"answer\":\"확인할 수 없는 이유\",\"citations\":[],\"follow_up\":[\"필요한 확인 한 가지]}}</think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></س></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think></s></think>",
+      "review": {
+        "qwen": "truncated_invalid_output",
+        "expanded": "shared_fallback_generation_failure",
+        "note": "일반 월 상한 질문을 새 사전 검사가 과도하게 보류하지는 않았으나, 공유 Qwen 답변이 프롬프트의 예시 문구와 특수 토큰 모양의 문자열을 반복하다 384토큰에서 잘렸다. 두 경로 모두 invalid_response다. 형식 검사는 실패 출력을 차단하지만 질문 해결은 실패했다. 재시도로 점수를 대체하지 않는다. 검색된 PDF 23·3쪽 구간에는 월 20만원 상한 조항도 없었다. 검색 실패와 출력 실패가 함께 있었으므로 생성 설정만으로 해결된다고 해석하지 않는다. 1,315 입력 토큰이라 8,192 문맥 한도 초과 사례는 아니다."
+      },
+      "compared": [
+        {
+          "arm": "qwen_same_evidence",
+          "value": {
+            "status": "invalid_response",
+            "answer": "모델 출력 검증에 실패했습니다.",
+            "citations": [],
+            "follow_up": [],
+            "error": "Generation failed or truncated"
+          },
+          "automatic_pass": false
+        },
+        {
+          "arm": "expanded_rules_gate",
+          "value": {
+            "status": "invalid_response",
+            "answer": "모델 출력 검증에 실패했습니다.",
+            "citations": [],
+            "follow_up": [],
+            "error": "Generation failed or truncated"
+          },
+          "automatic_pass": false
+        }
+      ]
+    }
+  ]
+}
