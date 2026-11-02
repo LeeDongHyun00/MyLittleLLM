@@ -1,0 +1,76 @@
+{
+  "status": "answer",
+  "answer": "2026년도 주거안정장학금의 월 최대 지급 한도는 20만원입니다. 4월 인정 주거비 12만원일 경우, 해당 한도 내에서 12만원을 받을 수 있습니다.",
+  "citations": [
+    "kosaf-2026-housing-plan-faq:p10:c0"
+  ],
+  "follow_up": [
+    "주거비 인정 기준과 지급 한도에 대한 추가 확인이 필요합니다."
+  ],
+  "mode": "rag",
+  "llm_called": true,
+  "usage": {
+    "completion_tokens": 120,
+    "prompt_tokens": 2360,
+    "total_tokens": 2480,
+    "prompt_tokens_details": {
+      "cached_tokens": 283
+    }
+  },
+  "elapsed_seconds": 80.848,
+  "sources": [
+    {
+      "chunk_id": "kosaf-2026-housing-plan-faq:p10:c0",
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "pdf_page": 10,
+      "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+      "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560"
+    }
+  ],
+  "retrieved": [
+    {
+      "chunk_id": "kosaf-2026-housing-plan-faq:p14:c0",
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+      "pdf_page": 14,
+      "year": 2026,
+      "semester": 1,
+      "task": "housing",
+      "institution": "한국장학재단",
+      "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560",
+      "score": 14.005292
+    },
+    {
+      "chunk_id": "kosaf-2026-housing-plan-faq:p3:c0",
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+      "pdf_page": 3,
+      "year": 2026,
+      "semester": 1,
+      "task": "housing",
+      "institution": "한국장학재단",
+      "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560",
+      "score": 10.426574
+    },
+    {
+      "chunk_id": "kosaf-2026-housing-plan-faq:p10:c0",
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+      "pdf_page": 10,
+      "year": 2026,
+      "semester": 1,
+      "task": "housing",
+      "institution": "한국장학재단",
+      "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560",
+      "score": 10.280682
+    }
+  ],
+  "verified_calculation": {
+    "amount_krw": 120000,
+    "monthly_cap_krw": 200000,
+    "basis": "recognized_expense_capped",
+    "source_id": "kosaf-2026-housing-plan-faq",
+    "pdf_page": 10,
+    "note": "사용자가 제공한 승인·지출 조건에 따른 시나리오 계산; 실제 지급 결정 아님"
+  }
+}

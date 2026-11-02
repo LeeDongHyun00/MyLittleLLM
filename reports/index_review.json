@@ -1,0 +1,64 @@
+{
+  "quarantined_pages": [
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 29,
+      "reason": "multi_year_comparison_requires_layout_review"
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 37,
+      "reason": "multi_year_comparison_requires_layout_review"
+    },
+    {
+      "source_id": "snu-2026-susi",
+      "pdf_page": 46,
+      "reason": "multi_year_comparison_requires_layout_review"
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 13,
+      "reason": "multi_year_comparison_requires_layout_review"
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 19,
+      "reason": "multi_year_comparison_requires_layout_review"
+    },
+    {
+      "source_id": "pusan-2025-susi",
+      "pdf_page": 85,
+      "reason": "multi_year_comparison_requires_layout_review"
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 10,
+      "reason": "multi_year_comparison_requires_layout_review"
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 11,
+      "reason": "multi_year_comparison_requires_layout_review"
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 94,
+      "reason": "multi_year_comparison_requires_layout_review"
+    },
+    {
+      "source_id": "khu-2025-susi",
+      "pdf_page": 17,
+      "reason": "multi_year_comparison_requires_layout_review"
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 16,
+      "reason": "multi_year_comparison_requires_layout_review"
+    },
+    {
+      "source_id": "khu-2026-susi",
+      "pdf_page": 17,
+      "reason": "multi_year_comparison_requires_layout_review"
+    }
+  ]
+}

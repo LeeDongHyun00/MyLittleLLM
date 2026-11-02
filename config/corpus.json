@@ -1,0 +1,13 @@
+{
+  "description": "Policy documents only; explanatory guides and QA excluded. Ranges are inclusive PDF pages.",
+  "sources": {
+    "snu-2025-susi": {"task": "admissions", "institution": "서울대학교"},
+    "snu-2026-susi": {"task": "admissions", "institution": "서울대학교"},
+    "pusan-2025-susi": {"task": "admissions", "institution": "부산대학교"},
+    "pusan-2026-susi": {"task": "admissions", "institution": "부산대학교"},
+    "khu-2025-susi": {"task": "admissions", "institution": "경희대학교"},
+    "khu-2026-susi": {"task": "admissions", "institution": "경희대학교"},
+    "moe-2025-scholarship-plan": {"task": "scholarship", "institution": "교육부"},
+    "kosaf-2026-housing-plan-faq": {"task": "housing", "institution": "한국장학재단", "page_ranges": [[1, 25]]}
+  }
+}

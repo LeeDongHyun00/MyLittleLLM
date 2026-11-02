@@ -1,0 +1,22 @@
+{
+  "question": "4월 인정 주거비가 12만원일 때 받을 금액을 설명해 주세요. 답변은 두 문장으로 짧게 작성해 주세요.",
+  "year": 2026,
+  "semester": 1,
+  "task": "housing",
+  "institution": null,
+  "mode": "rag",
+  "facts": {
+    "year": 2026,
+    "semester": 1,
+    "month": 4,
+    "selected": true,
+    "payment_approved": true,
+    "duplicate_support": false,
+    "recognized_expense_krw": 120000,
+    "note": "가상 예시. 개인정보 또는 실제 승인 내역이 아님"
+  },
+  "system_prompt_sha256": "25df108e4cbea9fe5309932a646bb859596c57e52b68b105990f3484d65fc39b",
+  "max_tokens": 384,
+  "response_file": "housing_tool_final.json",
+  "evaluation_kind": "development_tool_demo_not_controlled_ab_test"
+}

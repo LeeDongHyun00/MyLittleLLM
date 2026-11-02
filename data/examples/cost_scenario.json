@@ -1,0 +1,8 @@
+{
+  "period": "가상의 한 학기",
+  "same_period_confirmed": true, "stacking_verified": true,
+  "tuition_krw": 4000000, "living_krw": 2000000,
+  "tuition_grants_krw": 2500000, "living_grants_krw": 500000,
+  "loan_krw": 1000000,
+  "note": "가상의 계산 예시이며 특정 대학의 실제 등록금·장학금이 아님"
+}

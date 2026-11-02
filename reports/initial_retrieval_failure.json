@@ -1,0 +1,69 @@
+{
+  "status": "answer",
+  "answer": "2026학년도 경희대학교 지역균형전형의 학교별 추천 인원은 고3의 5%로 제한됩니다. 이는 2026학년도 수시 모집요강에 명시된 내용입니다. 학생부교과(지역균형전형)의 추천 인원은 2024년 4월 1일 기준 고등학교 3학년 재학 인원의 5% 이내로 제한됩니다.",
+  "citations": [
+    "khu-2026-susi:p17:c740"
+  ],
+  "follow_up": [
+    "2026학년도 수시 모집요강에서 지역균형전형의 추천 인원 제한 조건이 고3의 5% 이내라는 내용을 확인할 수 있었습니다. 이에 따라 질문의 결론은 위와 같습니다."
+  ],
+  "mode": "rag",
+  "llm_called": true,
+  "usage": {
+    "completion_tokens": 212,
+    "prompt_tokens": 2143,
+    "total_tokens": 2355,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "elapsed_seconds": 100.466,
+  "sources": [
+    {
+      "chunk_id": "khu-2026-susi:p17:c740",
+      "source_id": "khu-2026-susi",
+      "pdf_page": 17,
+      "sha256": "dbfa4cdb7cf03afb4020c7e1d869ec9def7787298e4985831c0d5c133725b2bc",
+      "url": "https://iphak.khu.ac.kr/detail.do?board_seq=14166&categoryid=1&menuurl=wvOt10B5et6zMa%2FM59G%2BxQ%3D%3D&pageNo=1"
+    }
+  ],
+  "retrieved": [
+    {
+      "chunk_id": "khu-2026-susi:p17:c740",
+      "source_id": "khu-2026-susi",
+      "sha256": "dbfa4cdb7cf03afb4020c7e1d869ec9def7787298e4985831c0d5c133725b2bc",
+      "pdf_page": 17,
+      "year": 2026,
+      "semester": null,
+      "task": "admissions",
+      "institution": "경희대학교",
+      "url": "https://iphak.khu.ac.kr/detail.do?board_seq=14166&categoryid=1&menuurl=wvOt10B5et6zMa%2FM59G%2BxQ%3D%3D&pageNo=1",
+      "score": 62.665794
+    },
+    {
+      "chunk_id": "khu-2026-susi:p16:c740",
+      "source_id": "khu-2026-susi",
+      "sha256": "dbfa4cdb7cf03afb4020c7e1d869ec9def7787298e4985831c0d5c133725b2bc",
+      "pdf_page": 16,
+      "year": 2026,
+      "semester": null,
+      "task": "admissions",
+      "institution": "경희대학교",
+      "url": "https://iphak.khu.ac.kr/detail.do?board_seq=14166&categoryid=1&menuurl=wvOt10B5et6zMa%2FM59G%2BxQ%3D%3D&pageNo=1",
+      "score": 49.211301
+    },
+    {
+      "chunk_id": "khu-2026-susi:p16:c0",
+      "source_id": "khu-2026-susi",
+      "sha256": "dbfa4cdb7cf03afb4020c7e1d869ec9def7787298e4985831c0d5c133725b2bc",
+      "pdf_page": 16,
+      "year": 2026,
+      "semester": null,
+      "task": "admissions",
+      "institution": "경희대학교",
+      "url": "https://iphak.khu.ac.kr/detail.do?board_seq=14166&categoryid=1&menuurl=wvOt10B5et6zMa%2FM59G%2BxQ%3D%3D&pageNo=1",
+      "score": 45.521461
+    }
+  ],
+  "verified_calculation": null
+}

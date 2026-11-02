@@ -1,0 +1,13 @@
+{
+  "status": "cannot_determine",
+  "answer": "해당 대학·연도·학기 범위의 근거를 찾지 못했습니다.",
+  "citations": [],
+  "follow_up": [
+    "공식 자료의 적용 시점과 범위를 확인해 주세요."
+  ],
+  "sources": [],
+  "retrieved": [],
+  "mode": "rag",
+  "llm_called": false,
+  "elapsed_seconds": 0.027
+}

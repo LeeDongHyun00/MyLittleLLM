@@ -1,0 +1,36 @@
+{
+  "evaluation_kind": "development_smoke_not_heldout_accuracy",
+  "questions": 5,
+  "inference_requests": 10,
+  "annotation_status": "pending_human_review",
+  "modes": {
+    "closed": {
+      "requests": 5,
+      "status_counts": {
+        "answer": 0,
+        "cannot_determine": 5,
+        "invalid_response": 0
+      },
+      "elapsed_seconds": {
+        "min": 19.769,
+        "median": 20.84,
+        "max": 33.411
+      },
+      "page_hit_count": null
+    },
+    "rag": {
+      "requests": 5,
+      "status_counts": {
+        "answer": 5,
+        "cannot_determine": 0,
+        "invalid_response": 0
+      },
+      "elapsed_seconds": {
+        "min": 71.468,
+        "median": 91.286,
+        "max": 147.399
+      },
+      "page_hit_count": 5
+    }
+  }
+}

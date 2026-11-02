@@ -1,0 +1,39 @@
+"""Run one scoped research query, or an interactive session in the same scope."""
+import argparse
+import json
+from pathlib import Path
+from mylittlellm.assistant import ask
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--question")
+    parser.add_argument("--year", type=int, required=True)
+    parser.add_argument("--task", choices=["admissions", "housing", "scholarship"], default="admissions")
+    parser.add_argument("--institution", choices=["서울대학교", "부산대학교", "경희대학교", "한국장학재단", "교육부"])
+    parser.add_argument("--semester", type=int, choices=[1, 2])
+    parser.add_argument("--mode", choices=["rag", "closed"], default="rag")
+    parser.add_argument("--facts", type=Path)
+    parser.add_argument("--base-url")
+    args = parser.parse_args()
+    if args.task == "admissions" and not args.institution:
+        parser.error("--institution is required for admissions")
+    if args.task == "housing" and args.semester is None:
+        parser.error("--semester is required for housing")
+    facts = json.loads(args.facts.read_text()) if args.facts else None
+    while True:
+        try:
+            question = args.question or input("질문 (종료: /quit)> ").strip()
+            if question == "/quit": break
+            if not question: continue
+            result = ask(question, year=args.year, task=args.task, institution=args.institution,
+                         semester=args.semester, mode=args.mode, facts=facts, base_url=args.base_url)
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+        except (EOFError, KeyboardInterrupt):
+            break
+        except Exception as error:
+            raise SystemExit(f"Query failed: {type(error).__name__}: {error}")
+        if args.question: break
+
+
+if __name__ == "__main__": main()
