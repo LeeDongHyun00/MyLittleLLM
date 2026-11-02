@@ -1,0 +1,161 @@
+{
+  "answerable_questions": 7,
+  "page_hits": 6,
+  "note": "Page-level coverage is weaker than clause-level semantic support. Missing-year question deliberately retrieves no documents.",
+  "rows": [
+    {
+      "id": "A02",
+      "expected_action": "answer",
+      "retrieved_pages": [
+        [
+          "pusan-2026-susi",
+          21
+        ],
+        [
+          "pusan-2026-susi",
+          111
+        ]
+      ],
+      "correct_year_evidence_pages": [
+        [
+          "pusan-2026-susi",
+          21
+        ]
+      ],
+      "page_hit": true
+    },
+    {
+      "id": "A04",
+      "expected_action": "answer",
+      "retrieved_pages": [
+        [
+          "pusan-2026-susi",
+          17
+        ],
+        [
+          "pusan-2026-susi",
+          111
+        ]
+      ],
+      "correct_year_evidence_pages": [
+        [
+          "pusan-2026-susi",
+          21
+        ]
+      ],
+      "page_hit": false
+    },
+    {
+      "id": "A08",
+      "expected_action": "answer",
+      "retrieved_pages": [
+        [
+          "pusan-2026-susi",
+          23
+        ],
+        [
+          "pusan-2026-susi",
+          112
+        ]
+      ],
+      "correct_year_evidence_pages": [
+        [
+          "pusan-2026-susi",
+          23
+        ]
+      ],
+      "page_hit": true
+    },
+    {
+      "id": "A12",
+      "expected_action": "answer",
+      "retrieved_pages": [
+        [
+          "pusan-2026-susi",
+          28
+        ],
+        [
+          "pusan-2026-susi",
+          33
+        ]
+      ],
+      "correct_year_evidence_pages": [
+        [
+          "pusan-2026-susi",
+          28
+        ]
+      ],
+      "page_hit": true
+    },
+    {
+      "id": "A16",
+      "expected_action": "answer",
+      "retrieved_pages": [
+        [
+          "pusan-2026-susi",
+          40
+        ],
+        [
+          "pusan-2026-susi",
+          111
+        ]
+      ],
+      "correct_year_evidence_pages": [
+        [
+          "pusan-2026-susi",
+          111
+        ]
+      ],
+      "page_hit": true
+    },
+    {
+      "id": "S04",
+      "expected_action": "answer",
+      "retrieved_pages": [
+        [
+          "moe-2025-scholarship-plan",
+          4
+        ],
+        [
+          "moe-2025-scholarship-plan",
+          5
+        ]
+      ],
+      "correct_year_evidence_pages": [
+        [
+          "moe-2025-scholarship-plan",
+          4
+        ]
+      ],
+      "page_hit": true
+    },
+    {
+      "id": "S06",
+      "expected_action": "answer",
+      "retrieved_pages": [
+        [
+          "moe-2025-scholarship-plan",
+          1
+        ],
+        [
+          "moe-2025-scholarship-plan",
+          5
+        ]
+      ],
+      "correct_year_evidence_pages": [
+        [
+          "moe-2025-scholarship-plan",
+          5
+        ]
+      ],
+      "page_hit": true
+    },
+    {
+      "id": "U04",
+      "expected_action": "clarify",
+      "retrieved_pages": [],
+      "correct_year_evidence_pages": [],
+      "page_hit": null
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "n": 8,
+  "new_inferences": 2,
+  "reused_identical_requests": 6,
+  "original_context_tokens": 6257,
+  "compressed_context_tokens": 6136,
+  "token_reduction_fraction": 0.01933834105801502,
+  "initialization_seconds": 4.051558164001108,
+  "preprocessing_seconds": 1.7496,
+  "free_schema_valid": 8,
+  "free_strict_rubric_pass": 5,
+  "free_truncated": 0,
+  "latency_claim": "No end-to-end speedup estimate; identical requests may reuse baseline responses"
+}

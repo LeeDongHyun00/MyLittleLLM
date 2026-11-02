@@ -1,0 +1,19 @@
+{
+  "reviewed_at": "2026-11-02T08:49:39.590886+00:00",
+  "reviewer": "Codex assistant",
+  "independent_human_review": false,
+  "model_outputs_seen_during_review": false,
+  "changes_to_frozen_gold": false,
+  "visual_checks": [
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 111,
+      "finding": "6-year type: applicant and both parents; 12-year type: applicant residency. Table rows confirmed."
+    },
+    {
+      "source_id": "pusan-2026-susi",
+      "pdf_page": 28,
+      "finding": "Social consideration and low-income tracks are in the same one-application group in 2026. Diagram and prose confirmed."
+    }
+  ]
+}

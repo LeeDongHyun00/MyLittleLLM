@@ -1,0 +1,11 @@
+{
+  "requests": 108,
+  "unique_question_mode_pairs": 36,
+  "identical_payload_across_three_arms": true,
+  "hidden_gold_fields_in_payload": false,
+  "free_payload_has_choices": false,
+  "mode_request_counts": {
+    "mcq": 84,
+    "free": 24
+  }
+}

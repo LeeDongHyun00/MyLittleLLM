@@ -1,0 +1,124 @@
+{
+  "arms": {
+    "base": {
+      "mcq_n": 28,
+      "mcq_correct": 22,
+      "mcq_accuracy": 0.7857142857142857,
+      "mcq_cluster_95_ci": [
+        0.6206896551724138,
+        0.9285714285714286
+      ],
+      "mcq_by_task": {
+        "admissions": {
+          "correct": 15,
+          "n": 19
+        },
+        "scholarship": {
+          "correct": 7,
+          "n": 9
+        }
+      },
+      "free_n": 8,
+      "free_schema_valid": 7,
+      "free_strict_rubric_pass": 4,
+      "free_truncated": 1,
+      "mcq_latency_median_seconds": 10.09295,
+      "free_latency_median_seconds": 61.70035
+    },
+    "sft": {
+      "mcq_n": 28,
+      "mcq_correct": 21,
+      "mcq_accuracy": 0.75,
+      "mcq_cluster_95_ci": [
+        0.5862068965517241,
+        0.896551724137931
+      ],
+      "mcq_by_task": {
+        "admissions": {
+          "correct": 14,
+          "n": 19
+        },
+        "scholarship": {
+          "correct": 7,
+          "n": 9
+        }
+      },
+      "free_n": 8,
+      "free_schema_valid": 7,
+      "free_strict_rubric_pass": 4,
+      "free_truncated": 1,
+      "mcq_latency_median_seconds": 10.00465,
+      "free_latency_median_seconds": 56.32815
+    },
+    "opsd": {
+      "mcq_n": 28,
+      "mcq_correct": 21,
+      "mcq_accuracy": 0.75,
+      "mcq_cluster_95_ci": [
+        0.5862068965517241,
+        0.896551724137931
+      ],
+      "mcq_by_task": {
+        "admissions": {
+          "correct": 14,
+          "n": 19
+        },
+        "scholarship": {
+          "correct": 7,
+          "n": 9
+        }
+      },
+      "free_n": 8,
+      "free_schema_valid": 7,
+      "free_strict_rubric_pass": 4,
+      "free_truncated": 1,
+      "mcq_latency_median_seconds": 10.4241,
+      "free_latency_median_seconds": 61.07025
+    }
+  },
+  "mcq_paired_comparisons": {
+    "base_vs_sft": {
+      "improved": 0,
+      "regressed": 1,
+      "unchanged": 27,
+      "exact_mcnemar_p_descriptive_only": 1.0,
+      "warning": "Question-level McNemar does not account for dependent rule variants; use grouped CI for uncertainty.",
+      "paired_delta_cluster_95_ci": [
+        -0.1111111111111111,
+        0.0
+      ]
+    },
+    "base_vs_opsd": {
+      "improved": 0,
+      "regressed": 1,
+      "unchanged": 27,
+      "exact_mcnemar_p_descriptive_only": 1.0,
+      "warning": "Question-level McNemar does not account for dependent rule variants; use grouped CI for uncertainty.",
+      "paired_delta_cluster_95_ci": [
+        -0.1111111111111111,
+        0.0
+      ]
+    },
+    "sft_vs_opsd": {
+      "improved": 0,
+      "regressed": 0,
+      "unchanged": 28,
+      "exact_mcnemar_p_descriptive_only": 1.0,
+      "warning": "Question-level McNemar does not account for dependent rule variants; use grouped CI for uncertainty.",
+      "paired_delta_cluster_95_ci": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "responses": 108,
+  "independent_human_review": false,
+  "free_rubric_is_proxy": true,
+  "run_lock": {
+    "created_at": "2026-11-02T08:42:42.995391+00:00",
+    "requests_sha256": "edb1a3fc5a59b19ef907fd679b41f96dd6f04d84853298fb93e0eb530d713c23",
+    "protocol_sha256": "6943c5e5e258778f5fbb6d50d0044e82303d05e63622a3d34a2756970b31144d",
+    "jobs": 108,
+    "evaluation_code_sha256": "2fe594e3ae81c4339f8d400e4ca0cc7c362c1878f43128edb24f78fa855763ad"
+  }
+}
