@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "task_id": "D01",
+  "cohort": "public_regression",
+  "source_version": "dongseo_republication",
+  "source_id": "kosaf-2026-housing-dongseo-d01",
+  "source_sha256": "22af5aaa41f0d32377f4c5adbe682de502f1e245712cf44432e448e312b83aa2",
+  "review_status": "ai_visual_and_text_crosscheck_awaiting_human_review",
+  "reviewer_role": "S1_AI",
+  "independent_human_approved": false,
+  "coordinate_system": "PDF points; top-left origin; approximate context envelopes on 595x841 page, not automatic cell detection",
+  "clauses": [
+    {
+      "id": "cap",
+      "pdf_page": 10,
+      "printed_page": 8,
+      "section": "지원 내용 / 금액",
+      "anchors": [
+        "월최대20만원",
+        "연간최대240만원"
+      ],
+      "context_bbox_pt": [
+        55,
+        586,
+        542,
+        639
+      ],
+      "paired_clause_ids": [
+        "first_month",
+        "cost_scope",
+        "period"
+      ],
+      "facts_for_source_check": {
+        "monthly_limit_krw": 200000,
+        "annual_limit_krw": 2400000
+      },
+      "not_a_complete_eligibility_rule": true
+    },
+    {
+      "id": "first_month",
+      "pdf_page": 10,
+      "printed_page": 8,
+      "section": "금액 항목 바로 아래 별표 각주",
+      "anchors": [
+        "최초1개월분",
+        "정액지원"
+      ],
+      "context_bbox_pt": [
+        55,
+        586,
+        542,
+        639
+      ],
+      "paired_clause_ids": [
+        "cap"
+      ],
+      "facts_for_source_check": {
+        "fixed_payment_months": [
+          3,
+          9
+        ],
+        "fixed_amount_krw": 200000
+      }
+    },
+    {
+      "id": "cost_scope",
+      "pdf_page": 10,
+      "printed_page": 8,
+      "section": "지원 범위 및 아래 각주",
+      "anchors": [
+        "보증금월환산차임",
+        "중복청구할수없음",
+        "기숙사",
+        "연4%"
+      ],
+      "context_bbox_pt": [
+        55,
+        636,
+        542,
+        773
+      ],
+      "paired_clause_ids": [
+        "cap",
+        "first_month"
+      ],
+      "facts_for_source_check": {
+        "dormitory_included_as_rent_category": true,
+        "deposit_annual_conversion_percent": 4,
+        "deposit_conversion_and_deposit_loan_interest_claimable_together": false
+      },
+      "scope_note": "일반 항목의 인정 범위이며 특정인의 지급/선발 확인이 아님."
+    },
+    {
+      "id": "period",
+      "pdf_page": 11,
+      "printed_page": 9,
+      "section": "지원 기간과 바로 아래 각주",
+      "anchors": [
+        "방학중미지원",
+        "계절학기"
+      ],
+      "context_bbox_pt": [
+        55,
+        78,
+        542,
+        236
+      ],
+      "paired_clause_ids": [
+        "cap",
+        "school_limit_table",
+        "individual_limit"
+      ],
+      "facts_for_source_check": {
+        "vacation_default_supported": false,
+        "seasonal_course_exception": true
+      },
+      "scope_note": "연간 상한만 보고 방학 포함 12개월 자동 지급으로 확장하지 않음."
+    },
+    {
+      "id": "school_limit_table",
+      "pdf_page": 11,
+      "printed_page": 9,
+      "section": "학교별 최대 지원 횟수의 2행 표",
+      "anchors": [
+        "지원횟수",
+        "6년제"
+      ],
+      "context_bbox_pt": [
+        80,
+        350,
+        537,
+        455
+      ],
+      "paired_clause_ids": [
+        "individual_limit"
+      ],
+      "manually_transcribed_pairs": [
+        {
+          "program_years": 2,
+          "school_semesters": 4
+        },
+        {
+          "program_years": 3,
+          "school_semesters": 6
+        },
+        {
+          "program_years": 4,
+          "school_semesters": 8
+        },
+        {
+          "program_years": 5,
+          "school_semesters": 10
+        },
+        {
+          "program_years": 6,
+          "school_semesters": 12
+        }
+      ],
+      "structural_limit": "숫자와 표 머리말 존재 검사는 셀 연결 정확성 검수가 아님."
+    },
+    {
+      "id": "individual_limit",
+      "pdf_page": 11,
+      "printed_page": 9,
+      "section": "개인별 한도 본문·별표 및 하단 병합 셀 표",
+      "anchors": [
+        "개인별누적한도8회",
+        "모든학교"
+      ],
+      "context_bbox_pt": [
+        55,
+        468,
+        542,
+        773
+      ],
+      "paired_clause_ids": [
+        "school_limit_table"
+      ],
+      "facts_for_source_check": {
+        "default_cumulative_semesters": 8,
+        "five_year_semesters": 10,
+        "six_year_semesters": 12
+      },
+      "structural_limit": "학교별 한도와 개인별 한도는 별도 조건이며 하나의 열로 합치지 않음."
+    }
+  ],
+  "layout_observations": [
+    {
+      "pdf_page": 10,
+      "region": "budget_table",
+      "observation": "plain은 3개 예산 행/조정 전후 열을 붙여 출력. layout도 일부 셀 구분이 모호함. 해당 예산표는 학생 월 상한 근거로 사용하지 않음."
+    },
+    {
+      "pdf_page": 10,
+      "region": "support_amount_and_footnotes",
+      "observation": "숫자·첫 달 각주·지출 범위·각주 텍스트가 plain/layout에 존재. flat c0는 금액 뒤 각주 도중 잘리며 c740은 각주와 비용 예외를 포함."
+    },
+    {
+      "pdf_page": 11,
+      "region": "school_limit_table",
+      "observation": "plain은 열/행 경계를 잃지만 layout은 2년~6년과 횟수의 행 배치를 보존. PDF 렌더와 대조함."
+    },
+    {
+      "pdf_page": 11,
+      "region": "merged_limit_table",
+      "observation": "layout도 병합 셀의 부모/자식 관계를 구조화하지 못함. 개인별 누적·학교별 최대와 별표를 별도 연결해야 함."
+    }
+  ],
+  "anchor_check_limit": "짧은 표지어 존재만 검사한다. 원문 전체 의미/셀 관계/조건 충족을 인증하지 않는다."
+}
