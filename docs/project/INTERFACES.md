@@ -1,6 +1,6 @@
 # 현재 인터페이스와 변경 경계
 
-계약 1.0.0, 애플리케이션 기준 `d0ac404c8cda106e703bd04a691aaf8e10abf056`.
+계약 1.1.0. 기존 구현 기준 `d0ac404c8cda106e703bd04a691aaf8e10abf056`에 L01의 선택적 설명 확장을 통합했다.
 아래는 **현재 Python 구현을 설명하는 계약**이다. 모든 항목을 별도 JSON Schema로 강제하는 구현은 없다.
 향후 필드 변경은 S0 결정 기록과 생산자/소비자 테스트를 함께 갱신한다.
 
@@ -47,6 +47,14 @@ JSON에서 **모르는 규칙 필드는 생략**한다. 명시적 `false`는 거
 `fields`, `expression`, `sources`, `explanation`과 선택적 `constraints`, `applicability`를 가진다.
 출처는 `chunk_id`·`sha256`·`anchors`를 확인한다. AST는 허용된 연산만 사용한다.
 
+1.1.0에서 선택적 `false_explanation: [{"conjunct_path": [], "text": "..."}]`을 추가했다.
+빈 경로는 전체 expression, 정수 경로는 AND 자식만 참조한다. OR의 한 대안을 실패 요건으로 설명하지 않는다.
+전체 판정이 false이고 해당 조건의 거짓이 입증된 경우에만 `proof.explanation` 앞에 문장을 붙인다.
+이 필드가 없으면 기존 설명을 사용한다. 기존 규칙 AST/ID/범위/원문 연결과 외부 proof 키는 유지한다.
+문자열 전체 일치에 의존하는 소비자는 새 설명을 확인해야 한다. 한국어 문구와 조항의 일치는 H1 검수 대상이다.
+false 설명은 최대 5회 solver check를 추가할 수 있으며 전체 요청 deadline은 구현하지 않았다.
+[L01 보고서](../../reports/l01_rule_boundaries.md)와 경계 테스트가 구현·호환성 근거다.
+
 `proof.decision`은 문자열 `true` / `false` / `unknown`이다. 의미는 해당 부분 요건의 논리 판정이다.
 `proof.reason`은 `symbolic_entailment`, `missing_facts`, `missing_applicability`,
 `outside_rule_scope`, `inconsistent_facts`, `solver_unresolved` 등이다.
@@ -83,3 +91,13 @@ grounded 최종 응답은 위 필드에 `reason`, `decision`, `questions`, `proo
 
 문서 자동 검사(`scripts/check_project_contract.py`)는 경로·버전·인수인계 필수 항목·참조 10개·
 규칙 ID·동결 파일 해시·대표 점수의 일관성을 확인한다. 런타임 응답/원문 의미를 검사하는 도구는 아니다.
+
+## 세션 → GitHub 이벤트
+
+[세션 목록](../../contracts/sessions.json)의 schema_version은 1이다.
+`sessions`는 역할/작업/브랜치/기준 커밋/계약 버전/상태/인수인계/PR을 기록한다.
+상태는 커밋 시점의 `running`, `completed`, `partial`, `blocked`이며 완료 여부는 작업 범위에 한정된다.
+과거 handoff는 명시된 `historical_contract_versions`로 검사하고 재작성하지 않는다.
+[세션 검사](../../scripts/check_session_handoffs.py)는 메타데이터·산출물 경로를 검사한다.
+원격 PR 상태·세션 생존·독립 검수·Git 계보 확인은 자동 검사 범위가 아니다.
+이벤트 종류, 권한과 외부 웹훅 미연결 상태는 [COLLABORATION](COLLABORATION.md)에 기록한다.

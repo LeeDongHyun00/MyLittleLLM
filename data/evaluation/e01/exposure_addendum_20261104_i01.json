@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "protocol_id": "e01-grounded-v1",
+  "as_of": "2026-11-04",
+  "status": "public_development_exposure_only",
+  "integration_code_commit": "a986c63be51d2b6b5ae6b5dfa671cbc18159d10e",
+  "prior_manifest": "data/evaluation/e01/candidate_manifest.json",
+  "prior_manifest_sha256": "40f9af74d10e3b5c192f0509e8f9ed35a0f5d04ccd50520fe8c498d0fc527fe9",
+  "original_snapshot_preserved": true,
+  "candidate_count_added": 0,
+  "approved_count_added": 0,
+  "independent_human_approved": false,
+  "test_locked": false,
+  "existing_rule_ids_excluded_from_unseen_claims": [
+    "housing_academic",
+    "housing_expense_combination",
+    "housing_duplicate_support",
+    "housing_benefit_count",
+    "housing_county_distance",
+    "admissions_ged_certificate",
+    "admissions_susi_application_limit",
+    "admissions_low_income_status",
+    "admissions_vocational_subject"
+  ],
+  "additional_exposed_topic_families": [
+    "housing_monthly_cap_and_first_month",
+    "housing_cost_scope_and_combinations",
+    "housing_period_and_seasonal_exceptions",
+    "housing_school_and_personal_benefit_limits"
+  ],
+  "limits": [
+    "D01/R01/L01 artifacts are public development, including AI-authored cases, lexical annotations and synthetic anchor fixtures.",
+    "This addendum records new/changed development artifact bytes; it is not a complete private data access log or a final leakage-group audit.",
+    "E02 must combine the original snapshot and this addendum with all intervening exposures, review actual source/paragraph groups, and freeze the resulting inventory before test access.",
+    "Code/test consistency checks and Actions success do not create H1 approval or independent gold."
+  ],
+  "public_exposure_registry": [
+    {
+      "path": "config/grounding_rules.json",
+      "sha256": "1090b2dd4125d73e2a5cc4a74ec8d6f699755fbb64c9037f8815343a813462a4"
+    },
+    {
+      "path": "data/development/d01/clauses.json",
+      "sha256": "1639fbb1eb33057073d984f680d86c9ab2ffecada3b97a1bf1454a608cbecec8"
+    },
+    {
+      "path": "data/development/d01/source_manifest.json",
+      "sha256": "5fa4166b62051633b83f9af1668c48ef00abdb3554b6109dfe0d5607e9921bac"
+    },
+    {
+      "path": "data/development/r01/clause_window_plan.json",
+      "sha256": "732482a68aec0791360d2622d3bb65390664821840ba0de6ce3f98e129177298"
+    },
+    {
+      "path": "data/development/r01/experiment_plan.json",
+      "sha256": "cafd263e0a3d53548124e3ce01b77d9f40e558b1efc36bc30e501e836f60245e"
+    },
+    {
+      "path": "data/development/r01/queries.json",
+      "sha256": "e11a5f0c6dc375486309f09632adb4ea9b7b357929295ea4584500764cbeccc0"
+    },
+    {
+      "path": "mylittlellm/policy_rules.py",
+      "sha256": "9e8202030f761a5fd02dc0275fadf8a2073149257662db0377b80de7140e656d"
+    },
+    {
+      "path": "mylittlellm/retrieval_experiments.py",
+      "sha256": "0581caa65229ee7132fb94dc01614d33bbd0650107d0d6b76f959e61f0a2c025"
+    },
+    {
+      "path": "reports/d01_source_audit.json",
+      "sha256": "9d700fe2deb42901aca2627e991e6215dd0b0c99ba52f7b07be42d487538703a"
+    },
+    {
+      "path": "reports/d01_source_report.md",
+      "sha256": "24e28ed4f9ee1be7871c2500a0dc7d53d63c0b2100c7420d8572346c6a53c2fd"
+    },
+    {
+      "path": "reports/l01_rule_boundaries.json",
+      "sha256": "6e42d7260309853e4eacac3e4bf27491b518eb0eb9dc6b11da7a132286f1dc5a"
+    },
+    {
+      "path": "reports/l01_rule_boundaries.md",
+      "sha256": "d31cef819b9091588c68e2e8990ac58d83bc5011ebc0a0402cd43348aa73cff6"
+    },
+    {
+      "path": "reports/r01_clause_windows_01.json",
+      "sha256": "d6ab5d722cc269485af9c9afd12a7d35abbc51fc8e3b518ad01d9100b03dc6e3"
+    },
+    {
+      "path": "reports/r01_retrieval_development.md",
+      "sha256": "7bf6179717666b6a3f0c6ea2c34a9a795cdde43506a9dbc1196146bbf9b5da1b"
+    },
+    {
+      "path": "reports/r01_sentence_focus_01.json",
+      "sha256": "401b8f40d1f7aab86497fb4a30dba6cd19388f65602511d6466f1ad59f666151"
+    },
+    {
+      "path": "scripts/audit_d01_source.py",
+      "sha256": "91aa880f34822202007d8b8d8484c0116690c6d529e59c04601911f2768748ea"
+    },
+    {
+      "path": "scripts/evaluate_r01_retrieval.py",
+      "sha256": "2e958bc60337a230b32fb4619115c47e674764684808ec362f62027c4e285c0f"
+    },
+    {
+      "path": "tests/test_d01_audit.py",
+      "sha256": "9a9b075f502cfbea76fcc8a3e90aed19e93f8a13a7db107cce577cedd77e5a68"
+    },
+    {
+      "path": "tests/test_l01_boundaries.py",
+      "sha256": "d69c432807220ab22b8e1a837c77d81932a77a9b93c459fb4ceb9f9cbca8b64e"
+    },
+    {
+      "path": "tests/test_r01_retrieval.py",
+      "sha256": "e3882c4fc6d5291c39b4e4587a8163ef2581e924b74a5ffd3218bc59ba004182"
+    }
+  ]
+}

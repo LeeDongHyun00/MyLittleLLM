@@ -6,7 +6,9 @@
   "coordination_issue": "https://github.com/LeeDongHyun00/MyLittleLLM/issues/3",
   "event_transport": "github_actions",
   "external_webhook_configured": false,
-  "historical_contract_versions": [],
+  "historical_contract_versions": [
+    "1.0.0"
+  ],
   "sessions": [
     {
       "id": "2026-11-04-s0-i01",
@@ -15,10 +17,10 @@
       "runtime": "conversation_root",
       "branch": "s0/i01-session-collaboration",
       "code_baseline": "a921e39ba53d6b579156262b13e898a9f63669bd",
-      "contract_version": "1.0.0",
-      "status": "running",
-      "handoff": null,
-      "pull_request": null
+      "contract_version": "1.1.0",
+      "status": "completed",
+      "handoff": "docs/handoffs/2026-11-04-s0-i01-session-collaboration.json",
+      "pull_request": "https://github.com/LeeDongHyun00/MyLittleLLM/pull/4"
     },
     {
       "id": "2026-11-04-s2-r01",
@@ -28,9 +30,10 @@
       "branch": "s2/r01-retrieval",
       "code_baseline": "a921e39ba53d6b579156262b13e898a9f63669bd",
       "contract_version": "1.0.0",
-      "status": "running",
-      "handoff": null,
-      "pull_request": null
+      "status": "partial",
+      "handoff": "docs/handoffs/2026-11-04-s2-r01-retrieval-development.json",
+      "pull_request": "https://github.com/LeeDongHyun00/MyLittleLLM/pull/6",
+      "result_commit": "1197593e8ea002688d8e5f9e547cc7e2c8a096e0"
     },
     {
       "id": "2026-11-04-s3-l01",
@@ -40,9 +43,10 @@
       "branch": "s3/l01-rule-boundaries",
       "code_baseline": "a921e39ba53d6b579156262b13e898a9f63669bd",
       "contract_version": "1.0.0",
-      "status": "running",
-      "handoff": null,
-      "pull_request": null
+      "status": "completed",
+      "handoff": "docs/handoffs/2026-11-04-s3-l01-rule-boundaries.json",
+      "pull_request": "https://github.com/LeeDongHyun00/MyLittleLLM/pull/5",
+      "result_commit": "761a0c1ebdc3c47e35eb895fe0a23d69ccd1fdf7"
     }
   ]
 }

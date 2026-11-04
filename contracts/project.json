@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "project_id": "MyLittleLLM",
-  "contract_version": "1.0.0",
+  "contract_version": "1.1.0",
   "as_of": "2026-11-04",
   "canonical_branch": "docs/project-contract-and-session-roles",
   "code_baseline": "d0ac404c8cda106e703bd04a691aaf8e10abf056",
-  "latest_handoff": "docs/handoffs/2026-11-04-s1-d01-source-audit.json",
+  "latest_handoff": "docs/handoffs/2026-11-04-s0-i01-session-collaboration.json",
   "roles": {
     "S0": [
       "I01"
@@ -61,7 +61,12 @@
     "docs/priorities.md",
     "docs/experiment_design.md",
     "docs/running.md",
-    "docs/project/COLLABORATION.md"
+    "docs/project/COLLABORATION.md",
+    "docs/evaluation/e01_protocol.md",
+    "data/review/e01/README.md",
+    "reports/d01_source_report.md",
+    "reports/r01_retrieval_development.md",
+    "reports/l01_rule_boundaries.md"
   ],
   "observations": [
     {
@@ -157,7 +162,8 @@
     ".github/workflows/project-contract.yml",
     "contracts/sessions.json",
     "scripts/check_session_handoffs.py",
-    ".github/workflows/session-collaboration.yml"
+    ".github/workflows/session-collaboration.yml",
+    "data/evaluation/e01/exposure_addendum_20261104_i01.json"
   ],
   "frozen_artifacts": {
     "data/evaluation/grounding_protocol.json": "4f1639b8c2d8bbecb7fd1dfdb884df19197e5eeb27bd4767421762d422580543",

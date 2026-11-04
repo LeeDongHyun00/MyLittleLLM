@@ -31,3 +31,20 @@ jobs:
         env:
           SESSION_BRANCH: ${{ github.head_ref || github.ref_name }}
         run: python3 scripts/check_session_handoffs.py --branch "$SESSION_BRANCH" --summary "$GITHUB_STEP_SUMMARY"
+
+  regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install the pinned symbolic solver for offline tests
+        run: |
+          python3 -m venv "$RUNNER_TEMP/mllm-session-ci"
+          "$RUNNER_TEMP/mllm-session-ci/bin/python" -m pip install --disable-pip-version-check z3-solver==4.15.4.0
+      - name: Run source, retrieval, rule, scope and split regressions
+        run: |
+          for pattern in test_d01_audit.py test_r01_retrieval.py test_l01_boundaries.py test_grounding.py test_guided_grounding.py test_runtime_logic.py test_preprocessing.py test_split_dataset.py; do
+            "$RUNNER_TEMP/mllm-session-ci/bin/python" -m unittest discover -s tests -p "$pattern" -v
+          done

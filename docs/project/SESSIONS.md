@@ -47,7 +47,8 @@ git worktree add -b s2/r01-retrieval /workspace/worktrees/mllm-s2 \
   origin/docs/project-contract-and-session-roles
 ```
 
-이 명령은 앞으로 작업할 때 사용하는 예시다. 이번 문서 작성에서 이 worktree들을 만들지는 않았다.
+이 명령은 새 작업의 예시다. 계약 1.0.0 최초 작성 때는 worktree를 만들지 않았으며,
+이후 사용자 요청으로 만든 실제 경로는 [협업 기록](COLLABORATION.md)에 따로 남겼다.
 동일 이름이 이미 있으면 기존 작업부터 확인한다. `main` 병합 후에는 S0가 시작 ref를 갱신한다.
 
 - 모델 가중치는 읽기 전용으로 재사용할 수 있다. worktree별 의존성·색인은 기존 경로 가정을 먼저 확인한다.
