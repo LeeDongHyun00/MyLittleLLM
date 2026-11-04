@@ -4,6 +4,23 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 
 **우선순위 1: 근거를 제시하는 입시 상담. 우선순위 2: 장학금·주거·실부담 비용 안내.** 공식 문서 검색(RAG), 검증 가능한 조건·계산 코드, LLM의 설명을 결합한다.
 
+## 새 세션에서 이어서 작업하기
+
+채팅 전체 대신 [AGENTS.md](AGENTS.md) → [프로젝트 계약](PROJECT_CONTRACT.md) →
+[현재 상태](docs/project/STATE.md) → [담당 작업 카드](docs/project/TASKS.md) 순서로 읽는다.
+[세션 역할·시작 문장](docs/project/SESSIONS.md), [참고 프로젝트 TOP 10](docs/research/reference_projects_top10.md),
+[인수인계 포인터](contracts/project.json)를 함께 제공한다.
+
+2026-11-04 시작 브랜치는 **`docs/project-contract-and-session-roles`**다.
+기존 기능 [PR #1](https://github.com/LeeDongHyun00/MyLittleLLM/pull/1)은 병합 전이며 `main`에는 최신 구현이 없다.
+아래 11월 2일 기록은 실험 이력이고, 현재 실행 상태와 다음 작업은 STATE를 확인한다.
+
+```bash
+python scripts/check_project_contract.py
+```
+
+이 검사는 문서 연결·계약 메타데이터·고정 평가 기록의 일관성을 확인한다. 모델 정확도 검사는 아니다.
+
 ## 문서
 
 - [전체 우선순위와 구현 범위](docs/priorities.md)
