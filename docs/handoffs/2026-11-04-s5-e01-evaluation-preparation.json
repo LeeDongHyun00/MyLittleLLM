@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.0.0",
+  "date": "2026-11-04",
+  "session_role": "S5",
+  "task_id": "E01",
+  "branch": "s5/e01-evaluation-protocol",
+  "code_baseline": "f3595fba13dda11903fdb8900e5c73202a66f6a9",
+  "status": "completed",
+  "summary": "E01 평가 프로토콜·후보 manifest·모델 미노출 H1 검수 절차와 빈 양식 5개를 준비했다. 독립 gold/실제 후보/시험 실행은 0이며 E02는 대기한다.",
+  "artifact_commit": "19caa364ea1058b66f49b7f03e5de1fd7a34e52c",
+  "completed": [
+    "AGENTS.md, PROJECT_CONTRACT.md, STATE, SESSIONS, INTERFACES, E01 카드와 latest_handoff의 S0 bootstrap을 읽고 지정 통합 브랜치에서 S5 작업 브랜치를 만들었다. 시작 작업 트리는 clean이었다.",
+    "public_regression / new_questions_known_rules / unseen_rule_groups를 구분하고 규칙·연도·수정본·복사본·FAQ·템플릿의 전이적 누출 그룹 규칙을 문서화했다.",
+    "25개 미노출 그룹 × 2문항의 탐색 파일럿과 12/3/10 그룹 분할(48/12/40), 부족 시 대기, 표본의 한계와 배포 합격선 미설정을 사전에 명시했다.",
+    "B00/B10/B01/B11 검색·생성 2×2와 N0 비LLM 비교, 고정 공통 규칙, 실제 검색/직접 제공 근거/oracle 구분, 허용 응답과 지표별 분모를 정의했다.",
+    "V04/V07 조건부 답의 정규식 오통과, V12 검색 누락과 생성 반복·잘림을 별도 의미/오류 기준에 반영했다. 호출/판단/재사용/지연/토큰/불완전 실행을 분리하도록 정의했다.",
+    "기존 공개 노출 자료 150개의 경로·SHA-256을 기록했다. private 후보·검수자·보관자·동결 값은 비워 두고 실제 승인 건수는 0으로 유지했다.",
+    "H1 두 사람의 모델/상대 답안 미노출 원문 우선 답안, 불일치 조정·양쪽 실제 서명, 이후 익명 응답 채점 절차를 작성했다. gold·조정·누출·접근·응답 검수 CSV 5개는 헤더만 있다.",
+    "공유 workspace/.gitignore가 접근 통제가 아님을 명시하고 별도 보관자의 private 저장소와 공개 개발 역할의 접근 경계를 정했다.",
+    "애플리케이션·모델 설정·기존 고정 평가/검수 파일은 수정하지 않았다. latest_handoff만 이 작업 브랜치의 새 파일로 연결하며 공통 상태 채택은 S0에 넘긴다."
+  ],
+  "verification": [
+    {
+      "command": "python scripts/check_project_contract.py",
+      "status": "passed",
+      "outcome": "latest_handoff 변경 후에도 통과: 계약 1.0.0, 참고 10개, 규칙 9개, 동결 파일 13개, 기존 연결 문서 12개의 일관성 확인."
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_split_dataset.py -v",
+      "status": "passed",
+      "outcome": "기존 테스트 2개 통과: 미검수/그룹 간 중복 질문 거부, 그룹·연도 분리 방지, 행 순서 안정성, 25그룹의 24/6/20행 배정 확인. 사람 신원·의미 누출 검증은 아님."
+    },
+    {
+      "command": "Python stdlib packet audit: json/csv/hashlib plus scripts.check_project_contract.check_links",
+      "status": "passed",
+      "outcome": "신규 JSON 2개 파싱/상태·경로·표본수 일치, Markdown 2개 local link, 노출 파일 150개 SHA-256, CSV 5개 헤더/중복 열 없음/데이터 0행 확인. 승인·시험 접근 0, 동결 값 null, 진입 gate 6개 pending 확인."
+    },
+    {
+      "command": "git diff --cached --check",
+      "status": "passed",
+      "outcome": "준비물 9개를 stage한 뒤 공백 검사 통과. 산출물은 19caa364ea1058b66f49b7f03e5de1fd7a34e52c에 커밋했다."
+    },
+    {
+      "command": "python scripts/check_project_contract.py --handoff docs/handoffs/2026-11-04-s5-e01-evaluation-preparation.json",
+      "status": "passed",
+      "outcome": "새 S5/E01 인수인계 필수 항목·등록 역할·다음 작업 ID·artifact 경로 검증 통과. 준비 완료와 최종 평가 대기를 별도 기록."
+    },
+    {
+      "command": "모델 추론·학습·서버 health/start·원문 다운로드·최종 데이터 분할·독립 사람 검수",
+      "status": "not_run",
+      "outcome": "E01은 준비 작업이다. H1/보관자/새 원문 감사/적격 후보/실행 harness 미확보. 모델·색인 존재나 서버 가동을 재확인한 것으로 주장하지 않는다."
+    },
+    {
+      "command": "git diff --check && git diff --cached --check",
+      "status": "passed",
+      "outcome": "최종 인수인계와 latest_handoff 변경을 포함한 공백 검사 통과. 공통 manifest 수정은 latest_handoff 한 줄뿐이다."
+    }
+  ],
+  "known_limits": [
+    "H1 2명과 보관자는 미지정이다. 후보 0, 승인 gold 0, 시험 그룹 0이며 최종 평가를 실행하지 않았다.",
+    "25개 미노출 그룹의 실제 확보 가능성은 미확인이다. 현재 구현된 9개 규칙과 공개 비용/상한/추천 질문은 새 규칙 시험에 재사용할 수 없다. 부족하면 시험 접근 전에 계획 개정 또는 대기한다.",
+    "노출 파일 목록은 보수적 시작 snapshot이며 완전한 의미상 누출 감사가 아니다. Git 제외 학습 산출물·외부 대화·이후 개발 변경도 보관자가 감사해야 한다.",
+    "공식 원문/수정본/규정-FAQ 구간 allowlist 및 조항→청크 대응표는 아직 확인하지 않았다. S1은 전체 corpus 대응표만 만들고 private gold 연결은 H1/보관자가 해야 한다.",
+    "private 저장소/권한/접근 장부는 절차만 정의했다. 현재 공유 filesystem에 시험 접근 통제를 구현하지 않았다.",
+    "R01/M01 후보 및 L 공통 버전, runtime 관측, 새 run ID/lock은 pending이다. 기존 고정 경로 평가 스크립트는 이 새 프로토콜의 runner가 아니다.",
+    "split_dataset.py는 approved 문자열과 최소 필드만 검사한다. 두 사람 실제 승인, 근거 없는 abstain 표현, 누출 연결은 별도 감사/adapter 검증이 필요하다.",
+    "이번 검증은 구조/문서 일관성이지 의미 정확도·전문가 자격·운영 성능·검정력을 인증하지 않는다.",
+    "STATE/TASKS/계약 의미/현재 통합 브랜치는 S0 쓰기 범위여서 변경하지 않았다. E01 완료의 통합 상태 반영은 S0가 이 handoff를 근거로 수행한다."
+  ],
+  "next_tasks": [
+    "D01",
+    "R01",
+    "M01",
+    "L01",
+    "E02",
+    "I01"
+  ],
+  "next_task_readiness": {
+    "D01": "ready: 공개 월 상한·표·각주·수정본 확인. corpus 전체 대응표와 규정/FAQ 구간을 기록.",
+    "R01": "waiting_D01_or_public_source_check: E01 경계에 따라 public dev에서 R0 대비 한 가지씩 검색 실험.",
+    "M01": "ready_for_public_dev: 동일 근거의 충분/불충분 조건을 구분하고 G0 대비 프롬프트/실패 처리를 비교. 주 비교 재시도는 0회.",
+    "L01": "ready: 공개 부분 규칙 경계를 점검하고 E02에서 공통 고정할 L 버전 후보를 제시.",
+    "E02": "waiting_inputs: 두 H1/보관자, 적격 새 그룹, 원문/검수/누출 감사, private split, R/G/L 후보, 새 harness와 사전 lock 필요.",
+    "I01": "ready_for_E01_document_integration_only: 산출물/인수인계를 통합하고 STATE/TASKS를 준비 완료·최종 평가 대기로 반영. 성능 개선 채택 근거는 아직 없음."
+  },
+  "next_commands": [
+    "git fetch origin s5/e01-evaluation-protocol",
+    "python scripts/check_project_contract.py --handoff docs/handoffs/2026-11-04-s5-e01-evaluation-preparation.json",
+    "python -m unittest discover -s tests -p test_split_dataset.py -v",
+    "git diff --check",
+    "sed -n '1,280p' docs/evaluation/e01_protocol.md",
+    "cat data/review/e01/README.md"
+  ],
+  "integration_notes": [
+    "작업 브랜치는 docs/project-contract-and-session-roles의 f3595fba13dda11903fdb8900e5c73202a66f6a9에서 분기했다.",
+    "AGENTS.md 종료 규칙에 따라 task branch의 contracts/project.json latest_handoff만 새 파일로 변경한다. S0는 통합할 때 canonical branch의 포인터와 공통 상태를 조정한다.",
+    "인수인계 자신을 포함한 최종 커밋 SHA는 이 브랜치 Git 이력에서 확인한다. artifact_commit은 준비물 9개를 고정한 실제 커밋이다."
+  ],
+  "artifacts": [
+    "docs/evaluation/e01_protocol.md",
+    "data/evaluation/e01/protocol.json",
+    "data/evaluation/e01/candidate_manifest.json",
+    "data/review/e01/README.md",
+    "data/review/e01/gold_review_template.csv",
+    "data/review/e01/adjudication_template.csv",
+    "data/review/e01/leakage_audit_template.csv",
+    "data/review/e01/access_log_template.csv",
+    "data/review/e01/response_review_template.csv"
+  ],
+  "open_questions": [
+    "H1 두 명과 private 데이터 보관자로 실제 누가 참여하며 어느 비공개 저장소/권한을 사용할 것인가?",
+    "현재 자료 범위에서 25개의 미노출 연결 그룹을 확보할 수 있는가? 부족하면 시험 접근 전에 표본 설계를 개정해야 한다."
+  ]
+}
