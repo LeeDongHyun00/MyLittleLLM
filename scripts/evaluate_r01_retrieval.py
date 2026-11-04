@@ -18,7 +18,7 @@ import time
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from mylittlellm.retrieval import read_jsonl, retrieve
-from mylittlellm.retrieval_experiments import retrieve_sentence_focus, sentence_focus_weights
+from mylittlellm.retrieval_experiments import build_clause_windows, retrieve_sentence_focus, sentence_focus_weights
 from scripts.audit_d01_source import anchors_present, validate_output, validate_pdf, write_json
 
 
@@ -87,23 +87,33 @@ def evaluate(reconstruction, output, plan_path):
                        or any(row[key] != value for key, value in scope.items())
                        for row in rows):
         raise ValueError("Index provenance/scope mismatch or FAQ page in legacy policy scope")
-    if plan["candidate"]["id"] != "sentence_focus":
+    candidate_id = plan["candidate"]["id"]
+    if candidate_id not in {"sentence_focus", "clause_windows"}:
         raise ValueError("Unsupported experimental candidate")
+    if plan["baseline"]["k"] != 2 or plan["candidate"]["k"] != 2:
+        raise ValueError("This comparison requires equal k=2 evidence budgets")
+    candidate_rows = rows
+    if candidate_id == "clause_windows":
+        candidate_rows = build_clause_windows(
+            rows, read_jsonl(reconstruction / snapshot["extracted_path"]),
+            max_chars=plan["candidate"]["max_chars"], stride=plan["candidate"]["stride"])
     output = validate_output(output)
     output.mkdir(parents=True)
     write_json(output / "plan.json", plan)
     write_json(output / "queries.json", queries)
-    weight = plan["candidate"]["context_weight"]
+    weight = plan["candidate"].get("context_weight")
     runs, local = [], []
     arm_totals = {}
-    for name, retriever in (("bm25", retrieve), ("sentence_focus", retrieve_sentence_focus)):
+    candidate_retriever = retrieve_sentence_focus if candidate_id == "sentence_focus" else retrieve
+    for name, retriever, index_rows in (("bm25", retrieve, rows),
+                                        (candidate_id, candidate_retriever, candidate_rows)):
         arm_rows = []
         for case in queries["cases"]:
             query_scope = {**scope, **case.get("scope_override", {})}
             kwargs = dict(context_weight=weight) if name == "sentence_focus" else {}
             query_started = time.monotonic()
             # Extra ranks are diagnostic only; actual evidence budget stays top two.
-            ranked = retriever(rows, case["question"], **query_scope, k=len(rows), **kwargs)
+            ranked = retriever(index_rows, case["question"], **query_scope, k=len(index_rows), **kwargs)
             elapsed = time.monotonic() - query_started
             metric = score_retrieval(ranked, case, fixture, plan["baseline"]["k"])
             result = dict(arm=name, query_id=case["id"], group=case["group"],
@@ -133,14 +143,18 @@ def evaluate(reconstruction, output, plan_path):
     by_query = {case["id"]: {row["arm"]: row for row in runs if row["query_id"] == case["id"]}
                 for case in queries["cases"]}
     gains = [qid for qid, arms in by_query.items()
-             if arms["sentence_focus"]["metrics"]["complete_bundle_at_k"] is True
+             if arms[candidate_id]["metrics"]["complete_bundle_at_k"] is True
              and arms["bm25"]["metrics"]["complete_bundle_at_k"] is False]
     regressions = [qid for qid, arms in by_query.items()
-                   if arms["sentence_focus"]["metrics"]["complete_bundle_at_k"] is False
+                   if arms[candidate_id]["metrics"]["complete_bundle_at_k"] is False
                    and arms["bm25"]["metrics"]["complete_bundle_at_k"] is True]
     local_path = output / "retrieval.jsonl"
     with local_path.open("x", encoding="utf-8") as stream:
         for row in local:
+            stream.write(json.dumps(row, ensure_ascii=False) + "\n")
+    candidate_index_path = output / "candidate_index.jsonl"
+    with candidate_index_path.open("x", encoding="utf-8") as stream:
+        for row in candidate_rows:
             stream.write(json.dumps(row, ensure_ascii=False) + "\n")
     dependency_paths = ["mylittlellm/retrieval.py", "mylittlellm/retrieval_experiments.py",
                         "scripts/evaluate_r01_retrieval.py", "scripts/audit_d01_source.py",
@@ -156,6 +170,7 @@ def evaluate(reconstruction, output, plan_path):
         source_id=plan["source_id"], source_sha256=sha(raw), source_bytes=raw.stat().st_size,
         extracted_sha256=sha(reconstruction / snapshot["extracted_path"]),
         index_sha256=sha(index), indexed_chunks=len(rows),
+        candidate_index_sha256=sha(candidate_index_path), candidate_indexed_chunks=len(candidate_rows),
         indexed_pages=sorted({row["pdf_page"] for row in rows}),
         source_limits="Separate Dongseo bytes. Historical Jeju original and latest official corrected version remain unverified.",
         python_version=platform.python_version(), models_called=0,

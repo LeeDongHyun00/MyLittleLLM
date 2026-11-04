@@ -1,11 +1,10 @@
 """Retrieval-only guards with synthetic text; no source PDF or model required."""
 import copy
-from pathlib import Path
-import tempfile
 import unittest
 
 from mylittlellm.retrieval import retrieve, terms
-from mylittlellm.retrieval_experiments import retrieve_sentence_focus, sentence_focus_weights
+from mylittlellm.retrieval_experiments import (build_clause_windows, clause_window_spans,
+                                             retrieve_sentence_focus, sentence_focus_weights)
 from scripts.evaluate_r01_retrieval import score_retrieval
 
 
@@ -79,6 +78,44 @@ class R01RetrievalTests(unittest.TestCase):
         self.assertTrue(result["scope_empty_pass"])
         self.assertIsNone(result["lexical_recall_at_k"])
         self.assertIsNone(result["complete_bundle_at_k"])
+
+    def test_clause_boundaries_preserve_full_page_coverage_within_budget(self):
+        for text in ("x" * 930 + "□짧은 예외", "□" + "가" * 2000 + "◦예외" + "나" * 73,
+                     "문서 " * 75, "□" + "가" * 899 + "◦미지원 예외"):
+            spans = clause_window_spans(text)
+            covered = {position for start, end in spans for position in range(start, end)}
+            self.assertEqual(covered, set(range(len(text))))
+            self.assertTrue(all(end - start <= 900 for start, end in spans))
+        self.assertEqual(clause_window_spans(""), [])
+
+    def test_clause_index_keeps_allowed_scope_and_negative_footnotes(self):
+        text = "□가상 지원 규정 " + "일반 안내 " * 15 + "◦방학은 미지원. 단 계절학기는 예외입니다."
+        originals = [row(text=text)]
+        pages = [dict(source_id="synthetic", sha256="fixture", pdf_page=1, text=text),
+                 dict(source_id="synthetic", sha256="fixture", pdf_page=26,
+                      text="FAQ: 허용되지 않은 정답 문구"),
+                 dict(source_id="other-year", sha256="other", pdf_page=1,
+                      text="다른 학년도 원문")]
+        saved = copy.deepcopy(originals)
+        candidate = build_clause_windows(originals, pages)
+        self.assertEqual(originals, saved)
+        self.assertTrue(candidate)
+        self.assertEqual({(item["source_id"], item["pdf_page"]) for item in candidate},
+                         {("synthetic", 1)})
+        for item in candidate:
+            for key in ("sha256", "year", "semester", "institution", "task"):
+                self.assertEqual(item[key], saved[0][key])
+        self.assertTrue(any("미지원" in item["text"] and "예외" in item["text"]
+                            for item in candidate))
+
+    def test_clause_index_rejects_missing_or_mismatched_source_extraction(self):
+        originals = [row()]
+        for pages in ([], [dict(source_id="synthetic", sha256="wrong", pdf_page=1,
+                               text=originals[0]["text"])],
+                      [dict(source_id="synthetic", sha256="fixture", pdf_page=1,
+                            text="다른 추출 텍스트")]):
+            with self.assertRaises(ValueError):
+                build_clause_windows(originals, pages)
 
 
 if __name__ == "__main__":
