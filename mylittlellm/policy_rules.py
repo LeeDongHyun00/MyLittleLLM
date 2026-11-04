@@ -91,10 +91,56 @@ def solve_rule(rule, facts):
                 facts_used={k:facts[k] for k in rule['fields'] if k in facts})
 
 
+def false_explanation_nodes(rule):
+    """Resolve optional explanations for the root or necessary AND conjuncts.
+
+    Paths only cross AND nodes: a false alternative within an OR is not itself
+    a reason the rule failed. The rule AST remains the source of the condition;
+    explanation metadata never defines a second decision rule.
+    """
+    entries=rule.get('false_explanation',[])
+    if not isinstance(entries,list):raise ValueError('false_explanation must be a list')
+    result=[]
+    for entry in entries:
+        if not isinstance(entry,dict) or set(entry)!={'conjunct_path','text'}:
+            raise ValueError('Invalid false explanation entry')
+        path=entry['conjunct_path'];text=entry['text']
+        if not isinstance(path,list) or any(type(i) is not int or i<0 for i in path):
+            raise ValueError('Invalid false explanation path')
+        if not isinstance(text,str) or not text.strip():raise ValueError('Empty false explanation')
+        node=rule['expression']
+        for index in path:
+            if not isinstance(node,dict) or set(node)!={'and'} or index>=len(node['and']):
+                raise ValueError('False explanation must refer to an AND conjunct')
+            node=node['and'][index]
+        result.append((node,text))
+    return result
+
+
+def explain_false(rule, facts):
+    """Explain only individually entailed false conditions; never fill omissions.
+
+    Inconsistent facts and solver uncertainty produce no extra explanation.
+    The caller also requires the whole rule to have a false decision.
+    """
+    import z3
+    nodes=false_explanation_nodes(rule)
+    if not nodes:return ''
+    solver,variables,_=rule_problem(rule,facts)
+    if solver.check()!=z3.sat:return ''
+    reasons=[]
+    for node,text in nodes:
+        solver.push();solver.add(compile_ast(node,variables))
+        result=solver.check();solver.pop()
+        if result==z3.unsat:reasons.append(text)
+    return '입력 조건에 따른 판정 이유: '+' '.join(reasons) if reasons else ''
+
+
 class PolicyRules:
     def __init__(self, path=None, index=None):
         self.config=json.loads(Path(path or ROOT/'config/grounding_rules.json').read_text())
         self.rules={r['id']:r for r in self.config['rules']}
+        for rule in self.rules.values():false_explanation_nodes(rule)
         self.index={r['chunk_id']:r for r in (index if index is not None else read_jsonl(ROOT/'outputs/preprocessed/index.jsonl'))}
 
     def documents(self, rule):
@@ -134,4 +180,7 @@ class PolicyRules:
                              for k in result.get('missing',[])]
         result.update(rule_id=rule['id'],label=rule['label'],sources=[d['chunk_id'] for d in docs],
                       explanation=rule['explanation'],review_status=self.config['review_status'])
+        if result['decision']=='false':
+            detail=explain_false(rule,facts)
+            if detail:result['explanation']=detail+' '+result['explanation']
         return result,docs
