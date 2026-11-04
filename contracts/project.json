@@ -60,7 +60,8 @@
     "docs/research/reference_projects_top10.md",
     "docs/priorities.md",
     "docs/experiment_design.md",
-    "docs/running.md"
+    "docs/running.md",
+    "docs/project/COLLABORATION.md"
   ],
   "observations": [
     {
@@ -153,7 +154,10 @@
     "docs/handoffs/TEMPLATE.json",
     "docs/handoffs/2026-11-04-contract-bootstrap.json",
     "scripts/check_project_contract.py",
-    ".github/workflows/project-contract.yml"
+    ".github/workflows/project-contract.yml",
+    "contracts/sessions.json",
+    "scripts/check_session_handoffs.py",
+    ".github/workflows/session-collaboration.yml"
   ],
   "frozen_artifacts": {
     "data/evaluation/grounding_protocol.json": "4f1639b8c2d8bbecb7fd1dfdb884df19197e5eeb27bd4767421762d422580543",

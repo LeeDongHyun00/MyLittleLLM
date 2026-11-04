@@ -6,6 +6,8 @@
 
 - 저장소: [LeeDongHyun00/MyLittleLLM](https://github.com/LeeDongHyun00/MyLittleLLM).
 - 새 세션 시작 브랜치: `docs/project-contract-and-session-roles`.
+- 현재 진행 중인 협업 통합 브랜치: `s0/i01-session-collaboration`. E01/D01을 상속하고 S2/R01·S3/L01 세션을 연결했다.
+  [협업 운영](COLLABORATION.md), [세션 상태](../../contracts/sessions.json), [협업 이슈 #3](https://github.com/LeeDongHyun00/MyLittleLLM/issues/3).
 - 애플리케이션 기준 커밋: `d0ac404c8cda106e703bd04a691aaf8e10abf056`.
 - 부모 브랜치 `feat/raft-step-opsd-compression`의 [draft PR #1](https://github.com/LeeDongHyun00/MyLittleLLM/pull/1)은 아직 병합 전이다.
   `main`은 `83d9d9912cdc74af0363efd4717166fcfc2224ca`로 현재 구현보다 이전 상태다.
@@ -52,12 +54,22 @@
   기존 공개 사례에 사람 검수를 추가해도 새 대학/새 규칙 독립 시험으로 소급 변경할 수 없다.
 - **채점:** V04/V07의 약한 조건부 답변이 정규식에서 통과했다. 자동 점수와 의미 평가를 함께 유지한다.
 
+## 이번 협업의 상태
+
+- **E01 준비 완료:** [프로토콜](../evaluation/e01_protocol.md), 접근/누출 manifest와 H1 검수 양식을 준비했다.
+  새 독립 후보·H1 승인·최종 잠금은 아직 없다.
+- **D01 부분 완료:** [원문 진단](../../reports/d01_source_report.md). 별도 동서대 배포본의 38청크에서
+  상한/각주는 존재하지만 V12의 상한 근거가 3위여서 k=2에 빠짐을 확인했다.
+  기존 제주대 해시 원문 재확보와 공식 최신 수정본 대조는 외부 TLS 다운로드 실패로 남았다.
+- **R01/L01 진행 중:** 명시적 사용자 요청으로 별도 에이전트/worktree를 만들었다. 최종 시험·모델 실행은 수행하지 않는다.
+- **이벤트 연결:** GitHub Actions push/PR에서 계약·세션 인수인계를 검사한다. 외부 webhook은 관리 권한/수신처가 없어 미연결이다.
+
 ## 다음 순서
 
-1. S5 `E01`: 새 평가 프로토콜·사람 검수 절차를 준비하고 데이터 접근 경계를 정한다.
-2. S1 `D01` → S2 `R01`: 상한/표/각주 근거 보존을 확인하고 검색만 비교한다.
+1. S0 `I01`: 이번 R01/L01 결과와 관련 검증을 검토하고 협업 통합 브랜치에 반영한다.
+2. S1 `D01`: 기존 원문과 공식 최신 수정본의 대조를 마친다. 별도 배포본의 개발 결과와 구분한다.
 3. S4 `M01`: 고정된 근거를 주고 생성 반복·잘림 처리를 비교한다.
-4. S3 `L01`: 규칙 경계·설명과 인터페이스 회귀를 점검한다.
-5. S5 `E02` → S0 `I01`: 별도 검수된 새 사례가 준비되면 고정 평가 후 통합한다.
+4. S5 `E02`: H1 두 명/보관자·새 그룹·사전 동결이 준비되면 별도 평가한다.
+5. S0 `I01`: 위 연구 결과가 준비되면 후속 통합과 기준 브랜치 갱신을 수행한다.
 
-작업은 모두 [TASKS](TASKS.md)에 준비되어 있으며 아직 실행을 시작한 것으로 기록하지 않는다.
+카드별 준비·진행·완료 상태는 [TASKS](TASKS.md), 커밋별 세션 기록은 [sessions.json](../../contracts/sessions.json)을 확인한다.

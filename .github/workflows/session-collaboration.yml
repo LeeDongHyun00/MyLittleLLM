@@ -1,0 +1,33 @@
+name: Session collaboration
+
+on:
+  push:
+    branches:
+      - 's[0-5]/**'
+      - docs/project-contract-and-session-roles
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sessions-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  handoffs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check project contract and frozen evidence
+        run: python3 scripts/check_project_contract.py
+      - name: Check handoff validation guards
+        run: python3 -m unittest discover -s tests -p test_session_handoffs.py -v
+      - name: Validate sessions and publish handoff summary
+        env:
+          SESSION_BRANCH: ${{ github.head_ref || github.ref_name }}
+        run: python3 scripts/check_session_handoffs.py --branch "$SESSION_BRANCH" --summary "$GITHUB_STEP_SUMMARY"
