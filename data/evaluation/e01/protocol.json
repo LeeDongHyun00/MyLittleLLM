@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "protocol_id": "e01-grounded-v1",
+  "protocol_version": "1.0.0",
+  "contract_version": "1.0.0",
+  "prepared_at": "2026-11-04",
+  "session_role": "S5",
+  "task_id": "E01",
+  "status": "prepared_not_frozen",
+  "code_baseline": "f3595fba13dda11903fdb8900e5c73202a66f6a9",
+  "specification": "docs/evaluation/e01_protocol.md",
+  "candidate_manifest": "data/evaluation/e01/candidate_manifest.json",
+  "review_instructions": "data/review/e01/README.md",
+  "independent_human_gold_count": 0,
+  "independent_expert_review_complete": false,
+  "test_access_released": false,
+  "cohorts": {
+    "public_regression": {
+      "formal_split_eligible": false,
+      "claim": "공개·개발된 그룹의 회귀"
+    },
+    "new_questions_known_rules": {
+      "formal_split_eligible": false,
+      "claim": "새 질문/기존 규칙 적용; 새 규칙 일반화 아님"
+    },
+    "unseen_rule_groups": {
+      "formal_split_eligible": true,
+      "claim": "감사된 미노출 규칙 그룹의 open-book 탐색 파일럿"
+    }
+  },
+  "sampling_plan": {
+    "status": "planned_not_collected",
+    "target_groups": 25,
+    "target_questions_per_group": 2,
+    "target_rows": 50,
+    "ratios_by_group": {
+      "train": 0.48,
+      "dev": 0.12,
+      "test": 0.4
+    },
+    "target_groups_by_split": {
+      "train": 12,
+      "dev": 3,
+      "test": 10
+    },
+    "target_rows_by_split": {
+      "train": 24,
+      "dev": 6,
+      "test": 20
+    },
+    "group_key": "leakage_group",
+    "seed": 20261104,
+    "selection_if_excess": "sorted group IDs, Random(seed).shuffle, first 25; before any model output",
+    "if_insufficient": "wait_or_amend_before_test_access; never fill with exposed groups",
+    "rationale": "48/12/40을 정확히 배분하는 소규모 2인 검수/CPU 파일럿. 검정력·목표 정확도 근거 아님.",
+    "new_institution_generalization": false,
+    "new_year_generalization": false,
+    "deployment_pass_threshold": null
+  },
+  "independence": {
+    "unit": "transitive_connected_rule_template_version_copy_group",
+    "two_questions_in_one_group_are_not_independent": true,
+    "exposed_component_policy": "entire_component_to_public_regression",
+    "source_document_access_is_open_book": true,
+    "pretraining_exposure": "unknown",
+    "required_gold_reviewers": 2,
+    "approval_requires": [
+      "two_independent_source_first_submissions",
+      "resolved_disagreements",
+      "both_actual_human_signoffs",
+      "source_version_and_scope_verified"
+    ],
+    "test_requires_additionally": [
+      "exposure_audit",
+      "group_audit",
+      "custody_access_controls",
+      "frozen_split"
+    ]
+  },
+  "runtime_input_allowlist": [
+    "question",
+    "year",
+    "task",
+    "institution",
+    "semester",
+    "facts"
+  ],
+  "runtime_forbidden_inputs": [
+    "answer",
+    "gold_answer",
+    "required_facts",
+    "forbidden_claims",
+    "expected_action",
+    "expected_decision",
+    "gold_evidence",
+    "reviewer_answers",
+    "leakage_group",
+    "split",
+    "candidate_id"
+  ],
+  "retrieval_policy": {
+    "primary_corpus": "verified_official_regulation_sections_only",
+    "excluded": [
+      "QA",
+      "gold",
+      "reviewer_answers",
+      "answer_authoring_explanations",
+      "FAQ_sections"
+    ],
+    "mixed_pdf_policy": "prelocked_section_allowlist; unresolved_sections_excluded",
+    "same_source_snapshot_for_all_arms": true,
+    "oracle_context": "separate_diagnostic_only"
+  },
+  "arms": [
+    {
+      "id": "B00",
+      "retrieval": "R0",
+      "generation": "G0",
+      "logic": "L_fixed"
+    },
+    {
+      "id": "B10",
+      "retrieval": "R1",
+      "generation": "G0",
+      "logic": "L_fixed"
+    },
+    {
+      "id": "B01",
+      "retrieval": "R0",
+      "generation": "G1",
+      "logic": "L_fixed"
+    },
+    {
+      "id": "B11",
+      "retrieval": "R1",
+      "generation": "G1",
+      "logic": "L_fixed"
+    },
+    {
+      "id": "N0",
+      "retrieval": "R0",
+      "generation": null,
+      "logic": "L_fixed",
+      "fallback": "retrieved_evidence_and_explicit_abstention"
+    }
+  ],
+  "primary_comparison": [
+    "B11",
+    "B00"
+  ],
+  "component_comparisons": [
+    [
+      "B10",
+      "B00"
+    ],
+    [
+      "B01",
+      "B00"
+    ]
+  ],
+  "baseline_settings": {
+    "pipeline": "grounded",
+    "claim_check": false,
+    "retrieval": {
+      "method": "BM25",
+      "k": 2
+    },
+    "runtime_lock": "config/runtime.lock.json",
+    "request": {
+      "prompt": "minimal",
+      "json_schema": true,
+      "max_tokens": 384,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "cache_prompt": false,
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "network_timeout_seconds": 360,
+    "server_expected_not_observed_here": {
+      "context_size": 8192,
+      "slots": 1,
+      "enable_thinking": false
+    }
+  },
+  "pending_freeze": {
+    "R1_commit_and_settings": null,
+    "G1_commit_and_settings": null,
+    "L_fixed_commit": null,
+    "harness_commit": null,
+    "source_section_allowlist_digest": null,
+    "index_digests": null,
+    "private_review_ledger_digest": null,
+    "private_group_audit_digest": null,
+    "private_split_digest": null,
+    "private_gold_digest": null,
+    "runtime_observation_digest": null,
+    "arm_deadlines_and_solver_limits": null,
+    "run_id": null,
+    "lock_digest": null
+  },
+  "execution": {
+    "runner_status": "not_implemented_by_E01",
+    "automatic_retries": 0,
+    "reuse_model_responses_in_primary_run": false,
+    "concurrent_heavy_jobs": 1,
+    "order_seed": 20261104,
+    "public_dev_warmup_calls": 1,
+    "planned_test_rows_per_arm": 20,
+    "planned_max_test_model_calls": 80,
+    "planned_test_judgments": 100,
+    "actual_model_calls": 0,
+    "actual_judgments": 0,
+    "existing_output_directory": "refuse",
+    "post_test_tuning": "new_experiment_and_new_unexposed_test"
+  },
+  "scoring": {
+    "gold_actions": [
+      "answer",
+      "clarify",
+      "abstain"
+    ],
+    "runtime_statuses": [
+      "answer",
+      "cannot_determine",
+      "invalid_response"
+    ],
+    "clarify_mapping": "cannot_determine plus concrete necessary follow_up/questions",
+    "errors_never_count_as_correct_abstention": true,
+    "zero_denominator": null,
+    "money_default_tolerance_krw": 0,
+    "semantic_review": "two_blinded_humans_then_adjudication",
+    "keep_separate": [
+      "pattern_proxy",
+      "AI_review",
+      "H1_initial_reviews",
+      "H1_adjudicated"
+    ],
+    "metrics_defined_in": "docs/evaluation/e01_protocol.md",
+    "latency_quantile": "nearest_rank_ceil_p_times_n",
+    "confidence_intervals": {
+      "method": "paired_cluster_bootstrap_percentile",
+      "unit": "leakage_group",
+      "replicates": 2000,
+      "seed": 20261104,
+      "percentiles": [
+        2.5,
+        97.5
+      ],
+      "min_groups": 2,
+      "min_valid_replicate_fraction": 0.95
+    }
+  },
+  "release_gates": [
+    {
+      "id": "H1_AND_CUSTODIAN",
+      "status": "pending"
+    },
+    {
+      "id": "SOURCES_AND_TWO_HUMAN_GOLD_REVIEWS",
+      "status": "pending"
+    },
+    {
+      "id": "UNEXPOSED_GROUPS_AND_PRIVATE_SPLIT",
+      "status": "pending"
+    },
+    {
+      "id": "R_G_L_CANDIDATES_SELECTED_ON_DEV",
+      "status": "pending"
+    },
+    {
+      "id": "HARNESS_AND_REQUEST_BOUNDARY_CHECKS",
+      "status": "pending"
+    },
+    {
+      "id": "PRE_TEST_IMMUTABLE_LOCK",
+      "status": "pending"
+    }
+  ]
+}
