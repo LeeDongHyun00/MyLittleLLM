@@ -29,7 +29,7 @@
     {
       "command": "GitHub Actions runs 41856616581 / 41856688676 and Project contract runs 41856616477 / 41856688561",
       "status": "passed",
-      "outcome": "9ce31998eaa842e00dc81be46a35b5f2b44634d8의 push 및 PR 이벤트에서 세션 가드/인수인계 표와 계약 검사가 모두 성공. 이후 확장 regression job은 별도 실행 확인 대상이다."
+      "outcome": "초기 9ce31998eaa842e00dc81be46a35b5f2b44634d8의 push/PR 이벤트에서 세션 가드/인수인계 표와 계약 검사 모두 성공. 확장 regression job의 통합 커밋 결과는 별도 검증 항목에 기록했다."
     },
     {
       "command": "python scripts/check_project_contract.py; python scripts/check_session_handoffs.py --branch s0/i01-session-collaboration; git diff --check",
@@ -50,6 +50,11 @@
       "command": "S0 audit: old config equality after removing optional metadata, unchanged runtime retrieval, 20 exposure hashes and prior E01 manifest digest",
       "status": "passed",
       "outcome": "rule AST/fields/scope/source/constraints/review_status 불변, 기본 retrieval.py 불변, 공개 노출 추가 20개와 최초 manifest 해시 일치 확인."
+    },
+    {
+      "command": "GitHub Actions integration runs 41858234572/41858246792 and Project contract 41858234593/41858246786; regression job logs 126672602915",
+      "status": "passed",
+      "outcome": "e5bff5f9bbd012c54586580b868d483b8233becb의 push/PR 네 실행 모두 success. Session collaboration의 handoffs/regressions jobs 모두 성공. 실제 로그의 테스트 수 5+10+16+14+15+7+10+2=79, handoff 가드7로 총86개. PR #5/#6은 S0 브랜치에 merged 확인; 통합 PR #4는 draft/open."
     }
   ],
   "known_limits": [
@@ -103,7 +108,14 @@
     "external_webhook_configured": false,
     "initial_verified_commit": "9ce31998eaa842e00dc81be46a35b5f2b44634d8",
     "initial_push_run": "https://github.com/LeeDongHyun00/MyLittleLLM/actions/runs/41856616581",
-    "initial_pr_run": "https://github.com/LeeDongHyun00/MyLittleLLM/actions/runs/41856688676"
+    "initial_pr_run": "https://github.com/LeeDongHyun00/MyLittleLLM/actions/runs/41856688676",
+    "verified_integration_commit": "e5bff5f9bbd012c54586580b868d483b8233becb",
+    "verified_push_run": "https://github.com/LeeDongHyun00/MyLittleLLM/actions/runs/41858234572",
+    "verified_pr_run": "https://github.com/LeeDongHyun00/MyLittleLLM/actions/runs/41858246792",
+    "verified_project_contract_push": "https://github.com/LeeDongHyun00/MyLittleLLM/actions/runs/41858234593",
+    "verified_project_contract_pr": "https://github.com/LeeDongHyun00/MyLittleLLM/actions/runs/41858246786",
+    "task_pr_5_merged_into_s0": true,
+    "task_pr_6_merged_into_s0": true
   },
   "next_commands": [
     "git fetch origin",
@@ -135,5 +147,6 @@
     "reports/r01_retrieval_development.md",
     "reports/l01_rule_boundaries.md"
   ],
-  "open_questions": []
+  "open_questions": [],
+  "artifact_commit": "e5bff5f9bbd012c54586580b868d483b8233becb"
 }

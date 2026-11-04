@@ -72,4 +72,7 @@ python scripts/check_session_handoffs.py --branch s0/i01-session-collaboration
 
 브랜치가 로컬에 없으면 origin에서 새 worktree를 만들고 AGENTS → 계약 → STATE → 작업 카드 →
 `latest_handoff` 순서로 읽는다. 새 세션은 자신에게 허용된 파일과 입력 산출물을 재확인한다.
+새 역할 작업을 열 때 S0가 별도 브랜치와 `running` 레코드를 등록하고, 종료 시 해당 handoff와
+실제 상태·커밋·PR을 연결한다. 기존 종료 레코드를 새 작업으로 덮어쓰지 않는다.
+레지스트리에 없는 역할 브랜치는 검사에 실패하므로 워크플로가 있는 통합 기준에서 등록을 함께 준비한다.
 세션 검사 통과는 원문 의미·정답·H1 독립 검수·E02 실행 준비가 완료됐다는 뜻이 아니다.
