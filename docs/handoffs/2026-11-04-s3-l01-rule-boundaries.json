@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.0.0",
+  "date": "2026-11-04",
+  "session_role": "S3",
+  "task_id": "L01",
+  "branch": "s3/l01-rule-boundaries",
+  "code_baseline": "a921e39ba53d6b579156262b13e898a9f63669bd",
+  "artifact_commit": "a48f32721c9cd1d25742fde24e890c7e27d63067",
+  "status": "completed",
+  "summary": "9개 부분 규칙의 AST·범위·원문 연결과 외부 schema를 유지하면서 입증된 false 하위 조건만 설명하고, 미확인·모순·학교유형·법정지위·정수 경계 회귀 52개 테스트를 통과했다.",
+  "completed": [
+    "AGENTS.md, PROJECT_CONTRACT.md, STATE.md, SESSIONS.md, TASKS L01, INTERFACES.md, 최신 D01 handoff와 E01 프로토콜을 읽고 전용 worktree에서만 작업했다.",
+    "S0 승인으로 config/grounding_rules.json에 optional false_explanation=[{conjunct_path, text}]를 추가했다. 빈 경로는 전체 AST, 그 외 경로는 필요 조건인 AND 자식만 참조한다.",
+    "전체 결론 false 및 개별 조건의 Z3 unsat 입증 시에만 기존 explanation에 이유를 추가한다. unknown/모순/timeout을 false 설명으로 바꾸지 않으며 누락 facts를 채우지 않는다.",
+    "학력만 미달한 사례에서 미확인 법정 지위를 부정하지 않고, 마이스터고·체험 위주 학교 제외가 교과 충족으로 상쇄되지 않음을 검증했다. 검정고시 false는 제출 면제로 설명한다.",
+    "원래 rule ID, expression, fields, constraints, applicability, scope, sources/hash/anchors, review_status와 외부 응답/proof 키를 보존했다. optional 설명이 없으면 이전 동작을 유지한다.",
+    "새 tests/test_l01_boundaries.py 16개 테스트에 9규칙×3결정 27개 매트릭스 및 범위/모순/법정지위/학교유형/모름/정수/개인 결과 게이트 회귀를 추가했다. guided_facts 구현 자체는 변경하지 않았다.",
+    "reports/l01_rule_boundaries.md 및 .json에 조항 연결, 합성 근거 테스트 한계, 호환성, 추가 solver 비용과 모델 호출 0회를 기록했다.",
+    "산출물을 a48f32721c9cd1d25742fde24e890c7e27d63067에 로컬 커밋했다. push/PR/웹훅 협업 통합과 공통 계약·상태 파일은 S0 담당이다."
+  ],
+  "verification": [
+    {
+      "command": "기본 Python 의존성 확인 및 /tmp/mllm-s3-l01-venv 생성 후 z3-solver==4.15.4.0 설치",
+      "status": "observed",
+      "outcome": "기본 Python에는 z3/pytest가 없었다. 기본 sandbox 권한의 첫 pip 시도는 ProxyError/Operation not permitted로 실패했고, 추가 네트워크 권한으로 전용 venv에 z3 4.15.4.0 설치 성공. 다른 세션 환경은 변경하지 않았다."
+    },
+    {
+      "command": "PYTHONPATH=tests /tmp/mllm-s3-l01-venv/bin/python -m unittest test_grounding test_guided_grounding test_l01_boundaries test_runtime_logic -v",
+      "status": "passed",
+      "outcome": "52개 테스트 통과: 기존 grounding/guided 29개, 신규 L01 16개, 기존 runtime 7개. 모델 호출 없음."
+    },
+    {
+      "command": "python scripts/check_project_contract.py",
+      "status": "passed",
+      "outcome": "계약 1.0.0, 참고 프로젝트 10개, 규칙 9개, 동결 파일 13개, 링크 문서 12개 통과. 최신 handoff 포인터는 변경하지 않았다."
+    },
+    {
+      "command": "python scripts/check_project_contract.py --handoff docs/handoffs/2026-11-04-s3-l01-rule-boundaries.json",
+      "status": "passed",
+      "outcome": "새 S3/L01 handoff를 명시해 계약 1.0.0, 규칙 9개, 동결 파일 13개, 링크 문서 12개 검증 통과."
+    },
+    {
+      "command": "git diff --cached --check; report links/code/config hashes/27-row count check; baseline config equality after removing false_explanation",
+      "status": "passed",
+      "outcome": "공백 검사, 보고서 상대 링크 및 SHA-256/27사례 일치 통과. optional false_explanation 제거 후 설정이 시작 커밋 a921e39와 완전히 일치했다."
+    },
+    {
+      "command": "실제 원문 PDF 재구축·원문 의미 대조 및 H1 독립 검수",
+      "status": "not_run",
+      "outcome": "원본 PDF/승인 H1 검수자가 준비되지 않았다. 테스트는 기존 anchor를 조합한 합성 색인 레코드이며 원문 무결성·정책 해석을 인증하지 않는다."
+    },
+    {
+      "command": "전체 모델 평가·학습·색인·실서비스 지연 측정·새 locked test",
+      "status": "not_run",
+      "outcome": "L01 경량 공개 개발 회귀 범위 밖이며 E02 진입 조건도 충족 전이다. 기존 동결 평가 결과와 원시 출력은 변경하지 않았다."
+    }
+  ],
+  "known_limits": [
+    "기존 주거 원문 SHA 8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c와 부산대 SHA a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3를 유지했다. D01 동서대 미러 SHA 22af5aaa41f0d32377f4c5adbe682de502f1e245712cf44432e448e312b83aa2로 대체하지 않았다.",
+    "합성 anchor 레코드 테스트는 원문을 읽은 검수가 아니다. 27개 개발 사례와 52개 테스트 통과를 독립 평가 정확도나 H1 승인으로 해석하면 안 된다.",
+    "Z3는 설명이 연결된 AST 조건의 거짓만 검사한다. 한국어 문구와 원문 해석의 일치는 H1 검수 대상이며, AST 변경 시 conjunct_path·수치 문구도 재검토해야 한다.",
+    "false 응답은 최대 5회의 solver check가 추가될 수 있다(일관성 1회+특성화고 조건 4회, 각 1000ms timeout). 전체 요청 deadline이나 실서비스 latency 평가를 새로 구현하지 않았다.",
+    "외부 schema는 유지하지만 explanation 문자열은 바뀐다. S0가 선택적 config 확장의 INTERFACES/ADR·계약 버전 채택을 통합해야 한다. 이 handoff는 현행 1.0.0 계약 스냅샷이다.",
+    "문답에서 확인된 bool/int만 사용한다. 법정 지위·학교 분류를 자연어에서 자동 추출하거나 부분 요건으로 최종 합격·선발·지급을 확정하지 않는다."
+  ],
+  "next_tasks": [
+    "I01",
+    "E02"
+  ],
+  "next_commands": [
+    "cd /workspace/worktrees/mllm-s3-l01",
+    "PYTHONPATH=tests /tmp/mllm-s3-l01-venv/bin/python -m unittest test_grounding test_guided_grounding test_l01_boundaries test_runtime_logic -v",
+    "python scripts/check_project_contract.py --handoff docs/handoffs/2026-11-04-s3-l01-rule-boundaries.json",
+    "git diff --check"
+  ],
+  "artifacts": [
+    "mylittlellm/policy_rules.py",
+    "config/grounding_rules.json",
+    "tests/test_l01_boundaries.py",
+    "reports/l01_rule_boundaries.md",
+    "reports/l01_rule_boundaries.json",
+    "docs/handoffs/2026-11-04-s3-l01-rule-boundaries.json"
+  ],
+  "open_questions": [
+    "S0가 선택적 config 확장과 동일 L 버전을 어떤 통합 커밋으로 채택할지 확정해야 한다. E02의 모든 주 비교 arm에서 동일 L을 사용해야 한다.",
+    "실제 원문과 설명 문장의 독립 대조 및 E02 자료 접근을 담당할 H1 두 명·보관자의 지정은 별도 준비 사항이다."
+  ]
+}
