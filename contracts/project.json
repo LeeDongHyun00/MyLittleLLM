@@ -5,7 +5,7 @@
   "as_of": "2026-11-04",
   "canonical_branch": "docs/project-contract-and-session-roles",
   "code_baseline": "d0ac404c8cda106e703bd04a691aaf8e10abf056",
-  "latest_handoff": "docs/handoffs/2026-11-04-s5-e01-evaluation-preparation.json",
+  "latest_handoff": "docs/handoffs/2026-11-04-s1-d01-source-audit.json",
   "roles": {
     "S0": [
       "I01"
