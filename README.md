@@ -12,6 +12,8 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 [인수인계 포인터](contracts/project.json)를 함께 제공한다.
 
 2026-11-04 시작 브랜치는 **`docs/project-contract-and-session-roles`**다.
+진행 결과는 `s0/i01-session-collaboration`의 [통합 PR #4](https://github.com/LeeDongHyun00/MyLittleLLM/pull/4)에 있다.
+[세션·GitHub 이벤트 운영](docs/project/COLLABORATION.md)과 [세션 기록](contracts/sessions.json)을 확인한다.
 기존 기능 [PR #1](https://github.com/LeeDongHyun00/MyLittleLLM/pull/1)은 병합 전이며 `main`에는 최신 구현이 없다.
 아래 11월 2일 기록은 실험 이력이고, 현재 실행 상태와 다음 작업은 STATE를 확인한다.
 

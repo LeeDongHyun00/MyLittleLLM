@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "R01",
+  "cohort": "public_regression",
+  "source_version": "dongseo_republication",
+  "source_id": "kosaf-2026-housing-dongseo-d01",
+  "source_sha256": "22af5aaa41f0d32377f4c5adbe682de502f1e245712cf44432e448e312b83aa2",
+  "code_baseline": "a921e39ba53d6b579156262b13e898a9f63669bd",
+  "review_status": "ai_authored_awaiting_independent_review",
+  "independent_human_approved": false,
+  "preparation": "Sequential public-development trial written after observing sentence_focus-01 (V12 cap rank 3 to 4, no bundle gain). Questions and expected lexical clauses are unchanged. This is not a locked independent evaluation.",
+  "baseline": {"id": "bm25", "k": 2, "chunks": "D01 production 900 chars / stride 740", "page_dedup": true},
+  "candidate": {"id": "clause_windows", "k": 2, "max_chars": 900, "stride": 740, "boundary_markers": ["□", "◦"], "only_change": "Chunk starts at generic policy bullets, with stride fallback inside long blocks. Adjacent clauses/footnotes remain within a 900-character window. Query weights are baseline 1.0."},
+  "fixed": ["source bytes and allowed pages", "scope filters", "BM25 formula", "Korean 2/3-grams", "page deduplication", "k=2", "maximum 900 characters per chunk", "no generation"],
+  "metrics": ["primary clause lexical hit@2", "required clause lexical micro Recall@2", "complete required-clause bundle@2", "scope-empty behavior", "per-question rank and regression"],
+  "metric_limits": "D01 short-anchor presence on its annotated source/page is a lexical proxy only. A partial amount fragment cannot satisfy first-month/cost exceptions; page-only hits are insufficient. Table-cell meaning and answer accuracy are not assessed. Out-of-scope cases have Recall N/A.",
+  "selection_rule": "Consider an experimental candidate only if V12 cap and attached amount/cost exception bundle appear within two selected chunks, no previously complete development bundle regresses, and scope/negation/exception guards pass. No production adoption or final efficacy claim follows from this public set.",
+  "model_calls": 0,
+  "next_trial_policy": "Any new candidate or setting must use a distinct new output directory and disclose that earlier public-development results were observed. Never overwrite a prior run."
+}

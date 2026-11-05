@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "task_id": "D01",
+  "session_role": "S1",
+  "as_of": "2026-11-04",
+  "cohort": "public_regression",
+  "review_status": "ai_source_audit_not_independent_gold",
+  "baseline_commit": "0c7aa1fe89395b18853b55451e26b1cd0a022c22",
+  "versions": {
+    "historical_jeju": {
+      "source_id": "kosaf-2026-housing-plan-faq",
+      "download_url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560",
+      "landing_url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560",
+      "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+      "bytes": 2375263,
+      "pdf_pages": 123,
+      "hash_provenance": "data/retrieval_snapshot.jsonl; 2026-11-02 retrieval, not reverified here",
+      "local_pdf_verified": false,
+      "status": "download_failed_tls_certificate",
+      "scope": {
+        "academic_year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단"
+      },
+      "historical_index_page_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "independent_human_review": false
+    },
+    "dongseo_republication": {
+      "source_id": "kosaf-2026-housing-dongseo-d01",
+      "download_url": "https://www.dongseo.ac.kr/kr/index.php?pCode=MN2000195&mode=fdn&idx=102875&num=1",
+      "landing_url": "https://www.dongseo.ac.kr/kr/index.php?idx=102875&mode=view&pCode=MN2000195",
+      "sha256": "22af5aaa41f0d32377f4c5adbe682de502f1e245712cf44432e448e312b83aa2",
+      "bytes": 2396246,
+      "pdf_pages": 123,
+      "hash_provenance": "HTTPS download and local SHA-256, 2026-11-04",
+      "local_pdf_verified": true,
+      "status": "separate_source_version_verified_bytes",
+      "scope": {
+        "academic_year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단"
+      },
+      "retrieved_at_utc": "2026-11-04T09:01:44.297205+00:00",
+      "document_cover_date": "2026-02",
+      "notice_semester": 2,
+      "scope_note": "게시글은 2학기 안내지만 첨부 원문은 1학기 시행계획. 게시글도 1학기 자료를 임시 첨부했다고 명시하므로 이 fixture는 1학기만 사용.",
+      "source_equivalent_to_historical_jeju": null,
+      "independent_human_review": false
+    }
+  },
+  "source_discovery": [
+    {
+      "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560",
+      "method": "HTTPS urllib via configured proxy",
+      "attempts": 2,
+      "outcome": "HTTP 503; upstream CERTIFICATE_VERIFY_FAILED"
+    },
+    {
+      "url": "https://jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560",
+      "method": "HTTPS urllib via configured proxy",
+      "attempts": 1,
+      "outcome": "HTTP 503; upstream CERTIFICATE_VERIFY_FAILED"
+    },
+    {
+      "url": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?act=download&no=2&page=7&seq=270560",
+      "method": "web search cached PDF text",
+      "outcome": "p10 support clause text located; raw bytes and screenshot unavailable; cannot verify original hash or extraction"
+    },
+    {
+      "url": "https://www.kosaf.go.kr/ko/notice.do?mode=view&page=1&seqNo=20660",
+      "method": "web open and HTTPS urllib",
+      "outcome": "2026-03-13 official first-semester notice located; local HTTP 503; attachment bytes not compared"
+    },
+    {
+      "url": "https://www.yu.ac.kr/scholar/notice/notice.do?mode=fileDownload&articleNo=229219777&attachNo=367627",
+      "method": "HTTPS download",
+      "outcome": "8-page local university plan, excluded as original replacement",
+      "sha256": "5192afa8b1885f6196879034b9d5cb3b3820bf8af777eba47d56d1c25e28c546"
+    },
+    {
+      "url": "https://www.dongseo.ac.kr/kr/index.php?pCode=MN2000195&mode=fdn&idx=102875&num=1",
+      "method": "HTTPS download",
+      "outcome": "123-page February first-semester plan; distinct digest, audit under separate source ID"
+    }
+  ],
+  "revision_check": {
+    "checked_at": "2026-11-04",
+    "coverage": "official KOSAF notice and targeted first-semester correction searches",
+    "queries": [
+      "2026년 1학기 주거안정장학금 시행계획 정정",
+      "2026년 1학기 주거안정장학금 시행계획 수정"
+    ],
+    "authoritative_latest_version_confirmed": false,
+    "reason": "공식 첨부 원문과 기존 제주대 바이트를 재확보하지 못했다. 검색에서 수정본을 못 찾았다는 사실은 수정본 부재 증거가 아니다."
+  },
+  "section_policy": {
+    "source_version": "dongseo_republication",
+    "status": "development_boundary_check_not_corpus_wide_approval",
+    "legacy_index_ranges": [
+      [
+        1,
+        25
+      ]
+    ],
+    "policy_body_ranges": [
+      [
+        3,
+        25
+      ]
+    ],
+    "cover_and_contents": [
+      [
+        1,
+        2
+      ]
+    ],
+    "faq_starts_pdf_page": 26,
+    "exclude_ranges": [
+      [
+        26,
+        123
+      ]
+    ],
+    "reason": "26쪽에서 FAQ 표지 시작 확인. 이후 FAQ/붙임/서식 전체를 주 실험에서 보수적으로 제외. 전체 후반부 분류는 하지 않음.",
+    "legacy_range_has_faq_pages": false,
+    "production_corpus_changed": false
+  },
+  "limits": [
+    "현재 fixture는 별도 배포본의 공개 개발 자료다. 원본 해시 검증이나 독립 gold로 승격하지 않는다.",
+    "원문 PDF·전체 추출·PNG·색인은 outputs 아래에만 두고 Git에 추가하지 않는다.",
+    "완전한 판정에는 대학별 자체 기준·선발·승인·중복수혜 등 추가 확인이 필요하다."
+  ],
+  "resumption": "원래 8e4c… PDF를 확보하면 historical_jeju 선택으로 새 output에서 감사하고 수정본/의미 동등성을 별도 검토한다."
+}

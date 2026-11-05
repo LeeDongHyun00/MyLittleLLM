@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.0.0",
+  "date": "2026-11-04",
+  "session_role": "S2",
+  "task_id": "R01",
+  "branch": "s2/r01-retrieval",
+  "code_baseline": "a921e39ba53d6b579156262b13e898a9f63669bd",
+  "artifact_commit": "dd9d4b3e3f11e54ffc6257efca2e3368648f42f6",
+  "status": "partial",
+  "summary": "D01 별도 배포본에서 두 검색 후보를 순차 비교했다. 조항 경계 후보는 V12 근거를 1위로 찾았으나 연결 예외 3건이 퇴보해 두 후보 모두 채택하지 않았다. 기본 BM25와 앱은 유지하며 결과·원인·재현 자료를 보존했다.",
+  "completed": [
+    "사용자의 세션 협업 요청에 따라 S2/R01 전용 worktree와 s2/r01-retrieval 브랜치를 사용했다. 공통 계약/상태/CI 파일은 수정하지 않고 부모 S0 통합에 넘긴다.",
+    "D01 동서대 SHA 22af5aaa... 원문을 검증하고 기존 38청크/24쪽 색인을 읽기 전용 입력으로 사용했다. 원래 제주대 source ID/hash와 혼용하지 않았다.",
+    "기존 V12와 공개 AI 작성 변형 15건(근거 11, 범위 밖 4), 설정, lexical 채점 기준을 기록했다. 사람 승인 gold나 독립 시험으로 표시하지 않았다.",
+    "문장 가중치 후보는 모든 질의어를 남긴 채 앞 문장 비중만 0.5로 바꿨다. V12 상한 3위→4위, 필수 조항 Recall@2 14/23 그대로여서 채택하지 않았다.",
+    "첫 실패를 본 뒤 별도 계획과 run으로 일반 조항 경계 □/◦ 청킹 후보를 비교했다. 질의 가중치 변경과 결합하지 않았고 gold 쪽/정답/질의 ID는 검색에 넣지 않았다.",
+    "조항 후보는 같은 24쪽에서 최대900자 139청크를 만들었다. 전체 문자 범위를 덮고 FAQ나 다른 source/year/semester를 추가하지 않았음을 확인했다.",
+    "조항 후보 V12는 상한+첫달+비용 예외를 1위에 보존했다. 하지만 R03/R09에서 상한·첫달, R11에서 학교별 표가 빠져 완전 묶음 8/11→6/11, lexical Recall@2 14/23→12/23으로 퇴보했다.",
+    "페이지 적중만으로 연결 예외가 보존된다고 볼 수 없음을 기록했다. 두 후보 모두 개발 채택 규칙 실패이며 원래 retrieve/앱 경로/기본 k=2는 수정하지 않았다.",
+    "각 run의 전체 로컬 근거/새 색인, 코드·원문·추출·색인·질의·설정 해시와 순위를 보존했다. Git에는 원문/전체 근거 없이 메타데이터 보고서만 추가했다.",
+    "총15개 고유 질의에서 2개 run×2arm=60건 lexical 검색 비교를 실행했다. 기준선 반복을 새 표본으로 합산하지 않았다. 모델 호출·응답 재사용·생성 답변은0이다."
+  ],
+  "verification": [
+    {"command": "python -m unittest discover -s tests -p test_r01_retrieval.py -v", "status": "passed", "outcome": "10개 통과. 질의 부정/예외 어휘 유지, 단일문장 기준선 동등, scope 강제, 원문 근거 보존, 불완전 묶음/범위 N/A, 청크 전체 문자 포함·예산·허용 쪽 유지, 추출 provenance 오류 거부. PDF/pypdf/모델/네트워크 없이 실행 가능."},
+    {"command": "python -m unittest discover -s tests -p test_d01_audit.py -v", "status": "passed", "outcome": "기존 D01 5개 통과. 원문 버전 혼용/출력 덮어쓰기/불완전 각주 가드 유지."},
+    {"command": "python -m unittest discover -s tests -p test_runtime_logic.py -v", "status": "passed", "outcome": "기존 runtime 7개 통과. 범위·상한·첫달·미확인/미지원 기간·인용·대출/계산 문맥 유지."},
+    {"command": "python -m py_compile mylittlellm/retrieval_experiments.py scripts/evaluate_r01_retrieval.py", "status": "passed", "outcome": "실험 모듈과 실행기 구문 통과."},
+    {"command": "python scripts/evaluate_r01_retrieval.py --reconstruction /workspace/MyLittleLLM/outputs/d01-20261104-pinned-mirror/reconstruction --output outputs/r01-20261104-sentence-focus-01", "status": "passed", "outcome": "실행0.260317초/peak RSS16,980KiB, 모델0. BM25와 문장 후보 모두 lexical14/23·완전묶음8/11·범위4/4. V12 순위는3→4. 후보 채택 조건 실패."},
+    {"command": "python scripts/evaluate_r01_retrieval.py --reconstruction /workspace/MyLittleLLM/outputs/d01-20261104-pinned-mirror/reconstruction --plan data/development/r01/clause_window_plan.json --output outputs/r01-20261104-clause-windows-01", "status": "passed", "outcome": "실행0.627218초/peak RSS20,640KiB, 모델0. V12 묶음1위, R03/R09/R11 퇴보. lexical14/23→12/23·완전묶음8/11→6/11·범위4/4. 후보 채택 조건 실패."},
+    {"command": "Python audit of run index hashes, all24 page character spans, candidate source/page set and maximum chunk length", "status": "passed", "outcome": "두 run 기준 색인 SHA 일치. 후보139청크는 같은24쪽만 포함하고 문자 전체를 덮으며 각900자 이하. 해당 검사는 의미상 예외 연결 보장을 뜻하지 않는다."},
+    {"command": "python scripts/check_project_contract.py --handoff docs/handoffs/2026-11-04-s2-r01-retrieval-development.json", "status": "passed", "outcome": "계약/경로/필수 인수인계/참고10/규칙9/동결13/기존 링크12 검사 통과. 공통 latest_handoff 포인터는 S0가 통합한다."},
+    {"command": "git diff --check and report/checksum/link audit", "status": "passed", "outcome": "공백 검사, 보고서 로컬 링크, 실행 코드 해시와 기록 커밋의 연결, 공개 JSON과 원래 로컬 report 일치 확인. 원문/색인/전체 검색 근거는 추적하지 않았다."},
+    {"command": "기존 R01 output 경로 재사용 CLI 검사", "status": "passed", "outcome": "exit1로 거부하고 기존 report.json SHA 보존."},
+    {"command": "원래 제주대 PDF 재확보·다른7개 소스 실험·생성/학습·H1·E02", "status": "not_run", "outcome": "이번 작업은 별도 동서대 배포본의 공개 검색 개발이다. 원래 원문/최신 수정본 한계와 독립검수 대기 상태를 유지했다."}
+  ],
+  "known_limits": [
+    "R01 완료 조건인 V12 개선과 반례 무퇴보를 동시에 충족한 후보가 없다. partial이며 두 후보 모두 기본값 채택 대상이 아니다.",
+    "원래 제주대 SHA 바이트와 공식 최신 수정본은 여전히 확인하지 못했다. 다른 Dongseo source 버전으로 관측한 검색 결과다.",
+    "15개는 공개 개발/회귀 질의다. 그중 근거11건이 같은 네 주제의 변형을 공유한다. H1 승인·새 독립 질문·unseen-rule 시험은 없다.",
+    "짧은 표지어 적중은 조항 의미/표 셀 관계/답변 정확도 검수가 아니다. 원문에 부정·예외 어휘가 남아 있다는 검사 역시 자연어 조건 판정이 아니다.",
+    "조항 후보는 페이지 중복 제거로 이웃 예외를 놓쳤다. 청크 수/실제 문맥 길이가 변하므로 생성 성능/압축 이득으로 확대하지 않는다.",
+    "문장 후보는 앞 문장 조건을 낮은 비중으로 만든다. 어휘를 삭제하지 않아도 의미상 중요도를 보장하지 않으며 V12 순위도 악화했다.",
+    "주거 한 소스만 실제 비교했다. 입시/다른7개 원문 전체 회귀와 모델/서버 복원은 수행하지 않았다.",
+    "전체 검색 근거와 색인은 worktree의 outputs에만 있어 Git clone만으로 생기지 않는다. 재현에는 일치하는 PDF와 D01 reconstruction이 필요하다.",
+    "S2는 로컬 커밋만 완료한다. GitHub push/PR와 공유 CI·latest_handoff 연결은 부모 S0가 순서대로 수행한다."
+  ],
+  "next_tasks": ["R01", "D01", "M01", "E02", "I01"],
+  "next_task_readiness": {
+    "R01": "partial: 두 실패 후보와 연결 예외 회귀를 유지하고 일반 인접 근거 보존 후보를 별도 계획/run으로 검토. 이번 후보를 합치거나 기본 채택하지 않음.",
+    "D01": "partial: 원래 Jeju SHA/공식 수정본 대조와 H1의 표·각주 의미 연결 검수 필요.",
+    "M01": "public development only: 현재/충분/불충분 고정 근거 조건을 분리 가능하나 모델/런타임 복원이 필요. 이번 결과는 생성 개선 증거가 아님.",
+    "E02": "waiting_inputs: 선택된 검색 후보·H1·새 그룹·동결 조건을 충족하지 못함.",
+    "I01": "ready: R01 partial/후보 채택 없음 및 별도 실험 코드/CI 가능한 synthetic10 tests를 통합 기록."
+  },
+  "next_commands": [
+    "python -m unittest discover -s tests -p test_r01_retrieval.py -v",
+    "python scripts/check_project_contract.py --handoff docs/handoffs/2026-11-04-s2-r01-retrieval-development.json",
+    "cat reports/r01_retrieval_development.md",
+    "python scripts/audit_d01_source.py --pdf /path/to/dongseo.pdf --source-version dongseo_republication --output outputs/d01-r01-replay",
+    "python scripts/evaluate_r01_retrieval.py --reconstruction outputs/d01-r01-replay/reconstruction --plan data/development/r01/clause_window_plan.json --output outputs/r01-clause-replay"
+  ],
+  "artifacts": [
+    "mylittlellm/retrieval_experiments.py",
+    "scripts/evaluate_r01_retrieval.py",
+    "data/development/r01/experiment_plan.json",
+    "data/development/r01/clause_window_plan.json",
+    "data/development/r01/queries.json",
+    "tests/test_r01_retrieval.py",
+    "reports/r01_sentence_focus_01.json",
+    "reports/r01_clause_windows_01.json",
+    "reports/r01_retrieval_development.md"
+  ],
+  "local_only_artifacts": [
+    "outputs/r01-20261104-sentence-focus-01/retrieval.jsonl",
+    "outputs/r01-20261104-clause-windows-01/retrieval.jsonl",
+    "outputs/r01-20261104-clause-windows-01/candidate_index.jsonl"
+  ],
+  "open_questions": [],
+  "integration_notes": [
+    "각 run의 code_commit은 실행 당시 HEAD이며, 당시에 미커밋 상태였던 구현의 실제 hash는 dependency_hashes에 있다. 첫 run 구현/보고는 e8ae1788d51ee08e886cd25c64e60a3af83a9154, 두 번째는 artifact_commit에 보존했다.",
+    "인수인계와 요약 보고를 추가한 최종 branch HEAD는 이후 Git 이력으로 확인한다. 공통 contracts/project.json·docs/project·.github는 수정하지 않았다.",
+    "자동 승인 검토에 거부된 작업은 없다. 새 외부 webhook 설정이나 GitHub 메시지는 S2가 수행하지 않았다."
+  ]
+}

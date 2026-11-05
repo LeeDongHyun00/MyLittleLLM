@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "cohort": "public_regression",
+  "review_status": "ai_authored_awaiting_independent_review",
+  "independent_human_approved": false,
+  "scope": {"year": 2026, "task": "housing", "institution": "한국장학재단", "semester": 1},
+  "cases": [
+    {"id": "V12", "group": "amount", "question": "저는 기숙사생입니다. 입금 기준으로 안내된 주거안정장학금의 일반적인 월 지원 상한은 얼마인가요?", "origin": "existing public grounding_v2_scenarios V12", "primary_clause": "cap", "required_clauses": ["cap", "first_month", "cost_scope"]},
+    {"id": "R02", "group": "amount", "question": "일반적인 월 지원 상한은 얼마인가요?", "primary_clause": "cap", "required_clauses": ["cap", "first_month", "cost_scope"]},
+    {"id": "R03", "group": "amount", "question": "기숙사에서 거주합니다. 학기 첫 달에도 실제 지출액만큼만 지원되나요?", "primary_clause": "first_month", "required_clauses": ["cap", "first_month", "cost_scope"]},
+    {"id": "R04", "group": "amount", "question": "학기 첫 달이 아닙니다. 실제 지출액만큼만 지원되나요?", "primary_clause": "cost_scope", "required_clauses": ["cap", "first_month", "cost_scope"]},
+    {"id": "R05", "group": "period", "question": "저는 방학에 계절학기를 수강합니다. 방학 중에도 지원받을 수 있나요?", "primary_clause": "period", "required_clauses": ["period"]},
+    {"id": "R06", "group": "period", "question": "저는 방학에 계절학기를 수강하지 않습니다. 방학 중에도 지원받을 수 있나요?", "primary_clause": "period", "required_clauses": ["period"]},
+    {"id": "R07", "group": "cost_scope", "question": "보증금의 월 환산액과 보증금 대출 이자를 함께 청구할 수 있나요?", "primary_clause": "cost_scope", "required_clauses": ["cost_scope"]},
+    {"id": "R08", "group": "cost_scope", "question": "월세 대출 이자를 지급했습니다. 보증금의 월 환산액과 함께 청구할 수 있나요?", "primary_clause": "cost_scope", "required_clauses": ["cost_scope"]},
+    {"id": "R09", "group": "cost_scope", "question": "기숙사비도 주거 비용 인정 범위에 포함되나요?", "primary_clause": "cost_scope", "required_clauses": ["cap", "first_month", "cost_scope"]},
+    {"id": "R10", "group": "support_limits", "question": "저는 6년제 학과 재학생입니다. 학교별 최대 지원 횟수와 개인별 누적 한도는 어떻게 구분하나요?", "primary_clause": "school_limit_table", "required_clauses": ["school_limit_table", "individual_limit"]},
+    {"id": "R11", "group": "support_limits", "question": "학교를 옮겼습니다. 예전 학교 수혜실적도 개인별 한도에 합산되나요?", "primary_clause": "individual_limit", "required_clauses": ["school_limit_table", "individual_limit"]},
+    {"id": "R12", "group": "scope", "question": "일반적인 월 지원 상한은 얼마인가요?", "scope_override": {"year": 2025}, "expected_empty": true, "required_clauses": []},
+    {"id": "R13", "group": "scope", "question": "일반적인 월 지원 상한은 얼마인가요?", "scope_override": {"semester": 2}, "expected_empty": true, "required_clauses": []},
+    {"id": "R14", "group": "scope", "question": "일반적인 월 지원 상한은 얼마인가요?", "scope_override": {"institution": "범위 밖 기관"}, "expected_empty": true, "required_clauses": []},
+    {"id": "R15", "group": "scope", "question": "일반적인 월 지원 상한은 얼마인가요?", "scope_override": {"task": "admissions"}, "expected_empty": true, "required_clauses": []}
+  ]
+}
