@@ -7,13 +7,17 @@
 
 ## 작업 위치와 공유 경계
 
-| 역할/작업 | 브랜치 | 이번 환경의 작업 경로 |
+| 역할/작업 | 브랜치 | 11월 4일 작업 경로 |
 |---|---|---|
 | S0/I01 | `s0/i01-session-collaboration` | `/workspace/MyLittleLLM` |
 | S2/R01 | `s2/r01-retrieval` | `/workspace/worktrees/mllm-s2-r01` |
 | S3/L01 | `s3/l01-rule-boundaries` | `/workspace/worktrees/mllm-s3-l01` |
 
 세 작업은 `a921e39ba53d6b579156262b13e898a9f63669bd`에서 분기했다.
+11월 5일 [PR #4](https://github.com/LeeDongHyun00/MyLittleLLM/pull/4)를
+`docs/project-contract-and-session-roles`에 병합했다(`04ff35a5143ecba349fbbb82ed713f5aba9221da`).
+S0의 상태 갱신 작업은 같은 root 경로의 `s0/i01-canonical-handoff`에서 수행한다.
+종료된 세션 기록은 보존하고 새 날짜·브랜치의 레코드를 추가한다.
 선행 결과는 [E01](../handoffs/2026-11-04-s5-e01-evaluation-preparation.json)과
 [D01](../handoffs/2026-11-04-s1-d01-source-audit.json)이다.
 S2는 별도 개발 검색 후보, S3는 규칙의 부분 판정 설명을 맡는다.
@@ -64,10 +68,11 @@ GitHub App으로 `GET /repos/LeeDongHyun00/MyLittleLLM/hooks`를 조회했으나
 ## 다음 대화에서 재개
 
 ```bash
-git fetch origin
-git switch s0/i01-session-collaboration
+git fetch origin docs/project-contract-and-session-roles:refs/remotes/origin/docs/project-contract-and-session-roles
+git switch docs/project-contract-and-session-roles
+git merge --ff-only origin/docs/project-contract-and-session-roles
 python scripts/check_project_contract.py
-python scripts/check_session_handoffs.py --branch s0/i01-session-collaboration
+python scripts/check_session_handoffs.py --branch docs/project-contract-and-session-roles
 ```
 
 브랜치가 로컬에 없으면 origin에서 새 worktree를 만들고 AGENTS → 계약 → STATE → 작업 카드 →
