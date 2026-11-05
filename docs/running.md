@@ -2,6 +2,10 @@
 
 2026-11-02에 이 대화의 클라우드 환경에 직접 설치한 CPU 프로토타입이다. 서버는 `127.0.0.1:8080`에서 실행하며 외부에 공개하지 않는다. 사용자 PC의 localhost와는 다르다.
 
+이 문서는 설치/실행 방법과 초기 경로를 설명한다. 현재 가동 상태·권장 경로는
+[STATE](project/STATE.md), 한국어 조건 문답은 [guided_grounding](guided_grounding.md)를 확인한다.
+권장 경로는 명시적 `--pipeline grounded`이며 CLI 전체 기본값은 `legacy`다.
+
 ## 설치 기록
 
 - Linux x86_64, CPU 할당 4코어, 메모리 제한 16GiB. GPU는 발견되지 않았다.
@@ -9,7 +13,7 @@
 - llama.cpp: `b11960`, 실제 버전 출력 `0.8.0-dev`, commit `8642541b2`.
 - 다운로드 revision과 SHA-256은 [runtime.lock.json](../config/runtime.lock.json)에 고정했다. 두 파일의 체크섬을 실제 대조했다.
 - 컨텍스트 8,192, CPU 스레드 4, 동시 처리 슬롯 1, thinking 비활성화, 추론 temperature 0, seed 42.
-- 가중치를 업데이트하는 미세조정은 수행하지 않았다. 설치된 GGUF로 실제 추론과 RAG 비교를 실행한다.
+- 이 기본 GGUF에 학습 어댑터를 반영하지 않았다. 별도 Hugging Face 가중치에서 일반 LoRA SFT·OPSD를 소량 실행한 [후속 실험](distillation.md)이 있으며, 기본 GGUF 설치 기록과 구분한다.
 
 새 Linux x86_64 환경에서:
 

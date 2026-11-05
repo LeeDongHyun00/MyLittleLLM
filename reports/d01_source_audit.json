@@ -1,0 +1,331 @@
+{
+  "schema_version": 1,
+  "task_id": "D01",
+  "cohort": "public_regression",
+  "source_version": "dongseo_republication",
+  "source_id": "kosaf-2026-housing-dongseo-d01",
+  "source_sha256": "22af5aaa41f0d32377f4c5adbe682de502f1e245712cf44432e448e312b83aa2",
+  "source_bytes": 2396246,
+  "fixture_source_sha256": "22af5aaa41f0d32377f4c5adbe682de502f1e245712cf44432e448e312b83aa2",
+  "fixture_bound_to_same_bytes": true,
+  "code_commit": "fdb98e8f042dc0aefc774970821d832a8c4df346",
+  "dependency_hashes": {
+    "scripts/audit_d01_source.py": "91aa880f34822202007d8b8d8484c0116690c6d529e59c04601911f2768748ea",
+    "mylittlellm/retrieval.py": "d084c3bafbd08f374800e183309c5d437a59d1ebc5c9f39ce3fb2b46f221ea5d",
+    "data/development/d01/source_manifest.json": "5fa4166b62051633b83f9af1668c48ef00abdb3554b6109dfe0d5607e9921bac",
+    "data/development/d01/clauses.json": "1639fbb1eb33057073d984f680d86c9ab2ffecada3b97a1bf1454a608cbecec8",
+    "data/evaluation/grounding_v2_scenarios.jsonl": "3fda83702e6ab6db541cca5cf200e29bc092de3738ba0473bf6689c9e3f75d80",
+    "reports/grounding_v2_input_audit.json": "f5e71a72958709247bf5eee15825e4ef915a6cfff62ad34f4c8bf99ef8550f7a"
+  },
+  "run_path": "outputs/d01-20261104-pinned-mirror",
+  "python_version": "3.12.14",
+  "pypdf_version": "6.10.0",
+  "optional_pymupdf_render_version": "1.26.6",
+  "pdf_pages": 123,
+  "extracted_pages": 28,
+  "indexed_chunks": 38,
+  "indexed_pages": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+  ],
+  "source_sections": {
+    "legacy_allowed_pdf_pages": [
+      1,
+      25
+    ],
+    "faq_boundary_pdf_page": 26,
+    "faq_marker_present": true,
+    "faq_pages_in_index": false
+  },
+  "comparisons": [
+    {
+      "clause_id": "cap",
+      "pdf_page": 10,
+      "plain_anchors_present": true,
+      "layout_anchors_present": true,
+      "complete_anchor_chunks": [
+        "kosaf-2026-housing-dongseo-d01:p10:c0",
+        "kosaf-2026-housing-dongseo-d01:p10:c740"
+      ]
+    },
+    {
+      "clause_id": "first_month",
+      "pdf_page": 10,
+      "plain_anchors_present": true,
+      "layout_anchors_present": true,
+      "complete_anchor_chunks": [
+        "kosaf-2026-housing-dongseo-d01:p10:c740"
+      ]
+    },
+    {
+      "clause_id": "cost_scope",
+      "pdf_page": 10,
+      "plain_anchors_present": true,
+      "layout_anchors_present": true,
+      "complete_anchor_chunks": [
+        "kosaf-2026-housing-dongseo-d01:p10:c740"
+      ]
+    },
+    {
+      "clause_id": "period",
+      "pdf_page": 11,
+      "plain_anchors_present": true,
+      "layout_anchors_present": true,
+      "complete_anchor_chunks": [
+        "kosaf-2026-housing-dongseo-d01:p11:c0"
+      ]
+    },
+    {
+      "clause_id": "school_limit_table",
+      "pdf_page": 11,
+      "plain_anchors_present": true,
+      "layout_anchors_present": true,
+      "complete_anchor_chunks": [
+        "kosaf-2026-housing-dongseo-d01:p11:c0"
+      ]
+    },
+    {
+      "clause_id": "individual_limit",
+      "pdf_page": 11,
+      "plain_anchors_present": true,
+      "layout_anchors_present": true,
+      "complete_anchor_chunks": [
+        "kosaf-2026-housing-dongseo-d01:p11:c0"
+      ]
+    }
+  ],
+  "page_text_hashes": [
+    {
+      "pdf_page": 10,
+      "plain_sha256": "73ca812360b52c98b6ac24da916ac209a79e93492b9295b1a10c4fc2bbeaaf1c",
+      "layout_sha256": "6414af50d0fcc82a28e32a82914e163706cf96a156188315af7fa7a5d6e844f1",
+      "plain_characters": 1340,
+      "layout_characters": 1385
+    },
+    {
+      "pdf_page": 11,
+      "plain_sha256": "809368b0ed48eafc68056ec72b2aec46aed5d17463379f68af26e07c60d223be",
+      "layout_sha256": "3a2aa76b37ab0c0142a11b5b90fe400f0066f25d460d3a092577f1c390c60537",
+      "plain_characters": 994,
+      "layout_characters": 1084
+    }
+  ],
+  "local_rendered_pages": [
+    {
+      "pdf_page": 10,
+      "sha256": "2e44a586a04b2cf3a179d6ac0eed8db8526071709390cbc20dab5d9e139fa299",
+      "file": "p10.png"
+    },
+    {
+      "pdf_page": 11,
+      "sha256": "4b4cc90e84237104ef6f4f4aaa99bddf5f93822f84125e41af5b15a3252071b6",
+      "file": "p11.png"
+    },
+    {
+      "pdf_page": 26,
+      "sha256": "d6a44d00dfe11c35ea21b7268ea42df739d250c852f142f76d6c470bd1454bd8",
+      "file": "p26.png"
+    }
+  ],
+  "lexical_context_chunks": [
+    "kosaf-2026-housing-dongseo-d01:p10:c740"
+  ],
+  "retrieval": {
+    "query_id": "V12",
+    "scope": {
+      "year": 2026,
+      "task": "housing",
+      "institution": "한국장학재단",
+      "semester": 1
+    },
+    "k": 2,
+    "selected": [
+      {
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p23:c0",
+        "pdf_page": 23,
+        "score": 31.78585
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p3:c0",
+        "pdf_page": 3,
+        "score": 28.648646
+      }
+    ],
+    "cap_page_rank": 3,
+    "cap_in_top2": false,
+    "cap_present_in_extraction": true,
+    "cap_present_in_index": true,
+    "ranked_page_metadata": [
+      {
+        "rank": 1,
+        "pdf_page": 23,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p23:c0",
+        "score": 31.78585
+      },
+      {
+        "rank": 2,
+        "pdf_page": 3,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p3:c0",
+        "score": 28.648646
+      },
+      {
+        "rank": 3,
+        "pdf_page": 10,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p10:c740",
+        "score": 25.701631
+      },
+      {
+        "rank": 4,
+        "pdf_page": 4,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p4:c740",
+        "score": 24.785895
+      },
+      {
+        "rank": 5,
+        "pdf_page": 22,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p22:c0",
+        "score": 17.698666
+      },
+      {
+        "rank": 6,
+        "pdf_page": 11,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p11:c0",
+        "score": 17.257721
+      },
+      {
+        "rank": 7,
+        "pdf_page": 9,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p9:c740",
+        "score": 15.13568
+      },
+      {
+        "rank": 8,
+        "pdf_page": 14,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p14:c0",
+        "score": 15.063339
+      },
+      {
+        "rank": 9,
+        "pdf_page": 25,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p25:c0",
+        "score": 13.481965
+      },
+      {
+        "rank": 10,
+        "pdf_page": 24,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p24:c0",
+        "score": 13.282678
+      },
+      {
+        "rank": 11,
+        "pdf_page": 21,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p21:c0",
+        "score": 12.99476
+      },
+      {
+        "rank": 12,
+        "pdf_page": 2,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p2:c2220",
+        "score": 12.786574
+      },
+      {
+        "rank": 13,
+        "pdf_page": 13,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p13:c0",
+        "score": 12.768082
+      },
+      {
+        "rank": 14,
+        "pdf_page": 12,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p12:c0",
+        "score": 12.667225
+      },
+      {
+        "rank": 15,
+        "pdf_page": 17,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p17:c0",
+        "score": 12.141745
+      },
+      {
+        "rank": 16,
+        "pdf_page": 19,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p19:c0",
+        "score": 11.423843
+      },
+      {
+        "rank": 17,
+        "pdf_page": 20,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p20:c0",
+        "score": 11.237699
+      },
+      {
+        "rank": 18,
+        "pdf_page": 18,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p18:c0",
+        "score": 8.893036
+      },
+      {
+        "rank": 19,
+        "pdf_page": 5,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p5:c0",
+        "score": 7.898351
+      },
+      {
+        "rank": 20,
+        "pdf_page": 15,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p15:c0",
+        "score": 6.942549
+      },
+      {
+        "rank": 21,
+        "pdf_page": 16,
+        "chunk_id": "kosaf-2026-housing-dongseo-d01:p16:c0",
+        "score": 6.89662
+      }
+    ]
+  },
+  "historical_comparison": {
+    "source_sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+    "selected_pages": [
+      23,
+      3
+    ],
+    "same_source_bytes": false,
+    "historical_full_index_reproduced": false,
+    "note": "Only this source/scope reconstructed; do not assert original full-index equality."
+  },
+  "stage_diagnosis": "cap_survives_extraction_and_index_but_misses_top2",
+  "elapsed_seconds": 2.764,
+  "peak_rss_kib": 74404,
+  "model_calls": 0,
+  "human_gold_approved": false,
+  "limitations": [
+    "Lexical checks do not validate table cells, footnote semantics or eligibility.",
+    "Visual confirmation is a separate AI review, not performed by this script.",
+    "Cross-version fixture probes need fresh visual review; coordinates are not transferable.",
+    "Distinct source versions cannot substitute for the missing historical PDF.",
+    "No generation, candidate retrieval change or accuracy measurement."
+  ]
+}

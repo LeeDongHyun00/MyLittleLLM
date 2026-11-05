@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.1.0",
+  "date": "YYYY-MM-DD",
+  "session_role": "S2",
+  "task_id": "R01",
+  "branch": "s2/r01-retrieval",
+  "code_baseline": "작업 시작 시 실제 40자리 Git SHA",
+  "status": "partial",
+  "summary": "이번 작업의 결과 한 문장",
+  "completed": ["실제 완료한 변경과 근거"],
+  "verification": [
+    {"command": "실행 명령 또는 검사 설명", "status": "not_run", "outcome": "미실행 이유 또는 실제 결과"}
+  ],
+  "known_limits": ["실패, 미완료, 독립 검수 여부"],
+  "next_tasks": ["E02"],
+  "artifacts": ["docs/project/STATE.md"],
+  "open_questions": []
+}

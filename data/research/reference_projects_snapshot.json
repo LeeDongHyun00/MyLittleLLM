@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-04",
+  "purpose": "MyLittleLLM 아키텍처·세션 운영 참고 우선순위",
+  "ranking_method": "기능 유사성, 현재 실패/세션 문제에 대한 적용성, 공개 유지보수 근거를 함께 고려한 편집 순위. 제품/컴포넌트 8개와 운영 도구 2개를 포함. 성공 확률이나 객관적 전체 업계 순위가 아님.",
+  "success_measurement_limit": "스타·포크는 관심 지표. 릴리스/테스트 정의/문서는 유지보수 관측치. 테스트를 실행하거나 최신 CI 통과, 한국어 입시 정확도, 서비스 유지율, 사용자 성과를 검증하지 않았음.",
+  "selected": [
+    {
+      "rank": 1,
+      "repository": "deepset-ai/haystack",
+      "url": "https://github.com/deepset-ai/haystack",
+      "type": "RAG 프레임워크",
+      "similarity_editorial": "높음",
+      "reference_pattern": "검색·근거·생성 컴포넌트를 분리하고 연결 타입을 검증하는 구조",
+      "session_roles": "S0/S2/S4",
+      "maturity_evidence": "Python 파이프라인·연결 검증·CI 정의를 공개하고 지속 릴리스",
+      "limitations": "전체 프레임워크 교체 없이 현재 함수의 I/O 계약부터 적용한다. 한국어 입시 정확도 검증은 별도다.",
+      "stars": 26924,
+      "forks": 3389,
+      "archived": false,
+      "default_branch": "main",
+      "head_commit": "82dce4f7aed816916646542b8ab2c6c10ff46ae4",
+      "head_committed_at": "2026-11-03T14:37:54Z",
+      "license": "Apache-2.0",
+      "release": {
+        "tag": "v2.31.1",
+        "published_at": "2026-11-03T09:27:48Z",
+        "url": "https://github.com/deepset-ai/haystack/releases/tag/v2.31.1",
+        "api_prerelease": false,
+        "interpretation": "release_metadata_only"
+      },
+      "package_version": null,
+      "sources": {
+        "metadata": "https://api.github.com/repos/deepset-ai/haystack",
+        "head": "https://api.github.com/repos/deepset-ai/haystack/commits/main",
+        "readme": "https://github.com/deepset-ai/haystack/blob/82dce4f7aed816916646542b8ab2c6c10ff46ae4/README.md",
+        "releases": "https://api.github.com/repos/deepset-ai/haystack/releases?per_page=1",
+        "inspected_files": [
+          {
+            "path": ".github/workflows/tests.yml",
+            "ref": "82dce4f7aed816916646542b8ab2c6c10ff46ae4",
+            "url": "https://github.com/deepset-ai/haystack/blob/82dce4f7aed816916646542b8ab2c6c10ff46ae4/.github/workflows/tests.yml",
+            "inspection": "first_100_lines_not_executed"
+          },
+          {
+            "path": "haystack/core/pipeline/base.py",
+            "ref": "82dce4f7aed816916646542b8ab2c6c10ff46ae4",
+            "url": "https://github.com/deepset-ai/haystack/blob/82dce4f7aed816916646542b8ab2c6c10ff46ae4/haystack/core/pipeline/base.py",
+            "inspection": "first_100_lines_not_executed"
+          }
+        ]
+      },
+      "ci_status": "workflow_definition_inspected_not_run_status_verified"
+    },
+    {
+      "rank": 2,
+      "repository": "infiniflow/ragflow",
+      "url": "https://github.com/infiniflow/ragflow",
+      "type": "문서 RAG 제품",
+      "similarity_editorial": "높음",
+      "reference_pattern": "문서 파싱, 검색 구간 미리보기, 추적 가능한 인용",
+      "session_roles": "S1/S2",
+      "maturity_evidence": "활발한 기본 브랜치, 공개 테스트 정의와 릴리스 후보",
+      "limitations": "공식 요구 자원은 4 CPU·16GB·50GB이며 로컬 LLM 자원은 추가다. Qwen과 함께 현재 환경에 적합하다고 보장하지 않는다. v1.0.0-rc3는 API prerelease=false여도 태그상 RC다.",
+      "stars": 93464,
+      "forks": 11214,
+      "archived": false,
+      "default_branch": "main",
+      "head_commit": "6aeb92deff2b46303559cd4c84a7b8db35ee3fb4",
+      "head_committed_at": "2026-11-04T07:06:12Z",
+      "license": "Apache-2.0",
+      "release": {
+        "tag": "v1.0.0-rc3",
+        "published_at": "2026-10-30T11:53:15Z",
+        "url": "https://github.com/infiniflow/ragflow/releases/tag/v1.0.0-rc3",
+        "api_prerelease": false,
+        "interpretation": "release_candidate_by_tag"
+      },
+      "package_version": null,
+      "sources": {
+        "metadata": "https://api.github.com/repos/infiniflow/ragflow",
+        "head": "https://api.github.com/repos/infiniflow/ragflow/commits/main",
+        "readme": "https://github.com/infiniflow/ragflow/blob/6aeb92deff2b46303559cd4c84a7b8db35ee3fb4/README.md",
+        "releases": "https://api.github.com/repos/infiniflow/ragflow/releases/latest",
+        "inspected_files": [
+          {
+            "path": ".github/workflows/sep-tests.yml",
+            "ref": "6aeb92deff2b46303559cd4c84a7b8db35ee3fb4",
+            "url": "https://github.com/infiniflow/ragflow/blob/6aeb92deff2b46303559cd4c84a7b8db35ee3fb4/.github/workflows/sep-tests.yml",
+            "inspection": "first_100_lines_not_executed"
+          }
+        ]
+      },
+      "ci_status": "workflow_definition_inspected_not_run_status_verified"
+    },
+    {
+      "rank": 3,
+      "repository": "openfisca/openfisca-core",
+      "url": "https://github.com/openfisca/openfisca-core",
+      "type": "정책 규칙 엔진",
+      "similarity_editorial": "부분 기능에 매우 높음",
+      "reference_pattern": "기간별 정책 파라미터·계산 엔진과 국가별 규칙 패키지 분리",
+      "session_roles": "S3",
+      "maturity_evidence": "OpenFisca-France 연동과 기간별 파라미터 테스트가 공개됨",
+      "limitations": "대화형 LLM이 아니며 한국 입시 규칙도 제공하지 않는다. 개념을 참조하며 코드를 도입하면 AGPL-3.0-or-later 조건을 별도 검토한다.",
+      "stars": 252,
+      "forks": 100,
+      "archived": false,
+      "default_branch": "main",
+      "head_commit": "db0484b54871b0a73e673478b3153841dba908e9",
+      "head_committed_at": "2026-10-23T13:40:58Z",
+      "license": "AGPL-3.0-or-later (pyproject.toml)",
+      "release": null,
+      "package_version": "46.0.2 (pyproject.toml)",
+      "sources": {
+        "metadata": "https://api.github.com/repos/openfisca/openfisca-core",
+        "head": "https://api.github.com/repos/openfisca/openfisca-core/commits/main",
+        "readme": "https://github.com/openfisca/openfisca-core/blob/db0484b54871b0a73e673478b3153841dba908e9/README.md",
+        "releases": "https://api.github.com/repos/openfisca/openfisca-core/releases?per_page=1",
+        "inspected_files": [
+          {
+            "path": ".github/workflows/push.yaml",
+            "ref": "db0484b54871b0a73e673478b3153841dba908e9",
+            "url": "https://github.com/openfisca/openfisca-core/blob/db0484b54871b0a73e673478b3153841dba908e9/.github/workflows/push.yaml",
+            "inspection": "first_100_lines_not_executed"
+          },
+          {
+            "path": "pyproject.toml",
+            "ref": "db0484b54871b0a73e673478b3153841dba908e9",
+            "url": "https://github.com/openfisca/openfisca-core/blob/db0484b54871b0a73e673478b3153841dba908e9/pyproject.toml",
+            "inspection": "first_100_lines_not_executed"
+          }
+        ]
+      },
+      "ci_status": "workflow_definition_inspected_not_run_status_verified"
+    },
+    {
+      "rank": 4,
+      "repository": "docling-project/docling",
+      "url": "https://github.com/docling-project/docling",
+      "type": "문서 파싱 도구",
+      "similarity_editorial": "전처리에 높음",
+      "reference_pattern": "PDF 레이아웃·표·OCR·통일 문서 표현으로 쪽/각주 맥락 보존",
+      "session_roles": "S1",
+      "maturity_evidence": "지속 릴리스, 로컬 실행 지원과 CI 정의",
+      "limitations": "한국어 모집요강 표·각주 품질과 CPU 메모리는 우리 페이지로 측정해야 한다. 코드 MIT와 모델별 이용 조건은 구분한다.",
+      "stars": 70088,
+      "forks": 5253,
+      "archived": false,
+      "default_branch": "main",
+      "head_commit": "0634e2f74561e5950d69b2cace67ef95400506ad",
+      "head_committed_at": "2026-11-03T16:25:11Z",
+      "license": "MIT",
+      "release": {
+        "tag": "v2.146.0",
+        "published_at": "2026-11-03T06:40:56Z",
+        "url": "https://github.com/docling-project/docling/releases/tag/v2.146.0",
+        "api_prerelease": false,
+        "interpretation": "release_metadata_only"
+      },
+      "package_version": null,
+      "sources": {
+        "metadata": "https://api.github.com/repos/docling-project/docling",
+        "head": "https://api.github.com/repos/docling-project/docling/commits/main",
+        "readme": "https://github.com/docling-project/docling/blob/0634e2f74561e5950d69b2cace67ef95400506ad/README.md",
+        "releases": "https://api.github.com/repos/docling-project/docling/releases?per_page=1",
+        "inspected_files": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "ref": "0634e2f74561e5950d69b2cace67ef95400506ad",
+            "url": "https://github.com/docling-project/docling/blob/0634e2f74561e5950d69b2cace67ef95400506ad/.github/workflows/ci.yml",
+            "inspection": "first_100_lines_not_executed"
+          }
+        ]
+      },
+      "ci_status": "workflow_definition_inspected_not_run_status_verified"
+    },
+    {
+      "rank": 5,
+      "repository": "run-llama/llama_index",
+      "url": "https://github.com/run-llama/llama_index",
+      "type": "문서/검색 프레임워크",
+      "similarity_editorial": "높음",
+      "reference_pattern": "문서 수집·검색 단위·메타데이터·질의/평가 구성",
+      "session_roles": "S1/S2/S5",
+      "maturity_evidence": "OSS 프레임워크·통합·단위 테스트 정의와 릴리스",
+      "limitations": "현재 README는 회사 중심이 LlamaParse·liteparse·벤치마크로 이동했다고 명시한다. 유료 서비스와 OSS 프레임워크를 구분하며 클라우드 사용을 전제하지 않는다.",
+      "stars": 52798,
+      "forks": 8509,
+      "archived": false,
+      "default_branch": "main",
+      "head_commit": "444fdf0684707de62ebb447d658dba137dd9cb99",
+      "head_committed_at": "2026-11-03T22:27:49Z",
+      "license": "MIT",
+      "release": {
+        "tag": "v0.14.25",
+        "published_at": "2026-09-21T16:22:27Z",
+        "url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.25",
+        "api_prerelease": false,
+        "interpretation": "release_metadata_only"
+      },
+      "package_version": null,
+      "sources": {
+        "metadata": "https://api.github.com/repos/run-llama/llama_index",
+        "head": "https://api.github.com/repos/run-llama/llama_index/commits/main",
+        "readme": "https://github.com/run-llama/llama_index/blob/444fdf0684707de62ebb447d658dba137dd9cb99/README.md",
+        "releases": "https://api.github.com/repos/run-llama/llama_index/releases?per_page=1",
+        "inspected_files": [
+          {
+            "path": ".github/workflows/unit_test.yml",
+            "ref": "444fdf0684707de62ebb447d658dba137dd9cb99",
+            "url": "https://github.com/run-llama/llama_index/blob/444fdf0684707de62ebb447d658dba137dd9cb99/.github/workflows/unit_test.yml",
+            "inspection": "first_100_lines_not_executed"
+          }
+        ]
+      },
+      "ci_status": "workflow_definition_inspected_not_run_status_verified"
+    },
+    {
+      "rank": 6,
+      "repository": "promptfoo/promptfoo",
+      "url": "https://github.com/promptfoo/promptfoo",
+      "type": "LLM 평가 도구",
+      "similarity_editorial": "평가에 매우 높음",
+      "reference_pattern": "선언적 사례·provider 비교·회귀 평가·CI",
+      "session_roles": "S5",
+      "maturity_evidence": "평가 도구 릴리스, 테스트/CI와 문서 공개",
+      "limitations": "현재 Python 평가를 바로 교체하지 않는다. 로컬 실행이라도 외부 provider를 쓰면 요청이 전송될 수 있다. 자동 assertion은 전문가 gold를 대체하지 않는다.",
+      "stars": 26811,
+      "forks": 2648,
+      "archived": false,
+      "default_branch": "main",
+      "head_commit": "f2b012e3c9f9ffb7b23edf4cf88ea63febf72f5a",
+      "head_committed_at": "2026-11-03T08:26:30Z",
+      "license": "MIT",
+      "release": {
+        "tag": "0.125.1",
+        "published_at": "2026-10-25T01:53:11Z",
+        "url": "https://github.com/promptfoo/promptfoo/releases/tag/0.125.1",
+        "api_prerelease": false,
+        "interpretation": "release_metadata_only"
+      },
+      "package_version": null,
+      "sources": {
+        "metadata": "https://api.github.com/repos/promptfoo/promptfoo",
+        "head": "https://api.github.com/repos/promptfoo/promptfoo/commits/main",
+        "readme": "https://github.com/promptfoo/promptfoo/blob/f2b012e3c9f9ffb7b23edf4cf88ea63febf72f5a/README.md",
+        "releases": "https://api.github.com/repos/promptfoo/promptfoo/releases?per_page=1",
+        "inspected_files": [
+          {
+            "path": ".github/workflows/main.yml",
+            "ref": "f2b012e3c9f9ffb7b23edf4cf88ea63febf72f5a",
+            "url": "https://github.com/promptfoo/promptfoo/blob/f2b012e3c9f9ffb7b23edf4cf88ea63febf72f5a/.github/workflows/main.yml",
+            "inspection": "first_100_lines_not_executed"
+          }
+        ]
+      },
+      "ci_status": "workflow_definition_inspected_not_run_status_verified"
+    },
+    {
+      "rank": 7,
+      "repository": "Mintplex-Labs/anything-llm",
+      "url": "https://github.com/Mintplex-Labs/anything-llm",
+      "type": "로컬 문서 상담 제품",
+      "similarity_editorial": "높음",
+      "reference_pattern": "로컬 모델·OpenAI 호환 공급자·문서 workspace·출처 표시",
+      "session_roles": "S0/S4",
+      "maturity_evidence": "desktop/self-host 경로와 테스트 정의, 활발한 릴리스",
+      "limitations": "workspace 분리 패턴을 대학/연도 범위 설계에 참고한다. 제품을 설치하면 우리 범위/자격 규칙이 자동 보장되는 것은 아니다.",
+      "stars": 67911,
+      "forks": 7660,
+      "archived": false,
+      "default_branch": "master",
+      "head_commit": "eda0eb5e25a4facbe2ea92d86612a39618bcb54c",
+      "head_committed_at": "2026-11-04T02:18:14Z",
+      "license": "MIT",
+      "release": {
+        "tag": "v1.19.0",
+        "published_at": "2026-10-26T16:14:51Z",
+        "url": "https://github.com/Mintplex-Labs/anything-llm/releases/tag/v1.19.0",
+        "api_prerelease": false,
+        "interpretation": "release_metadata_only"
+      },
+      "package_version": null,
+      "sources": {
+        "metadata": "https://api.github.com/repos/Mintplex-Labs/anything-llm",
+        "head": "https://api.github.com/repos/Mintplex-Labs/anything-llm/commits/master",
+        "readme": "https://github.com/Mintplex-Labs/anything-llm/blob/eda0eb5e25a4facbe2ea92d86612a39618bcb54c/README.md",
+        "releases": "https://api.github.com/repos/Mintplex-Labs/anything-llm/releases?per_page=1",
+        "inspected_files": [
+          {
+            "path": ".github/workflows/run-tests.yaml",
+            "ref": "eda0eb5e25a4facbe2ea92d86612a39618bcb54c",
+            "url": "https://github.com/Mintplex-Labs/anything-llm/blob/eda0eb5e25a4facbe2ea92d86612a39618bcb54c/.github/workflows/run-tests.yaml",
+            "inspection": "first_100_lines_not_executed"
+          }
+        ]
+      },
+      "ci_status": "workflow_definition_inspected_not_run_status_verified"
+    },
+    {
+      "rank": 8,
+      "repository": "Cinnamon/kotaemon",
+      "url": "https://github.com/Cinnamon/kotaemon",
+      "type": "문서 QA 제품",
+      "similarity_editorial": "높음",
+      "reference_pattern": "로컬 모델, 하이브리드 검색·재순위화, PDF 인용 강조와 낮은 관련성 안내",
+      "session_roles": "S2/S4",
+      "maturity_evidence": "실행 가능한 문서 QA와 단위 테스트 정의, v0.12.0 릴리스",
+      "limitations": "기본 브랜치 최근 커밋은 2026-05-30으로 다른 후보보다 활동이 느리다. 우리 기존 하이브리드 검색의 퇴보를 고려해 별도 비교 없이 채택하지 않는다.",
+      "stars": 25855,
+      "forks": 2168,
+      "archived": false,
+      "default_branch": "main",
+      "head_commit": "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9",
+      "head_committed_at": "2026-05-30T14:02:58Z",
+      "license": "Apache-2.0",
+      "release": {
+        "tag": "v0.12.0",
+        "published_at": "2026-05-31T04:45:39Z",
+        "url": "https://github.com/Cinnamon/kotaemon/releases/tag/v0.12.0",
+        "api_prerelease": false,
+        "interpretation": "release_metadata_only"
+      },
+      "package_version": null,
+      "sources": {
+        "metadata": "https://api.github.com/repos/Cinnamon/kotaemon",
+        "head": "https://api.github.com/repos/Cinnamon/kotaemon/commits/main",
+        "readme": "https://github.com/Cinnamon/kotaemon/blob/9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9/README.md",
+        "releases": "https://api.github.com/repos/Cinnamon/kotaemon/releases?per_page=1",
+        "inspected_files": [
+          {
+            "path": ".github/workflows/unit-test.yaml",
+            "ref": "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9",
+            "url": "https://github.com/Cinnamon/kotaemon/blob/9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9/.github/workflows/unit-test.yaml",
+            "inspection": "first_100_lines_not_executed"
+          }
+        ]
+      },
+      "ci_status": "workflow_definition_inspected_not_run_status_verified"
+    },
+    {
+      "rank": 9,
+      "repository": "github/spec-kit",
+      "url": "https://github.com/github/spec-kit",
+      "type": "명세 중심 개발 도구",
+      "similarity_editorial": "세션 운영에 직접적",
+      "reference_pattern": "프로젝트 constitution → 명세 → 계획 → 작업 → 구현의 저장소 기록",
+      "session_roles": "S0/전체",
+      "maturity_evidence": "공개 템플릿/워크플로·테스트 정의·지속 릴리스",
+      "limitations": "입시/RAG 제품이 아니다. 장기 계약과 짧은 시작 문맥 패턴만 반영한다. 도구 설치와 전체 템플릿 도입은 하지 않았다.",
+      "stars": 146815,
+      "forks": 13167,
+      "archived": false,
+      "default_branch": "main",
+      "head_commit": "a227e38315cd38172b04f2fb8f06ce8b69b38331",
+      "head_committed_at": "2026-11-03T22:31:54Z",
+      "license": "MIT",
+      "release": {
+        "tag": "v1.3.0",
+        "published_at": "2026-11-03T18:25:42Z",
+        "url": "https://github.com/github/spec-kit/releases/tag/v1.3.0",
+        "api_prerelease": false,
+        "interpretation": "release_metadata_only"
+      },
+      "package_version": null,
+      "sources": {
+        "metadata": "https://api.github.com/repos/github/spec-kit",
+        "head": "https://api.github.com/repos/github/spec-kit/commits/main",
+        "readme": "https://github.com/github/spec-kit/blob/a227e38315cd38172b04f2fb8f06ce8b69b38331/README.md",
+        "releases": "https://api.github.com/repos/github/spec-kit/releases?per_page=1",
+        "inspected_files": [
+          {
+            "path": ".github/workflows/test.yml",
+            "ref": "a227e38315cd38172b04f2fb8f06ce8b69b38331",
+            "url": "https://github.com/github/spec-kit/blob/a227e38315cd38172b04f2fb8f06ce8b69b38331/.github/workflows/test.yml",
+            "inspection": "first_100_lines_not_executed"
+          }
+        ]
+      },
+      "ci_status": "workflow_definition_inspected_not_run_status_verified"
+    },
+    {
+      "rank": 10,
+      "repository": "Fission-AI/OpenSpec",
+      "url": "https://github.com/Fission-AI/OpenSpec",
+      "type": "변경 명세 관리 도구",
+      "similarity_editorial": "세션 운영에 직접적",
+      "reference_pattern": "변경별 proposal/specs/design/tasks와 완료 후 archive",
+      "session_roles": "S0/전체",
+      "maturity_evidence": "변경 단위 파일 흐름·CI 정의·지속 릴리스",
+      "limitations": "입시 상담 정확도의 성공 근거는 아니다. 한 세션 한 작업 카드와 결정/인수인계 기록으로 축소 적용한다.",
+      "stars": 73861,
+      "forks": 5058,
+      "archived": false,
+      "default_branch": "main",
+      "head_commit": "2bd5bc3be964404657439f538857fcdf550f7398",
+      "head_committed_at": "2026-11-02T19:49:52Z",
+      "license": "MIT",
+      "release": {
+        "tag": "v1.16.0",
+        "published_at": "2026-10-30T23:38:25Z",
+        "url": "https://github.com/Fission-AI/OpenSpec/releases/tag/v1.16.0",
+        "api_prerelease": false,
+        "interpretation": "release_metadata_only"
+      },
+      "package_version": null,
+      "sources": {
+        "metadata": "https://api.github.com/repos/Fission-AI/OpenSpec",
+        "head": "https://api.github.com/repos/Fission-AI/OpenSpec/commits/main",
+        "readme": "https://github.com/Fission-AI/OpenSpec/blob/2bd5bc3be964404657439f538857fcdf550f7398/README.md",
+        "releases": "https://api.github.com/repos/Fission-AI/OpenSpec/releases?per_page=1",
+        "inspected_files": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "ref": "2bd5bc3be964404657439f538857fcdf550f7398",
+            "url": "https://github.com/Fission-AI/OpenSpec/blob/2bd5bc3be964404657439f538857fcdf550f7398/.github/workflows/ci.yml",
+            "inspection": "first_100_lines_not_executed"
+          }
+        ]
+      },
+      "ci_status": "workflow_definition_inspected_not_run_status_verified"
+    }
+  ],
+  "considered_not_selected": [
+    {
+      "repository": "onyx-dot-app/onyx",
+      "url": "https://github.com/onyx-dot-app/onyx",
+      "stars": 33198,
+      "head_commit": "26650f3d13487270bacdcbc939d3a9f38e4da532",
+      "reason": "문서 검색 유사성은 높으나 enterprise 스택 비중이 크다. Lite 모드는 문서 색인을 지원하지 않아 현재 저사양 문서 RAG 대안으로 단정할 수 없다. CE MIT와 EE 조건도 분리해야 한다.",
+      "sources": [
+        "https://api.github.com/repos/onyx-dot-app/onyx/commits/main",
+        "https://raw.githubusercontent.com/onyx-dot-app/onyx/main/README.md"
+      ]
+    },
+    {
+      "repository": "open-webui/open-webui",
+      "url": "https://github.com/open-webui/open-webui",
+      "stars": 157711,
+      "head_commit": "c38885a1a737da4968f157092f304f3b5481d0bf",
+      "reason": "로컬 모델 UI로 유용하지만 이번 규칙·평가·세션 계약에 대한 직접성은 선정 후보보다 낮다. 현재 라이선스의 브랜딩 조건을 단순 MIT로 표시할 수 없다.",
+      "sources": [
+        "https://api.github.com/repos/open-webui/open-webui/commits/main",
+        "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md"
+      ]
+    },
+    {
+      "repository": "CatalaLang/catala",
+      "url": "https://github.com/CatalaLang/catala",
+      "stars": 2438,
+      "head_commit": "e86fc2f5af14af40d80bfba655ef1d8cd6dee93c",
+      "reason": "법규 예외의 형식화와 문서/코드 생성은 유사하지만 별도 DSL 도입 비용이 크다. 현재 Z3 규칙을 유지하면서 OpenFisca의 기간/파라미터 관리 패턴을 우선 참조한다.",
+      "sources": [
+        "https://api.github.com/repos/CatalaLang/catala/commits/master",
+        "https://raw.githubusercontent.com/CatalaLang/catala/master/README.md"
+      ]
+    }
+  ],
+  "search_audit": [
+    {
+      "query": "local document RAG Qwen",
+      "status": "fulfilled",
+      "returned_repositories": [
+        "mosi212/AgentRAG-Locall-websearch",
+        "sebytzr16/on-device-llm",
+        "limboinf/liteparse-agentic-studio",
+        "cakiryusuff/rag-docsearch-ollama",
+        "sarankumar-79/LocalGen",
+        "melihanursay/LocalRAGAssistant"
+      ],
+      "note": "검색 결과와 사전에 알려진 성숙 후보를 합쳐 13개를 일차 검토했다. 전수 조사 아님."
+    },
+    {
+      "query": "RAG document parsing",
+      "status": "fulfilled",
+      "returned_repositories": [
+        "ggozad/haiku.rag",
+        "LeDat98/NexusRAG",
+        "Sourangshu-Pal/document-parsers-rag",
+        "PangHu1020/scholar-rag",
+        "arthurpanhku/DocSentinel",
+        "PritiG1/Multimodal-RAG"
+      ],
+      "note": "검색 결과와 사전에 알려진 성숙 후보를 합쳐 13개를 일차 검토했다. 전수 조사 아님."
+    },
+    {
+      "query": "policy rules as code",
+      "status": "fulfilled",
+      "returned_repositories": [
+        "aws-cloudformation/cloudformation-guard",
+        "kmruddy/policies-azure",
+        "awood-ops/AzureFirewallRulesAsCode",
+        "erfnzdeh/ipvfoo-rules",
+        "mendondev/AzureFirewallRulesAsCode",
+        "saero-ai/xcaffold"
+      ],
+      "note": "검색 결과와 사전에 알려진 성숙 후보를 합쳐 13개를 일차 검토했다. 전수 조사 아님."
+    },
+    {
+      "query": "LLM evaluation regression testing",
+      "status": "fulfilled",
+      "returned_repositories": [
+        "hidai25/eval-view",
+        "AshwinUgale/muteval",
+        "cloudguruab/modsysML",
+        "AlexJ1ang/sse-agent-bench",
+        "ssf0409/tracelens",
+        "Eval-core/evalcore"
+      ],
+      "note": "검색 결과와 사전에 알려진 성숙 후보를 합쳐 13개를 일차 검토했다. 전수 조사 아님."
+    },
+    {
+      "query": "spec driven development",
+      "status": "fulfilled",
+      "returned_repositories": [
+        "Fission-AI/OpenSpec",
+        "https-deeplearning-ai/sc-spec-driven-development-files",
+        "Engineering4AI/awesome-spec-driven-development",
+        "gsd-build/get-shit-done",
+        "buildermethods/agent-os",
+        "formulahendry/mcp-server-spec-driven-development"
+      ],
+      "note": "검색 결과와 사전에 알려진 성숙 후보를 합쳐 13개를 일차 검토했다. 전수 조사 아님."
+    }
+  ]
+}

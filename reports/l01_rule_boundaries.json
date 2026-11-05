@@ -1,0 +1,669 @@
+{
+  "run_id": "l01-20261104-rule-boundaries",
+  "date": "2026-11-04",
+  "code_baseline": "a921e39ba53d6b579156262b13e898a9f63669bd",
+  "cohort": "public_developer_regression_not_independent_evaluation",
+  "source_fixture": "synthetic_anchor_records_from_existing_config_not_reconstructed_PDF_evidence",
+  "independent_review": "not_completed",
+  "model_calls": 0,
+  "environment": {
+    "python": "3.12.14",
+    "z3": "4.15.4",
+    "venv": "/tmp/mllm-s3-l01-venv"
+  },
+  "config_sha256": "1090b2dd4125d73e2a5cc4a74ec8d6f699755fbb64c9037f8815343a813462a4",
+  "code_sha256": "9e8202030f761a5fd02dc0275fadf8a2073149257662db0377b80de7140e656d",
+  "source_references": {
+    "housing_academic": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p9:block0",
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+        "anchors": [
+          "12학점",
+          "70점"
+        ]
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p9:block1",
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+        "anchors": [
+          "장애인 학생",
+          "자립준비청년",
+          "졸업 또는 초과학기"
+        ]
+      }
+    ],
+    "housing_expense_combination": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p10:block2",
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+        "anchors": [
+          "중복청구할수없음",
+          "월세대출이자는가능"
+        ]
+      }
+    ],
+    "housing_duplicate_support": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p10:block0",
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+        "anchors": [
+          "하루라도",
+          "자격상실일 포함",
+          "중복수혜"
+        ]
+      }
+    ],
+    "housing_benefit_count": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p11:block0",
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+        "anchors": [
+          "4회 6회 8회 10회 12회"
+        ]
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p11:block1",
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+        "anchors": [
+          "개인별 누적 한도 8회",
+          "모든 학교"
+        ]
+      }
+    ],
+    "housing_county_distance": [
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p8:table0:row32",
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+        "anchors": [
+          "원거리 인정 불가"
+        ]
+      },
+      {
+        "chunk_id": "kosaf-2026-housing-plan-faq:p5:block0",
+        "sha256": "8e4c1f6bee6071db509aba3032ba1afb1c907d24a82f08d1465350a8ecbb4c9c",
+        "anchors": [
+          "원거리"
+        ]
+      }
+    ],
+    "admissions_ged_certificate": [
+      {
+        "chunk_id": "pusan-2026-susi:p24:block1",
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+        "anchors": [
+          "검정고시 합격증명서",
+          "성적증명서(논술전형의 경우 제출 불필요)"
+        ]
+      }
+    ],
+    "admissions_susi_application_limit": [
+      {
+        "chunk_id": "pusan-2026-susi:p27:block0",
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+        "anchors": [
+          "최대 6회",
+          "산업대학·전문대학 제외",
+          "각각 지원한 것으로 산정"
+        ]
+      }
+    ],
+    "admissions_low_income_status": [
+      {
+        "chunk_id": "pusan-2026-susi:p54:block1",
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+        "anchors": [
+          "저소득층학생전형",
+          "동등 이상의 학력",
+          "수급권자",
+          "차상위계층",
+          "제5조의2"
+        ]
+      }
+    ],
+    "admissions_vocational_subject": [
+      {
+        "chunk_id": "pusan-2026-susi:p54:block1",
+        "sha256": "a28a53b010a350b4ce6df667f832309ccd8c4913d09edb9236c1bd64a757b5d3",
+        "anchors": [
+          "30단위(학점) 이상",
+          "마이스터고등학교",
+          "체험위주의 교육",
+          "확정·공지할 예정"
+        ]
+      }
+    ]
+  },
+  "matrix_count": 27,
+  "matrix_expected_decisions_matched": 27,
+  "cases": [
+    {
+      "case_id": "housing_academic-true",
+      "rule_id": "housing_academic",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_academic",
+        "ordinary_semester_system": true,
+        "first_semester_exempt": true
+      },
+      "expected_decision": "true",
+      "observed_decision": "true",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "성적·이수학점만 판정한 결과입니다. 일반 학점 기준을 적용하는 경우 학교가 확인한 최소 학점이 필요하며, 다른 선발 조건과 실제 지급은 별도입니다."
+    },
+    {
+      "case_id": "housing_academic-false",
+      "rule_id": "housing_academic",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_academic",
+        "ordinary_semester_system": true,
+        "first_semester_exempt": false,
+        "disabled": false,
+        "care_leaver": false,
+        "score": 69
+      },
+      "expected_decision": "false",
+      "observed_decision": "false",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "입력 조건에 따른 판정 이유: 백분위 성적이 70점에 미달하며, 첫 학기·장애인·자립준비청년의 성적 심사 면제 조건도 모두 해당하지 않는 입력입니다. 성적·이수학점만 판정한 결과입니다. 일반 학점 기준을 적용하는 경우 학교가 확인한 최소 학점이 필요하며, 다른 선발 조건과 실제 지급은 별도입니다."
+    },
+    {
+      "case_id": "housing_academic-unknown",
+      "rule_id": "housing_academic",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_academic",
+        "ordinary_semester_system": true,
+        "first_semester_exempt": false,
+        "disabled": false,
+        "graduation_or_excess": true,
+        "care_leaver": false
+      },
+      "expected_decision": "unknown",
+      "observed_decision": "unknown",
+      "reason": "missing_facts",
+      "missing": [
+        "score"
+      ],
+      "explanation": "성적·이수학점만 판정한 결과입니다. 일반 학점 기준을 적용하는 경우 학교가 확인한 최소 학점이 필요하며, 다른 선발 조건과 실제 지급은 별도입니다."
+    },
+    {
+      "case_id": "housing_expense_combination-true",
+      "rule_id": "housing_expense_combination",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_expense_combination",
+        "deposit_conversion": true,
+        "housing_loan_interest": false,
+        "rent_loan_interest": true
+      },
+      "expected_decision": "true",
+      "observed_decision": "true",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "보증금 환산액과 주택임차차입금 이자의 병행 청구 제한만 판정했습니다. 월세대출 이자는 이 제한의 예외이며 월 한도·지출 인정은 별도입니다."
+    },
+    {
+      "case_id": "housing_expense_combination-false",
+      "rule_id": "housing_expense_combination",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_expense_combination",
+        "deposit_conversion": true,
+        "housing_loan_interest": true
+      },
+      "expected_decision": "false",
+      "observed_decision": "false",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "입력 조건에 따른 판정 이유: 보증금 월환산액과 주택임차차입금 이자를 함께 청구하는 입력입니다. 월세대출 이자를 추가해도 이 두 항목의 병행 청구 제한은 해제되지 않습니다. 보증금 환산액과 주택임차차입금 이자의 병행 청구 제한만 판정했습니다. 월세대출 이자는 이 제한의 예외이며 월 한도·지출 인정은 별도입니다."
+    },
+    {
+      "case_id": "housing_expense_combination-unknown",
+      "rule_id": "housing_expense_combination",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_expense_combination",
+        "deposit_conversion": true
+      },
+      "expected_decision": "unknown",
+      "observed_decision": "unknown",
+      "reason": "missing_facts",
+      "missing": [
+        "housing_loan_interest"
+      ],
+      "explanation": "보증금 환산액과 주택임차차입금 이자의 병행 청구 제한만 판정했습니다. 월세대출 이자는 이 제한의 예외이며 월 한도·지출 인정은 별도입니다."
+    },
+    {
+      "case_id": "housing_duplicate_support-true",
+      "rule_id": "housing_duplicate_support",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_duplicate_support",
+        "same_year_month": true,
+        "other_program_is_conflicting": true,
+        "overlap_days": 0
+      },
+      "expected_decision": "true",
+      "observed_decision": "true",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "중복수혜 제한만 판정했습니다. 타 사업이 제한 대상인지와 자격 중복 일수는 확인된 값을 입력해야 하며 다른 자격이나 지급을 확정하지 않습니다."
+    },
+    {
+      "case_id": "housing_duplicate_support-false",
+      "rule_id": "housing_duplicate_support",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_duplicate_support",
+        "same_year_month": true,
+        "other_program_is_conflicting": true,
+        "overlap_days": 1
+      },
+      "expected_decision": "false",
+      "observed_decision": "false",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "입력 조건에 따른 판정 이유: 중복수혜 제한 대상인 다른 사업과 같은 연월에 자격이 하루 이상 겹치는 입력입니다. 중복수혜 제한만 판정했습니다. 타 사업이 제한 대상인지와 자격 중복 일수는 확인된 값을 입력해야 하며 다른 자격이나 지급을 확정하지 않습니다."
+    },
+    {
+      "case_id": "housing_duplicate_support-unknown",
+      "rule_id": "housing_duplicate_support",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_duplicate_support",
+        "same_year_month": true,
+        "other_program_is_conflicting": true
+      },
+      "expected_decision": "unknown",
+      "observed_decision": "unknown",
+      "reason": "missing_facts",
+      "missing": [
+        "overlap_days"
+      ],
+      "explanation": "중복수혜 제한만 판정했습니다. 타 사업이 제한 대상인지와 자격 중복 일수는 확인된 값을 입력해야 하며 다른 자격이나 지급을 확정하지 않습니다."
+    },
+    {
+      "case_id": "housing_benefit_count-true",
+      "rule_id": "housing_benefit_count",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_benefit_count",
+        "academic_years": 6,
+        "school_used": 11,
+        "personal_used": 11
+      },
+      "expected_decision": "true",
+      "observed_decision": "true",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "다음 1회 수혜를 위한 횟수 한도만 판정했습니다. 학교별 실적은 신·편입/재입학 처리 규정에 맞춰 산정된 값을 입력해야 합니다. 다른 자격은 별도입니다."
+    },
+    {
+      "case_id": "housing_benefit_count-false",
+      "rule_id": "housing_benefit_count",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_benefit_count",
+        "academic_years": 4,
+        "school_used": 7,
+        "personal_used": 8
+      },
+      "expected_decision": "false",
+      "observed_decision": "false",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "입력 조건에 따른 판정 이유: 입력 조건상 모든 학교를 합친 개인 누적 수혜 횟수가 적용되는 개인별 한도에 도달했거나 이를 넘습니다. 다음 1회 수혜를 위한 횟수 한도만 판정했습니다. 학교별 실적은 신·편입/재입학 처리 규정에 맞춰 산정된 값을 입력해야 합니다. 다른 자격은 별도입니다."
+    },
+    {
+      "case_id": "housing_benefit_count-unknown",
+      "rule_id": "housing_benefit_count",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_benefit_count",
+        "academic_years": 4,
+        "school_used": 7
+      },
+      "expected_decision": "unknown",
+      "observed_decision": "unknown",
+      "reason": "missing_facts",
+      "missing": [
+        "personal_used"
+      ],
+      "explanation": "다음 1회 수혜를 위한 횟수 한도만 판정했습니다. 학교별 실적은 신·편입/재입학 처리 규정에 맞춰 산정된 값을 입력해야 합니다. 다른 자격은 별도입니다."
+    },
+    {
+      "case_id": "housing_county_distance-true",
+      "rule_id": "housing_county_distance",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_county_distance",
+        "outside_metro_county": true,
+        "same_county": false
+      },
+      "expected_decision": "true",
+      "observed_decision": "true",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "광역교통권 밖 군 지역 조건에서만 판정했습니다. 같은 군이면 원칙적으로 인정되지 않으며 특별 사유는 대학·재단의 예외 인정 여부를 확인해야 합니다."
+    },
+    {
+      "case_id": "housing_county_distance-false",
+      "rule_id": "housing_county_distance",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_county_distance",
+        "outside_metro_county": true,
+        "same_county": true,
+        "exception_approved": false
+      },
+      "expected_decision": "false",
+      "observed_decision": "false",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "입력 조건에 따른 판정 이유: 부모 중 한 명 이상이 대학 소재지와 같은 군에 거주하며, 대학·재단의 원거리 예외 인정은 받지 않은 것으로 입력되었습니다. 광역교통권 밖 군 지역 조건에서만 판정했습니다. 같은 군이면 원칙적으로 인정되지 않으며 특별 사유는 대학·재단의 예외 인정 여부를 확인해야 합니다."
+    },
+    {
+      "case_id": "housing_county_distance-unknown",
+      "rule_id": "housing_county_distance",
+      "facts": {
+        "year": 2026,
+        "semester": 1,
+        "task": "housing",
+        "institution": "한국장학재단",
+        "rule_id": "housing_county_distance",
+        "outside_metro_county": true,
+        "same_county": true
+      },
+      "expected_decision": "unknown",
+      "observed_decision": "unknown",
+      "reason": "missing_facts",
+      "missing": [
+        "exception_approved"
+      ],
+      "explanation": "광역교통권 밖 군 지역 조건에서만 판정했습니다. 같은 군이면 원칙적으로 인정되지 않으며 특별 사유는 대학·재단의 예외 인정 여부를 확인해야 합니다."
+    },
+    {
+      "case_id": "admissions_ged_certificate-true",
+      "rule_id": "admissions_ged_certificate",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_ged_certificate",
+        "ged_offline": true,
+        "essay_track": true,
+        "score_certificate": false
+      },
+      "expected_decision": "true",
+      "observed_decision": "true",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "온라인 제공 미동의·불가인 검정고시 지원자 기준입니다. 성적증명서의 논술전형 제출 면제를 합격증명서에 확대하지 않습니다."
+    },
+    {
+      "case_id": "admissions_ged_certificate-false",
+      "rule_id": "admissions_ged_certificate",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_ged_certificate",
+        "ged_offline": true,
+        "essay_track": true,
+        "score_certificate": true
+      },
+      "expected_decision": "false",
+      "observed_decision": "false",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "입력 조건에 따른 판정 이유: 논술전형 지원자의 성적증명서이므로 제출 의무의 예외인 면제 조건에 해당합니다. 온라인 제공 미동의·불가인 검정고시 지원자 기준입니다. 성적증명서의 논술전형 제출 면제를 합격증명서에 확대하지 않습니다."
+    },
+    {
+      "case_id": "admissions_ged_certificate-unknown",
+      "rule_id": "admissions_ged_certificate",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_ged_certificate",
+        "ged_offline": true,
+        "essay_track": true
+      },
+      "expected_decision": "unknown",
+      "observed_decision": "unknown",
+      "reason": "missing_facts",
+      "missing": [
+        "score_certificate"
+      ],
+      "explanation": "온라인 제공 미동의·불가인 검정고시 지원자 기준입니다. 성적증명서의 논술전형 제출 면제를 합격증명서에 확대하지 않습니다."
+    },
+    {
+      "case_id": "admissions_susi_application_limit-true",
+      "rule_id": "admissions_susi_application_limit",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_susi_application_limit",
+        "counted_application": true,
+        "counted_applications": 5
+      },
+      "expected_decision": "true",
+      "observed_decision": "true",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "6회 제한에 포함되는 전형의 추가 1회 지원 횟수만 판정했습니다. 제외 전형의 분류와 기존 접수 횟수는 확인한 값을 입력해야 합니다. 대학 내 복수지원 조합, 전형별 자격, 최종 합격은 별도입니다."
+    },
+    {
+      "case_id": "admissions_susi_application_limit-false",
+      "rule_id": "admissions_susi_application_limit",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_susi_application_limit",
+        "counted_application": true,
+        "counted_applications": 6
+      },
+      "expected_decision": "false",
+      "observed_decision": "false",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "입력 조건에 따른 판정 이유: 이번 지원 직전까지 산입 대상 수시 원서접수가 이미 6회 이상인 입력이므로, 추가 1회의 횟수 여유가 없습니다. 6회 제한에 포함되는 전형의 추가 1회 지원 횟수만 판정했습니다. 제외 전형의 분류와 기존 접수 횟수는 확인한 값을 입력해야 합니다. 대학 내 복수지원 조합, 전형별 자격, 최종 합격은 별도입니다."
+    },
+    {
+      "case_id": "admissions_susi_application_limit-unknown",
+      "rule_id": "admissions_susi_application_limit",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_susi_application_limit",
+        "counted_application": true
+      },
+      "expected_decision": "unknown",
+      "observed_decision": "unknown",
+      "reason": "missing_facts",
+      "missing": [
+        "counted_applications"
+      ],
+      "explanation": "6회 제한에 포함되는 전형의 추가 1회 지원 횟수만 판정했습니다. 제외 전형의 분류와 기존 접수 횟수는 확인한 값을 입력해야 합니다. 대학 내 복수지원 조합, 전형별 자격, 최종 합격은 별도입니다."
+    },
+    {
+      "case_id": "admissions_low_income_status-true",
+      "rule_id": "admissions_low_income_status",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_low_income_status",
+        "low_income_track": true,
+        "education_qualified": true,
+        "basic_livelihood_eligible": true
+      },
+      "expected_decision": "true",
+      "observed_decision": "true",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "학생부종합 저소득층학생전형의 학력과 법정 대상자 조건만 판정했습니다. 소득 금액이나 가족 형태로 법정 자격을 추정하지 않습니다. 증빙, 모집단위별 수능최저 등 나머지 요건과 최종 합격은 별도입니다."
+    },
+    {
+      "case_id": "admissions_low_income_status-false",
+      "rule_id": "admissions_low_income_status",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_low_income_status",
+        "low_income_track": true,
+        "education_qualified": false
+      },
+      "expected_decision": "false",
+      "observed_decision": "false",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "입력 조건에 따른 판정 이유: 국내 정규 고등학교 졸업(예정) 또는 법령상 동등 이상의 학력 조건에 해당하지 않는 것으로 입력되었습니다. 학생부종합 저소득층학생전형의 학력과 법정 대상자 조건만 판정했습니다. 소득 금액이나 가족 형태로 법정 자격을 추정하지 않습니다. 증빙, 모집단위별 수능최저 등 나머지 요건과 최종 합격은 별도입니다."
+    },
+    {
+      "case_id": "admissions_low_income_status-unknown",
+      "rule_id": "admissions_low_income_status",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_low_income_status",
+        "low_income_track": true,
+        "education_qualified": true,
+        "basic_livelihood_eligible": false,
+        "near_poverty_eligible": false
+      },
+      "expected_decision": "unknown",
+      "observed_decision": "unknown",
+      "reason": "missing_facts",
+      "missing": [
+        "single_parent_support_eligible"
+      ],
+      "explanation": "학생부종합 저소득층학생전형의 학력과 법정 대상자 조건만 판정했습니다. 소득 금액이나 가족 형태로 법정 자격을 추정하지 않습니다. 증빙, 모집단위별 수능최저 등 나머지 요건과 최종 합격은 별도입니다."
+    },
+    {
+      "case_id": "admissions_vocational_subject-true",
+      "rule_id": "admissions_vocational_subject",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_vocational_subject",
+        "department_mapping_confirmed": true,
+        "eligible_school_graduate": true,
+        "meister_school": false,
+        "experiential_alternative_school": false,
+        "same_field_completed": false,
+        "related_subject_credits": 30
+      },
+      "expected_decision": "true",
+      "observed_decision": "true",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "학교유형과 동일계열 또는 관련 전문교과 조건만 판정했습니다. 관련 교과·기준학과의 인정은 최신 공지 확인과 지원자격 심의가 필요하며 전체 지원자격이나 합격을 보장하지 않습니다."
+    },
+    {
+      "case_id": "admissions_vocational_subject-false",
+      "rule_id": "admissions_vocational_subject",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_vocational_subject",
+        "department_mapping_confirmed": true,
+        "eligible_school_graduate": true,
+        "meister_school": false,
+        "experiential_alternative_school": false,
+        "same_field_completed": false,
+        "related_subject_credits": 29
+      },
+      "expected_decision": "false",
+      "observed_decision": "false",
+      "reason": "symbolic_entailment",
+      "missing": [],
+      "explanation": "입력 조건에 따른 판정 이유: 동일계열 기준학과를 이수하지 않았고, 확인된 관련 전문교과도 30단위(학점)에 미달하는 입력입니다. 학교유형과 동일계열 또는 관련 전문교과 조건만 판정했습니다. 관련 교과·기준학과의 인정은 최신 공지 확인과 지원자격 심의가 필요하며 전체 지원자격이나 합격을 보장하지 않습니다."
+    },
+    {
+      "case_id": "admissions_vocational_subject-unknown",
+      "rule_id": "admissions_vocational_subject",
+      "facts": {
+        "year": 2026,
+        "task": "admissions",
+        "institution": "부산대학교",
+        "rule_id": "admissions_vocational_subject",
+        "department_mapping_confirmed": true,
+        "eligible_school_graduate": true,
+        "meister_school": false,
+        "experiential_alternative_school": false,
+        "same_field_completed": false
+      },
+      "expected_decision": "unknown",
+      "observed_decision": "unknown",
+      "reason": "missing_facts",
+      "missing": [
+        "related_subject_credits"
+      ],
+      "explanation": "학교유형과 동일계열 또는 관련 전문교과 조건만 판정했습니다. 관련 교과·기준학과의 인정은 최신 공지 확인과 지원자격 심의가 필요하며 전체 지원자격이나 합격을 보장하지 않습니다."
+    }
+  ],
+  "verification": {
+    "new_test_methods": 16,
+    "combined_grounding_guided_l01_runtime_methods": 52
+  },
+  "limitations": [
+    "No raw source PDF/content integrity or semantic source review was performed.",
+    "The Dongseo D01 mirror hash was not substituted for either configured source hash.",
+    "Explanation prose is developer-authored; Z3 validates its selected AST condition, not its Korean semantic accuracy.",
+    "No H1 approval, locked test access, training, indexing, or model execution."
+  ]
+}

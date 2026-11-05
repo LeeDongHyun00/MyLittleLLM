@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "project_id": "MyLittleLLM",
+  "contract_version": "1.1.0",
+  "as_of": "2026-11-05",
+  "canonical_branch": "docs/project-contract-and-session-roles",
+  "code_baseline": "04ff35a5143ecba349fbbb82ed713f5aba9221da",
+  "latest_handoff": "docs/handoffs/2026-11-05-s0-i01-canonical-integration.json",
+  "roles": {
+    "S0": [
+      "I01"
+    ],
+    "S1": [
+      "D01"
+    ],
+    "S2": [
+      "R01"
+    ],
+    "S3": [
+      "L01"
+    ],
+    "S4": [
+      "M01"
+    ],
+    "S5": [
+      "E01",
+      "E02"
+    ],
+    "H1": []
+  },
+  "task_ids": [
+    "E01",
+    "D01",
+    "R01",
+    "M01",
+    "L01",
+    "E02",
+    "I01"
+  ],
+  "expected_rule_ids": [
+    "housing_academic",
+    "housing_expense_combination",
+    "housing_duplicate_support",
+    "housing_benefit_count",
+    "housing_county_distance",
+    "admissions_ged_certificate",
+    "admissions_susi_application_limit",
+    "admissions_low_income_status",
+    "admissions_vocational_subject"
+  ],
+  "markdown_files": [
+    "AGENTS.md",
+    "PROJECT_CONTRACT.md",
+    "README.md",
+    "docs/project/STATE.md",
+    "docs/project/SESSIONS.md",
+    "docs/project/INTERFACES.md",
+    "docs/project/DECISIONS.md",
+    "docs/project/TASKS.md",
+    "docs/research/reference_projects_top10.md",
+    "docs/priorities.md",
+    "docs/experiment_design.md",
+    "docs/running.md",
+    "docs/project/COLLABORATION.md",
+    "docs/evaluation/e01_protocol.md",
+    "data/review/e01/README.md",
+    "reports/d01_source_report.md",
+    "reports/r01_retrieval_development.md",
+    "reports/l01_rule_boundaries.md"
+  ],
+  "observations": [
+    {
+      "path": "reports/grounding_v2_summary.json",
+      "keys": [
+        "arms",
+        "qwen_same_evidence",
+        "strict_pass"
+      ],
+      "expected": 5
+    },
+    {
+      "path": "reports/grounding_v2_summary.json",
+      "keys": [
+        "arms",
+        "expanded_rules_gate",
+        "strict_pass"
+      ],
+      "expected": 11
+    },
+    {
+      "path": "reports/grounding_v2_summary.json",
+      "keys": [
+        "actual_model_calls"
+      ],
+      "expected": 12
+    },
+    {
+      "path": "reports/grounding_v2_summary.json",
+      "keys": [
+        "independent_expert_review"
+      ],
+      "expected": false
+    },
+    {
+      "path": "reports/grounding_summary.json",
+      "keys": [
+        "arms",
+        "qwen_shared_evidence",
+        "strict_pass"
+      ],
+      "expected": 13
+    },
+    {
+      "path": "reports/grounding_summary.json",
+      "keys": [
+        "arms",
+        "rules_and_gate",
+        "strict_pass"
+      ],
+      "expected": 18
+    },
+    {
+      "path": "reports/grounding_summary.json",
+      "keys": [
+        "arms",
+        "qwen_plus_veto",
+        "strict_pass"
+      ],
+      "expected": 6
+    },
+    {
+      "path": "reports/grounding_summary.json",
+      "keys": [
+        "arms",
+        "full",
+        "strict_pass"
+      ],
+      "expected": 15
+    }
+  ],
+  "checker_scope": "Offline path/link (not anchors), metadata, handoff required fields, selected references, rule IDs, selected frozen artifacts and ledger values. Does not verify semantic truth, all historical reports, CI remote status, human reviewer identity, or model performance.",
+  "required_paths": [
+    "AGENTS.md",
+    "PROJECT_CONTRACT.md",
+    "README.md",
+    "docs/project/STATE.md",
+    "docs/project/SESSIONS.md",
+    "docs/project/INTERFACES.md",
+    "docs/project/DECISIONS.md",
+    "docs/project/TASKS.md",
+    "docs/research/reference_projects_top10.md",
+    "docs/priorities.md",
+    "docs/experiment_design.md",
+    "docs/running.md",
+    "config/runtime.lock.json",
+    "config/grounding_rules.json",
+    "contracts/project.json",
+    "data/research/reference_projects_snapshot.json",
+    "docs/handoffs/TEMPLATE.json",
+    "docs/handoffs/2026-11-04-contract-bootstrap.json",
+    "scripts/check_project_contract.py",
+    ".github/workflows/project-contract.yml",
+    "contracts/sessions.json",
+    "scripts/check_session_handoffs.py",
+    ".github/workflows/session-collaboration.yml",
+    "data/evaluation/e01/exposure_addendum_20261104_i01.json"
+  ],
+  "frozen_artifacts": {
+    "data/evaluation/grounding_protocol.json": "4f1639b8c2d8bbecb7fd1dfdb884df19197e5eeb27bd4767421762d422580543",
+    "data/evaluation/grounding_scenarios.jsonl": "78d563934bb8e0312b0340ece5e330d25a660bd59d6dc388eb00b1edebfc2dc7",
+    "data/evaluation/grounding_v2_protocol.json": "cc52c2cd385bdf3d61756120bafea84958e0578f28d3f6fb4c8ac79efa58956a",
+    "data/evaluation/grounding_v2_scenarios.jsonl": "3fda83702e6ab6db541cca5cf200e29bc092de3738ba0473bf6689c9e3f75d80",
+    "reports/grounding_lock.json": "13ba26d80961db861145920c9ab162459e7a4a9f0441c038965a08954156592d",
+    "reports/grounding_results.jsonl": "1cb82e1543057e5917e69d726827110ec44774e98e36d3f7a5275bffb2e5d903",
+    "reports/grounding_summary.json": "f543c27acac03a13243ad09476eae4ccf134687478329e2a84d00e60f7bc97d2",
+    "reports/grounding_qualitative_review.json": "61fb6daa0705f0be51de23a2051e5080e316a00cf0cc015ad9b41c5c5938bb41",
+    "reports/grounding_v2_lock.json": "9263bd8bd3b9183f0cc66254ce1fd356a55075552531c54c6252b7126c04d0d1",
+    "reports/grounding_v2_results.jsonl": "3c33f7b230db00c43819b5312f3dcb44928e24b04ad580d36e31ff8bd344ac26",
+    "reports/grounding_v2_drafts.jsonl": "a6a58656f8b99f3880d7f7b0d27c6cdb3fea99929b73d9beede4477acf70b191",
+    "reports/grounding_v2_summary.json": "56cd9714cbd53096e19a311e8da2d4912966a14f80b5589abc6129d7f139bd36",
+    "reports/grounding_v2_qualitative_review.json": "e28cce4d603ba96064c1d77652b121db9d4ea7661751841d6c3b41dd1e841a9a"
+  }
+}
