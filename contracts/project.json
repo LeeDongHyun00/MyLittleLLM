@@ -2,10 +2,10 @@
   "schema_version": 1,
   "project_id": "MyLittleLLM",
   "contract_version": "1.1.0",
-  "as_of": "2026-11-04",
+  "as_of": "2026-11-05",
   "canonical_branch": "docs/project-contract-and-session-roles",
-  "code_baseline": "d0ac404c8cda106e703bd04a691aaf8e10abf056",
-  "latest_handoff": "docs/handoffs/2026-11-04-s0-i01-session-collaboration.json",
+  "code_baseline": "04ff35a5143ecba349fbbb82ed713f5aba9221da",
+  "latest_handoff": "docs/handoffs/2026-11-05-s0-i01-canonical-integration.json",
   "roles": {
     "S0": [
       "I01"

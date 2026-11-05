@@ -1,4 +1,4 @@
-# 현재 상태 — 2026-11-04
+# 현재 상태 — 2026-11-05
 
 계약 버전 **1.1.0**. 이 파일은 현재 상태의 요약이며 과거 실험 원본을 대체하지 않는다.
 
@@ -6,13 +6,15 @@
 
 - 저장소: [LeeDongHyun00/MyLittleLLM](https://github.com/LeeDongHyun00/MyLittleLLM).
 - 새 세션 시작 브랜치: `docs/project-contract-and-session-roles`.
-- 현재 검토할 협업 통합 브랜치: `s0/i01-session-collaboration`, [draft PR #4](https://github.com/LeeDongHyun00/MyLittleLLM/pull/4).
-  E01/D01과 S2/R01·S3/L01의 검토 결과를 통합했다. 기준 브랜치/main으로 병합한 상태는 아니다.
+- [통합 PR #4](https://github.com/LeeDongHyun00/MyLittleLLM/pull/4)는 2026-11-05 기준 브랜치에 병합했다.
+  병합 커밋: `04ff35a5143ecba349fbbb82ed713f5aba9221da`. E01/D01, R01/L01 결과와 세션 CI를 포함한다.
+  원래 작업 브랜치 `s0/i01-session-collaboration`과 역할별 커밋은 이력으로 보존한다.
   [협업 운영](COLLABORATION.md), [세션 상태](../../contracts/sessions.json), [협업 이슈 #3](https://github.com/LeeDongHyun00/MyLittleLLM/issues/3).
-- 애플리케이션 기준 커밋: `d0ac404c8cda106e703bd04a691aaf8e10abf056`.
+- 현재 구현 기준 커밋: `04ff35a5143ecba349fbbb82ed713f5aba9221da`.
+  기존 기능 기준 `d0ac404c8cda106e703bd04a691aaf8e10abf056`과 역할별 개발 이력을 상속한다.
 - 부모 브랜치 `feat/raft-step-opsd-compression`의 [draft PR #1](https://github.com/LeeDongHyun00/MyLittleLLM/pull/1)은 아직 병합 전이다.
   `main`은 `83d9d9912cdc74af0363efd4717166fcfc2224ca`로 현재 구현보다 이전 상태다.
-- 이번 계약/역할 문서는 부모 기능 PR 위의 별도 브랜치다. 병합 후 S0가 시작 브랜치와 이 상태를 갱신한다.
+- 기준 브랜치는 부모 기능 PR 위에 있다. [PR #2](https://github.com/LeeDongHyun00/MyLittleLLM/pull/2)와 PR #1은 아직 draft이며 `main` 병합은 별도다.
 - 기존 파일/모델이 다른 세션에 자동으로 존재한다고 가정하지 않는다. Git 제외 모델·원문·색인은 새 환경에서 재확인한다.
 
 ## 동작과 자원
@@ -26,8 +28,8 @@
 
 기존 설치는 CPU 4개·메모리 16GiB·GPU 없음, llama.cpp b11960, 8,192 문맥, 슬롯 1이다.
 모델 경로는 `models/Qwen3-4B-Q4_K_M.gguf`, API는 해당 환경 내부 `http://127.0.0.1:8080/v1`이다.
-**2026-11-04 이번 점검에서 `/health`는 connection refused였다.** 과거 실행 성공을 현재 서버 가동으로 해석하지 않는다.
-이 문서 작업에서는 서버 재시작·모델 추론·학습을 수행하지 않았다. 실행 세션은 [설치/실행 문서](../running.md)를 확인한다.
+**2026-11-04 점검에서 `/health`는 connection refused였다.** 과거 실행 성공을 현재 서버 가동으로 해석하지 않는다.
+11월 5일 통합에서는 서버 상태 재점검·재시작·모델 추론·학습을 수행하지 않았다. 실행 세션은 [설치/실행 문서](../running.md)를 확인한다.
 
 ## 증거 장부
 
@@ -70,7 +72,8 @@
   선택적 설정 확장을 계약 1.1.0에 반영했다. H1 검수와 실서비스 지연 측정은 미완료다.
 - **통합 검증:** 관련 회귀 검사 86개 통과. 원문/모델/최종 시험 없이 실행했고 기존 동결 파일 13개는 보존했다.
 - **이벤트 연결:** GitHub Actions push/PR에서 계약·세션 인수인계와 관련 회귀를 검사한다.
-  실제 초기 push/PR 검사 성공을 확인했다. 실행 커밋/URL은 최신 S0 인수인계에 기록한다.
+  11월 5일 기준 브랜치 병합 커밋의 [세션 CI](https://github.com/LeeDongHyun00/MyLittleLLM/actions/runs/41973487999)와
+  [계약 검사](https://github.com/LeeDongHyun00/MyLittleLLM/actions/runs/41973487948)가 성공했다. 실행 커밋/URL은 최신 S0 인수인계에 기록한다.
   외부 webhook은 관리 권한/수신처가 없어 미연결이다.
 - **평가 경계:** 이번 공개 개발 파일은 [노출 추가 기록](../../data/evaluation/e01/exposure_addendum_20261104_i01.json)에 연결했다.
   E01의 최초 스냅샷을 바꾸지 않았고 E02 전 전체 노출 목록과 그룹을 다시 점검해야 한다.
