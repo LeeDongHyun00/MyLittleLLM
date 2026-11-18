@@ -52,15 +52,9 @@ def real_rows(vocabulary, part, rng=None, named_drop=0.5):
 
 
 def natural_texts():
-    """Teacher-written natural descriptions of sampled programs (outputs/seedlm/v2/natural_*), if present."""
-    items = []
-    for path in sorted(V2.glob("natural_out_*.json")):
-        written = json.loads(path.read_text())
-        source = json.loads((V2 / path.name.replace("natural_out_", "natural_in_")).read_text())
-        for item in source:
-            if item["id"] in written:
-                items.append(dict(item, description=written[item["id"]]))
-    return items
+    """Teacher-written natural descriptions of 1,250 sampled programs (data/seedlm/natural_descriptions.json)."""
+    path = ROOT / "data/seedlm/natural_descriptions.json"
+    return json.loads(path.read_text()) if path.exists() else []
 
 
 def natural_rows(vocabulary, items, rng, held=False):
