@@ -1,0 +1,546 @@
+{
+ "category": "nested",
+ "operators": [
+  {
+   "name": "deep_flatten/1",
+   "gated": false,
+   "targets": [
+    "Mbpp/297",
+    "Mbpp/65",
+    "MbppX/512"
+   ],
+   "why": "Recursive flatten of a list (or tuple) that mixes scalars and sublists of its own type; the core flatten needs uniform two-level rows. Composes with sum, counter, len, max. Ungated: such arguments are rare and descriptions word this in many ways."
+  },
+  {
+   "name": "nesting_depth/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/301"
+   ],
+   "why": "Depth of nested dictionaries (dictionary values only, as the usual definition) or of nested lists."
+  },
+  {
+   "name": "deep_evens/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/580"
+   ],
+   "why": "Keep the even numbers at every level of a nested tuple/list, keeping the nesting in place."
+  },
+  {
+   "name": "deep_odds/1",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of deep_evens (remove even elements)."
+  },
+  {
+   "name": "count_until_nested/1",
+   "gated": true,
+   "targets": [
+    "MbppX/941"
+   ],
+   "why": "Number of elements before the first nested element of a mixed sequence."
+  },
+  {
+   "name": "decode_runs/1",
+   "gated": true,
+   "targets": [
+    "MbppX/215"
+   ],
+   "why": "Run-length decoding of a list whose runs are [count, value] pairs mixed with single values."
+  },
+  {
+   "name": "drop_all_none_rows/1",
+   "gated": true,
+   "targets": [
+    "MbppX/920"
+   ],
+   "why": "Remove rows that consist of None only."
+  },
+  {
+   "name": "drop_rows_with_none/1",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of drop_all_none_rows: remove rows containing any None."
+  },
+  {
+   "name": "distinct_rows_count/1",
+   "gated": true,
+   "targets": [
+    "MbppX/400"
+   ],
+   "why": "Number of distinct rows; with the core row_sorted_tuple it counts order-insensitive duplicates."
+  },
+  {
+   "name": "count_sublists/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/758"
+   ],
+   "why": "Dictionary from each row, as a tuple, to how often it occurs (lists cannot be keys). Also replaces the sorted-rows coincidence on the regression task MbppX/779 with the exact program."
+  },
+  {
+   "name": "rows_with_count/1",
+   "gated": true,
+   "targets": [
+    "MbppX/114"
+   ],
+   "why": "Each distinct tuple followed by its frequency; with records_to_text."
+  },
+  {
+   "name": "rows_to_float/1",
+   "gated": true,
+   "targets": [
+    "MbppX/117"
+   ],
+   "why": "Convert every convertible element of every row to float, keeping row types."
+  },
+  {
+   "name": "rows_to_int/1",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of rows_to_float for rows of integer strings."
+  },
+  {
+   "name": "min_by_second/1",
+   "gated": true,
+   "targets": [],
+   "why": "The record with the smallest second field (ties: first); the whole record where first_of_min_by_second gives its first field."
+  },
+  {
+   "name": "max_by_second/1",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of min_by_second."
+  },
+  {
+   "name": "first_of_min_by_second/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/94"
+   ],
+   "why": "First field of the record with the smallest second field, as one step: the two-step form only ties with accidental programs that are found earlier."
+  },
+  {
+   "name": "first_of_max_by_second/1",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of first_of_min_by_second."
+  },
+  {
+   "name": "sort_by_last_desc/1",
+   "gated": true,
+   "targets": [],
+   "why": "Descending counterpart of the core sort_by_last (keeps ties in input order, unlike reversing)."
+  },
+  {
+   "name": "sort_by_float/1",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of sort_by_float_desc: ascending."
+  },
+  {
+   "name": "sort_by_float_desc/1",
+   "gated": true,
+   "targets": [
+    "MbppX/370"
+   ],
+   "why": "Sort records by the numeric value of the text in their second field, descending."
+  },
+  {
+   "name": "shortest_with_len/1",
+   "gated": true,
+   "targets": [
+    "MbppX/50",
+    "MbppX/528"
+   ],
+   "why": "(length, item) of the shortest sublist or string."
+  },
+  {
+   "name": "longest_with_len/1",
+   "gated": true,
+   "targets": [
+    "MbppX/393"
+   ],
+   "why": "(length, item) of the longest sublist or string."
+  },
+  {
+   "name": "record_max/1",
+   "gated": true,
+   "targets": [
+    "MbppX/613"
+   ],
+   "why": "For (key, list) records: (key, max of the list)."
+  },
+  {
+   "name": "record_min/1",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of record_max."
+  },
+  {
+   "name": "record_sum/1",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of record_max."
+  },
+  {
+   "name": "pair_gap_min/1",
+   "gated": true,
+   "targets": [
+    "MbppX/875"
+   ],
+   "why": "Smallest absolute difference inside the pairs, as one step: min(row_min(..)) is named equally well by 'minimum difference' and is found before min(pair_absdiff(..))."
+  },
+  {
+   "name": "pair_gap_max/1",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of pair_gap_min; now also the program of the regression task Mbpp/63 (still passes)."
+  },
+  {
+   "name": "group_by_first/1",
+   "gated": true,
+   "targets": [
+    "MbppX/174",
+    "MbppX/653"
+   ],
+   "why": "Group (key, value) pairs into a dictionary of lists."
+  },
+  {
+   "name": "group_by_second/1",
+   "gated": true,
+   "targets": [
+    "MbppX/691"
+   ],
+   "why": "Group the first elements by the second element."
+  },
+  {
+   "name": "merge_by_first/1",
+   "gated": true,
+   "targets": [
+    "MbppX/417",
+    "MbppX/969"
+   ],
+   "why": "Merge rows that share their first element into one row (first element once, the rest appended)."
+  },
+  {
+   "name": "successors_dict/1",
+   "gated": true,
+   "targets": [
+    "MbppX/561"
+   ],
+   "why": "Adjacency dictionary of a list of pairs: every element mapped to the partners that follow it."
+  },
+  {
+   "name": "symmetric_pairs/1",
+   "gated": true,
+   "targets": [
+    "MbppX/490"
+   ],
+   "why": "The pairs (a, b), a < b, whose mirror (b, a) is also present, as a set."
+  },
+  {
+   "name": "drop_none_values/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/465"
+   ],
+   "why": "Dictionary without the entries whose value is None."
+  },
+  {
+   "name": "invert_dict/1",
+   "gated": true,
+   "targets": [],
+   "why": "Swap keys and values; dictionary inversion is named in the category notes. No bank item."
+  },
+  {
+   "name": "sort_dicts_by_last/1",
+   "gated": true,
+   "targets": [
+    "MbppX/939"
+   ],
+   "why": "Sort dictionary records by their last field, as the core sort_by_last does for tuples (heuristic field: the key is not an argument)."
+  },
+  {
+   "name": "records_to_text/1",
+   "gated": false,
+   "targets": [
+    "MbppX/114",
+    "MbppX/117",
+    "MbppX/444",
+    "MbppX/920"
+   ],
+   "why": "str() of a list of tuples, for tasks that return the result as text. Ungated because no description says so; full cost so that it cannot outrank a real two-step program."
+  },
+  {
+   "name": "max_average_path/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/721"
+   ],
+   "why": "Maximum average over right/down paths of a cost matrix (max path sum / path length)."
+  },
+  {
+   "name": "triangle_max_path/1",
+   "gated": true,
+   "targets": [
+    "MbppX/147"
+   ],
+   "why": "Maximum top-to-bottom path sum of a number triangle (ragged or zero-padded). Replaces the sum(row_max) coincidence on the regression task MbppX/231."
+  },
+  {
+   "name": "triangle_min_path/1",
+   "gated": true,
+   "targets": [],
+   "why": "Minimum path sum of a triangle; replaces the sum(row_min) coincidence on MbppX/974."
+  },
+  {
+   "name": "gold_mine/1",
+   "gated": true,
+   "targets": [
+    "MbppX/423"
+   ],
+   "why": "Gold mine problem: best left-to-right path moving right, right-up or right-down."
+  },
+  {
+   "name": "grid_nonadjacent_max/1",
+   "gated": true,
+   "targets": [
+    "MbppX/314"
+   ],
+   "why": "Largest sum of a 2 x n grid with no two chosen cells adjacent."
+  },
+  {
+   "name": "smallest_range/1",
+   "gated": true,
+   "targets": [
+    "MbppX/342"
+   ],
+   "why": "Smallest range containing at least one element of every list."
+  },
+  {
+   "name": "count_rows_with/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/425"
+   ],
+   "why": "Number of rows (sublists/tuples) that contain a given element."
+  },
+  {
+   "name": "rows_with/2",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of count_rows_with: the rows that contain the element."
+  },
+  {
+   "name": "rows_without/2",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of count_rows_with: the rows that do not contain the element."
+  },
+  {
+   "name": "rows_all_divisible/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/75"
+   ],
+   "why": "Rows whose elements are all divisible by k."
+  },
+  {
+   "name": "rows_keep_common/2",
+   "gated": true,
+   "targets": [
+    "MbppX/298"
+   ],
+   "why": "Filter every row down to the elements present in another list."
+  },
+  {
+   "name": "shift_rows/2",
+   "gated": true,
+   "targets": [
+    "MbppX/363"
+   ],
+   "why": "Add a number to every element of every row (the core shift works on flat lists only)."
+  },
+  {
+   "name": "scale_rows/2",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of shift_rows: multiply every element of every row."
+  },
+  {
+   "name": "concat_rows/2",
+   "gated": true,
+   "targets": [
+    "MbppX/696"
+   ],
+   "why": "Row-wise concatenation of two lists of rows."
+  },
+  {
+   "name": "drop_column/2",
+   "gated": true,
+   "targets": [
+    "MbppX/353"
+   ],
+   "why": "Remove the n-th element of every row (negative n as in del row[n])."
+  },
+  {
+   "name": "trim_rows/2",
+   "gated": true,
+   "targets": [
+    "MbppX/444"
+   ],
+   "why": "Cut k elements from both ends of every row."
+  },
+  {
+   "name": "k_min_records/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/753"
+   ],
+   "why": "The k records with the smallest second field, ascending (sorted is stable, as the reference)."
+  },
+  {
+   "name": "k_max_records/2",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of k_min_records: the k records with the largest second field."
+  },
+  {
+   "name": "reorder_by_keys/2",
+   "gated": true,
+   "targets": [
+    "MbppX/936"
+   ],
+   "why": "Arrange records in the order of a given list of their first fields."
+  },
+  {
+   "name": "add_dicts/2",
+   "gated": true,
+   "targets": [
+    "MbppX/902"
+   ],
+   "why": "Combine two dictionaries, adding the values of common keys."
+  },
+  {
+   "name": "n_smallest_records/2",
+   "gated": true,
+   "targets": [
+    "MbppX/795"
+   ],
+   "why": "The n dictionary records with the smallest value in their last numeric field (heuristic field)."
+  },
+  {
+   "name": "n_largest_records/2",
+   "gated": true,
+   "targets": [],
+   "why": "Sibling of n_smallest_records."
+  },
+  {
+   "name": "sort_dicts_by_key/2",
+   "gated": true,
+   "targets": [],
+   "why": "Sort dictionary records by a key given as an argument: the principled form of sort_dicts_by_last. No bank item."
+  },
+  {
+   "name": "rows_within/3",
+   "gated": true,
+   "targets": [
+    "MbppX/869"
+   ],
+   "why": "Rows whose elements all lie inside a closed range."
+  },
+  {
+   "name": "filter_dict_pairs/3",
+   "gated": true,
+   "targets": [
+    "Mbpp/722"
+   ],
+   "why": "Keep dictionary entries whose (a, b) value reaches both given minima; extends the core filter_dict to pair values."
+  },
+  {
+   "name": "min_cost_path/3",
+   "gated": true,
+   "targets": [
+    "MbppX/1"
+   ],
+   "why": "Classic minimum cost path to cell (m, n) with right, down and diagonal moves."
+  }
+ ],
+ "keyword_extensions": [],
+ "not_addressed": [
+  {
+   "task_id": "MbppX/31",
+   "reason": "top-k by frequency in the order a size-k heap pops them; tie handling follows the reference's heap bookkeeping (stateful loop)"
+  },
+  {
+   "task_id": "MbppX/49",
+   "reason": "the right program column(a0, a1) exists but ties with row_first(a0) because the example uses index 0 and the description says 'first or specified'; ties go to the unary operator found first (engine tie-break, not an operator)"
+  },
+  {
+   "task_id": "MbppX/110",
+   "reason": "stateful loop that moves the start value while scanning; the output is not a standard 'missing ranges' definition"
+  },
+  {
+   "task_id": "MbppX/143",
+   "reason": "reference returns 1 for a bare list and len() for a tuple; len(a0) reproduces the example and is named, so only a one-task special case could win"
+  },
+  {
+   "task_id": "MbppX/243",
+   "reason": "group by first element, then append the deduplicated values and their count in one tuple: a one-task output format"
+  },
+  {
+   "task_id": "MbppX/304",
+   "reason": "simulation of range rotations acting on an index (stateful loop, four arguments)"
+  },
+  {
+   "task_id": "MbppX/307",
+   "reason": "append a value to the list held at an index of a tuple; the description ('colon of a tuple') names nothing, so it would be an ungated one-task recipe"
+  },
+  {
+   "task_id": "MbppX/381",
+   "reason": "same tie as MbppX/49: sorted(a0) reproduces the index-0 example and precedes sort_by_column(a0, a1)"
+  },
+  {
+   "task_id": "MbppX/438",
+   "reason": "the reference counts pairs i<j with second(i) == first(j) (its two conditions are the same), not bidirectional pairs, and returns a string"
+  },
+  {
+   "task_id": "MbppX/652",
+   "reason": "three steps: flatten the rows, unzip into columns, str()"
+  },
+  {
+   "task_id": "MbppX/709",
+   "reason": "three steps: group by second element, count distinct firsts, str()"
+  },
+  {
+   "task_id": "MbppX/949",
+   "reason": "sort by total digit count, then str(): the sort key would be a one-task recipe, deliberately not added"
+  }
+ ],
+ "final_check": {
+  "train_newly_solved": 12,
+  "extra_newly_solved": 35,
+  "broken": 0
+ },
+ "counts": {
+  "operators": 62,
+  "gated": 60,
+  "ungated": 2,
+  "without_bank_target": 19,
+  "bank": {
+   "train": 12,
+   "extra": 47
+  },
+  "pack_lint_defects": 0,
+  "pack_lint_untested": 12
+ },
+ "regression_programs_changed_still_solved": [
+  "Mbpp/63",
+  "MbppX/231",
+  "MbppX/779",
+  "MbppX/974"
+ ],
+ "notes": "RESULT. 62 operators (60 gated, 2 ungated). Bank: train 12/12 newly solved (all judged by the hidden tests, including the four with pipeline_1p5b_solved=false: Mbpp/301, 580, 721, 722), extra 35/47 newly solved, BROKEN 0 over the nested bank plus regression.json. pack_lint: 0 defects, 12 UNTESTED (its value pool has no mixed nesting, no dictionary of pairs or with a None value, no (key, list) records, no numeric strings in rows); I ran the same function-versus-emitted-code comparison on hand-made nested values and every operator applied there with no disagreement. Every search function except records_to_text is the compiled template itself behind a guard, so the two cannot drift apart. Four regression tasks now get a different, still correct program: Mbpp/63 (pair_gap_max, passes the hidden tests), MbppX/231 and MbppX/974 (the triangle path replaces the sum-of-row-max/min coincidence), MbppX/779 (count_sublists replaces counting sorted rows).\n\nRISKY OPERATORS, most doubtful first.\n(1) records_to_text/1 is ungated because no description says that the result is returned as text. It is limited to lists of tuples and keeps the full cost of 1.0 (not the 0.5 of a conversion): at half price, 'a string operator applied to str(argument)' scored 1.55 and would outrank a correct two-step program (1.40) whenever the description names that string operator. Four extra-pool items depend on it (MbppX/114, 117, 444, 920), no train item. If it turns up in wrong final programs of other categories, retire it; the operators it combines with stay valid.\n(2) n_smallest_records/2, n_largest_records/2 and sort_dicts_by_last/1 guess the field of a dictionary record (last numeric field, last field) because the field name is a constant of the reference solution, not an argument. They pass their asserts (MbppX/795, 939) but are heuristics.\n(3) first_of_min_by_second/1, first_of_max_by_second/1, pair_gap_min/1 and pair_gap_max/1 are two natural steps fused into one. They exist only because equal scores are ordered by discovery: e.g. min(row_min(..)) is named as well as min(pair_absdiff(..)) by 'minimum difference' and is found first. With a better tie-break they would be redundant, not wrong.\n(4) Several gates use broad stems (min|small|low.., max|larg|high.., count|number of.., add, remove). They rely on strict argument guards: on the 280 visible tasks no gate applies to the arguments of more than 14 tasks, and all but one application are in nested tasks. rows_with_count/1 (each distinct tuple with its frequency appended) is the closest to a one-task output format; I kept it as the row counterpart of the core run_lengths.\n(5) deep_flatten/1 (ungated) flattens only sub-sequences of the same type as the outer one (a list in a list, a tuple in a tuple), which is what the references do; a tuple inside a list is kept as an element.\n(6) add_dicts keeps keys whose total is zero or negative; the MBPP reference (Counter + Counter) drops them. The three asserts do not distinguish the two.\n\nOPERATORS WITHOUT A BANK TARGET (19, all gated). Each is the mirror of a targeted operator or of a core one (max for min, odd for even, multiply for add, int for float, ascending for descending, any-None for all-None, filter for count, the whole record for its first field), or the principled form of a heuristic one (sort_dicts_by_key takes the key as an argument), or named by the category notes (invert_dict). Two of them are now the program of a regression task (pair_gap_max, triangle_min_path).\nWHAT I LEFT OUT ON PURPOSE. I drafted and then removed operators whose only motivation was my general familiarity with public MBPP-style exercises, not anything in the bank, the regression set or the category notes: row with the largest/smallest sum, sorting rows by their sum, totals per key of (key, value) pairs, the dictionary entry with the largest/smallest value, dropping the nested elements of a mixed tuple. They are sensible library entries, but adding them from memory of the benchmark would blur what the locked split measures; add them only if you consider that legitimate.\n\nNEEDS AN ENGINE CHANGE, NOT AN OPERATOR.\n(a) Tie-break. Programs with equal score are ordered by discovery: unary before binary, core before packs. MbppX/49 and MbppX/381 have the right binary program in the core (column, sort_by_column), but the example uses index 0, so row_first / sorted reproduce it, are named too and come first. Preferring programs that use every argument, and then the operator whose matched keyword alternative is the most specific, would fix both and remove the need for the fused operators in (3).\n(b) Constants that are not in the example. Sorting or selecting dictionary records by a named field needs an operator parameterised over the keys of the argument (try each key, keep the one that reproduces the example, emit it as a literal).\n(c) Text results. If parse_example recognised an expected string that literal_evals to a container, the search could look for the container and wrap the program in str(); that would replace records_to_text and bring MbppX/652 (three steps today) within two steps.\n(d) Depth. MbppX/652 and 709 need three steps (709 also needs a 'count distinct values per key' step).\n\nOTHER. No operator returns a bool. No keyword extension of core operators was needed. With all five round-3 packs loaded together (state of the other packs when I finished) there was no operator-name or helper-name collision, and my numbers were unchanged (train 12, extra 35, BROKEN 0 on nested bank + regression). The pack adds roughly 10-20% to the search time of the 280 visible tasks (noisy: the machine was shared); the slowest task stays near 0.15 s, far from the 2 s budget. Worst-case single call on the largest inputs the guards accept is under 10 ms."
+}

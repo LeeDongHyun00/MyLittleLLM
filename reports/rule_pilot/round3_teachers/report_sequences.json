@@ -1,0 +1,852 @@
+{
+ "category": "sequences",
+ "operators": [
+  {
+   "name": "seq_count_pairs_xor_even/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/166"
+   ],
+   "why": "count of pairs i<j whose xor is even; one scan instead of a nested loop"
+  },
+  {
+   "name": "seq_pair_absdiff_sum/1",
+   "gated": true,
+   "targets": [
+    "MbppX/144"
+   ],
+   "why": "sum of |a - b| over all pairs"
+  },
+  {
+   "name": "seq_count_inversions/1",
+   "gated": true,
+   "targets": [
+    "MbppX/856"
+   ],
+   "why": "number of inversions = adjacent swaps needed to sort"
+  },
+  {
+   "name": "seq_count_odd/1",
+   "gated": true,
+   "targets": [
+    "MbppX/258"
+   ],
+   "why": "count of odd elements in one named step; the two-step len(odds(x)) tied with an accidental two-step program"
+  },
+  {
+   "name": "seq_count_even/1",
+   "gated": true,
+   "targets": [],
+   "why": "counterpart of seq_count_odd; now the program of the already solved MbppX/697"
+  },
+  {
+   "name": "seq_count_true/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/105"
+   ],
+   "why": "count of True values; the core sum refuses booleans"
+  },
+  {
+   "name": "seq_count_ints/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/253"
+   ],
+   "why": "count of int elements in a mixed list"
+  },
+  {
+   "name": "seq_count_max/1",
+   "gated": true,
+   "targets": [
+    "MbppX/489"
+   ],
+   "why": "how often the largest value occurs"
+  },
+  {
+   "name": "seq_count_min/1",
+   "gated": true,
+   "targets": [],
+   "why": "counterpart of seq_count_max; no bank item (MbppX/384 keeps its accidental core program because of a tie)"
+  },
+  {
+   "name": "seq_odd_occurrence/1",
+   "gated": true,
+   "targets": [
+    "MbppX/29",
+    "MbppX/842"
+   ],
+   "why": "first element that occurs an odd number of times, -1 if none"
+  },
+  {
+   "name": "seq_first_duplicate/1",
+   "gated": true,
+   "targets": [
+    "MbppX/22"
+   ],
+   "why": "first element that repeats an earlier one, -1 if none"
+  },
+  {
+   "name": "seq_first_missing_positive/1",
+   "gated": true,
+   "targets": [
+    "MbppX/34",
+    "MbppX/189"
+   ],
+   "why": "smallest positive integer not in the list"
+  },
+  {
+   "name": "seq_mex/1",
+   "gated": true,
+   "targets": [
+    "MbppX/371",
+    "MbppX/627"
+   ],
+   "why": "smallest non-negative integer not in the list"
+  },
+  {
+   "name": "seq_equilibrium_index/1",
+   "gated": true,
+   "targets": [
+    "MbppX/701"
+   ],
+   "why": "first index whose left sum equals its right sum, -1 if none"
+  },
+  {
+   "name": "seq_fixed_point/1",
+   "gated": true,
+   "targets": [
+    "MbppX/908"
+   ],
+   "why": "first index i with x[i] == i, -1 if none"
+  },
+  {
+   "name": "seq_rotation_count/1",
+   "gated": true,
+   "targets": [
+    "MbppX/802"
+   ],
+   "why": "index of the first descent = number of rotations of a sorted array; also takes over the already solved MbppX/382 (was a0.index(min(a0)))"
+  },
+  {
+   "name": "seq_argmax_all/1",
+   "gated": true,
+   "targets": [
+    "MbppX/200"
+   ],
+   "why": "all index positions of the maximum"
+  },
+  {
+   "name": "seq_argmin_all/1",
+   "gated": true,
+   "targets": [
+    "MbppX/322"
+   ],
+   "why": "all index positions of the minimum"
+  },
+  {
+   "name": "seq_second_most_common/1",
+   "gated": true,
+   "targets": [
+    "MbppX/829"
+   ],
+   "why": "second entry of the frequency ranking"
+  },
+  {
+   "name": "seq_first_odd/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/807"
+   ],
+   "why": "first odd element (None if absent); passes the hidden tests of Mbpp/807 when it wins, but ties with the core a0[0], which is found first"
+  },
+  {
+   "name": "seq_first_even_odd/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/784"
+   ],
+   "why": "pair (first even, first odd) with -1 for a missing parity, to be fed to the core sum/prod; prod of it passes the hidden tests of Mbpp/784 when it wins, but ties with an accidental core program"
+  },
+  {
+   "name": "seq_first_and_last/1",
+   "gated": true,
+   "targets": [
+    "MbppX/710"
+   ],
+   "why": "tuple (first, last)"
+  },
+  {
+   "name": "seq_palindromes/1",
+   "gated": true,
+   "targets": [
+    "MbppX/864"
+   ],
+   "why": "palindromic words or numbers of a list; also replaces an accidental program on MbppX/485"
+  },
+  {
+   "name": "seq_best_distinct_pair_product/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/415"
+   ],
+   "why": "pair of two different values with the largest product; passes the hidden tests of Mbpp/415 when it wins, but ties with the core best_pair_product/1, which is found first"
+  },
+  {
+   "name": "seq_pair_chunks/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/740"
+   ],
+   "why": "non-overlapping pairs x[0:2], x[2:4], ...; with the core dict() it gives the key-value reading"
+  },
+  {
+   "name": "seq_swap_adjacent/1",
+   "gated": true,
+   "targets": [
+    "MbppX/648"
+   ],
+   "why": "swap the two elements of every pair"
+  },
+  {
+   "name": "seq_first_to_end/1",
+   "gated": true,
+   "targets": [
+    "MbppX/665"
+   ],
+   "why": "rotate left by one"
+  },
+  {
+   "name": "seq_last_to_front/1",
+   "gated": true,
+   "targets": [
+    "MbppX/378"
+   ],
+   "why": "rotate right by one"
+  },
+  {
+   "name": "seq_adjacent_concat/1",
+   "gated": true,
+   "targets": [
+    "MbppX/206"
+   ],
+   "why": "concatenation of neighbouring strings (the core adjacent_sum is numeric)"
+  },
+  {
+   "name": "seq_powerset_by_size/1",
+   "gated": true,
+   "targets": [
+    "MbppX/859"
+   ],
+   "why": "all sublists ordered by size (itertools order)"
+  },
+  {
+   "name": "seq_powerset_binary/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/462"
+   ],
+   "why": "all sublists in binary-counter order, the order of the usual recursive construction"
+  },
+  {
+   "name": "seq_list_each/1",
+   "gated": true,
+   "targets": [
+    "MbppX/857"
+   ],
+   "why": "each string as a list of its characters"
+  },
+  {
+   "name": "seq_last_char_each/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/424"
+   ],
+   "why": "last character of each string"
+  },
+  {
+   "name": "seq_strip_digits_each/1",
+   "gated": true,
+   "targets": [
+    "MbppX/27"
+   ],
+   "why": "each string without its digits"
+  },
+  {
+   "name": "seq_words_all/1",
+   "gated": true,
+   "targets": [
+    "MbppX/326"
+   ],
+   "why": "all words of a list of sentences; with the core most_common it gives the most frequent word"
+  },
+  {
+   "name": "seq_modified_rle/1",
+   "gated": true,
+   "targets": [
+    "MbppX/317"
+   ],
+   "why": "modified run-length encoding: [n, v] for runs, v for single elements"
+  },
+  {
+   "name": "seq_heapify/1",
+   "gated": true,
+   "targets": [
+    "MbppX/854"
+   ],
+   "why": "heapified copy of a list"
+  },
+  {
+   "name": "seq_copy/1",
+   "gated": true,
+   "targets": [
+    "MbppX/847"
+   ],
+   "why": "a copy of the sequence; outranks the accidental sorted(a0)"
+  },
+  {
+   "name": "seq_sort_mixed/1",
+   "gated": true,
+   "targets": [
+    "MbppX/37"
+   ],
+   "why": "numbers sorted first, then strings sorted"
+  },
+  {
+   "name": "seq_invert_each/1",
+   "gated": true,
+   "targets": [
+    "MbppX/205"
+   ],
+   "why": "bitwise complement of every element"
+  },
+  {
+   "name": "seq_dict_text/1",
+   "gated": false,
+   "targets": [
+    "MbppX/686"
+   ],
+   "why": "str() of a dictionary; UNGATED type conversion at cost 0.5, applies to dict values only"
+  },
+  {
+   "name": "seq_median/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/622"
+   ],
+   "why": "statistics.median; with the core concat it reproduces the example of Mbpp/622 but not its hidden tests (see not_addressed)"
+  },
+  {
+   "name": "seq_min_gap/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/763"
+   ],
+   "why": "smallest difference between two elements; passes the hidden tests of Mbpp/763 when it wins, but ties with the core min(a0), which is found first"
+  },
+  {
+   "name": "seq_lcm/1",
+   "gated": true,
+   "targets": [
+    "MbppX/520"
+   ],
+   "why": "least common multiple of all elements"
+  },
+  {
+   "name": "seq_gcd/1",
+   "gated": true,
+   "targets": [],
+   "why": "counterpart of seq_lcm; now the program of the already solved MbppX/45 (was an accidental a0[a0.index(min(a0))])"
+  },
+  {
+   "name": "seq_stdev_sample/1",
+   "gated": true,
+   "targets": [
+    "MbppX/717"
+   ],
+   "why": "sample standard deviation, written so the float equals a hand-written loop exactly"
+  },
+  {
+   "name": "seq_positive_ratio/1",
+   "gated": true,
+   "targets": [
+    "MbppX/442"
+   ],
+   "why": "share of positive elements; the core round2 finishes the program"
+  },
+  {
+   "name": "seq_negative_ratio/1",
+   "gated": true,
+   "targets": [
+    "MbppX/530"
+   ],
+   "why": "share of negative elements"
+  },
+  {
+   "name": "seq_max_product_three/1",
+   "gated": true,
+   "targets": [
+    "MbppX/911"
+   ],
+   "why": "largest product of three elements"
+  },
+  {
+   "name": "seq_odd_length_subarray_sum/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/782"
+   ],
+   "why": "sum of all odd-length contiguous runs, closed form"
+  },
+  {
+   "name": "seq_lis_length/1",
+   "gated": true,
+   "targets": [
+    "MbppX/548"
+   ],
+   "why": "length of the longest strictly increasing subsequence"
+  },
+  {
+   "name": "seq_longest_bitonic/1",
+   "gated": true,
+   "targets": [
+    "MbppX/522"
+   ],
+   "why": "length of the longest increasing-then-decreasing subsequence"
+  },
+  {
+   "name": "seq_max_sum_increasing/1",
+   "gated": true,
+   "targets": [
+    "MbppX/524"
+   ],
+   "why": "largest sum of a strictly increasing subsequence"
+  },
+  {
+   "name": "seq_max_sum_bitonic/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/245"
+   ],
+   "why": "largest sum of a bitonic subsequence"
+  },
+  {
+   "name": "seq_max_subarray_product/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/463"
+   ],
+   "why": "largest product of a contiguous run"
+  },
+  {
+   "name": "seq_max_sum_no_adjacent/1",
+   "gated": true,
+   "targets": [
+    "MbppX/895"
+   ],
+   "why": "largest sum of elements no two of which are neighbours"
+  },
+  {
+   "name": "seq_longest_consecutive/1",
+   "gated": true,
+   "targets": [
+    "MbppX/863"
+   ],
+   "why": "length of the longest run of consecutive integers contained in the list"
+  },
+  {
+   "name": "seq_min_jumps/1",
+   "gated": true,
+   "targets": [
+    "MbppX/689"
+   ],
+   "why": "fewest jumps to the last position when x[i] is the longest jump from i"
+  },
+  {
+   "name": "seq_adjacent_coordinates/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/630"
+   ],
+   "why": "all grid cells within distance 1 of a coordinate, the cell included"
+  },
+  {
+   "name": "seq_common_prefix/1",
+   "gated": true,
+   "targets": [
+    "MbppX/181"
+   ],
+   "why": "longest common prefix of a list of strings"
+  },
+  {
+   "name": "seq_pair_xor_sum/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/633"
+   ],
+   "why": "sum of xor over all pairs of the first n elements; binary because the task passes n and its hidden tests use n < len"
+  },
+  {
+   "name": "seq_count_pairs_sum/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/767",
+    "MbppX/527"
+   ],
+   "why": "count of pairs with a given sum; outranks the accidental len(a0) + a1"
+  },
+  {
+   "name": "seq_count_pairs_diff/2",
+   "gated": true,
+   "targets": [
+    "MbppX/183"
+   ],
+   "why": "count of pairs with a given absolute difference"
+  },
+  {
+   "name": "seq_count_same_position/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/723"
+   ],
+   "why": "count of positions where two sequences agree"
+  },
+  {
+   "name": "seq_count_self_inverse/2",
+   "gated": true,
+   "targets": [
+    "MbppX/288"
+   ],
+   "why": "elements that are their own inverse modulo a prime p (v*v % p == 1)"
+  },
+  {
+   "name": "seq_sequential_search/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/280"
+   ],
+   "why": "(found, index or -1): the result of a linear search"
+  },
+  {
+   "name": "seq_bisect_left/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/736"
+   ],
+   "why": "left insertion point in a sorted list"
+  },
+  {
+   "name": "seq_divisible_by/2",
+   "gated": true,
+   "targets": [],
+   "why": "elements divisible by n; base form of the two ternary rules below, no bank item on its own"
+  },
+  {
+   "name": "seq_take_indices/2",
+   "gated": true,
+   "targets": [
+    "MbppX/825"
+   ],
+   "why": "elements at a list of indices"
+  },
+  {
+   "name": "seq_stride/2",
+   "gated": true,
+   "targets": [
+    "MbppX/536"
+   ],
+   "why": "x[::n], every n-th item"
+  },
+  {
+   "name": "seq_anagrams_of/2",
+   "gated": true,
+   "targets": [
+    "MbppX/861"
+   ],
+   "why": "words that are anagrams of a given word"
+  },
+  {
+   "name": "seq_min_max_k/2",
+   "gated": true,
+   "targets": [
+    "MbppX/219"
+   ],
+   "why": "the k smallest and k largest values, sorted, without duplication when they overlap"
+  },
+  {
+   "name": "seq_first_triplet_sum/2",
+   "gated": true,
+   "targets": [
+    "MbppX/916"
+   ],
+   "why": "first triple (in index order) with a given sum, False if none"
+  },
+  {
+   "name": "seq_insert_after_each/2",
+   "gated": true,
+   "targets": [
+    "MbppX/513"
+   ],
+   "why": "put a value after every element"
+  },
+  {
+   "name": "seq_repeat_whole/2",
+   "gated": true,
+   "targets": [
+    "MbppX/368"
+   ],
+   "why": "n whole copies of a sequence (the core repeat concatenates them)"
+  },
+  {
+   "name": "seq_zip_cycle/2",
+   "gated": true,
+   "targets": [
+    "MbppX/81"
+   ],
+   "why": "zip that recycles the shorter sequence"
+  },
+  {
+   "name": "seq_each_concat/2",
+   "gated": true,
+   "targets": [
+    "MbppX/213"
+   ],
+   "why": "element-wise concatenation of two string sequences (the core each_add is numeric)"
+  },
+  {
+   "name": "seq_heap_replace/2",
+   "gated": true,
+   "targets": [
+    "MbppX/209"
+   ],
+   "why": "heapify, then heapq.heapreplace with a new item"
+  },
+  {
+   "name": "seq_coin_ways/2",
+   "gated": true,
+   "targets": [
+    "MbppX/918"
+   ],
+   "why": "number of ways to pay an amount with unlimited coins"
+  },
+  {
+   "name": "seq_min_coins/2",
+   "gated": true,
+   "targets": [
+    "MbppX/531"
+   ],
+   "why": "fewest coins that pay an amount"
+  },
+  {
+   "name": "seq_super_ugly/2",
+   "gated": true,
+   "targets": [
+    "MbppX/843"
+   ],
+   "why": "n-th number whose prime factors all come from a given list"
+  },
+  {
+   "name": "seq_count_in_range/3",
+   "gated": true,
+   "targets": [
+    "MbppX/700"
+   ],
+   "why": "count of elements with low <= v <= high, numbers or strings"
+  },
+  {
+   "name": "seq_divisible_by_either/3",
+   "gated": true,
+   "targets": [
+    "MbppX/817"
+   ],
+   "why": "elements divisible by m or n"
+  },
+  {
+   "name": "seq_divisible_by_both/3",
+   "gated": true,
+   "targets": [
+    "MbppX/883"
+   ],
+   "why": "elements divisible by m and n; ternary so that it is found before the partial reading divisible-by-n"
+  },
+  {
+   "name": "seq_slice_inclusive/3",
+   "gated": true,
+   "targets": [
+    "MbppX/649"
+   ],
+   "why": "x[i:j+1]: task statements include the end index, the core slice does not"
+  }
+ ],
+ "keyword_extensions": [
+  {
+   "operator": "at/2",
+   "added": "get&item|item&index",
+   "why": "MbppX/948 says 'get an item of a tuple'; x[n] then outranks the accidental a0[-1]"
+  }
+ ],
+ "not_addressed": [
+  {
+   "task_id": "Mbpp/415",
+   "reason": "the right rule is in the pack (seq_best_distinct_pair_product: the two values must differ) and passes the hidden tests when it wins, but it ties with the core best_pair_product/1 and the core rule is found first; needs the engine tie-break described in the notes"
+  },
+  {
+   "task_id": "Mbpp/622",
+   "reason": "the hidden tests follow the reference's merge loop on unsorted lists and with n unrelated to the list sizes; the median of the merged lists (also of the first n of each, also as the middle pair of heapq.merge) reproduces the example but not those cases, only a line-by-line port would"
+  },
+  {
+   "task_id": "Mbpp/763",
+   "reason": "seq_min_gap passes the hidden tests when it wins, but min(a0) (core, named by 'minimum') reproduces the example and is found first; same engine tie-break"
+  },
+  {
+   "task_id": "Mbpp/769",
+   "reason": "the expected list is in set-iteration order (list(set(a) - set(b)) + ...); reproducing it would depend on set order, which rule 5 forbids"
+  },
+  {
+   "task_id": "Mbpp/784",
+   "reason": "prod(seq_first_even_odd(x)) passes the hidden tests when it wins, but ties with the accidental first(evens(x)), found first; a one-step 'first even times first odd' would be a one-task recipe; same engine tie-break"
+  },
+  {
+   "task_id": "Mbpp/807",
+   "reason": "seq_first_odd passes the hidden tests when it wins, but a0[0] (core first, named) reproduces the example and is found first; same engine tie-break"
+  },
+  {
+   "task_id": "MbppX/13",
+   "reason": "needs the constant 4 (four most common) that is not an argument"
+  },
+  {
+   "task_id": "MbppX/60",
+   "reason": "ambiguous description (the bound on the difference is not stated); dynamic programming"
+  },
+  {
+   "task_id": "MbppX/134",
+   "reason": "ad-hoc parity rule with task constants"
+  },
+  {
+   "task_id": "MbppX/158",
+   "reason": "ad-hoc recipe (sum of (max - v) / k, or -1)"
+  },
+  {
+   "task_id": "MbppX/178",
+   "reason": "result strings ('Matched!') are task constants"
+  },
+  {
+   "task_id": "MbppX/186",
+   "reason": "result strings ('Matched!') are task constants"
+  },
+  {
+   "task_id": "MbppX/229",
+   "reason": "expected order is the side effect of an in-place swap partition, not a stable regrouping"
+  },
+  {
+   "task_id": "MbppX/323",
+   "reason": "expected order is the side effect of a specific in-place rotation algorithm"
+  },
+  {
+   "task_id": "MbppX/324",
+   "reason": "pair of alternate sums in a task-specific order (odd positions first)"
+  },
+  {
+   "task_id": "MbppX/328",
+   "reason": "non-standard rotation x[m:] + x[:n]"
+  },
+  {
+   "task_id": "MbppX/340",
+   "reason": "needs the constant three from the wording"
+  },
+  {
+   "task_id": "MbppX/376",
+   "reason": "replacement value 'MSP' is a task constant"
+  },
+  {
+   "task_id": "MbppX/408",
+   "reason": "k pairs with the smallest sums; the description does not state the ordering, would be a one-task recipe"
+  },
+  {
+   "task_id": "MbppX/469",
+   "reason": "stateful dynamic programming (k stock transactions)"
+  },
+  {
+   "task_id": "MbppX/500",
+   "reason": "result carries a task-specific two-space prefix"
+  },
+  {
+   "task_id": "MbppX/510",
+   "reason": "dynamic programming over products"
+  },
+  {
+   "task_id": "MbppX/540",
+   "reason": "max frequency minus min frequency; an operator for it worked but was removed as a one-task recipe"
+  },
+  {
+   "task_id": "MbppX/552",
+   "reason": "result strings are task constants"
+  },
+  {
+   "task_id": "MbppX/553",
+   "reason": "(4, 56) -> 4.56; an operator for it worked but was removed as a one-task recipe"
+  },
+  {
+   "task_id": "MbppX/570",
+   "reason": "drops words containing any of several substrings inside each string; one-task recipe"
+  },
+  {
+   "task_id": "MbppX/571",
+   "reason": "dynamic programming (disjoint pairs with difference below k)"
+  },
+  {
+   "task_id": "MbppX/621",
+   "reason": "adds k to the numeric strings of a list; an operator for it worked but was removed as a one-task recipe"
+  },
+  {
+   "task_id": "MbppX/640",
+   "reason": "regex removal applied to the first list item only"
+  },
+  {
+   "task_id": "MbppX/656",
+   "reason": "sum of |a - b| after sorting both arrays; left out as a one-task definition (probably solvable: a binary rule on (a0, a1) is found before the accidental a0.index(a2); not tried)"
+  },
+  {
+   "task_id": "MbppX/661",
+   "reason": "dynamic programming (no three consecutive elements); left out as a one-task definition"
+  },
+  {
+   "task_id": "MbppX/702",
+   "reason": "sliding window over the sorted array; left out as a one-task definition"
+  },
+  {
+   "task_id": "MbppX/819",
+   "reason": "run values and run lengths as two parallel lists; an operator for it worked but was removed as a one-task recipe"
+  },
+  {
+   "task_id": "MbppX/846",
+   "reason": "interval sweep (railway platforms); left out as a one-task definition"
+  },
+  {
+   "task_id": "MbppX/867",
+   "reason": "ad-hoc rule (1 if the sum is odd, else 2)"
+  },
+  {
+   "task_id": "MbppX/915",
+   "reason": "order defined by a task-specific sort key (-1 / x)"
+  },
+  {
+   "task_id": "MbppX/938",
+   "reason": "three-pointer search over three sorted arrays"
+  },
+  {
+   "task_id": "MbppX/947",
+   "reason": "needs min(len(w)); len(a0) (core, named by 'length') reproduces the example and is found first"
+  },
+  {
+   "task_id": "MbppX/953",
+   "reason": "the answer is the highest frequency; min(a0) (core, named by 'minimun') reproduces the example and is found first"
+  }
+ ],
+ "final_check": {
+  "train_newly_solved": 15,
+  "extra_newly_solved": 66,
+  "broken": 0
+ },
+ "notes": "SIZE. 85 operators (84 gated, 1 ungated), above the 25-70 guideline. The bank has 120 failures with close to one concept per item; 78 operators are in a correct final program of a development task (76 in a newly solved bank item, seq_count_even and seq_gcd in the already solved MbppX/697 and MbppX/45). The 7 without such evidence are: seq_count_min (counterpart of seq_count_max, for MbppX/384 in regression.json), seq_divisible_by (base form of the two ternary rules for MbppX/817 and MbppX/883), four right-but-tied readings of train items (seq_first_odd, seq_first_even_odd, seq_min_gap, seq_best_distinct_pair_product) and seq_median (only in the still-wrong program of Mbpp/622). Dropping any of these 7 changes no development result. Four more operators solved an extra item each but were removed as one-task recipes (MbppX/540, 553, 621, 819), and four items that a named one-task definition would probably solve were left alone for the same reason (MbppX/656, 661, 702, 846; not tried).\n\nMEMORY OF BENCHMARK TASKS. Every operator in the pack now comes from an item of bank_sequences.json or regression.json (the list above names the only two without an item of their own). Four operators that had no bank item and for which I also remembered that MBPP contains a task of that kind were removed from the pack before this report was written: seq_count_pairs_xor_odd/1 (pairs with odd xor; counterpart of seq_count_pairs_xor_even), seq_max_subarray_sum/1 (largest contiguous sum; counterpart of seq_max_subarray_product), seq_insert_before_each/2 (counterpart of seq_insert_after_each) and seq_bisect_right/2 (counterpart of seq_bisect_left). Two keyword alternatives that went beyond the wording of the bank item were removed for the same reason: \"inversion&count|inversion&number of\" on seq_count_inversions (the bank item says \"adjacent swaps\") and \"count&identical\" on seq_count_same_position. None of them was in a final program of a development task, so no result changed. Earlier in the work I had also tried and dropped, for the same reason or as unevidenced: three-argument forms of concat, interleave and count_same_position, reverse of the first k elements, count of unequal and of equal pairs, last index of a value, ratio of zeros, sum of products of all subarrays, difference of a pair, first even number, counts of positives and negatives. No held-out file was opened at any point; the memory is of the public benchmark.\n\nHOW THE OPERATORS ARE BUILT. Every search function is the emitted template itself, compiled once and put behind a guard (see `add` in the pack), so the verified program and the shipped program cannot differ; pack_lint reports 0 defects and 0 untested. Named scans were also compared with brute-force definitions on random inputs (0 mismatches) and all programs with the bank's reference solutions on mutated inputs.\n\nENGINE CHANGE 1: TIES (worth four train items). Programs with equal score are ordered by discovery, and core unary operators are discovered before pack operators. A correct pack operator therefore loses whenever a core operator that the description also names reproduces the example by accident: Mbpp/415 (core best_pair_product/1 accepts two equal values, the task does not), Mbpp/763 (min), Mbpp/807 (first), Mbpp/784 (first(evens(x)) against prod(seq_first_even_odd(x)), both two named steps); MbppX/947 (len) and MbppX/953 (min) are the same case, without a pack operator. Nothing in a pack can change this within the rules (a cost below 1 would, but that option is reserved for type conversions). Evidence: (a) letting the four operators win, only for the check (a temporary cost of 0.9, removed again), gives SOLVED on the hidden tests for all four; (b) a one-line change in search() - append not m[\"knowledge\"] as a last element of the sort key, so that a tie goes to a program containing a knowledge operator - was simulated in memory (no file changed) on this bank plus regression.json, with this pack alone and with all five packs loaded: exactly four final programs change, Mbpp/415, 763, 784 and 807, each to the program verified in (a); the other teachers' banks were not looked at. That would make this bank's train result 19 of 21 and cover 5 of the 7 items the 1.5B pipeline does not solve (now 3). The learn-operators step would be another way (core best_pair_product/1 gets a loss and the pack rule a win on Mbpp/415), but no operator_weights.json exists at the moment. Related: some core keywords are so common that their operators are named in most descriptions (index/2 and find/2 by 'find', len by 'number of', min and max by any 'minimum'/'maximum'), which is what makes these accidental programs fully supported.\n\nENGINE CHANGE 2: LENGTH ARGUMENTS. Many tasks pass (array, n) and their hidden tests give n < len(array): Mbpp/633 failed with a rule over the whole list and passed once the rule used x[:n]. A unary rule on the array is always discovered before a binary rule on (array, n), so a length-aware twin can never be preferred to its unary form; I therefore registered seq_pair_xor_sum as binary only. All other scans are unary and will fail such hidden tests on unseen tasks of this shape. Suggested fix: when an int argument equals the length of a sequence argument in the example, search over x[:n] as an implicit input, or prefer programs that use every argument.\n\nRISKY OPERATORS. seq_dict_text is the only ungated one (str() of a dict, cost 0.5, applies to dict values only). Gates on common words: seq_slice_inclusive (range|between|indices; ternary, needs two valid indices), seq_each_concat (concatenat|join|combin|append|merg; two equal-length string sequences only), seq_words_all (word), seq_first_and_last (first&last), seq_copy (copy|clone; an identity, so it fits whenever the example output equals its input). seq_bisect_left also fires on \"insertion point\" without a side, so a task asking for the right insertion point would get the left one when its example cannot tell them apart. seq_first_to_end broke Mbpp/586 while it was gated by word pairs (applied twice it equals a rotation by two); it now needs a phrase. seq_median puts a new wrong program on Mbpp/622 in place of the old wrong one.\n\nDELIBERATE DIFFERENCES FROM REFERENCE SOLUTIONS (outside the asserts). seq_first_to_end rotates by one (the reference of MbppX/665 moves every copy of the first value); seq_swap_adjacent keeps an unpaired last element (reference pads with None); seq_second_most_common is rank 2 of Counter.most_common (the reference re-reads the sorted counts, so ties differ); seq_longest_bitonic follows the definition (the reference of MbppX/522 over-counts after a rising step: 6 instead of 5 for [0, 1, 3, 3, 3, 6, 8, 8]); seq_max_sum_increasing has no floor at 0; seq_min_coins returns inf, not sys.maxsize, when the amount cannot be paid; seq_first_missing_positive returns 1 when 1 is missing (the reference of MbppX/34 returns -1).\n\nOTHER. Checked together with the four other round-3 packs as they stood at the time: no name collision (all names start with seq_, helpers with _seq_), same results on this bank and on regression.json. Not solvable here: Mbpp/769 (expected value is in set-iteration order) and Mbpp/622 (hidden tests follow the reference loop on unsorted lists and arbitrary n). This report was generated from the final pack by a script kept in a private scratch directory (scratchpad/sequences_teacher/), from the output of the last --regress run."
+}

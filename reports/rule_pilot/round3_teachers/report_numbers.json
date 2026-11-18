@@ -1,0 +1,978 @@
+{
+ "category": "numbers",
+ "pack": "mylittlellm/rulecoder/oppacks/r3_numbers.py",
+ "operators": [
+  {
+   "name": "num_exact_int/1",
+   "gated": false,
+   "targets": [
+    "Mbpp/14",
+    "Mbpp/432",
+    "MbppX/335",
+    "MbppX/491",
+    "MbppX/518",
+    "MbppX/814",
+    "MbppX/830"
+   ],
+   "why": "Lossless float->int: a formula with '/' gives 240.0 where the example shows 240; int() truncates 0.5 to 0 on hidden inputs, this keeps non-whole values. Ungated, cost 0.4 so it outranks core int().",
+   "regression_tasks_now_solved_by_it": [
+    "MbppX/848"
+   ]
+  },
+  {
+   "name": "num_mean_keep_int/1",
+   "gated": true,
+   "targets": [
+    "MbppX/509"
+   ],
+   "why": "statistics.mean keeps an int when the mean of ints is whole (the core mean always gives a float)."
+  },
+  {
+   "name": "num_divisors/1",
+   "gated": true,
+   "targets": [],
+   "why": "Sorted list of divisors; base of the divisor family, so sum/count/max follow with one core operator."
+  },
+  {
+   "name": "num_divisor_count/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/96"
+   ],
+   "why": "Number of divisors d(n), O(sqrt n)."
+  },
+  {
+   "name": "num_divisor_sum/1",
+   "gated": true,
+   "targets": [],
+   "why": "Sum of divisors sigma(n); also the helper behind the proper and common variants."
+  },
+  {
+   "name": "num_proper_divisor_sum/1",
+   "gated": true,
+   "targets": [
+    "MbppX/295"
+   ],
+   "why": "Sum of proper divisors (aliquot sum); 'sum of all divisors' tasks often mean this, the example decides."
+  },
+  {
+   "name": "num_prime_factors/1",
+   "gated": true,
+   "targets": [
+    "MbppX/32",
+    "MbppX/681",
+    "MbppX/849"
+   ],
+   "why": "Distinct prime factors as a sorted list; max/min/sum/len of it give largest, smallest, sum, count."
+  },
+  {
+   "name": "num_prime_factorization/1",
+   "gated": true,
+   "targets": [],
+   "why": "Prime factors with multiplicity; sibling of the distinct list, the example decides."
+  },
+  {
+   "name": "num_primes_below/1",
+   "gated": true,
+   "targets": [],
+   "why": "Primes < n as a list; registered before the inclusive form so 'less than' wins when n is not prime."
+  },
+  {
+   "name": "num_primes_upto/1",
+   "gated": true,
+   "targets": [
+    "MbppX/685"
+   ],
+   "why": "Primes <= n as a list (sieve); sum/len/max by composition."
+  },
+  {
+   "name": "num_prime_count_below/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/256"
+   ],
+   "why": "Count of primes < n as one operator: the expected value is tiny, a chain would drown in coincidences."
+  },
+  {
+   "name": "num_prime_count_upto/1",
+   "gated": true,
+   "targets": [],
+   "why": "Count of primes <= n; inclusive sibling."
+  },
+  {
+   "name": "num_nth_prime/1",
+   "gated": true,
+   "targets": [],
+   "why": "n-th prime by a sieve sized with Rosser's bound."
+  },
+  {
+   "name": "num_amicable_upto/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/123"
+   ],
+   "why": "Amicable numbers <= n (partner may lie above n, as the usual solution counts them); sum by composition."
+  },
+  {
+   "name": "num_lcm_upto/1",
+   "gated": true,
+   "targets": [
+    "MbppX/901"
+   ],
+   "why": "lcm(1..n), the smallest number divisible by all of 1..n."
+  },
+  {
+   "name": "num_set_even_bits/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/235"
+   ],
+   "why": "Set the 2nd, 4th, ... bit inside the bit length (convention of these tasks)."
+  },
+  {
+   "name": "num_set_odd_bits/1",
+   "gated": true,
+   "targets": [
+    "MbppX/48"
+   ],
+   "why": "Set the 1st, 3rd, ... bit inside the bit length."
+  },
+  {
+   "name": "num_toggle_even_bits/1",
+   "gated": true,
+   "targets": [
+    "MbppX/155"
+   ],
+   "why": "Toggle the 2nd, 4th, ... bit inside the bit length."
+  },
+  {
+   "name": "num_toggle_odd_bits/1",
+   "gated": true,
+   "targets": [
+    "MbppX/383"
+   ],
+   "why": "Toggle the 1st, 3rd, ... bit inside the bit length."
+  },
+  {
+   "name": "num_set_leftmost_unset_bit/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/311"
+   ],
+   "why": "Set the highest zero bit below the top bit; all-ones stays unchanged."
+  },
+  {
+   "name": "num_set_rightmost_unset_bit/1",
+   "gated": true,
+   "targets": [
+    "MbppX/671"
+   ],
+   "why": "Set the lowest zero bit; all-ones stays unchanged, 0 becomes 1."
+  },
+  {
+   "name": "num_lowest_set_bit_position/1",
+   "gated": true,
+   "targets": [
+    "MbppX/957"
+   ],
+   "why": "1-based position of the lowest set bit."
+  },
+  {
+   "name": "num_highest_power_of_2_upto/1",
+   "gated": true,
+   "targets": [
+    "MbppX/302"
+   ],
+   "why": "Largest power of two <= n (value of the most significant set bit)."
+  },
+  {
+   "name": "num_next_power_of_2/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/167"
+   ],
+   "why": "Smallest power of two >= n."
+  },
+  {
+   "name": "num_total_unset_bits_upto/1",
+   "gated": true,
+   "targets": [],
+   "why": "Zero bits in 1..n summed; correct for MbppX/903 but its example 2->1 ties with core popcount."
+  },
+  {
+   "name": "num_unset_bit_count/1",
+   "gated": true,
+   "targets": [],
+   "why": "Zero bits inside the bit length; correct for MbppX/331 but its example 2->1 ties with core popcount."
+  },
+  {
+   "name": "num_last_digit/1",
+   "gated": true,
+   "targets": [],
+   "why": "abs(n) % 10; one-digit sibling of num_last_two_digits. MbppX/47 needs this step but is blocked by a tie with core factorial."
+  },
+  {
+   "name": "num_last_two_digits/1",
+   "gated": true,
+   "targets": [
+    "MbppX/692"
+   ],
+   "why": "abs(n) % 100; composes with core factorial."
+  },
+  {
+   "name": "num_next_palindrome/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/100"
+   ],
+   "why": "Smallest palindrome > n, built by mirroring the left half (no search, safe for large hidden inputs)."
+  },
+  {
+   "name": "num_previous_palindrome/1",
+   "gated": true,
+   "targets": [
+    "MbppX/909"
+   ],
+   "why": "Largest palindrome < n, same construction."
+  },
+  {
+   "name": "num_next_bigger/1",
+   "gated": true,
+   "targets": [
+    "MbppX/407"
+   ],
+   "why": "Next larger number with the same digits; the helper returns False when none exists (task convention), the search function never returns a bool."
+  },
+  {
+   "name": "num_binary_to_decimal/1",
+   "gated": true,
+   "targets": [
+    "MbppX/24"
+   ],
+   "why": "Int written in binary digits -> its value."
+  },
+  {
+   "name": "num_octal_to_decimal/1",
+   "gated": true,
+   "targets": [
+    "MbppX/194"
+   ],
+   "why": "Int written in octal digits -> its value."
+  },
+  {
+   "name": "num_decimal_to_octal/1",
+   "gated": true,
+   "targets": [
+    "MbppX/467"
+   ],
+   "why": "Value -> int written in octal digits."
+  },
+  {
+   "name": "num_to_roman/1",
+   "gated": true,
+   "targets": [
+    "MbppX/958"
+   ],
+   "why": "Integer to Roman numeral."
+  },
+  {
+   "name": "num_harmonic_sum/1",
+   "gated": true,
+   "targets": [
+    "MbppX/248",
+    "MbppX/704"
+   ],
+   "why": "Harmonic sum added left to right so the float digits equal the textbook recursion."
+  },
+  {
+   "name": "num_geometric_sum/1",
+   "gated": true,
+   "targets": [
+    "MbppX/738"
+   ],
+   "why": "Sum of 1/2^k for k = 0..n (the 'geometric sum' recursion)."
+  },
+  {
+   "name": "num_degrees_to_radians/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/606"
+   ],
+   "why": "x * pi / 180."
+  },
+  {
+   "name": "num_radians_to_degrees/1",
+   "gated": true,
+   "targets": [
+    "MbppX/214"
+   ],
+   "why": "x * (180 / pi); same gate as the inverse, the example decides."
+  },
+  {
+   "name": "num_circle_diameter/1",
+   "gated": true,
+   "targets": [],
+   "why": "2 * r; replaces a coincidental 'len(str(a0)) * a0' on a regression task.",
+   "regression_tasks_now_solved_by_it": [
+    "MbppX/499"
+   ]
+  },
+  {
+   "name": "num_pentagon_area/1",
+   "gated": true,
+   "targets": [
+    "MbppX/488"
+   ],
+   "why": "Area of a regular pentagon from its side."
+  },
+  {
+   "name": "num_tetrahedron_area_grouped/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/742"
+   ],
+   "why": "sqrt(3) * (a * a): same formula as core tetrahedron_area but the float rounding of the usual solution; the core form differs in the last digit and fails the exact comparison."
+  },
+  {
+   "name": "num_polar/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/252"
+   ],
+   "why": "cmath.polar for ints, floats and complex numbers."
+  },
+  {
+   "name": "num_babylonian_sqrt/1",
+   "gated": true,
+   "targets": [
+    "MbppX/246"
+   ],
+   "why": "Babylonian (Heron) iteration, which yields different last digits than math.sqrt."
+  },
+  {
+   "name": "num_sqrt/1",
+   "gated": true,
+   "targets": [
+    "MbppX/518"
+   ],
+   "why": "math.sqrt; with num_exact_int it covers 'square root of a perfect square'."
+  },
+  {
+   "name": "num_lucky_numbers/1",
+   "gated": true,
+   "targets": [
+    "MbppX/907"
+   ],
+   "why": "First n lucky numbers (sieve)."
+  },
+  {
+   "name": "num_min_squares/1",
+   "gated": true,
+   "targets": [
+    "MbppX/325"
+   ],
+   "why": "Least number of squares summing to n (Lagrange/Legendre, O(sqrt n))."
+  },
+  {
+   "name": "num_triangular_index_with_digits/1",
+   "gated": true,
+   "targets": [
+    "Mbpp/739"
+   ],
+   "why": "Index of the smallest triangular number with n digits (closed form, OEIS A068092)."
+  },
+  {
+   "name": "num_spiral_matrix/1",
+   "gated": true,
+   "targets": [
+    "MbppX/834"
+   ],
+   "why": "n x n matrix filled 1..n^2 in spiral order."
+  },
+  {
+   "name": "num_domino_tilings_3xn/1",
+   "gated": true,
+   "targets": [
+    "MbppX/5"
+   ],
+   "why": "Domino tilings of a 3 x n board."
+  },
+  {
+   "name": "num_odd_days/1",
+   "gated": true,
+   "targets": [
+    "MbppX/289"
+   ],
+   "why": "Odd days in n years of the Gregorian calendar."
+  },
+  {
+   "name": "num_odds_upto/1",
+   "gated": true,
+   "targets": [
+    "MbppX/509"
+   ],
+   "why": "Odd numbers 1..n as a list; average/sum/count by composition."
+  },
+  {
+   "name": "num_evens_upto/1",
+   "gated": true,
+   "targets": [],
+   "why": "Even numbers 2..n as a list; right for MbppX/664 but its example 2->2 is won by int(str(a0))."
+  },
+  {
+   "name": "num_pair/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/257"
+   ],
+   "why": "Two numbers as a tuple in either order (swap); the core library had no way to build a tuple."
+  },
+  {
+   "name": "num_common_divisor_sum/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/126"
+   ],
+   "why": "Sum of the common divisors of two numbers = sigma(gcd); one operator because the two-step chain ties with accidental chains. Helper avoids the builtin sum(), which the task's own function name shadows."
+  },
+  {
+   "name": "num_common_divisor_count/2",
+   "gated": true,
+   "targets": [],
+   "why": "Number of common divisors d(gcd); count sibling of the sum."
+  },
+  {
+   "name": "num_primes_in_range/2",
+   "gated": true,
+   "targets": [],
+   "why": "Primes in [a, b]; range sibling of the up-to lists."
+  },
+  {
+   "name": "num_rotate_left_32/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/799"
+   ],
+   "why": "32-bit left rotation written as the usual solution (no mask on the shifted-out bits)."
+  },
+  {
+   "name": "num_rotate_right_32/2",
+   "gated": true,
+   "targets": [],
+   "why": "32-bit right rotation; sibling."
+  },
+  {
+   "name": "num_hamming_distance/2",
+   "gated": true,
+   "targets": [],
+   "why": "Number of differing bits of two ints; replaces a coincidental 'a1 // a0' on a regression task.",
+   "regression_tasks_now_solved_by_it": [
+    "MbppX/203"
+   ]
+  },
+  {
+   "name": "num_surplus_or_none/2",
+   "gated": true,
+   "targets": [
+    "MbppX/452",
+    "MbppX/954"
+   ],
+   "why": "a - b when a > b, else None: the convention of profit/loss tasks ('else return none')."
+  },
+  {
+   "name": "num_hypotenuse/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/293"
+   ],
+   "why": "sqrt(a^2 + b^2) in the evaluation order of the usual solution (examples compare floats exactly)."
+  },
+  {
+   "name": "num_right_triangle_leg/2",
+   "gated": true,
+   "targets": [],
+   "why": "sqrt(|a^2 - b^2|); the other reading of 'third side'."
+  },
+  {
+   "name": "num_third_angle/2",
+   "gated": true,
+   "targets": [
+    "MbppX/356"
+   ],
+   "why": "180 - (a + b)."
+  },
+  {
+   "name": "num_round_up_to/2",
+   "gated": true,
+   "targets": [
+    "MbppX/830"
+   ],
+   "why": "Ceiling at d decimal places."
+  },
+  {
+   "name": "num_round_down_to/2",
+   "gated": true,
+   "targets": [],
+   "why": "Floor at d decimal places; sibling."
+  },
+  {
+   "name": "num_round_to/2",
+   "gated": true,
+   "targets": [],
+   "why": "round(x, d) with the number of places as an argument (core only has fixed 1 and 2 places)."
+  },
+  {
+   "name": "num_nearest_multiple/2",
+   "gated": true,
+   "targets": [],
+   "why": "Nearest multiple of m (ties go down); replaces a coincidental floor on a regression task.",
+   "regression_tasks_now_solved_by_it": [
+    "MbppX/375"
+   ]
+  },
+  {
+   "name": "num_entringer/2",
+   "gated": true,
+   "targets": [
+    "MbppX/346"
+   ],
+   "why": "Entringer numbers E(n, k) by the Seidel triangle."
+  },
+  {
+   "name": "num_squares_in_rectangle/2",
+   "gated": true,
+   "targets": [
+    "MbppX/76",
+    "MbppX/347"
+   ],
+   "why": "Number of squares in an m x n grid."
+  },
+  {
+   "name": "num_fence_ways/2",
+   "gated": true,
+   "targets": [
+    "MbppX/291"
+   ],
+   "why": "Ways to paint n posts with k colours, at most two adjacent equal."
+  },
+  {
+   "name": "num_self_dividing_in_range/2",
+   "gated": true,
+   "targets": [
+    "Mbpp/745"
+   ],
+   "why": "Numbers in [a, b] divisible by each of their digits."
+  },
+  {
+   "name": "num_perfect_squares_in_range/2",
+   "gated": true,
+   "targets": [
+    "MbppX/344"
+   ],
+   "why": "Perfect squares in [a, b] ('numbers with an odd number of factors'); count/sum by composition."
+  },
+  {
+   "name": "num_fraction_digit/3",
+   "gated": true,
+   "targets": [
+    "MbppX/36"
+   ],
+   "why": "n-th digit after the decimal point of p/q."
+  },
+  {
+   "name": "num_largest_with_remainder/3",
+   "gated": true,
+   "targets": [
+    "MbppX/663"
+   ],
+   "why": "Largest k <= n with k % x == y, -1 if none."
+  },
+  {
+   "name": "num_ap_term/3",
+   "gated": true,
+   "targets": [
+    "MbppX/354"
+   ],
+   "why": "n-th term of an arithmetic progression; the search tries every argument order."
+  },
+  {
+   "name": "num_ap_sum/3",
+   "gated": true,
+   "targets": [
+    "MbppX/335"
+   ],
+   "why": "Sum of n terms of an arithmetic progression (true division, like the textbook formula)."
+  },
+  {
+   "name": "num_gp_term/3",
+   "gated": true,
+   "targets": [
+    "MbppX/55"
+   ],
+   "why": "n-th term of a geometric progression."
+  },
+  {
+   "name": "num_gp_sum/3",
+   "gated": true,
+   "targets": [
+    "MbppX/491"
+   ],
+   "why": "Sum of n terms of a geometric progression."
+  },
+  {
+   "name": "num_parabola_vertex/3",
+   "gated": true,
+   "targets": [
+    "MbppX/153"
+   ],
+   "why": "Vertex of y = ax^2 + bx + c as a tuple."
+  },
+  {
+   "name": "num_parabola_focus/3",
+   "gated": true,
+   "targets": [
+    "MbppX/185"
+   ],
+   "why": "Focus of y = ax^2 + bx + c as a tuple."
+  },
+  {
+   "name": "num_rgb_to_hsv/3",
+   "gated": true,
+   "targets": [
+    "MbppX/783"
+   ],
+   "why": "RGB (0-255) to HSV with hue in degrees, saturation and value in percent."
+  },
+  {
+   "name": "num_min_of_three/3",
+   "gated": true,
+   "targets": [
+    "Mbpp/227"
+   ],
+   "why": "min of three numbers; the core has only two-argument min and cannot nest it when the result is an input."
+  },
+  {
+   "name": "num_max_of_three/3",
+   "gated": true,
+   "targets": [
+    "MbppX/672"
+   ],
+   "why": "max of three numbers; same reason."
+  },
+  {
+   "name": "num_sum_of_three/3",
+   "gated": true,
+   "targets": [
+    "MbppX/176"
+   ],
+   "why": "a + b + c (also the perimeter of a triangle)."
+  },
+  {
+   "name": "num_median_of_three_float/3",
+   "gated": true,
+   "targets": [
+    "Mbpp/397"
+   ],
+   "why": "Median of three as a float: the int median equals an input, the engine drops such values, so core float() cannot be applied after core median3."
+  }
+ ],
+ "operators_without_a_newly_solved_bank_item": {
+  "replace a coincidental program on a regression task": [
+   "num_hamming_distance/2",
+   "num_circle_diameter/1",
+   "num_nearest_multiple/2"
+  ],
+  "correct for a bank item but lose an engine tie there": [
+   "num_unset_bit_count/1",
+   "num_total_unset_bits_upto/1",
+   "num_last_digit/1",
+   "num_evens_upto/1",
+   "num_common_divisor_count/2"
+  ],
+  "siblings along an axis the bank shows": [
+   "num_divisors/1",
+   "num_divisor_sum/1",
+   "num_prime_factorization/1",
+   "num_primes_below/1",
+   "num_prime_count_upto/1",
+   "num_primes_in_range/2",
+   "num_rotate_right_32/2",
+   "num_right_triangle_leg/2",
+   "num_round_down_to/2",
+   "num_round_to/2"
+  ],
+  "general utility, neither bank item nor axis completion": [
+   "num_nth_prime/1"
+  ]
+ },
+ "removed_because_remembered_from_the_benchmark": [
+  "num_odds_in_range/2",
+  "num_evens_in_range/2",
+  "num_total_set_bits_upto/1",
+  "num_parabola_directrix/3",
+  "keyword extension natural_power3_sum/1 += 'sum&1³|sum&1^3'"
+ ],
+ "keyword_extensions": [
+  {
+   "operator": "rectangle_perimeter/2",
+   "added": "perimeter&cylinder",
+   "why": "MbppX/112: 'perimeter of a cylinder' is 2 * (diameter + height), the same formula."
+  },
+  {
+   "operator": "square_perimeter/1",
+   "added": "perimeter&rombus",
+   "why": "MbppX/716 spells rhombus 'rombus'."
+  },
+  {
+   "operator": "rhombus_area/2",
+   "added": "rombus&area",
+   "why": "MbppX/814, same spelling; the float result then needs num_exact_int."
+  },
+  {
+   "operator": "natural_power2_sum/1",
+   "added": "sum&1²|sum&1^2",
+   "why": "MbppX/935 writes the series as 1²+2²+...+n² and never says 'natural' or 'square'."
+  },
+  {
+   "operator": "fibonacci/1",
+   "added": "tiling",
+   "why": "MbppX/960: the 2 x n 'tiling problem' is the Fibonacci recurrence; applied only if it reproduces the example."
+  }
+ ],
+ "not_addressed": [
+  {
+   "task_id": "Mbpp/239",
+   "reason": "count of sequences needs dynamic programming over (m, n); not a named definition"
+  },
+  {
+   "task_id": "Mbpp/392",
+   "reason": "task-specific recurrence f(n) = max(n, f(n/2)+f(n/3)+f(n/4)+f(n/5)); an operator would be this one task's whole solution, deliberately not added"
+  },
+  {
+   "task_id": "Mbpp/599",
+   "reason": "returns (sum, average): two derived values that the search cannot combine; the list chain reproduces the example but is far too slow on the hidden inputs, and a direct formula pair would be a one-task recipe"
+  },
+  {
+   "task_id": "MbppX/47",
+   "reason": "needs b!/a! then last digit; the example (2,4)->2 is reproduced by the named core factorial(a0), which wins the tie"
+  },
+  {
+   "task_id": "MbppX/78",
+   "reason": "count of numbers up to n with odd popcount: single-task definition, not added"
+  },
+  {
+   "task_id": "MbppX/107",
+   "reason": "counts hex digits A-F over a range; task-specific"
+  },
+  {
+   "task_id": "MbppX/136",
+   "reason": "tariff table with task constants"
+  },
+  {
+   "task_id": "MbppX/148",
+   "reason": "task-specific construction (largest 99..9 part)"
+  },
+  {
+   "task_id": "MbppX/177",
+   "reason": "returns (L, 2L) or -1; task-specific"
+  },
+  {
+   "task_id": "MbppX/180",
+   "reason": "task-specific formula (radius 6371.01, degrees fed to sin/cos unconverted)"
+  },
+  {
+   "task_id": "MbppX/190",
+   "reason": "four arguments and a product of two differences; the engine has no 4-ary operators"
+  },
+  {
+   "task_id": "MbppX/198",
+   "reason": "reference formula 3*sqrt(3)*a^2/(4b) is not the standard result (3*sqrt(3)/4*a*b); tried and removed on purpose"
+  },
+  {
+   "task_id": "MbppX/211",
+   "reason": "2^(n-2) with a special case; task-specific"
+  },
+  {
+   "task_id": "MbppX/218",
+   "reason": "B // gcd(A, B) - 1: three steps, task-specific"
+  },
+  {
+   "task_id": "MbppX/236",
+   "reason": "task-specific closed form"
+  },
+  {
+   "task_id": "MbppX/241",
+   "reason": "3-D list of a constant taken from the example"
+  },
+  {
+   "task_id": "MbppX/318",
+   "reason": "max product of three parts with a given sum; task-specific"
+  },
+  {
+   "task_id": "MbppX/331",
+   "reason": "num_unset_bit_count is correct, but the example 2->1 is also reproduced by core popcount (its keyword 'set bit' is a substring of 'unset bits'); the older operator wins the tie"
+  },
+  {
+   "task_id": "MbppX/339",
+   "reason": "answer is 2 unless x == y; task-specific"
+  },
+  {
+   "task_id": "MbppX/348",
+   "reason": "Catalan(M // 2) without the word Catalan; needs a halving step first"
+  },
+  {
+   "task_id": "MbppX/359",
+   "reason": "returns the text 'Yes'/'No' (a predicate with string labels)"
+  },
+  {
+   "task_id": "MbppX/380",
+   "reason": "multiplication table as nested lists; the description ('two-dimensional array') names nothing"
+  },
+  {
+   "task_id": "MbppX/416",
+   "reason": "recursive split into n/2, n/3, n/4: same family as Mbpp/392, task-specific recurrence, not added"
+  },
+  {
+   "task_id": "MbppX/449",
+   "reason": "returns the text 'Yes'/'No' from six arguments"
+  },
+  {
+   "task_id": "MbppX/483",
+   "reason": "reference is wrong for primes (returns x - 1); the correct Kempner function fails its third assert"
+  },
+  {
+   "task_id": "MbppX/493",
+   "reason": "task-specific procedure (hexagon grid coordinates)"
+  },
+  {
+   "task_id": "MbppX/501",
+   "reason": "description says 'find common divisor' but the reference counts them; core gcd reproduces the example (2,4)->2 and is named (num_common_divisor_count is correct but loses the tie)"
+  },
+  {
+   "task_id": "MbppX/535",
+   "reason": "uses pi = 3.1415 with exact float comparison; task constant"
+  },
+  {
+   "task_id": "MbppX/547",
+   "reason": "sum of n // 2^i: single-task formula, not added"
+  },
+  {
+   "task_id": "MbppX/549",
+   "reason": "core odd_power5_sum is right, but the example n=1 -> 1 is also reproduced by core natural_sum, registered earlier"
+  },
+  {
+   "task_id": "MbppX/574",
+   "reason": "uses pi = 3.1415 with exact float comparison; task constant"
+  },
+  {
+   "task_id": "MbppX/575",
+   "reason": "four arguments, loop with early exit"
+  },
+  {
+   "task_id": "MbppX/609",
+   "reason": "floor(A * max(B - 1, N) / B); task-specific"
+  },
+  {
+   "task_id": "MbppX/617",
+   "reason": "piecewise rule; task-specific"
+  },
+  {
+   "task_id": "MbppX/636",
+   "reason": "returns the text 'Yes'/'No'"
+  },
+  {
+   "task_id": "MbppX/646",
+   "reason": "(N - K + 1)^3, but the example (2,1)->8 is reproduced by the named core cube(a0), which wins the tie"
+  },
+  {
+   "task_id": "MbppX/660",
+   "reason": "(min(l1, l2), max(r1, r2)) from four arguments: two derived values, no 4-ary operators"
+  },
+  {
+   "task_id": "MbppX/664",
+   "reason": "[num_evens_upto -> num_mean_keep_int] is correct, but the example 2->2 is reproduced by int(str(a0)), a conversion chain the engine scores as fully named because 'number' is in the description"
+  },
+  {
+   "task_id": "MbppX/675",
+   "reason": "returns the constant 20 inside a range; task-specific"
+  },
+  {
+   "task_id": "MbppX/714",
+   "reason": "irregular count over prime exponents; task-specific"
+  },
+  {
+   "task_id": "MbppX/746",
+   "reason": "pi = 22/7 with exact float comparison, and None for angles >= 360"
+  },
+  {
+   "task_id": "MbppX/761",
+   "reason": "pi = 22/7 with exact float comparison, and None for angles >= 360"
+  },
+  {
+   "task_id": "MbppX/810",
+   "reason": "letters p, q, r, s are task constants"
+  },
+  {
+   "task_id": "MbppX/826",
+   "reason": "returns text labels"
+  },
+  {
+   "task_id": "MbppX/835",
+   "reason": "slope from four arguments: quotient of two differences, no 4-ary operators"
+  },
+  {
+   "task_id": "MbppX/840",
+   "reason": "returns the text 'Yes'/'No'"
+  },
+  {
+   "task_id": "MbppX/844",
+   "reason": "odd numbers then even numbers up to n, then the k-th: three steps"
+  },
+  {
+   "task_id": "MbppX/851",
+   "reason": "round(Sum / N, 2) shown as an int when whole: division, rounding and conversion are three steps"
+  },
+  {
+   "task_id": "MbppX/880",
+   "reason": "returns text labels"
+  },
+  {
+   "task_id": "MbppX/882",
+   "reason": "reference computes 2 * b * h, which is not a perimeter"
+  },
+  {
+   "task_id": "MbppX/903",
+   "reason": "num_total_unset_bits_upto is correct, but the example 2->1 is also reproduced by core popcount, which wins the tie"
+  },
+  {
+   "task_id": "MbppX/950",
+   "reason": "zodiac lookup with idiosyncratic spellings ('sheep', 'Hare')"
+  },
+  {
+   "task_id": "MbppX/963",
+   "reason": "returns a text label with the discriminant"
+  },
+  {
+   "task_id": "MbppX/968",
+   "reason": "floor(A * min(B - 1, N) / B); task-specific"
+  },
+  {
+   "task_id": "MbppX/971",
+   "reason": "four arguments, dynamic programming"
+  }
+ ],
+ "final_check": {
+  "train_newly_solved": 20,
+  "extra_newly_solved": 57,
+  "broken": 0,
+  "bank": {
+   "train": 23,
+   "extra": 109
+  },
+  "lint_defects": 0,
+  "operators_added": 86,
+  "gated": 85,
+  "ungated": 1
+ },
+ "notes": "RESULT. 86 operators (85 gated, 1 ungated) and 5 keyword extensions. Bank: 20 of 23 train and 57 of 109 extra items newly solved, BROKEN 0 on bank + regression (also 0 when all five r3 packs are loaded together and with RULE_ENGINE=keep_best; the 2 regressions that appear with RULE_ENGINE=named_pairs, MbppX/402 and MbppX/952, appear without any pack as well). pack_lint: 0 defects, 0 untested (also with --trials 20000). Of the 8 train items the 1.5B pipeline fails, 6 are fixed (100, 123, 126, 235, 311, 739); 239 and 392 are left on purpose (see not_addressed). HOW OPERATORS WERE CHOSEN. Every operator answers a bank or regression item, or completes a family the bank establishes along an axis the bank itself shows (next/previous, below/up-to/in-range, sum/count, distinct/repeated, left/right, up/down, one/two digits). 19 operators have no newly solved bank item: 3 replace coincidental programs on regression items (num_hamming_distance, num_circle_diameter, num_nearest_multiple), 5 are correct for a bank item but lose an engine tie there (num_unset_bit_count, num_total_unset_bits_upto, num_last_digit, num_evens_upto, num_common_divisor_count), 11 are siblings or general utilities (num_divisors, num_divisor_sum, num_prime_factorization, num_primes_below, num_prime_count_upto, num_nth_prime, num_primes_in_range, num_rotate_right_32, num_right_triangle_leg, num_round_down_to, num_round_to). With these the pack is above the 25-70 guideline; the 11 are the first candidates if a leaner pack is wanted. Task-specific recipes were left out even where they would have solved a bank item (Mbpp/392, MbppX/416, MbppX/198, MbppX/78, MbppX/547, MbppX/950); one coincidental solve was removed by tightening a gate (MbppX/78 via 'odd numbers'). MEMORY OF BENCHMARK TASKS. I know the public benchmark the bank is drawn from and cannot tell which of its tasks are held out, so I kept out operators whose only motivation would have been a task I remember. Removed before delivery for that reason: num_odds_in_range and num_evens_in_range (I had a remembered 'sum of odd numbers in a range' task in mind), num_total_set_bits_upto (a classic that I also remember as a benchmark task), num_parabola_directrix, and the keyword extension '1^3+2^3' for natural_power3_sum. num_last_digit stays because MbppX/47 needs that step, but its template is back to abs(n) % 10: I had switched it to plain % with a remembered reference solution in mind. Still in the pack and worth a look: num_nth_prime (general number-theory utility, no bank item, not an axis completion), and two gates whose wording I can derive from the bank but also remember from benchmark tasks - 'highest/largest/ greatest power of 2' and 'power of 2&less than' on num_highest_power_of_2_upto (mirror image of Mbpp/167's wording; the bank item MbppX/302 only says 'most significant bit'), and 'perfect square&between|range' on num_perfect_squares_in_range (MbppX/344 calls its function count_Odd_Squares but describes it as 'odd factors'). Ideas that came from memory and were never added: toggle middle bits, next perfect square, next prime, polite and ludic numbers, dog years, sum of even or odd factors, Euler totient, digital root, set/clear k-th bit, temperature conversions. CHECKS BEYOND THE BANK. Helpers are cross-checked against brute force and against the loops of the reference solutions (palindromes, bit operations, amicable numbers, lucky numbers, Entringer numbers, minimum squares, fence, domino, harmonic and babylonian digits). 94 tasks I wrote myself in other words and with other examples: core solves 7, core + pack solves 90; the 4 misses are three probes without an operator and one example that a core operator reproduces by coincidence. Helper scripts are in scratchpad/numbers_teacher/. RISKY OR UNUSUAL, PLEASE REVIEW. (1) num_exact_int is ungated and has cost 0.4, below the 0.5 the guide gives for type conversions. It is a pure type conversion (whole float -> int, anything else unchanged) and applies exactly where core int_part applies to a whole float, so it adds no new matches; the lower cost only makes it win the tie against int(), which truncates on hidden inputs (this is what fixes Mbpp/14, Mbpp/432, MbppX/335/491/518/814/830). With cost 0.5 the core int() is found first and those items stay wrong. It has no keywords on purpose: a gated (hence 'named') conversion would let float(x) -> int score above real operators. On bank + regression it is in 8 correct and 0 wrong final programs. (2) num_tetrahedron_area_grouped duplicates a core formula with another float evaluation order (Mbpp/742 compares floats with ==). (3) num_median_of_three_float works around the engine dropping level-1 values that equal an input (Mbpp/397). (4) num_triangular_index_with_digits, num_odd_days and num_domino_tilings_3xn are single-task named formulas. (5) num_surplus_or_none returns None by convention; num_next_bigger's helper returns False when no arrangement exists (its search function never returns a bool). (6) num_rotate_left_32 does not mask to 32 bits, like the reference solution in the bank. (7) 'tiling' now names core fibonacci. (8) List-valued operators (primes, odd/even numbers, squares in a range) rely on a second core operator and on the 600-character limit for intermediate values, so examples with long lists are out of reach. (9) Emitted code uses cmath (num_polar); add_missing_imports handles it although the guide does not list the module. WOULD NEED AN ENGINE CHANGE. (a) Ties between equally ranked programs go to the older operator; preferring the more specific gate (or a gated over an ungated operator) would fix MbppX/331, 903, 646, 549 and 47 with operators that already exist. (b) Conversion-only programs such as int(str(a0)) count as fully named when 'number' is in the description and then outrank correct two-operator programs whenever the expected value equals an argument (MbppX/664); programs that return an argument unchanged should be penalised. (c) Exact float comparison in 'eq' mode makes evaluation order matter (Mbpp/742, harmonic sum, hypotenuse); a relative tolerance of about 1e-12 would remove the need for order-specific duplicates. (d) An int result is rejected for a float example and vice versa although the tests compare with ==; accepting equal values of the other numeric type would replace num_exact_int and num_median_of_three_float. (e) A level-1 value equal to an input is dropped, so nothing can be applied to it. (f) No 4-argument operators and no way to combine two derived values: slope, distance between two points and MbppX/190/575/660/835/971 are unreachable; Mbpp/599 needs a pair of two derived values. (g) Without keep_best the first 40 matches are kept in enumeration order, which hides two-operator programs behind coincidences when the expected value is a very small int. (h) A task whose entry point shadows a builtin (Mbpp/126 names its function sum) breaks every template that calls that builtin; my divisor-sum helper avoids sum() for this reason."
+}

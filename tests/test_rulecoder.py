@@ -299,7 +299,8 @@ class BackInferenceTests(unittest.TestCase):
     def test_tie_break_prefers_a_program_that_uses_every_argument(self):
         # With index 0 in the example, "first item" and "item at index a1" both reproduce it.
         example = {"args": [[7, 8, 9], 0], "expected": 7, "mode": "eq"}
-        old_order = backinfer.search(example, "Write a function to get the item at the given index.", weights={})
+        with mock.patch.object(backinfer, "ENGINE", frozenset()):
+            old_order = backinfer.search(example, "Write a function to get the item at the given index.", weights={})
         with mock.patch.object(backinfer, "ENGINE", frozenset({"tie_break"})):
             new_order = backinfer.search(example, "Write a function to get the item at the given index.", weights={})
         self.assertTrue(new_order[0]["all_args"])
@@ -310,7 +311,8 @@ class BackInferenceTests(unittest.TestCase):
         self.assertEqual(backinfer.description_literals("Remove every 'std' and numbers below 100."), ["std", 100])
         example = {"args": ["a std b std"], "expected": "a  b ", "mode": "eq"}
         text = "Write a function to remove all occurrences of 'std' from a string."
-        self.assertEqual(backinfer.search(example, text, weights={}), [])
+        with mock.patch.object(backinfer, "ENGINE", frozenset()):
+            self.assertEqual(backinfer.search(example, text, weights={}), [])
         with mock.patch.object(backinfer, "ENGINE", frozenset({"description_constants"})):
             found = backinfer.search(example, text, weights={})
         self.assertTrue(found)
