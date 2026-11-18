@@ -32,6 +32,13 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 
 "모든 코딩 기능에서 최상위 수준"은 성립하지 않는다. 이득은 보이는 예시가 있고 답이 연산 두 단계로 표현되는 과제에 한정된다. 151문제 표본이라 신뢰구간이 넓다.
 
+**처음부터 만든 모델(SeedLM).** 사전학습 가중치 없이 142만 파라미터 트랜스포머를 CPU 4코어에서 20분 학습했다. 예시의 입력과 출력을 보고 연산 프로그램을 제안하고, 제안은 실행으로 검증한다. 설계와 측정은 [SeedLM 문서](docs/seed_lm.md)에 있다.
+
+- 같은 6분 학습에서 직교 초기화와 직교화 갱신(Muon)이 손실을 1.72 → 1.56 → 1.22로 낮췄다(시드 하나, 학습률 미조정).
+- 혼자서 시험 분할 151문제 중 43문제(28.5%)를 푼다. 같은 규칙을 전수 탐색하는 엔진을 넘지는 못했고, 파이프라인에 가지로 붙여도 위 표의 수치는 달라지지 않았다.
+- 모델이 탐색보다 많이 찾은 것은 연산 세 개짜리 합성 프로그램에서다(100개 중 65 대 55).
+- 범용 코딩 LLM이 아니다. 자연어를 이해하지 못하고 교사가 만든 연산 328개의 조합만 출력한다.
+
 ```bash
 python -m venv .venv && . .venv/bin/activate
 pip install --no-deps evalplus==0.3.1 && pip install -r requirements-rule-pilot.txt
@@ -41,7 +48,7 @@ python scripts/rule_pilot.py generate --name demo --condition branch --split tes
 python scripts/rule_pilot.py score --name demo
 ```
 
-코드는 `mylittlellm/rulecoder/`(규칙 은행, 분기-선택, 예시 역추론)와 `mylittlellm/seedlm/`(처음부터 학습한 소형 모델)에 있고, 규칙 은행은 `data/rule_pilot/rule_bank.json`, 채점 결과는 `reports/rule_pilot/`에 있다.
+코드는 `mylittlellm/rulecoder/`(규칙 은행, 분기-선택, 예시 역추론)와 `mylittlellm/seedlm/`(처음부터 학습한 소형 모델)에 있고, 규칙 은행은 `data/rule_pilot/rule_bank.json`, 채점 결과는 `reports/rule_pilot/`, 처음부터 만든 모델의 실행 기록은 `reports/seedlm/`에 있다.
 
 ## 2026-11-02 현재 상태
 

@@ -1,0 +1,89 @@
+[
+ {
+  "name": "s15-base",
+  "split": "val",
+  "n": 45,
+  "model": "coder-1.5b",
+  "condition": "base",
+  "base_pass": 33,
+  "base_pct": 73.3,
+  "base_ci95": [
+   59.0,
+   84.0
+  ],
+  "plus_pass": 24,
+  "plus_pct": 53.3,
+  "plus_ci95": [
+   39.1,
+   67.1
+  ],
+  "mean_llm_calls": 1.0,
+  "mean_completion_tokens": 98.1,
+  "mean_prompt_tokens_processed": 52.8,
+  "mean_model_seconds": 5.6,
+  "median_wall_seconds": 4.89,
+  "mean_wall_seconds": 5.6
+ },
+ {
+  "name": "s15-branch-dev-t",
+  "split": "val",
+  "n": 45,
+  "model": "coder-1.5b",
+  "condition": "branch",
+  "base_pass": 37,
+  "base_pct": 82.2,
+  "base_ci95": [
+   68.7,
+   90.7
+  ],
+  "plus_pass": 29,
+  "plus_pct": 64.4,
+  "plus_ci95": [
+   49.8,
+   76.8
+  ],
+  "mean_llm_calls": 1.0,
+  "mean_completion_tokens": 98.5,
+  "mean_prompt_tokens_processed": 56.5,
+  "mean_model_seconds": 5.73,
+  "median_wall_seconds": 5.24,
+  "mean_wall_seconds": 5.74,
+  "vs_first": {
+   "wins": 5,
+   "losses": 0,
+   "net_pct": 11.1,
+   "mcnemar_p": 0.0625
+  }
+ },
+ {
+  "name": "s15-branch-seed-dev",
+  "split": "val",
+  "n": 45,
+  "model": "coder-1.5b",
+  "condition": "branch",
+  "base_pass": 37,
+  "base_pct": 82.2,
+  "base_ci95": [
+   68.7,
+   90.7
+  ],
+  "plus_pass": 29,
+  "plus_pct": 64.4,
+  "plus_ci95": [
+   49.8,
+   76.8
+  ],
+  "mean_llm_calls": 1.0,
+  "mean_completion_tokens": 98.5,
+  "mean_prompt_tokens_processed": 56.5,
+  "mean_model_seconds": 5.73,
+  "median_wall_seconds": 5.24,
+  "mean_wall_seconds": 5.74,
+  "vs_first": {
+   "wins": 5,
+   "losses": 0,
+   "net_pct": 11.1,
+   "mcnemar_p": 0.0625
+  }
+ }
+]

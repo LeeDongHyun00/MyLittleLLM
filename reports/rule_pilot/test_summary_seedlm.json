@@ -1,0 +1,89 @@
+[
+ {
+  "name": "s15-base",
+  "split": "test",
+  "n": 151,
+  "model": "coder-1.5b",
+  "condition": "base",
+  "base_pass": 105,
+  "base_pct": 69.5,
+  "base_ci95": [
+   61.8,
+   76.3
+  ],
+  "plus_pass": 89,
+  "plus_pct": 58.9,
+  "plus_ci95": [
+   51.0,
+   66.5
+  ],
+  "mean_llm_calls": 1.0,
+  "mean_completion_tokens": 92.8,
+  "mean_prompt_tokens_processed": 50.9,
+  "mean_model_seconds": 5.24,
+  "median_wall_seconds": 4.46,
+  "mean_wall_seconds": 5.36
+ },
+ {
+  "name": "s15-branch-t",
+  "split": "test",
+  "n": 151,
+  "model": "coder-1.5b",
+  "condition": "branch",
+  "base_pass": 116,
+  "base_pct": 76.8,
+  "base_ci95": [
+   69.5,
+   82.8
+  ],
+  "plus_pass": 97,
+  "plus_pct": 64.2,
+  "plus_ci95": [
+   56.3,
+   71.4
+  ],
+  "mean_llm_calls": 1.06,
+  "mean_completion_tokens": 104.4,
+  "mean_prompt_tokens_processed": 58.1,
+  "mean_model_seconds": 7.74,
+  "median_wall_seconds": 5.13,
+  "mean_wall_seconds": 7.86,
+  "vs_first": {
+   "wins": 8,
+   "losses": 0,
+   "net_pct": 5.3,
+   "mcnemar_p": 0.0078
+  }
+ },
+ {
+  "name": "s15-branch-seed",
+  "split": "test",
+  "n": 151,
+  "model": "coder-1.5b",
+  "condition": "branch",
+  "base_pass": 116,
+  "base_pct": 76.8,
+  "base_ci95": [
+   69.5,
+   82.8
+  ],
+  "plus_pass": 97,
+  "plus_pct": 64.2,
+  "plus_ci95": [
+   56.3,
+   71.4
+  ],
+  "mean_llm_calls": 1.06,
+  "mean_completion_tokens": 104.4,
+  "mean_prompt_tokens_processed": 58.1,
+  "mean_model_seconds": 7.74,
+  "median_wall_seconds": 5.13,
+  "mean_wall_seconds": 7.86,
+  "vs_first": {
+   "wins": 8,
+   "losses": 0,
+   "net_pct": 5.3,
+   "mcnemar_p": 0.0078
+  }
+ }
+]
