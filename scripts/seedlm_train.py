@@ -64,6 +64,8 @@ def main():
     parser.add_argument("--init", choices=["orthogonal", "default"], default="orthogonal")
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--muon-lr", type=float, default=0.02)
+    parser.add_argument("--muon-weight-decay", type=float, default=0.01,
+                        help="small batches need weight decay on the matrices Muon updates")
     parser.add_argument("--batch", type=int, default=64)
     parser.add_argument("--d-model", type=int, default=160)
     parser.add_argument("--layers", type=int, default=4)
@@ -94,7 +96,8 @@ def main():
     others = [p for n, p in net.named_parameters() if p.ndim != 2 or n.startswith(("embed", "head"))]
     if args.optimizer == "muon":
         from mylittlellm.seedlm.muon import Muon
-        optimizers = [Muon(matrices, lr=args.muon_lr), torch.optim.AdamW(others, lr=args.lr, weight_decay=0.0)]
+        optimizers = [Muon(matrices, lr=args.muon_lr, weight_decay=args.muon_weight_decay),
+                      torch.optim.AdamW(others, lr=args.lr, weight_decay=0.0)]
     else:
         optimizers = [torch.optim.AdamW(matrices + others, lr=args.lr, weight_decay=0.0)]
     base_rates = [[group["lr"] for group in opt.param_groups] for opt in optimizers]
