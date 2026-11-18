@@ -5,7 +5,10 @@
   "engine": 65,
   "model": 49,
   "rerank": 60,
-  "open": 60
+  "open": 60,
+  "gate": 61,
+  "tie": 67,
+  "fill": 65
  },
  "by_engine_status": {
   "solved": {
@@ -13,6 +16,9 @@
    "model": 47,
    "rerank": 58,
    "open": 58,
+   "gate": 60,
+   "tie": 65,
+   "fill": 65,
    "tasks": 65
   },
   "none": {
@@ -20,6 +26,9 @@
    "model": 0,
    "rerank": 0,
    "open": 0,
+   "gate": 0,
+   "tie": 0,
+   "fill": 0,
    "tasks": 14
   },
   "wrong": {
@@ -27,6 +36,9 @@
    "model": 2,
    "rerank": 2,
    "open": 2,
+   "gate": 1,
+   "tie": 2,
+   "fill": 0,
    "tasks": 15
   }
  }

@@ -1,0 +1,45 @@
+{
+ "model": "s2-nat",
+ "tasks": 94,
+ "solved": {
+  "engine": 65,
+  "model": 53,
+  "rerank": 65,
+  "open": 64,
+  "gate": 59,
+  "tie": 67,
+  "fill": 65
+ },
+ "by_engine_status": {
+  "solved": {
+   "engine": 65,
+   "model": 50,
+   "rerank": 61,
+   "open": 61,
+   "gate": 59,
+   "tie": 64,
+   "fill": 65,
+   "tasks": 65
+  },
+  "none": {
+   "engine": 0,
+   "model": 0,
+   "rerank": 0,
+   "open": 0,
+   "gate": 0,
+   "tie": 0,
+   "fill": 0,
+   "tasks": 14
+  },
+  "wrong": {
+   "engine": 0,
+   "model": 3,
+   "rerank": 4,
+   "open": 3,
+   "gate": 0,
+   "tie": 3,
+   "fill": 0,
+   "tasks": 15
+  }
+ }
+}
