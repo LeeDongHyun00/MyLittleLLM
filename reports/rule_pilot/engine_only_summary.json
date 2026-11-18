@@ -1,0 +1,32 @@
+{
+ "train": {
+  "tasks": 182,
+  "program_found": 118,
+  "solved": 80,
+  "solved_pct": 44.0,
+  "base_tests_pass": 86,
+  "confident": 100,
+  "confident_solved": 80,
+  "knowledge_solved": 14
+ },
+ "val": {
+  "tasks": 45,
+  "program_found": 28,
+  "solved": 16,
+  "solved_pct": 35.6,
+  "base_tests_pass": 20,
+  "confident": 22,
+  "confident_solved": 15,
+  "knowledge_solved": 5
+ },
+ "test": {
+  "tasks": 151,
+  "program_found": 107,
+  "solved": 57,
+  "solved_pct": 37.7,
+  "base_tests_pass": 71,
+  "confident": 88,
+  "confident_solved": 57,
+  "knowledge_solved": 14
+ }
+}

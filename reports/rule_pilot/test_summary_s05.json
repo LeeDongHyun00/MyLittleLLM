@@ -1,0 +1,120 @@
+[
+ {
+  "name": "s05-base",
+  "split": "test",
+  "n": 151,
+  "model": "coder-0.5b",
+  "condition": "base",
+  "base_pass": 72,
+  "base_pct": 47.7,
+  "base_ci95": [
+   39.9,
+   55.6
+  ],
+  "plus_pass": 56,
+  "plus_pct": 37.1,
+  "plus_ci95": [
+   29.8,
+   45.0
+  ],
+  "mean_llm_calls": 1.0,
+  "mean_completion_tokens": 122.1,
+  "mean_prompt_tokens_processed": 51.5,
+  "mean_model_seconds": 2.89,
+  "median_wall_seconds": 2.67,
+  "mean_wall_seconds": 2.9
+ },
+ {
+  "name": "s05-rules",
+  "split": "test",
+  "n": 151,
+  "model": "coder-0.5b",
+  "condition": "rules",
+  "base_pass": 75,
+  "base_pct": 49.7,
+  "base_ci95": [
+   41.8,
+   57.6
+  ],
+  "plus_pass": 59,
+  "plus_pct": 39.1,
+  "plus_ci95": [
+   31.7,
+   47.0
+  ],
+  "mean_llm_calls": 1.0,
+  "mean_completion_tokens": 124.8,
+  "mean_prompt_tokens_processed": 57.7,
+  "mean_model_seconds": 2.91,
+  "median_wall_seconds": 2.77,
+  "mean_wall_seconds": 2.92,
+  "vs_first": {
+   "wins": 5,
+   "losses": 2,
+   "net_pct": 2.0,
+   "mcnemar_p": 0.4531
+  }
+ },
+ {
+  "name": "s05-infer",
+  "split": "test",
+  "n": 151,
+  "model": "coder-0.5b",
+  "condition": "branch",
+  "base_pass": 101,
+  "base_pct": 66.9,
+  "base_ci95": [
+   59.0,
+   73.9
+  ],
+  "plus_pass": 80,
+  "plus_pct": 53.0,
+  "plus_ci95": [
+   45.0,
+   60.8
+  ],
+  "mean_llm_calls": 1.0,
+  "mean_completion_tokens": 122.1,
+  "mean_prompt_tokens_processed": 51.5,
+  "mean_model_seconds": 2.89,
+  "median_wall_seconds": 2.67,
+  "mean_wall_seconds": 2.9,
+  "vs_first": {
+   "wins": 24,
+   "losses": 0,
+   "net_pct": 15.9,
+   "mcnemar_p": 0.0
+  }
+ },
+ {
+  "name": "s05-branch",
+  "split": "test",
+  "n": 151,
+  "model": "coder-0.5b",
+  "condition": "branch",
+  "base_pass": 102,
+  "base_pct": 67.5,
+  "base_ci95": [
+   59.7,
+   74.5
+  ],
+  "plus_pass": 80,
+  "plus_pct": 53.0,
+  "plus_ci95": [
+   45.0,
+   60.8
+  ],
+  "mean_llm_calls": 1.09,
+  "mean_completion_tokens": 135.7,
+  "mean_prompt_tokens_processed": 61.3,
+  "mean_model_seconds": 3.16,
+  "median_wall_seconds": 2.91,
+  "mean_wall_seconds": 3.17,
+  "vs_first": {
+   "wins": 24,
+   "losses": 0,
+   "net_pct": 15.9,
+   "mcnemar_p": 0.0
+  }
+ }
+]

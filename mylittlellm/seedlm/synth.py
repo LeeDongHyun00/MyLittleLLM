@@ -73,10 +73,11 @@ def _apply(rng, pool, operators, tries=40):
         chosen = rng.sample(pool, k=op.arity)
         try:
             value = op.fn(*(item[0] for item in chosen))
+            # Sets are skipped because their printed order is not reproducible across processes.
+            # repr() is inside the try: Python refuses to print integers with thousands of digits.
+            if value is None or isinstance(value, (bool, set, frozenset)) or len(repr(value)) > MAX_OUT:
+                continue
         except Exception:
-            continue
-        # Sets are skipped because their printed order is not reproducible across processes.
-        if value is None or isinstance(value, (bool, set, frozenset)) or len(repr(value)) > MAX_OUT:
             continue
         return value, (op.name + "/" + str(op.arity), [item[1] for item in chosen])
     return None
