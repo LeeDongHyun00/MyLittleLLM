@@ -176,10 +176,53 @@ def _keep_relations(original, mutated):
     return out
 
 
-def probe_inputs(args, count=24, tries=200):
-    """Distinct type-preserving variants of the example's argument list, deterministic per example."""
+def _edges(value):
+    """Boundary values of the same type: where hidden tests look and ordinary mutations do not go."""
+    if isinstance(value, bool) or value is None:
+        return []
+    if isinstance(value, int):
+        return [0, 1] if value >= 0 else [0, -1]
+    if isinstance(value, float):
+        return [0.0, 1.0] if value >= 0 else [0.0, -1.0]
+    if isinstance(value, (str, list, tuple)):
+        items = [value[:0], value[:1]]
+        return items + ([value[:2]] if len(value) > 2 else [])
+    if isinstance(value, dict):
+        first = next(iter(value.items()), None)
+        return [{}] + ([dict([first])] if first else [])
+    if isinstance(value, set):
+        return [set()]
+    return []
+
+
+def edge_inputs(args):
+    """Each argument in turn replaced by its boundary values, the others kept (relations kept too)."""
+    probes, seen = [], {canonical(list(args))}
+    for position, value in enumerate(args):
+        for edge in _edges(value):
+            mutated = copy.deepcopy(list(args))
+            mutated[position] = edge
+            mutated = _keep_relations(args, mutated)
+            key = canonical(mutated)
+            if key not in seen:
+                seen.add(key)
+                probes.append(mutated)
+    return probes
+
+
+def probe_inputs(args, count=24, tries=200, edges=False):
+    """Distinct type-preserving variants of the example's argument list, deterministic per example.
+
+    With `edges`, boundary inputs (empty, single, zero) come first; the first version left them
+    out, and on the development splits most wrong answers that the engine corroborated were
+    wrong exactly there.
+    """
     rng = random.Random(_seed(args))
     seen, probes = {canonical(list(args))}, []
+    if edges:
+        for probe in edge_inputs(args):
+            seen.add(canonical(probe))
+            probes.append(probe)
     for _ in range(tries):
         if len(probes) >= count:
             break
@@ -225,13 +268,17 @@ def run_engine_code(code, entry_point, probes, per_call=0.5):
 
 
 # ---------------------------------------------------------------- agreement and selection
-def compare(left, right, minimum=3):
+def compare(left, right, minimum=3, strict=0):
     """'conflict' if some probe gives both a value and the values differ; 'agree' if at least
     `minimum` probes give both a value and none differ; otherwise 'unknown'.
 
     A probe on which one side raises says nothing: the probe may be outside the task's domain,
-    where a correct program is allowed to fail.
+    where a correct program is allowed to fail. The first `strict` probes are boundary inputs,
+    where hidden tests usually do expect a value, so there one side raising is a conflict too.
     """
+    for (sa, a), (sb, b) in zip(left[:strict], right[:strict]):
+        if (sa == "ok") != (sb == "ok"):
+            return "conflict"
     both = [(a, b) for (sa, a), (sb, b) in zip(left, right) if sa == "ok" and sb == "ok"]
     if any(a != b for a, b in both):
         return "conflict"

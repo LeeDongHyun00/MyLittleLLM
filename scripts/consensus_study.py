@@ -32,7 +32,7 @@ def engine_programs(task, asserts, keep):
     return found.get("alternatives") or [{"code": found["code"], "expr": found["expr"]}]
 
 
-def study(run, split, tasks, keep, probes_per_task, minimum):
+def study(run, split, tasks, keep, probes_per_task, minimum, edges=False):
     rows = {r["task_id"]: r for r in read_jsonl(OUT / "gen" / f"{run}.jsonl") if r["split"] == split}
     verdicts = {r["task_id"]: r for r in read_jsonl(OUT / "scored" / f"{run}.jsonl") if r["split"] == split}
     records = []
@@ -44,9 +44,10 @@ def study(run, split, tasks, keep, probes_per_task, minimum):
         example = bi.parse_example(asserts, task["entry_point"])
         if example is None or not example["args"]:
             continue
-        probes = cs.probe_inputs(example["args"], probes_per_task)
+        probes = cs.probe_inputs(example["args"], probes_per_task, edges=edges in ("loose", "strict"))
+        strict = len(cs.edge_inputs(example["args"])) if edges == "strict" else 0
         model = cs.run_model_code(row["final_code"], task["entry_point"], probes)
-        relations = [cs.compare(model, cs.run_engine_code(p["code"], task["entry_point"], probes), minimum)
+        relations = [cs.compare(model, cs.run_engine_code(p["code"], task["entry_point"], probes), minimum, strict)
                      for p in engine_programs(task, asserts, keep)]
         records.append({"task_id": task_id, "solved": bool(verdicts[task_id]["solved"]),
                         "engine_programs": len(relations), "agree": relations.count("agree"),
@@ -70,6 +71,10 @@ def main():
     parser.add_argument("--keep", type=int, default=10, help="engine programs compared per task")
     parser.add_argument("--probes", type=int, default=24)
     parser.add_argument("--minimum", type=int, default=3, help="probes both must answer to count as agreement")
+    parser.add_argument("--edges", choices=["none", "loose", "strict"], default="none",
+                        help="probe grammar v2: boundary inputs first; 'strict' also counts an exception "
+                             "against a value on a boundary input as a conflict")
+    parser.add_argument("--report", default="consensus_corroboration.json")
     args = parser.parse_args()
     tasks = read_tasks()
     report = {"library": {"packs": bi.ACTIVE_PACKS, "engine": sorted(bi.ENGINE), "operators": len(bi.OPERATORS)},
@@ -77,12 +82,13 @@ def main():
     for run, split in (("s15-branch-dev-r3", "train"), ("s15-branch-dev-r3", "val"),
                        ("s15-branch-test-r3", "test"), ("s05-branch-test-r3", "test")):
         started = time.monotonic()
-        records = study(run, split, tasks, args.keep, args.probes, args.minimum)
+        records = study(run, split, tasks, args.keep, args.probes, args.minimum, args.edges)
         report["runs"][f"{run}:{split}"] = summarise(records)
         print(run, split, json.dumps(report["runs"][f"{run}:{split}"]), f"{time.monotonic() - started:.0f}s", flush=True)
         if split != "test":
-            (OUT / f"consensus_{run}_{split}.json").write_text(json.dumps(records, indent=1))
-    (ROOT / "reports/rule_pilot/consensus_corroboration.json").write_text(json.dumps(report, indent=1) + "\n")
+            suffix = "" if args.edges == "none" else "_edges_" + args.edges
+            (OUT / f"consensus_{run}_{split}{suffix}.json").write_text(json.dumps(records, indent=1))
+    (ROOT / "reports/rule_pilot" / args.report).write_text(json.dumps(report, indent=1) + "\n")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,113 @@
+{
+ "library": {
+  "packs": [
+   "r3_numbers",
+   "r3_sequences",
+   "r3_strings",
+   "r3_nested",
+   "r3_predicates"
+  ],
+  "engine": [
+   "description_constants",
+   "tie_break"
+  ],
+  "operators": 780
+ },
+ "settings": {
+  "keep": 10,
+  "probes": 24,
+  "minimum": 3,
+  "edges": true,
+  "report": "consensus_corroboration_edges.json"
+ },
+ "runs": {
+  "s15-branch-dev-r3:train": {
+   "answers": {
+    "tasks": 145,
+    "solved": 129
+   },
+   "corroborated": {
+    "tasks": 130,
+    "solved": 120
+   },
+   "engine_disagrees": {
+    "tasks": 12,
+    "solved": 6
+   },
+   "engine_undecided": {
+    "tasks": 0,
+    "solved": 0
+   },
+   "no_engine_program": {
+    "tasks": 3,
+    "solved": 3
+   }
+  },
+  "s15-branch-dev-r3:val": {
+   "answers": {
+    "tasks": 35,
+    "solved": 27
+   },
+   "corroborated": {
+    "tasks": 18,
+    "solved": 15
+   },
+   "engine_disagrees": {
+    "tasks": 6,
+    "solved": 3
+   },
+   "engine_undecided": {
+    "tasks": 0,
+    "solved": 0
+   },
+   "no_engine_program": {
+    "tasks": 11,
+    "solved": 9
+   }
+  },
+  "s15-branch-test-r3:test": {
+   "answers": {
+    "tasks": 119,
+    "solved": 92
+   },
+   "corroborated": {
+    "tasks": 74,
+    "solved": 63
+   },
+   "engine_disagrees": {
+    "tasks": 31,
+    "solved": 20
+   },
+   "engine_undecided": {
+    "tasks": 0,
+    "solved": 0
+   },
+   "no_engine_program": {
+    "tasks": 14,
+    "solved": 9
+   }
+  },
+  "s05-branch-test-r3:test": {
+   "answers": {
+    "tasks": 90,
+    "solved": 61
+   },
+   "corroborated": {
+    "tasks": 59,
+    "solved": 47
+   },
+   "engine_disagrees": {
+    "tasks": 21,
+    "solved": 9
+   },
+   "engine_undecided": {
+    "tasks": 0,
+    "solved": 0
+   },
+   "no_engine_program": {
+    "tasks": 10,
+    "solved": 5
+   }
+  }
+ }
+}
