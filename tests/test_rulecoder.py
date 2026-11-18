@@ -264,6 +264,8 @@ class CodemodTests(unittest.TestCase):
         self.assertEqual(len(student.calls), 1)
         self.assertTrue(result["attempts"][0]["autofixed"])
         self.assertTrue(result["attempts"][0]["check"]["ok"])
+        self.assertNotIn("double =", result["attempts"][0]["raw_code"])
+        self.assertIn("double = twice", result["final_code"])
 
 
 class StatsTests(unittest.TestCase):

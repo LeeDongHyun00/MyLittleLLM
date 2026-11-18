@@ -8,6 +8,7 @@ import datetime as dt
 import hashlib
 import json
 from pathlib import Path
+import statistics
 import sys
 import time
 
@@ -109,6 +110,28 @@ def cmd_autofix(args):
             row.update(name=args.output_name, condition=row["condition"] + "+autofix", final_code=fixed)
             stream.write(json.dumps(row) + "\n")
     print(f"{args.output_name}: codemods changed {changed} answers")
+
+
+def cmd_first_attempt(args):
+    """Derive the single-shot run that a looped run contains as its first attempt.
+
+    Decoding is greedy and seeded, so the first attempt of a verify/full run is exactly what the
+    matching no-loop condition would produce; deriving it avoids generating every answer twice.
+    """
+    source, target = OUT / "gen" / f"{args.name}.jsonl", OUT / "gen" / f"{args.output_name}.jsonl"
+    if target.exists():
+        raise SystemExit(f"{target} already exists")
+    with target.open("w") as stream:
+        for row in read_jsonl(source):
+            first = dict(row["attempts"][0])
+            code = first["raw_code"]
+            first.update(code=code, autofixed=False)
+            first.pop("check", None)
+            first.pop("hints", None)
+            row.update(name=args.output_name, condition=args.condition, final_code=code, attempts=[first],
+                       wall_seconds=first["llm"]["elapsed_seconds"], derived_from=args.name)
+            stream.write(json.dumps(row) + "\n")
+    print(f"{args.output_name}: derived from first attempts of {args.name}")
 
 
 def cmd_score(args):
@@ -277,6 +300,8 @@ def cmd_summary(args):
                  "mean_prompt_tokens_processed": round(sum(r["prompt_tokens_processed"]
                                                            for r in rows.values()) / n, 1),
                  "mean_model_seconds": round(sum(r["model_seconds"] for r in rows.values()) / n, 2),
+                 # Median is reported too: a few tasks ran while another job competed for the CPU.
+                 "median_wall_seconds": round(statistics.median(r["wall_seconds"] for r in rows.values()), 2),
                  "mean_wall_seconds": round(sum(r["wall_seconds"] for r in rows.values()) / n, 2)}
         if reference is None:
             reference = rows
@@ -314,6 +339,11 @@ def main():
     fix.add_argument("--name", required=True)
     fix.add_argument("--output-name", required=True)
     fix.set_defaults(func=cmd_autofix)
+    first = sub.add_parser("first-attempt")
+    first.add_argument("--name", required=True)
+    first.add_argument("--output-name", required=True)
+    first.add_argument("--condition", required=True, choices=["base", "rules"])
+    first.set_defaults(func=cmd_first_attempt)
     score = sub.add_parser("score")
     score.add_argument("--name", required=True)
     score.add_argument("--diagnose", action="store_true")

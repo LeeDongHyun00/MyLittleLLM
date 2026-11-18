@@ -70,14 +70,11 @@ def solve(task, *, rule_block=None, verify=False, checkers=None, autofix=None, m
     attempts = []
     for round_index in range(max_repairs + 1 if verify else 1):
         reply = client(messages, max_tokens=max_tokens)
-        code = keep_definitions(extract_code(reply["text"], task["entry_point"]))
-        if autofix:
-            # Deterministic repairs run before any check, so they can save a model call.
-            fixed = autofix(code, task["entry_point"])
-            code, changed = fixed, fixed != code
-        else:
-            changed = False
-        attempt = {"round": round_index, "code": code, "autofixed": changed,
+        raw_code = keep_definitions(extract_code(reply["text"], task["entry_point"]))
+        # Deterministic repairs run before any check, so they can save a model call.
+        code = autofix(raw_code, task["entry_point"]) if autofix else raw_code
+        # raw_code is what a run without codemods and without the repair loop would have returned.
+        attempt = {"round": round_index, "code": code, "raw_code": raw_code, "autofixed": code != raw_code,
                    "llm": {k: reply[k] for k in LLM_FIELDS}}
         attempts.append(attempt)
         if not verify:
