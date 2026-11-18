@@ -1,0 +1,246 @@
+import unittest
+
+from mylittlellm.rulecoder import rules
+from mylittlellm.rulecoder.checkers import hint, make_checkers
+from mylittlellm.rulecoder.extract import extract_code, keep_definitions
+from mylittlellm.rulecoder.pipeline import choose, public_check, solve
+from mylittlellm.rulecoder.probes import example_args, probe_inputs, run_probes
+from mylittlellm.rulecoder.sandbox import run_call, run_public_asserts, syntax_error
+from mylittlellm.rulecoder.stats import mcnemar_exact, wilson
+from mylittlellm.rulecoder.tasks import make_split, parse_prompt
+
+TASK = {"task_id": "Mbpp/0", "entry_point": "double",
+        "prompt": '"""\nWrite a function to double a number.\nassert double(2) == 4\n"""\n'}
+
+
+def reply(text):
+    return {"text": text, "finish_reason": "stop", "prompt_tokens": 10, "completion_tokens": 5,
+            "prompt_tokens_processed": 10, "prompt_ms": 1.0, "predicted_ms": 1.0, "elapsed_seconds": 0.0}
+
+
+class ScriptedStudent:
+    """Stands in for the model so the loop logic is tested without a server."""
+
+    def __init__(self, *texts):
+        self.texts, self.calls = list(texts), []
+
+    def __call__(self, messages, max_tokens):
+        self.calls.append([dict(m) for m in messages])
+        return reply(self.texts[len(self.calls) - 1])
+
+
+class TaskTests(unittest.TestCase):
+    def test_prompt_is_split_into_description_and_visible_assert(self):
+        description, asserts = parse_prompt(TASK["prompt"])
+        self.assertEqual(description, "Write a function to double a number.")
+        self.assertEqual(asserts, "assert double(2) == 4")
+
+    def test_split_is_deterministic_disjoint_and_keeps_proportions(self):
+        ids = [f"Mbpp/{i}" for i in range(100)]
+        first, second = make_split(ids), make_split(reversed(ids))
+        self.assertEqual(first, second)
+        self.assertEqual({k: len(v) for k, v in first.items()}, {"test": 40, "val": 12, "train": 48})
+        self.assertEqual(len(set(first["test"]) | set(first["val"]) | set(first["train"])), 100)
+
+
+class ExtractTests(unittest.TestCase):
+    def test_block_defining_the_entry_point_wins_over_an_earlier_block(self):
+        text = "Usage:\n```python\nprint(double(2))\n```\nCode:\n```python\ndef double(x):\n    return 2 * x\n```"
+        self.assertEqual(extract_code(text, "double"), "def double(x):\n    return 2 * x\n")
+
+    def test_unterminated_fence_and_plain_text_are_still_extracted(self):
+        self.assertEqual(extract_code("```python\ndef f():\n    return 1", "f"), "def f():\n    return 1\n")
+        self.assertEqual(extract_code("def f():\n    return 1", "f"), "def f():\n    return 1\n")
+
+    def test_demo_statements_are_dropped_but_needed_constants_survive(self):
+        code = "import math\nK = 2\nUNUSED = 5\ndef double(x):\n    return K * x\nprint(double(1))\nassert double(1) == 2\n"
+        kept = keep_definitions(code)
+        self.assertIn("K = 2", kept)
+        self.assertNotIn("UNUSED", kept)
+        self.assertNotIn("print", kept)
+        self.assertNotIn("assert", kept)
+
+    def test_unparseable_code_is_returned_unchanged(self):
+        self.assertEqual(keep_definitions("def f(:\n"), "def f(:\n")
+
+
+class SandboxTests(unittest.TestCase):
+    def test_visible_assert_outcomes(self):
+        self.assertEqual(run_public_asserts("def double(x):\n    return 2 * x\n", "assert double(2) == 4")["status"], "pass")
+        failed = run_public_asserts("def double(x):\n    return x\n", "assert double(2) == 4")
+        self.assertEqual((failed["status"], failed["got"], failed["expected"]), ("fail", "2", "4"))
+        error = run_public_asserts("def double(x):\n    return y\n", "assert double(2) == 4")
+        self.assertEqual(error["status"], "error")
+        self.assertIn("NameError", error["detail"])
+        self.assertIn("solution line 2", error["detail"])
+
+    def test_infinite_loop_times_out(self):
+        result = run_public_asserts("def double(x):\n    while True:\n        pass\n", "assert double(2) == 4", timeout=2)
+        self.assertEqual(result["status"], "timeout")
+
+    def test_harness_math_does_not_hide_a_missing_import_in_the_solution(self):
+        asserts = "assert math.isclose(area(1), 3.14159, rel_tol=0.001)"
+        self.assertEqual(run_public_asserts("import math\ndef area(r):\n    return math.pi * r * r\n", asserts)["status"], "pass")
+        self.assertEqual(run_public_asserts("def area(r):\n    return math.pi * r * r\n", asserts)["status"], "error")
+
+    def test_single_call_reports_value_exception_and_missing_function(self):
+        self.assertEqual(run_call("def f(x):\n    return [x] * 2\n", "f", (3,))["repr"], "[3, 3]")
+        self.assertEqual(run_call("def f(x):\n    return x[0]\n", "f", ([],))["status"], "exception")
+        self.assertEqual(run_call("def g(x):\n    return x\n", "f", (1,))["stage"], "entry_point")
+
+    def test_syntax_error_is_reported_without_executing(self):
+        self.assertIn("SyntaxError", syntax_error("def f(:\n    pass"))
+        self.assertIsNone(syntax_error("def f():\n    pass"))
+
+
+class PipelineTests(unittest.TestCase):
+    good, bad = "```python\ndef double(x):\n    return 2 * x\n```", "```python\ndef double(x):\n    return x\n```"
+
+    def test_without_verification_the_first_answer_is_final(self):
+        student = ScriptedStudent(self.bad)
+        result = solve(TASK, client=student)
+        self.assertEqual(len(student.calls), 1)
+        self.assertEqual(result["final_code"], "def double(x):\n    return x\n")
+
+    def test_failed_visible_example_triggers_repair_with_concrete_feedback(self):
+        student = ScriptedStudent(self.bad, self.good)
+        result = solve(TASK, verify=True, client=student)
+        self.assertEqual(len(student.calls), 2)
+        feedback = student.calls[1][-1]["content"]
+        self.assertIn("assert double(2) == 4", feedback)
+        self.assertIn("evaluated to: 2", feedback)
+        self.assertEqual(result["final_code"], "def double(x):\n    return 2 * x\n")
+
+    def test_repairs_stop_at_the_budget(self):
+        student = ScriptedStudent(self.bad, self.bad, self.bad)
+        result = solve(TASK, verify=True, max_repairs=2, client=student)
+        self.assertEqual(len(student.calls), 3)
+        self.assertFalse(result["attempts"][-1]["check"]["ok"])
+
+    def test_rule_block_is_appended_to_the_system_prompt_only(self):
+        student = ScriptedStudent(self.good)
+        solve(TASK, rule_block="Follow these rules:\n1. Return, do not print.", client=student)
+        self.assertIn("1. Return, do not print.", student.calls[0][0]["content"])
+        self.assertNotIn("Follow these rules", student.calls[0][1]["content"])
+
+    def test_checker_hint_on_a_passing_candidate_asks_for_one_more_attempt(self):
+        student = ScriptedStudent(self.good, self.good)
+        hints = iter([["Handle negative numbers."], []])
+        result = solve(TASK, verify=True, checkers=lambda *a: next(hints), client=student)
+        self.assertEqual(len(student.calls), 2)
+        self.assertIn("Handle negative numbers.", student.calls[1][-1]["content"])
+        self.assertEqual(result["attempts"][1]["hints"], [])
+
+    def test_choice_prefers_passing_then_fewest_flags_then_earliest(self):
+        ok, no = {"ok": True}, {"ok": False}
+        attempts = [{"round": 0, "check": ok, "hints": ["a"], "code": "A"},
+                    {"round": 1, "check": ok, "hints": ["a"], "code": "B"},
+                    {"round": 2, "check": no, "hints": [], "code": "C"}]
+        self.assertEqual(choose(attempts)["code"], "A")
+        attempts[1]["hints"] = []
+        self.assertEqual(choose(attempts)["code"], "B")
+        self.assertEqual(choose([{"round": 0, "check": no, "hints": [], "code": "A"},
+                                 {"round": 1, "check": no, "hints": [], "code": "B"}])["code"], "B")
+
+    def test_syntax_gate_runs_before_execution(self):
+        check = public_check("def double(x:\n    return 1\n", "assert double(2) == 4")
+        self.assertEqual((check["ok"], check["kind"]), (False, "syntax"))
+
+
+class RuleBankTests(unittest.TestCase):
+    def test_lasso_recovers_helpful_rule_and_zeroes_the_noise_rule(self):
+        # Outcome change depends only on rule 0; rule 1 is irrelevant by construction.
+        rows = [[float(i % 2), float((i // 2) % 2)] for i in range(40)]
+        targets = [0.5 * row[0] for row in rows]
+        intercept, coef = rules.lasso(rows, targets, 0.0)
+        self.assertAlmostEqual(coef[0], 0.5, places=6)
+        self.assertAlmostEqual(coef[1], 0.0, places=6)
+        self.assertAlmostEqual(intercept, 0.0, places=6)
+        _, sparse = rules.lasso(rows, targets, 0.2)
+        self.assertEqual(sparse, [0.0, 0.0])
+
+    def test_ucb_reward_favours_untested_then_accurate_rules(self):
+        self.assertEqual(rules.ucb_reward(0, 0, 10), float("inf"))
+        self.assertGreater(rules.ucb_reward(8, 10, 100), rules.ucb_reward(4, 10, 100))
+        self.assertGreater(rules.ucb_reward(1, 2, 100), rules.ucb_reward(50, 100, 100))
+
+    def test_random_subsets_are_reproducible_per_key(self):
+        ids = [f"R{i}" for i in range(12)]
+        self.assertEqual(rules.random_subset(ids, "run:Mbpp/1:0"), rules.random_subset(ids, "run:Mbpp/1:0"))
+        self.assertNotEqual(rules.random_subset(ids, "run:Mbpp/1:0"), rules.random_subset(ids, "run:Mbpp/2:0"))
+
+    def test_rendered_block_is_numbered(self):
+        self.assertEqual(rules.render(["a", "b"], header="H"), "H\n1. a\n2. b")
+
+    def test_importance_vanishes_for_always_or_never_used_rules(self):
+        self.assertEqual(rules.rule_importance(0.3, 1.0), 0.0)
+        self.assertAlmostEqual(rules.rule_importance(-0.3, 0.5), 0.15)
+
+
+class TriggerTests(unittest.TestCase):
+    def test_rule_fires_only_when_its_pattern_matches_the_prompt(self):
+        rule = {"id": "R1", "text": "t", "trigger": {"type": "prompt_regex", "pattern": r"double\(\d"}}
+        self.assertTrue(rules.applies(rule, TASK))
+        self.assertFalse(rules.applies(dict(rule, trigger={"type": "prompt_regex", "pattern": "tuple"}), TASK))
+        self.assertTrue(rules.applies({"id": "R2", "text": "t"}, TASK))
+        with self.assertRaises(ValueError):
+            rules.applies({"trigger": {"type": "llm_judge"}}, TASK)
+
+
+class ProbeTests(unittest.TestCase):
+    def test_example_arguments_are_read_from_the_visible_assert(self):
+        self.assertEqual(example_args("assert set(f((3, 4), [5])) == {4}", "f"), [(3, 4), [5]])
+        self.assertIsNone(example_args("assert f(g(1)) == 2", "f"))
+        self.assertIsNone(example_args("assert other(1) == 2", "f"))
+
+    def test_each_probe_changes_one_argument_and_keeps_its_type(self):
+        probes = list(probe_inputs([[3, 1], 2]))
+        self.assertIn(("empty", [[], 2]), probes)
+        self.assertIn(("negative", [[3, 1], -2]), probes)
+        self.assertIn(("zero", [[0, 0], 2]), probes)
+        self.assertTrue(all(isinstance(args[0], list) for _, args in probes))
+        self.assertFalse(any(family == "negative" for family, _ in probe_inputs([True])))
+
+    def test_probe_reports_crashes_but_never_judges_values(self):
+        crash = run_probes("def first(xs):\n    return xs[0]\n", "first", "assert first([3, 1, 2]) == 3")
+        self.assertEqual([f["family"] for f in crash], ["empty"])
+        self.assertIn("IndexError", crash[0]["detail"])
+        wrong_but_total = run_probes("def first(xs):\n    return None\n", "first", "assert first([3, 1, 2]) == 3")
+        self.assertEqual(wrong_but_total, [])
+
+    def test_only_selected_families_are_run(self):
+        code = "def first(xs):\n    return xs[0]\n"
+        self.assertEqual(run_probes(code, "first", "assert first([3, 1, 2]) == 3", families={"negative"}), [])
+
+
+class CheckerTests(unittest.TestCase):
+    def test_checkers_stay_silent_until_the_visible_example_passes(self):
+        run = make_checkers({"empty"})
+        code = "def first(xs):\n    return xs[0]\n"
+        task = {"entry_point": "first"}
+        self.assertEqual(run(task, code, "assert first([3]) == 3", {"ok": False}), [])
+        hints = run(task, code, "assert first([3]) == 3", {"ok": True})
+        self.assertEqual(len(hints), 1)
+        self.assertIn("first([])", hints[0])
+        self.assertEqual(make_checkers(set())(task, code, "assert first([3]) == 3", {"ok": True}), [])
+
+    def test_hint_names_the_failing_call(self):
+        text = hint({"family": "large", "call": "f(107)", "problem": "timeout", "detail": "no result"})
+        self.assertIn("f(107)", text)
+        self.assertIn("efficient", text)
+
+
+class StatsTests(unittest.TestCase):
+    def test_wilson_interval_brackets_the_estimate(self):
+        low, high = wilson(60, 100)
+        self.assertTrue(low < 60 < high)
+        self.assertEqual(wilson(0, 0), (0.0, 0.0))
+
+    def test_mcnemar_exact_matches_hand_computed_values(self):
+        self.assertEqual(mcnemar_exact(0, 0), 1.0)
+        self.assertAlmostEqual(mcnemar_exact(5, 0), 0.0625)
+        self.assertEqual(mcnemar_exact(3, 3), 1.0)
+
+
+if __name__ == "__main__":
+    unittest.main()
