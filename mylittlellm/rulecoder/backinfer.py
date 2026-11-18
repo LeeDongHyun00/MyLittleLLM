@@ -12,6 +12,7 @@ task description first, learned operator reliability next) and carry a confidenc
 """
 import ast
 from collections import Counter
+import functools
 import heapq
 import importlib
 import itertools
@@ -94,9 +95,9 @@ def small(n, limit=2000):
 
 def helper(source):
     """Compile a helper once; the same source is pasted into generated answers."""
-    scope = {"math": math}
+    scope = {"math": math, "functools": functools}
     exec(source, scope)
-    name = re.match(r"def (\w+)", source).group(1)
+    name = re.search(r"^def (\w+)", source, re.MULTILINE).group(1)       # a decorator may come first
     return scope[name], source
 
 
@@ -711,7 +712,8 @@ _SEQUENCES = [
 ]
 for _name, _words, _source in _SEQUENCES:
     _fn, _text = helper(_source)
-    know(1, _name, _n(_fn, 3000), f"_{_name}({{0}})", _words, helper=_text)
+    # The Bell triangle is quadratic in n, so it gets a smaller range than the linear recurrences.
+    know(1, _name, _n(_fn, 400 if _name == "bell" else 3000), f"_{_name}({{0}})", _words, helper=_text)
     # Sum of the first n terms is a frequent variant of the same definition.
     _sum_source = _text + f"\n\ndef _{_name}_sum(n):\n    return sum(_{_name}(i) for i in range(1, n + 1))\n"
     _scope = {}
@@ -719,15 +721,18 @@ for _name, _words, _source in _SEQUENCES:
     know(1, _name + "_sum", _n(_scope[f"_{_name}_sum"], 300), f"_{_name}_sum({{0}})", "sum&" + _words.split("|")[0],
          helper=_sum_source)
 
+# Doubly recursive definitions are memoised: unmemoised, delannoy(12, 10) alone takes seconds, both
+# in the search and in the answer the engine ships.
+_MEMO = "@functools.lru_cache(maxsize=None)\n"
 _TABLES = [
     ("eulerian", "eulerian",
-     "def _eulerian(n, m):\n    if m >= n or n == 0:\n        return 0\n    if m == 0:\n        return 1\n"
+     _MEMO + "def _eulerian(n, m):\n    if m >= n or n == 0:\n        return 0\n    if m == 0:\n        return 1\n"
      "    return (n - m) * _eulerian(n - 1, m - 1) + (m + 1) * _eulerian(n - 1, m)\n"),
     ("stirling2", "stirling",
-     "def _stirling2(n, k):\n    if n == k:\n        return 1\n    if k == 0 or k > n:\n        return 0\n"
+     _MEMO + "def _stirling2(n, k):\n    if n == k:\n        return 1\n    if k == 0 or k > n:\n        return 0\n"
      "    return k * _stirling2(n - 1, k) + _stirling2(n - 1, k - 1)\n"),
     ("delannoy", "delannoy",
-     "def _delannoy(m, n):\n    if m == 0 or n == 0:\n        return 1\n"
+     _MEMO + "def _delannoy(m, n):\n    if m == 0 or n == 0:\n        return 1\n"
      "    return _delannoy(m - 1, n) + _delannoy(m - 1, n - 1) + _delannoy(m, n - 1)\n"),
 ]
 for _name, _words, _source in _TABLES:
