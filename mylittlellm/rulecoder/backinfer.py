@@ -803,7 +803,8 @@ def load_packs():
             known.add(key)
             op.pack = name
     # Retired rules stay in their files, so the record of what was tried and dropped is kept.
-    retired = set(manifest.get("retired", {}))
+    # An override names packs as written, without retirement: that is what attribution needs.
+    retired = set(manifest.get("retired", {})) if override is None else set()
     for bucket in (U, B, T):
         bucket[:] = [op for op in bucket if op.name + "/" + str(op.arity) not in retired]
     return names
@@ -859,6 +860,11 @@ def parse_example(asserts, entry_point):
         if (isinstance(test, ast.Call) and isinstance(test.func, ast.Attribute) and test.func.attr == "isclose"
                 and len(test.args) >= 2 and call_args(test.args[0]) is not None):
             return {"args": call_args(test.args[0]), "expected": float(literal(test.args[1])), "mode": "close"}
+        # `assert f(x)` and `assert not f(x)` state a truth value without a comparison.
+        if call_args(test) is not None:
+            return {"args": call_args(test), "expected": True, "mode": "eq"}
+        if isinstance(test, ast.UnaryOp) and isinstance(test.op, ast.Not) and call_args(test.operand) is not None:
+            return {"args": call_args(test.operand), "expected": False, "mode": "eq"}
     except (ValueError, SyntaxError, TypeError):
         return None
     return None

@@ -280,7 +280,11 @@ class BackInferenceTests(unittest.TestCase):
         self.assertEqual((as_set["expected"], as_set["mode"]), ({1, 2}, "set"))
         close = backinfer.parse_example("assert math.isclose(f(2), 12.56, rel_tol=0.001)", "f")
         self.assertEqual((close["expected"], close["mode"]), (12.56, "close"))
-        self.assertIsNone(backinfer.parse_example("assert f(3)", "f"))
+        bare = backinfer.parse_example('assert f("annie")', "f")
+        self.assertEqual((bare["args"], bare["expected"], bare["mode"]), (["annie"], True, "eq"))
+        negated = backinfer.parse_example("assert not f([1, 2], 3)", "f")
+        self.assertEqual((negated["args"], negated["expected"]), ([[1, 2], 3], False))
+        self.assertIsNone(backinfer.parse_example("assert f(x)", "f"))        # not a literal argument
         self.assertIsNone(backinfer.parse_example("assert g(3) == 1", "f"))
 
     def test_most_common_breaks_ties_by_first_occurrence_in_the_search_and_in_the_emitted_code(self):

@@ -21,7 +21,9 @@ BANK = Path(__file__).resolve().parents[1] / "outputs/rule_pilot/teacher/round3"
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--pack", default="none", help="pack module name(s) under oppacks/, comma-separated")
+    parser.add_argument("--pack", default="none",
+                        help="pack module name(s) under oppacks/, comma-separated; 'manifest' uses the shipped "
+                             "data/rule_pilot/operator_packs.json including its retired operators")
     parser.add_argument("--bank", required=True, help="category name (bank_<name>.json) or a path to a bank file")
     parser.add_argument("--regress", action="store_true", help="also re-check every task the core library solves")
     parser.add_argument("--only", nargs="*", help="restrict to these task ids")
@@ -29,7 +31,8 @@ def main():
     parser.add_argument("--output", help="write per-task results as JSON")
     args = parser.parse_args()
 
-    os.environ["RULE_PACKS"] = args.pack        # must be set before the rule engine is imported
+    if args.pack != "manifest":
+        os.environ["RULE_PACKS"] = args.pack    # must be set before the rule engine is imported
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from mylittlellm.rulecoder import backinfer as bi, scoring
     from mylittlellm.rulecoder.sandbox import run_public_asserts
@@ -100,7 +103,9 @@ def main():
         for name, slot in sorted(used.items(), key=lambda kv: (-kv[1]["solved"], kv[0])):
             print(f"    {name:32s} {slot['solved']:3d} / {slot['wrong']:3d}")
     if args.output:
-        Path(args.output).write_text(json.dumps(results, indent=1) + "\n")
+        inventory = [{"key": key, "pack": op.pack, "gated": op.gated, "kind": op.kind}
+                     for key, op in bi.OPERATORS.items() if op.pack != "core"]
+        Path(args.output).write_text(json.dumps({"operators": inventory, "results": results}, indent=1) + "\n")
 
 
 if __name__ == "__main__":
