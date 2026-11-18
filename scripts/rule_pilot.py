@@ -121,8 +121,19 @@ def cmd_first_attempt(args):
     source, target = OUT / "gen" / f"{args.name}.jsonl", OUT / "gen" / f"{args.output_name}.jsonl"
     if target.exists():
         raise SystemExit(f"{target} already exists")
+    fallback = {}
+    if args.fallback:
+        fallback = {(r["task_id"], r["draw"]): r for r in read_jsonl(OUT / "gen" / f"{args.fallback}.jsonl")}
     with target.open("w") as stream:
         for row in read_jsonl(source):
+            if fallback and not row.get("fired_rule_ids"):
+                # No rule fired, so the prompt is byte-identical to the fallback run's prompt. Reusing
+                # that answer keeps cache-induced decoding noise out of the comparison.
+                same = dict(fallback[(row["task_id"], row["draw"])])
+                same.update(name=args.output_name, condition=args.condition, derived_from=args.fallback,
+                            rule_ids=[], fired_rule_ids=[])
+                stream.write(json.dumps(same) + "\n")
+                continue
             first = dict(row["attempts"][0])
             code = first["raw_code"]
             first.update(code=code, autofixed=False)
@@ -343,6 +354,7 @@ def main():
     first.add_argument("--name", required=True)
     first.add_argument("--output-name", required=True)
     first.add_argument("--condition", required=True, choices=["base", "rules"])
+    first.add_argument("--fallback", help="run whose answers are used where no rule fired (same prompt)")
     first.set_defaults(func=cmd_first_attempt)
     score = sub.add_parser("score")
     score.add_argument("--name", required=True)
