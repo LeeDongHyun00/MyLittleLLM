@@ -1,0 +1,58 @@
+[
+ {
+  "name": "engine-only-t",
+  "split": "test",
+  "n": 151,
+  "model": "coder-1.5b",
+  "condition": "branch",
+  "base_pass": 71,
+  "base_pct": 47.0,
+  "base_ci95": [
+   39.2,
+   55.0
+  ],
+  "plus_pass": 57,
+  "plus_pct": 37.7,
+  "plus_ci95": [
+   30.4,
+   45.7
+  ],
+  "mean_llm_calls": 0.0,
+  "mean_completion_tokens": 0.0,
+  "mean_prompt_tokens_processed": 0.0,
+  "mean_model_seconds": 0.0,
+  "median_wall_seconds": 0,
+  "mean_wall_seconds": 0.0
+ },
+ {
+  "name": "engine-test-r3",
+  "split": "test",
+  "n": 151,
+  "model": "coder-1.5b",
+  "condition": "branch",
+  "base_pass": 87,
+  "base_pct": 57.6,
+  "base_ci95": [
+   49.6,
+   65.2
+  ],
+  "plus_pass": 68,
+  "plus_pct": 45.0,
+  "plus_ci95": [
+   37.3,
+   53.0
+  ],
+  "mean_llm_calls": 0.0,
+  "mean_completion_tokens": 0.0,
+  "mean_prompt_tokens_processed": 0.0,
+  "mean_model_seconds": 0.0,
+  "median_wall_seconds": 0,
+  "mean_wall_seconds": 0.0,
+  "vs_first": {
+   "wins": 11,
+   "losses": 0,
+   "net_pct": 7.3,
+   "mcnemar_p": 0.001
+  }
+ }
+]
