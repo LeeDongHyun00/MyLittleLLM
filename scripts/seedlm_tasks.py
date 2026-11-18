@@ -12,7 +12,7 @@ import torch
 
 from mylittlellm.rulecoder import backinfer as bi, scoring
 from mylittlellm.rulecoder.tasks import ROOT, load_split, parse_prompt, read_tasks
-from mylittlellm.seedlm import data, model as seedmodel, propose, synth
+from mylittlellm.seedlm import propose, synth
 
 
 def main():
@@ -23,11 +23,7 @@ def main():
     parser.add_argument("--threads", type=int, default=4)
     args = parser.parse_args()
     torch.set_num_threads(args.threads)
-    checkpoint = torch.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")
-    vocabulary = data.Vocabulary(checkpoint["operators"])
-    net = seedmodel.SeedLM(seedmodel.Config(**checkpoint["config"]))
-    net.load_state_dict(checkpoint["state"])
-    net.eval()
+    net, vocabulary = propose.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")
     arities = propose.arity_table(vocabulary)
     tasks, split = read_tasks(), load_split()
     problems = scoring.load_problems()
