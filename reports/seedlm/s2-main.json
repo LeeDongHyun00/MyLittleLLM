@@ -1,0 +1,110 @@
+{
+ "name": "s2-main",
+ "arguments": {
+  "name": "s2-main",
+  "minutes": 60.0,
+  "d_model": 256,
+  "layers": 6,
+  "heads": 8,
+  "batch": 64,
+  "train_size": 300000,
+  "real_share": 0.1,
+  "lr": 0.002,
+  "muon_lr": 0.02,
+  "seed": 0,
+  "init_from": null
+ },
+ "parameters": 6018096,
+ "vocabulary": {
+  "size": 2538,
+  "words": 1482,
+  "operators": 780
+ },
+ "phrases": 780,
+ "real_train_rows": 524,
+ "real_copies": 64,
+ "real_holdout_rows": 74,
+ "data_generation_seconds": 69.0,
+ "steps": 4461,
+ "sequences_seen": 285504,
+ "train_seconds": 3708,
+ "curve": [
+  {
+   "step": 1070,
+   "seconds": 901,
+   "seen": 68480,
+   "train_loss": 0.3606,
+   "synthetic": {
+    "loss": 0.3673,
+    "top1_exact": 0.667,
+    "top1_reproduces": 0.767,
+    "beam8_reproduces": 0.967,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.4482,
+    "top1_exact": 0.417,
+    "top1_reproduces": 0.483,
+    "beam8_reproduces": 0.65,
+    "examples": 60
+   }
+  },
+  {
+   "step": 2058,
+   "seconds": 1800,
+   "seen": 131712,
+   "train_loss": 0.2196,
+   "synthetic": {
+    "loss": 0.2641,
+    "top1_exact": 0.75,
+    "top1_reproduces": 0.817,
+    "beam8_reproduces": 0.967,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.7359,
+    "top1_exact": 0.4,
+    "top1_reproduces": 0.45,
+    "beam8_reproduces": 0.733,
+    "examples": 60
+   }
+  },
+  {
+   "step": 3241,
+   "seconds": 2700,
+   "seen": 207424,
+   "train_loss": 0.1686,
+   "synthetic": {
+    "loss": 0.2013,
+    "top1_exact": 0.8,
+    "top1_reproduces": 0.9,
+    "beam8_reproduces": 0.983,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.6793,
+    "top1_exact": 0.433,
+    "top1_reproduces": 0.467,
+    "beam8_reproduces": 0.75,
+    "examples": 60
+   }
+  }
+ ],
+ "final": {
+  "synthetic": {
+   "loss": 0.1658,
+   "top1_exact": 0.727,
+   "top1_reproduces": 0.833,
+   "beam8_reproduces": 0.987,
+   "examples": 300
+  },
+  "real_holdout": {
+   "loss": 1.613,
+   "top1_exact": 0.446,
+   "top1_reproduces": 0.459,
+   "beam8_reproduces": 0.757,
+   "examples": 74
+  }
+ },
+ "torch": "2.15.0+cpu"
+}

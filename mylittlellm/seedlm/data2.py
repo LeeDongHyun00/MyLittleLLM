@@ -52,8 +52,10 @@ class Vocabulary:
         desc = [self.word_index.get(w, UNK) for w in description_words][:MAX_DESC]
         named = [self.index[n] for n in named if n in self.index][:MAX_NAMED]
         lit = list(repr(list(literals)).encode())[:MAX_LIT]
-        return ([BOS, DESC] + desc + [LIT] + lit + [ARGS] + list(repr(list(args))[1:-1].encode())
-                + [OUT] + list(repr(expected).encode()) + [NAMED] + named + [PROG])
+        # Real tasks can have longer examples than anything generated; cut them to the trained limits
+        # so the sequence always fits the model's context.
+        return ([BOS, DESC] + desc + [LIT] + lit + [ARGS] + list(repr(list(args))[1:-1].encode())[:synth.MAX_IN]
+                + [OUT] + list(repr(expected).encode())[:synth.MAX_OUT] + [NAMED] + named + [PROG])
 
     def encode(self, description_words, literals, args, expected, named, program):
         prefix = self.condition(description_words, literals, args, expected, named)

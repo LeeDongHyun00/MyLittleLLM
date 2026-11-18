@@ -1,0 +1,33 @@
+{
+ "model": "s2-main",
+ "tasks": 94,
+ "solved": {
+  "engine": 65,
+  "model": 49,
+  "rerank": 60,
+  "open": 60
+ },
+ "by_engine_status": {
+  "solved": {
+   "engine": 65,
+   "model": 47,
+   "rerank": 58,
+   "open": 58,
+   "tasks": 65
+  },
+  "none": {
+   "engine": 0,
+   "model": 0,
+   "rerank": 0,
+   "open": 0,
+   "tasks": 14
+  },
+  "wrong": {
+   "engine": 0,
+   "model": 2,
+   "rerank": 2,
+   "open": 2,
+   "tasks": 15
+  }
+ }
+}
