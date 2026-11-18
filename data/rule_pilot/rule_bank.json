@@ -264,6 +264,28 @@
     "K185",
     "K191"
    ]
+  },
+  {
+   "round": "freeze",
+   "criterion": "on development tasks where a rule fires, fixed >= broken",
+   "dev_check": {
+    "train": {
+     "tasks_with_a_rule": 44,
+     "baseline_solved": 16,
+     "solved_with_rule": 30,
+     "fixed": 17,
+     "broken": 3
+    },
+    "val": {
+     "tasks_with_a_rule": 8,
+     "baseline_solved": 4,
+     "solved_with_rule": 7,
+     "fixed": 3,
+     "broken": 0
+    }
+   },
+   "decision": "criterion met; bank frozen before the single test evaluation",
+   "test_result": "reports/rule_pilot/test_summary_final.json"
   }
  ],
  "rules": [
@@ -280,7 +302,12 @@
    "motivating_tasks": [],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 0,
+    "broken": 0
+   }
   },
   {
    "id": "K102",
@@ -312,7 +339,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K104",
@@ -342,7 +374,12 @@
    "motivating_tasks": [],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 0
+   "train_prompts_fired": 0,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K106",
@@ -464,7 +501,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K121",
@@ -526,7 +568,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K132",
@@ -693,7 +740,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K148",
@@ -710,7 +762,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K151",
@@ -772,7 +829,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K155",
@@ -804,7 +866,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K157",
@@ -821,7 +888,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K161",
@@ -838,7 +910,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K162",
@@ -855,7 +932,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 0,
+    "broken": 0
+   }
   },
   {
    "id": "K163",
@@ -947,7 +1029,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 2
+   "train_prompts_fired": 2,
+   "round2_dev_check": {
+    "shown": 2,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K172",
@@ -962,7 +1049,12 @@
    "motivating_tasks": [],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 0
+   "train_prompts_fired": 0,
+   "round2_dev_check": {
+    "shown": 2,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K173",
@@ -977,7 +1069,12 @@
    "motivating_tasks": [],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 0,
+    "broken": 0
+   }
   },
   {
    "id": "K174",
@@ -992,7 +1089,12 @@
    "motivating_tasks": [],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 0
+   "train_prompts_fired": 0,
+   "round2_dev_check": {
+    "shown": 2,
+    "fixed": 0,
+    "broken": 0
+   }
   },
   {
    "id": "K175",
@@ -1024,7 +1126,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 1,
+    "broken": 0
+   }
   },
   {
    "id": "K177",
@@ -1039,7 +1146,12 @@
    "motivating_tasks": [],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 0,
+    "broken": 0
+   }
   },
   {
    "id": "K181",
@@ -1054,7 +1166,12 @@
    "motivating_tasks": [],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 0,
+    "broken": 0
+   }
   },
   {
    "id": "K182",
@@ -1131,7 +1248,12 @@
    ],
    "round": 2,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 0,
+    "broken": 0
+   }
   },
   {
    "id": "K01",
@@ -1474,6 +1596,11 @@
     "contrast": null,
     "lasso_coefficient": 0.0,
     "ucb_reward": Infinity
+   },
+   "round2_dev_check": {
+    "shown": 1,
+    "fixed": 0,
+    "broken": 0
    }
   },
   {
@@ -1501,6 +1628,11 @@
     "contrast": null,
     "lasso_coefficient": 0.0,
     "ucb_reward": Infinity
+   },
+   "round2_dev_check": {
+    "shown": 2,
+    "fixed": 2,
+    "broken": 0
    }
   },
   {
@@ -1618,6 +1750,11 @@
     "contrast": 0.0,
     "lasso_coefficient": 0.0,
     "ucb_reward": 0.8597
+   },
+   "round2_dev_check": {
+    "shown": 7,
+    "fixed": 1,
+    "broken": 0
    }
   },
   {
@@ -1645,6 +1782,11 @@
     "contrast": 0.0,
     "lasso_coefficient": 0.0,
     "ucb_reward": 1.1101
+   },
+   "round2_dev_check": {
+    "shown": 14,
+    "fixed": 3,
+    "broken": 2
    }
   },
   {
@@ -1701,6 +1843,11 @@
     "contrast": 1.0,
     "lasso_coefficient": 0.8727,
     "ucb_reward": 1.8065
+   },
+   "round2_dev_check": {
+    "shown": 3,
+    "fixed": 2,
+    "broken": 0
    }
   },
   {
@@ -1755,6 +1902,11 @@
     "contrast": 0.0,
     "lasso_coefficient": 0.0,
     "ucb_reward": 1.8065
+   },
+   "round2_dev_check": {
+    "shown": 6,
+    "fixed": 1,
+    "broken": 1
    }
   },
   {
