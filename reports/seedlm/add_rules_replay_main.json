@@ -1,0 +1,71 @@
+{
+ "base": "main",
+ "method": "replay",
+ "row_init": null,
+ "new_operators": [
+  "adjacent_diff/1",
+  "alnum_only/1",
+  "append/2",
+  "bell/1",
+  "best_pair_product/1",
+  "circumference/1",
+  "col_mean/1",
+  "common_all/1",
+  "cone_surface/2",
+  "cone_volume/2",
+  "cube_each/1",
+  "cylinder_lateral/2",
+  "cylinder_surface/2",
+  "each_add/2",
+  "even_power2_sum/1",
+  "jacobsthal_lucas/1",
+  "join_with/2",
+  "nonagonal/1",
+  "numbers_in/1",
+  "remove_kth/2",
+  "reverse_words/1",
+  "rhombus_area/2",
+  "row_min/1",
+  "row_reverse/1",
+  "sector_area/2",
+  "sphere_surface/1",
+  "swap_ends/1",
+  "trapezium_area/3",
+  "unzip/1",
+  "upper_only/1"
+ ],
+ "steps": 947,
+ "minutes": 2.5,
+ "before": {
+  "old": {
+   "loss": 0.8407,
+   "top1_exact": 0.407,
+   "top1_reproduces": 0.54,
+   "beam8_reproduces": 0.813,
+   "examples": 150
+  },
+  "new": {
+   "loss": 5.3482,
+   "top1_exact": 0.0,
+   "top1_reproduces": 0.147,
+   "beam8_reproduces": 0.24,
+   "examples": 150
+  }
+ },
+ "after": {
+  "old": {
+   "loss": 0.9785,
+   "top1_exact": 0.347,
+   "top1_reproduces": 0.48,
+   "beam8_reproduces": 0.747,
+   "examples": 150
+  },
+  "new": {
+   "loss": 0.9052,
+   "top1_exact": 0.387,
+   "top1_reproduces": 0.5,
+   "beam8_reproduces": 0.733,
+   "examples": 150
+  }
+ }
+}
