@@ -1,0 +1,35 @@
+{
+ "train": {
+  "tasks": 182,
+  "usable_example": 141,
+  "search_found": 112,
+  "search_correct": 74,
+  "model_found": 87,
+  "model_top1_correct": 57,
+  "model_found_where_search_failed": 0,
+  "model_correct_where_search_failed": 0,
+  "same_program_as_search": 61
+ },
+ "val": {
+  "tasks": 45,
+  "usable_example": 35,
+  "search_found": 26,
+  "search_correct": 14,
+  "model_found": 18,
+  "model_top1_correct": 8,
+  "model_found_where_search_failed": 0,
+  "model_correct_where_search_failed": 0,
+  "same_program_as_search": 9
+ },
+ "test": {
+  "tasks": 151,
+  "usable_example": 127,
+  "search_found": 104,
+  "search_correct": 55,
+  "model_found": 80,
+  "model_top1_correct": 40,
+  "model_found_where_search_failed": 1,
+  "model_correct_where_search_failed": 0,
+  "same_program_as_search": 52
+ }
+}
