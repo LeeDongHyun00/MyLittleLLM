@@ -89,8 +89,35 @@ def _apply(rng, pool, operators, tries=40):
     return None
 
 
-def sample(rng, operators, max_depth=3, constant_rate=0.25):
-    """One example: {'args', 'literals', 'expected', 'program', 'ops'} or None."""
+def _uses_all_arguments(program, n_args):
+    return all(f"a{i}" in program for i in range(n_args))
+
+
+def _degenerate(program, args, literals, expected, rng, tries=4):
+    """True if the program gives the same value on mutated arguments: a constant teaches nothing.
+
+    Teachers describing sampled programs found compositions that are always False or always 3*pi.
+    """
+    from ..rulecoder.consensus import mutate_value
+    import copy
+    differs = 0
+    for _ in range(tries):
+        mutated = [mutate_value(rng, copy.deepcopy(a)) for a in args]
+        try:
+            value = execute(program, mutated, literals)
+        except Exception:
+            continue
+        if value != expected:
+            differs += 1
+    return differs == 0
+
+
+def sample(rng, operators, max_depth=3, constant_rate=0.25, clean=False):
+    """One example: {'args', 'literals', 'expected', 'program', 'ops'} or None.
+
+    With `clean`, programs that ignore an argument are mostly rejected (real tasks use what they
+    are given) and programs whose value never changes when the arguments change are rejected.
+    """
     kinds = rng.choices([s for s, _ in synth.SIGNATURES], weights=[w for _, w in synth.SIGNATURES])[0]
     args = [synth.random_value(kind, rng) for kind in kinds]
     if len(repr(args)) > synth.MAX_IN:
@@ -118,6 +145,13 @@ def sample(rng, operators, max_depth=3, constant_rate=0.25):
     program = synth._prefix(current[1])
     if len(program) > MAX_PROGRAM or not synth._uses_argument(program):
         return None
+    if clean:
+        if not _uses_all_arguments(program, len(args)) and rng.random() < 0.8:
+            return None
+        # A predicate is usually False on random inputs, yet its description still teaches the
+        # concept, so only non-boolean programs are checked for constancy.
+        if not isinstance(current[0], bool) and _degenerate(program, args, literals, current[0], rng):
+            return None
     return {"args": args, "literals": literals, "expected": current[0], "program": program,
             "ops": sorted({t for t in program if "/" in t})}
 
@@ -170,11 +204,11 @@ def named_for_training(rng, ops, vocabulary, drop_rate=0.5):
     return names
 
 
-def build_synthetic(count, seed, vocabulary, describer, operators, max_depth=3):
+def build_synthetic(count, seed, vocabulary, describer, operators, max_depth=3, clean=False):
     rng = random.Random(seed)
     rows = []
     while len(rows) < count:
-        example = sample(rng, operators, max_depth)
+        example = sample(rng, operators, max_depth, clean=clean)
         if example is None:
             continue
         text = describer.describe(rng, example["program"], example["literals"])

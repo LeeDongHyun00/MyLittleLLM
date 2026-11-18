@@ -115,6 +115,8 @@ def main():
     parser.add_argument("--batch", type=int, default=64)
     parser.add_argument("--train-size", type=int, default=300000)
     parser.add_argument("--real-share", type=float, default=0.1, help="fraction of training rows from real tasks")
+    parser.add_argument("--clean", action="store_true",
+                        help="reject synthetic programs that ignore an argument (mostly) or never change value")
     parser.add_argument("--natural-share", type=float, default=0.0,
                         help="fraction of training rows from teacher-written natural descriptions")
     parser.add_argument("--lr", type=float, default=2e-3)
@@ -136,7 +138,8 @@ def main():
     describer = language.Describer(bi.OPERATORS, phrases)
     operators = list(bi.OPERATORS.values())
     started = time.time()
-    synthetic = data2.build_synthetic(args.train_size, args.seed + 1, vocabulary, describer, operators)
+    synthetic = data2.build_synthetic(args.train_size, args.seed + 1, vocabulary, describer, operators,
+                                      clean=args.clean)
     held_synthetic = data2.build_synthetic(1000, 99991, vocabulary, describer, operators)
     real = real_rows(vocabulary, "train", random.Random(args.seed + 2))
     copies = max(1, round(args.real_share * len(synthetic) / ((1 - args.real_share) * max(1, len(real)))))
