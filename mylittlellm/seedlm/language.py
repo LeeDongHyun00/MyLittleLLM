@@ -3,7 +3,7 @@
 SeedLM-1 never saw a task description; it saw the operators a keyword table found in it. The
 keyword table is brittle: "find" names `index`, and a description that says "aggregate" instead of
 "sum" names nothing. SeedLM-2 reads the words. Its training descriptions are composed from phrases
-that teacher models wrote for every operator (outputs/seedlm/v2/phrases_*.json), so the language it
+that teacher models wrote for every operator (data/seedlm/operator_phrases.json), so the language it
 learns is distilled from the teachers, not taken from the benchmark.
 """
 import json
@@ -11,7 +11,7 @@ import re
 
 from ..rulecoder.tasks import ROOT
 
-PHRASES = ROOT / "outputs/seedlm/v2"
+PHRASES = ROOT / "data/seedlm/operator_phrases.json"
 WORD = re.compile(r"[a-z]+|\d+")
 OPENERS = ["write a function to", "write a python function to", "write a function that", "create a function to",
            "write a program to", "", "", "implement a function to"]
@@ -24,12 +24,9 @@ def words(text):
     return WORD.findall(text.lower())
 
 
-def load_phrases(folder=PHRASES):
+def load_phrases(path=PHRASES):
     """Teacher-written phrases per operator key; operators without phrases fall back to their keywords."""
-    phrases = {}
-    for path in sorted(folder.glob("phrases_*.json")):
-        phrases.update(json.loads(path.read_text()))
-    return phrases
+    return json.loads(path.read_text()) if path.exists() else {}
 
 
 def keyword_phrases(op):

@@ -1,0 +1,3902 @@
+{
+ "abs/1": [
+  "find the absolute value of the given number",
+  "return the magnitude of a number without its sign",
+  "compute how far a number is from zero"
+ ],
+ "abs_each/1": [
+  "replace each number in the list with its absolute value",
+  "compute the absolute value of every element of the list",
+  "make every number in the tuple non-negative by taking its absolute value"
+ ],
+ "add/2": [
+  "add the two given numbers",
+  "find the sum of two numbers",
+  "return the result of adding two numbers together"
+ ],
+ "add_dicts/2": [
+  "merge the two dictionaries, summing the values that share a key",
+  "add the values of matching keys when combining the two dictionaries",
+  "return a dictionary holding the total of every key over both dictionaries"
+ ],
+ "adjacent_diff/1": [
+  "compute the difference between each pair of adjacent elements in the list",
+  "return the gaps between consecutive numbers of the sequence",
+  "subtract each element from the one after it across the tuple"
+ ],
+ "adjacent_pairs/1": [
+  "return a list of all pairs of consecutive items in the list",
+  "pair each element with the element that follows it",
+  "make tuples of every two adjacent elements of the sequence"
+ ],
+ "adjacent_prod/1": [
+  "multiply each pair of adjacent elements in the list",
+  "return the products of consecutive numbers in the list",
+  "compute the product of every element with the one after it"
+ ],
+ "adjacent_sum/1": [
+  "add each pair of adjacent elements in the list",
+  "find the sums of consecutive numbers in a list",
+  "return the pairwise sums of neighboring items in the tuple"
+ ],
+ "all_above/2": [
+  "check whether all elements of the list are greater than the given number",
+  "return true if the number is smaller than every value in the list",
+  "test whether the given value is less than each element of the list"
+ ],
+ "all_below/2": [
+  "check whether all elements of the list are less than the given number",
+  "determine if every value in the list is smaller than k",
+  "return true if the number exceeds each item of the array"
+ ],
+ "all_empty/1": [
+  "check whether every dictionary in the list is empty",
+  "return true if all items of the list are empty",
+  "test if each inner collection of the list has no elements"
+ ],
+ "all_equal_to/2": [
+  "check whether every element of the list equals the given value",
+  "return true if all items of the sequence match the given element",
+  "determine whether each element of the list is equal to k"
+ ],
+ "all_nested_equal_to/2": [
+  "check whether every element in the nested list equals the given value",
+  "return true if all items of all sublists are equal to k",
+  "determine if each value in the list of tuples is the same as k"
+ ],
+ "all_same/1": [
+  "check whether all elements of the list are the same",
+  "return true if every item in the sequence is identical",
+  "determine whether the string consists of one repeated character"
+ ],
+ "all_truthy/1": [
+  "check whether all values in the list are true",
+  "return true if every boolean in the list is true",
+  "test that no element of the list is false"
+ ],
+ "all_unique/1": [
+  "check whether all elements of the list are unique",
+  "return true if the sequence contains no duplicate items",
+  "test if every item in the list is distinct"
+ ],
+ "all_values_equal_to/2": [
+  "check whether all values in the dictionary equal the given value",
+  "determine if every entry of the dictionary has the value k",
+  "return true when each value stored in the dictionary is equal to k"
+ ],
+ "alnum_only/1": [
+  "keep only the letters and digits of the string",
+  "strip the special characters out of the string",
+  "delete every character of the string that is not a letter or digit"
+ ],
+ "any_common/2": [
+  "check whether the two lists share at least one element",
+  "return true if any item of the first list is in the second",
+  "determine if the two sequences have a common value"
+ ],
+ "any_has_substring/2": [
+  "check whether any string in the list contains the given substring",
+  "return true if the substring appears in at least one string of the list",
+  "determine whether some element of the list of strings includes the given text"
+ ],
+ "append/2": [
+  "append the given value to the end of the list",
+  "add an element at the end of the list",
+  "return the list with the new item inserted after its last element"
+ ],
+ "append_tuple/2": [
+  "add the given element to the end of the tuple",
+  "append the value to the tuple",
+  "return a new tuple with the item added at the end"
+ ],
+ "arc_length/2": [
+  "find the arc length for the given radius and angle in degrees",
+  "compute the length of a circular arc from radius and central angle",
+  "calculate the arc length of a circle sector with the given radius and angle"
+ ],
+ "are_disjoint/2": [
+  "check whether the two lists have no elements in common",
+  "determine if the two sequences are disjoint",
+  "return true when no item of the first list appears in the second"
+ ],
+ "argmax/1": [
+  "find the index of the largest element in the list",
+  "return the position of the maximum value in a list",
+  "get the first index where the list holds its biggest number"
+ ],
+ "argmin/1": [
+  "find the index of the smallest element in the list",
+  "return the position of the first occurrence of the minimum value",
+  "get the index where the list holds its lowest number"
+ ],
+ "at/2": [
+  "get the element of the list at index k",
+  "return the item stored at the given position in the tuple",
+  "access the value at the specified index of a sequence"
+ ],
+ "at_least_long/2": [
+  "find the words in the string with at least k characters",
+  "return all words of length k or more from the sentence",
+  "keep the items of the list whose length is not less than k"
+ ],
+ "bell/1": [
+  "return the nth bell number",
+  "count the ways to partition a set of n elements",
+  "compute the bell number for the given n"
+ ],
+ "bell_sum/1": [
+  "find the sum of the bell numbers from 1 to n",
+  "compute the total of the bell numbers with indices one to n",
+  "return the sum of bell numbers for indices 1 through n"
+ ],
+ "best_pair_product/1": [
+  "find which two elements of the list give the largest product",
+  "return the pair of numbers whose product is the highest",
+  "get the two values from the list that multiply to the maximum"
+ ],
+ "binary/1": [
+  "convert the non-negative integer to its binary representation as a string",
+  "return the binary digits of the given number as a string",
+  "change the number into a string of zeros and ones"
+ ],
+ "binomial_product_sum/1": [
+  "find the sum of products of consecutive binomial coefficients for n",
+  "compute the total of each binomial coefficient times the next one",
+  "add up the products of neighboring binomial coefficients of row n"
+ ],
+ "binomial_row_sum/1": [
+  "compute the sum of all binomial coefficients for the given n",
+  "return the sum of n choose k over every k from zero to n",
+  "calculate two raised to the power n, the binomial coefficient sum"
+ ],
+ "bit_and/2": [
+  "compute the bitwise and of the two integers",
+  "find the result of applying bitwise and to the two numbers",
+  "return the number whose set bits are common to both integers"
+ ],
+ "bits_set_in_range/3": [
+  "check whether every bit of the number between the two positions is one",
+  "return true if each bit of the number in the given range is set",
+  "determine whether the number has all bits set between the two given positions"
+ ],
+ "bits_unset_in_range/3": [
+  "check whether the number has no set bits in the given position range",
+  "return true if every bit of the number between the two positions is unset",
+  "test if the number's bits from the lower to upper position are all clear"
+ ],
+ "camel_to_snake/1": [
+  "convert the string from camel case naming to snake case",
+  "insert underscores before capital letters of the string and lowercase it",
+  "change the camel case name into lowercase words joined by underscores"
+ ],
+ "carol/1": [
+  "return the carol number for the given n",
+  "get the n-th term of the carol sequence",
+  "calculate the carol number at index n"
+ ],
+ "catalan/1": [
+  "find the nth catalan number",
+  "compute the catalan number for the given n",
+  "return the n-th term of the catalan number sequence"
+ ],
+ "centered_hexagonal/1": [
+  "compute the centered hexagonal number for the given n",
+  "get the n-th term of the centered hexagonal sequence",
+  "return the centered hexagonal number at position n"
+ ],
+ "centered_pentagonal/1": [
+  "compute the centered pentagonal number for the given n",
+  "return the n-th centered pentagonal number",
+  "get the term at position n of the centered pentagonal sequence"
+ ],
+ "centered_square/1": [
+  "compute the centered square number for the given n",
+  "return the n-th number in the centered square sequence",
+  "calculate the nth centered square number"
+ ],
+ "centered_triangular/1": [
+  "compute the centered triangular number with index n",
+  "return the n-th centered triangular number",
+  "get the centered triangular number at the given position"
+ ],
+ "central_binomial/1": [
+  "find the central binomial coefficient of the given number",
+  "compute the number of ways to choose n items from twice as many",
+  "return the binomial coefficient of two n choose n"
+ ],
+ "char_count/1": [
+  "count the letters in the string",
+  "find how many alphabetic characters the given text contains",
+  "return the number of letters in a string, ignoring digits and symbols"
+ ],
+ "chunks/2": [
+  "split the list into chunks of size k",
+  "break a tuple into consecutive groups of k elements",
+  "divide the list into successive pieces of k items each"
+ ],
+ "circle_area/1": [
+  "compute the area of a circle from its radius",
+  "return pi times the square of the radius",
+  "find how much area a circle of the given radius covers"
+ ],
+ "circumference/1": [
+  "compute the circumference of the circle from its radius",
+  "return the perimeter of a circle with the given radius",
+  "calculate two times pi times the radius"
+ ],
+ "col_max/1": [
+  "find the maximum of each column of the matrix",
+  "return the largest value at each index across the sublists",
+  "get the column-wise maximums of a list of tuples"
+ ],
+ "col_mean/1": [
+  "find the average of each column of the list of lists",
+  "compute the mean of the numbers at each position across all the tuples",
+  "return the column-wise averages of a nested tuple of numbers"
+ ],
+ "col_min/1": [
+  "find the minimum of each column in the list of lists",
+  "return the smallest value at each index across all the sublists",
+  "get the column-wise minimums of a nested list of numbers"
+ ],
+ "col_sum/1": [
+  "find the sum of each column of the list of lists",
+  "add up the elements at each index across all the tuples",
+  "compute column-wise sums of the nested list of numbers"
+ ],
+ "column/2": [
+  "pull the column at the given index out of a nested list",
+  "get the element at index k of each sublist",
+  "return a list of the nth items of every inner list"
+ ],
+ "column_max/2": [
+  "find the maximum value in the given column of the list of lists",
+  "return the largest number at index n across all rows of the matrix",
+  "get the max of the column at the given index in the tuples"
+ ],
+ "column_sum/2": [
+  "add up the elements at index k of every sublist",
+  "find the sum of the values in the given column of the matrix",
+  "compute the total of column k across all rows of the nested list"
+ ],
+ "comb/2": [
+  "compute the binomial coefficient n choose k",
+  "find the number of ways to choose k items from n",
+  "return the number of combinations of n things taken k at a time"
+ ],
+ "common_all/1": [
+  "find the elements common to all the inner lists",
+  "return the sorted intersection of all the lists in the nested list",
+  "get the values shared by every sublist, in ascending order"
+ ],
+ "concat/2": [
+  "concatenate the two lists",
+  "join the second sequence onto the end of the first",
+  "combine two strings into one by appending the second to the first"
+ ],
+ "concat_rows/2": [
+  "concatenate the corresponding sublists of the two lists",
+  "join each row of the first list with the matching row of the second",
+  "merge the two nested lists by appending their paired rows together"
+ ],
+ "cone_lateral/2": [
+  "compute the lateral surface area of a cone from its radius and height",
+  "find the curved surface area of the cone with the given radius and height",
+  "return the side area of a cone, given radius then height"
+ ],
+ "cone_surface/2": [
+  "find the total surface area of a cone from its radius and height",
+  "compute the surface area of a cone given the radius and the height",
+  "calculate a cone's base area plus lateral area from radius and height"
+ ],
+ "cone_volume/2": [
+  "find the volume of a cone given its radius and height",
+  "compute the volume of a cone from the base radius and the height",
+  "calculate how much a cone of the given radius and height can hold"
+ ],
+ "contains/2": [
+  "check whether the element is present in the list",
+  "return true if the given value is in the tuple",
+  "determine if the collection contains the specified item"
+ ],
+ "contains_all/2": [
+  "check whether every element of the second list is present in the first",
+  "return true if the first tuple contains all items of the second",
+  "test if the first list includes each value from the second list"
+ ],
+ "coprime/2": [
+  "check if the two given integers are relatively prime",
+  "return true if the greatest common divisor of the two numbers is one",
+  "determine whether the two numbers share no common factor other than one"
+ ],
+ "count/2": [
+  "count the occurrences of the given value in the list",
+  "find how many times the element appears in the tuple",
+  "return the number of times the substring occurs in the string"
+ ],
+ "count_rows_with/2": [
+  "count how many inner lists include the given element",
+  "find the number of tuples in the list that contain a value",
+  "return the count of rows of the nested list holding the item"
+ ],
+ "count_sublists/1": [
+  "count the occurrences of each sublist in the list, keyed by tuple",
+  "build a dictionary of how many times every inner list appears",
+  "return the frequency of each sublist as a dictionary with tuple keys"
+ ],
+ "count_until_nested/1": [
+  "count the elements of the list before its first list or tuple element",
+  "find how many items precede the first sublist or tuple in the list",
+  "return the index of the first nested element, or the list length if none"
+ ],
+ "counter/1": [
+  "count how often each element occurs in the list, as a dictionary",
+  "build a dictionary mapping each item of the sequence to its frequency",
+  "get the number of occurrences of every character in the string as a dictionary"
+ ],
+ "cube/1": [
+  "compute the cube of the given number",
+  "raise the number to the third power",
+  "find the value of the number cubed"
+ ],
+ "cube_each/1": [
+  "find the cube of each number in the list",
+  "raise every element of the list to the third power",
+  "return the cubes of all the given numbers"
+ ],
+ "cube_lateral/1": [
+  "compute the lateral surface area of a cube from its side length",
+  "return the combined area of the four side faces of a cube",
+  "calculate four times the square of the cube edge length"
+ ],
+ "cube_surface/1": [
+  "compute the total surface area of a cube with the given side length",
+  "return six times the square of the cube's edge length",
+  "get the area of all six faces of a cube from its side"
+ ],
+ "cube_volume/1": [
+  "compute the volume of a cube from its side length",
+  "return the volume of the cube whose edge is given",
+  "raise the side length of a cube to the third power"
+ ],
+ "cuboid_lateral/3": [
+  "find the lateral surface area of a cuboid from its length, width and height",
+  "compute the area of the four side faces of a cuboid",
+  "calculate twice the height times the sum of the length and width"
+ ],
+ "cuboid_surface/3": [
+  "compute a cuboid's surface area from its length, width and height",
+  "find the total area of the faces of a rectangular box",
+  "return the combined area of all six faces of the cuboid"
+ ],
+ "cuboid_volume/3": [
+  "find the volume of a cuboid from its length, width and height",
+  "compute the volume of a rectangular prism with the given dimensions",
+  "multiply length, width and height to get a cuboid's volume"
+ ],
+ "cullen/1": [
+  "compute the cullen number with index n",
+  "return the given number times two to that power, plus one",
+  "find the n-th cullen number"
+ ],
+ "cylinder_lateral/2": [
+  "find the lateral surface area of a cylinder from its radius and height",
+  "compute the curved surface area of a cylinder given radius and height",
+  "return the lateral area of a cylinder with the given radius and height"
+ ],
+ "cylinder_surface/2": [
+  "compute the total surface area of a cylinder from its radius and height",
+  "return two pi times the radius times the sum of radius and height",
+  "find the outer area of a closed cylinder with the given radius and height"
+ ],
+ "cylinder_volume/2": [
+  "compute the volume of a cylinder from its radius and height",
+  "return the space inside a cylinder given the radius and the height",
+  "calculate pi times the radius squared times the height"
+ ],
+ "decagonal/1": [
+  "compute the decagonal number for the given n",
+  "get the n-th term of the decagonal number sequence",
+  "return the decagonal number at position n"
+ ],
+ "decode_runs/1": [
+  "expand a run-length encoded list back into its elements",
+  "turn each count and value pair into that many copies of the value",
+  "decompress the list by repeating each value the given number of times"
+ ],
+ "dedupe/1": [
+  "remove duplicates from the list while keeping the original order",
+  "return the distinct elements of the sequence in first-seen order",
+  "drop repeated items from the tuple, keeping the first occurrence of each"
+ ],
+ "deep_evens/1": [
+  "remove the odd numbers from a nested tuple",
+  "keep only the even elements of the nested list, at every level",
+  "extract the even values from the mixed nested tuple, preserving its structure"
+ ],
+ "deep_flatten/1": [
+  "flatten a nested list into a single flat list",
+  "unpack all sublists recursively into one list of values",
+  "return every element of the deeply nested list in a flat list"
+ ],
+ "deep_odds/1": [
+  "remove the even numbers from the nested list",
+  "keep only the odd elements of the nested tuple, preserving its structure",
+  "filter out even values at every level of the nested sequence"
+ ],
+ "delannoy/2": [
+  "compute the delannoy number for the two given integers",
+  "return the delannoy number of m and n",
+  "count grid paths of size m by n using right, up and diagonal steps"
+ ],
+ "differ_one_bit/2": [
+  "check whether exactly one bit differs between the two numbers",
+  "return true if the integers differ at only a single bit position",
+  "determine if the binary forms of two numbers differ by one bit"
+ ],
+ "digit_count/1": [
+  "count the decimal digits of the given number",
+  "find how many digits the number has",
+  "return the length of the number written in decimal"
+ ],
+ "digit_count_str/1": [
+  "count the digits in the string",
+  "find how many numeric characters the given string contains",
+  "return the number of digit characters that appear in a string"
+ ],
+ "digit_sum/1": [
+  "find the sum of the digits of the given number",
+  "add together all digits of a whole number",
+  "compute the digit sum of a non-negative integer"
+ ],
+ "digit_sum_str/1": [
+  "find the sum of the digits that appear in the string",
+  "add up all the numeric characters in a string",
+  "compute the total of the digit characters in the text"
+ ],
+ "digits/1": [
+  "split the number into a list of its digits",
+  "return the digits of the given integer as a list",
+  "convert a non-negative integer into a list of single digits"
+ ],
+ "digits_only/1": [
+  "extract only the digits from the string",
+  "remove all non-digit characters from the given string",
+  "keep just the numeric characters of a string"
+ ],
+ "distinct_rows_count/1": [
+  "count the distinct sublists in the list",
+  "find how many different inner lists the list contains",
+  "return the number of unique rows in the nested list"
+ ],
+ "divisible/2": [
+  "check whether the first number is divisible by the second",
+  "return true if the first integer is a multiple of the second",
+  "test whether the second number divides the first evenly"
+ ],
+ "divisible_by_10/1": [
+  "check whether the number is divisible by 10",
+  "return true if the integer is a multiple of ten",
+  "test if the given number divides evenly by 10"
+ ],
+ "divisible_by_11/1": [
+  "check whether the given number is divisible by 11",
+  "determine if an integer is a multiple of eleven",
+  "return true if dividing the number by 11 leaves no remainder"
+ ],
+ "divisible_by_12/1": [
+  "check whether the given number is divisible by 12",
+  "return true if the integer is a multiple of 12",
+  "test whether dividing the number by twelve leaves no remainder"
+ ],
+ "divisible_by_13/1": [
+  "check whether the given number is divisible by 13",
+  "return true if the number is a multiple of thirteen",
+  "test if the number leaves no remainder when divided by 13"
+ ],
+ "divisible_by_3/1": [
+  "check whether the given number is divisible by 3",
+  "return true if the number is a multiple of three",
+  "test if the number leaves no remainder when divided by 3"
+ ],
+ "divisible_by_4/1": [
+  "check whether the number is divisible by 4",
+  "return true if the given integer is a multiple of four",
+  "determine whether the number leaves no remainder when divided by 4"
+ ],
+ "divisible_by_5/1": [
+  "check whether the number is divisible by 5",
+  "return true if the integer is a multiple of five",
+  "test if the given number leaves no remainder when divided by 5"
+ ],
+ "divisible_by_6/1": [
+  "check whether the given number is divisible by 6",
+  "determine if an integer is a multiple of six",
+  "return true if a number leaves no remainder when divided by 6"
+ ],
+ "divisible_by_7/1": [
+  "check whether the number is divisible by 7",
+  "return true if the given integer is a multiple of 7",
+  "test if the number leaves no remainder when divided by seven"
+ ],
+ "divisible_by_8/1": [
+  "check whether the given number is divisible by 8",
+  "return true if the number is a multiple of eight",
+  "test if the number leaves no remainder when divided by 8"
+ ],
+ "divisible_by_9/1": [
+  "check whether the number is a multiple of 9",
+  "return true if the given integer is evenly divisible by nine",
+  "determine whether the number leaves no remainder when divided by 9"
+ ],
+ "dodecagonal/1": [
+  "find the nth dodecagonal number",
+  "compute the dodecagonal number for the given n",
+  "return the n-th term in the sequence of dodecagonal numbers"
+ ],
+ "drop/2": [
+  "remove the first k elements from the list",
+  "return the sequence without its first k items",
+  "get the part of the string after the first k characters"
+ ],
+ "drop_all_none_rows/1": [
+  "remove the rows of the list in which every value is none",
+  "drop every tuple that contains only none values",
+  "keep only the sublists that have at least one value other than none"
+ ],
+ "drop_column/2": [
+  "delete the element at index k from each row of the nested list",
+  "remove the given column from every sublist of the list of lists",
+  "return the matrix without the column at the specified index"
+ ],
+ "drop_consecutive/1": [
+  "remove consecutive duplicates from the list",
+  "collapse each run of equal adjacent elements into a single element",
+  "return the list with repeated neighbouring items reduced to one"
+ ],
+ "drop_ends/1": [
+  "remove the first and last elements of the list",
+  "return the sequence without its first and last items",
+  "strip the first and last characters from the string"
+ ],
+ "drop_first/1": [
+  "remove the first element of the list",
+  "return every item of the sequence except the first one",
+  "drop the first character of the given string"
+ ],
+ "drop_last/1": [
+  "remove the last element of the list",
+  "return the sequence without its final item",
+  "get all characters of the string except the last one"
+ ],
+ "drop_none_values/1": [
+  "remove the items with none values from the dictionary",
+  "drop every key whose value is none from the dictionary",
+  "return the dictionary without entries that have a null value"
+ ],
+ "drop_rows_with_none/1": [
+  "remove the tuples that contain a none value from the list",
+  "drop every row of the list that holds a null value",
+  "keep only the tuples that have no none elements in them"
+ ],
+ "each_add/2": [
+  "add the two lists element by element",
+  "return the sums of corresponding elements of the two tuples",
+  "compute the index-wise addition of two sequences"
+ ],
+ "each_and/2": [
+  "compute the bitwise and of corresponding elements of the two tuples",
+  "find the elementwise bitwise and of two lists of integers",
+  "apply bitwise and to the elements at matching positions of two tuples"
+ ],
+ "each_floordiv/2": [
+  "compute the element-wise integer quotients of the two tuples",
+  "find the floor division of corresponding elements of the two lists",
+  "divide the first list by the second element by element, with floor division"
+ ],
+ "each_greater/2": [
+  "check whether the first tuple is element-wise greater than the second",
+  "return true if all corresponding pairs of the two lists have the first larger",
+  "test if the second list is smaller than the first at every position"
+ ],
+ "each_less/2": [
+  "check whether the first list is element-wise smaller than the second",
+  "return true if every element of the first tuple is less than its counterpart",
+  "determine whether each element of the second list is larger than the matching one"
+ ],
+ "each_max/2": [
+  "find the element-wise maximum of the two lists",
+  "return the larger of each pair of corresponding elements in two tuples",
+  "take the greater value at every index of the two sequences"
+ ],
+ "each_min/2": [
+  "find the elementwise minimum of the two lists",
+  "return the smaller of each pair of corresponding items in two tuples",
+  "take the lower value at every position of the two sequences"
+ ],
+ "each_mod/2": [
+  "find the element-wise remainder of the first list divided by the second",
+  "return the modulo of corresponding elements of the two tuples",
+  "compute each element of the first sequence mod the matching one in the second"
+ ],
+ "each_mul/2": [
+  "multiply the corresponding elements of the two lists",
+  "find the element-wise product of two tuples, including nested tuples",
+  "return the products of the items at matching positions in both sequences"
+ ],
+ "each_or/2": [
+  "compute the bitwise or of corresponding elements of the two tuples",
+  "apply bitwise or element by element to the two lists",
+  "return the bitwise or of each pair of matching numbers in the two sequences"
+ ],
+ "each_pow/2": [
+  "raise each number in the first list to the matching exponent in the second",
+  "compute the elementwise power of two tuples, first as base, second as exponent",
+  "return the corresponding elements of the first tuple raised to those of the second"
+ ],
+ "each_sub/2": [
+  "subtract the elements of the second list from the first list elementwise",
+  "find the difference of corresponding items of the two tuples",
+  "compute index-wise differences of two nested tuples, first minus second"
+ ],
+ "each_truediv/2": [
+  "divide each element of the first list by the matching element of the second",
+  "perform element-wise true division between the two tuples",
+  "return the quotients of corresponding numbers from the two lists"
+ ],
+ "each_xor/2": [
+  "compute the bitwise xor of corresponding elements of the two tuples",
+  "return the element-wise exclusive or of the two lists",
+  "apply bitwise xor to the paired elements of the two sequences"
+ ],
+ "ellipse_area/2": [
+  "find the area of an ellipse from its two semi-axes",
+  "compute the area of an ellipse given the semi-major and semi-minor axes",
+  "return the ellipse area, pi times the product of its semi-axes"
+ ],
+ "ends_with_digit/1": [
+  "check whether the string ends with a digit",
+  "return true if the last character of the string is a number",
+  "determine if the given text finishes with a numeric character"
+ ],
+ "eulerian/2": [
+  "find the eulerian number for the given n and m",
+  "compute the eulerian number counting permutations of n items with m ascents",
+  "return how many permutations of n elements have exactly m ascents"
+ ],
+ "even_at_even_index/1": [
+  "check whether the list holds only even values at its even indices",
+  "return true if every element in an even position is an even number",
+  "determine if the even-indexed elements of the list are all even"
+ ],
+ "even_binomial_sum/1": [
+  "add up the binomial coefficients with even index for the given number",
+  "return the sum of the even-indexed entries of row n of pascal's triangle",
+  "raise two to the power one less than the given number"
+ ],
+ "even_index/1": [
+  "extract the elements at even indices of the list",
+  "take every second element of the sequence, starting with the first",
+  "drop every character at an odd index of the string"
+ ],
+ "even_power1_sum/1": [
+  "find the sum of the first n even natural numbers",
+  "add up the first n positive even numbers",
+  "compute the total of the even numbers two, four, up to twice n"
+ ],
+ "even_power2_sum/1": [
+  "compute the sum of the squares of the first n even numbers",
+  "return the total of the squared values of the first n even integers",
+  "add up the squares of 2, 4, 6 and so on for n terms"
+ ],
+ "even_power3_sum/1": [
+  "find the sum of the cubes of the first n even numbers",
+  "add up the cubes of the first n positive even integers",
+  "compute the cubes of the first n even numbers and total them"
+ ],
+ "even_power4_sum/1": [
+  "sum the first n even numbers raised to the fourth power",
+  "raise the first n even numbers to the fourth power and add them",
+  "add up the fourth power of each even number up to twice n"
+ ],
+ "even_power5_sum/1": [
+  "find the sum of the fifth powers of the first n even natural numbers",
+  "compute the sum of fifth powers of the first n even numbers",
+  "add up the fifth power of each of the first n even numbers"
+ ],
+ "evens/1": [
+  "extract the even numbers from the list",
+  "drop the odd values from the given list, keeping the even ones",
+  "filter a tuple of integers down to its even values"
+ ],
+ "every_nth/2": [
+  "split the list into n lists, taking every nth element",
+  "deal the elements of the list into n lists in round-robin order",
+  "split the list into n interleaved sublists of every nth element"
+ ],
+ "factorial/1": [
+  "compute the factorial of the given number",
+  "find the product of all positive integers up to the number",
+  "return the factorial of the non-negative integer"
+ ],
+ "fibonacci/1": [
+  "compute the nth fibonacci number",
+  "return the n-th term of the fibonacci sequence",
+  "find the fibonacci number at index n, starting from zero"
+ ],
+ "fibonacci_sum/1": [
+  "find the sum of the first n fibonacci numbers",
+  "add up the fibonacci numbers from the first to the nth",
+  "compute the total of the first n terms of the fibonacci sequence"
+ ],
+ "filter_dict/2": [
+  "filter the dictionary to keep entries with values at least k",
+  "keep the dictionary entries whose values are not below the threshold",
+  "remove the keys of the dictionary with a value smaller than k"
+ ],
+ "filter_dict_pairs/3": [
+  "filter the dictionary to entries whose two values meet the given minimums",
+  "keep the dictionary items whose first and second values reach both thresholds",
+  "remove dictionary entries whose first or second value falls below its minimum"
+ ],
+ "find/2": [
+  "find the index of the first occurrence of the substring in the string",
+  "return the position where the given substring first appears in the text",
+  "get the starting index of a substring within the string"
+ ],
+ "first/1": [
+  "get the first element of the list",
+  "return the initial item of the sequence",
+  "find the first character of the string"
+ ],
+ "first_of_max_by_second/1": [
+  "find the first element of the tuple with the largest second value",
+  "return the name in the record whose second field is highest",
+  "get the first item of the row that has the maximum second element"
+ ],
+ "first_of_min_by_second/1": [
+  "find the name of the record with the smallest second value",
+  "return the first item of the tuple whose second element is lowest",
+  "get the label paired with the minimum value in a list of tuples"
+ ],
+ "flatten/1": [
+  "flatten the list of lists into a single list",
+  "join all the sublists of the nested list into one flat list",
+  "convert a list of tuples into one list of all their elements"
+ ],
+ "float/1": [
+  "convert the integer to a float",
+  "return the given number as a floating point value",
+  "express the integer as a float with a decimal point"
+ ],
+ "floordiv/2": [
+  "find the floor division of the first number by the second",
+  "divide the first number by the second and round down",
+  "return the integer quotient of the two numbers"
+ ],
+ "follows_pattern/2": [
+  "check whether the first sequence follows the pattern given by the second",
+  "determine if each pattern symbol always matches the same item in the list",
+  "return true if the two sequences have equal length and follow the same pattern"
+ ],
+ "gcd/2": [
+  "find the greatest common divisor of two integers",
+  "compute the gcd of the two given numbers",
+  "return the highest common factor of a pair of integers"
+ ],
+ "ge/2": [
+  "find the elements of the list that are at least k",
+  "keep the numbers in the list greater than or equal to a threshold",
+  "filter the tuple to values not less than the given number"
+ ],
+ "gold_mine/1": [
+  "find the maximum gold collectable crossing the grid from left to right",
+  "compute the best path sum moving right, up-right or down-right through the grid",
+  "return the most gold a miner can collect across the gold mine grid"
+ ],
+ "grid_nonadjacent_max/1": [
+  "find the maximum sum of grid numbers with no two chosen adjacent",
+  "return the largest total from the grid while skipping neighboring columns",
+  "compute the best sum using one value per column, never two adjacent columns"
+ ],
+ "group_by_first/1": [
+  "group the pairs into a dictionary keyed by their first element",
+  "map each first item to the list of second items paired with it",
+  "collect the second values of the tuples under their first values in a dictionary"
+ ],
+ "group_by_second/1": [
+  "group the first elements of the pairs by their second elements",
+  "build a dictionary mapping each second item to the list of first items",
+  "collect the first values of the tuples into lists keyed by the second value"
+ ],
+ "gt/2": [
+  "find the numbers in the list greater than the given value",
+  "keep only the elements of the list that exceed k",
+  "return the items of the tuple larger than the given number"
+ ],
+ "has_duplicates/1": [
+  "check whether the list contains any duplicate elements",
+  "determine if some value appears more than once in an array",
+  "return true if the given string has a repeated character"
+ ],
+ "has_even_bit_parity/1": [
+  "check whether the given number has even parity",
+  "return true if the number's binary form has an even number of ones",
+  "test whether the parity of the integer is even"
+ ],
+ "has_inner_a/1": [
+  "check whether the string has the letter 'a' inside a word",
+  "return true if a word contains 'a' somewhere other than its ends",
+  "determine if some word contains an 'a' that is neither first nor last"
+ ],
+ "has_inner_b/1": [
+  "check whether the letter 'b' appears strictly inside a word of the string",
+  "determine if 'b' occurs in the middle of some word in the text",
+  "return true if some word contains 'b' neither at its start nor its end"
+ ],
+ "has_inner_c/1": [
+  "check whether the string has 'c' in the middle of a word",
+  "return true if a word contains 'c' except at its start or end",
+  "determine whether 'c' occurs inside some word, not at the start or end"
+ ],
+ "has_inner_d/1": [
+  "check whether 'd' occurs in the middle of a word in the string",
+  "return true if the letter d appears strictly inside a word",
+  "test if the letter d occurs in a word but not at either end"
+ ],
+ "has_inner_e/1": [
+  "check whether the letter e appears inside a word of the string",
+  "return true if some word in the text has e in its middle",
+  "determine if the string contains e surrounded by other word characters"
+ ],
+ "has_inner_f/1": [
+  "check whether 'f' occurs in the middle of a word in the string",
+  "return true if the text has an 'f' with letters on both sides",
+  "determine if 'f' is found strictly inside some word of the text"
+ ],
+ "has_inner_g/1": [
+  "check whether the letter 'g' appears strictly inside a word of the string",
+  "determine if 'g' occurs in the middle of some word in the text",
+  "return true if some word contains 'g' neither at its start nor its end"
+ ],
+ "has_inner_h/1": [
+  "find whether the text has a word with 'h' in the middle of it",
+  "test if the letter 'h' appears strictly inside a word of the text",
+  "return true if a word contains 'h' except at its start or end"
+ ],
+ "has_inner_i/1": [
+  "check whether 'i' occurs in the middle of a word in the string",
+  "return true if the letter i appears strictly inside a word",
+  "test if the letter i occurs in a word but not at either end"
+ ],
+ "has_inner_j/1": [
+  "check whether j occurs mid-word somewhere in the string",
+  "find whether the text has a word with j neither first nor last",
+  "return true if the letter j is found inside some word of the text"
+ ],
+ "has_inner_k/1": [
+  "check whether the string contains 'k' somewhere inside a word",
+  "return true if a 'k' appears that neither starts nor ends a word",
+  "determine if the letter 'k' is found in the interior of a word"
+ ],
+ "has_inner_l/1": [
+  "check whether the letter 'l' appears strictly inside a word of the string",
+  "determine if 'l' occurs in the middle of some word in the text",
+  "return true if some word contains 'l' neither at its start nor its end"
+ ],
+ "has_inner_m/1": [
+  "determine whether 'm' occurs inside some word, not at the start or end",
+  "check whether the string has 'm' in the middle of a word",
+  "test if the letter 'm' appears strictly inside a word of the text"
+ ],
+ "has_inner_n/1": [
+  "check whether 'n' occurs in the middle of a word in the string",
+  "return true if the letter n appears strictly inside a word",
+  "test if the letter n occurs in a word but not at either end"
+ ],
+ "has_inner_o/1": [
+  "check whether the string contains an o in the middle of a word",
+  "return true if o appears inside a word, not at its edges",
+  "determine whether some word of the text has o between other letters"
+ ],
+ "has_inner_p/1": [
+  "check whether the text has the letter 'p' in the middle of a word",
+  "return true if 'p' occurs inside a word, not at its edges",
+  "test if a 'p' is surrounded by word characters on both sides"
+ ],
+ "has_inner_q/1": [
+  "check whether the letter 'q' appears strictly inside a word of the string",
+  "determine if 'q' occurs in the middle of some word in the text",
+  "return true if some word contains 'q' neither at its start nor its end"
+ ],
+ "has_inner_r/1": [
+  "return true if a word contains 'r' except at its start or end",
+  "find whether the text has a word with 'r' in the middle of it",
+  "check whether the string has 'r' in the middle of a word"
+ ],
+ "has_inner_s/1": [
+  "check whether 's' occurs in the middle of a word in the string",
+  "return true if the letter s appears strictly inside a word",
+  "test if the letter s occurs in a word but not at either end"
+ ],
+ "has_inner_t/1": [
+  "check whether the letter t appears strictly inside a word of the string",
+  "return true if t occurs mid-word in the given text",
+  "determine if some word contains t, but not as its first or last letter"
+ ],
+ "has_inner_u/1": [
+  "check whether 'u' appears inside a word of the string",
+  "return true if a 'u' sits inside a word, not at either end",
+  "determine if a word in the text contains 'u' between other letters"
+ ],
+ "has_inner_v/1": [
+  "check whether the letter 'v' appears strictly inside a word of the string",
+  "determine if 'v' occurs in the middle of some word in the text",
+  "return true if some word contains 'v' neither at its start nor its end"
+ ],
+ "has_inner_w/1": [
+  "test if the letter 'w' appears strictly inside a word of the text",
+  "determine whether 'w' occurs inside some word, not at the start or end",
+  "find whether the text has a word with 'w' in the middle of it"
+ ],
+ "has_inner_x/1": [
+  "check whether 'x' occurs in the middle of a word in the string",
+  "return true if the letter x appears strictly inside a word",
+  "test if the letter x occurs in a word but not at either end"
+ ],
+ "has_inner_y/1": [
+  "check whether the string has a y that neither starts nor ends a word",
+  "return true if the letter y sits inside a word of the text",
+  "determine whether y occurs between two word characters in the string"
+ ],
+ "has_inner_z/1": [
+  "check whether the string has a 'z' in the middle of a word",
+  "return true if 'z' appears within a word, away from both ends",
+  "determine if some word has an inner 'z', not at its start or end"
+ ],
+ "has_letter_a/1": [
+  "check whether the string contains the letter 'a'",
+  "determine if 'a' appears anywhere in the given text",
+  "return true if the character 'a' occurs in the string"
+ ],
+ "has_letter_and_digit/1": [
+  "check whether the string includes a letter as well as a digit",
+  "determine if a string has at least one alphabetic and one numeric character",
+  "return true when the text contains both letters and digits"
+ ],
+ "has_letter_b/1": [
+  "check whether the string contains the letter 'b'",
+  "return true if 'b' occurs anywhere in the given text",
+  "return true when the given string contains 'b', otherwise false"
+ ],
+ "has_letter_c/1": [
+  "check whether the string contains the lowercase letter 'c'",
+  "return true if the letter c appears anywhere in the string",
+  "test if the text has at least one occurrence of the letter c"
+ ],
+ "has_letter_d/1": [
+  "check whether the string contains the letter d",
+  "return true if the character d occurs in the given text",
+  "determine if there is a d anywhere in the string"
+ ],
+ "has_letter_e/1": [
+  "check whether the string contains the letter 'e'",
+  "return true if 'e' appears anywhere in the given string",
+  "determine if the word has at least one 'e' in it"
+ ],
+ "has_letter_f/1": [
+  "check whether the string contains the letter 'f'",
+  "determine if 'f' appears anywhere in the given text",
+  "return true if the character 'f' occurs in the string"
+ ],
+ "has_letter_g/1": [
+  "test if the string contains 'g' at least once",
+  "determine whether the lowercase letter 'g' appears in the string",
+  "find out if the character 'g' is present in the text"
+ ],
+ "has_letter_h/1": [
+  "check whether the string contains the lowercase letter 'h'",
+  "return true if the letter h appears anywhere in the string",
+  "test if the text has at least one occurrence of the letter h"
+ ],
+ "has_letter_i/1": [
+  "test whether the letter i is present in the string",
+  "return true if the text includes at least one i",
+  "find out whether the given string has an i in it"
+ ],
+ "has_letter_j/1": [
+  "check whether the letter 'j' occurs in the string",
+  "return true if the text includes a 'j'",
+  "test if the given string has any 'j' character"
+ ],
+ "has_letter_k/1": [
+  "check whether the string contains the letter 'k'",
+  "determine if 'k' appears anywhere in the given text",
+  "return true if the character 'k' occurs in the string"
+ ],
+ "has_letter_l/1": [
+  "return true when the given string contains 'l', otherwise false",
+  "check whether the string contains the letter 'l'",
+  "determine whether the lowercase letter 'l' appears in the string"
+ ],
+ "has_letter_m/1": [
+  "check whether the string contains the lowercase letter 'm'",
+  "return true if the letter m appears anywhere in the string",
+  "test if the text has at least one occurrence of the letter m"
+ ],
+ "has_letter_n/1": [
+  "check if the string has the letter n in it",
+  "return true when the character n appears somewhere in the text",
+  "determine whether the given string includes an n"
+ ],
+ "has_letter_o/1": [
+  "check whether the string has the letter 'o' in it",
+  "return true if the given text contains an 'o'",
+  "determine if 'o' is one of the characters of the string"
+ ],
+ "has_letter_p/1": [
+  "check whether the string contains the letter 'p'",
+  "determine if 'p' appears anywhere in the given text",
+  "return true if the character 'p' occurs in the string"
+ ],
+ "has_letter_q/1": [
+  "return true if 'q' occurs anywhere in the given text",
+  "test if the string contains 'q' at least once",
+  "find out if the character 'q' is present in the text"
+ ],
+ "has_letter_r/1": [
+  "check whether the string contains the lowercase letter 'r'",
+  "return true if the letter r appears anywhere in the string",
+  "test if the text has at least one occurrence of the letter r"
+ ],
+ "has_letter_s/1": [
+  "check whether the letter s occurs in the string",
+  "return true if the given text contains an s",
+  "determine if any character of the string is an s"
+ ],
+ "has_letter_t/1": [
+  "check whether the string contains a 't'",
+  "return true if the letter 't' is present in the text",
+  "test if any character of the given string is 't'"
+ ],
+ "has_letter_u/1": [
+  "check whether the string contains the letter 'u'",
+  "determine if 'u' appears anywhere in the given text",
+  "return true if the character 'u' occurs in the string"
+ ],
+ "has_letter_v/1": [
+  "determine whether the lowercase letter 'v' appears in the string",
+  "return true when the given string contains 'v', otherwise false",
+  "check whether the string contains the letter 'v'"
+ ],
+ "has_letter_w/1": [
+  "check whether the string contains the lowercase letter 'w'",
+  "return true if the letter w appears anywhere in the string",
+  "test if the text has at least one occurrence of the letter w"
+ ],
+ "has_letter_x/1": [
+  "test if the string contains the letter x",
+  "return true if an x appears anywhere in the text",
+  "determine whether the given string includes the character x"
+ ],
+ "has_letter_y/1": [
+  "check whether the letter 'y' appears in the string",
+  "return true if the given string includes 'y'",
+  "determine if the text has at least one 'y'"
+ ],
+ "has_letter_z/1": [
+  "check whether the string contains the letter 'z'",
+  "determine if 'z' appears anywhere in the given text",
+  "return true if the character 'z' occurs in the string"
+ ],
+ "has_none/1": [
+  "check whether any element of the tuple is none",
+  "return true if the list holds at least one none value",
+  "determine if none appears among the items of the sequence"
+ ],
+ "has_odd_bit_parity/1": [
+  "check whether the given number has odd parity",
+  "determine if a number's binary form has an odd number of ones",
+  "return true if an integer contains an odd count of 1 bits"
+ ],
+ "has_substring/2": [
+  "check whether the second string occurs inside the first",
+  "return true if the substring appears anywhere in the string",
+  "test if the text contains the given piece of text"
+ ],
+ "heptagonal/1": [
+  "compute the heptagonal number with index n",
+  "return the n-th heptagonal number",
+  "get the heptagonal number at the given position"
+ ],
+ "hexagonal/1": [
+  "find the nth hexagonal number",
+  "compute the hexagonal number at position n",
+  "return the n-th term of the hexagonal number sequence"
+ ],
+ "identical/2": [
+  "check whether the two lists are exactly equal",
+  "return true if the two given sequences are identical",
+  "determine whether the two strings are the same"
+ ],
+ "in_arithmetic_sequence/3": [
+  "check whether a number belongs to the arithmetic sequence of given start and step",
+  "return true if stepping from the first number by the third reaches the second",
+  "determine if the target value occurs in an infinite arithmetic progression"
+ ],
+ "index/2": [
+  "find the index of the first occurrence of the element in the list",
+  "return the position of the given value in the sequence",
+  "get the index where the item first appears in the tuple"
+ ],
+ "index_parity_match/1": [
+  "check whether each element has the same parity as its index",
+  "return true if even indices hold even numbers and odd indices odd numbers",
+  "determine whether every number in the list matches the parity of its position"
+ ],
+ "int_each/1": [
+  "convert each string in the list to an integer",
+  "turn a list of numeric strings into integers",
+  "parse every element of the tuple of strings as a whole number"
+ ],
+ "int_part/1": [
+  "convert the float to an integer by dropping its decimals",
+  "get the integer part of the given decimal number",
+  "truncate the floating point number toward zero"
+ ],
+ "interleave/2": [
+  "interleave the elements of the two lists into one list",
+  "merge two lists of equal length by alternating their items",
+  "alternate items from the first and second lists into a single flat list"
+ ],
+ "ints_only/1": [
+  "extract only the integer values from a mixed list",
+  "pick out the integers from a heterogeneous list",
+  "return a list of the elements that are integers"
+ ],
+ "invert_dict/1": [
+  "invert the dictionary by swapping its keys and values",
+  "return a dictionary that maps each value to its key",
+  "swap the keys and the values of the dictionary"
+ ],
+ "is_abundant/1": [
+  "check whether the number is abundant",
+  "return true if the sum of the proper divisors exceeds the number",
+  "determine if the integer is smaller than the sum of its proper divisors"
+ ],
+ "is_alphanumeric/1": [
+  "check whether the string is alphanumeric",
+  "return true if the string contains only letters and digits",
+  "test whether the given text consists of alphanumeric characters only"
+ ],
+ "is_armstrong/1": [
+  "test whether the given number is an armstrong number",
+  "determine whether the number is narcissistic",
+  "check if each digit raised to the digit count sums to the number"
+ ],
+ "is_balanced/1": [
+  "check whether the brackets in the string are balanced",
+  "determine if every bracket in the expression is properly matched and closed",
+  "return true if the string is non-empty and all its brackets nest correctly"
+ ],
+ "is_decimal_2/1": [
+  "check whether the string is a decimal with at most two decimal places",
+  "return true if the text is a number with at most 2 fractional digits",
+  "validate that the string holds digits with an optional one or two digit fraction"
+ ],
+ "is_deficient/1": [
+  "check whether the given number is deficient",
+  "determine if the sum of a number's proper divisors is less than the number",
+  "return true if a positive integer is a deficient number"
+ ],
+ "is_digits_only/1": [
+  "check whether the string contains only digits",
+  "return true if every character of the string is a digit",
+  "determine whether the given string is made up of digits only"
+ ],
+ "is_empty/1": [
+  "check whether the list is empty",
+  "return true if the given collection has no elements",
+  "determine whether the given string, list or dictionary has length zero"
+ ],
+ "is_equilateral/3": [
+  "check whether a triangle with the three given sides is equilateral",
+  "determine if all three side lengths are equal",
+  "return true if the three numbers are the same"
+ ],
+ "is_even/1": [
+  "check whether the number is even",
+  "return true if the given number is divisible by 2",
+  "determine if an integer is an even number"
+ ],
+ "is_fibonacci_number/1": [
+  "check whether the number is a fibonacci number",
+  "return true if the given integer appears in the fibonacci sequence",
+  "determine if the number belongs to the fibonacci series"
+ ],
+ "is_happy/1": [
+  "check whether the given number is a happy number",
+  "return true if repeatedly summing the squared digits of the number reaches one",
+  "determine whether the positive integer is happy"
+ ],
+ "is_harshad/1": [
+  "check whether the given number is a harshad number",
+  "test if the number is divisible by the sum of its digits",
+  "return true if the number is a niven number, else false"
+ ],
+ "is_integer_string/1": [
+  "check whether the text is a valid integer, allowing a sign",
+  "return true if the string holds only an optionally signed whole number",
+  "test if the string, ignoring surrounding spaces, is an integer"
+ ],
+ "is_isomorphic/2": [
+  "check whether the two strings are isomorphic",
+  "return true if the characters of one string map one-to-one onto the other",
+  "test if two given strings are isomorphic to each other"
+ ],
+ "is_isosceles/3": [
+  "check whether a triangle with the three given sides is isosceles",
+  "return true if at least two of the three side lengths are equal",
+  "test if the triangle with these sides is isosceles or not"
+ ],
+ "is_keith/1": [
+  "test if the number is a keith number",
+  "return true if the number is a keith number, otherwise false",
+  "determine whether the number appears in the sequence generated from its own digits"
+ ],
+ "is_leap_year/1": [
+  "check whether the given year is a leap year",
+  "return true if the year has three hundred sixty-six days",
+  "determine whether the year is a leap year in the gregorian calendar"
+ ],
+ "is_letters_only/1": [
+  "check whether the string contains only letters",
+  "return true if every character of the string is alphabetic",
+  "determine if the text consists of letters alone"
+ ],
+ "is_lowercase/1": [
+  "check whether the string is in lower case",
+  "return true if the string is all lowercase, otherwise false",
+  "test whether every letter in the given text is lowercase"
+ ],
+ "is_magic_square/1": [
+  "check whether the matrix is a magic square",
+  "return true if all rows, columns and diagonals of the matrix have equal sums",
+  "test if the square grid of numbers forms a magic square"
+ ],
+ "is_max_heap/1": [
+  "check whether the list represents a max heap",
+  "return true if the array satisfies the max-heap property",
+  "test whether each parent in the array is no smaller than its children"
+ ],
+ "is_min_heap/1": [
+  "check whether the list is a valid min heap",
+  "determine if every parent in the array is no larger than its children",
+  "return true if the list satisfies the min-heap property"
+ ],
+ "is_monotonic/1": [
+  "check whether the list is entirely non-decreasing or non-increasing",
+  "determine if the array is monotonic",
+  "return true if the sequence only goes up or only goes down"
+ ],
+ "is_odd/1": [
+  "test whether the number is odd",
+  "return true if the number is odd, otherwise false",
+  "determine whether dividing the number by two leaves a remainder"
+ ],
+ "is_palindrome/1": [
+  "check whether the string is a palindrome",
+  "return true if the sequence reads the same forwards and backwards",
+  "test if the list is equal to its reverse"
+ ],
+ "is_palindrome_number/1": [
+  "check whether the given number is a palindrome",
+  "determine if a number reads the same forwards and backwards",
+  "return true if the digits of an integer are the same when reversed"
+ ],
+ "is_pangram/1": [
+  "check whether the string is a pangram",
+  "return true if the sentence contains every letter of the alphabet",
+  "test if all twenty-six letters appear in the string, ignoring case"
+ ],
+ "is_perfect_number/1": [
+  "check whether the given number is a perfect number",
+  "return true if the number equals the sum of its proper divisors",
+  "test if a positive integer is a perfect number or not"
+ ],
+ "is_perfect_square/1": [
+  "check whether the given number is a perfect square",
+  "determine if an integer is the square of some integer",
+  "return true when a number has an exact integer square root"
+ ],
+ "is_power_of/2": [
+  "check whether the first number is a power of the second",
+  "return true if the number equals k raised to some non-negative integer",
+  "test if repeatedly dividing the number by k reaches exactly one"
+ ],
+ "is_power_of_two/1": [
+  "check whether the given number is a power of two",
+  "return true if the integer is a power of 2, otherwise false",
+  "test whether the number has exactly one set bit"
+ ],
+ "is_prime/1": [
+  "check whether the integer is a prime",
+  "return true if the integer above 1 has no divisors besides 1 and itself",
+  "test if a number is a prime number"
+ ],
+ "is_repetition_of/2": [
+  "check whether the first string is made of repeated copies of the second",
+  "return true if the string equals the pattern repeated a whole number of times",
+  "test if repeating the second string some number of times gives the first"
+ ],
+ "is_right_triangle/3": [
+  "check whether the three sides form a right-angled triangle",
+  "determine if the longest side squared equals the sum of the other squares",
+  "return true if three side lengths satisfy the pythagorean theorem"
+ ],
+ "is_rotation/2": [
+  "check whether the second string is a rotation of the first",
+  "return true if the two strings are rotations of each other",
+  "test whether one string can be turned into the other by rotating it"
+ ],
+ "is_scalene/3": [
+  "check whether the triangle with the three given sides is scalene",
+  "return true if all three side lengths are different",
+  "test if no two of the three numbers are equal"
+ ],
+ "is_sorted/1": [
+  "check whether the list is sorted in ascending order",
+  "return true if each element is at most the next one",
+  "test whether the sequence is in non-decreasing order"
+ ],
+ "is_sorted_descending/1": [
+  "check whether the list is sorted in descending order",
+  "return true if the elements of the list never increase",
+  "test if the sequence is in non-increasing order"
+ ],
+ "is_sublist/2": [
+  "check whether the second list appears as a contiguous block in the first",
+  "return true if the second list occurs consecutively inside the first list",
+  "test if the list has the given sublist somewhere as consecutive items"
+ ],
+ "is_uppercase/1": [
+  "check whether the given string is in uppercase",
+  "determine if all the letters of a string are capital letters",
+  "return true if the text is written entirely in upper case"
+ ],
+ "is_valid_date/3": [
+  "check whether the given month, day and year form a valid date",
+  "return true if the month, day and year make a real gregorian date",
+  "validate a date given as month, day and year, accounting for leap years"
+ ],
+ "is_valid_url/1": [
+  "check whether the string is a valid url",
+  "return true if the text looks like a proper web address",
+  "validate that the given string is an http or https link"
+ ],
+ "is_vowel/1": [
+  "check whether the given character is a vowel",
+  "return true if the letter is a vowel, ignoring case",
+  "test if one character is a vowel or not"
+ ],
+ "is_woodall/1": [
+  "check whether the given number is a woodall number",
+  "return true if the integer is a woodall number, else false",
+  "determine whether the number is one less than k times two to the k"
+ ],
+ "items_by_value/1": [
+  "sort the dictionary items by value in ascending order",
+  "return the key-value pairs of the dictionary ordered by their values",
+  "list the entries of a dictionary as tuples sorted by value"
+ ],
+ "items_by_value_desc/1": [
+  "sort the dictionary items by value in descending order",
+  "return the key-value pairs ordered from largest to smallest value",
+  "list the entries of the dictionary sorted by decreasing value"
+ ],
+ "jacobsthal/1": [
+  "compute the jacobsthal number at index n",
+  "return the n-th term of the jacobsthal sequence",
+  "calculate the nth value of the jacobsthal recurrence starting from 0 and 1"
+ ],
+ "jacobsthal_lucas/1": [
+  "find the nth jacobsthal-lucas number",
+  "compute the jacobsthal lucas number at index n",
+  "return the n-th term of the jacobsthal-lucas sequence"
+ ],
+ "jacobsthal_lucas_sum/1": [
+  "find the sum of the first n jacobsthal lucas numbers",
+  "add up the jacobsthal-lucas numbers from index one to the given number",
+  "compute the total of jacobsthal lucas sequence terms one through n"
+ ],
+ "jacobsthal_sum/1": [
+  "find the sum of the first n jacobsthal numbers",
+  "add up the jacobsthal sequence from the first term to the nth",
+  "compute the total of jacobsthal numbers one through n"
+ ],
+ "join/1": [
+  "join a list of strings into a single string",
+  "concatenate all the strings in the list",
+  "merge all the string elements of the list into one"
+ ],
+ "join_digits/1": [
+  "join the numbers in the list into a single integer",
+  "convert a list of digits into one whole number",
+  "concatenate the integers of the tuple to form a single number"
+ ],
+ "join_space/1": [
+  "join the list of words into one string separated by spaces",
+  "concatenate the strings of the list with a space between each",
+  "combine the list of strings into a single space-separated sentence"
+ ],
+ "join_with/2": [
+  "join the list of strings using the given separator",
+  "concatenate the strings in the list with the delimiter between them",
+  "combine the list of words into a single string with the given delimiter"
+ ],
+ "k_max_records/2": [
+  "find the k records with the highest second values",
+  "return the top k tuples of the list ranked by their second element",
+  "get the k largest records by second field, in decreasing order"
+ ],
+ "k_min_records/2": [
+  "find the k records with the smallest second values",
+  "return the k tuples of the list with the lowest second element",
+  "get the first k rows after sorting the list by their second field"
+ ],
+ "keep_common/2": [
+  "find the elements of the first list that also appear in the second",
+  "keep only the items of the first sequence present in the second",
+  "return the common elements of the two lists in the order of the first"
+ ],
+ "keys/1": [
+  "return a list of all keys in the dictionary",
+  "extract the dictionary keys into a list",
+  "get the list of keys of the given dictionary"
+ ],
+ "kth/2": [
+  "find the kth element of the list",
+  "return the element at position k, counting from one",
+  "get the item at the given one-based index in the sequence"
+ ],
+ "kth_largest/2": [
+  "return the k-th biggest number of the given list",
+  "get the kth item after sorting the list in descending order",
+  "pick the element ranked k when the list is ordered from largest"
+ ],
+ "kth_smallest/2": [
+  "find the kth smallest element of the list",
+  "return the k-th element of the list in ascending order",
+  "get the element that would be at position k after sorting the list"
+ ],
+ "kynea/1": [
+  "compute the nth kynea number",
+  "get the kynea number for the given n",
+  "square one more than two to the power n and subtract two"
+ ],
+ "last/1": [
+  "get the last element of the list",
+  "return the final item of the sequence",
+  "find the last character of the given string"
+ ],
+ "lcm/2": [
+  "find the least common multiple of two positive integers",
+  "compute the lcm of the two given numbers",
+  "return the smallest positive number divisible by both given integers"
+ ],
+ "len/1": [
+  "find the length of the given list",
+  "count how many characters are in the string",
+  "return the number of key-value pairs in the dictionary"
+ ],
+ "len_each/1": [
+  "find the length of each string in the list",
+  "return a list of the lengths of the sublists",
+  "count the characters of every word in the given list"
+ ],
+ "letters_only/1": [
+  "remove all characters that are not letters from the string",
+  "keep only the alphabetic characters of the given string",
+  "extract the letters of the text, dropping digits, spaces and symbols"
+ ],
+ "list/1": [
+  "convert the tuple to a list",
+  "turn the string into a list of its characters",
+  "return the items of the given tuple as a list"
+ ],
+ "longer_than/2": [
+  "find the words of the string that are longer than k characters",
+  "return the words in the sentence with more than k letters",
+  "select the strings in the list whose length exceeds k"
+ ],
+ "longest/1": [
+  "find the longest string in the list",
+  "return the inner list that has the most elements",
+  "get the element of greatest length from the list"
+ ],
+ "longest_with_len/1": [
+  "find the maximum length and the longest sublist in the list of lists",
+  "return a tuple of the greatest length and the longest element",
+  "get the length of the longest string together with that string"
+ ],
+ "lookup/2": [
+  "get the value of the given key in the dictionary",
+  "look up the key in the dictionary and return its value",
+  "access the dictionary entry for the specified key"
+ ],
+ "lower/1": [
+  "convert all uppercase letters of the string to lowercase",
+  "make every letter of the string lowercase",
+  "return the string with all letters in lower case"
+ ],
+ "lt/2": [
+  "find the numbers in the list that are less than k",
+  "keep only the elements of the tuple smaller than the given value",
+  "filter the list down to the values below the given number"
+ ],
+ "lucas/1": [
+  "compute the lucas number at index n",
+  "return the term of the lucas sequence at the given position",
+  "get the nth term of the lucas sequence, which begins two and one"
+ ],
+ "lucas_sum/1": [
+  "compute the sum of the lucas numbers at positions 1 through n",
+  "return the total of lucas sequence terms from index one to n",
+  "add up the lucas numbers one to n, skipping the zeroth term"
+ ],
+ "max/1": [
+  "find the largest element in the list",
+  "return the maximum value of the sequence",
+  "get the biggest number among the items of the list"
+ ],
+ "max2/2": [
+  "return the larger of the two given numbers",
+  "get the greater value between the two numbers",
+  "find which of the two numbers is bigger and return it"
+ ],
+ "max_average_path/1": [
+  "find the maximum average of a path through the matrix moving right or down",
+  "compute the best average cost of a top-left to bottom-right path in the grid",
+  "return the largest path average from corner to corner of the matrix"
+ ],
+ "max_by_second/1": [
+  "find the tuple with the largest second element in the list",
+  "return the record whose second value is the highest",
+  "get the pair from the list with the maximum second item"
+ ],
+ "max_plus_min/1": [
+  "add the largest and smallest elements of the list",
+  "compute the sum of the maximum and minimum values of the list",
+  "return the biggest element of the list plus its smallest"
+ ],
+ "mean/1": [
+  "find the average of the numbers in the list",
+  "compute the arithmetic mean of a list of values",
+  "divide the sum of the list by its length"
+ ],
+ "median3/3": [
+  "return the middle value of the three given numbers",
+  "get the median among three numbers",
+  "find the number that lies between the other two in sorted order"
+ ],
+ "merge3/3": [
+  "merge the three dictionaries, letting later ones win on shared keys",
+  "combine three dictionaries into a single dictionary",
+  "return one dictionary holding the entries of all three dictionaries"
+ ],
+ "merge_by_first/1": [
+  "merge the tuples that share the same first element into one",
+  "join the sublists with a common first item, appending their other values",
+  "group the records by their first element, combining their remaining values"
+ ],
+ "merge_dicts/2": [
+  "merge the two dictionaries into a single dictionary",
+  "combine two dictionaries, letting the second override shared keys",
+  "return one dictionary holding the entries of both given dictionaries"
+ ],
+ "mersenne/1": [
+  "compute the nth mersenne number",
+  "return two raised to the given power, minus one",
+  "calculate the mersenne number for the given exponent"
+ ],
+ "min/1": [
+  "find the smallest value in the list",
+  "return the minimum element of the given sequence",
+  "get the lowest item in the list"
+ ],
+ "min2/2": [
+  "find the smaller of the two numbers",
+  "return the minimum of the two given values",
+  "get the lesser of two numbers"
+ ],
+ "min_by_second/1": [
+  "find the record with the smallest second element",
+  "return the tuple whose second value is the minimum",
+  "get the entry of the list having the lowest second item"
+ ],
+ "min_cost_path/3": [
+  "find the minimum path cost from the top left to the given cell",
+  "compute the cheapest route to a cell moving right, down or diagonally",
+  "return the lowest total cost of reaching the target row and column"
+ ],
+ "mod/2": [
+  "find the remainder when the first number is divided by the second",
+  "compute the first number modulo the second",
+  "return what is left after dividing the first number by the second"
+ ],
+ "month_name_has_28_days/1": [
+  "check whether the given month name has 28 days",
+  "return true if the named month is february",
+  "test if the month, given by name, contains 28 days"
+ ],
+ "month_name_has_30_days/1": [
+  "check whether the given month is one of the thirty-day months",
+  "return true if the named month has exactly 30 days",
+  "determine if the month name refers to a month with 30 days"
+ ],
+ "month_name_has_31_days/1": [
+  "check whether the named month has thirty-one days",
+  "return true if the given month name is a month with 31 days",
+  "test if the month with the given name lasts thirty-one days"
+ ],
+ "month_number_has_28_days/1": [
+  "check if the month number refers to a month with 28 days",
+  "determine if the numbered month is the one with twenty-eight days",
+  "return true only for month number 2, which has 28 days"
+ ],
+ "month_number_has_30_days/1": [
+  "check whether the month with the given number is thirty days long",
+  "return true if the month number denotes april, june, september or november",
+  "determine whether the month, given as a number, contains 30 days"
+ ],
+ "month_number_has_31_days/1": [
+  "check whether the given month number has 31 days",
+  "return true if the month with this number contains 31 days",
+  "test if the numbered month, from 1 to 12, is 31 days long"
+ ],
+ "most_common/1": [
+  "find the most frequent element in the list",
+  "return the item that occurs the most times in the sequence",
+  "get the element with the highest count of occurrences in the list"
+ ],
+ "move_zeros/1": [
+  "move every zero in the list to the end",
+  "push every zero to the back while keeping the other numbers in order",
+  "return the list with its zeroes placed after all nonzero values"
+ ],
+ "mul/2": [
+  "multiply the two given numbers",
+  "find the product of the two numbers",
+  "return the first number times the second"
+ ],
+ "n_largest_records/2": [
+  "find the k records with the largest numeric value in a list of dictionaries",
+  "return the k most expensive items from a list of item dictionaries",
+  "get the top k dictionaries ranked by their last numeric field"
+ ],
+ "n_smallest_records/2": [
+  "find the n cheapest items from a list of dictionaries",
+  "return the k item records that have the lowest prices",
+  "get the n dictionaries with the smallest last numeric field"
+ ],
+ "natural_power2_sum/1": [
+  "compute the sum of the squares of the first n natural numbers",
+  "return the total of the squares of the integers from 1 to n",
+  "add up the squares of the natural numbers up to n"
+ ],
+ "natural_power3_sum/1": [
+  "find the sum of the cubes of the first n natural numbers",
+  "add up the cubes of all integers from 1 to n",
+  "compute the sum of cubes from one cubed up to n cubed"
+ ],
+ "natural_power4_sum/1": [
+  "sum the fourth powers of the first n natural numbers",
+  "add up the fourth powers of the integers from 1 to n",
+  "raise each number from 1 to n to the fourth power and total them"
+ ],
+ "natural_power5_sum/1": [
+  "find the sum of the fifth powers of the first n natural numbers",
+  "compute the sum of fifth powers of natural numbers from 1 to n",
+  "add up the fifth power of each natural number from one to n"
+ ],
+ "natural_sum/1": [
+  "find the sum of the first n natural numbers",
+  "add up all the whole numbers from 1 to n",
+  "return the sum of all natural numbers up to the given number"
+ ],
+ "ne/2": [
+  "remove all occurrences of the given number from the list",
+  "delete every element equal to the given value from the list",
+  "return the numbers of the list except those equal to the given value"
+ ],
+ "negate_each/1": [
+  "negate every number in the list",
+  "return the list with the sign of each element flipped",
+  "multiply each element of the tuple by minus one"
+ ],
+ "negatives/1": [
+  "find the negative numbers in the list",
+  "return only the elements of the list that are below zero",
+  "filter the tuple to keep its negative values"
+ ],
+ "nesting_depth/1": [
+  "find the nesting depth of the given dictionary",
+  "compute how deeply the lists are nested inside the list",
+  "return the maximum depth of nested dictionaries or lists"
+ ],
+ "newman_conway/1": [
+  "compute the n-th term of the newman-conway sequence",
+  "return the value at position n of the newman conway sequence",
+  "calculate the nth newman-conway number"
+ ],
+ "newman_conway_sum/1": [
+  "find the sum of the first n terms of the newman conway sequence",
+  "add up the newman-conway numbers from position 1 to n",
+  "compute the total of the newman conway sequence values up to n"
+ ],
+ "nlargest/2": [
+  "find the k largest numbers in the list",
+  "return the n biggest values of the list in descending order",
+  "get the top k elements of the given list, largest first"
+ ],
+ "no_digits/1": [
+  "remove all digits from the given string",
+  "delete the numeric characters from a string",
+  "return the text with every digit stripped out"
+ ],
+ "no_lower/1": [
+  "remove all lowercase letters from the string",
+  "delete the lowercase characters of a given string",
+  "keep only the characters of the text that are not lowercase"
+ ],
+ "no_spaces/1": [
+  "strip all the space characters out of the string",
+  "delete every space in the given string",
+  "return the text with its blanks removed"
+ ],
+ "no_upper/1": [
+  "delete all capital letters from the given string",
+  "return the string with its upper case characters removed",
+  "keep only the characters of the string that are not uppercase"
+ ],
+ "no_vowels/1": [
+  "remove all vowels from the string",
+  "delete every vowel, lowercase or uppercase, from the given text",
+  "return the string with its vowels stripped out"
+ ],
+ "nonagonal/1": [
+  "compute the nonagonal number for the given n",
+  "return the n-th nonagonal number",
+  "get the term at position n of the nonagonal sequence"
+ ],
+ "not_prime/1": [
+  "check whether the given number is not prime",
+  "return true if the number is non-prime",
+  "determine whether the integer is composite or less than two"
+ ],
+ "nsmallest/2": [
+  "find the n smallest numbers in the list",
+  "return the n lowest values of the list in ascending order",
+  "extract the n least numbers from the list, smallest first"
+ ],
+ "nsw/1": [
+  "find the nth newman-shanks-williams number",
+  "compute the newman-shanks-williams number at index n",
+  "return the n-th term of the newman shanks williams sequence"
+ ],
+ "nsw_sum/1": [
+  "find the sum of the first n newman shanks williams numbers",
+  "add up the newman-shanks-williams numbers from index one to the given number",
+  "compute the total of the first n terms of the nsw sequence"
+ ],
+ "num_amicable_upto/1": [
+  "find all amicable numbers up to the given limit",
+  "return a list of the amicable numbers not exceeding n",
+  "list every number up to n that belongs to an amicable pair"
+ ],
+ "num_ap_sum/3": [
+  "find the sum of an arithmetic progression given first term, term count and step",
+  "return the arithmetic series total for a start value, length and common difference",
+  "sum n terms of the arithmetic series with the given first term and step"
+ ],
+ "num_ap_term/3": [
+  "find the nth term of an arithmetic progression",
+  "compute the term at position n of an arithmetic sequence",
+  "get the n-th term of an a.p. given its first term and common difference"
+ ],
+ "num_babylonian_sqrt/1": [
+  "use the babylonian method to find the square root of the number",
+  "find the square root of a number by iterative guess averaging",
+  "approximate the square root of the given value using heron's method"
+ ],
+ "num_binary_to_decimal/1": [
+  "convert the number written in binary digits to decimal",
+  "interpret the digits of the number as base two and return its value",
+  "turn a binary number made of ones and zeros into a decimal integer"
+ ],
+ "num_circle_diameter/1": [
+  "find the diameter of a circle from its radius",
+  "double the radius to get the diameter of the circle",
+  "return twice the radius as the circle's diameter"
+ ],
+ "num_common_divisor_count/2": [
+  "count the common divisors of two numbers",
+  "find how many positive integers divide both of the given numbers",
+  "return the number of factors shared by a pair of integers"
+ ],
+ "num_common_divisor_sum/2": [
+  "compute the total of all divisors shared by the two numbers",
+  "add up every number that divides both given integers",
+  "return the sum of every common factor of the two integers"
+ ],
+ "num_decimal_to_octal/1": [
+  "convert an integer from decimal to octal notation",
+  "return the octal representation of the integer as a number",
+  "change a base ten number into its base eight form"
+ ],
+ "num_degrees_to_radians/1": [
+  "convert the angle measured in degrees to radians",
+  "change the given degree measure into radians",
+  "return the radian value of the angle given in degrees"
+ ],
+ "num_divisor_count/1": [
+  "count the divisors of the given integer",
+  "find how many positive divisors a number has",
+  "return the count of factors of a positive integer"
+ ],
+ "num_divisor_sum/1": [
+  "find the sum of all divisors of the given number",
+  "add up every factor of the number, including the number itself",
+  "compute the sum of the factors of a positive integer"
+ ],
+ "num_divisors/1": [
+  "find all the divisors of the given number",
+  "return a sorted list of every factor of the number",
+  "list the positive integers that divide the number evenly"
+ ],
+ "num_domino_tilings_3xn/1": [
+  "count the ways to tile a 3 by n board with dominoes",
+  "find the number of domino tilings of a three by n grid",
+  "compute how many ways dominoes can fill a 3 x n rectangle"
+ ],
+ "num_entringer/2": [
+  "compute the entringer number for the given n and k",
+  "return the value in row n, position k of the entringer triangle",
+  "get the entringer number indexed by n and k"
+ ],
+ "num_evens_upto/1": [
+  "list the even numbers from 2 up to the given number",
+  "return all even natural numbers not exceeding n",
+  "generate the even integers between 2 and n inclusive"
+ ],
+ "num_exact_int/1": [
+  "convert the float to an integer when it has no fractional part",
+  "turn a whole-number float into an int",
+  "return the number as an integer if its value is whole"
+ ],
+ "num_fence_ways/2": [
+  "compute the number of ways to paint n fence posts with k colors",
+  "count colorings of n posts in k colors without three equal in a row",
+  "find how many n-post colorings in k colors have at most two adjacent alike"
+ ],
+ "num_fraction_digit/3": [
+  "find the nth digit after the decimal point of numerator over denominator",
+  "return the k-th decimal digit of the first number divided by the second",
+  "get the digit at the given place in the decimal expansion of a fraction"
+ ],
+ "num_geometric_sum/1": [
+  "compute the sum of the powers of one half from zero to n",
+  "find the geometric sum of one over two to each power up to n",
+  "return the total of the reciprocals of two to the zeroth through nth power"
+ ],
+ "num_gp_sum/3": [
+  "compute a geometric progression's sum from its first term, count and ratio",
+  "find the total of the first n terms of a geometric series",
+  "return the geometric series sum for a first term, term count and ratio"
+ ],
+ "num_gp_term/3": [
+  "find the nth term of a geometric progression given first term, n and ratio",
+  "compute a geometric sequence term from the first term, its position and ratio",
+  "return the first term times the ratio raised to n minus one"
+ ],
+ "num_hamming_distance/2": [
+  "compute the hamming distance of the two integers",
+  "count the bit positions where the two numbers differ",
+  "return how many bits are different between the two given numbers"
+ ],
+ "num_harmonic_sum/1": [
+  "find the harmonic sum up to n",
+  "compute the sum of the reciprocals of the integers from 1 to n",
+  "return the nth harmonic number"
+ ],
+ "num_highest_power_of_2_upto/1": [
+  "find the largest power of two that is at most the given number",
+  "return the biggest power of 2 not exceeding n",
+  "get the value of the most significant set bit of the number"
+ ],
+ "num_hypotenuse/2": [
+  "find the hypotenuse of a right triangle given its two legs",
+  "compute the longest side of a right-angled triangle from its two shorter sides",
+  "return the square root of the sum of the squares of two numbers"
+ ],
+ "num_largest_with_remainder/3": [
+  "find the largest value up to n whose remainder modulo x is y",
+  "return the greatest number at most n that modulo x equals y, else -1",
+  "compute the maximum integer up to n which modulo x leaves remainder y"
+ ],
+ "num_last_digit/1": [
+  "get the units digit of the given number",
+  "return the rightmost digit of the integer, ignoring its sign",
+  "compute the last decimal digit of the number"
+ ],
+ "num_last_two_digits/1": [
+  "find the last two digits of the given number",
+  "return the number formed by the final two digits of the integer",
+  "compute the absolute value of the number modulo 100"
+ ],
+ "num_lcm_upto/1": [
+  "find the smallest number evenly divisible by every number from 1 to n",
+  "compute the least common multiple of the first n positive integers",
+  "return the lcm of all integers from one up to the given number"
+ ],
+ "num_lowest_set_bit_position/1": [
+  "find the one-based position of the rightmost set bit of the number",
+  "return the index, counting from one, of the lowest one bit in the number",
+  "locate the least significant set bit of the given integer"
+ ],
+ "num_lucky_numbers/1": [
+  "find the first n lucky numbers",
+  "list the first n numbers that survive the lucky number sieve",
+  "generate the lucky number sequence and return its first n terms"
+ ],
+ "num_max_of_three/3": [
+  "find the largest of the three numbers",
+  "return the maximum of three given values",
+  "get the biggest among the three integers"
+ ],
+ "num_mean_keep_int/1": [
+  "find the average of the integers in the list",
+  "compute the mean value of the list of numbers",
+  "return the arithmetic mean of the list, kept as an integer when whole"
+ ],
+ "num_median_of_three_float/3": [
+  "find the median of three numbers as a float",
+  "return the middle value of the three given numbers as a floating point number",
+  "compute the median of 3 numbers and convert it to a float"
+ ],
+ "num_min_of_three/3": [
+  "return the smallest of the three given numbers",
+  "get the lowest value among the three numbers",
+  "find which of the three numbers is the minimum"
+ ],
+ "num_min_squares/1": [
+  "count the fewest perfect squares that add up to the given number",
+  "return the smallest number of square numbers summing to the number",
+  "find the least count of squares needed to write the number as a sum"
+ ],
+ "num_nearest_multiple/2": [
+  "round the number to the closest multiple of k, halves going down",
+  "find the multiple of the second number nearest to the first number",
+  "return the given number snapped to the nearest multiple of k"
+ ],
+ "num_next_bigger/1": [
+  "find the next bigger number formed by rearranging the digits",
+  "rearrange the digits of the number to make the next larger number",
+  "return the next greater number using the same digits, or false if none"
+ ],
+ "num_next_palindrome/1": [
+  "find the next palindrome number greater than the given number",
+  "return the smallest palindromic integer larger than the number",
+  "get the first palindrome that comes after the number"
+ ],
+ "num_next_power_of_2/1": [
+  "find the smallest power of two that is at least the given number",
+  "return the next power of 2 greater than or equal to the number",
+  "round the number up to the nearest power of two"
+ ],
+ "num_octal_to_decimal/1": [
+  "convert the number written in octal to decimal",
+  "interpret the digits of the number as octal and return its decimal value",
+  "change the given octal number into its decimal equivalent"
+ ],
+ "num_odd_days/1": [
+  "find the number of odd days in the given number of years",
+  "calculate how many odd days there are in n years",
+  "return the extra days beyond whole weeks in n years"
+ ],
+ "num_odds_upto/1": [
+  "list all the odd numbers from one up to the given number",
+  "return the odd natural numbers not greater than the given number",
+  "generate a list of odd integers between one and the number inclusive"
+ ],
+ "num_pair/2": [
+  "make a tuple from the two given numbers",
+  "return the two values together as a pair",
+  "pack the two numbers into a tuple in the given order"
+ ],
+ "num_parabola_focus/3": [
+  "find the focus of a parabola given the coefficients of its equation",
+  "compute where the focus of the parabola with coefficients a, b and c lies",
+  "return the focus point of the parabola as a pair of coordinates"
+ ],
+ "num_parabola_vertex/3": [
+  "find the vertex of a parabola from its coefficients a, b and c",
+  "compute the vertex point of the quadratic with the given three coefficients",
+  "return the x and y coordinates of the vertex of a parabola"
+ ],
+ "num_pentagon_area/1": [
+  "find the area of a regular pentagon given its side length",
+  "compute the pentagon area for the given side length",
+  "return the area of a regular five-sided polygon with the given side"
+ ],
+ "num_polar/1": [
+  "convert the complex number into its polar form",
+  "return the modulus and phase angle of the complex number",
+  "find the polar coordinates of the given complex number as a pair"
+ ],
+ "num_previous_palindrome/1": [
+  "find the largest palindrome smaller than the given number",
+  "return the previous palindromic number before n",
+  "get the closest palindrome that is less than an integer"
+ ],
+ "num_prime_count_below/1": [
+  "count the primes smaller than the given number",
+  "find how many prime numbers lie below the given number",
+  "return the number of primes strictly less than n"
+ ],
+ "num_prime_count_upto/1": [
+  "count the primes less than or equal to the given number",
+  "find how many prime numbers are at most n",
+  "return the number of primes up to and including n"
+ ],
+ "num_prime_factorization/1": [
+  "find the prime factorization of the number as a list",
+  "return the prime factors of the integer, repeated by multiplicity",
+  "break the number into its prime factors, including repeats"
+ ],
+ "num_prime_factors/1": [
+  "find the distinct prime factors of the given number",
+  "return a list of the unique prime divisors of the number",
+  "list each prime that divides the number, without repeats"
+ ],
+ "num_primes_below/1": [
+  "find all prime numbers less than the given number",
+  "return a list of the primes below n",
+  "generate the primes that are smaller than a given integer"
+ ],
+ "num_primes_in_range/2": [
+  "find all prime numbers between the two given numbers, inclusive",
+  "list the primes from the first number up to the second",
+  "return the prime numbers in the range from low to high"
+ ],
+ "num_primes_upto/1": [
+  "find all prime numbers less than or equal to n",
+  "list the primes from 2 up to the given number",
+  "return every prime number not exceeding the given limit"
+ ],
+ "num_proper_divisor_sum/1": [
+  "find the sum of all proper divisors of the given number",
+  "add up the divisors of the number excluding the number itself",
+  "compute the aliquot sum of the given number"
+ ],
+ "num_radians_to_degrees/1": [
+  "convert the angle from radians to degrees",
+  "change a radian measure into degrees",
+  "return the number of degrees equal to the given radians"
+ ],
+ "num_rgb_to_hsv/3": [
+  "convert the red, green and blue values to hue, saturation and value",
+  "return the hsv triple for the given rgb components, with percentages",
+  "compute hue in degrees and saturation and value in percent from rgb"
+ ],
+ "num_right_triangle_leg/2": [
+  "find the unknown leg of a right triangle from its hypotenuse and other leg",
+  "return the square root of the absolute difference between the two squared values",
+  "use pythagoras to get the second leg from the hypotenuse and one leg"
+ ],
+ "num_rotate_left_32/2": [
+  "rotate the bits of the number to the left by k positions",
+  "perform a 32-bit left rotation of the number by k bits",
+  "shift the bits of the number left by k with 32-bit wraparound"
+ ],
+ "num_rotate_right_32/2": [
+  "rotate the bits of the 32-bit number right by the given count",
+  "perform a right bit rotation of the integer by k places within 32 bits",
+  "shift the bits of the 32-bit integer circularly k positions to the right"
+ ],
+ "num_round_down_to/2": [
+  "round the given number down to k decimal places",
+  "floor a float to the specified number of digits after the decimal point",
+  "truncate a decimal number downward, keeping only k fractional digits"
+ ],
+ "num_round_to/2": [
+  "round the number to the given number of decimal places",
+  "return the float rounded to n digits after the decimal point",
+  "round a decimal value to a precision of k places"
+ ],
+ "num_round_up_to/2": [
+  "round the number up to the given number of decimal places",
+  "return the ceiling of the float at k digits after the decimal point",
+  "round a decimal upward to the specified precision"
+ ],
+ "num_self_dividing_in_range/2": [
+  "find the self-dividing numbers between the two given numbers",
+  "list the numbers in the range that are divisible by each of their digits",
+  "return the numbers from low to high divisible by all of their digits"
+ ],
+ "num_set_even_bits/1": [
+  "set all even bits of the given number",
+  "turn on every bit at an even position of the number, counting from one",
+  "return the number with all of its even-positioned bits set"
+ ],
+ "num_set_leftmost_unset_bit/1": [
+  "set the leftmost zero bit of the given number to one",
+  "turn on the highest unset bit in the binary form of a number",
+  "change the most significant 0 bit of an integer to 1"
+ ],
+ "num_set_odd_bits/1": [
+  "turn on every odd-position bit of the given number",
+  "set the bits at odd positions of the number, counting from one",
+  "return the number with every other bit set, starting from the lowest bit"
+ ],
+ "num_set_rightmost_unset_bit/1": [
+  "set the rightmost unset bit of the given number",
+  "turn on the lowest zero bit of the integer",
+  "switch the least significant 0 bit of the number to 1"
+ ],
+ "num_spiral_matrix/1": [
+  "build a spiral matrix of the given size",
+  "generate an n by n grid of 1 to n squared in spiral order",
+  "create a square matrix whose consecutive numbers wind inward in a spiral"
+ ],
+ "num_sqrt/1": [
+  "find the square root of the given number",
+  "compute the square root of a non-negative number",
+  "return the square root of a number as a float"
+ ],
+ "num_squares_in_rectangle/2": [
+  "count the squares of all sizes in a rectangle of the given dimensions",
+  "find the total number of squares in an m by n grid",
+  "return how many squares of any size a grid with these sides contains"
+ ],
+ "num_sum_of_three/3": [
+  "find the sum of three numbers",
+  "add the three given values together",
+  "compute the perimeter of a triangle from its three sides"
+ ],
+ "num_surplus_or_none/2": [
+  "find the amount by which the first number exceeds the second, or none",
+  "return the difference of two amounts if the first is larger, else none",
+  "calculate the profit as first minus second, returning none if it is not positive"
+ ],
+ "num_tetrahedron_area_grouped/1": [
+  "compute the surface area of a regular tetrahedron with the given edge",
+  "return the square root of three times the edge length squared",
+  "find the total area of the four faces of a regular tetrahedron"
+ ],
+ "num_third_angle/2": [
+  "compute the remaining angle of a triangle from two known angles",
+  "return 180 minus the sum of the two given angles",
+  "get the missing angle of a triangle when the other two are given"
+ ],
+ "num_to_roman/1": [
+  "convert the given number to roman numerals",
+  "return the roman numeral string for an integer",
+  "write a number between 1 and 3999 in roman numerals"
+ ],
+ "num_toggle_even_bits/1": [
+  "flip the even-position bits of the number, counting positions from one",
+  "invert every second bit of the number, starting from the second lowest",
+  "toggle the bits at even places of the given integer"
+ ],
+ "num_toggle_odd_bits/1": [
+  "flip the odd-position bits of the given number",
+  "toggle each bit in an odd position, counting from one at the right",
+  "invert every other bit of the integer, starting with the lowest"
+ ],
+ "num_total_unset_bits_upto/1": [
+  "count the unset bits of every number from 1 to n combined",
+  "find the total number of zeros in the binary forms of 1 through n",
+  "sum the zero bits in the binary representation of each integer up to n"
+ ],
+ "num_triangular_index_with_digits/1": [
+  "find the position of the first triangular number that has n digits",
+  "return the index of the least triangular number with n digits",
+  "compute where the smallest n-digit triangular number occurs in the sequence"
+ ],
+ "num_unset_bit_count/1": [
+  "count the unset bits of the given number",
+  "find how many zero bits the binary form of the number has",
+  "return how many 0 digits the integer has when written in binary"
+ ],
+ "numbers_in/1": [
+  "extract all the numbers from the string as integers",
+  "return the list of integers that appear in the string",
+  "find every run of digits in the text and convert each to an integer"
+ ],
+ "octagonal/1": [
+  "compute the octagonal number at position n",
+  "return the n-th octagonal number",
+  "calculate the nth term of the octagonal number sequence"
+ ],
+ "octahedral/1": [
+  "compute the octahedral number for the given n",
+  "return the n-th octahedral number",
+  "get the value of the octahedral sequence at position n"
+ ],
+ "odd_at_odd_index/1": [
+  "check whether all numbers at odd indexes of the list are odd",
+  "determine if each element in an odd position is an odd number",
+  "verify that the list holds odd values at every odd index"
+ ],
+ "odd_index/1": [
+  "extract the elements at odd indices of the list",
+  "return every other item of the sequence, starting with the second",
+  "keep only the characters at odd index positions in the string"
+ ],
+ "odd_power1_sum/1": [
+  "find the sum of the first n odd natural numbers",
+  "add up the first n positive odd numbers",
+  "return the total of the n smallest odd positive integers"
+ ],
+ "odd_power2_sum/1": [
+  "compute the sum of the squares of the first n odd numbers",
+  "return the total of the squared values of the first n odd integers",
+  "add up the squares of 1, 3, 5 and so on for n terms"
+ ],
+ "odd_power3_sum/1": [
+  "find the sum of the cubes of the first n odd numbers",
+  "add up the cubes of the first n positive odd integers",
+  "cube each of the first n odd numbers and return the total"
+ ],
+ "odd_power4_sum/1": [
+  "sum the first n odd numbers raised to the fourth power",
+  "raise the first n odd numbers to the fourth power and add them",
+  "add up the fourth power of each odd number below twice n"
+ ],
+ "odd_power5_sum/1": [
+  "find the sum of the fifth powers of the first n odd natural numbers",
+  "compute the sum of fifth powers of the first n odd numbers",
+  "add up the fifth power of each of the first n odd numbers"
+ ],
+ "odds/1": [
+  "find the odd numbers in the given list",
+  "remove the even numbers from a list of integers",
+  "filter the tuple to keep only its odd values"
+ ],
+ "of_length/2": [
+  "find the words of length k in the string",
+  "return the words of the sentence that have exactly k characters",
+  "keep only the strings in the list whose length equals k"
+ ],
+ "once_only/1": [
+  "keep only the elements that appear exactly once in the list",
+  "remove every value that occurs more than once in the sequence",
+  "find the non-repeated items of the tuple, keeping their order"
+ ],
+ "only_from/2": [
+  "check whether every element of the first list is present in the second",
+  "return true if the first sequence contains only items found in the second",
+  "determine whether the first tuple is a subset of the second"
+ ],
+ "opposite_signs/2": [
+  "check whether the two numbers have different signs",
+  "return true if one number is negative and the other is not",
+  "determine if the given integers lie on opposite sides of zero"
+ ],
+ "pack_consecutive/1": [
+  "pack runs of equal adjacent items of the list into separate lists",
+  "split the sequence into sublists of consecutive equal elements",
+  "collect each streak of repeated neighbouring values of the list into a sublist"
+ ],
+ "padovan/1": [
+  "find the nth padovan number",
+  "compute the term of the padovan sequence at the given index",
+  "return the value of the padovan sequence at position n"
+ ],
+ "padovan_sum/1": [
+  "compute the sum of the padovan numbers at positions 1 through n",
+  "return the total of padovan sequence terms from index one to n",
+  "add up the padovan numbers one to n, skipping the zeroth term"
+ ],
+ "pair_absdiff/1": [
+  "find the absolute difference within each pair of the list",
+  "compute the absolute difference of the two numbers in every tuple",
+  "return the distance between the elements of each pair"
+ ],
+ "pair_diff/1": [
+  "subtract the second element from the first in each pair",
+  "find the difference of the two numbers in every tuple of the list",
+  "compute first minus second for each pair of numbers in the list"
+ ],
+ "pair_gap_max/1": [
+  "find the largest gap between the two values of any tuple in the list",
+  "return the maximum absolute difference inside the pairs of the list",
+  "compute the greatest distance between the elements of any pair"
+ ],
+ "pair_gap_min/1": [
+  "find the smallest gap between the two numbers of any pair",
+  "return the minimum absolute difference within the tuples of the list",
+  "compute the least difference among the two-element tuples"
+ ],
+ "pair_sums/1": [
+  "find the element-wise sums of every pair of tuples in the list",
+  "add each combination of two tuples in the list index by index",
+  "return the tuple sums for all combinations of two tuples from the list"
+ ],
+ "pairs_to_dict/1": [
+  "convert the list of pairs into a dictionary",
+  "build a dictionary from the list of key-value tuples",
+  "turn the list of two-element tuples into a dictionary"
+ ],
+ "parallel_lines/2": [
+  "check whether two lines given by their coefficients are parallel",
+  "determine if the two lines, each as a list of coefficients, are parallel",
+  "return true if the x and y coefficients of two lines are proportional"
+ ],
+ "parse_int/1": [
+  "convert the string to an integer",
+  "parse a numeric string into an integer",
+  "turn the given string of digits into a number"
+ ],
+ "pell/1": [
+  "return the n-th term of the pell sequence",
+  "find the pell number at position n",
+  "get the value of the pell sequence for the given index"
+ ],
+ "pell_sum/1": [
+  "find the sum of the first n pell numbers",
+  "add up the pell numbers from the first to the nth",
+  "compute the total of the pell sequence terms one through n"
+ ],
+ "pentagon_perimeter/1": [
+  "compute the perimeter of a regular pentagon with the given side length",
+  "return five times the side length of the pentagon",
+  "get the total distance around a regular pentagon from one side"
+ ],
+ "pentagonal/1": [
+  "compute the nth pentagonal number",
+  "find the pentagonal number at the given position",
+  "return the n-th term of the pentagonal number sequence"
+ ],
+ "perm/2": [
+  "find the number of permutations of n items taken k at a time",
+  "compute how many ordered arrangements of k elements can be made from n",
+  "count the k-permutations of a set of n elements"
+ ],
+ "perrin/1": [
+  "compute the nth perrin number",
+  "get the term at position n of the perrin sequence",
+  "return the perrin number for the given index"
+ ],
+ "perrin_sum/1": [
+  "find the sum of the perrin numbers up to index n",
+  "compute the sum of perrin numbers from position 1 through n",
+  "return the sum of the perrin sequence terms with indices 1 to n"
+ ],
+ "polygon_area/2": [
+  "find the area of a regular polygon given the side count and side length",
+  "compute the area of a regular n-sided polygon with sides of the given length",
+  "calculate a regular polygon's area from how many sides it has and their length"
+ ],
+ "popcount/1": [
+  "count the set bits in the binary form of the number",
+  "find how many ones appear in the binary representation of the number",
+  "return the number of 1 bits of the given integer"
+ ],
+ "positives/1": [
+  "keep only the positive numbers in the list",
+  "remove all negative numbers and zeros from the list",
+  "extract the values greater than zero from the given sequence"
+ ],
+ "pow/2": [
+  "raise the first number to the power of the second",
+  "compute the base raised to the given exponent",
+  "find the value of the number to the power k"
+ ],
+ "power_each/2": [
+  "raise each number in the list to the power n",
+  "return each element of the list raised to the n-th power",
+  "compute every item of the tuple raised to the given exponent"
+ ],
+ "prefix_sums/1": [
+  "compute the cumulative sums of the list",
+  "return the running totals of the numbers in the list",
+  "find the prefix sums of the sequence of numbers"
+ ],
+ "prism_volume/3": [
+  "compute the volume of a triangular prism from its three dimensions",
+  "return half the product of the three given measurements",
+  "calculate the triangular prism volume from base, height and length"
+ ],
+ "prod/1": [
+  "find the product of all the numbers in the list",
+  "multiply together every element of the given list",
+  "compute the result of multiplying all values in the tuple"
+ ],
+ "pronic/1": [
+  "compute the nth pronic number",
+  "find the product of the number and the next integer",
+  "multiply the given number by its successor to get the oblong number"
+ ],
+ "pyramid_surface/2": [
+  "get the surface area of a square pyramid from its base and slant height",
+  "compute the base squared plus twice the base times the height",
+  "return the base area plus the lateral area of the square pyramid"
+ ],
+ "pyramid_volume/2": [
+  "compute the volume of a square pyramid from its base edge and height",
+  "return the volume of a pyramid with a square base and given height",
+  "calculate one third of the base edge squared times the height"
+ ],
+ "quoted/1": [
+  "extract the substrings enclosed in double quotes from the string",
+  "find all text between pairs of double quotation marks",
+  "return a list of the quoted parts of the string"
+ ],
+ "range/1": [
+  "return the list of integers from 0 up to but not including the number",
+  "generate a list of the first n whole numbers starting at zero",
+  "list every integer from zero to one less than the given number"
+ ],
+ "range1/1": [
+  "return a list of the numbers from 1 to n",
+  "generate the first n natural numbers as a list",
+  "list all the integers from one up to the given number"
+ ],
+ "range_width/1": [
+  "find the difference between the largest and smallest numbers in the list",
+  "compute the range of the list, its maximum minus its minimum",
+  "return the gap between the biggest and smallest values of the list"
+ ],
+ "record_max/1": [
+  "find the maximum of each record's value list, keeping the record's key",
+  "replace the list in every key-list pair with its largest element",
+  "return each key together with the highest value of its list"
+ ],
+ "record_min/1": [
+  "replace the list in each record with its minimum value",
+  "pair each key with the minimum of its list of values",
+  "find the minimum of each record's value list, keeping its key"
+ ],
+ "record_sum/1": [
+  "replace the number list in each record with its sum, keeping the key",
+  "sum the numbers attached to each key in the list of records",
+  "return each record as its key paired with the total of its values"
+ ],
+ "records_to_text/1": [
+  "convert the list of tuples to a string",
+  "return the string representation of the list of records",
+  "turn the given list of tuples into text"
+ ],
+ "rectangle_perimeter/2": [
+  "compute the perimeter of a rectangle with the given length and width",
+  "return twice the sum of the two given lengths",
+  "find the distance around a rectangle from its two side lengths"
+ ],
+ "remove_chars/2": [
+  "remove from the first string every character found in the second",
+  "delete the characters of the second string from the first string",
+  "return the first string without any characters present in the second"
+ ],
+ "remove_kth/2": [
+  "drop the element at the k-th position of the list",
+  "delete the item at position k, counting from one",
+  "return the list without its k-th element"
+ ],
+ "remove_present/2": [
+  "delete from the first list every value that the second list contains",
+  "return the items of the first list that do not appear in the second",
+  "filter out of the first sequence any value contained in the second"
+ ],
+ "remove_sub/2": [
+  "remove all occurrences of the substring from the string",
+  "delete every instance of the given text from the string",
+  "return the string with each copy of the substring erased"
+ ],
+ "remove_value/2": [
+  "remove all occurrences of the given value from the list",
+  "delete every element equal to k from the tuple",
+  "return the list without any copies of the specified item"
+ ],
+ "reorder_by_keys/2": [
+  "arrange the tuples in the order given by the list of keys",
+  "sort the records by where their first element appears in the second list",
+  "order the pairs so their first items follow the sequence in the key list"
+ ],
+ "repeat/2": [
+  "return the string repeated k times in a row",
+  "build the sequence formed by k copies of the list joined together",
+  "make the tuple repeat k times end to end"
+ ],
+ "repeated/1": [
+  "find the elements that occur more than once in the list",
+  "return each duplicated value of the list once, in order of first appearance",
+  "get the repeated items of the sequence without listing any twice"
+ ],
+ "replace/3": [
+  "replace every occurrence of a substring in the string with a new substring",
+  "change all instances of one character in the text to another character",
+  "return the string with every old substring swapped for the new one"
+ ],
+ "replace_last/2": [
+  "replace the last item of the first list with all elements of the second",
+  "drop the final element of the first list, then extend it with the second",
+  "return the first list without its last element, followed by the second list"
+ ],
+ "reverse/1": [
+  "reverse the order of the elements in the list",
+  "return the string written backwards",
+  "get the items of the sequence from last to first"
+ ],
+ "reverse_digits/1": [
+  "reverse the digits of the given number",
+  "return the integer formed by writing the number's digits backwards",
+  "flip the order of the digits of an integer"
+ ],
+ "reverse_each/1": [
+  "reverse each string in the list",
+  "return the list with every string written backwards",
+  "flip the characters of each word in the given tuple of strings"
+ ],
+ "reverse_each_word/1": [
+  "reverse each word in the string",
+  "spell every word of the sentence backwards, keeping the word order",
+  "return the sentence with the letters of each word reversed"
+ ],
+ "reverse_words/1": [
+  "reverse the order of the words in the string",
+  "return the words of a sentence in reverse order",
+  "flip the word order of the given text"
+ ],
+ "rhombus_area/2": [
+  "compute a rhombus area from the lengths of its two diagonals",
+  "find half the product of the two diagonals of a rhombus",
+  "return the area of the rhombus whose diagonals are given"
+ ],
+ "rotate_left/2": [
+  "rotate the list to the left by k positions",
+  "shift the elements of the list k places left, wrapping around",
+  "move the first k elements of the list to its end"
+ ],
+ "rotate_right/2": [
+  "rotate the list to the right by k positions",
+  "shift the list k steps to the right with wraparound",
+  "move the last k elements of the list to the front"
+ ],
+ "round1/1": [
+  "round the given number to one decimal place",
+  "return the float rounded to 1 digit after the decimal point",
+  "limit a float to a single decimal place by rounding"
+ ],
+ "round2/1": [
+  "round the number to two decimal places",
+  "return the float rounded to 2 digits after the decimal point",
+  "round the given value to a precision of two decimals"
+ ],
+ "row_first/1": [
+  "extract the initial item of every tuple in the list",
+  "return a list of the first elements of each inner list",
+  "take the leading element from each row of the nested list"
+ ],
+ "row_last/1": [
+  "take the last element of each sublist of the list",
+  "get the rear item of every tuple in the list",
+  "return the final elements of all the inner lists"
+ ],
+ "row_max/1": [
+  "find the maximum of each sublist in the list",
+  "return a list of the largest element of every inner list",
+  "get the biggest value in each row of the nested list"
+ ],
+ "row_mean/1": [
+  "find the average of each sublist in a list of lists",
+  "compute the mean of every row of the nested list",
+  "return the per-row averages of a tuple of tuples"
+ ],
+ "row_min/1": [
+  "find the minimum of each sublist in the list of lists",
+  "return the smallest element of every inner list",
+  "get the lowest value in each tuple of the list"
+ ],
+ "row_prod/1": [
+  "find the product of the numbers in each sublist",
+  "multiply the values within every inner list",
+  "compute the product of each tuple in the list of tuples"
+ ],
+ "row_reverse/1": [
+  "reverse every inner list of the nested list",
+  "return the list with each sublist in reverse order",
+  "flip the order of the elements inside each tuple"
+ ],
+ "row_sorted/1": [
+  "sort each sublist of the nested list",
+  "sort the elements inside every inner list in ascending order",
+  "return the list of lists with each row sorted"
+ ],
+ "row_sorted_tuple/1": [
+  "sort each sublist and convert it to a tuple",
+  "return every inner sequence sorted in ascending order as a tuple",
+  "sort the items within each tuple of the list"
+ ],
+ "row_sum/1": [
+  "find the sum of each inner list",
+  "compute the total of every row of the nested list",
+  "return the sum of the numbers in each tuple of the list"
+ ],
+ "rows_all_divisible/2": [
+  "keep the tuples of the list whose elements are all multiples of k",
+  "select the sublists in which every number is divisible by k",
+  "return the rows of the list that are entirely divisible by the given number"
+ ],
+ "rows_keep_common/2": [
+  "keep only the elements of each sublist that appear in the given list",
+  "filter every inner list down to items present in the second list",
+  "return the sublists with values missing from the reference list removed"
+ ],
+ "rows_to_float/1": [
+  "convert each element of the nested list to float when it can be parsed",
+  "turn all numeric strings and numbers in the list of tuples into floats",
+  "change each convertible element of the rows to a floating point number"
+ ],
+ "rows_to_int/1": [
+  "convert every string in the list of tuples to an integer",
+  "turn the numeric strings in each row into int values",
+  "change all values of the nested list from strings to integers"
+ ],
+ "rows_with/2": [
+  "find the tuples in the list that contain the given element",
+  "return the rows of the nested list that include the given value",
+  "keep only the sublists that have k as one of their items"
+ ],
+ "rows_with_count/1": [
+  "append to each distinct tuple the number of times it occurs",
+  "return the unique tuples of the list each extended with its frequency",
+  "count the occurrences of each tuple and add the count to it"
+ ],
+ "rows_within/3": [
+  "keep only the sublists whose elements all lie within the given range",
+  "drop every sublist that has a value outside the two bounds",
+  "filter the nested list to rows with every value between the two bounds"
+ ],
+ "rows_without/2": [
+  "remove the sublists that contain the given element",
+  "keep only the tuples of the list that do not include the value",
+  "filter out every row of the nested list containing the given item"
+ ],
+ "run_lengths/1": [
+  "compute the run-length encoding of the list as count and value pairs",
+  "encode runs of equal consecutive elements as their length followed by the element",
+  "return the run-length encoding of the string as lists of count and character"
+ ],
+ "same_digit_count/2": [
+  "check if the two integers have equally many digits",
+  "return true if both numbers contain the same count of digits",
+  "determine whether the two given numbers are equally long in digits"
+ ],
+ "same_elements/2": [
+  "check whether the two lists contain the same elements in any order",
+  "return true if one sequence is a permutation of the other",
+  "determine if two strings are anagrams of each other"
+ ],
+ "same_first_last/1": [
+  "check whether the string starts and ends with the same character",
+  "return true if the first and last elements of the sequence match",
+  "test if the list begins and ends with the same item"
+ ],
+ "same_length/2": [
+  "check whether the two lists have the same length",
+  "return true if both strings are equally long",
+  "determine if the two sequences contain the same number of elements"
+ ],
+ "same_lengths/1": [
+  "check whether all the sublists have the same length",
+  "return true if every element of the list has equal length",
+  "test if all strings in the list are the same size"
+ ],
+ "scale/2": [
+  "multiply every element of the list by k",
+  "scale each number in the list by the given factor",
+  "return the tuple with each item multiplied by the given number"
+ ],
+ "scale_rows/2": [
+  "multiply every number in each tuple of the list by k",
+  "scale all the values of the nested list by the given factor",
+  "return the rows with each element multiplied by the given number"
+ ],
+ "second_largest/1": [
+  "find the second largest distinct number in the list",
+  "return the second highest unique value of the list",
+  "get the largest value that is smaller than the maximum of the list"
+ ],
+ "second_smallest/1": [
+  "find the second lowest distinct value in the list",
+  "return the next smallest number after the minimum of the list",
+  "get the second element of the sorted unique values of the list"
+ ],
+ "sector_area/2": [
+  "compute the area of a circular sector from its radius and angle",
+  "return the sector area given the radius and the angle in degrees",
+  "calculate the area of a circle slice with the given radius and angle"
+ ],
+ "seq_adjacent_concat/1": [
+  "concatenate each string in the tuple with the next one",
+  "join every pair of neighbouring strings in the list",
+  "return the concatenations of consecutive elements of the string sequence"
+ ],
+ "seq_adjacent_coordinates/1": [
+  "list all coordinates adjacent to the given point, including the point itself",
+  "get all coordinates whose entries are within one of the given coordinate",
+  "generate the neighbouring grid coordinates around the point, the point itself included"
+ ],
+ "seq_anagrams_of/2": [
+  "return the words of the list that are anagrams of the given string",
+  "filter the list to the strings made of the same letters as the word",
+  "select every entry of the list that rearranges the letters of the string"
+ ],
+ "seq_argmax_all/1": [
+  "find every index at which the maximum of the list occurs",
+  "return the positions of all occurrences of the largest value",
+  "get the list of indices where the maximum appears"
+ ],
+ "seq_argmin_all/1": [
+  "find all indices of the smallest value in the list",
+  "return every position where the minimum element occurs",
+  "list the positions of every occurrence of the lowest number"
+ ],
+ "seq_best_distinct_pair_product/1": [
+  "find the two distinct values in the list whose product is largest",
+  "return the pair of unequal elements with the maximum product",
+  "get the pair of different numbers from the list that multiply to the most"
+ ],
+ "seq_bisect_left/2": [
+  "find the leftmost index where the value can be inserted into the sorted list",
+  "return the first index where the value fits while keeping the list sorted",
+  "compute the left insertion position of the given value in the sorted list"
+ ],
+ "seq_coin_ways/2": [
+  "count the ways to make the given amount from the list of coin values",
+  "find the number of coin combinations that sum to a total",
+  "compute how many ways the listed coins can make change for an amount"
+ ],
+ "seq_common_prefix/1": [
+  "get the longest prefix that all strings in the list share",
+  "return the longest starting substring common to every word in the list",
+  "find the longest shared beginning of the list of strings"
+ ],
+ "seq_copy/1": [
+  "make a copy of the list",
+  "return a shallow clone of the given sequence",
+  "create a new list with the same elements as the given one"
+ ],
+ "seq_count_even/1": [
+  "count the even numbers in the list",
+  "find how many elements of the list are even",
+  "return the number of even integers in the sequence"
+ ],
+ "seq_count_in_range/3": [
+  "count how many list values fall between the two bounds, inclusive",
+  "determine the count of list entries inside the given inclusive range",
+  "return how many list elements lie in the closed interval of the two bounds"
+ ],
+ "seq_count_ints/1": [
+  "count how many integers the list contains",
+  "find how many elements of a mixed list are integers",
+  "return the number of integer items in the tuple"
+ ],
+ "seq_count_inversions/1": [
+  "count the inversions in the list of numbers",
+  "find the minimum number of adjacent swaps needed to sort the list",
+  "return how many pairs of elements are out of order in the list"
+ ],
+ "seq_count_max/1": [
+  "count the number of times the largest value occurs in the list",
+  "find the frequency of the largest number in the list",
+  "return the number of occurrences of the max element"
+ ],
+ "seq_count_min/1": [
+  "count how many times the smallest value occurs in the list",
+  "return the number of occurrences of the minimum element",
+  "find how often the lowest number appears in the list"
+ ],
+ "seq_count_odd/1": [
+  "count the odd numbers in the list",
+  "find how many elements of the list are odd",
+  "return the number of odd integers in the list"
+ ],
+ "seq_count_pairs_diff/2": [
+  "count the pairs in the list whose difference is k",
+  "find how many pairs of elements differ by exactly the given value",
+  "return the number of element pairs with an absolute difference of k"
+ ],
+ "seq_count_pairs_sum/2": [
+  "count the pairs of elements in the list that add up to k",
+  "find how many pairs of numbers in the list have the given sum",
+  "return the number of index pairs whose values total the target"
+ ],
+ "seq_count_pairs_xor_even/1": [
+  "count the pairs of elements in the list with an even xor",
+  "find how many pairs of numbers give an even result when xored",
+  "return the number of element pairs whose bitwise xor is even"
+ ],
+ "seq_count_same_position/2": [
+  "count the positions where the two lists have equal elements",
+  "find how many indices hold the same value in both lists",
+  "return the number of matching items at the same index in two sequences"
+ ],
+ "seq_count_self_inverse/2": [
+  "count the elements of the list that are their own modular inverse modulo p",
+  "find how many list values equal their own modular inverse for the prime p",
+  "return the number of elements whose square leaves remainder one modulo p"
+ ],
+ "seq_count_true/1": [
+  "count the true values in the list",
+  "find how many booleans in the list are true",
+  "return the number of true elements in a list of booleans"
+ ],
+ "seq_dict_text/1": [
+  "convert the dictionary to a string",
+  "return the string representation of the dictionary",
+  "turn the given dictionary into text"
+ ],
+ "seq_divisible_by/2": [
+  "find the numbers in the list that are divisible by k",
+  "keep only the multiples of the given number from the list",
+  "filter the tuple to elements evenly divisible by the divisor"
+ ],
+ "seq_divisible_by_both/3": [
+  "find the numbers in the list divisible by both given numbers",
+  "keep the elements that are multiples of the two divisors",
+  "filter the list to values divisible by m and by n"
+ ],
+ "seq_divisible_by_either/3": [
+  "keep the elements of the list that are multiples of m or of n",
+  "return the list items divisible by at least one of the two divisors",
+  "select the numbers in the list divisible by either given number"
+ ],
+ "seq_each_concat/2": [
+  "concatenate the corresponding strings of the two tuples",
+  "join each string of the first list with the matching string of the second",
+  "return the element-wise concatenation of the two sequences of strings"
+ ],
+ "seq_equilibrium_index/1": [
+  "find the index splitting the list into equal sums on both sides",
+  "return the first index whose left and right sums match, else minus one",
+  "get the equilibrium position of the list, or minus one when none exists"
+ ],
+ "seq_first_and_last/1": [
+  "get the first and last elements of the list as a tuple",
+  "return a pair with the initial and final items of the sequence",
+  "extract the front and rear elements of a tuple"
+ ],
+ "seq_first_duplicate/1": [
+  "find the first repeated element in the list, or -1 if none",
+  "return the first value that occurs a second time in the list",
+  "get the earliest duplicate in the sequence, returning -1 when absent"
+ ],
+ "seq_first_even_odd/1": [
+  "find the first even and the first odd number in the list",
+  "return a pair of the first even value and the first odd value",
+  "get the earliest even and odd elements of the list as a tuple"
+ ],
+ "seq_first_missing_positive/1": [
+  "find the smallest positive integer missing from the list",
+  "return the first positive number that does not appear in the list",
+  "get the lowest natural number absent from an array of integers"
+ ],
+ "seq_first_odd/1": [
+  "get the first odd number in the list",
+  "return the earliest odd element of the given list",
+  "find the first number in the sequence that is not even"
+ ],
+ "seq_first_to_end/1": [
+  "move the first element of the list to the end",
+  "shift the first item of a list to the last position",
+  "rotate the list left by one place"
+ ],
+ "seq_first_triplet_sum/2": [
+  "find three elements of the list that add up to the given value",
+  "return the first combination of three numbers adding up to k, else false",
+  "search the array for three elements summing to the target"
+ ],
+ "seq_fixed_point/1": [
+  "find the first index of the list whose value equals the index",
+  "return the first position in the array holding its own index, or -1",
+  "get the fixed point of the sequence, where element and index coincide"
+ ],
+ "seq_gcd/1": [
+  "find the greatest common divisor of all numbers in the list",
+  "compute the gcd of all the integers in the array",
+  "return the highest common factor of the given list of integers"
+ ],
+ "seq_heap_replace/2": [
+  "replace the smallest element of the heap with the new value",
+  "heapify the list, pop the minimum and push the given item",
+  "return the heap after swapping its smallest item for a new one"
+ ],
+ "seq_heapify/1": [
+  "convert the list of numbers into a min heap",
+  "rearrange the elements of the list so they form a heap",
+  "return a heapified copy of the given list"
+ ],
+ "seq_insert_after_each/2": [
+  "insert the given value after every element of the list",
+  "add an element after each item in a list",
+  "interleave the list with copies of the given element, one after each item"
+ ],
+ "seq_invert_each/1": [
+  "find the bitwise inversion of each number in the tuple",
+  "apply bitwise not to every element of the list",
+  "return the inverted bits of each integer in the sequence"
+ ],
+ "seq_last_char_each/1": [
+  "get the last character of each string in the list",
+  "extract the rear character of every string in the tuple",
+  "return the final letter of each word in the list"
+ ],
+ "seq_last_to_front/1": [
+  "move the last element of the list to the front",
+  "shift the last item of the list to the first position",
+  "rotate the list one position to the right"
+ ],
+ "seq_lcm/1": [
+  "compute the least common multiple of all numbers in the list",
+  "return the smallest positive number divisible by every element of the list",
+  "get the lcm of the integers in the list"
+ ],
+ "seq_lis_length/1": [
+  "find how many elements the longest increasing subsequence of the list has",
+  "return the size of the longest strictly increasing subsequence",
+  "compute how long the longest rising subsequence in the sequence is"
+ ],
+ "seq_list_each/1": [
+  "split each string in the list into a list of its characters",
+  "convert every word of the list into a list of characters",
+  "return the individual characters of each string as separate lists"
+ ],
+ "seq_longest_bitonic/1": [
+  "find the length of the longest bitonic subsequence of the list",
+  "return the size of the longest increasing then decreasing subsequence",
+  "measure the longest subsequence of the array that first rises then falls"
+ ],
+ "seq_longest_consecutive/1": [
+  "find the length of the longest run of consecutive integers in the list",
+  "return the size of the longest sequence of consecutive numbers present in the array",
+  "compute the longest consecutive subsequence length of a list of integers"
+ ],
+ "seq_max_product_three/1": [
+  "find the largest product of any three elements of the list",
+  "return the highest product obtainable from three numbers in the list",
+  "compute the maximum product of a triplet taken from the list"
+ ],
+ "seq_max_subarray_product/1": [
+  "find the largest product of any contiguous run of elements in the list",
+  "return the maximum product of a non-empty contiguous sublist",
+  "compute the highest product obtainable from consecutive elements of the array"
+ ],
+ "seq_max_sum_bitonic/1": [
+  "compute the largest sum of a bitonic subsequence of the list",
+  "return the biggest total of a subsequence that strictly rises and then strictly falls",
+  "find the best sum of an increasing then decreasing subsequence in the list"
+ ],
+ "seq_max_sum_increasing/1": [
+  "find the maximum sum of an increasing subsequence of the list",
+  "return the largest sum of any strictly increasing subsequence",
+  "compute the biggest sum obtainable by picking an increasing subsequence"
+ ],
+ "seq_max_sum_no_adjacent/1": [
+  "find the maximum sum of non-adjacent elements in the list",
+  "return the largest total of elements where no two chosen are neighbors",
+  "compute the best sum picking numbers that are not next to each other"
+ ],
+ "seq_median/1": [
+  "find the median of the numbers in the list",
+  "return the middle value of the sorted numbers, averaging two middles if needed",
+  "calculate the statistical median of a sequence of numbers"
+ ],
+ "seq_mex/1": [
+  "find the smallest non-negative integer missing from the list",
+  "return the first missing number of the list, counting up from zero",
+  "get the least value from zero upward that does not occur in the list"
+ ],
+ "seq_min_coins/2": [
+  "find the minimum number of coins needed to make the given amount",
+  "count the fewest coins of the listed denominations that make up the total",
+  "compute the min number of coins from the list summing to the target value"
+ ],
+ "seq_min_gap/1": [
+  "find the minimum difference between any two elements of the list",
+  "return the smallest difference between any pair of numbers in the list",
+  "compute the least distance between two values of the list"
+ ],
+ "seq_min_jumps/1": [
+  "find the minimum number of jumps to reach the end of the list",
+  "return the fewest jumps from the first to the last index of the array",
+  "count the least jumps to the end, each value being the longest allowed jump"
+ ],
+ "seq_min_max_k/2": [
+  "get the k smallest and k largest elements of the tuple in sorted order",
+  "return the minimum k and maximum k values of the list",
+  "find the k lowest and k highest numbers of the sequence"
+ ],
+ "seq_modified_rle/1": [
+  "apply modified run-length encoding to the list",
+  "encode repeated runs as count and value, keeping single items unchanged",
+  "compress the sequence by replacing each run of repeats with its length and value"
+ ],
+ "seq_negative_ratio/1": [
+  "find the ratio of negative numbers in the list",
+  "compute what fraction of the list's elements are negative",
+  "return the proportion of the list's numbers that are below zero"
+ ],
+ "seq_odd_length_subarray_sum/1": [
+  "compute the total sum over all odd-length contiguous subarrays of the list",
+  "add up every contiguous sublist of odd length in the array",
+  "return the combined sum of the elements of every odd-sized subarray"
+ ],
+ "seq_odd_occurrence/1": [
+  "find the first element that appears an odd number of times in the list",
+  "return the item with an odd occurrence count, or -1 if there is none",
+  "get the value of the array whose frequency is odd"
+ ],
+ "seq_pair_absdiff_sum/1": [
+  "sum the absolute differences between all pairs of elements in the list",
+  "add up the absolute difference of every two numbers in the list",
+  "compute the total distance over all pairs of values in an array"
+ ],
+ "seq_pair_chunks/1": [
+  "split the list into consecutive pairs of elements",
+  "break the sequence into chunks of two items",
+  "group the list elements two at a time"
+ ],
+ "seq_pair_xor_sum/2": [
+  "compute the total of pairwise xors in the first n items of the list",
+  "add up the bitwise xor of each pair from the list's first n numbers",
+  "sum the xor values of all pairs among the first n list elements"
+ ],
+ "seq_palindromes/1": [
+  "find the palindromes in the list of words",
+  "keep only the strings in the list that read the same backwards",
+  "filter the sequence down to its palindromic items"
+ ],
+ "seq_positive_ratio/1": [
+  "find the share of positive numbers in the list",
+  "compute the fraction of elements in the array that are positive",
+  "return the proportion of positive values among all the numbers"
+ ],
+ "seq_powerset_binary/1": [
+  "generate all subsets of the list using a binary counter",
+  "return the power set of the given list as a list of lists",
+  "enumerate all subsets of the elements, ordered by a bitmask counter"
+ ],
+ "seq_powerset_by_size/1": [
+  "generate all subsets of the list, ordered by size",
+  "return the power set of the list as a list of lists",
+  "find every combination of the list elements, from empty to full"
+ ],
+ "seq_repeat_whole/2": [
+  "repeat the tuple n times, keeping each copy as a separate element",
+  "create a tuple that contains the given tuple n times",
+  "replicate the list n times as a list of lists"
+ ],
+ "seq_rotation_count/1": [
+  "count how many times the sorted list has been rotated",
+  "determine how many rotations turned a sorted array into this one",
+  "return the index of the first element smaller than the one before it"
+ ],
+ "seq_second_most_common/1": [
+  "find the element with the second highest frequency in the list",
+  "return the second most common item of the sequence",
+  "get the value that occurs the second most often in the list"
+ ],
+ "seq_sequential_search/2": [
+  "search the list for the element and return whether found and its index",
+  "perform a linear search returning a found flag and the position, or minus one",
+  "find the value in the list by sequential search, returning a boolean and index"
+ ],
+ "seq_slice_inclusive/3": [
+  "get the elements of the list between two indices, both inclusive",
+  "return the part of the list from the start index through the end index",
+  "extract the items of the sequence in the given index range, including both ends"
+ ],
+ "seq_sort_mixed/1": [
+  "sort the mixed list so numbers come first and strings after",
+  "order the numbers and the strings of the list separately, numbers first",
+  "return the sorted numbers of the list followed by its sorted strings"
+ ],
+ "seq_stdev_sample/1": [
+  "calculate the sample standard deviation of the list",
+  "find the standard deviation of the numbers, dividing by one less than the count",
+  "compute the standard deviation of a list of numbers"
+ ],
+ "seq_stride/2": [
+  "take every nth element of the list, starting from the first",
+  "return the items of the list at a regular interval of n",
+  "select the elements of the sequence with a step size of k"
+ ],
+ "seq_strip_digits_each/1": [
+  "strip the digit characters out of every string in the list",
+  "delete the numbers from each string of the list",
+  "return each string of the list with its digits removed"
+ ],
+ "seq_super_ugly/2": [
+  "return the n-th number whose prime factors all come from the given primes",
+  "get the super ugly number at position n for the list of primes",
+  "generate super ugly numbers from the given primes and return the nth"
+ ],
+ "seq_swap_adjacent/1": [
+  "swap every pair of adjacent elements in the list",
+  "exchange each element at an even index with the one after it",
+  "return the list with consecutive items swapped two at a time"
+ ],
+ "seq_take_indices/2": [
+  "get the elements of the list at the given indices",
+  "return the items of the first list at each index listed in the second",
+  "select the values of a sequence at the specified positions"
+ ],
+ "seq_words_all/1": [
+  "split every string in the list into words and collect them all",
+  "return a flat list of the words in the list of sentences",
+  "extract all the individual words from the list of strings"
+ ],
+ "seq_zip_cycle/2": [
+  "zip the first tuple with the second, repeating the second as needed",
+  "pair each element of the first list with the second list repeated cyclically",
+  "combine the two sequences into pairs, reusing the second from its start when exhausted"
+ ],
+ "set/1": [
+  "convert the list to a set",
+  "turn the sequence into a set of its unique elements",
+  "make a set from the elements of the tuple"
+ ],
+ "set_and/2": [
+  "find the common elements of the two lists as a sorted list",
+  "return the sorted intersection of two sequences",
+  "get the values shared by both lists in ascending order, without duplicates"
+ ],
+ "set_or/2": [
+  "find the union of the two lists as a sorted list",
+  "return the sorted distinct values that appear in either sequence",
+  "merge two tuples into a sorted list of their unique elements"
+ ],
+ "set_xor/2": [
+  "get the elements found in only one of the two lists, sorted",
+  "return the sorted symmetric difference of the two lists",
+  "find the values not common to the two tuples as a sorted list"
+ ],
+ "shift/2": [
+  "add k to every element of the list",
+  "increment each number in the tuple by the given amount",
+  "return the list with the given value added to each number"
+ ],
+ "shift_rows/2": [
+  "add k to every element of each tuple in the list",
+  "increase all the numbers of the nested list by the given value",
+  "increment each value in the list of lists by a constant"
+ ],
+ "shorter_than/2": [
+  "find the words in the string that are shorter than n characters",
+  "return the words of the sentence whose length is less than n",
+  "keep only the list items whose length is smaller than k"
+ ],
+ "shortest/1": [
+  "find the shortest sublist in the list of lists",
+  "return the string of minimum length from the list",
+  "get the element with the smallest length in the list"
+ ],
+ "shortest_with_len/1": [
+  "find the length of the shortest sublist along with the sublist itself",
+  "return the minimum length and the list that has it",
+  "get a tuple of the smallest length and the shortest element"
+ ],
+ "slice/3": [
+  "slice the list from the start index up to, but excluding, the end index",
+  "return the items between two given positions of the sequence",
+  "extract the substring from the first index up to the second"
+ ],
+ "smallest_range/1": [
+  "find the tightest range that contains a number from every list",
+  "return the narrowest interval covering an element of each sublist",
+  "get the shortest range as a pair holding a value from each list"
+ ],
+ "snake_to_camel/1": [
+  "turn the underscore separated string into pascal case",
+  "capitalize each underscore separated word of the string and join them",
+  "rewrite the snake case text in upper camel case"
+ ],
+ "sort_by_column/2": [
+  "sort the list of tuples by the element at index k",
+  "order the rows of the list by their value in the given column",
+  "arrange the sublists in ascending order of the item at position k"
+ ],
+ "sort_by_float/1": [
+  "sort the tuples by their second element read as a float",
+  "order the records by the float value of their second item",
+  "arrange the rows in increasing order of their second value converted to float"
+ ],
+ "sort_by_float_desc/1": [
+  "sort the tuples by the float value of their second element, descending",
+  "order the records by the numeric value of the second item, largest first",
+  "arrange the tuples in decreasing order of their second field read as a float"
+ ],
+ "sort_by_last/1": [
+  "sort the list of tuples by their last element",
+  "order the sublists in increasing order of their final item",
+  "return the rows sorted ascending by the value in the last position"
+ ],
+ "sort_by_last_desc/1": [
+  "sort the list of tuples by their last element in descending order",
+  "order the rows from the highest to the lowest last value",
+  "arrange the tuples in decreasing order of their final item"
+ ],
+ "sort_by_len/1": [
+  "sort the list of strings by their length",
+  "order the sublists from shortest to longest",
+  "arrange the items of the list in increasing order of length"
+ ],
+ "sort_dicts_by_key/2": [
+  "sort the list of dictionaries by the given key",
+  "order the dictionaries in the list by their value for the given key",
+  "arrange a list of dicts in ascending order of the specified key"
+ ],
+ "sort_dicts_by_last/1": [
+  "sort the list of dictionaries by the value of their last key",
+  "order the dictionaries in the list by their final value",
+  "arrange the list of records in ascending order of their last field"
+ ],
+ "sorted/1": [
+  "sort the given list in ascending order",
+  "return a new sorted list of the elements of the tuple",
+  "arrange the items of the sequence from smallest to largest"
+ ],
+ "sorted_chars/1": [
+  "sort the characters of the string in alphabetical order",
+  "return the string with its letters arranged in sorted order",
+  "rearrange the characters of the given string in ascending order"
+ ],
+ "sorted_desc/1": [
+  "sort the list in descending order",
+  "arrange the elements of the sequence from largest to smallest",
+  "return a new list with the items in decreasing order"
+ ],
+ "sorted_items/1": [
+  "sort the dictionary by key and return its items",
+  "return the key value pairs of the dictionary in key order",
+  "get the dictionary items as a list of tuples ordered by key"
+ ],
+ "sorted_set/1": [
+  "remove duplicates from the list and sort the remaining values",
+  "return the distinct elements of the list in ascending order",
+  "get a sorted list of the unique items in the sequence"
+ ],
+ "spaces_to_underscore/1": [
+  "replace the spaces in the string with underscores",
+  "convert each space of the text into an underscore",
+  "return the string with all blanks changed to underscores"
+ ],
+ "span/2": [
+  "find where the substring occurs in the string, with start and end",
+  "return the substring together with its start and end index in the string",
+  "get the substring and the position span of its first occurrence in the string"
+ ],
+ "sphere_surface/1": [
+  "find the surface area of a sphere with the given radius",
+  "compute the area of a sphere's surface from its radius",
+  "calculate four times pi times the square of the radius"
+ ],
+ "sphere_volume/1": [
+  "find the volume of a sphere with the given radius",
+  "compute the volume of a sphere as four thirds pi times the radius cubed",
+  "calculate how much space a sphere of the given radius encloses"
+ ],
+ "split/1": [
+  "split the string into a list of words",
+  "break the sentence into words wherever there is whitespace",
+  "return the words of the given text as a list"
+ ],
+ "split_at/2": [
+  "split the list into two parts at index k",
+  "return a pair of the first k items and the remaining items",
+  "break the list into two pieces, the first of length k"
+ ],
+ "split_comma/1": [
+  "split the string on commas and strip spaces from each part",
+  "break the comma-separated string into a list of trimmed items",
+  "convert the comma-separated text into a list of its values"
+ ],
+ "split_on/2": [
+  "split the string at each occurrence of the given separator",
+  "break a string into a list of parts using the delimiter",
+  "divide the text into pieces wherever the second string appears"
+ ],
+ "split_space/1": [
+  "split the string on single spaces",
+  "break the string into a list of parts at each space",
+  "divide the string by the space character into a list"
+ ],
+ "square/1": [
+  "find the square of the given number",
+  "multiply the number by itself",
+  "compute the number raised to the power of two"
+ ],
+ "square_each/1": [
+  "square every number in the list",
+  "return the squares of the elements of the given list",
+  "compute the square of each value in a tuple"
+ ],
+ "square_perimeter/1": [
+  "find the perimeter of a square given its side length",
+  "compute the perimeter of a rhombus from the length of one side",
+  "return four times the side of a square as its perimeter"
+ ],
+ "square_pyramidal/1": [
+  "compute the square pyramidal number for the given n",
+  "return the n-th pyramidal number with a square base",
+  "calculate the nth square pyramidal number, the sum of the first n squares"
+ ],
+ "squeeze_spaces/1": [
+  "replace multiple spaces in the string with a single space",
+  "remove the extra spaces between the words of a string",
+  "collapse runs of whitespace in the text into single spaces"
+ ],
+ "star/1": [
+  "find the nth star number",
+  "compute the star number at the given position",
+  "return the n-th term of the star number sequence"
+ ],
+ "starts_with/2": [
+  "check whether the string starts with the given substring",
+  "return true if the text begins with the specified prefix",
+  "test whether the second string is a prefix of the first"
+ ],
+ "starts_with_digit/1": [
+  "check whether the string starts with a digit",
+  "return true if the first character of the string is a number",
+  "determine whether the given text begins with a numeral"
+ ],
+ "starts_with_vowel/1": [
+  "check whether the given string starts with a vowel",
+  "determine if the first letter of a word is a vowel",
+  "return true when a string begins with a, e, i, o or u"
+ ],
+ "stirling2/2": [
+  "find the stirling number of the second kind for n and k",
+  "count the ways to partition n items into k non-empty subsets",
+  "compute the number of partitions of a set of size n into k blocks"
+ ],
+ "str/1": [
+  "convert the integer to a string",
+  "return the given number as a string",
+  "turn the number into its string representation"
+ ],
+ "str_each/1": [
+  "convert every element of the list to a string",
+  "turn each item of the tuple into its string form",
+  "return the sequence with all its elements converted to strings"
+ ],
+ "strictly_decreasing/1": [
+  "check whether the list is strictly decreasing",
+  "determine if every element of a sequence is smaller than the one before",
+  "return true if each number in the list is greater than the next one"
+ ],
+ "strictly_increasing/1": [
+  "check whether the list is strictly increasing",
+  "return true if each element is smaller than the next one",
+  "determine if the numbers of the sequence are in strictly ascending order"
+ ],
+ "strip/1": [
+  "remove leading and trailing whitespace from the string",
+  "trim the spaces at both ends of a string",
+  "strip the whitespace from the start and end of the text"
+ ],
+ "strs_only/1": [
+  "extract only the string values from a mixed list",
+  "return the elements of the heterogeneous list that are strings",
+  "keep just the strings from a list of mixed types"
+ ],
+ "sub/2": [
+  "subtract the second number from the first",
+  "find the difference between the first and the second number",
+  "return the first value minus the second value"
+ ],
+ "subset_sum/2": [
+  "check whether some subset of the list sums to the given total",
+  "determine if some choice of the numbers adds up to the target",
+  "return true if any selection of list elements has the given sum"
+ ],
+ "subset_sum_divisible/2": [
+  "check whether some subset of the list has a sum divisible by m",
+  "return true if a non-empty subset of the list totals a multiple of m",
+  "test if any non-empty subset's sum is divisible by the given number"
+ ],
+ "successors_dict/1": [
+  "convert the list of edge pairs into an adjacency dictionary",
+  "build a dictionary mapping each node to the nodes it points to",
+  "group the pairs into a dictionary from each first element to its partners"
+ ],
+ "sum/1": [
+  "find the sum of all the numbers in the list",
+  "add up every element of the given list",
+  "return the total of the values in a list of numbers"
+ ],
+ "sum_values/1": [
+  "add up the values of the dictionary",
+  "return the total of the dictionary values",
+  "compute the sum of every value stored in the dictionary"
+ ],
+ "swap_ends/1": [
+  "swap the first and last elements of the list",
+  "exchange the list's first element with its last one",
+  "put the last element of the list first and the first element last"
+ ],
+ "swapcase/1": [
+  "swap uppercase and lowercase letters in the string",
+  "invert the case of each letter of the given text",
+  "convert lowercase characters of the string to uppercase and vice versa"
+ ],
+ "symmetric_pairs/1": [
+  "find the symmetric pairs in the list of tuples",
+  "return the set of pairs whose reverse also appears in the list",
+  "collect the tuples that also appear reversed, keeping the smaller element first"
+ ],
+ "take/2": [
+  "get the first k elements of the list",
+  "return the initial k characters of the string",
+  "extract the prefix of length k from the sequence"
+ ],
+ "take_last/2": [
+  "get the last k elements of the list",
+  "return the final n items of the sequence",
+  "extract the last k characters of the string"
+ ],
+ "tetrahedral/1": [
+  "compute the tetrahedral number with index n",
+  "return the sum of the first n triangular numbers",
+  "get the n-th tetrahedral number"
+ ],
+ "tetrahedron_area/1": [
+  "compute the surface area of a regular tetrahedron from its edge",
+  "return the total area of a tetrahedron with the given side length",
+  "calculate the area of all faces of the tetrahedron whose edge is given"
+ ],
+ "tetrahedron_volume/1": [
+  "find the volume of a regular tetrahedron with the given edge length",
+  "compute the volume of a tetrahedron from its side",
+  "calculate the edge cubed divided by six times the square root of two"
+ ],
+ "title/1": [
+  "convert the string to title case",
+  "capitalize the first letter of every word in the string",
+  "return the string with each word capitalized and the rest lowercase"
+ ],
+ "transpose/1": [
+  "transpose the given matrix",
+  "swap the rows and columns of a list of lists",
+  "return the columns of the nested list as separate lists"
+ ],
+ "trapezium_area/3": [
+  "find the area of a trapezium with the two given bases and height",
+  "compute half the sum of the two parallel sides times the height",
+  "return the area of the trapezoid from both base lengths and its height"
+ ],
+ "trapezium_median/2": [
+  "find the median of a trapezium given its two parallel sides",
+  "compute the median length of a trapezoid from the lengths of its bases",
+  "return the average of the two bases of a trapezium"
+ ],
+ "triangle_angles_valid/3": [
+  "check whether three angles can form a valid triangle",
+  "return true if the three angles are positive and sum to 180",
+  "determine if the given angles could be the angles of a triangle"
+ ],
+ "triangle_area/2": [
+  "find the area of a triangle given its base and height",
+  "compute half the product of a triangle's base and height",
+  "return the triangle area from the base length and the height"
+ ],
+ "triangle_max_path/1": [
+  "find the maximum path sum from top to bottom of the triangle",
+  "compute the largest total along a path down the number triangle",
+  "return the best top-to-bottom path sum in a triangle of numbers"
+ ],
+ "triangle_min_path/1": [
+  "find the cheapest path sum from the top to the bottom of the triangle",
+  "return the lowest sum along a downward path in the triangle",
+  "compute the smallest top to bottom path sum through the number triangle"
+ ],
+ "triangle_sides_valid/3": [
+  "check whether a triangle can be formed from the three given lengths",
+  "return true if the three side lengths satisfy the triangle inequality",
+  "determine whether the three sides make a valid triangle"
+ ],
+ "triangular/1": [
+  "compute the nth triangular number",
+  "find the triangular number at position n",
+  "calculate the n-th triangular number, the sum of 1 through n"
+ ],
+ "trim_rows/2": [
+  "trim k elements from both ends of each tuple",
+  "remove the first k and last k items of every sublist",
+  "cut k values off the start and end of each inner tuple"
+ ],
+ "triplet_sum/2": [
+  "check whether any three elements of the list add up to the target",
+  "return true if some triplet in the list sums to the given number",
+  "test if three distinct positions in the list hold values totaling the target"
+ ],
+ "truediv/2": [
+  "divide the first number by the second",
+  "find the quotient of two numbers as a float",
+  "compute the ratio of the first value to the second value"
+ ],
+ "tuple/1": [
+  "convert the list to a tuple",
+  "turn the given list into a tuple",
+  "make a tuple from the characters of a string"
+ ],
+ "two_alternating/1": [
+  "check whether the string consists of two characters taking turns",
+  "determine if the string alternates between two different characters",
+  "return true if the text repeats two distinct letters in turn"
+ ],
+ "txt_adverb_span/1": [
+  "get the start index, end index and text of the first adverb",
+  "locate the first word ending in ly and return its span and text",
+  "return the position and word of the earliest adverb in the sentence, or none"
+ ],
+ "txt_adverb_text/1": [
+  "find the first word ending in ly and report its positions as text",
+  "return the first adverb of the sentence with its span, formatted as a string",
+  "locate the first adverb in the text and describe its start, end and word"
+ ],
+ "txt_alpha_digit_counts/1": [
+  "count the letters and digits in the string",
+  "return a tuple of the number of letters and the number of digits",
+  "find how many alphabetic and how many numeric characters the string has"
+ ],
+ "txt_alpha_digit_special_counts/1": [
+  "count the letters, digits and special characters in the string",
+  "return a tuple with the numbers of alphabets, digits and special symbols",
+  "find how many letters, digits and other special characters the text has"
+ ],
+ "txt_bracket_swaps/1": [
+  "find the fewest adjacent swaps that balance the brackets in the string",
+  "count the swaps required to make a string of square brackets balanced",
+  "compute the minimum swap count for balancing a bracket sequence"
+ ],
+ "txt_capitalize/1": [
+  "capitalize the first letter of the string and lowercase the rest",
+  "convert the string so only its first character is uppercase",
+  "return the string with an initial capital and the remaining letters lowercase"
+ ],
+ "txt_capitalize_first_last/1": [
+  "capitalize both the first and the last letter of every word",
+  "make the first and last character of each word in the string uppercase",
+  "return the sentence with both ends of each word capitalized"
+ ],
+ "txt_char_at/2": [
+  "get the character at the given index of the string",
+  "return the character of the string at zero-based position k",
+  "find which character is at position k in the text"
+ ],
+ "txt_chunks/2": [
+  "split the string into chunks of k characters",
+  "break the text into pieces of the given length",
+  "divide the string into consecutive substrings of size k"
+ ],
+ "txt_consonant_count/1": [
+  "count the consonants in the string",
+  "find how many letters of the string are not vowels",
+  "return the number of consonant characters in the text"
+ ],
+ "txt_dedupe_chars/1": [
+  "remove duplicate characters from the string, keeping the first occurrences",
+  "return the unique characters of the string in their original order",
+  "delete repeated letters of the string while preserving their order"
+ ],
+ "txt_dedupe_words/1": [
+  "remove repeated words from the string",
+  "keep only the first occurrence of each word in the sentence",
+  "return the text with duplicate words deleted"
+ ],
+ "txt_demlo/1": [
+  "compute the demlo number of the digit string",
+  "return the demlo number corresponding to the length of the string",
+  "build a string counting up from one to the string length and back down"
+ ],
+ "txt_digit_alpha_counts/1": [
+  "count the digits and the letters in the string",
+  "return a pair with the number of digits and the number of letters",
+  "find how many digits and how many alphabetic characters a string has"
+ ],
+ "txt_equal_ends_substrings/1": [
+  "count the substrings whose first and last characters are the same",
+  "find how many substrings of the string start and end with equal letters",
+  "return the number of substrings having matching end characters"
+ ],
+ "txt_first_unique_char/1": [
+  "find the first character of the string that does not repeat",
+  "return the first character that occurs only once in the string, or none",
+  "get the earliest character of the text that appears exactly once"
+ ],
+ "txt_floats/1": [
+  "extract all numbers from the string as floats",
+  "find every decimal number in the text and return them as floats",
+  "return a list of the real numbers written in the string"
+ ],
+ "txt_ip_strip_zeros/1": [
+  "remove leading zeros from the parts of an ip address",
+  "strip the zeros that follow each dot in the ip address",
+  "clean an ip address string by dropping zero padding in its numbers"
+ ],
+ "txt_last_position/2": [
+  "find the one-based position of the last occurrence of the character in the string",
+  "return where the substring last appears in the string, counting from one, or none",
+  "get the 1-based index of the final occurrence of the given character"
+ ],
+ "txt_last_word_length/1": [
+  "count the characters in the final word of the string",
+  "return how long the last word of the string is",
+  "get the length of the string's last word, or zero if there is none"
+ ],
+ "txt_lcs3_length/3": [
+  "find the length of the longest common subsequence of three strings",
+  "compute the longest common subsequence length for three given sequences",
+  "return how long the longest subsequence shared by all three strings is"
+ ],
+ "txt_lcs_length/2": [
+  "compute the length of the longest common subsequence of the two strings",
+  "return how long the longest subsequence shared by both strings is",
+  "find the lcs length of the two given sequences"
+ ],
+ "txt_lower_count/1": [
+  "count the lowercase characters of the string",
+  "find how many letters in the string are lower case",
+  "return the number of small letters in the string"
+ ],
+ "txt_lower_only/1": [
+  "keep only the lowercase letters of the string",
+  "remove every character that is not a lowercase letter",
+  "extract the lower case characters from the given string"
+ ],
+ "txt_lstrip/1": [
+  "remove the leading whitespace from the string",
+  "strip the spaces at the beginning of a string",
+  "trim whitespace from the left side of the text"
+ ],
+ "txt_match_message/1": [
+  "convert a true or false value into a found or not matched message",
+  "return the match message when the condition is true and the no-match message otherwise",
+  "report in words whether a match was found from the boolean result"
+ ],
+ "txt_min_flips_alternate/1": [
+  "count the minimum bit flips needed to make the binary string alternate",
+  "find the fewest character changes so no two adjacent digits are equal",
+  "compute the least flips turning the binary string into alternating zeros and ones"
+ ],
+ "txt_most_common_n/2": [
+  "find the k most frequent elements together with how often each occurs",
+  "return the top k characters of the string with their occurrence counts",
+  "list the k commonest items of the sequence as item and count pairs"
+ ],
+ "txt_most_common_words/2": [
+  "find the n most common words in the text with their counts",
+  "return the k most frequent words of the string and how often each occurs",
+  "list the top n words of the sentence as word and count pairs"
+ ],
+ "txt_no_punctuation/1": [
+  "remove all punctuation from the string",
+  "strip the punctuation characters out of the text",
+  "return the string without any punctuation marks"
+ ],
+ "txt_ord/1": [
+  "compute the ascii code of the given character",
+  "return the unicode code point of a single character",
+  "get the numeric code of the character"
+ ],
+ "txt_ord_each/1": [
+  "convert each character of the string to its ascii value",
+  "return the list of unicode code points of the characters in a string",
+  "get the ordinal value of every character in the text"
+ ],
+ "txt_parse_float/1": [
+  "convert the string to a float",
+  "parse a numeric string into a floating point number",
+  "turn the given text into a decimal number"
+ ],
+ "txt_permutations/1": [
+  "find all permutations of the characters of the string",
+  "return a list of every permutation of the given string",
+  "generate all possible orderings of the letters of the string"
+ ],
+ "txt_regex_span/2": [
+  "search the string for a regex pattern, returning the match, start and end",
+  "find the first match of the pattern in the text and its location",
+  "return the regex match in the string with its start and end, or none"
+ ],
+ "txt_repeating_subsequence_length/1": [
+  "find the length of the longest repeating subsequence in the string",
+  "count the characters of the longest subsequence that appears twice at different positions",
+  "return the size of the longest repeated subsequence of the text"
+ ],
+ "txt_reverse_vowels/1": [
+  "reverse the order of the vowels in the string",
+  "return the string with only its vowels reversed",
+  "swap the vowels of the text end to end, leaving other characters in place"
+ ],
+ "txt_rfind/2": [
+  "find the index of the last occurrence of the substring in the string",
+  "return the rightmost position where the second string appears in the first",
+  "get the starting index of the final match of the substring within the text"
+ ],
+ "txt_roman_to_int/1": [
+  "convert a roman numeral to an integer",
+  "find the integer value of the given roman numeral string",
+  "translate roman numerals into a decimal number"
+ ],
+ "txt_rotate_left/2": [
+  "rotate the string to the left by n characters",
+  "move the first k characters of the string to its end",
+  "return the string left-rotated by the given number of positions"
+ ],
+ "txt_rotate_right/2": [
+  "rotate the string to the right by k characters",
+  "move the last k characters of the string to its front",
+  "shift the characters of the string k places to the right, wrapping around"
+ ],
+ "txt_rstrip/1": [
+  "remove the trailing whitespace from the string",
+  "strip the spaces at the end of the given string",
+  "return the string without whitespace on its right side"
+ ],
+ "txt_scs_length/2": [
+  "find the length of the shortest common supersequence of two strings",
+  "return how long the shortest sequence holding both inputs as subsequences is",
+  "compute the minimal supersequence length for the two sequences"
+ ],
+ "txt_signed_ints/1": [
+  "extract all integers, including negative ones, from the string",
+  "find every signed whole number in the text as a list of integers",
+  "return the integers that appear in the string, keeping minus signs"
+ ],
+ "txt_sort_words/1": [
+  "sort the words of the string in alphabetical order",
+  "return the sentence with its words arranged alphabetically",
+  "order the words of a given text and join them with spaces"
+ ],
+ "txt_split_at_lower/1": [
+  "break the string into pieces at each lowercase letter",
+  "split the text so each part starts with a lowercase letter",
+  "divide the string into a list of segments beginning at lowercase characters"
+ ],
+ "txt_split_at_upper/1": [
+  "split the string at its uppercase letters",
+  "break the string into pieces that each begin with a capital letter",
+  "extract the segments of the string starting at each uppercase letter"
+ ],
+ "txt_squeeze_char/2": [
+  "replace consecutive repeats of the given character in the string with one",
+  "collapse multiple occurrences in a row of a character into a single one",
+  "squeeze each run of the specified character in the text down to one"
+ ],
+ "txt_squeeze_repeats/1": [
+  "remove consecutive duplicate characters from the string",
+  "collapse each run of repeated adjacent characters into one",
+  "keep only one character from every group of identical neighbors in the string"
+ ],
+ "txt_url_dates/1": [
+  "find all dates written as year, month and day in the url",
+  "pull out the year, month and day groups from the url path",
+  "return the url's dates as tuples of year, month and day strings"
+ ],
+ "txt_valid_invalid/1": [
+  "convert the boolean into the word valid or invalid",
+  "return valid when the given flag is true, otherwise invalid",
+  "turn a true or false result into the text valid or invalid"
+ ],
+ "txt_word_lengths/1": [
+  "find the length of each word in the string",
+  "return a list of the lengths of the words in the sentence",
+  "compute how many characters every word of the text has"
+ ],
+ "txt_yes_no/1": [
+  "return yes if the condition is true and no otherwise",
+  "convert the boolean to the word yes or no",
+  "answer yes when the given value is true, else no"
+ ],
+ "underscore_to_space/1": [
+  "replace underscores in the string with spaces",
+  "turn each underscore of the string into a space",
+  "change all the underscores of the text to blank spaces"
+ ],
+ "union_all/1": [
+  "find the sorted union of all the sublists",
+  "return the distinct elements from all inner lists in sorted order",
+  "combine all the tuples into one sorted list of unique elements"
+ ],
+ "unzip/1": [
+  "transpose the list of lists, returning each column as a tuple",
+  "unzip a list of tuples into one tuple per position",
+  "group the items at the same index of every row into tuples"
+ ],
+ "upper/1": [
+  "convert the string to uppercase",
+  "change every letter of the string to upper case",
+  "return the given text written in capital letters"
+ ],
+ "upper_count/1": [
+  "count the capital letters in the string",
+  "find how many uppercase letters the string contains",
+  "return the number of characters of the string that are upper case"
+ ],
+ "upper_each/1": [
+  "convert each string in the list to uppercase",
+  "return the list with every string in capital letters",
+  "change all the words of the tuple to upper case"
+ ],
+ "upper_only/1": [
+  "extract only the uppercase letters from the string",
+  "remove every character of the string that is not uppercase",
+  "return a string of the capital letters in the given text"
+ ],
+ "values/1": [
+  "get the list of values of the dictionary",
+  "return all the values stored in the dictionary as a list",
+  "collect every value of the given dictionary into a list"
+ ],
+ "vowel_count/1": [
+  "count the vowels in the given string, ignoring case",
+  "find how many vowel characters the text contains",
+  "return the number of vowel letters in the string"
+ ],
+ "wind_chill/2": [
+  "compute the wind chill index from the wind speed and temperature, rounded",
+  "find the rounded wind chill given the wind velocity and the air temperature",
+  "return the wind chill as a whole number for the given speed and temperature"
+ ],
+ "woodall/1": [
+  "find the nth woodall number",
+  "compute n times two to the power n, minus one",
+  "return the woodall number for the given n"
+ ],
+ "words/1": [
+  "split the string into a list of words",
+  "extract all the words from the given sentence",
+  "find every word in the text, ignoring punctuation"
+ ],
+ "xor/2": [
+  "compute the bitwise xor of the two numbers",
+  "return the exclusive or of the two integers",
+  "find the xor of the given pair of numbers"
+ ],
+ "zip/2": [
+  "pair up the elements of the two lists into a list of tuples",
+  "zip the two sequences together into a list of pairs",
+  "combine corresponding items of the two lists into tuples"
+ ],
+ "zip_dict/2": [
+  "create a dictionary using the first list as keys and the second as values",
+  "map each element of the first list to the matching element of the second",
+  "combine a list of keys and a list of values into a dictionary"
+ ]
+}
