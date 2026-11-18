@@ -1,0 +1,14 @@
+{
+ "train": {
+  "corroborated_wrong": 10,
+  "coverage_miss": 8,
+  "shared_error": 2,
+  "reference_unusable": 0
+ },
+ "val": {
+  "corroborated_wrong": 2,
+  "coverage_miss": 2,
+  "shared_error": 0,
+  "reference_unusable": 0
+ }
+}
