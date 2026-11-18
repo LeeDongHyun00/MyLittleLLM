@@ -1,0 +1,89 @@
+[
+ {
+  "name": "s15-base",
+  "split": "train",
+  "n": 182,
+  "model": "coder-1.5b",
+  "condition": "base",
+  "base_pass": 127,
+  "base_pct": 69.8,
+  "base_ci95": [
+   62.8,
+   76.0
+  ],
+  "plus_pass": 115,
+  "plus_pct": 63.2,
+  "plus_ci95": [
+   56.0,
+   69.9
+  ],
+  "mean_llm_calls": 1.0,
+  "mean_completion_tokens": 96.7,
+  "mean_prompt_tokens_processed": 50.8,
+  "mean_model_seconds": 5.44,
+  "median_wall_seconds": 4.98,
+  "mean_wall_seconds": 5.44
+ },
+ {
+  "name": "s15-branch-dev-t",
+  "split": "train",
+  "n": 182,
+  "model": "coder-1.5b",
+  "condition": "branch",
+  "base_pass": 159,
+  "base_pct": 87.4,
+  "base_ci95": [
+   81.8,
+   91.4
+  ],
+  "plus_pass": 146,
+  "plus_pct": 80.2,
+  "plus_ci95": [
+   73.8,
+   85.4
+  ],
+  "mean_llm_calls": 1.04,
+  "mean_completion_tokens": 104.1,
+  "mean_prompt_tokens_processed": 62.3,
+  "mean_model_seconds": 6.56,
+  "median_wall_seconds": 5.43,
+  "mean_wall_seconds": 6.57,
+  "vs_first": {
+   "wins": 33,
+   "losses": 2,
+   "net_pct": 17.0,
+   "mcnemar_p": 0.0
+  }
+ },
+ {
+  "name": "s15-branch-dev-r3",
+  "split": "train",
+  "n": 182,
+  "model": "coder-1.5b",
+  "condition": "branch",
+  "base_pass": 174,
+  "base_pct": 95.6,
+  "base_ci95": [
+   91.6,
+   97.8
+  ],
+  "plus_pass": 162,
+  "plus_pct": 89.0,
+  "plus_ci95": [
+   83.6,
+   92.8
+  ],
+  "mean_llm_calls": 1.04,
+  "mean_completion_tokens": 104.1,
+  "mean_prompt_tokens_processed": 62.3,
+  "mean_model_seconds": 6.56,
+  "median_wall_seconds": 5.43,
+  "mean_wall_seconds": 6.57,
+  "vs_first": {
+   "wins": 49,
+   "losses": 2,
+   "net_pct": 25.8,
+   "mcnemar_p": 0.0
+  }
+ }
+]
