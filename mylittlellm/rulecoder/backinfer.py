@@ -911,6 +911,31 @@ def informative(expected):
     return len(expected) >= 2 if hasattr(expected, "__len__") else False
 
 
+NAMED_CHARACTERS = {"space": " ", "comma": ",", "dot": ".", "period": ".", "underscore": "_", "colon": ":",
+                    "semicolon": ";", "hyphen": "-", "dash": "-", "slash": "/", "asterisk": "*", "hash": "#",
+                    "newline": "\n", "tab": "\t"}
+MAX_LITERALS = 6
+
+
+def description_literals(description):
+    """Values a description states outright: quoted strings, integers, characters called by name.
+
+    Operators see only the example's arguments, so a task such as "remove every 'std'" or
+    "numbers divisible by 7" is out of reach unless the stated value joins the search.
+    Number words are left out on purpose: "two lists" names the arguments, not a constant.
+    """
+    found = []
+    for quoted in re.findall(r"""(?<![\w'"])(?:'([^'\n]{1,20})'|"([^"\n]{1,20})")(?![\w'"])""", description):
+        found.append(quoted[0] or quoted[1])
+    for number in re.findall(r"(?<![\w.])\d{1,6}(?!\w|\.\d)", description):
+        found.append(int(number))
+    lowered = description.lower()
+    for name, character in NAMED_CHARACTERS.items():
+        if re.search(rf"\b{name}s?\b", lowered):
+            found.append(character)
+    return list(dict.fromkeys(found))[:MAX_LITERALS]
+
+
 def load_weights(path=WEIGHTS):
     """Operator reliabilities learned from development outcomes (see scripts/rule_pilot.py learn-operators)."""
     return json.loads(path.read_text())["operators"] if path.exists() else {}
@@ -922,6 +947,10 @@ def search(example, description="", budget_seconds=2.0, weights=None):
     weights = load_weights() if weights is None else weights
     deadline = time.monotonic() + budget_seconds
     named = {id(op): op.named_in(text) for op in U + B + T}
+    # How specifically the description names an operator: the length of the longest keyword
+    # alternative that matched. "regex&position" says more than "position" alone.
+    specific = {id(op): max((sum(map(len, alt)) for alt in op.alternatives if all(part in text for part in alt)),
+                            default=0) for op in U + B + T} if "specific_first" in ENGINE else {}
     unary_ops = [op for op in U if named[id(op)] or not op.gated]
     binary_ops = [op for op in B if named[id(op)] or not op.gated]
     ternary_ops = [op for op in T if named[id(op)] or not op.gated]
@@ -929,6 +958,13 @@ def search(example, description="", budget_seconds=2.0, weights=None):
     # expression the task description supports best, so a coincidence cannot hide the real reading.
     base = [(arg, f"a{i}", ()) for i, arg in enumerate(example["args"])]
     seen = {_key(v): None for v, _, _ in base}
+    # Values stated in the description may be the second operand of an operator, never its subject.
+    constants = []
+    if "description_constants" in ENGINE:
+        for literal in description_literals(description):
+            if _key(literal) not in seen:
+                seen[_key(literal)] = None
+                constants.append((literal, repr(literal), ()))
     found = []
 
     def quality(ops):
@@ -949,6 +985,7 @@ def search(example, description="", budget_seconds=2.0, weights=None):
             found.append({"expr": expr, "ops": [op.name + "/" + str(op.arity) for op in ops],
                           "size": sum(op.cost for op in ops), "support": support, "learned": learned,
                           "knowledge": any(op.kind == "knowledge" for op in ops),
+                          "specific": sum(specific.get(id(op), 0) for op in ops),
                           "helpers": [op.helper for op in ops if op.helper]})
 
     def consider(value, expr, ops, bucket):
@@ -981,7 +1018,8 @@ def search(example, description="", budget_seconds=2.0, weights=None):
                 if other_expr == expr:
                     continue  # x op x is either degenerate or already a unary operator
                 orders = [((value, expr), (other, other_expr))]
-                if both_orders:
+                # A constant is never an item of its own, so its other order has to be tried here.
+                if both_orders or not other_expr.isidentifier():
                     orders.append(((other, other_expr), (value, expr)))
                 for op in binary_ops:
                     for (first, first_expr), (second, second_expr) in orders:
@@ -994,15 +1032,17 @@ def search(example, description="", budget_seconds=2.0, weights=None):
                 return
 
     level1 = []
-    for triple in itertools.permutations(base, 3):
+    for triple in itertools.permutations(base + constants, 3):
+        if all(item in constants for item in triple):
+            continue
         for op in ternary_ops:
             try:
                 consider(op.fn(*(item[0] for item in triple)), render(op, [item[1] for item in triple]), (op,), level1)
             except Exception:
                 pass
-    expand(base, base, level1, both_orders=False)
+    expand(base, base + constants, level1, both_orders=False)
     if time.monotonic() < deadline:
-        expand(level1, base, [], both_orders=True)
+        expand(level1, base + constants, [], both_orders=True)
     if "named_pairs" in ENGINE and time.monotonic() < deadline:
         # Arithmetic on two derived numbers ("sum of the cubes minus the sum") is not reachable by
         # the levels above, which never combine two derived values. Only numbers produced by an
@@ -1017,8 +1057,10 @@ def search(example, description="", budget_seconds=2.0, weights=None):
                     continue
                 if _matches(value, example):
                     record(render(op, [x_expr, y_expr]), x_ops + y_ops + (op,))
-    # Named by the task first, then learned reliability, then the smaller program.
-    found.sort(key=lambda m: (-(2.0 * m["support"] + m["learned"] - 0.3 * m["size"]), m["size"]))
+    # Named by the task first, then learned reliability, then the smaller program. Among equals
+    # the more specifically named program wins when "specific_first" is on; before that the
+    # order of discovery decided, which always favoured the older operators.
+    found.sort(key=lambda m: (-(2.0 * m["support"] + m["learned"] - 0.3 * m["size"]), -m["specific"], m["size"]))
     return found[:MAX_MATCHES]
 
 
