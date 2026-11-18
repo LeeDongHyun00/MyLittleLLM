@@ -109,5 +109,44 @@ class ModelTests(unittest.TestCase):
             self.assertEqual(pending, 0)
 
 
+@unittest.skipUnless(TORCH, "PyTorch is only needed for the from-scratch model")
+class MuonTests(unittest.TestCase):
+    def setUp(self):
+        import torch
+        from mylittlellm.seedlm import muon
+        self.torch, self.muon = torch, muon
+        torch.manual_seed(0)
+
+    def test_update_is_close_to_semi_orthogonal_for_wide_and_tall_matrices(self):
+        for shape in ((48, 12), (12, 48)):
+            update = self.muon.orthogonalize(self.torch.randn(shape))
+            values = self.torch.linalg.svdvals(update)
+            self.assertEqual(tuple(update.shape), shape)
+            self.assertGreater(values.min().item(), 0.4)
+            self.assertLess(values.max().item(), 1.5)
+
+    def test_every_direction_moves_by_a_similar_amount_even_if_the_gradient_is_lopsided(self):
+        left, _ = self.torch.linalg.qr(self.torch.randn(12, 12))
+        right, _ = self.torch.linalg.qr(self.torch.randn(48, 12))
+        lopsided = left @ self.torch.diag(self.torch.logspace(0, -3, 12)) @ right.T
+        values = self.torch.linalg.svdvals(self.muon.orthogonalize(lopsided))
+        self.assertLess((values.max() / values.min()).item(), 20)      # the gradient itself spans 1000x
+
+    def test_step_reduces_a_quadratic_and_rejects_non_matrices(self):
+        weight = self.torch.nn.Parameter(self.torch.randn(6, 6))
+        target = self.torch.randn(6, 6)
+        optimizer = self.muon.Muon([weight], lr=0.05)
+        first = ((weight - target) ** 2).sum().item()
+        for _ in range(40):
+            optimizer.zero_grad()
+            ((weight - target) ** 2).sum().backward()
+            optimizer.step()
+        self.assertLess(((weight - target) ** 2).sum().item(), first)
+        vector = self.torch.nn.Parameter(self.torch.randn(6))
+        vector.grad = self.torch.ones(6)
+        with self.assertRaises(ValueError):
+            self.muon.Muon([vector]).step()
+
+
 if __name__ == "__main__":
     unittest.main()
