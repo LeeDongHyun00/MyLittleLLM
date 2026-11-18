@@ -5,7 +5,7 @@ from mylittlellm.rulecoder import backinfer, rules
 from mylittlellm.rulecoder.checkers import hint, make_checkers
 from mylittlellm.rulecoder.codemods import add_missing_imports, alias_entry_point, autofix
 from mylittlellm.rulecoder.extract import extract_code, keep_definitions
-from mylittlellm.rulecoder.pipeline import choose, public_check, solve, solve_branching
+from mylittlellm.rulecoder.pipeline import agrees, back_infer, choose, public_check, solve, solve_branching
 from mylittlellm.rulecoder.probes import example_args, probe_inputs, run_probes
 from mylittlellm.rulecoder.sandbox import run_call, run_public_asserts, syntax_error
 from mylittlellm.rulecoder.stats import mcnemar_exact, wilson
@@ -391,6 +391,34 @@ class BranchingTests(unittest.TestCase):
         result = solve_branching(task, rule_block=self.rule, client=student)
         self.assertEqual(len(student.calls), 2)
         self.assertEqual(result["final_code"], "def double(x):\n    return 1\n")
+
+    def test_more_public_examples_pick_the_candidate_that_fits_all_of_them(self):
+        # One example cannot tell "drop the first item" from "sort, then drop the largest".
+        task = {"task_id": "Mbpp/0", "entry_point": "rest",
+                "prompt": '"""\nWrite a function to return the remaining items.\nassert rest([3, 1, 2]) == [1, 2]\n"""\n'}
+        asserts = "assert rest([3, 1, 2]) == [1, 2]"
+        single = back_infer(task, asserts, 0)
+        self.assertEqual(run_public_asserts(single["code"], asserts)["status"], "pass")
+        examples = [([[3, 1, 2]], [1, 2]), ([[5, 4, 9]], [4, 5])]
+        checked = []
+
+        def accept(code):
+            checked.append(code)
+            return True
+
+        several = back_infer(task, asserts, 0, accept=accept, examples=examples)
+        self.assertEqual(len(checked), 1)                    # only a candidate that fits every example is checked
+        self.assertEqual(run_public_asserts(several["code"], "assert rest([9, 7, 8]) == [7, 8]")["status"], "pass")
+        self.assertTrue(several["check"]["ok"])
+        self.assertIsNone(back_infer(task, asserts, 0, accept=lambda code: False, examples=examples))
+
+    def test_agreement_filter_rejects_wrong_results_errors_and_runaway_code(self):
+        examples = [([2], 4), ([3], 6)]
+        self.assertTrue(agrees("def f(a0):\n    return 2 * a0\n", "f", examples))
+        self.assertFalse(agrees("def f(a0):\n    return a0 + 2\n", "f", examples))
+        self.assertFalse(agrees("def f(a0):\n    return a0[0]\n", "f", examples))
+        self.assertFalse(agrees("def f(a0):\n    while True:\n        pass\n", "f", examples, seconds=0.05))
+        self.assertTrue(agrees("def f(a0):\n    return a0 / 3\n", "f", [([1], 0.3333333333)]))
 
     small_sum = {"task_id": "Mbpp/0", "entry_point": "small_sum",
                  "prompt": '"""\nWrite a function to add up the n smallest items.\n'

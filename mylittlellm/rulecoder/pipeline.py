@@ -1,7 +1,10 @@
 """One student run per task under a named condition, with an optional verify-and-repair loop."""
+import copy
+import math
 import time
 
 from .extract import extract_code, keep_definitions
+from .limits import Timeout, time_limit
 from .llm import chat
 from .sandbox import run_public_asserts, syntax_error
 from .tasks import parse_prompt
@@ -67,17 +70,58 @@ ZERO_COST = {"finish_reason": "backinfer", "prompt_tokens": 0, "completion_token
              "prompt_tokens_processed": 0, "prompt_ms": 0, "predicted_ms": 0, "elapsed_seconds": 0}
 
 
-def back_infer(task, asserts, round_index):
-    """Rule-only fallback: search the operator library for a program that reproduces the example."""
+def same_output(result, expected):
+    if isinstance(result, float) or isinstance(expected, float):
+        return (isinstance(result, (int, float)) and isinstance(expected, (int, float))
+                and math.isclose(result, expected, rel_tol=1e-6, abs_tol=1e-6))
+    return result == expected
+
+
+def agrees(code, entry_point, examples, seconds=1.0):
+    """Cheap filter for engine-written code: does it reproduce every public example?
+
+    Runs in this process, so it is only for code the rule engine composed from its own
+    templates. Model answers always go through the sandbox.
+    """
+    scope = {}
+    try:
+        with time_limit(seconds):
+            exec(code, scope)
+            return all(same_output(scope[entry_point](*copy.deepcopy(list(args))), expected)
+                       for args, expected in examples)
+    except (Exception, Timeout):
+        return False
+
+
+def back_infer(task, asserts, round_index, accept=None, examples=(), tries=5):
+    """Rule-only fallback: search the operator library for a program that reproduces the example.
+
+    With one public example the best-ranked match is the answer. When more is public, pass
+    `accept` (the authoritative check of a candidate) and `examples` ((arguments, expected)
+    pairs): the search still starts from the first example, and its matches are taken best
+    first until one agrees with every example and is accepted.
+    """
     from .backinfer import synthesize
     description, _ = parse_prompt(task["prompt"])
-    found = synthesize(description, asserts, task["entry_point"])
+    found = synthesize(description, asserts, task["entry_point"], keep=10 ** 6 if accept else 1)
     if not found:
         return None
+    if accept:
+        agreeing = [(rank, m) for rank, m in enumerate(found["alternatives"])
+                    if agrees(m["code"], task["entry_point"], examples)]
+        chosen = next(((rank, m) for rank, m in agreeing[:tries] if accept(m["code"])), None)
+        if chosen is None:
+            return None
+        rank, match = chosen
+        found = dict(found, code=match["code"], expr=match["expr"], ops=match["ops"], rank=rank,
+                     support=round(match["support"], 2), knowledge=match["knowledge"], confident=True)
+        check = {"ok": True, "kind": "public_tests", "message": ""}
+    else:
+        check = public_check(found["code"], asserts)
+    inference = {k: found[k] for k in ("expr", "ops", "support", "matches", "confident", "knowledge")}
+    inference["rank"] = found.get("rank", 0)
     return {"round": round_index, "code": found["code"], "raw_code": found["code"], "autofixed": False,
-            "source": "backinfer", "llm": dict(ZERO_COST), "check": public_check(found["code"], asserts),
-            "hints": [], "inference": {k: found[k] for k in ("expr", "ops", "support", "matches", "confident",
-                                                             "knowledge")}}
+            "source": "backinfer", "llm": dict(ZERO_COST), "check": check, "hints": [], "inference": inference}
 
 
 def seed_infer(task, asserts, round_index, proposer):

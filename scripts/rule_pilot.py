@@ -268,6 +268,20 @@ def cmd_select(args):
     from mylittlellm.rulecoder.tasks import parse_prompt
     tasks = read_tasks()
     proposer = load_proposer(args.seedlm)
+    problems = oracle = None
+    if args.public == "base":
+        # The setting where a task's original tests are public, not just its first example.
+        from mylittlellm.rulecoder import backinfer, scoring
+        backinfer.MAX_MATCHES = 400     # with several examples many more candidates can be told apart
+        problems = scoring.load_problems()
+        oracle = scoring.groundtruth(problems)
+
+    def check(task_id, code, asserts):
+        result = public_check(code, asserts)
+        if result["ok"] and problems is not None:
+            ok = scoring.base_passes(problems[task_id], code, oracle[task_id])
+            result = {"ok": ok, "kind": "public_tests", "message": "" if ok else "fails a public test"}
+        return result
     runs = [{(r["task_id"], r["draw"]): r for r in read_jsonl(OUT / "gen" / f"{name}.jsonl")}
             for name in args.candidates]
     target = OUT / "gen" / f"{args.output_name}.jsonl"
@@ -288,12 +302,18 @@ def cmd_select(args):
                     continue    # same prompt, same answer: not a separate branch
                 seen.add(code)
                 first.update(round=len(attempts), code=code, raw_code=code, source=name,
-                             check=public_check(code, asserts), hints=[])
+                             check=check(row["task_id"], code, asserts), hints=[])
                 attempts.append(first)
                 if first["check"]["ok"]:
                     break
             if not any(a["check"]["ok"] for a in attempts):
-                inferred = back_infer(task, asserts, len(attempts))
+                if problems is None:
+                    inferred = back_infer(task, asserts, len(attempts))
+                else:
+                    task_id = row["task_id"]
+                    inferred = back_infer(task, asserts, len(attempts),
+                                          accept=lambda code: check(task_id, code, asserts)["ok"],
+                                          examples=list(zip(problems[task_id]["base_input"], oracle[task_id]["base"])))
                 if inferred and inferred["check"]["ok"]:
                     attempts.append(inferred)
             if proposer and not any(a["check"]["ok"] for a in attempts):
@@ -310,7 +330,8 @@ def cmd_select(args):
             winner = next((a for a in attempts if a["check"]["ok"]), attempts[0])
             chosen[winner["source"]] = chosen.get(winner["source"], 0) + 1
             out = dict(row)
-            out.update(name=args.output_name, condition="branch", final_code=winner["code"], attempts=attempts,
+            out.update(name=args.output_name, condition="branch" if problems is None else "branch-public-tests",
+                       final_code=winner["code"], attempts=attempts,
                        chosen=winner["source"], visible_ok=winner["check"]["ok"],
                        wall_seconds=round(sum(a["llm"]["elapsed_seconds"] for a in attempts), 3),
                        derived_from=args.candidates)
@@ -596,6 +617,9 @@ def main():
     select.add_argument("--engine-only", action="store_true",
                         help="ignore every model answer: what the rule engine solves with no model at all")
     select.add_argument("--seedlm", help="SeedLM checkpoint name: a last branch where the search finds nothing")
+    select.add_argument("--public", choices=["example", "base"], default="example",
+                        help="what a candidate is verified against: the one example in the prompt (the standard "
+                             "setting) or all of the task's original tests (a separate, easier setting)")
     select.set_defaults(func=cmd_select)
     score = sub.add_parser("score")
     score.add_argument("--name", required=True)

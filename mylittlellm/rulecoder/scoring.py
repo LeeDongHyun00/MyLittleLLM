@@ -70,6 +70,15 @@ def score(problem, solution, oracle):
     return result
 
 
+def base_passes(problem, solution, oracle):
+    """Whether the task's original tests pass, for the setting where those tests are public."""
+    untrusted_check = _evalplus()[1]
+    status, _ = untrusted_check("mbpp", solution, problem["base_input"], problem["entry_point"],
+                                expected=oracle["base"], atol=problem["atol"], ref_time=oracle["base_time"],
+                                fast_check=True)
+    return status == PASS
+
+
 def diagnose(problem, solution, oracle, result):
     """Describe the first failing hidden test. For teacher analysis on development splits only."""
     for part in ("base", "plus"):
