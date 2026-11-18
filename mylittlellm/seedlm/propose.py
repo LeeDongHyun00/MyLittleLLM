@@ -1,8 +1,41 @@
 """Program proposals from SeedLM: grammar-constrained beam search, then execution as the judge."""
+from contextlib import contextmanager
+import signal
+import threading
+
 import torch
 
 from ..rulecoder import backinfer as bi
 from . import data, synth
+
+EXECUTION_SECONDS = 1.0     # generous: a program that fits the example runs in microseconds
+
+
+class Timeout(BaseException):
+    """Not an Exception on purpose: operators that catch Exception must not swallow it."""
+
+
+@contextmanager
+def time_limit(seconds):
+    """Stop a proposed program that runs away.
+
+    Exhaustive search drops oversized intermediate values before composing further; a proposed
+    program is executed as a whole, so nothing else bounds what a three-step composition costs.
+    """
+    if threading.current_thread() is not threading.main_thread():
+        yield                       # signals only reach the main thread; run unguarded elsewhere
+        return
+
+    def interrupt(signum, frame):
+        raise Timeout
+
+    previous = signal.signal(signal.SIGALRM, interrupt)
+    signal.setitimer(signal.ITIMER_REAL, seconds)
+    try:
+        yield
+    finally:
+        signal.setitimer(signal.ITIMER_REAL, 0)
+        signal.signal(signal.SIGALRM, previous)
 
 
 def arity_table(vocabulary):
@@ -53,8 +86,9 @@ def propose(model, vocabulary, args, expected, named, width=16, arities=None):
     verified = []
     for program, score in beam_search(model, vocabulary, prefix, len(args), width, arities=arities):
         try:
-            value = synth.execute(program, args)
-        except Exception:
+            with time_limit(EXECUTION_SECONDS):
+                value = synth.execute(program, args)
+        except (Exception, Timeout):
             continue
         if bi._matches(value, example):
             verified.append({"program": program, "log_prob": round(score, 3)})

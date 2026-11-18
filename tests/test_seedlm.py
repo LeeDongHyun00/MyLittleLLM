@@ -108,6 +108,23 @@ class ModelTests(unittest.TestCase):
                 pending += (bi.OPERATORS[token].arity if "/" in token else 0) - 1
             self.assertEqual(pending, 0)
 
+    def test_runaway_proposal_is_interrupted_even_if_an_operator_swallows_exceptions(self):
+        from mylittlellm.seedlm import propose
+
+        def stubborn():
+            while True:
+                try:
+                    while True:
+                        pass
+                except Exception:       # what a careless operator body would do
+                    continue
+
+        with self.assertRaises(propose.Timeout):
+            with propose.time_limit(0.05):
+                stubborn()
+        with propose.time_limit(0.05):      # the timer is cleared on a normal exit
+            pass
+
 
 @unittest.skipUnless(TORCH, "PyTorch is only needed for the from-scratch model")
 class MuonTests(unittest.TestCase):
