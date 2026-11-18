@@ -6,7 +6,7 @@ import threading
 import torch
 
 from ..rulecoder import backinfer as bi
-from . import data, synth
+from . import data, model as seedmodel, synth
 
 EXECUTION_SECONDS = 1.0     # generous: a program that fits the example runs in microseconds
 
@@ -36,6 +36,16 @@ def time_limit(seconds):
     finally:
         signal.setitimer(signal.ITIMER_REAL, 0)
         signal.signal(signal.SIGALRM, previous)
+
+
+def load(path):
+    """Model and vocabulary from a checkpoint written by the training script."""
+    checkpoint = torch.load(path)
+    vocabulary = data.Vocabulary(checkpoint["operators"])
+    net = seedmodel.SeedLM(seedmodel.Config(**checkpoint["config"]))
+    net.load_state_dict(checkpoint["state"])
+    net.eval()
+    return net, vocabulary
 
 
 def arity_table(vocabulary):
@@ -93,3 +103,10 @@ def propose(model, vocabulary, args, expected, named, width=16, arities=None):
         if bi._matches(value, example):
             verified.append({"program": program, "log_prob": round(score, 3)})
     return verified
+
+
+def proposer(path, width=32):
+    """The pipeline's view of a checkpoint: (args, expected, named operators) -> verified programs."""
+    net, vocabulary = load(path)
+    arities = arity_table(vocabulary)
+    return lambda args, expected, named: propose(net, vocabulary, args, expected, named, width, arities)

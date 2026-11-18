@@ -60,6 +60,7 @@ def cmd_generate(args):
     if args.condition == "full":
         from mylittlellm.rulecoder.codemods import autofix
     model = server_model()
+    proposer = load_proposer(args.seedlm) if args.condition == "branch" else None
     with path.open("a") as stream:
         for draw in range(args.draws):
             for task_id in ids:
@@ -79,7 +80,7 @@ def cmd_generate(args):
                     block = rulelib.render([r["text"] for r in fired]) if fired else None
                 start = time.monotonic()
                 if args.condition == "branch":
-                    result = solve_branching(tasks[task_id], rule_block=block)
+                    result = solve_branching(tasks[task_id], rule_block=block, proposer=proposer)
                 else:
                     result = solve(tasks[task_id], rule_block=block,
                                    verify=args.condition in {"verify", "probes", "full", "infer"},
@@ -247,6 +248,14 @@ def cmd_infer(args):
     print(args.output_name, json.dumps(stats))
 
 
+def load_proposer(name):
+    """The from-scratch model as a pipeline branch; PyTorch is imported only when it is asked for."""
+    if not name:
+        return None
+    from mylittlellm.seedlm.propose import proposer
+    return proposer(ROOT / "outputs/seedlm" / f"{name}.pt")
+
+
 def cmd_select(args):
     """Offline form of the branch-and-select pipeline, built from runs that already exist.
 
@@ -255,9 +264,10 @@ def cmd_select(args):
     tried. Generation is greedy and seeded, so this reproduces `generate --condition branch`
     without spending the model calls a second time.
     """
-    from mylittlellm.rulecoder.pipeline import back_infer, public_check
+    from mylittlellm.rulecoder.pipeline import back_infer, public_check, seed_infer
     from mylittlellm.rulecoder.tasks import parse_prompt
     tasks = read_tasks()
+    proposer = load_proposer(args.seedlm)
     runs = [{(r["task_id"], r["draw"]): r for r in read_jsonl(OUT / "gen" / f"{name}.jsonl")}
             for name in args.candidates]
     target = OUT / "gen" / f"{args.output_name}.jsonl"
@@ -286,6 +296,10 @@ def cmd_select(args):
                 inferred = back_infer(task, asserts, len(attempts))
                 if inferred and inferred["check"]["ok"]:
                     attempts.append(inferred)
+            if proposer and not any(a["check"]["ok"] for a in attempts):
+                proposed = seed_infer(task, asserts, len(attempts), proposer)
+                if proposed and proposed["check"]["ok"]:
+                    attempts.append(proposed)
             if not attempts:
                 # Rule engine alone and nothing found: there is no answer to give.
                 attempts.append({"round": 0, "code": "", "raw_code": "", "source": "none", "hints": [],
@@ -547,6 +561,7 @@ def main():
     gen.add_argument("--tasks-file")
     gen.add_argument("--max-repairs", type=int, default=2)
     gen.add_argument("--limit", type=int)
+    gen.add_argument("--seedlm", help="SeedLM checkpoint name: a last branch of the branch condition")
     gen.set_defaults(func=cmd_generate)
     fix = sub.add_parser("autofix")
     fix.add_argument("--name", required=True)
@@ -580,6 +595,7 @@ def main():
     select.add_argument("--splits", nargs="+", default=["test"], choices=["train", "val", "test"])
     select.add_argument("--engine-only", action="store_true",
                         help="ignore every model answer: what the rule engine solves with no model at all")
+    select.add_argument("--seedlm", help="SeedLM checkpoint name: a last branch where the search finds nothing")
     select.set_defaults(func=cmd_select)
     score = sub.add_parser("score")
     score.add_argument("--name", required=True)

@@ -1,4 +1,6 @@
 """One student run per task under a named condition, with an optional verify-and-repair loop."""
+import time
+
 from .extract import extract_code, keep_definitions
 from .llm import chat
 from .sandbox import run_public_asserts, syntax_error
@@ -78,6 +80,35 @@ def back_infer(task, asserts, round_index):
                                                              "knowledge")}}
 
 
+def seed_infer(task, asserts, round_index, proposer):
+    """Learned fallback: a program the from-scratch model proposes for the visible example.
+
+    `proposer(args, expected, named_operators)` returns programs that already reproduce the
+    example, best first. Taking it as a callable keeps this module free of the network code.
+    """
+    from . import backinfer as bi
+    from ..seedlm import synth
+    description, _ = parse_prompt(task["prompt"])
+    example = bi.parse_example(asserts, task["entry_point"])
+    # The proposer was trained on exact-match examples whose result is not a boolean.
+    if example is None or example["mode"] != "eq" or not example["args"] \
+            or example["expected"] is None or isinstance(example["expected"], bool):
+        return None
+    named = [name for name, op in bi.OPERATORS.items() if op.named_in(description.lower())]
+    started = time.monotonic()
+    proposals = proposer(example["args"], example["expected"], named)
+    seconds = round(time.monotonic() - started, 3)
+    if not proposals:
+        return None
+    best = proposals[0]
+    expr, helpers, knowledge = synth.to_expression(best["program"])
+    code = bi.to_code(task["entry_point"], len(example["args"]), {"expr": expr, "helpers": helpers})
+    return {"round": round_index, "code": code, "raw_code": code, "autofixed": False, "source": "seedlm",
+            "llm": dict(ZERO_COST), "check": public_check(code, asserts), "hints": [],
+            "inference": {"expr": expr, "program": best["program"], "log_prob": best["log_prob"],
+                          "knowledge": knowledge, "seconds": seconds}}
+
+
 def solve(task, *, rule_block=None, verify=False, checkers=None, autofix=None, infer=False, max_repairs=2,
           max_tokens=768, client=chat):
     """Return the final code plus every attempt, so cost and repair behaviour can be audited."""
@@ -114,12 +145,13 @@ def solve(task, *, rule_block=None, verify=False, checkers=None, autofix=None, i
     return {"final_code": choose(attempts)["code"], "attempts": attempts}
 
 
-def solve_branching(task, *, rule_block=None, max_tokens=768, client=chat):
+def solve_branching(task, *, rule_block=None, max_tokens=768, client=chat, proposer=None):
     """Branch and select: rules are alternatives chosen by execution, never obligations.
 
     1. Answer with the fired rules in the prompt (or plainly when none fired).
     2. If that answer fails the visible example and rules were used, answer again without them.
     3. If every model answer fails the example, search the operator library (no model call).
+    4. If the search finds nothing and a proposer is given, take its best verified program.
     The first candidate that reproduces the visible example wins; otherwise the first answer
     is returned unchanged, so a branch can replace only an answer already known to be wrong.
     """
@@ -138,5 +170,9 @@ def solve_branching(task, *, rule_block=None, max_tokens=768, client=chat):
         inferred = back_infer(task, asserts, len(attempts))
         if inferred and inferred["check"]["ok"]:
             attempts.append(inferred)
+    if proposer and not any(a["check"]["ok"] for a in attempts):
+        proposed = seed_infer(task, asserts, len(attempts), proposer)
+        if proposed and proposed["check"]["ok"]:
+            attempts.append(proposed)
     chosen = next((a for a in attempts if a["check"]["ok"]), attempts[0])
     return {"final_code": chosen["code"], "attempts": attempts, "chosen": chosen["source"]}

@@ -1,4 +1,5 @@
 import unittest
+from unittest import mock
 
 from mylittlellm.rulecoder import backinfer, rules
 from mylittlellm.rulecoder.checkers import hint, make_checkers
@@ -377,6 +378,52 @@ class BranchingTests(unittest.TestCase):
         result = solve_branching(task, rule_block=self.rule, client=student)
         self.assertEqual(len(student.calls), 2)
         self.assertEqual(result["final_code"], "def double(x):\n    return 1\n")
+
+    small_sum = {"task_id": "Mbpp/0", "entry_point": "small_sum",
+                 "prompt": '"""\nWrite a function to add up the n smallest items.\n'
+                           'assert small_sum([5, 1, 4, 2], 2) == 3\n"""\n'}
+    wrong_sum = "```python\ndef small_sum(a, n):\n    return 0\n```"
+
+    def test_a_proposer_is_the_last_branch_after_the_search_finds_nothing(self):
+        student, asked = ScriptedStudent(self.wrong_sum), []
+
+        def proposer(args, expected, named):
+            asked.append((args, expected))
+            return [{"program": ["sum/1", "take/2", "sorted/1", "a0", "a1"], "log_prob": -0.5}]
+
+        with mock.patch("mylittlellm.rulecoder.pipeline.back_infer", return_value=None):
+            result = solve_branching(self.small_sum, client=student, proposer=proposer)
+        self.assertEqual(asked, [([[5, 1, 4, 2], 2], 3)])
+        self.assertEqual((len(student.calls), result["chosen"]), (1, "seedlm"))
+        self.assertEqual(run_public_asserts(result["final_code"], "assert small_sum([9, 7, 8], 1) == 7")["status"],
+                         "pass")
+
+    def test_a_proposer_is_not_asked_when_an_earlier_branch_reproduces_the_example(self):
+        def proposer(args, expected, named):
+            raise AssertionError("an answer that already passes must not be replaced")
+
+        result = solve_branching(TASK, client=ScriptedStudent(self.good), proposer=proposer)
+        self.assertEqual(result["chosen"], "plain")
+
+    def test_a_proposal_that_does_not_reproduce_the_example_is_discarded(self):
+        def proposer(args, expected, named):
+            return [{"program": ["sum/1", "a0"], "log_prob": -0.1}]      # 12, not 3
+
+        with mock.patch("mylittlellm.rulecoder.pipeline.back_infer", return_value=None):
+            result = solve_branching(self.small_sum, client=ScriptedStudent(self.wrong_sum), proposer=proposer)
+        self.assertEqual(result["chosen"], "plain")
+        self.assertEqual(result["final_code"], "def small_sum(a, n):\n    return 0\n")
+
+    def test_boolean_examples_are_never_sent_to_the_proposer(self):
+        def proposer(args, expected, named):
+            raise AssertionError("the proposer was not trained on boolean results")
+
+        task = dict(TASK, prompt='"""\nWrite a function to frobnicate.\nassert double(2) == True\n"""\n')
+        student = ScriptedStudent("```python\ndef double(x):\n    return 0\n```")     # fails: 0 != True
+        with mock.patch("mylittlellm.rulecoder.pipeline.back_infer", return_value=None):
+            result = solve_branching(task, client=student, proposer=proposer)
+        self.assertEqual(result["chosen"], "plain")
+        self.assertFalse(result["attempts"][0]["check"]["ok"])
 
 
 class StatsTests(unittest.TestCase):

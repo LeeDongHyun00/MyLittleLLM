@@ -10,11 +10,9 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-import torch
-
 from mylittlellm.rulecoder import backinfer as bi
 from mylittlellm.rulecoder.tasks import ROOT
-from mylittlellm.seedlm import data, model as seedmodel, propose, synth
+from mylittlellm.seedlm import propose, synth
 
 
 def main():
@@ -28,11 +26,7 @@ def main():
     parser.add_argument("--show", type=int, default=3, help="how many verified programs to print")
     args = parser.parse_args()
 
-    checkpoint = torch.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")
-    vocabulary = data.Vocabulary(checkpoint["operators"])
-    net = seedmodel.SeedLM(seedmodel.Config(**checkpoint["config"]))
-    net.load_state_dict(checkpoint["state"])
-    net.eval()
+    net, vocabulary = propose.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")
     inputs, expected = ast.literal_eval(args.inputs), ast.literal_eval(args.expected)
     if not isinstance(inputs, list):
         raise SystemExit("--inputs must be a list with one item per argument")
