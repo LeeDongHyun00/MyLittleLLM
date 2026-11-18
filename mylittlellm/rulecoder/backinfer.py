@@ -942,12 +942,17 @@ def load_weights(path=WEIGHTS):
     return json.loads(path.read_text())["operators"] if path.exists() else {}
 
 
-def search(example, description="", budget_seconds=2.0, weights=None):
-    """Return programs that reproduce the example, best first."""
+def search(example, description="", budget_seconds=2.0, weights=None, extra_named=()):
+    """Return programs that reproduce the example, best first.
+
+    `extra_named` lists operator keys to treat as named by the description although no keyword
+    matched, so another reader of the description (a learned model) can open their gates.
+    """
     text = description.lower()
     weights = load_weights() if weights is None else weights
     deadline = time.monotonic() + budget_seconds
-    named = {id(op): op.named_in(text) for op in U + B + T}
+    extra_named = set(extra_named)
+    named = {id(op): op.named_in(text) or (op.name + "/" + str(op.arity)) in extra_named for op in U + B + T}
     # How specifically the description names an operator: the length of the longest keyword
     # alternative that matched. "regex&position" says more than "position" alone.
     specific = {id(op): max((sum(map(len, alt)) for alt in op.alternatives if all(part in text for part in alt)),
@@ -960,14 +965,24 @@ def search(example, description="", budget_seconds=2.0, weights=None):
     # expression the task description supports best, so a coincidence cannot hide the real reading.
     base = [(arg, f"a{i}", ()) for i, arg in enumerate(example["args"])]
     seen = {_key(v): None for v, _, _ in base}
+    # The prefix-token form of every expression built, so a match can be learned from (SeedLM).
+    programs = {f"a{i}": (f"a{i}",) for i in range(len(base))}
     # Values stated in the description may be the second operand of an operator, never its subject.
     constants = []
     if "description_constants" in ENGINE:
-        for literal in description_literals(description):
+        for index, literal in enumerate(description_literals(description)):
             if _key(literal) not in seen:
                 seen[_key(literal)] = None
                 constants.append((literal, repr(literal), ()))
+                programs[repr(literal)] = (f"c{index}",)
     found = []
+
+    def build(op, child_exprs):
+        expr = render(op, child_exprs)
+        if expr not in programs:
+            programs[expr] = (op.name + "/" + str(op.arity),) + tuple(
+                token for child in child_exprs for token in programs.get(child, ("?",)))
+        return expr
 
     def quality(ops):
         semantic = [op for op in ops if op.cost >= 1]
@@ -989,6 +1004,7 @@ def search(example, description="", budget_seconds=2.0, weights=None):
                           "knowledge": any(op.kind == "knowledge" for op in ops),
                           "specific": sum(specific.get(id(op), 0) for op in ops),
                           "all_args": all(name.search(expr) for name in argument_names),
+                          "program": list(programs.get(expr, ())),
                           "helpers": [op.helper for op in ops if op.helper]})
 
     def consider(value, expr, ops, bucket):
@@ -1014,7 +1030,7 @@ def search(example, description="", budget_seconds=2.0, weights=None):
         for value, expr, ops in items:
             for op in unary_ops:
                 try:
-                    consider(op.fn(value), render(op, [expr]), ops + (op,), bucket)
+                    consider(op.fn(value), build(op, [expr]), ops + (op,), bucket)
                 except Exception:
                     pass
             for other, other_expr, other_ops in partners:
@@ -1027,7 +1043,7 @@ def search(example, description="", budget_seconds=2.0, weights=None):
                 for op in binary_ops:
                     for (first, first_expr), (second, second_expr) in orders:
                         try:
-                            consider(op.fn(first, second), render(op, [first_expr, second_expr]),
+                            consider(op.fn(first, second), build(op, [first_expr, second_expr]),
                                      ops + other_ops + (op,), bucket)
                         except Exception:
                             pass
@@ -1040,7 +1056,7 @@ def search(example, description="", budget_seconds=2.0, weights=None):
             continue
         for op in ternary_ops:
             try:
-                consider(op.fn(*(item[0] for item in triple)), render(op, [item[1] for item in triple]), (op,), level1)
+                consider(op.fn(*(item[0] for item in triple)), build(op, [item[1] for item in triple]), (op,), level1)
             except Exception:
                 pass
     expand(base, base + constants, level1, both_orders=False)
@@ -1059,7 +1075,7 @@ def search(example, description="", budget_seconds=2.0, weights=None):
                 except Exception:
                     continue
                 if _matches(value, example):
-                    record(render(op, [x_expr, y_expr]), x_ops + y_ops + (op,))
+                    record(build(op, [x_expr, y_expr]), x_ops + y_ops + (op,))
     # Named by the task first, then learned reliability, then the smaller program. Equal scores used
     # to be decided by the order of discovery, which always favoured the oldest operators and unary
     # programs; three teachers found correct programs lost that way. With "tie_break" a tie goes to
@@ -1080,12 +1096,12 @@ def to_code(entry_point, arity, match):
     return add_missing_imports(f"{helpers}def {entry_point}({params}):\n    return {match['expr']}\n")
 
 
-def synthesize(description, asserts, entry_point, budget_seconds=2.0, weights=None, keep=1):
+def synthesize(description, asserts, entry_point, budget_seconds=2.0, weights=None, keep=1, extra_named=()):
     """Best program(s) for the visible example with a confidence label, or None."""
     example = parse_example(asserts, entry_point)
     if example is None or not example["args"]:
         return None
-    matches = search(example, description, budget_seconds, weights)
+    matches = search(example, description, budget_seconds, weights, extra_named)
     if not matches:
         return None
     best = matches[0]
@@ -1093,6 +1109,7 @@ def synthesize(description, asserts, entry_point, budget_seconds=2.0, weights=No
     confident = best["knowledge"] or informative(example["expected"]) or \
         (best["size"] >= 1 and best["support"] == 1.0)
     result = {"code": to_code(entry_point, len(example["args"]), best), "expr": best["expr"], "ops": best["ops"],
+              "program": best["program"],
               "support": round(best["support"], 2), "matches": len(matches), "confident": confident,
               "knowledge": best["knowledge"], "mode": example["mode"]}
     if keep > 1:

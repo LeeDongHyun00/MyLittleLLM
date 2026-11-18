@@ -1,0 +1,21 @@
+{
+ "tasks": 154,
+ "counts": {
+  "train": {
+   "beyond": 7,
+   "ranking": 3,
+   "unparsed": 1
+  },
+  "extra": {
+   "beyond": 96,
+   "ranking": 19,
+   "gating": 24,
+   "unparsed": 4
+  }
+ },
+ "settings": {
+  "budget": 8.0,
+  "matches": 3000,
+  "limit": null
+ }
+}
