@@ -296,6 +296,26 @@ class BackInferenceTests(unittest.TestCase):
         code = "def f(a0):\n    return " + op.template.format("a0") + "\n"
         self.assertEqual({run_call(code, "f", [tied])["repr"] for _ in range(4)}, {"'pear'"})
 
+    def test_tie_break_prefers_a_program_that_uses_every_argument(self):
+        # With index 0 in the example, "first item" and "item at index a1" both reproduce it.
+        example = {"args": [[7, 8, 9], 0], "expected": 7, "mode": "eq"}
+        old_order = backinfer.search(example, "Write a function to get the item at the given index.", weights={})
+        with mock.patch.object(backinfer, "ENGINE", frozenset({"tie_break"})):
+            new_order = backinfer.search(example, "Write a function to get the item at the given index.", weights={})
+        self.assertTrue(new_order[0]["all_args"])
+        self.assertIn("a1", new_order[0]["expr"])
+        self.assertEqual(len(old_order), len(new_order))
+
+    def test_description_constants_reach_the_search_only_when_enabled(self):
+        self.assertEqual(backinfer.description_literals("Remove every 'std' and numbers below 100."), ["std", 100])
+        example = {"args": ["a std b std"], "expected": "a  b ", "mode": "eq"}
+        text = "Write a function to remove all occurrences of 'std' from a string."
+        self.assertEqual(backinfer.search(example, text, weights={}), [])
+        with mock.patch.object(backinfer, "ENGINE", frozenset({"description_constants"})):
+            found = backinfer.search(example, text, weights={})
+        self.assertTrue(found)
+        self.assertIn("'std'", found[0]["expr"])
+
     def test_found_program_reproduces_the_example_and_generalises(self):
         found = self.infer("Write a function to perform the mathematical bitwise and operation across the tuples.",
                            "assert and_tuples((10, 4, 6, 9), (5, 2, 3, 3)) == (0, 0, 2, 1)", "and_tuples")

@@ -950,7 +950,8 @@ def search(example, description="", budget_seconds=2.0, weights=None):
     # How specifically the description names an operator: the length of the longest keyword
     # alternative that matched. "regex&position" says more than "position" alone.
     specific = {id(op): max((sum(map(len, alt)) for alt in op.alternatives if all(part in text for part in alt)),
-                            default=0) for op in U + B + T} if "specific_first" in ENGINE else {}
+                            default=0) for op in U + B + T} if "tie_break" in ENGINE else {}
+    argument_names = [re.compile(rf"\ba{i}\b") for i in range(len(example["args"]))]
     unary_ops = [op for op in U if named[id(op)] or not op.gated]
     binary_ops = [op for op in B if named[id(op)] or not op.gated]
     ternary_ops = [op for op in T if named[id(op)] or not op.gated]
@@ -986,6 +987,7 @@ def search(example, description="", budget_seconds=2.0, weights=None):
                           "size": sum(op.cost for op in ops), "support": support, "learned": learned,
                           "knowledge": any(op.kind == "knowledge" for op in ops),
                           "specific": sum(specific.get(id(op), 0) for op in ops),
+                          "all_args": all(name.search(expr) for name in argument_names),
                           "helpers": [op.helper for op in ops if op.helper]})
 
     def consider(value, expr, ops, bucket):
@@ -1057,10 +1059,17 @@ def search(example, description="", budget_seconds=2.0, weights=None):
                     continue
                 if _matches(value, example):
                     record(render(op, [x_expr, y_expr]), x_ops + y_ops + (op,))
-    # Named by the task first, then learned reliability, then the smaller program. Among equals
-    # the more specifically named program wins when "specific_first" is on; before that the
-    # order of discovery decided, which always favoured the older operators.
-    found.sort(key=lambda m: (-(2.0 * m["support"] + m["learned"] - 0.3 * m["size"]), -m["specific"], m["size"]))
+    # Named by the task first, then learned reliability, then the smaller program. Equal scores used
+    # to be decided by the order of discovery, which always favoured the oldest operators and unary
+    # programs; three teachers found correct programs lost that way. With "tie_break" a tie goes to
+    # the program that uses every argument (an argument is given for a reason), then to one with a
+    # named definition, then to the more specifically named one.
+    def tie(match):
+        if "tie_break" not in ENGINE:
+            return (0, 0, 0)
+        return (-match["all_args"], -match["knowledge"], -match["specific"])
+
+    found.sort(key=lambda m: (-(2.0 * m["support"] + m["learned"] - 0.3 * m["size"]), tie(m), m["size"]))
     return found[:MAX_MATCHES]
 
 

@@ -12,8 +12,17 @@ programs it appears in. The retirement rule below was fixed before any pack had 
                      wrong than correct ones (the keyword gate already limits its reach, so an
                      unused definition is allowed to stay).
 
+Search features that a teacher asked for (flags read by search() in backinfer.py) are chosen the
+same way, before retirement: every subset is run with all candidate operators and the subset that
+solves the most development tasks wins, ties going to the smaller subset.
+
+Operators a teacher flags as written from memory of benchmark tasks rather than for a bank item
+(--memory) are retired before anything is measured, whatever their effect.
+
 The validation and test splits play no part here.
 """
+import itertools
+import os
 import argparse
 import json
 from pathlib import Path
@@ -26,10 +35,13 @@ MANIFEST = ROOT / "data/rule_pilot/operator_packs.json"
 REPORT = ROOT / "reports/rule_pilot/round3_attribution.json"
 
 
-def check(pack, output):
+def check(pack, output, engine=()):
     command = [sys.executable, str(ROOT / "scripts/teacher_check.py"), "--pack", pack,
                "--bank", str(BANK / "all_tasks.json"), "--output", str(output)]
-    completed = subprocess.run(command, capture_output=True, text=True, check=True)
+    environment = dict(os.environ, RULE_ENGINE=",".join(engine))
+    if pack == "manifest":
+        environment.pop("RULE_ENGINE")      # the manifest names its own features
+    completed = subprocess.run(command, capture_output=True, text=True, check=True, env=environment)
     return json.loads(Path(output).read_text()), completed.stdout
 
 
@@ -46,16 +58,37 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--packs", required=True, help="candidate packs, comma-separated")
     parser.add_argument("--round", type=int, default=3)
+    parser.add_argument("--features", default="tie_break,description_constants,keep_best,named_pairs",
+                        help="candidate search features, comma-separated")
+    parser.add_argument("--memory", nargs="*", default=[],
+                        help="operator keys a teacher flagged as written from memory of benchmark tasks")
     args = parser.parse_args()
     packs = [name for name in args.packs.split(",") if name]
+    features = [name for name in args.features.split(",") if name]
 
-    candidate, _ = check(",".join(packs), BANK / "attribution_all.json")
+    # 1. search features: the subset that solves the most development tasks, smaller subset on ties
+    tried = []
+    for size in range(len(features) + 1):
+        for subset in itertools.combinations(features, size):
+            result, _ = check(",".join(packs), BANK / "attribution_features.json", subset)
+            solved = sum(r["after"] == "solved" for r in result["results"])
+            tried.append({"features": list(subset), "solved": solved, "broken": tally(result["results"])["broken"]})
+            print("features", subset or "(none)", "solved", solved, flush=True)
+    engine = min(tried, key=lambda row: (-row["solved"], len(row["features"])))["features"]
+
+    # 2. operators, measured with the chosen features
+    candidate, _ = check(",".join(packs), BANK / "attribution_all.json", engine)
     stats = {op["key"]: dict(op, right=0, wrong=0) for op in candidate["operators"]}
     for result in candidate["results"]:
         for key in result["pack_ops"]:
             stats[key]["right" if result["after"] == "solved" else "wrong"] += 1
-    retired = {}
+    retired = {key: "a teacher flagged it as written from memory of benchmark tasks" for key in args.memory}
+    unknown = set(args.memory) - set(stats)
+    if unknown:
+        raise SystemExit(f"--memory names operators no candidate pack defines: {sorted(unknown)}")
     for key, op in sorted(stats.items()):
+        if key in retired:
+            continue
         if op["gated"]:
             drop = op["wrong"] >= 2 and op["wrong"] > op["right"]
             reason = "gated, more wrong than right final programs"
@@ -65,10 +98,13 @@ def main():
         if drop:
             retired[key] = f"{reason} on development tasks ({op['right']} right, {op['wrong']} wrong)"
 
-    MANIFEST.write_text(json.dumps({"round": args.round, "active": packs, "retired": retired}, indent=1) + "\n")
+    MANIFEST.write_text(json.dumps({"round": args.round, "active": packs, "engine": engine, "retired": retired},
+                                   indent=1) + "\n")
     selected, _ = check("manifest", BANK / "attribution_selected.json")
     report = {
         "rule": "see scripts/round3_select.py",
+        "features_tried": tried,
+        "features_chosen": engine,
         "packs": {name: {"operators": sum(op["pack"] == name for op in stats.values()),
                          "gated": sum(op["pack"] == name and op["gated"] for op in stats.values()),
                          "retired": sum(stats[key]["pack"] == name for key in retired)} for name in packs},
