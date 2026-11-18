@@ -11,6 +11,13 @@
       "url": "https://github.com/evalplus/mbppplus_release/releases/download/v0.2.0/MbppPlus.jsonl.gz",
       "filename": "MbppPlus.jsonl.gz",
       "sha256": "af43697e8791c4c149bdfd6b489d8b5412507551ac20e28a439f650b8225db63"
+    },
+    "mbpp_full": {
+      "version": "google-research master, fetched 2026-11-18",
+      "url": "https://raw.githubusercontent.com/google-research/google-research/master/mbpp/mbpp.jsonl",
+      "filename": "mbpp.jsonl",
+      "sha256": "ccf64ceae9c5403bf50a044cb6d505bfd2a2963ee58338ba268fd65beab92a9f",
+      "use": "failure mining only: tasks outside MBPP+ that are not near-duplicates of a validation or test task"
     }
   },
   "models": {

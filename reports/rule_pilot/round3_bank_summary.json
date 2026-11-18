@@ -1,0 +1,87 @@
+{
+ "similarity_threshold": 0.6,
+ "extra_dropped": {
+  "in_mbpp_plus": 378,
+  "setup_code": 2,
+  "no_entry_point": 1,
+  "looks_like_held_out": 65
+ },
+ "counts": {
+  "train": {
+   "numbers": {
+    "solved": 16,
+    "wrong": 13,
+    "none": 10
+   },
+   "sequences": {
+    "solved": 38,
+    "wrong": 12,
+    "none": 9
+   },
+   "nested": {
+    "solved": 18,
+    "wrong": 6,
+    "none": 6
+   },
+   "strings": {
+    "solved": 9,
+    "wrong": 6,
+    "none": 5
+   },
+   "predicates": {
+    "solved": 0,
+    "wrong": 0,
+    "none": 29
+   },
+   "unparsed": {
+    "solved": 0,
+    "wrong": 0,
+    "none": 5
+   }
+  },
+  "extra": {
+   "nested": {
+    "solved": 30,
+    "wrong": 14,
+    "none": 33
+   },
+   "numbers": {
+    "solved": 33,
+    "wrong": 62,
+    "none": 47
+   },
+   "sequences": {
+    "solved": 59,
+    "wrong": 56,
+    "none": 43
+   },
+   "strings": {
+    "solved": 18,
+    "wrong": 20,
+    "none": 46
+   },
+   "predicates": {
+    "solved": 0,
+    "wrong": 1,
+    "none": 62
+   },
+   "unparsed": {
+    "solved": 0,
+    "wrong": 0,
+    "none": 4
+   }
+  }
+ },
+ "tasks": {
+  "train": 182,
+  "extra": 528
+ },
+ "failures_per_category": {
+  "nested": 59,
+  "numbers": 132,
+  "predicates": 92,
+  "sequences": 120,
+  "strings": 77
+ },
+ "regression_tasks": 221
+}

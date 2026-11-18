@@ -13,16 +13,20 @@ task description first, learned operator reliability next) and carry a confidenc
 import ast
 from collections import Counter
 import heapq
+import importlib
 import itertools
 import json
 import math
+import os
 import re
+import sys
 import time
 
 from .codemods import add_missing_imports
 from .tasks import ROOT
 
 WEIGHTS = ROOT / "data/rule_pilot/operator_weights.json"
+PACKS = ROOT / "data/rule_pilot/operator_packs.json"
 MAX_REPR = 600           # skip values too large to be a plausible intermediate result
 MAX_LEVEL_VALUES = 6000  # cap per level keeps the search around a second
 MAX_MATCHES = 40
@@ -31,7 +35,7 @@ MAX_MATCHES = 40
 class Op:
     """One rule: an executable operator, its code template and the words that name it."""
 
-    __slots__ = ("name", "arity", "fn", "template", "alternatives", "gated", "cost", "kind", "helper")
+    __slots__ = ("name", "arity", "fn", "template", "alternatives", "gated", "cost", "kind", "helper", "pack")
 
     def __init__(self, name, arity, fn, template, keywords="", *, gated=False, cost=1.0, kind="generic",
                  helper=None):
@@ -39,6 +43,7 @@ class Op:
         # "a&b|c" means (a and b) or c, matched as substrings of the lower-cased description.
         self.alternatives = [tuple(alt.split("&")) for alt in keywords.split("|") if alt]
         self.gated, self.cost, self.kind, self.helper = gated, cost, kind, helper
+        self.pack = "core"      # which teacher round added the rule; set by load_packs for later rounds
 
     def named_in(self, text):
         return any(all(part in text for part in alternative) for alternative in self.alternatives)
@@ -763,6 +768,48 @@ for _name, _formula, _words in [
     know(3, _name, lambda a, b, c, f=eval("lambda a, b, c: " + _formula.format("a", "b", "c"), {"math": math}):
          (need(all(is_num(v) and 0 < abs(v) < 10 ** 6 for v in (a, b, c))), f(a, b, c))[1], _formula, _words)
 
+
+
+# ---------------------------------------------------------------- operator packs from later rounds
+def also_named(key, keywords):
+    """Let a pack teach an existing operator more of the words that name it ("a&b|c" syntax)."""
+    for op in U + B + T:
+        if op.name + "/" + str(op.arity) == key:
+            op.alternatives += [tuple(alt.split("&")) for alt in keywords.split("|") if alt]
+            return
+    raise KeyError(key)
+
+
+def load_packs():
+    """Add the operators of later teacher rounds, each kept in its own file under oppacks/.
+
+    Separate files let several teachers write rules at the same time and let a whole round be
+    switched off, so its effect can be measured against the library it was added to.
+    RULE_PACKS overrides the manifest: "none" for the core library alone, or names joined by commas.
+    """
+    manifest = json.loads(PACKS.read_text()) if PACKS.exists() else {}
+    override = os.environ.get("RULE_PACKS")
+    names = manifest.get("active", []) if override is None else [n for n in override.split(",") if n and n != "none"]
+    known = {op.name + "/" + str(op.arity) for op in U + B + T}
+    for name in names:
+        seen = {id(op) for op in U + B + T}
+        importlib.import_module(f"{__package__}.oppacks.{name}").register(sys.modules[__name__])
+        for op in U + B + T:
+            if id(op) in seen:
+                continue
+            key = op.name + "/" + str(op.arity)
+            if key in known:
+                raise ValueError(f"operator pack {name} redefines {key}")
+            known.add(key)
+            op.pack = name
+    # Retired rules stay in their files, so the record of what was tried and dropped is kept.
+    retired = set(manifest.get("retired", {}))
+    for bucket in (U, B, T):
+        bucket[:] = [op for op in bucket if op.name + "/" + str(op.arity) not in retired]
+    return names
+
+
+ACTIVE_PACKS = load_packs()
 OPERATORS = {op.name + "/" + str(op.arity): op for op in U + B + T}
 
 
