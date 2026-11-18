@@ -9,5 +9,19 @@
  "choice": "the method with the most solved held-out tasks (judged by each task's three asserts); ties go to rerank, then open, then model",
  "gate": "validation split, 1.5B branch-and-select pipeline with the chosen method in place of the engine: no fewer tasks solved than with the engine (31 of 45)",
  "test": "only after the gate: MBPP+ locked split once (1.5B and 0.5B stored pipelines) and HumanEval+ once, per reports/rule_pilot/humaneval_protocol.json",
- "not_tuned_on": ["validation", "test", "HumanEval+"]
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ],
+ "addendum_1": {
+  "written": "2026-11-18, after the first checkpoint's held-out result (engine 65, model 49, rerank 60, open 60 of 94), before any validation or test use",
+  "added_methods": {
+   "gate": "the model only opens keyword gates (operators in its beam count as named); the engine still ranks",
+   "tie": "the model only breaks ties among the engine's best-scored programs",
+   "fill": "the model answers only where the engine has no program"
+  },
+  "why": "rerank lost seven engine-correct answers for two gains: the model is less reliable than the engine's ranking where the engine is confident, so the new methods let it act only where the engine is weak",
+  "caveat": "these three were added after looking at the held-out result, so the held-out choice among them is not clean; the validation gate and the single test and HumanEval+ runs are unchanged"
+ }
 }

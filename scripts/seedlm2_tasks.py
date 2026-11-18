@@ -64,6 +64,18 @@ def methods_for(task, net, vocabulary, arities, width, keep):
     opened = bi.synthesize(description, asserts, task["entry_point"], weights={}, keep=keep, extra_named=beam_ops)
     opened = (opened.get("alternatives") or [opened]) if opened else []
     out["open"] = best_by_model([m["program"] for m in opened] + verified)
+    # Weaker interventions, for when the model is less reliable than the engine's own ranking:
+    #   gate : the model only opens keyword gates; the engine still ranks;
+    #   tie  : the model only breaks ties among the engine's equally scored best programs;
+    #   fill : the model answers only where the engine has no program at all.
+    out["gate"] = opened[0]["program"] if opened else None
+
+    def primary(match):
+        return round(2.0 * match["support"] + match["learned"] - 0.3 * match["size"], 6)
+
+    top = [m for m in engine if engine and primary(m) == primary(engine[0])]
+    out["tie"] = best_by_model([m["program"] for m in top]) if top else None
+    out["fill"] = out["engine"] if engine else out["model"]
     return {name: (program, literals) for name, program in out.items()}
 
 
@@ -97,7 +109,7 @@ def main():
     report = {"model": args.model, "settings": vars(args)}
     for part in args.splits:
         started = time.monotonic()
-        names = ["engine", "model", "rerank", "open"]
+        names = ["engine", "model", "rerank", "open", "gate", "tie", "fill"]
         alone = {n: 0 for n in names}
         codes = {}
         for task_id in split[part]:

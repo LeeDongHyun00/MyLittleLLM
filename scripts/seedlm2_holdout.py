@@ -33,7 +33,7 @@ def main():
     items = [i for i in json.loads((BANK / "all_tasks.json").read_text())
              if i["source"] == "extra" and held_out(i["task_id"])]
     status = {r["task_id"]: r["after"] for r in json.loads((BANK / "attribution_selected.json").read_text())["results"]}
-    names = ["engine", "model", "rerank", "open"]
+    names = ["engine", "model", "rerank", "open", "gate", "tie", "fill"]
     solved = {n: 0 for n in names}
     by_status = {}
     for item in items:
