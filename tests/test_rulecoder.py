@@ -4,7 +4,7 @@ from mylittlellm.rulecoder import backinfer, rules
 from mylittlellm.rulecoder.checkers import hint, make_checkers
 from mylittlellm.rulecoder.codemods import add_missing_imports, alias_entry_point, autofix
 from mylittlellm.rulecoder.extract import extract_code, keep_definitions
-from mylittlellm.rulecoder.pipeline import choose, public_check, solve
+from mylittlellm.rulecoder.pipeline import choose, public_check, solve, solve_branching
 from mylittlellm.rulecoder.probes import example_args, probe_inputs, run_probes
 from mylittlellm.rulecoder.sandbox import run_call, run_public_asserts, syntax_error
 from mylittlellm.rulecoder.stats import mcnemar_exact, wilson
@@ -343,6 +343,40 @@ class BackInferenceTests(unittest.TestCase):
         result = solve(task, verify=True, infer=True, client=student)
         self.assertEqual(len(student.calls), 2)
         self.assertTrue(result["attempts"][-1]["check"]["ok"])
+
+
+class BranchingTests(unittest.TestCase):
+    good, bad = PipelineTests.good, PipelineTests.bad
+    rule = "Follow these rules when writing the solution:\n1. Doubling means multiplying by two."
+
+    def test_rule_answer_that_passes_the_example_ends_the_search(self):
+        student = ScriptedStudent(self.good)
+        result = solve_branching(TASK, rule_block=self.rule, client=student)
+        self.assertEqual((len(student.calls), result["chosen"]), (1, "rules"))
+        self.assertIn("Doubling", student.calls[0][0]["content"])
+
+    def test_plain_answer_replaces_a_rule_answer_that_fails_the_example(self):
+        student = ScriptedStudent(self.bad, self.good)
+        result = solve_branching(TASK, rule_block=self.rule, client=student)
+        self.assertEqual((len(student.calls), result["chosen"]), (2, "plain"))
+        self.assertNotIn("Doubling", student.calls[1][0]["content"])
+        self.assertEqual(result["final_code"], "def double(x):\n    return 2 * x\n")
+
+    def test_inference_is_the_last_branch_and_costs_no_call(self):
+        task = {"task_id": "Mbpp/0", "entry_point": "and_tuples",
+                "prompt": '"""\nWrite a function to extract the elementwise and tuples from the given two tuples.\n'
+                          'assert and_tuples((10, 4, 6, 9), (5, 2, 3, 3)) == (0, 0, 2, 1)\n"""\n'}
+        student = ScriptedStudent("```python\ndef and_tuples(a, b):\n    return a\n```")
+        result = solve_branching(task, client=student)
+        self.assertEqual((len(student.calls), result["chosen"]), (1, "backinfer"))
+
+    def test_when_every_branch_fails_the_first_answer_is_returned(self):
+        task = dict(TASK, prompt='"""\nWrite a function to frobnicate.\nassert double("ab") == None\n"""\n')
+        student = ScriptedStudent("```python\ndef double(x):\n    return 1\n```",
+                                  "```python\ndef double(x):\n    return 2\n```")
+        result = solve_branching(task, rule_block=self.rule, client=student)
+        self.assertEqual(len(student.calls), 2)
+        self.assertEqual(result["final_code"], "def double(x):\n    return 1\n")
 
 
 class StatsTests(unittest.TestCase):

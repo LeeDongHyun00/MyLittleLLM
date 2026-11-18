@@ -112,3 +112,31 @@ def solve(task, *, rule_block=None, verify=False, checkers=None, autofix=None, i
         messages += [{"role": "assistant", "content": reply["text"]},
                      {"role": "user", "content": feedback(attempt["check"], attempt["hints"])}]
     return {"final_code": choose(attempts)["code"], "attempts": attempts}
+
+
+def solve_branching(task, *, rule_block=None, max_tokens=768, client=chat):
+    """Branch and select: rules are alternatives chosen by execution, never obligations.
+
+    1. Answer with the fired rules in the prompt (or plainly when none fired).
+    2. If that answer fails the visible example and rules were used, answer again without them.
+    3. If every model answer fails the example, search the operator library (no model call).
+    The first candidate that reproduces the visible example wins; otherwise the first answer
+    is returned unchanged, so a branch can replace only an answer already known to be wrong.
+    """
+    _, asserts = parse_prompt(task["prompt"])
+    user = {"role": "user", "content": INSTRUCTION.format(prompt=task["prompt"].strip())}
+    attempts = []
+    for branch, block in (("rules", rule_block), ("plain", None)):
+        if branch == "plain" and (not rule_block or attempts[-1]["check"]["ok"]):
+            break
+        reply = client([{"role": "system", "content": system_prompt(block)}, user], max_tokens=max_tokens)
+        code = keep_definitions(extract_code(reply["text"], task["entry_point"]))
+        attempts.append({"round": len(attempts), "code": code, "raw_code": code, "autofixed": False,
+                         "source": branch if rule_block else "plain", "llm": {k: reply[k] for k in LLM_FIELDS},
+                         "check": public_check(code, asserts), "hints": []})
+    if not any(a["check"]["ok"] for a in attempts):
+        inferred = back_infer(task, asserts, len(attempts))
+        if inferred and inferred["check"]["ok"]:
+            attempts.append(inferred)
+    chosen = next((a for a in attempts if a["check"]["ok"]), attempts[0])
+    return {"final_code": chosen["code"], "attempts": attempts, "chosen": chosen["source"]}

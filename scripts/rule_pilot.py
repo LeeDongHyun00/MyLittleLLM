@@ -15,12 +15,12 @@ import time
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from mylittlellm.rulecoder import rules as rulelib
 from mylittlellm.rulecoder.llm import server_model
-from mylittlellm.rulecoder.pipeline import solve
+from mylittlellm.rulecoder.pipeline import solve, solve_branching
 from mylittlellm.rulecoder.stats import mcnemar_exact, wilson
 from mylittlellm.rulecoder.tasks import ROOT, load_split, read_tasks, split_of, write_split
 
 OUT = ROOT / "outputs/rule_pilot"
-CONDITIONS = {"base", "advice", "rules", "verify", "probes", "full", "infer"}
+CONDITIONS = {"base", "advice", "rules", "verify", "probes", "full", "infer", "branch"}
 
 
 def read_jsonl(path):
@@ -50,7 +50,7 @@ def cmd_generate(args):
     path.parent.mkdir(parents=True, exist_ok=True)
     done = {(r["task_id"], r["draw"]) for r in read_jsonl(path)} if path.exists() else set()
     bank_rules = []
-    if args.condition in {"rules", "full"}:
+    if args.condition in {"rules", "full", "branch"}:
         bank_rules = rulelib.load_rules(args.bank, args.rule_ids)
     checkers = None
     if args.condition in {"probes", "full"}:
@@ -78,10 +78,13 @@ def cmd_generate(args):
                 else:
                     block = rulelib.render([r["text"] for r in fired]) if fired else None
                 start = time.monotonic()
-                result = solve(tasks[task_id], rule_block=block,
-                               verify=args.condition in {"verify", "probes", "full", "infer"},
-                               checkers=checkers, autofix=autofix, infer=args.condition == "infer",
-                               max_repairs=args.max_repairs)
+                if args.condition == "branch":
+                    result = solve_branching(tasks[task_id], rule_block=block)
+                else:
+                    result = solve(tasks[task_id], rule_block=block,
+                                   verify=args.condition in {"verify", "probes", "full", "infer"},
+                                   checkers=checkers, autofix=autofix, infer=args.condition == "infer",
+                                   max_repairs=args.max_repairs)
                 row = {"name": args.name, "task_id": task_id, "split": split_of(task_id, split), "draw": draw,
                        "condition": args.condition, "model": model["id"], "rule_ids": used,
                        "fired_rule_ids": [r["id"] for r in bank_rules if rulelib.applies(r, tasks[task_id])]
@@ -227,18 +230,71 @@ def cmd_infer(args):
             stats["tasks"] += 1
             task = tasks[row["task_id"]]
             asserts = parse_prompt(task["prompt"])[1]
-            if not public_check(row["final_code"], asserts)["ok"]:
+            first = row["attempts"][0]
+            # Inference is tried on the first answer; later repair attempts of the source run are
+            # kept only where inference finds nothing, as in the live pipeline.
+            if not public_check(first.get("raw_code", first["code"]), asserts)["ok"]:
                 stats["visible_failures"] += 1
-                inferred = back_infer(task, asserts, len(row["attempts"]))
+                inferred = back_infer(task, asserts, 1)
                 if inferred and inferred["check"]["ok"]:
                     stats["program_found"] += 1
                     stats["confident"] += inferred["inference"]["confident"]
                     stats["knowledge"] += inferred["inference"]["knowledge"]
-                    row["attempts"] = row["attempts"] + [inferred]
+                    row["attempts"] = [first, inferred]
                     row["final_code"] = inferred["code"]
             row.update(name=args.output_name, condition=row["condition"] + "+infer", derived_from=args.name)
             stream.write(json.dumps(row) + "\n")
     print(args.output_name, json.dumps(stats))
+
+
+def cmd_select(args):
+    """Offline form of the branch-and-select pipeline, built from runs that already exist.
+
+    Candidates are taken in the given order (rule-conditioned answer first, plain answer next).
+    The first one that passes the visible example is kept; if none does, back-inference is
+    tried. Generation is greedy and seeded, so this reproduces `generate --condition branch`
+    without spending the model calls a second time.
+    """
+    from mylittlellm.rulecoder.pipeline import back_infer, public_check
+    from mylittlellm.rulecoder.tasks import parse_prompt
+    tasks = read_tasks()
+    runs = [{(r["task_id"], r["draw"]): r for r in read_jsonl(OUT / "gen" / f"{name}.jsonl")}
+            for name in args.candidates]
+    target = OUT / "gen" / f"{args.output_name}.jsonl"
+    if target.exists():
+        raise SystemExit(f"{target} already exists")
+    chosen = {}
+    with target.open("w") as stream:
+        for key, row in runs[0].items():
+            if row["split"] not in args.splits:
+                continue
+            task = tasks[row["task_id"]]
+            asserts = parse_prompt(task["prompt"])[1]
+            attempts, seen = [], set()
+            for name, run in zip(args.candidates, runs):
+                first = dict(run[key]["attempts"][0])
+                code = first.get("raw_code", first["code"])
+                if code in seen:
+                    continue    # same prompt, same answer: not a separate branch
+                seen.add(code)
+                first.update(round=len(attempts), code=code, raw_code=code, source=name,
+                             check=public_check(code, asserts), hints=[])
+                attempts.append(first)
+                if first["check"]["ok"]:
+                    break
+            if not any(a["check"]["ok"] for a in attempts):
+                inferred = back_infer(task, asserts, len(attempts))
+                if inferred and inferred["check"]["ok"]:
+                    attempts.append(inferred)
+            winner = next((a for a in attempts if a["check"]["ok"]), attempts[0])
+            chosen[winner["source"]] = chosen.get(winner["source"], 0) + 1
+            out = dict(row)
+            out.update(name=args.output_name, condition="branch", final_code=winner["code"], attempts=attempts,
+                       chosen=winner["source"], visible_ok=winner["check"]["ok"],
+                       wall_seconds=round(sum(a["llm"]["elapsed_seconds"] for a in attempts), 3),
+                       derived_from=args.candidates)
+            stream.write(json.dumps(out) + "\n")
+    print(args.output_name, "chosen branch counts:", json.dumps(chosen))
 
 
 def cmd_score(args):
@@ -267,7 +323,7 @@ def cmd_score(args):
             else:
                 result = scoring.score(problem, row["final_code"], oracle[row["task_id"]])
             scored = {k: row.get(k) for k in ("name", "task_id", "split", "draw", "condition", "model",
-                                              "rule_ids", "fired_rule_ids")}
+                                              "rule_ids", "fired_rule_ids", "chosen", "visible_ok")}
             inferred = [a for a in row["attempts"] if a.get("source") == "backinfer"]
             scored.update(base=result["base"], plus=result["plus"], solved=result["solved"],
                           calls=len(row["attempts"]) - len(inferred),
@@ -470,6 +526,11 @@ def main():
     infer.add_argument("--output-name", required=True)
     infer.add_argument("--splits", nargs="+", default=["train", "val", "test"], choices=["train", "val", "test"])
     infer.set_defaults(func=cmd_infer)
+    select = sub.add_parser("select")
+    select.add_argument("--candidates", nargs="+", required=True)
+    select.add_argument("--output-name", required=True)
+    select.add_argument("--splits", nargs="+", default=["test"], choices=["train", "val", "test"])
+    select.set_defaults(func=cmd_select)
     score = sub.add_parser("score")
     score.add_argument("--name", required=True)
     score.add_argument("--diagnose", action="store_true")
