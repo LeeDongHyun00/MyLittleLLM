@@ -31,6 +31,8 @@ PACKS = ROOT / "data/rule_pilot/operator_packs.json"
 MAX_REPR = 600           # skip values too large to be a plausible intermediate result
 MAX_LEVEL_VALUES = 6000  # cap per level keeps the search around a second
 MAX_MATCHES = 40
+MAX_COLLECTED = 4000     # with "keep_best": matches gathered before ranking cuts them to MAX_MATCHES
+MAX_PAIR_OPERANDS = 40   # with "named_pairs": derived values that may be combined with each other
 
 
 class Op:
@@ -812,10 +814,14 @@ def load_packs():
     retired = set(manifest.get("retired", {})) if override is None else set()
     for bucket in (U, B, T):
         bucket[:] = [op for op in bucket if op.name + "/" + str(op.arity) not in retired]
-    return names
+    # Search behaviour added after the first library was frozen is switched on by the manifest as
+    # well, so "RULE_PACKS=none" still reproduces the frozen engine. RULE_ENGINE adds features by name.
+    features = set(manifest.get("engine", [])) if override is None else set()
+    features |= {name for name in os.environ.get("RULE_ENGINE", "").split(",") if name}
+    return names, frozenset(features)
 
 
-ACTIVE_PACKS = load_packs()
+ACTIVE_PACKS, ENGINE = load_packs()
 OPERATORS = {op.name + "/" + str(op.arity): op for op in U + B + T}
 
 
@@ -930,17 +936,24 @@ def search(example, description="", budget_seconds=2.0, weights=None):
         hits = sum(named[id(op)] for op in semantic)
         return (2 * hits - len(semantic), -sum(op.cost for op in ops))
 
+    # The first library kept the first MAX_MATCHES matches in enumeration order, so a well-supported
+    # program found late was lost behind early coincidences. "keep_best" ranks before it cuts.
+    room = MAX_COLLECTED if "keep_best" in ENGINE else MAX_MATCHES
+
+    def record(expr, ops):
+        if len(found) < room:
+            semantic = [op for op in ops if op.cost >= 1]
+            hits = sum(named[id(op)] for op in semantic)
+            support = hits / len(semantic) if semantic else (1.0 if any(named[id(op)] for op in ops) else 0.5)
+            learned = sum(weights.get(op.name + "/" + str(op.arity), 0.0) for op in ops)
+            found.append({"expr": expr, "ops": [op.name + "/" + str(op.arity) for op in ops],
+                          "size": sum(op.cost for op in ops), "support": support, "learned": learned,
+                          "knowledge": any(op.kind == "knowledge" for op in ops),
+                          "helpers": [op.helper for op in ops if op.helper]})
+
     def consider(value, expr, ops, bucket):
         if _matches(value, example):
-            if len(found) < MAX_MATCHES:
-                semantic = [op for op in ops if op.cost >= 1]
-                hits = sum(named[id(op)] for op in semantic)
-                support = hits / len(semantic) if semantic else (1.0 if any(named[id(op)] for op in ops) else 0.5)
-                learned = sum(weights.get(op.name + "/" + str(op.arity), 0.0) for op in ops)
-                found.append({"expr": expr, "ops": [op.name + "/" + str(op.arity) for op in ops],
-                              "size": sum(op.cost for op in ops), "support": support, "learned": learned,
-                              "knowledge": any(op.kind == "knowledge" for op in ops),
-                              "helpers": [op.helper for op in ops if op.helper]})
+            record(expr, ops)
             return
         key = _key(value)
         if key is None:
@@ -990,9 +1003,23 @@ def search(example, description="", budget_seconds=2.0, weights=None):
     expand(base, base, level1, both_orders=False)
     if time.monotonic() < deadline:
         expand(level1, base, [], both_orders=True)
+    if "named_pairs" in ENGINE and time.monotonic() < deadline:
+        # Arithmetic on two derived numbers ("sum of the cubes minus the sum") is not reachable by
+        # the levels above, which never combine two derived values. Only numbers produced by an
+        # operator the description names take part: that keeps the pairs few and an accidental
+        # match unlikely.
+        derived = [item for item in level1 if is_num(item[0]) and all(named[id(op)] for op in item[2])]
+        for (x, x_expr, x_ops), (y, y_expr, y_ops) in itertools.permutations(derived[:MAX_PAIR_OPERANDS], 2):
+            for op in binary_ops:
+                try:
+                    value = op.fn(x, y)
+                except Exception:
+                    continue
+                if _matches(value, example):
+                    record(render(op, [x_expr, y_expr]), x_ops + y_ops + (op,))
     # Named by the task first, then learned reliability, then the smaller program.
     found.sort(key=lambda m: (-(2.0 * m["support"] + m["learned"] - 0.3 * m["size"]), m["size"]))
-    return found
+    return found[:MAX_MATCHES]
 
 
 def to_code(entry_point, arity, match):

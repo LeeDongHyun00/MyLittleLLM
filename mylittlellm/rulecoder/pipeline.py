@@ -70,14 +70,17 @@ ZERO_COST = {"finish_reason": "backinfer", "prompt_tokens": 0, "completion_token
              "prompt_tokens_processed": 0, "prompt_ms": 0, "predicted_ms": 0, "elapsed_seconds": 0}
 
 
-def same_output(result, expected):
+def same_output(result, expected, mode="eq"):
+    """Compare the way the task's own example does: exactly, as sets, or within a tolerance."""
+    if mode == "set":
+        return isinstance(result, (list, tuple, set)) and set(result) == set(expected)
     if isinstance(result, float) or isinstance(expected, float):
         return (isinstance(result, (int, float)) and isinstance(expected, (int, float))
                 and math.isclose(result, expected, rel_tol=1e-6, abs_tol=1e-6))
     return result == expected
 
 
-def agrees(code, entry_point, examples, seconds=1.0):
+def agrees(code, entry_point, examples, mode="eq", seconds=1.0):
     """Cheap filter for engine-written code: does it reproduce every public example?
 
     Runs in this process, so it is only for code the rule engine composed from its own
@@ -87,7 +90,7 @@ def agrees(code, entry_point, examples, seconds=1.0):
     try:
         with time_limit(seconds):
             exec(code, scope)
-            return all(same_output(scope[entry_point](*copy.deepcopy(list(args))), expected)
+            return all(same_output(scope[entry_point](*copy.deepcopy(list(args))), expected, mode)
                        for args, expected in examples)
     except (Exception, Timeout):
         return False
@@ -107,8 +110,9 @@ def back_infer(task, asserts, round_index, accept=None, examples=(), tries=5):
     if not found:
         return None
     if accept:
+        # An order-insensitive example ("assert set(f(..)) == ..") makes the other examples so too.
         agreeing = [(rank, m) for rank, m in enumerate(found["alternatives"])
-                    if agrees(m["code"], task["entry_point"], examples)]
+                    if agrees(m["code"], task["entry_point"], examples, found["mode"])]
         chosen = next(((rank, m) for rank, m in agreeing[:tries] if accept(m["code"])), None)
         if chosen is None:
             return None

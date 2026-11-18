@@ -419,6 +419,9 @@ class BranchingTests(unittest.TestCase):
         self.assertFalse(agrees("def f(a0):\n    return a0[0]\n", "f", examples))
         self.assertFalse(agrees("def f(a0):\n    while True:\n        pass\n", "f", examples, seconds=0.05))
         self.assertTrue(agrees("def f(a0):\n    return a0 / 3\n", "f", [([1], 0.3333333333)]))
+        unordered = [([[2, 1, 2]], [1, 2])]
+        self.assertFalse(agrees("def f(a0):\n    return list(dict.fromkeys(a0))\n", "f", unordered))
+        self.assertTrue(agrees("def f(a0):\n    return list(dict.fromkeys(a0))\n", "f", unordered, mode="set"))
 
     small_sum = {"task_id": "Mbpp/0", "entry_point": "small_sum",
                  "prompt": '"""\nWrite a function to add up the n smallest items.\n'
