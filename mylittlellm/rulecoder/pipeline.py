@@ -61,8 +61,25 @@ def choose(attempts):
     return min(passing, key=lambda a: (len(a["hints"]), a["round"]))
 
 
-def solve(task, *, rule_block=None, verify=False, checkers=None, autofix=None, max_repairs=2, max_tokens=768,
-          client=chat):
+ZERO_COST = {"finish_reason": "backinfer", "prompt_tokens": 0, "completion_tokens": 0,
+             "prompt_tokens_processed": 0, "prompt_ms": 0, "predicted_ms": 0, "elapsed_seconds": 0}
+
+
+def back_infer(task, asserts, round_index):
+    """Rule-only fallback: search the operator library for a program that reproduces the example."""
+    from .backinfer import synthesize
+    description, _ = parse_prompt(task["prompt"])
+    found = synthesize(description, asserts, task["entry_point"])
+    if not found:
+        return None
+    return {"round": round_index, "code": found["code"], "raw_code": found["code"], "autofixed": False,
+            "source": "backinfer", "llm": dict(ZERO_COST), "check": public_check(found["code"], asserts),
+            "hints": [], "inference": {k: found[k] for k in ("expr", "ops", "support", "matches", "confident",
+                                                             "knowledge")}}
+
+
+def solve(task, *, rule_block=None, verify=False, checkers=None, autofix=None, infer=False, max_repairs=2,
+          max_tokens=768, client=chat):
     """Return the final code plus every attempt, so cost and repair behaviour can be audited."""
     _, asserts = parse_prompt(task["prompt"])
     messages = [{"role": "system", "content": system_prompt(rule_block)},
@@ -81,7 +98,16 @@ def solve(task, *, rule_block=None, verify=False, checkers=None, autofix=None, m
             return {"final_code": code, "attempts": attempts}
         attempt["check"] = public_check(code, asserts)
         attempt["hints"] = checkers(task, code, asserts, attempt["check"]) if checkers else []
-        if (attempt["check"]["ok"] and not attempt["hints"]) or round_index == max_repairs:
+        if attempt["check"]["ok"] and not attempt["hints"]:
+            break
+        if infer and round_index == 0:
+            # The answer already fails the example it was shown, so a program found by search
+            # can only replace a wrong answer. It costs no model call, so it goes before repair.
+            inferred = back_infer(task, asserts, len(attempts))
+            if inferred and inferred["check"]["ok"]:
+                attempts.append(inferred)
+                break
+        if round_index == max_repairs:
             break
         messages += [{"role": "assistant", "content": reply["text"]},
                      {"role": "user", "content": feedback(attempt["check"], attempt["hints"])}]

@@ -20,7 +20,7 @@ from mylittlellm.rulecoder.stats import mcnemar_exact, wilson
 from mylittlellm.rulecoder.tasks import ROOT, load_split, read_tasks, split_of, write_split
 
 OUT = ROOT / "outputs/rule_pilot"
-CONDITIONS = {"base", "advice", "rules", "verify", "probes", "full"}
+CONDITIONS = {"base", "advice", "rules", "verify", "probes", "full", "infer"}
 
 
 def read_jsonl(path):
@@ -79,8 +79,9 @@ def cmd_generate(args):
                     block = rulelib.render([r["text"] for r in fired]) if fired else None
                 start = time.monotonic()
                 result = solve(tasks[task_id], rule_block=block,
-                               verify=args.condition in {"verify", "probes", "full"},
-                               checkers=checkers, autofix=autofix, max_repairs=args.max_repairs)
+                               verify=args.condition in {"verify", "probes", "full", "infer"},
+                               checkers=checkers, autofix=autofix, infer=args.condition == "infer",
+                               max_repairs=args.max_repairs)
                 row = {"name": args.name, "task_id": task_id, "split": split_of(task_id, split), "draw": draw,
                        "condition": args.condition, "model": model["id"], "rule_ids": used,
                        "fired_rule_ids": [r["id"] for r in bank_rules if rulelib.applies(r, tasks[task_id])]
@@ -145,6 +146,101 @@ def cmd_first_attempt(args):
     print(f"{args.output_name}: derived from first attempts of {args.name}")
 
 
+def cmd_compose(args):
+    """Overlay a partial run on a complete one: tasks absent from the overlay keep the base answer.
+
+    Used when a condition changes the prompt for only some tasks (a rule fired); the other
+    tasks have a byte-identical prompt, so their base answer is the answer of that condition.
+    """
+    target = OUT / "gen" / f"{args.output_name}.jsonl"
+    if target.exists():
+        raise SystemExit(f"{target} already exists")
+    overlay = {(r["task_id"], r["draw"]): r for r in read_jsonl(OUT / "gen" / f"{args.overlay}.jsonl")}
+    with target.open("w") as stream:
+        for row in read_jsonl(OUT / "gen" / f"{args.base}.jsonl"):
+            if row["split"] not in args.splits:
+                continue
+            chosen = dict(overlay.get((row["task_id"], row["draw"]), row))
+            chosen.update(name=args.output_name, condition=args.condition,
+                          derived_from=args.overlay if (row["task_id"], row["draw"]) in overlay else args.base)
+            stream.write(json.dumps(chosen) + "\n")
+    print(f"{args.output_name}: {len(overlay)} overlay answers on top of {args.base}")
+
+
+def cmd_learn_operators(args):
+    """Credit assignment for the operator rules: send hidden-test outcomes back to the operators.
+
+    For every development task the search returns several programs that all reproduce the
+    visible example. Each is run on the hidden tests; operators that took part in programs
+    which generalised gain weight, operators behind coincidences lose weight. The weights
+    only re-rank matches, so a wrong weight can never make the search return a non-match.
+    """
+    import math
+    from mylittlellm.rulecoder import backinfer, scoring
+    from mylittlellm.rulecoder.tasks import parse_prompt
+    tasks, split = read_tasks(), load_split()
+    problems = scoring.load_problems()
+    oracle = scoring.groundtruth(problems)
+    counts, examples = {}, 0
+    for part in args.splits:
+        for task_id in split[part]:
+            description, asserts = parse_prompt(tasks[task_id]["prompt"])
+            result = backinfer.synthesize(description, asserts, tasks[task_id]["entry_point"], weights={},
+                                          keep=args.top)
+            if not result:
+                continue
+            for match in result["alternatives"]:
+                solved = scoring.score(problems[task_id], match["code"], oracle[task_id])["solved"]
+                examples += 1
+                for name in set(match["ops"]):
+                    win, loss = counts.get(name, (0, 0))
+                    counts[name] = (win + solved, loss + (not solved))
+    # Smoothed log-odds, shrunk towards zero for rarely seen operators and clipped.
+    weights = {name: round(max(-1.5, min(1.5, 0.5 * math.log((win + 1) / (loss + 1)))), 3)
+               for name, (win, loss) in sorted(counts.items())}
+    record = {"learned_from": {"splits": args.splits, "top_matches_per_task": args.top, "programs_scored": examples},
+              "counts": {name: {"generalised": win, "coincidence": loss} for name, (win, loss) in sorted(counts.items())},
+              "operators": weights}
+    backinfer.WEIGHTS.write_text(json.dumps(record, indent=1) + "\n")
+    print(f"scored {examples} programs; learned weights for {len(weights)} operators")
+    for name in sorted(weights, key=weights.get)[:8] + sorted(weights, key=weights.get)[-8:]:
+        print(f"  {name:28s} {weights[name]:+.2f}  {counts[name]}")
+
+
+def cmd_infer(args):
+    """Apply example back-inference to an existing run: no model call is made.
+
+    Equivalent to `generate --condition infer --max-repairs 0` because the first attempt of that
+    condition is the answer the source run already holds.
+    """
+    from mylittlellm.rulecoder.pipeline import back_infer, public_check
+    from mylittlellm.rulecoder.tasks import parse_prompt
+    tasks = read_tasks()
+    source, target = OUT / "gen" / f"{args.name}.jsonl", OUT / "gen" / f"{args.output_name}.jsonl"
+    if target.exists():
+        raise SystemExit(f"{target} already exists")
+    stats = {"tasks": 0, "visible_failures": 0, "program_found": 0, "confident": 0, "knowledge": 0}
+    with target.open("w") as stream:
+        for row in read_jsonl(source):
+            if row["split"] not in args.splits:
+                continue
+            stats["tasks"] += 1
+            task = tasks[row["task_id"]]
+            asserts = parse_prompt(task["prompt"])[1]
+            if not public_check(row["final_code"], asserts)["ok"]:
+                stats["visible_failures"] += 1
+                inferred = back_infer(task, asserts, len(row["attempts"]))
+                if inferred and inferred["check"]["ok"]:
+                    stats["program_found"] += 1
+                    stats["confident"] += inferred["inference"]["confident"]
+                    stats["knowledge"] += inferred["inference"]["knowledge"]
+                    row["attempts"] = row["attempts"] + [inferred]
+                    row["final_code"] = inferred["code"]
+            row.update(name=args.output_name, condition=row["condition"] + "+infer", derived_from=args.name)
+            stream.write(json.dumps(row) + "\n")
+    print(args.output_name, json.dumps(stats))
+
+
 def cmd_score(args):
     from mylittlellm.rulecoder import scoring
     problems = scoring.load_problems()
@@ -172,8 +268,10 @@ def cmd_score(args):
                 result = scoring.score(problem, row["final_code"], oracle[row["task_id"]])
             scored = {k: row.get(k) for k in ("name", "task_id", "split", "draw", "condition", "model",
                                               "rule_ids", "fired_rule_ids")}
+            inferred = [a for a in row["attempts"] if a.get("source") == "backinfer"]
             scored.update(base=result["base"], plus=result["plus"], solved=result["solved"],
-                          calls=len(row["attempts"]),
+                          calls=len(row["attempts"]) - len(inferred),
+                          inferred=inferred[-1]["inference"] if inferred else None,
                           completion_tokens=sum(a["llm"]["completion_tokens"] for a in row["attempts"]),
                           prompt_tokens_processed=sum(a["llm"]["prompt_tokens_processed"] or 0
                                                       for a in row["attempts"]),
@@ -356,6 +454,22 @@ def main():
     first.add_argument("--condition", required=True, choices=["base", "rules"])
     first.add_argument("--fallback", help="run whose answers are used where no rule fired (same prompt)")
     first.set_defaults(func=cmd_first_attempt)
+    compose = sub.add_parser("compose")
+    compose.add_argument("--base", required=True)
+    compose.add_argument("--overlay", required=True)
+    compose.add_argument("--output-name", required=True)
+    compose.add_argument("--condition", required=True)
+    compose.add_argument("--splits", nargs="+", default=["test"], choices=["train", "val", "test"])
+    compose.set_defaults(func=cmd_compose)
+    learn = sub.add_parser("learn-operators")
+    learn.add_argument("--splits", nargs="+", default=["train"], choices=["train", "val"])
+    learn.add_argument("--top", type=int, default=6)
+    learn.set_defaults(func=cmd_learn_operators)
+    infer = sub.add_parser("infer")
+    infer.add_argument("--name", required=True)
+    infer.add_argument("--output-name", required=True)
+    infer.add_argument("--splits", nargs="+", default=["train", "val", "test"], choices=["train", "val", "test"])
+    infer.set_defaults(func=cmd_infer)
     score = sub.add_parser("score")
     score.add_argument("--name", required=True)
     score.add_argument("--diagnose", action="store_true")

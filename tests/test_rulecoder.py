@@ -1,6 +1,6 @@
 import unittest
 
-from mylittlellm.rulecoder import rules
+from mylittlellm.rulecoder import backinfer, rules
 from mylittlellm.rulecoder.checkers import hint, make_checkers
 from mylittlellm.rulecoder.codemods import add_missing_imports, alias_entry_point, autofix
 from mylittlellm.rulecoder.extract import extract_code, keep_definitions
@@ -266,6 +266,83 @@ class CodemodTests(unittest.TestCase):
         self.assertTrue(result["attempts"][0]["check"]["ok"])
         self.assertNotIn("double =", result["attempts"][0]["raw_code"])
         self.assertIn("double = twice", result["final_code"])
+
+
+class BackInferenceTests(unittest.TestCase):
+    def infer(self, description, asserts, entry_point):
+        return backinfer.synthesize(description, asserts, entry_point, weights={})
+
+    def test_example_is_parsed_in_every_assert_shape(self):
+        eq = backinfer.parse_example("assert f((1, 2), 3) == [1]", "f")
+        self.assertEqual((eq["args"], eq["expected"], eq["mode"]), ([(1, 2), 3], [1], "eq"))
+        as_set = backinfer.parse_example("assert set(f([1, 2])) == set((2, 1))", "f")
+        self.assertEqual((as_set["expected"], as_set["mode"]), ({1, 2}, "set"))
+        close = backinfer.parse_example("assert math.isclose(f(2), 12.56, rel_tol=0.001)", "f")
+        self.assertEqual((close["expected"], close["mode"]), (12.56, "close"))
+        self.assertIsNone(backinfer.parse_example("assert f(3)", "f"))
+        self.assertIsNone(backinfer.parse_example("assert g(3) == 1", "f"))
+
+    def test_found_program_reproduces_the_example_and_generalises(self):
+        found = self.infer("Write a function to perform the mathematical bitwise and operation across the tuples.",
+                           "assert and_tuples((10, 4, 6, 9), (5, 2, 3, 3)) == (0, 0, 2, 1)", "and_tuples")
+        self.assertTrue(found["confident"])
+        self.assertEqual(run_public_asserts(found["code"], "assert and_tuples((1, 2), (3, 3)) == (1, 2)")["status"],
+                         "pass")
+
+    def test_description_decides_between_programs_that_fit_the_same_example(self):
+        asserts = "assert pick([2, 7, 7]) == 7"
+        largest = self.infer("Write a function to find the largest value in a list.", asserts, "pick")
+        last = self.infer("Write a function to return the last element of a list.", asserts, "pick")
+        self.assertEqual((largest["expr"], last["expr"]), ("max(a0)", "a0[-1]"))
+
+    def test_knowledge_operator_needs_both_the_name_and_the_example(self):
+        named = self.infer("Write a function to find the nth hexagonal number.", "assert hexagonal_num(10) == 190",
+                           "hexagonal_num")
+        self.assertTrue(named["knowledge"])
+        self.assertEqual(named["expr"], "a0 * (2 * a0 - 1)")
+        unnamed = self.infer("Write a function to compute the special value of n.", "assert special(10) == 190",
+                             "special")
+        self.assertFalse(unnamed and unnamed["knowledge"])
+        wrong_example = self.infer("Write a function to find the nth hexagonal number.",
+                                   "assert hexagonal_num(10) == 191", "hexagonal_num")
+        self.assertFalse(wrong_example and wrong_example["knowledge"])
+
+    def test_helper_source_is_shipped_with_the_answer(self):
+        found = self.infer("Write a function to find the n'th lucas number.", "assert find_lucas(9) == 76", "find_lucas")
+        self.assertIn("def _lucas(n):", found["code"])
+        self.assertEqual(run_public_asserts(found["code"], "assert find_lucas(4) == 7")["status"], "pass")
+
+    def test_tiny_expected_value_without_named_steps_is_not_trusted(self):
+        found = self.infer("Write a function to compute the answer.", "assert answer([5, 1, 3]) == 3", "answer")
+        self.assertTrue(found is None or not found["confident"])
+
+    def test_boolean_examples_are_left_to_the_model(self):
+        self.assertIsNone(self.infer("Write a function to check for an even number.", "assert is_even(4) == True",
+                                     "is_even"))
+
+    def test_pipeline_uses_inference_before_spending_a_repair_call(self):
+        task = {"task_id": "Mbpp/0", "entry_point": "and_tuples",
+                "prompt": '"""\nWrite a function to extract the elementwise and tuples from the given two tuples.\n'
+                          'assert and_tuples((10, 4, 6, 9), (5, 2, 3, 3)) == (0, 0, 2, 1)\n"""\n'}
+        student = ScriptedStudent("```python\ndef and_tuples(a, b):\n    return a\n```")
+        result = solve(task, verify=True, infer=True, client=student)
+        self.assertEqual(len(student.calls), 1)
+        self.assertEqual(result["attempts"][-1]["source"], "backinfer")
+        self.assertEqual(run_public_asserts(result["final_code"], "assert and_tuples((6, 5), (3, 4)) == (2, 4)")["status"],
+                         "pass")
+
+    def test_pipeline_falls_back_to_repair_when_nothing_is_inferred(self):
+        student = ScriptedStudent("```python\ndef double(x):\n    return True\n```",
+                                  "```python\ndef double(x):\n    return 2 * x\n```")
+        task = dict(TASK, prompt='"""\nWrite a function.\nassert double(2) == True\n"""\n')
+        result = solve(task, verify=True, infer=True, client=student)
+        self.assertEqual(len(student.calls), 1)   # the first answer already satisfies this example
+        task = dict(TASK, prompt='"""\nWrite a function to frobnicate.\nassert double("ab") == None\n"""\n')
+        student = ScriptedStudent("```python\ndef double(x):\n    return 1\n```",
+                                  "```python\ndef double(x):\n    return None\n```")
+        result = solve(task, verify=True, infer=True, client=student)
+        self.assertEqual(len(student.calls), 2)
+        self.assertTrue(result["attempts"][-1]["check"]["ok"])
 
 
 class StatsTests(unittest.TestCase):

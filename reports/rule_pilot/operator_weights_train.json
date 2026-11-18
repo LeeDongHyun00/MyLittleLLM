@@ -1,0 +1,938 @@
+{
+ "learned_from": {
+  "splits": [
+   "train"
+  ],
+  "top_matches_per_task": 6,
+  "programs_scored": 526
+ },
+ "counts": {
+  "abs/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "add/2": {
+   "generalised": 0,
+   "coincidence": 9
+  },
+  "adjacent_diff/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "adjacent_pairs/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "adjacent_sum/1": {
+   "generalised": 1,
+   "coincidence": 2
+  },
+  "alnum_only/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "append/2": {
+   "generalised": 1,
+   "coincidence": 1
+  },
+  "append_tuple/2": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "argmax/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "argmin/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "at/2": {
+   "generalised": 0,
+   "coincidence": 6
+  },
+  "at_least_long/2": {
+   "generalised": 0,
+   "coincidence": 3
+  },
+  "best_pair_product/1": {
+   "generalised": 1,
+   "coincidence": 5
+  },
+  "binary/1": {
+   "generalised": 0,
+   "coincidence": 3
+  },
+  "binomial_product_sum/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "bit_and/2": {
+   "generalised": 0,
+   "coincidence": 9
+  },
+  "camel_to_snake/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "char_count/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "circumference/1": {
+   "generalised": 2,
+   "coincidence": 0
+  },
+  "col_max/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "col_mean/1": {
+   "generalised": 4,
+   "coincidence": 0
+  },
+  "column_max/2": {
+   "generalised": 2,
+   "coincidence": 2
+  },
+  "common_all/1": {
+   "generalised": 3,
+   "coincidence": 3
+  },
+  "concat/2": {
+   "generalised": 2,
+   "coincidence": 2
+  },
+  "count/2": {
+   "generalised": 2,
+   "coincidence": 10
+  },
+  "counter/1": {
+   "generalised": 2,
+   "coincidence": 4
+  },
+  "cube/1": {
+   "generalised": 0,
+   "coincidence": 6
+  },
+  "cube_each/1": {
+   "generalised": 1,
+   "coincidence": 4
+  },
+  "cylinder_lateral/2": {
+   "generalised": 6,
+   "coincidence": 0
+  },
+  "cylinder_volume/2": {
+   "generalised": 3,
+   "coincidence": 0
+  },
+  "dedupe/1": {
+   "generalised": 1,
+   "coincidence": 1
+  },
+  "digit_count/1": {
+   "generalised": 0,
+   "coincidence": 11
+  },
+  "digit_count_str/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "digit_sum/1": {
+   "generalised": 0,
+   "coincidence": 5
+  },
+  "digit_sum_str/1": {
+   "generalised": 0,
+   "coincidence": 3
+  },
+  "digits/1": {
+   "generalised": 1,
+   "coincidence": 8
+  },
+  "drop_consecutive/1": {
+   "generalised": 0,
+   "coincidence": 2
+  },
+  "drop_ends/1": {
+   "generalised": 0,
+   "coincidence": 8
+  },
+  "drop_first/1": {
+   "generalised": 1,
+   "coincidence": 15
+  },
+  "drop_last/1": {
+   "generalised": 1,
+   "coincidence": 19
+  },
+  "each_add/2": {
+   "generalised": 4,
+   "coincidence": 0
+  },
+  "each_and/2": {
+   "generalised": 4,
+   "coincidence": 0
+  },
+  "each_floordiv/2": {
+   "generalised": 0,
+   "coincidence": 2
+  },
+  "each_mod/2": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "each_mul/2": {
+   "generalised": 5,
+   "coincidence": 4
+  },
+  "each_sub/2": {
+   "generalised": 6,
+   "coincidence": 0
+  },
+  "each_truediv/2": {
+   "generalised": 2,
+   "coincidence": 2
+  },
+  "each_xor/2": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "eulerian/2": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "even_binomial_sum/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "even_index/1": {
+   "generalised": 2,
+   "coincidence": 15
+  },
+  "evens/1": {
+   "generalised": 3,
+   "coincidence": 15
+  },
+  "factorial/1": {
+   "generalised": 0,
+   "coincidence": 2
+  },
+  "filter_dict/2": {
+   "generalised": 2,
+   "coincidence": 0
+  },
+  "first/1": {
+   "generalised": 1,
+   "coincidence": 15
+  },
+  "flatten/1": {
+   "generalised": 0,
+   "coincidence": 4
+  },
+  "float/1": {
+   "generalised": 11,
+   "coincidence": 7
+  },
+  "floordiv/2": {
+   "generalised": 0,
+   "coincidence": 10
+  },
+  "gcd/2": {
+   "generalised": 0,
+   "coincidence": 3
+  },
+  "hexagonal/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "index/2": {
+   "generalised": 0,
+   "coincidence": 5
+  },
+  "int_each/1": {
+   "generalised": 1,
+   "coincidence": 1
+  },
+  "int_part/1": {
+   "generalised": 0,
+   "coincidence": 3
+  },
+  "ints_only/1": {
+   "generalised": 3,
+   "coincidence": 2
+  },
+  "items_by_value/1": {
+   "generalised": 0,
+   "coincidence": 2
+  },
+  "items_by_value_desc/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "join/1": {
+   "generalised": 2,
+   "coincidence": 3
+  },
+  "join_digits/1": {
+   "generalised": 2,
+   "coincidence": 1
+  },
+  "join_space/1": {
+   "generalised": 4,
+   "coincidence": 2
+  },
+  "keep_common/2": {
+   "generalised": 4,
+   "coincidence": 0
+  },
+  "keys/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "kth/2": {
+   "generalised": 1,
+   "coincidence": 2
+  },
+  "kth_largest/2": {
+   "generalised": 0,
+   "coincidence": 2
+  },
+  "last/1": {
+   "generalised": 0,
+   "coincidence": 9
+  },
+  "lcm/2": {
+   "generalised": 0,
+   "coincidence": 5
+  },
+  "len/1": {
+   "generalised": 11,
+   "coincidence": 48
+  },
+  "len_each/1": {
+   "generalised": 3,
+   "coincidence": 4
+  },
+  "letters_only/1": {
+   "generalised": 1,
+   "coincidence": 2
+  },
+  "list/1": {
+   "generalised": 16,
+   "coincidence": 1
+  },
+  "longer_than/2": {
+   "generalised": 2,
+   "coincidence": 2
+  },
+  "longest/1": {
+   "generalised": 5,
+   "coincidence": 3
+  },
+  "lower/1": {
+   "generalised": 4,
+   "coincidence": 1
+  },
+  "max/1": {
+   "generalised": 4,
+   "coincidence": 11
+  },
+  "max2/2": {
+   "generalised": 2,
+   "coincidence": 9
+  },
+  "max_plus_min/1": {
+   "generalised": 0,
+   "coincidence": 5
+  },
+  "mean/1": {
+   "generalised": 0,
+   "coincidence": 2
+  },
+  "merge3/3": {
+   "generalised": 6,
+   "coincidence": 0
+  },
+  "min/1": {
+   "generalised": 3,
+   "coincidence": 10
+  },
+  "min2/2": {
+   "generalised": 0,
+   "coincidence": 7
+  },
+  "mod/2": {
+   "generalised": 1,
+   "coincidence": 3
+  },
+  "most_common/1": {
+   "generalised": 0,
+   "coincidence": 10
+  },
+  "mul/2": {
+   "generalised": 0,
+   "coincidence": 10
+  },
+  "negate_each/1": {
+   "generalised": 7,
+   "coincidence": 1
+  },
+  "negatives/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "newman_conway/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "no_lower/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "no_spaces/1": {
+   "generalised": 2,
+   "coincidence": 5
+  },
+  "no_upper/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "nsmallest/2": {
+   "generalised": 2,
+   "coincidence": 4
+  },
+  "nsw/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "odd_index/1": {
+   "generalised": 1,
+   "coincidence": 6
+  },
+  "odd_power4_sum/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "odds/1": {
+   "generalised": 3,
+   "coincidence": 3
+  },
+  "of_length/2": {
+   "generalised": 4,
+   "coincidence": 2
+  },
+  "once_only/1": {
+   "generalised": 1,
+   "coincidence": 2
+  },
+  "pack_consecutive/1": {
+   "generalised": 2,
+   "coincidence": 0
+  },
+  "pair_absdiff/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "pair_diff/1": {
+   "generalised": 1,
+   "coincidence": 1
+  },
+  "pair_sums/1": {
+   "generalised": 2,
+   "coincidence": 0
+  },
+  "parse_int/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "popcount/1": {
+   "generalised": 0,
+   "coincidence": 12
+  },
+  "pow/2": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "power_each/2": {
+   "generalised": 1,
+   "coincidence": 2
+  },
+  "prism_volume/3": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "prod/1": {
+   "generalised": 1,
+   "coincidence": 2
+  },
+  "pyramid_surface/2": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "quoted/1": {
+   "generalised": 1,
+   "coincidence": 2
+  },
+  "range/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "range1/1": {
+   "generalised": 0,
+   "coincidence": 3
+  },
+  "range_width/1": {
+   "generalised": 5,
+   "coincidence": 7
+  },
+  "remove_chars/2": {
+   "generalised": 1,
+   "coincidence": 3
+  },
+  "remove_present/2": {
+   "generalised": 4,
+   "coincidence": 1
+  },
+  "remove_sub/2": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "repeated/1": {
+   "generalised": 1,
+   "coincidence": 2
+  },
+  "replace_last/2": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "reverse/1": {
+   "generalised": 5,
+   "coincidence": 5
+  },
+  "reverse_digits/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "reverse_each/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "rotate_left/2": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "rotate_right/2": {
+   "generalised": 1,
+   "coincidence": 2
+  },
+  "row_first/1": {
+   "generalised": 1,
+   "coincidence": 3
+  },
+  "row_last/1": {
+   "generalised": 1,
+   "coincidence": 1
+  },
+  "row_max/1": {
+   "generalised": 0,
+   "coincidence": 4
+  },
+  "row_mean/1": {
+   "generalised": 2,
+   "coincidence": 0
+  },
+  "row_min/1": {
+   "generalised": 0,
+   "coincidence": 4
+  },
+  "row_prod/1": {
+   "generalised": 1,
+   "coincidence": 1
+  },
+  "row_reverse/1": {
+   "generalised": 2,
+   "coincidence": 1
+  },
+  "row_sorted/1": {
+   "generalised": 5,
+   "coincidence": 5
+  },
+  "row_sorted_tuple/1": {
+   "generalised": 2,
+   "coincidence": 3
+  },
+  "row_sum/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "second_largest/1": {
+   "generalised": 0,
+   "coincidence": 3
+  },
+  "second_smallest/1": {
+   "generalised": 0,
+   "coincidence": 5
+  },
+  "set/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "set_and/2": {
+   "generalised": 2,
+   "coincidence": 0
+  },
+  "set_xor/2": {
+   "generalised": 0,
+   "coincidence": 10
+  },
+  "shorter_than/2": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "shortest/1": {
+   "generalised": 1,
+   "coincidence": 1
+  },
+  "sort_by_last/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "sort_by_len/1": {
+   "generalised": 2,
+   "coincidence": 1
+  },
+  "sorted/1": {
+   "generalised": 17,
+   "coincidence": 7
+  },
+  "sorted_desc/1": {
+   "generalised": 5,
+   "coincidence": 3
+  },
+  "sorted_set/1": {
+   "generalised": 0,
+   "coincidence": 6
+  },
+  "spaces_to_underscore/1": {
+   "generalised": 0,
+   "coincidence": 3
+  },
+  "span/2": {
+   "generalised": 0,
+   "coincidence": 11
+  },
+  "sphere_surface/1": {
+   "generalised": 2,
+   "coincidence": 0
+  },
+  "split/1": {
+   "generalised": 1,
+   "coincidence": 4
+  },
+  "split_on/2": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "split_space/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "square/1": {
+   "generalised": 0,
+   "coincidence": 13
+  },
+  "square_each/1": {
+   "generalised": 2,
+   "coincidence": 4
+  },
+  "star/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "str/1": {
+   "generalised": 0,
+   "coincidence": 4
+  },
+  "str_each/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "strip/1": {
+   "generalised": 0,
+   "coincidence": 2
+  },
+  "strs_only/1": {
+   "generalised": 1,
+   "coincidence": 1
+  },
+  "sub/2": {
+   "generalised": 0,
+   "coincidence": 6
+  },
+  "sum/1": {
+   "generalised": 2,
+   "coincidence": 9
+  },
+  "sum_values/1": {
+   "generalised": 2,
+   "coincidence": 0
+  },
+  "swap_ends/1": {
+   "generalised": 3,
+   "coincidence": 3
+  },
+  "swapcase/1": {
+   "generalised": 2,
+   "coincidence": 1
+  },
+  "take/2": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "title/1": {
+   "generalised": 2,
+   "coincidence": 3
+  },
+  "transpose/1": {
+   "generalised": 1,
+   "coincidence": 1
+  },
+  "trapezium_median/2": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "truediv/2": {
+   "generalised": 0,
+   "coincidence": 4
+  },
+  "tuple/1": {
+   "generalised": 19,
+   "coincidence": 5
+  },
+  "unzip/1": {
+   "generalised": 1,
+   "coincidence": 1
+  },
+  "upper/1": {
+   "generalised": 6,
+   "coincidence": 0
+  },
+  "upper_only/1": {
+   "generalised": 0,
+   "coincidence": 1
+  },
+  "values/1": {
+   "generalised": 1,
+   "coincidence": 0
+  },
+  "vowel_count/1": {
+   "generalised": 0,
+   "coincidence": 5
+  },
+  "wind_chill/2": {
+   "generalised": 3,
+   "coincidence": 3
+  },
+  "words/1": {
+   "generalised": 0,
+   "coincidence": 4
+  },
+  "xor/2": {
+   "generalised": 0,
+   "coincidence": 2
+  },
+  "zip/2": {
+   "generalised": 1,
+   "coincidence": 0
+  }
+ },
+ "operators": {
+  "abs/1": -0.347,
+  "add/2": -1.151,
+  "adjacent_diff/1": -0.347,
+  "adjacent_pairs/1": -0.347,
+  "adjacent_sum/1": -0.203,
+  "alnum_only/1": 0.347,
+  "append/2": 0.0,
+  "append_tuple/2": 0.347,
+  "argmax/1": -0.347,
+  "argmin/1": -0.347,
+  "at/2": -0.973,
+  "at_least_long/2": -0.693,
+  "best_pair_product/1": -0.549,
+  "binary/1": -0.693,
+  "binomial_product_sum/1": 0.347,
+  "bit_and/2": -1.151,
+  "camel_to_snake/1": -0.347,
+  "char_count/1": 0.347,
+  "circumference/1": 0.549,
+  "col_max/1": -0.347,
+  "col_mean/1": 0.805,
+  "column_max/2": 0.0,
+  "common_all/1": 0.0,
+  "concat/2": 0.0,
+  "count/2": -0.65,
+  "counter/1": -0.255,
+  "cube/1": -0.973,
+  "cube_each/1": -0.458,
+  "cylinder_lateral/2": 0.973,
+  "cylinder_volume/2": 0.693,
+  "dedupe/1": 0.0,
+  "digit_count/1": -1.242,
+  "digit_count_str/1": -0.347,
+  "digit_sum/1": -0.896,
+  "digit_sum_str/1": -0.693,
+  "digits/1": -0.752,
+  "drop_consecutive/1": -0.549,
+  "drop_ends/1": -1.099,
+  "drop_first/1": -1.04,
+  "drop_last/1": -1.151,
+  "each_add/2": 0.805,
+  "each_and/2": 0.805,
+  "each_floordiv/2": -0.549,
+  "each_mod/2": -0.347,
+  "each_mul/2": 0.091,
+  "each_sub/2": 0.973,
+  "each_truediv/2": 0.0,
+  "each_xor/2": -0.347,
+  "eulerian/2": 0.347,
+  "even_binomial_sum/1": 0.347,
+  "even_index/1": -0.837,
+  "evens/1": -0.693,
+  "factorial/1": -0.549,
+  "filter_dict/2": 0.549,
+  "first/1": -1.04,
+  "flatten/1": -0.805,
+  "float/1": 0.203,
+  "floordiv/2": -1.199,
+  "gcd/2": -0.693,
+  "hexagonal/1": 0.347,
+  "index/2": -0.896,
+  "int_each/1": 0.0,
+  "int_part/1": -0.693,
+  "ints_only/1": 0.144,
+  "items_by_value/1": -0.549,
+  "items_by_value_desc/1": 0.347,
+  "join/1": -0.144,
+  "join_digits/1": 0.203,
+  "join_space/1": 0.255,
+  "keep_common/2": 0.805,
+  "keys/1": -0.347,
+  "kth/2": -0.203,
+  "kth_largest/2": -0.549,
+  "last/1": -1.151,
+  "lcm/2": -0.896,
+  "len/1": -0.703,
+  "len_each/1": -0.112,
+  "letters_only/1": -0.203,
+  "list/1": 1.07,
+  "longer_than/2": 0.0,
+  "longest/1": 0.203,
+  "lower/1": 0.458,
+  "max/1": -0.438,
+  "max2/2": -0.602,
+  "max_plus_min/1": -0.896,
+  "mean/1": -0.549,
+  "merge3/3": 0.973,
+  "min/1": -0.506,
+  "min2/2": -1.04,
+  "mod/2": -0.347,
+  "most_common/1": -1.199,
+  "mul/2": -1.199,
+  "negate_each/1": 0.693,
+  "negatives/1": 0.347,
+  "newman_conway/1": 0.347,
+  "no_lower/1": -0.347,
+  "no_spaces/1": -0.347,
+  "no_upper/1": -0.347,
+  "nsmallest/2": -0.255,
+  "nsw/1": 0.347,
+  "odd_index/1": -0.626,
+  "odd_power4_sum/1": 0.347,
+  "odds/1": 0.0,
+  "of_length/2": 0.255,
+  "once_only/1": -0.203,
+  "pack_consecutive/1": 0.549,
+  "pair_absdiff/1": 0.347,
+  "pair_diff/1": 0.0,
+  "pair_sums/1": 0.549,
+  "parse_int/1": -0.347,
+  "popcount/1": -1.282,
+  "pow/2": -0.347,
+  "power_each/2": -0.203,
+  "prism_volume/3": -0.347,
+  "prod/1": -0.203,
+  "pyramid_surface/2": 0.347,
+  "quoted/1": -0.203,
+  "range/1": -0.347,
+  "range1/1": -0.693,
+  "range_width/1": -0.144,
+  "remove_chars/2": -0.347,
+  "remove_present/2": 0.458,
+  "remove_sub/2": -0.347,
+  "repeated/1": -0.203,
+  "replace_last/2": 0.347,
+  "reverse/1": 0.0,
+  "reverse_digits/1": -0.347,
+  "reverse_each/1": 0.347,
+  "rotate_left/2": 0.347,
+  "rotate_right/2": -0.203,
+  "row_first/1": -0.347,
+  "row_last/1": 0.0,
+  "row_max/1": -0.805,
+  "row_mean/1": 0.549,
+  "row_min/1": -0.805,
+  "row_prod/1": 0.0,
+  "row_reverse/1": 0.203,
+  "row_sorted/1": 0.0,
+  "row_sorted_tuple/1": -0.144,
+  "row_sum/1": -0.347,
+  "second_largest/1": -0.693,
+  "second_smallest/1": -0.896,
+  "set/1": -0.347,
+  "set_and/2": 0.549,
+  "set_xor/2": -1.199,
+  "shorter_than/2": -0.347,
+  "shortest/1": 0.0,
+  "sort_by_last/1": -0.347,
+  "sort_by_len/1": 0.203,
+  "sorted/1": 0.405,
+  "sorted_desc/1": 0.203,
+  "sorted_set/1": -0.973,
+  "spaces_to_underscore/1": -0.693,
+  "span/2": -1.242,
+  "sphere_surface/1": 0.549,
+  "split/1": -0.458,
+  "split_on/2": -0.347,
+  "split_space/1": 0.347,
+  "square/1": -1.32,
+  "square_each/1": -0.255,
+  "star/1": 0.347,
+  "str/1": -0.805,
+  "str_each/1": -0.347,
+  "strip/1": -0.549,
+  "strs_only/1": 0.0,
+  "sub/2": -0.973,
+  "sum/1": -0.602,
+  "sum_values/1": 0.549,
+  "swap_ends/1": 0.0,
+  "swapcase/1": 0.203,
+  "take/2": -0.347,
+  "title/1": -0.144,
+  "transpose/1": 0.0,
+  "trapezium_median/2": -0.347,
+  "truediv/2": -0.805,
+  "tuple/1": 0.602,
+  "unzip/1": 0.0,
+  "upper/1": 0.973,
+  "upper_only/1": -0.347,
+  "values/1": 0.347,
+  "vowel_count/1": -0.896,
+  "wind_chill/2": 0.0,
+  "words/1": -0.805,
+  "xor/2": -0.549,
+  "zip/2": 0.347
+ }
+}
