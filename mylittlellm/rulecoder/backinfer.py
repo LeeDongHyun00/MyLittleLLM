@@ -283,9 +283,11 @@ unary("best_pair_product", lambda x: (need(numseq(x) and len(x) > 1),
                                       max(itertools.combinations(x, 2), key=lambda p: p[0] * p[1]))[1],
       "max(itertools.combinations({0}, 2), key=lambda p: p[0] * p[1])", "pair&product&high|pair&product&max")
 # conversions are cheap: they change the container, not the content
-unary("tuple", lambda x: (need(isinstance(x, (list, set, str)) and len(x) > 0), tuple(x))[1], "tuple({0})",
+# Sets are excluded on purpose: their iteration order differs between processes, so a program
+# that turns a set into a sequence could match the example in one run and not in the next.
+unary("tuple", lambda x: (need(isinstance(x, (list, str)) and len(x) > 0), tuple(x))[1], "tuple({0})",
       "tuple", cost=0.5)
-unary("list", lambda x: (need(isinstance(x, (tuple, set, str)) and len(x) > 0), list(x))[1], "list({0})",
+unary("list", lambda x: (need(isinstance(x, (tuple, str)) and len(x) > 0), list(x))[1], "list({0})",
       "list", cost=0.5)
 unary("set", lambda x: (need(is_seq(x) and len(x) > 0), set(x))[1], "set({0})", "set|unique|distinct", cost=0.5)
 unary("join_space", lambda x: (need(strseq(x)), " ".join(x))[1], "' '.join({0})", "join|concatenat|sentence|string")
