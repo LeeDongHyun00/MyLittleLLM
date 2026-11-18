@@ -7,12 +7,25 @@
   "uncorroborated": "the pipeline answer is a model answer and none of the top-10 engine programs agrees with it on probes",
   "no_probes": "the visible example cannot be parsed into arguments"
  },
- "samples": {"model": "coder-1.5b (Qwen2.5-Coder-1.5B-Instruct Q4_K_M)", "k": 8, "temperature": 0.8,
-             "seeds": "1000-1007", "prompt": "plain EvalPlus prompt, no rules", "max_tokens": 768},
- "probes": {"count": 24, "grammar": "type-preserving mutations of the visible example's arguments (mylittlellm/rulecoder/consensus.py)"},
+ "samples": {
+  "model": "coder-1.5b (Qwen2.5-Coder-1.5B-Instruct Q4_K_M)",
+  "k": 8,
+  "temperature": 0.8,
+  "seeds": "1000-1007",
+  "prompt": "plain EvalPlus prompt, no rules",
+  "max_tokens": 768
+ },
+ "probes": {
+  "count": 24,
+  "grammar": "type-preserving mutations of the visible example's arguments (mylittlellm/rulecoder/consensus.py)"
+ },
  "agreement": "two candidates agree if at least 3 probes give a value for both and no probe gives different values; a probe on which one side raises is ignored",
- "pool": ["the pipeline answer, if it passes the visible example", "the plain-prompt greedy answer, if it passes and differs",
-          "every sample that passes the visible example (identical code merged)", "the top-10 rule-engine programs for the example"],
+ "pool": [
+  "the pipeline answer, if it passes the visible example",
+  "the plain-prompt greedy answer, if it passes and differs",
+  "every sample that passes the visible example (identical code merged)",
+  "the top-10 rule-engine programs for the example"
+ ],
  "score": "s(c) = (model candidates agreeing with c, c included) / (number of model candidates) + lambda * [c is an engine program or some engine program agrees with c]",
  "lambda": 0.5,
  "tie_break": "the pipeline answer first, then model candidates in pool order, then engine programs in rank order",
@@ -20,5 +33,10 @@
  "gate": "validation split: no fewer tasks solved than the round-3 pipeline (31 of 45)",
  "test": "locked split, once, only after the gate passes; counts only",
  "ablation": "lambda = 0 (model candidates only, plain MBR-exec) is reported next to the primary rule on every split, including test",
- "not_tuned": "k, temperature, lambda, probes and the agreement threshold are fixed here and are not tuned on any split"
+ "not_tuned": "k, temperature, lambda, probes and the agreement threshold are fixed here and are not tuned on any split",
+ "follow_ups": {
+  "written": "2026-11-18, after the validation gate and before the test split was scored",
+  "transfer_0.5b": "the identical rule (same k, temperature, seeds, lambda, probes, agreement threshold) applied once to the 0.5B student's round-3 pipeline on the locked test split, with the 0.5B model drawing the samples and its own plain greedy answers as the plain candidates; lambda = 0 reported alongside",
+  "ungated_control": "on the validation split only: the same rule with every task treated as a target (samples drawn for corroborated tasks too), to see whether gating by corroboration loses accuracy; not run on test"
+ }
 }

@@ -81,24 +81,27 @@ def main():
     parser.add_argument("--keep", type=int, default=10)
     parser.add_argument("--probes", type=int, default=24)
     parser.add_argument("--minimum", type=int, default=3)
+    parser.add_argument("--run", help="pipeline run to start from (default: the 1.5B round-3 runs)")
+    parser.add_argument("--plain-run", default="s15-base", help="run holding the plain-prompt greedy answers")
     args = parser.parse_args()
+    runs = {split: args.run for split in RUNS} if args.run else RUNS
     tasks = read_tasks()
     folder = OUT / "samples"
     targets = json.loads((folder / f"{args.samples}_targets.json").read_text())
     samples = {}
     for sample in read_jsonl(folder / f"{args.samples}.jsonl"):
         samples.setdefault(sample["task_id"], []).append(sample)
-    plain = {r["task_id"]: r for r in read_jsonl(OUT / "gen" / "s15-base.jsonl")}
+    plain = {r["task_id"]: r for r in read_jsonl(OUT / "gen" / f"{args.plain_run}.jsonl")}
     target = OUT / "gen" / f"{args.output_name}.jsonl"
     if target.exists():
         raise SystemExit(f"{target} already exists")
     counts = {}
     with target.open("w") as stream:
         for split in args.splits:
-            for row in read_jsonl(OUT / "gen" / f"{RUNS[split]}.jsonl"):
+            for row in read_jsonl(OUT / "gen" / f"{runs[split]}.jsonl"):
                 if row["split"] != split:
                     continue
-                out = dict(row, name=args.output_name, condition="consensus", derived_from=[RUNS[split], args.samples])
+                out = dict(row, name=args.output_name, condition="consensus", derived_from=[runs[split], args.samples])
                 reason = targets.get(split, {}).get(row["task_id"])
                 if reason:
                     drawn = sorted(samples.get(row["task_id"], []), key=lambda s: s["index"])

@@ -68,7 +68,11 @@ def main():
     parser.add_argument("--keep", type=int, default=10)
     parser.add_argument("--probes", type=int, default=24)
     parser.add_argument("--minimum", type=int, default=3)
+    parser.add_argument("--run", help="pipeline run whose answers are checked (default: the 1.5B round-3 runs)")
+    parser.add_argument("--all-tasks", action="store_true",
+                        help="control: sample every task, corroborated or not (reason 'corroborated')")
     args = parser.parse_args()
+    runs = {split: args.run for split in RUNS} if args.run else RUNS
     tasks = read_tasks()
     model = server_model()["id"]
     folder = OUT / "samples"
@@ -93,13 +97,13 @@ def main():
             stream.write(json.dumps(record) + "\n")
 
     for split in args.splits:
-        rows = {r["task_id"]: r for r in read_jsonl(OUT / "gen" / f"{RUNS[split]}.jsonl") if r["split"] == split}
+        rows = {r["task_id"]: r for r in read_jsonl(OUT / "gen" / f"{runs[split]}.jsonl") if r["split"] == split}
         if split not in targets:
             targets[split] = {}
             for task_id, row in rows.items():
                 reason = target_reason(row, tasks[task_id], args.keep, args.probes, args.minimum)
-                if reason:
-                    targets[split][task_id] = reason
+                if reason or args.all_tasks:
+                    targets[split][task_id] = reason or "corroborated"
             targets_path.write_text(json.dumps(targets, indent=1) + "\n")
         jobs = [(task_id, split, reason, i) for task_id, reason in targets[split].items() for i in range(args.k)
                 if (task_id, i) not in done]
