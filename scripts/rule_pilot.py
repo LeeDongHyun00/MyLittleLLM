@@ -112,6 +112,9 @@ def cmd_score(args):
                           prompt_tokens_processed=sum(a["llm"]["prompt_tokens_processed"] or 0
                                                       for a in row["attempts"]),
                           wall_seconds=row["wall_seconds"],
+                          # Model compute only; wall time also contains queueing and sandbox checks.
+                          model_seconds=round(sum((a["llm"]["prompt_ms"] or 0) + (a["llm"]["predicted_ms"] or 0)
+                                                  for a in row["attempts"]) / 1000, 3),
                           first_public_ok=row["attempts"][0].get("check", {}).get("ok"))
             # The locked test split never gets a per-test diagnosis, so nobody can tune on it.
             if args.diagnose and not result["solved"] and row["split"] != "test":
@@ -239,6 +242,7 @@ def cmd_summary(args):
                  "mean_completion_tokens": round(sum(r["completion_tokens"] for r in rows.values()) / n, 1),
                  "mean_prompt_tokens_processed": round(sum(r["prompt_tokens_processed"]
                                                            for r in rows.values()) / n, 1),
+                 "mean_model_seconds": round(sum(r["model_seconds"] for r in rows.values()) / n, 2),
                  "mean_wall_seconds": round(sum(r["wall_seconds"] for r in rows.values()) / n, 2)}
         if reference is None:
             reference = rows
