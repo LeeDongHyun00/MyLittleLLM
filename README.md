@@ -12,6 +12,36 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 - [모델 경로 및 실행 환경 확인 결과](docs/environment.md)
 - [직접 설치와 RAG·장학금 계산 실행](docs/running.md)
 - [실제 예비 실행 결과와 발견한 오류](reports/pilot_report.md)
+- [규칙 증류로 CPU 코딩 LLM을 만들 수 있는가: 가능성 검토](docs/rule_distillation_feasibility.md)
+- [SeedLM: 규칙 엔진이 가르친, 처음부터 만든 소형 언어 모델](docs/seed_lm.md)
+
+## 2026-11-18 규칙 증류 실험 (별도 트랙)
+
+입시 상담과 별개로, "큰 생성형 모델이 쓴 규칙으로 CPU의 작은 코딩 모델을 끌어올릴 수 있는가"를 검토했다. 결론과 근거는 [가능성 검토](docs/rule_distillation_feasibility.md)에 있다.
+
+- 규칙을 모델에게 **읽히는** 방식(프롬프트 규칙, 오류 피드백 수리)은 1.5B 학생에게 통하지 않았다.
+- 규칙을 **실행해서 확인하는** 방식은 통했다. 규칙을 쓴 답과 안 쓴 답 중 보이는 예시를 재현하는 쪽을 고르고(분기-선택), 둘 다 틀리면 예시의 기대 출력에서 거꾸로 계산을 찾는다(예시 역추론, 모델 호출 없음).
+
+잠가 둔 시험 분할(MBPP+ 151문제, 숨은 테스트까지 통과 기준):
+
+| | 규칙 없음 | 분기-선택 + 예시 역추론 | 고침 / 깨뜨림 |
+|---|---|---|---|
+| Qwen2.5-Coder-1.5B (4비트, CPU) | 89 (58.9%) | 97 (64.2%) | 8 / 0 |
+| Qwen2.5-Coder-0.5B (4비트, CPU) | 56 (37.1%) | 80 (53.0%) | 24 / 0 |
+| 모델 없이 규칙 엔진만 | — | 57 (37.7%) | — |
+
+"모든 코딩 기능에서 최상위 수준"은 성립하지 않는다. 이득은 보이는 예시가 있고 답이 연산 두 단계로 표현되는 과제에 한정된다. 151문제 표본이라 신뢰구간이 넓다.
+
+```bash
+python -m venv .venv && . .venv/bin/activate
+pip install --no-deps evalplus==0.3.1 && pip install -r requirements-rule-pilot.txt
+python scripts/rule_pilot_install.py --models coder-1.5b
+bash scripts/rule_pilot_serve.sh coder-1.5b 8081 &
+python scripts/rule_pilot.py generate --name demo --condition branch --split test --max-rules 2
+python scripts/rule_pilot.py score --name demo
+```
+
+코드는 `mylittlellm/rulecoder/`(규칙 은행, 분기-선택, 예시 역추론)와 `mylittlellm/seedlm/`(처음부터 학습한 소형 모델)에 있고, 규칙 은행은 `data/rule_pilot/rule_bank.json`, 채점 결과는 `reports/rule_pilot/`에 있다.
 
 ## 2026-11-02 현재 상태
 
