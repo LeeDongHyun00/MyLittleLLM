@@ -1,0 +1,40 @@
+{
+ "model": "main-rows-replay",
+ "width": 32,
+ "search_budget_seconds": 2.0,
+ "depths": {
+  "1": {
+   "examples": 100,
+   "search_found": 98,
+   "model_found": 98,
+   "both": 97,
+   "search_only": 1,
+   "model_only": 1,
+   "neither": 1,
+   "search_seconds": 0.048,
+   "model_seconds": 0.36
+  },
+  "2": {
+   "examples": 100,
+   "search_found": 91,
+   "model_found": 80,
+   "both": 78,
+   "search_only": 13,
+   "model_only": 2,
+   "neither": 7,
+   "search_seconds": 0.032,
+   "model_seconds": 0.334
+  },
+  "3": {
+   "examples": 100,
+   "search_found": 55,
+   "model_found": 65,
+   "both": 50,
+   "search_only": 5,
+   "model_only": 15,
+   "neither": 30,
+   "search_seconds": 0.027,
+   "model_seconds": 0.301
+  }
+ }
+}
