@@ -16,10 +16,14 @@ CACHE = ROOT / "outputs/rule_pilot/groundtruth"
 PASS = "pass"
 
 
+HUMANEVAL = ROOT / "data/raw/rule_pilot/HumanEvalPlus.jsonl.gz"
+
+
 def _evalplus():
     # evalplus.data imports `datasets` only for EvalPerf; a stub keeps the scorer dependency-light.
     sys.modules.setdefault("datasets", types.SimpleNamespace(load_dataset=None))
     os.environ["MBPP_OVERRIDE_PATH"] = str(DATASET)  # read by evalplus at import time
+    os.environ["HUMANEVAL_OVERRIDE_PATH"] = str(HUMANEVAL)
     from evalplus.data.mbpp import get_mbpp_plus
     from evalplus.eval import untrusted_check
     from evalplus.eval._special_oracle import MBPP_OUTPUT_NOT_NONE_TASKS
@@ -27,15 +31,22 @@ def _evalplus():
     return get_mbpp_plus, untrusted_check, MBPP_OUTPUT_NOT_NONE_TASKS, trusted_exec
 
 
-def load_problems():
+def load_problems(dataset="mbpp"):
     """Tasks with inputs deserialized exactly as EvalPlus does (tuples, sets, ...)."""
+    if dataset == "humaneval":
+        _evalplus()
+        from evalplus.data.humaneval import get_human_eval_plus
+        return get_human_eval_plus()
     return _evalplus()[0]()
 
 
-def groundtruth(problems):
+def groundtruth(problems, dataset="mbpp"):
     """Expected outputs from the canonical solutions; mirrors evalplus.evaluate.get_groundtruth."""
     _, _, not_none, trusted_exec = _evalplus()
-    path = CACHE / (hashlib.sha256(DATASET.read_bytes()).hexdigest()[:16] + ".pkl")
+    if dataset == "humaneval":
+        not_none = []
+    source = HUMANEVAL if dataset == "humaneval" else DATASET
+    path = CACHE / (hashlib.sha256(source.read_bytes()).hexdigest()[:16] + ".pkl")
     if path.exists():
         with path.open("rb") as stream:
             return pickle.load(stream)
@@ -55,12 +66,12 @@ def groundtruth(problems):
     return expected
 
 
-def score(problem, solution, oracle):
+def score(problem, solution, oracle, dataset="mbpp"):
     """Return base/plus status plus per-input pass flags; mirrors evalplus.evaluate.check_correctness."""
     untrusted_check = _evalplus()[1]
     result = {}
     for part in ("base", "plus"):
-        status, details = untrusted_check("mbpp", solution, problem[part + "_input"], problem["entry_point"],
+        status, details = untrusted_check(dataset, solution, problem[part + "_input"], problem["entry_point"],
                                           expected=oracle[part], atol=problem["atol"],
                                           ref_time=oracle[part + "_time"], fast_check=False)
         result[part] = status
