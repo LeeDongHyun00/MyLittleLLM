@@ -1,0 +1,14 @@
+{
+ "written": "2026-11-18, before any model answer, engine program or score on HumanEval+ was produced",
+ "why": "MBPP+'s locked test split has been evaluated in several rounds; HumanEval+ (164 tasks) was never looked at while writing rules, operators, phrases, prompts or thresholds, so it is an untouched check of generalisation.",
+ "examples": "a task's visible example is the first call with a stated result in its docstring (mylittlellm/rulecoder/humaneval.py); 121 of 164 tasks have one; the others are scored with the plain answer only",
+ "student": "coder-1.5b (Qwen2.5-Coder-1.5B-Instruct Q4_K_M), greedy, the same EvalPlus prompt as for MBPP+",
+ "systems": {
+  "plain": "the student's greedy answer",
+  "engine": "the shipped rule engine alone (780 operators, tie_break + description_constants), no model",
+  "pipeline": "the student's answer, replaced by the engine's program only when the answer fails the visible example",
+  "consensus": "the pipeline plus corroboration-gated consensus exactly as in reports/rule_pilot/consensus_protocol.json (k = 8, temperature 0.8, seeds 1000-1007, lambda = 0.5 primary, lambda = 0 reported alongside)",
+  "seedlm": "the pipeline with SeedLM-2 re-ranking in place of the engine, only if SeedLM-2 passes its own validation gate first; otherwise not run"
+ },
+ "scoring": "EvalPlus base + plus tests, solved counts with Wilson intervals; every system is run once"
+}
