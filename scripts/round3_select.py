@@ -33,12 +33,13 @@ ROOT = Path(__file__).resolve().parents[1]
 BANK = ROOT / "outputs/rule_pilot/teacher/round3"
 MANIFEST = ROOT / "data/rule_pilot/operator_packs.json"
 REPORT = ROOT / "reports/rule_pilot/round3_attribution.json"
+MEMORY = []
 
 
 def check(pack, output, engine=()):
     command = [sys.executable, str(ROOT / "scripts/teacher_check.py"), "--pack", pack,
                "--bank", str(BANK / "all_tasks.json"), "--output", str(output)]
-    environment = dict(os.environ, RULE_ENGINE=",".join(engine))
+    environment = dict(os.environ, RULE_ENGINE=",".join(engine), RULE_RETIRE=",".join(MEMORY))
     if pack == "manifest":
         environment.pop("RULE_ENGINE")      # the manifest names its own features
     completed = subprocess.run(command, capture_output=True, text=True, check=True, env=environment)
@@ -65,6 +66,7 @@ def main():
     args = parser.parse_args()
     packs = [name for name in args.packs.split(",") if name]
     features = [name for name in args.features.split(",") if name]
+    MEMORY[:] = args.memory         # out of every measurement, not only out of the final manifest
 
     # 1. search features: the subset that solves the most development tasks, smaller subset on ties
     tried = []
@@ -83,9 +85,10 @@ def main():
         for key in result["pack_ops"]:
             stats[key]["right" if result["after"] == "solved" else "wrong"] += 1
     retired = {key: "a teacher flagged it as written from memory of benchmark tasks" for key in args.memory}
-    unknown = set(args.memory) - set(stats)
+    defined = "".join((ROOT / "mylittlellm/rulecoder/oppacks" / f"{name}.py").read_text() for name in packs)
+    unknown = [key for key in args.memory if f'"{key.split("/")[0]}"' not in defined]
     if unknown:
-        raise SystemExit(f"--memory names operators no candidate pack defines: {sorted(unknown)}")
+        raise SystemExit(f"--memory names operators no candidate pack defines: {unknown}")
     for key, op in sorted(stats.items()):
         if key in retired:
             continue

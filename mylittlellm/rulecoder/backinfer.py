@@ -812,6 +812,7 @@ def load_packs():
     # Retired rules stay in their files, so the record of what was tried and dropped is kept.
     # An override names packs as written, without retirement: that is what attribution needs.
     retired = set(manifest.get("retired", {})) if override is None else set()
+    retired |= {key for key in os.environ.get("RULE_RETIRE", "").split(",") if key}
     for bucket in (U, B, T):
         bucket[:] = [op for op in bucket if op.name + "/" + str(op.arity) not in retired]
     # Search behaviour added after the first library was frozen is switched on by the manifest as
