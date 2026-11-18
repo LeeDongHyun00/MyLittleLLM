@@ -1,0 +1,120 @@
+[
+ {
+  "name": "s15-base",
+  "split": "test",
+  "n": 151,
+  "model": "coder-1.5b",
+  "condition": "base",
+  "base_pass": 105,
+  "base_pct": 69.5,
+  "base_ci95": [
+   61.8,
+   76.3
+  ],
+  "plus_pass": 89,
+  "plus_pct": 58.9,
+  "plus_ci95": [
+   51.0,
+   66.5
+  ],
+  "mean_llm_calls": 1.0,
+  "mean_completion_tokens": 92.8,
+  "mean_prompt_tokens_processed": 50.9,
+  "mean_model_seconds": 5.24,
+  "median_wall_seconds": 4.46,
+  "mean_wall_seconds": 5.36
+ },
+ {
+  "name": "s15-branch-test-r3",
+  "split": "test",
+  "n": 151,
+  "model": "coder-1.5b",
+  "condition": "branch",
+  "base_pass": 117,
+  "base_pct": 77.5,
+  "base_ci95": [
+   70.2,
+   83.4
+  ],
+  "plus_pass": 98,
+  "plus_pct": 64.9,
+  "plus_ci95": [
+   57.0,
+   72.1
+  ],
+  "mean_llm_calls": 1.06,
+  "mean_completion_tokens": 104.4,
+  "mean_prompt_tokens_processed": 58.1,
+  "mean_model_seconds": 7.74,
+  "median_wall_seconds": 5.13,
+  "mean_wall_seconds": 7.86,
+  "vs_first": {
+   "wins": 9,
+   "losses": 0,
+   "net_pct": 6.0,
+   "mcnemar_p": 0.0039
+  }
+ },
+ {
+  "name": "c15-test",
+  "split": "test",
+  "n": 151,
+  "model": "coder-1.5b",
+  "condition": "consensus",
+  "base_pass": 126,
+  "base_pct": 83.4,
+  "base_ci95": [
+   76.7,
+   88.5
+  ],
+  "plus_pass": 102,
+  "plus_pct": 67.5,
+  "plus_ci95": [
+   59.7,
+   74.5
+  ],
+  "mean_llm_calls": 5.03,
+  "mean_completion_tokens": 723.2,
+  "mean_prompt_tokens_processed": 148.9,
+  "mean_model_seconds": 77.37,
+  "median_wall_seconds": 5.13,
+  "mean_wall_seconds": 7.86,
+  "vs_first": {
+   "wins": 15,
+   "losses": 2,
+   "net_pct": 8.6,
+   "mcnemar_p": 0.0023
+  }
+ },
+ {
+  "name": "c15-test-lam0",
+  "split": "test",
+  "n": 151,
+  "model": "coder-1.5b",
+  "condition": "consensus",
+  "base_pass": 127,
+  "base_pct": 84.1,
+  "base_ci95": [
+   77.4,
+   89.1
+  ],
+  "plus_pass": 104,
+  "plus_pct": 68.9,
+  "plus_ci95": [
+   61.1,
+   75.7
+  ],
+  "mean_llm_calls": 5.03,
+  "mean_completion_tokens": 723.2,
+  "mean_prompt_tokens_processed": 148.9,
+  "mean_model_seconds": 77.37,
+  "median_wall_seconds": 5.13,
+  "mean_wall_seconds": 7.86,
+  "vs_first": {
+   "wins": 15,
+   "losses": 0,
+   "net_pct": 9.9,
+   "mcnemar_p": 0.0001
+  }
+ }
+]

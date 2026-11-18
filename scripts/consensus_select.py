@@ -83,6 +83,7 @@ def main():
     parser.add_argument("--minimum", type=int, default=3)
     parser.add_argument("--run", help="pipeline run to start from (default: the 1.5B round-3 runs)")
     parser.add_argument("--plain-run", default="s15-base", help="run holding the plain-prompt greedy answers")
+    parser.add_argument("--k", type=int, help="use only the first k samples of each task (cost curve)")
     args = parser.parse_args()
     runs = {split: args.run for split in RUNS} if args.run else RUNS
     tasks = read_tasks()
@@ -105,7 +106,9 @@ def main():
                 reason = targets.get(split, {}).get(row["task_id"])
                 if reason:
                     drawn = sorted(samples.get(row["task_id"], []), key=lambda s: s["index"])
-                    if len(drawn) < 1:
+                    if args.k is not None:
+                        drawn = [s for s in drawn if s["index"] < args.k]
+                    if len(drawn) < 1 and args.k != 0:
                         raise SystemExit(f"no samples for {row['task_id']}: sampling has not finished")
                     code, source, details = choose(tasks[row["task_id"]], row, plain.get(row["task_id"]), drawn,
                                                    args.lam, args.keep, args.probes, args.minimum)
