@@ -86,7 +86,7 @@ def main():
             def judge(code, problem=problem, oracle=oracle):
                 return scoring.score(problem, code, oracle)["solved"]
         example = bi.parse_example(item["visible_assert"], item["entry_point"])
-        verdict = "unparsed"
+        verdict, program = "unparsed", None
         if example is not None and example["args"] and cases:
             verdict = "beyond"
             for gates_open in (False, True):
@@ -96,7 +96,7 @@ def main():
                 for rank, match in enumerate(matches):
                     code = bi.to_code(item["entry_point"], len(example["args"]), match)
                     if quick_ok(code, item["entry_point"], cases) and judge(code):
-                        hit = rank
+                        hit, program = rank, match["program"]
                         break
                 if hit is not None:
                     verdict = "gating" if gates_open else "ranking"
@@ -105,7 +105,7 @@ def main():
         counts.setdefault(item["source"], {}).setdefault(verdict, 0)
         counts[item["source"]][verdict] += 1
         rows.append({"task_id": item["task_id"], "source": item["source"], "category": item["category"],
-                     "verdict": verdict})
+                     "verdict": verdict, "program": program})
         print(item["task_id"], verdict, f"{time.monotonic() - started:.0f}s", flush=True)
     report = {"tasks": len(items), "counts": counts, "settings": vars(args)}
     (ROOT / "reports/seedlm/ceiling_dev.json").write_text(json.dumps(report, indent=1) + "\n")
