@@ -108,6 +108,22 @@ class ModelTests(unittest.TestCase):
                 pending += (bi.OPERATORS[token].arity if "/" in token else 0) - 1
             self.assertEqual(pending, 0)
 
+    def test_checkpoint_round_trip_gives_a_proposer_that_returns_only_verified_programs(self):
+        import tempfile
+        from pathlib import Path
+        from mylittlellm.seedlm import propose
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "tiny.pt"
+            self.torch.save({"state": self.net.state_dict(), "config": self.net.config.to_dict(),
+                             "operators": self.vocabulary.operators, "held_out_operators": []}, path)
+            net, vocabulary = propose.load(path)
+            ask = propose.proposer(path, width=6)
+        self.assertEqual(vocabulary.operators, self.vocabulary.operators)
+        tokens = self.torch.tensor([self.vocabulary.condition([[3, 1, 2]], 6, [])])
+        self.assertTrue(self.torch.equal(net(tokens), self.net.eval()(tokens)))
+        for proposal in ask([[3, 1, 2]], 6, []):       # an untrained net may well propose nothing
+            self.assertEqual(synth.execute(proposal["program"], [[3, 1, 2]]), 6)
+
     def test_runaway_proposal_is_interrupted_even_if_an_operator_swallows_exceptions(self):
         from mylittlellm.seedlm import propose
 
