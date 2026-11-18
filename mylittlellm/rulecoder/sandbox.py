@@ -15,10 +15,45 @@ import tempfile
 MEMORY_BYTES = 2 * 1024 ** 3
 CLIP = 300
 
-_DRIVER = r'''
+# One canonical text per value, shared by the sandbox and by in-process callers, so that two
+# programs can be compared by their outputs: equal values give equal text (sets and dicts in any
+# order, floats to nine significant digits), and long values are hashed to keep messages small.
+CANONICAL = r'''
+import hashlib as _hashlib
+
+
+def canonical(value, depth=0):
+    if depth > 8:
+        return "<deep>"
+    if value is None or isinstance(value, (bool, str)):
+        text = repr(value)
+    elif isinstance(value, int):
+        text = repr(value) if abs(value) < 10 ** 60 else "int:" + _hashlib.sha1(repr(value).encode()).hexdigest()
+    elif isinstance(value, float):
+        text = "nan" if value != value else format(value, ".9g")
+    elif isinstance(value, complex):
+        text = "complex(" + canonical(value.real) + "," + canonical(value.imag) + ")"
+    elif isinstance(value, list):
+        text = "[" + ",".join(canonical(v, depth + 1) for v in value) + "]"
+    elif isinstance(value, tuple):
+        text = "(" + ",".join(canonical(v, depth + 1) for v in value) + ")"
+    elif isinstance(value, (set, frozenset)):
+        text = "{" + ",".join(sorted(canonical(v, depth + 1) for v in value)) + "}"
+    elif isinstance(value, dict):
+        text = "{" + ",".join(sorted(canonical(k, depth + 1) + ":" + canonical(v, depth + 1)
+                                     for k, v in value.items())) + "}"
+    else:
+        text = type(value).__name__ + ":" + repr(value)[:200]
+    if len(text) > 400:
+        text = "sha1:" + _hashlib.sha1(text.encode()).hexdigest()
+    return text
+'''
+
+_DRIVER = (r'''
 import ast, contextlib, io, json, pickle, sys, traceback
 
 CLIP = %d
+''' + CANONICAL + r'''
 
 def clip(value):
     text = repr(value)
@@ -39,6 +74,29 @@ def main():
             exec(compile(job["code"], "<solution>", "exec"), scope)
     except BaseException as exc:
         return {"status": "error", "stage": "load", "detail": brief(exc)}
+    if job["mode"] == "calls":
+        # Many inputs in one process: a probe that hangs is cut off alone, the others still run.
+        import copy, signal
+        fn = scope.get(job["entry_point"])
+        if not callable(fn):
+            return {"status": "error", "stage": "entry_point", "detail": f"function {job['entry_point']} is not defined"}
+
+        def interrupt(signum, frame):
+            raise TimeoutError("probe call took too long")
+
+        signal.signal(signal.SIGALRM, interrupt)
+        results = []
+        for args in job["inputs"]:
+            try:
+                signal.setitimer(signal.ITIMER_REAL, job["per_call"])
+                with contextlib.redirect_stdout(sink), contextlib.redirect_stderr(sink):
+                    value = fn(*copy.deepcopy(args))
+                signal.setitimer(signal.ITIMER_REAL, 0)
+                results.append(["ok", canonical(value)])
+            except BaseException as exc:
+                signal.setitimer(signal.ITIMER_REAL, 0)
+                results.append(["exc", type(exc).__name__])
+        return {"status": "ok", "results": results}
     if job["mode"] == "call":
         fn = scope.get(job["entry_point"])
         if not callable(fn):
@@ -74,7 +132,7 @@ def main():
     return {"status": "pass", "printed": bool(sink.getvalue().strip())}
 
 print("\n__RESULT__" + json.dumps(main()))
-''' % CLIP
+''') % CLIP
 
 
 def syntax_error(code):
@@ -116,3 +174,10 @@ def run_public_asserts(code, asserts, timeout=10):
 def run_call(code, entry_point, args, timeout=10):
     """Call the entry point once; used for diagnosis and edge-case probes."""
     return _run({"mode": "call", "code": code, "entry_point": entry_point, "args": list(args)}, timeout)
+
+
+def run_calls(code, entry_point, inputs, per_call=0.5):
+    """Call the entry point on many argument lists in one subprocess; canonical outputs or exception names."""
+    job = {"mode": "calls", "code": code, "entry_point": entry_point, "inputs": [list(a) for a in inputs],
+           "per_call": per_call}
+    return _run(job, timeout=5 + per_call * len(inputs))

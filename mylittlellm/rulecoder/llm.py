@@ -6,6 +6,9 @@ import urllib.request
 from urllib.parse import urlparse
 
 DEFAULT_URL = "http://127.0.0.1:8081/v1"
+# Fields of a reply worth keeping next to a generated answer (the text itself is stored separately).
+LLM_FIELDS_SAFE = ("finish_reason", "prompt_tokens", "completion_tokens", "prompt_tokens_processed",
+                   "prompt_ms", "predicted_ms", "elapsed_seconds")
 
 
 def chat(messages, *, base_url=None, max_tokens=512, temperature=0, seed=42, timeout=900):
