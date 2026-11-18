@@ -1,9 +1,11 @@
 """Add new operator rules to a trained SeedLM and measure what it does to the old ones.
 
-The base model never saw the held-out operators. Two ways of adding them are compared:
+The base model never saw the held-out operators. Three ways of adding them are compared:
   naive : fine-tune every weight on programs that use the new operators;
   rows  : freeze the network and train only the embedding and output rows of the new operator
-          tokens, started in the directions the existing operator rows use least.
+          tokens, started in the directions the existing operator rows use least;
+  replay: fine-tune every weight on an equal mix of new-operator programs and programs drawn
+          from the distribution the base model was trained on (the generator makes both for free).
 """
 import argparse
 import json
@@ -49,7 +51,7 @@ def least_used_directions(weight, old_rows, count):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base", required=True)
-    parser.add_argument("--method", choices=["naive", "rows"], required=True)
+    parser.add_argument("--method", choices=["naive", "rows", "replay"], required=True)
     parser.add_argument("--minutes", type=float, default=3)
     parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--threads", type=int, default=4)
@@ -67,7 +69,9 @@ def main():
     old_ops = [op for name, op in bi.OPERATORS.items() if name not in set(new_names)]
     old_eval = data.build(600, 99991, vocabulary, old_ops)
     new_eval = with_new_operator(400, 77771, vocabulary, new_names)
-    new_train = with_new_operator(20000, 5, vocabulary, new_names)
+    train = with_new_operator(20000, 5, vocabulary, new_names)
+    if args.method == "replay":
+        train = train + data.build(len(train), 6, vocabulary, old_ops)
     before = {"old": evaluate(net, vocabulary, old_eval, 150), "new": evaluate(net, vocabulary, new_eval, 150)}
 
     new_tokens = torch.tensor([vocabulary.index[name] for name in new_names])
@@ -89,7 +93,7 @@ def main():
     optimizer = torch.optim.AdamW(parameters, lr=args.lr, weight_decay=0.0)
     rng, begin, step = random.Random(0), time.time(), 0
     while time.time() - begin < args.minutes * 60:
-        for batch in batches(new_train, 64, rng):
+        for batch in batches(train, 64, rng):
             if time.time() - begin >= args.minutes * 60:
                 break
             inputs, labels = data.collate(batch, torch)
