@@ -2,6 +2,7 @@ import unittest
 
 from mylittlellm.rulecoder import rules
 from mylittlellm.rulecoder.checkers import hint, make_checkers
+from mylittlellm.rulecoder.codemods import add_missing_imports, alias_entry_point, autofix
 from mylittlellm.rulecoder.extract import extract_code, keep_definitions
 from mylittlellm.rulecoder.pipeline import choose, public_check, solve
 from mylittlellm.rulecoder.probes import example_args, probe_inputs, run_probes
@@ -228,6 +229,41 @@ class CheckerTests(unittest.TestCase):
         text = hint({"family": "large", "call": "f(107)", "problem": "timeout", "detail": "no result"})
         self.assertIn("f(107)", text)
         self.assertIn("efficient", text)
+
+
+class CodemodTests(unittest.TestCase):
+    def test_used_but_unimported_stdlib_names_get_an_import(self):
+        fixed = add_missing_imports("def f(x):\n    return math.sqrt(x) + len(Counter(str(x)))\n")
+        self.assertIn("import math\n", fixed)
+        self.assertIn("from collections import Counter\n", fixed)
+        self.assertEqual(run_call(fixed, "f", (4,))["repr"], "3.0")
+
+    def test_names_the_answer_binds_itself_are_left_alone(self):
+        code = "def sqrt(x):\n    return x\ndef f(math):\n    return sqrt(math)\n"
+        self.assertEqual(add_missing_imports(code), code)
+        imported = "import math\ndef f(x):\n    return math.pi * x\n"
+        self.assertEqual(add_missing_imports(imported), imported)
+
+    def test_single_function_is_aliased_to_the_name_the_example_calls(self):
+        fixed = alias_entry_point("def sum_common_divisors(a, b):\n    return a + b\n", "sum")
+        self.assertEqual(run_call(fixed, "sum", (1, 2))["repr"], "3")
+
+    def test_with_helpers_only_a_spelling_variant_is_aliased(self):
+        code = "def helper(x):\n    return x\ndef check_occurrences(x):\n    return helper(x)\n"
+        self.assertIn("check_occurences = check_occurrences", alias_entry_point(code, "check_occurences"))
+        self.assertEqual(alias_entry_point(code, "solve"), code)
+
+    def test_defined_entry_point_and_broken_code_are_untouched(self):
+        good = "def f(x):\n    return x\n"
+        self.assertEqual(autofix(good, "f"), good)
+        self.assertEqual(autofix("def f(:\n", "f"), "def f(:\n")
+
+    def test_pipeline_applies_codemods_before_checking(self):
+        student = ScriptedStudent("```python\ndef twice(x):\n    return 2 * x\n```")
+        result = solve(TASK, verify=True, autofix=autofix, client=student)
+        self.assertEqual(len(student.calls), 1)
+        self.assertTrue(result["attempts"][0]["autofixed"])
+        self.assertTrue(result["attempts"][0]["check"]["ok"])
 
 
 class StatsTests(unittest.TestCase):

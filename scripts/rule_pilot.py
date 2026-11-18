@@ -55,6 +55,9 @@ def cmd_generate(args):
     if args.condition in {"probes", "full"}:
         from mylittlellm.rulecoder.checkers import active_families, make_checkers
         checkers = make_checkers(active_families(args.bank))
+    autofix = None
+    if args.condition == "full":
+        from mylittlellm.rulecoder.codemods import autofix
     model = server_model()
     with path.open("a") as stream:
         for draw in range(args.draws):
@@ -76,7 +79,7 @@ def cmd_generate(args):
                 start = time.monotonic()
                 result = solve(tasks[task_id], rule_block=block,
                                verify=args.condition in {"verify", "probes", "full"},
-                               checkers=checkers, max_repairs=args.max_repairs)
+                               checkers=checkers, autofix=autofix, max_repairs=args.max_repairs)
                 row = {"name": args.name, "task_id": task_id, "split": split_of(task_id, split), "draw": draw,
                        "condition": args.condition, "model": model["id"], "rule_ids": used,
                        "fired_rule_ids": [r["id"] for r in bank_rules if rulelib.applies(r, tasks[task_id])]
@@ -91,6 +94,23 @@ def cmd_generate(args):
                       f"tokens={last['completion_tokens']}", f"{row['wall_seconds']}s", flush=True)
 
 
+def cmd_autofix(args):
+    """Apply the codemods to an existing run's answers; costs no model call."""
+    from mylittlellm.rulecoder.codemods import autofix
+    tasks = read_tasks()
+    source, target = OUT / "gen" / f"{args.name}.jsonl", OUT / "gen" / f"{args.output_name}.jsonl"
+    if target.exists():
+        raise SystemExit(f"{target} already exists")
+    changed = 0
+    with target.open("w") as stream:
+        for row in read_jsonl(source):
+            fixed = autofix(row["final_code"], tasks[row["task_id"]]["entry_point"])
+            changed += fixed != row["final_code"]
+            row.update(name=args.output_name, condition=row["condition"] + "+autofix", final_code=fixed)
+            stream.write(json.dumps(row) + "\n")
+    print(f"{args.output_name}: codemods changed {changed} answers")
+
+
 def cmd_score(args):
     from mylittlellm.rulecoder import scoring
     problems = scoring.load_problems()
@@ -98,12 +118,24 @@ def cmd_score(args):
     source, target = OUT / "gen" / f"{args.name}.jsonl", OUT / "scored" / f"{args.name}.jsonl"
     target.parent.mkdir(parents=True, exist_ok=True)
     done = {(r["task_id"], r["draw"]) for r in read_jsonl(target)} if target.exists() else set()
+    # Scoring is deterministic, so an answer identical to one already scored reuses that verdict.
+    known = {}
+    for reference in args.reuse or []:
+        verdicts = {(r["task_id"], r["draw"]): r for r in read_jsonl(OUT / "scored" / f"{reference}.jsonl")}
+        for row in read_jsonl(OUT / "gen" / f"{reference}.jsonl"):
+            verdict = verdicts.get((row["task_id"], row["draw"]))
+            if verdict:
+                known[(row["task_id"], row["final_code"])] = verdict
     with target.open("a") as stream:
         for row in read_jsonl(source):
             if (row["task_id"], row["draw"]) in done:
                 continue
             problem = problems[row["task_id"]]
-            result = scoring.score(problem, row["final_code"], oracle[row["task_id"]])
+            reused = known.get((row["task_id"], row["final_code"]))
+            if reused:
+                result = {k: reused[k] for k in ("base", "plus", "solved")}
+            else:
+                result = scoring.score(problem, row["final_code"], oracle[row["task_id"]])
             scored = {k: row.get(k) for k in ("name", "task_id", "split", "draw", "condition", "model",
                                               "rule_ids", "fired_rule_ids")}
             scored.update(base=result["base"], plus=result["plus"], solved=result["solved"],
@@ -117,8 +149,10 @@ def cmd_score(args):
                                                   for a in row["attempts"]) / 1000, 3),
                           first_public_ok=row["attempts"][0].get("check", {}).get("ok"))
             # The locked test split never gets a per-test diagnosis, so nobody can tune on it.
+            scored["verdict_reused"] = bool(reused)
             if args.diagnose and not result["solved"] and row["split"] != "test":
-                scored["diagnosis"] = scoring.diagnose(problem, row["final_code"], oracle[row["task_id"]], result)
+                scored["diagnosis"] = reused.get("diagnosis") if reused else scoring.diagnose(
+                    problem, row["final_code"], oracle[row["task_id"]], result)
             stream.write(json.dumps(scored) + "\n")
             stream.flush()
     rows = read_jsonl(target)
@@ -276,9 +310,14 @@ def main():
     gen.add_argument("--max-repairs", type=int, default=2)
     gen.add_argument("--limit", type=int)
     gen.set_defaults(func=cmd_generate)
+    fix = sub.add_parser("autofix")
+    fix.add_argument("--name", required=True)
+    fix.add_argument("--output-name", required=True)
+    fix.set_defaults(func=cmd_autofix)
     score = sub.add_parser("score")
     score.add_argument("--name", required=True)
     score.add_argument("--diagnose", action="store_true")
+    score.add_argument("--reuse", nargs="*", help="already scored runs whose identical answers need no re-run")
     score.set_defaults(func=cmd_score)
     export = sub.add_parser("export-failures")
     export.add_argument("--name", required=True)

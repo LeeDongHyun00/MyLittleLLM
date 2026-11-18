@@ -61,7 +61,8 @@ def choose(attempts):
     return min(passing, key=lambda a: (len(a["hints"]), a["round"]))
 
 
-def solve(task, *, rule_block=None, verify=False, checkers=None, max_repairs=2, max_tokens=768, client=chat):
+def solve(task, *, rule_block=None, verify=False, checkers=None, autofix=None, max_repairs=2, max_tokens=768,
+          client=chat):
     """Return the final code plus every attempt, so cost and repair behaviour can be audited."""
     _, asserts = parse_prompt(task["prompt"])
     messages = [{"role": "system", "content": system_prompt(rule_block)},
@@ -70,7 +71,14 @@ def solve(task, *, rule_block=None, verify=False, checkers=None, max_repairs=2, 
     for round_index in range(max_repairs + 1 if verify else 1):
         reply = client(messages, max_tokens=max_tokens)
         code = keep_definitions(extract_code(reply["text"], task["entry_point"]))
-        attempt = {"round": round_index, "code": code, "llm": {k: reply[k] for k in LLM_FIELDS}}
+        if autofix:
+            # Deterministic repairs run before any check, so they can save a model call.
+            fixed = autofix(code, task["entry_point"])
+            code, changed = fixed, fixed != code
+        else:
+            changed = False
+        attempt = {"round": round_index, "code": code, "autofixed": changed,
+                   "llm": {k: reply[k] for k in LLM_FIELDS}}
         attempts.append(attempt)
         if not verify:
             return {"final_code": code, "attempts": attempts}

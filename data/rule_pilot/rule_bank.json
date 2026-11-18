@@ -1,0 +1,678 @@
+{
+ "schema": 1,
+ "student": "coder-1.5b (Qwen2.5-Coder-1.5B-Instruct, Q4_K_M, llama.cpp on CPU)",
+ "teacher": "large hosted generative model acting as teacher inside the coding session",
+ "induced_from": "train-split failures of run s15-base only; validation and test failures were never shown to the teacher",
+ "rounds": [
+  {
+   "round": 1,
+   "failures_read": 67,
+   "taxonomy": {
+    "misread_or_logic": {
+     "task_ids": [
+      "Mbpp/63",
+      "Mbpp/74",
+      "Mbpp/100",
+      "Mbpp/111",
+      "Mbpp/123",
+      "Mbpp/128",
+      "Mbpp/141",
+      "Mbpp/235",
+      "Mbpp/240",
+      "Mbpp/245",
+      "Mbpp/311",
+      "Mbpp/415",
+      "Mbpp/437",
+      "Mbpp/440",
+      "Mbpp/455",
+      "Mbpp/563",
+      "Mbpp/572",
+      "Mbpp/580",
+      "Mbpp/615",
+      "Mbpp/622",
+      "Mbpp/624",
+      "Mbpp/630",
+      "Mbpp/721",
+      "Mbpp/722",
+      "Mbpp/759",
+      "Mbpp/762",
+      "Mbpp/773",
+      "Mbpp/780",
+      "Mbpp/784"
+     ],
+     "fixable_by_prompt_rule": "no",
+     "fixable_by_execution": "partly",
+     "why": "The code contradicts the visible example or uses a wrong algorithm; a short rule cannot supply the algorithm, but running the example exposes the contradiction.",
+     "count": 29
+    },
+    "knowledge_gap": {
+     "task_ids": [
+      "Mbpp/20",
+      "Mbpp/84",
+      "Mbpp/103",
+      "Mbpp/135",
+      "Mbpp/260",
+      "Mbpp/268",
+      "Mbpp/274",
+      "Mbpp/581",
+      "Mbpp/638",
+      "Mbpp/739"
+     ],
+     "fixable_by_prompt_rule": "yes, if the bank holds the definition",
+     "fixable_by_execution": "no",
+     "why": "The student does not know a named sequence or formula; feedback cannot conjure it, a retrieved definition can.",
+     "count": 10
+    },
+    "careless_code_error": {
+     "task_ids": [
+      "Mbpp/104",
+      "Mbpp/239",
+      "Mbpp/445",
+      "Mbpp/462",
+      "Mbpp/592",
+      "Mbpp/790"
+     ],
+     "fixable_by_prompt_rule": "no",
+     "fixable_by_execution": "yes",
+     "why": "Undefined names, bad calls and syntax slips produce a precise error message when the example is run.",
+     "count": 6
+    },
+    "name_mismatch": {
+     "task_ids": [
+      "Mbpp/126",
+      "Mbpp/233",
+      "Mbpp/237",
+      "Mbpp/429"
+     ],
+     "fixable_by_prompt_rule": "partly",
+     "fixable_by_execution": "yes (deterministic alias)",
+     "why": "The function is named differently from the example call; an alias repairs it without any model call.",
+     "count": 4
+    },
+    "hidden_wrong_output_spec": {
+     "task_ids": [
+      "Mbpp/118",
+      "Mbpp/607",
+      "Mbpp/643",
+      "Mbpp/794"
+     ],
+     "fixable_by_prompt_rule": "partly",
+     "fixable_by_execution": "no",
+     "why": "The statement is ambiguous and the hidden tests encode one convention (re.search, None on no match, split(' ')).",
+     "count": 4
+    },
+    "hidden_crash_edge": {
+     "task_ids": [
+      "Mbpp/77",
+      "Mbpp/743",
+      "Mbpp/778"
+     ],
+     "fixable_by_prompt_rule": "yes",
+     "fixable_by_execution": "no (the example passes)",
+     "why": "Crash on empty or negative input that the visible example does not exercise.",
+     "count": 3
+    },
+    "reference_quirk": {
+     "task_ids": [
+      "Mbpp/593",
+      "Mbpp/769",
+      "Mbpp/771"
+     ],
+     "fixable_by_prompt_rule": "no",
+     "fixable_by_execution": "no",
+     "why": "The reference solution behaves unexpectedly; no sensible rule predicts it.",
+     "count": 3
+    },
+    "type_handling": {
+     "task_ids": [
+      "Mbpp/294",
+      "Mbpp/410"
+     ],
+     "fixable_by_prompt_rule": "yes",
+     "fixable_by_execution": "yes",
+     "why": "Mixed str/int list compared directly.",
+     "count": 2
+    },
+    "missing_base_or_empty_case": {
+     "task_ids": [
+      "Mbpp/301",
+      "Mbpp/392"
+     ],
+     "fixable_by_prompt_rule": "yes",
+     "fixable_by_execution": "yes",
+     "why": "Recursion without a base case or max() of an empty container.",
+     "count": 2
+    },
+    "hardcoded_from_example": {
+     "task_ids": [
+      "Mbpp/129",
+      "Mbpp/598"
+     ],
+     "fixable_by_prompt_rule": "partly",
+     "fixable_by_execution": "no",
+     "why": "A size or exponent was copied from the single example instead of computed.",
+     "count": 2
+    },
+    "hidden_wrong_output_edge": {
+     "task_ids": [
+      "Mbpp/6"
+     ],
+     "fixable_by_prompt_rule": "partly",
+     "fixable_by_execution": "no",
+     "why": "Bit trick breaks for negative operands.",
+     "count": 1
+    },
+    "efficiency": {
+     "task_ids": [
+      "Mbpp/781"
+     ],
+     "fixable_by_prompt_rule": "yes",
+     "fixable_by_execution": "no",
+     "why": "Linear divisor loop times out for n near 10**9.",
+     "count": 1
+    }
+   }
+  }
+ ],
+ "rules": [
+  {
+   "id": "K01",
+   "kind": "knowledge",
+   "provenance": "train_failure+category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?<!centered )\\b(triangular|pentagonal|hexagonal|heptagonal|octagonal|nonagonal|decagonal|dodecagonal|polygonal) num"
+   },
+   "text": "Polygonal numbers, n-th term: triangular n*(n+1)//2, pentagonal n*(3*n-1)//2, hexagonal n*(2*n-1), heptagonal n*(5*n-3)//2, octagonal n*(3*n-2), nonagonal n*(7*n-5)//2, decagonal n*(4*n-3).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/135"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 2
+  },
+  {
+   "id": "K02",
+   "kind": "knowledge",
+   "provenance": "train_failure+category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "centered \\w+ num|star num"
+   },
+   "text": "Centered k-gonal number, n-th term: k*n*(n-1)//2 + 1. Centered square 2*n*(n-1)+1, centered pentagonal 5*n*(n-1)//2+1, centered hexagonal 3*n*(n-1)+1, star number 6*n*(n-1)+1.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/268"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K03",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "tetrahedral|pyramidal num|octahedral"
+   },
+   "text": "Solid figurate numbers, n-th term: tetrahedral n*(n+1)*(n+2)//6, square pyramidal n*(n+1)*(2*n+1)//6, octahedral n*(2*n*n+1)//3.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K04",
+   "kind": "knowledge",
+   "provenance": "train_failure+category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "wood\\w*all|cullen|mersenne|carol num|kynea|thabit"
+   },
+   "text": "Woodall numbers are n*2**n - 1 (1, 7, 23, 63, 159, 383, ...); Cullen n*2**n + 1; Mersenne 2**n - 1; Carol (2**n - 1)**2 - 2; Kynea (2**n + 1)**2 - 2. To test membership, generate terms in a loop until they reach the input.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/20"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K05",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "lucas|pell num|jacobsthal|perrin|padovan|tribonacci"
+   },
+   "text": "Recurrences: Lucas L0=2, L1=1, L(n)=L(n-1)+L(n-2). Pell P0=0, P1=1, P(n)=2*P(n-1)+P(n-2). Jacobsthal J0=0, J1=1, J(n)=J(n-1)+2*J(n-2); Jacobsthal-Lucas starts 2, 1 with the same step. Perrin 3, 0, 2 then P(n)=P(n-2)+P(n-3); Padovan 1, 1, 1 with the same step.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K06",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "newman.{0,3}conway"
+   },
+   "text": "Newman-Conway sequence: P(1)=P(2)=1 and P(n)=P(P(n-1))+P(n-P(n-1)). Fill a list bottom-up from index 1.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/84"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K07",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "shanks|newman.{0,3}prime"
+   },
+   "text": "Newman-Shanks-Williams numbers: S(0)=1, S(1)=1, S(n)=2*S(n-1)+S(n-2), giving 1, 1, 3, 7, 17, 41, ...",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/260"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K08",
+   "kind": "knowledge",
+   "provenance": "train_failure+category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "catalan|bell num|stirling|eulerian|delannoy|motzkin|entringer|zigzag|lobb"
+   },
+   "text": "Catalan C(n)=math.comb(2*n, n)//(n+1). Bell numbers: build the Bell triangle, each row starting with the last value of the previous row. Stirling (second kind) S(n,k)=k*S(n-1,k)+S(n-1,k-1). Eulerian A(n,m)=(n-m)*A(n-1,m-1)+(m+1)*A(n-1,m) with A(n,0)=1 and A(n,m)=0 for m>=n. Delannoy D(m,n)=D(m-1,n)+D(m-1,n-1)+D(m,n-1).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/103"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K09",
+   "kind": "knowledge",
+   "provenance": "train_failure+category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "binomial"
+   },
+   "text": "Binomial sums: all C(n,k) add to 2**n; even-index terms add to 2**(n-1), odd-index terms too; sum of C(n,k)**2 is C(2n,n); sum of C(n,k)*C(n,k+1) is C(2n,n-1). Use math.comb.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/274",
+    "Mbpp/592"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 2
+  },
+  {
+   "id": "K10",
+   "kind": "knowledge",
+   "provenance": "train_failure+category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "armstrong|narcissistic|perfect num|amicable|abundant|deficient|harshad|niven|strong num|disarium"
+   },
+   "text": "Armstrong number: sum(d**k for each digit d) == n where k is the number of digits (not always 3). Proper divisors exclude the number itself. Perfect: sum of proper divisors == n. Amicable pair: a != b, sumdiv(a) == b and sumdiv(b) == a. Harshad: n % digit_sum == 0.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/598",
+    "Mbpp/123"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 2
+  },
+  {
+   "id": "K11",
+   "kind": "knowledge",
+   "provenance": "train_failure+category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "surface|lateral|volume|\\bcone\\b|cylinder|sphere|cuboid|pyramid|tetrahedron|prism"
+   },
+   "text": "Solids (use math.pi): cylinder lateral 2*pi*r*h, total 2*pi*r*(r+h), volume pi*r*r*h. Cone slant l=sqrt(r*r+h*h), lateral pi*r*l, total pi*r*(r+l), volume pi*r*r*h/3. Sphere area 4*pi*r*r, volume 4/3*pi*r**3. Cube 6*a*a, lateral 4*a*a. Cuboid 2*(l*w+l*h+w*h), lateral 2*h*(l+w). Square pyramid b*b+2*b*slant. Tetrahedron area sqrt(3)*a*a.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/581",
+    "Mbpp/233"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 6
+  },
+  {
+   "id": "K12",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "\\b(area|perimeter|circumference|sector|arc length|trapez\\w+|rhombus|polygon|parallelogram)\\b"
+   },
+   "text": "Plane figures: trapezium area (a+b)/2*h and median (a+b)/2; rhombus p*q/2; sector pi*r*r*angle/360; arc length 2*pi*r*angle/360; regular polygon with n sides of length s: n*s*s/(4*tan(pi/n)); triangle 0.5*b*h; ellipse pi*a*b.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 6
+  },
+  {
+   "id": "K13",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "wind chill"
+   },
+   "text": "Wind chill index (v in km/h, t in Celsius): 13.12 + 0.6215*t - 11.37*v**0.16 + 0.3965*t*v**0.16, then round as the task says.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/638"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K14",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "\\bmonth"
+   },
+   "text": "Months with 31 days: 1, 3, 5, 7, 8, 10, 12. Months with 30 days: 4, 6, 9, 11. February (2) has 28 or 29 days and belongs to neither group.",
+   "failure_mode": "misread_or_logic",
+   "motivating_tasks": [
+    "Mbpp/455",
+    "Mbpp/762"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 2
+  },
+  {
+   "id": "K15",
+   "kind": "knowledge",
+   "provenance": "train_failure+category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "\\bbits?\\b"
+   },
+   "text": "Bit idioms: exactly one bit set (power of two, or two numbers differ in one bit via x = a ^ b) is `x > 0 and x & (x - 1) == 0`; lowest set bit `x & -x`; set bit i `x | (1 << i)`; clear `x & ~(1 << i)`; toggle `x ^ (1 << i)`; highest bit position `x.bit_length() - 1`; `bin(x).count('1')` only for x >= 0.",
+   "failure_mode": "hidden_wrong_output_edge",
+   "motivating_tasks": [
+    "Mbpp/6",
+    "Mbpp/235",
+    "Mbpp/311"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 4
+  },
+  {
+   "id": "B01",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "always"
+   },
+   "text": "Define the function with exactly the name used in the example assert, copied character for character, even if it looks misspelled or is a built-in name.",
+   "failure_mode": "name_mismatch",
+   "motivating_tasks": [
+    "Mbpp/126",
+    "Mbpp/233",
+    "Mbpp/237",
+    "Mbpp/429"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 182
+  },
+  {
+   "id": "B04",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "\\b(list|lists|array|tuple|tuples|string|sublist|sublists|dictionary|elements)\\b"
+   },
+   "text": "Handle empty input first, e.g. `if not items: return []` (or `0`, `''` as fits). Never index `[0]`, take `% len(x)`, or call `max()`/`min()` without `default=` on something that may be empty.",
+   "failure_mode": "hidden_crash_edge",
+   "motivating_tasks": [
+    "Mbpp/743",
+    "Mbpp/778",
+    "Mbpp/301"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 122
+  },
+  {
+   "id": "B05",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "digit|divisible|\\bbits?\\b"
+   },
+   "text": "Inputs may be negative or zero: use `abs(n)` before a `str(n)` digit loop and before `bin(n)` tricks.",
+   "failure_mode": "hidden_crash_edge",
+   "motivating_tasks": [
+    "Mbpp/77",
+    "Mbpp/6"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 9
+  },
+  {
+   "id": "B06",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "match|regex|pattern|followed by|contains"
+   },
+   "text": "For text-pattern tasks use `re.search`, which finds the pattern anywhere in the string, not `re.match`, unless the task says the string must start with the pattern.",
+   "failure_mode": "hidden_wrong_output_spec",
+   "motivating_tasks": [
+    "Mbpp/794",
+    "Mbpp/643"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 14
+  },
+  {
+   "id": "B07",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "search|position|occurr?ence|occurance|match"
+   },
+   "text": "When nothing is found, return `None` itself, not a tuple or list filled with None; return a finished value, never a generator (`yield`).",
+   "failure_mode": "hidden_wrong_output_spec",
+   "motivating_tasks": [
+    "Mbpp/607",
+    "Mbpp/773"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 14
+  },
+  {
+   "id": "B09",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "heterogeneous|mixed"
+   },
+   "text": "The input mixes strings and numbers: keep only the numbers first, `nums = [x for x in items if isinstance(x, int)]`, then compute on `nums`.",
+   "failure_mode": "type_handling",
+   "motivating_tasks": [
+    "Mbpp/294",
+    "Mbpp/410"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 3
+  },
+  {
+   "id": "B10",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "recurs|f\\(n|\\bn-?th\\b|n'th|sequence"
+   },
+   "text": "Give every recursion a base case that stops at 0 (`if n <= 0: return 0` or the right start value) and cache it with `@functools.lru_cache(None)`; prefer a loop that fills a list for sequences.",
+   "failure_mode": "missing_base_or_empty_case",
+   "motivating_tasks": [
+    "Mbpp/392"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 13
+  },
+  {
+   "id": "B11",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "split"
+   },
+   "text": "Split on the exact character the task names, e.g. `s.split(' ')`; bare `split()` merges whitespace and drops empty strings.",
+   "failure_mode": "hidden_wrong_output_spec",
+   "motivating_tasks": [
+    "Mbpp/118"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 5
+  },
+  {
+   "id": "B12",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "divisor|prime|factor"
+   },
+   "text": "Loop divisors only up to `int(n ** 0.5)`: when `i` divides `n` count both `i` and `n // i` (once if equal). Inputs can be near 10**9, so an O(n) loop is too slow.",
+   "failure_mode": "efficiency",
+   "motivating_tasks": [
+    "Mbpp/781"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 7
+  },
+  {
+   "id": "B03",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "always"
+   },
+   "text": "Return the same type and shape as the expected value in the example: a tuple stays a tuple, nested lists stay nested, a converted string is returned as a string (not True/False).",
+   "failure_mode": "misread_or_logic",
+   "motivating_tasks": [
+    "Mbpp/440",
+    "Mbpp/580",
+    "Mbpp/630",
+    "Mbpp/624"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 182
+  },
+  {
+   "id": "B08",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "always"
+   },
+   "text": "Never hard-code a size, exponent or count taken from the example (such as 4 rows or power 3); compute it from the input with `len(...)`.",
+   "failure_mode": "hardcoded_from_example",
+   "motivating_tasks": [
+    "Mbpp/129",
+    "Mbpp/598"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 182
+  },
+  {
+   "id": "B02",
+   "kind": "behaviour",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "always"
+   },
+   "text": "Begin the code with a comment `# example:` stating in one line how the example input becomes the example output; the function must return exactly that value for that input.",
+   "failure_mode": "misread_or_logic",
+   "motivating_tasks": [
+    "Mbpp/63",
+    "Mbpp/128",
+    "Mbpp/437",
+    "Mbpp/572",
+    "Mbpp/615",
+    "Mbpp/784"
+   ],
+   "round": 1,
+   "status": "active",
+   "train_prompts_fired": 182
+  }
+ ],
+ "codemods": [
+  {
+   "id": "C01",
+   "name": "alias_entry_point",
+   "status": "active",
+   "round": 1,
+   "what": "If the function called in the example is not defined, bind that name to the single (or closest-named) function the answer defines.",
+   "motivating_tasks": [
+    "Mbpp/126",
+    "Mbpp/233",
+    "Mbpp/237",
+    "Mbpp/429"
+   ]
+  },
+  {
+   "id": "C02",
+   "name": "add_missing_imports",
+   "status": "active",
+   "round": 1,
+   "what": "Prepend imports for standard-library modules and well-known helpers that are used but never imported.",
+   "motivating_tasks": [
+    "Mbpp/592"
+   ]
+  }
+ ],
+ "checkers": []
+}
