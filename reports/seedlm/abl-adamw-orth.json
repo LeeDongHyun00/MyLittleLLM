@@ -1,0 +1,72 @@
+{
+ "name": "abl-adamw-orth",
+ "arguments": {
+  "name": "abl-adamw-orth",
+  "minutes": 6.0,
+  "optimizer": "adamw",
+  "init": "orthogonal",
+  "lr": 0.002,
+  "muon_lr": 0.02,
+  "muon_weight_decay": 0.01,
+  "batch": 64,
+  "d_model": 160,
+  "layers": 4,
+  "heads": 5,
+  "train_size": 150000,
+  "eval_size": 1000,
+  "holdout_ops": 0,
+  "seed": 0,
+  "threads": 4
+ },
+ "parameters": 1418900,
+ "vocabulary": 594,
+ "held_out_operators": [],
+ "data_generation_seconds": 46.3,
+ "steps": 2272,
+ "sequences_seen": 145408,
+ "train_seconds": 392,
+ "curve": [
+  {
+   "step": 649,
+   "seconds": 90,
+   "seen": 41536,
+   "train_loss": 2.0123,
+   "loss": 1.9771,
+   "top1_exact": 0.067,
+   "top1_reproduces": 0.2,
+   "beam8_reproduces": 0.4,
+   "examples": 60
+  },
+  {
+   "step": 1203,
+   "seconds": 180,
+   "seen": 76992,
+   "train_loss": 1.7386,
+   "loss": 1.765,
+   "top1_exact": 0.133,
+   "top1_reproduces": 0.233,
+   "beam8_reproduces": 0.45,
+   "examples": 60
+  },
+  {
+   "step": 1765,
+   "seconds": 270,
+   "seen": 112960,
+   "train_loss": 1.6096,
+   "loss": 1.6363,
+   "top1_exact": 0.15,
+   "top1_reproduces": 0.267,
+   "beam8_reproduces": 0.567,
+   "examples": 60
+  }
+ ],
+ "final": {
+  "loss": 1.5584,
+  "top1_exact": 0.217,
+  "top1_reproduces": 0.323,
+  "beam8_reproduces": 0.55,
+  "examples": 300
+ },
+ "torch": "2.15.0+cpu",
+ "threads": 4
+}
