@@ -63,19 +63,27 @@ def main():
                         help="candidate search features, comma-separated")
     parser.add_argument("--memory", nargs="*", default=[],
                         help="operator keys a teacher flagged as written from memory of benchmark tasks")
+    parser.add_argument("--reuse-features", action="store_true",
+                        help="take the feature comparison from the last run instead of repeating it")
     args = parser.parse_args()
     packs = [name for name in args.packs.split(",") if name]
     features = [name for name in args.features.split(",") if name]
     MEMORY[:] = args.memory         # out of every measurement, not only out of the final manifest
 
-    # 1. search features: the subset that solves the most development tasks, smaller subset on ties
-    tried = []
-    for size in range(len(features) + 1):
-        for subset in itertools.combinations(features, size):
-            result, _ = check(",".join(packs), BANK / "attribution_features.json", subset)
-            solved = sum(r["after"] == "solved" for r in result["results"])
-            tried.append({"features": list(subset), "solved": solved, "broken": tally(result["results"])["broken"]})
-            print("features", subset or "(none)", "solved", solved, flush=True)
+    # 1. search features: the subset that solves the most development tasks, smaller subset on ties.
+    # The 16 runs take ten minutes, so their outcome is cached and reused when nothing changed.
+    cache = BANK / "features_tried.json"
+    if args.reuse_features and cache.exists():
+        tried = json.loads(cache.read_text())
+    else:
+        tried = []
+        for size in range(len(features) + 1):
+            for subset in itertools.combinations(features, size):
+                result, _ = check(",".join(packs), BANK / "attribution_features.json", subset)
+                solved = sum(r["after"] == "solved" for r in result["results"])
+                tried.append({"features": list(subset), "solved": solved})
+                print("features", subset or "(none)", "solved", solved, flush=True)
+        cache.write_text(json.dumps(tried, indent=1) + "\n")
     engine = min(tried, key=lambda row: (-row["solved"], len(row["features"])))["features"]
 
     # 2. operators, measured with the chosen features
@@ -110,7 +118,9 @@ def main():
         "features_chosen": engine,
         "packs": {name: {"operators": sum(op["pack"] == name for op in stats.values()),
                          "gated": sum(op["pack"] == name and op["gated"] for op in stats.values()),
-                         "retired": sum(stats[key]["pack"] == name for key in retired)} for name in packs},
+                         "retired_by_data": sum(key in stats and stats[key]["pack"] == name for key in retired)}
+                  for name in packs},
+        "retired_from_memory": args.memory,
         "all_candidates": {"train": tally(candidate["results"], "train"), "extra": tally(candidate["results"], "extra")},
         "after_selection": {"train": tally(selected["results"], "train"), "extra": tally(selected["results"], "extra")},
         "operators": sorted(({"key": key, "pack": op["pack"], "gated": op["gated"], "right": op["right"],

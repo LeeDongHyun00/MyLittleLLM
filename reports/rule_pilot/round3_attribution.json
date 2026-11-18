@@ -1,0 +1,3814 @@
+{
+ "rule": "see scripts/round3_select.py",
+ "features_tried": [
+  {
+   "features": [],
+   "solved": 547
+  },
+  {
+   "features": [
+    "tie_break"
+   ],
+   "solved": 554
+  },
+  {
+   "features": [
+    "description_constants"
+   ],
+   "solved": 549
+  },
+  {
+   "features": [
+    "keep_best"
+   ],
+   "solved": 547
+  },
+  {
+   "features": [
+    "named_pairs"
+   ],
+   "solved": 545
+  },
+  {
+   "features": [
+    "tie_break",
+    "description_constants"
+   ],
+   "solved": 556
+  },
+  {
+   "features": [
+    "tie_break",
+    "keep_best"
+   ],
+   "solved": 554
+  },
+  {
+   "features": [
+    "tie_break",
+    "named_pairs"
+   ],
+   "solved": 552
+  },
+  {
+   "features": [
+    "description_constants",
+    "keep_best"
+   ],
+   "solved": 549
+  },
+  {
+   "features": [
+    "description_constants",
+    "named_pairs"
+   ],
+   "solved": 547
+  },
+  {
+   "features": [
+    "keep_best",
+    "named_pairs"
+   ],
+   "solved": 545
+  },
+  {
+   "features": [
+    "tie_break",
+    "description_constants",
+    "keep_best"
+   ],
+   "solved": 556
+  },
+  {
+   "features": [
+    "tie_break",
+    "description_constants",
+    "named_pairs"
+   ],
+   "solved": 554
+  },
+  {
+   "features": [
+    "tie_break",
+    "keep_best",
+    "named_pairs"
+   ],
+   "solved": 552
+  },
+  {
+   "features": [
+    "description_constants",
+    "keep_best",
+    "named_pairs"
+   ],
+   "solved": 547
+  },
+  {
+   "features": [
+    "tie_break",
+    "description_constants",
+    "keep_best",
+    "named_pairs"
+   ],
+   "solved": 554
+  }
+ ],
+ "features_chosen": [
+  "tie_break",
+  "description_constants"
+ ],
+ "packs": {
+  "r3_numbers": {
+   "operators": 84,
+   "gated": 83,
+   "retired_by_data": 0
+  },
+  "r3_sequences": {
+   "operators": 85,
+   "gated": 84,
+   "retired_by_data": 0
+  },
+  "r3_strings": {
+   "operators": 53,
+   "gated": 53,
+   "retired_by_data": 0
+  },
+  "r3_nested": {
+   "operators": 62,
+   "gated": 60,
+   "retired_by_data": 0
+  },
+  "r3_predicates": {
+   "operators": 169,
+   "gated": 169,
+   "retired_by_data": 1
+  }
+ },
+ "retired_from_memory": [
+  "txt_first_repeated_char/1",
+  "num_nth_prime/1",
+  "num_perfect_squares_in_range/2"
+ ],
+ "all_candidates": {
+  "train": {
+   "tasks": 182,
+   "solved": 171,
+   "newly_solved": 91,
+   "broken": 1,
+   "wrong_program": 6,
+   "nothing_found": 5
+  },
+  "extra": {
+   "tasks": 528,
+   "solved": 385,
+   "newly_solved": 247,
+   "broken": 2,
+   "wrong_program": 60,
+   "nothing_found": 83
+  }
+ },
+ "after_selection": {
+  "train": {
+   "tasks": 182,
+   "solved": 171,
+   "newly_solved": 91,
+   "broken": 1,
+   "wrong_program": 5,
+   "nothing_found": 6
+  },
+  "extra": {
+   "tasks": 528,
+   "solved": 385,
+   "newly_solved": 247,
+   "broken": 2,
+   "wrong_program": 59,
+   "nothing_found": 84
+  }
+ },
+ "operators": [
+  {
+   "key": "records_to_text/1",
+   "pack": "r3_nested",
+   "gated": false,
+   "right": 4,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "count_sublists/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 3,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "deep_flatten/1",
+   "pack": "r3_nested",
+   "gated": false,
+   "right": 3,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "group_by_first/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "merge_by_first/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "shortest_with_len/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "triangle_max_path/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "add_dicts/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "concat_rows/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "count_rows_with/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "count_until_nested/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "decode_runs/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "deep_evens/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "distinct_rows_count/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "drop_all_none_rows/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "drop_column/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "drop_none_values/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "filter_dict_pairs/3",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "first_of_min_by_second/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "gold_mine/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "grid_nonadjacent_max/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "group_by_second/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "k_min_records/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "longest_with_len/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "max_average_path/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "max_by_second/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "min_cost_path/3",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "n_smallest_records/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "nesting_depth/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "pair_gap_max/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "pair_gap_min/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "record_max/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "reorder_by_keys/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "rows_all_divisible/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "rows_keep_common/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "rows_to_float/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "rows_with_count/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "rows_within/3",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "shift_rows/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "smallest_range/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "sort_by_float_desc/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "sort_dicts_by_last/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "successors_dict/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "symmetric_pairs/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "triangle_min_path/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "trim_rows/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "deep_odds/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "drop_rows_with_none/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "first_of_max_by_second/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "invert_dict/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "k_max_records/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "min_by_second/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "n_largest_records/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "record_min/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "record_sum/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "rows_to_int/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "rows_with/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "rows_without/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "scale_rows/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "sort_by_float/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "sort_by_last_desc/1",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "sort_dicts_by_key/2",
+   "pack": "r3_nested",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_exact_int/1",
+   "pack": "r3_numbers",
+   "gated": false,
+   "right": 8,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_prime_factors/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 3,
+   "wrong": 1,
+   "retired": false
+  },
+  {
+   "key": "num_harmonic_sum/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_squares_in_rectangle/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_surplus_or_none/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_amicable_upto/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_ap_sum/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_ap_term/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_babylonian_sqrt/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_binary_to_decimal/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_circle_diameter/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_common_divisor_sum/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_decimal_to_octal/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_degrees_to_radians/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_divisor_count/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_domino_tilings_3xn/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_entringer/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_fence_ways/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_fraction_digit/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_geometric_sum/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_gp_sum/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_gp_term/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_hamming_distance/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_highest_power_of_2_upto/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_hypotenuse/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_largest_with_remainder/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_last_two_digits/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_lcm_upto/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_lowest_set_bit_position/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_lucky_numbers/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_max_of_three/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_mean_keep_int/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_median_of_three_float/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_min_of_three/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_min_squares/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_nearest_multiple/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_next_bigger/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_next_palindrome/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_next_power_of_2/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_octal_to_decimal/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_odd_days/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_odds_upto/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_pair/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_parabola_focus/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_parabola_vertex/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_pentagon_area/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_polar/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_previous_palindrome/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_prime_count_below/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 1,
+   "retired": false
+  },
+  {
+   "key": "num_primes_upto/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_proper_divisor_sum/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_radians_to_degrees/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_rgb_to_hsv/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_rotate_left_32/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_round_up_to/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_self_dividing_in_range/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_set_even_bits/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_set_leftmost_unset_bit/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_set_odd_bits/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_set_rightmost_unset_bit/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_spiral_matrix/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_sqrt/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_sum_of_three/3",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_tetrahedron_area_grouped/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_third_angle/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_to_roman/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_toggle_even_bits/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_toggle_odd_bits/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_total_unset_bits_upto/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_triangular_index_with_digits/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_unset_bit_count/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_common_divisor_count/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_divisor_sum/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_divisors/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 1,
+   "retired": false
+  },
+  {
+   "key": "num_evens_upto/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_last_digit/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_prime_count_upto/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_prime_factorization/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_primes_below/1",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_primes_in_range/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_right_triangle_leg/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_rotate_right_32/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_round_down_to/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "num_round_to/2",
+   "pack": "r3_numbers",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "contains/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 4,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "contains_all/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 4,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "all_unique/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 3,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_even/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 3,
+   "wrong": 1,
+   "retired": false
+  },
+  {
+   "key": "is_odd/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 3,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_abundant/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_balanced/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_decimal_2/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_sorted/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "same_elements/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "triangle_angles_valid/3",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "all_above/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "all_below/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "all_empty/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "all_equal_to/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "all_nested_equal_to/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "all_same/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "all_truthy/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "all_values_equal_to/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "any_common/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 1,
+   "retired": false
+  },
+  {
+   "key": "bits_set_in_range/3",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "bits_unset_in_range/3",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "differ_one_bit/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible_by_11/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "ends_with_digit/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "follows_pattern/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_duplicates/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_z/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_and_digit/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_z/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_none/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "identical/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "in_arithmetic_sequence/3",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "index_parity_match/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_alphanumeric/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_armstrong/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_empty/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_equilateral/3",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_isomorphic/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_isosceles/3",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_keith/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_magic_square/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_min_heap/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_monotonic/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_prime/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_repetition_of/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_rotation/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_scalene/3",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_sublist/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_valid_date/3",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_valid_url/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_woodall/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "month_name_has_28_days/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "month_name_has_30_days/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "month_name_has_31_days/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "month_number_has_28_days/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "month_number_has_30_days/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "month_number_has_31_days/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "not_prime/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "only_from/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "parallel_lines/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "same_digit_count/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "same_first_last/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "same_lengths/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "starts_with_vowel/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "subset_sum/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "subset_sum_divisible/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "triangle_sides_valid/3",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "triplet_sum/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "two_alternating/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "any_has_substring/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "are_disjoint/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "coprime/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible_by_10/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible_by_12/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible_by_13/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible_by_3/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible_by_4/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible_by_5/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible_by_6/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible_by_7/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible_by_8/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "divisible_by_9/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "each_greater/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "each_less/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "ends_with/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 2,
+   "retired": true
+  },
+  {
+   "key": "even_at_even_index/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_even_bit_parity/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_a/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_b/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_c/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_d/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_e/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_f/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_g/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_h/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_i/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_j/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_k/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_l/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_m/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_n/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_o/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_p/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_q/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_r/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_s/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_t/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_u/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_v/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_w/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_x/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_inner_y/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_a/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_b/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_c/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_d/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_e/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_f/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_g/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_h/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_i/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_j/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_k/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_l/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_m/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_n/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_o/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_p/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_q/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_r/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_s/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_t/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_u/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_v/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_w/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_x/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_letter_y/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_odd_bit_parity/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "has_substring/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_deficient/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_digits_only/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_fibonacci_number/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_happy/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_harshad/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_integer_string/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_leap_year/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_letters_only/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_lowercase/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_max_heap/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_palindrome/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_palindrome_number/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_pangram/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_perfect_number/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_perfect_square/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_power_of/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_power_of_two/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_right_triangle/3",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_sorted_descending/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_uppercase/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "is_vowel/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "odd_at_odd_index/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "opposite_signs/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "same_length/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "starts_with/2",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "starts_with_digit/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "strictly_decreasing/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "strictly_increasing/1",
+   "pack": "r3_predicates",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_pairs_sum/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_mex/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_odd_occurrence/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_palindromes/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_adjacent_concat/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_adjacent_coordinates/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_anagrams_of/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_argmax_all/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_argmin_all/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_best_distinct_pair_product/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_bisect_left/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_coin_ways/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_common_prefix/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_copy/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_even/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_in_range/3",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_ints/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_inversions/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_max/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_min/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_odd/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_pairs_diff/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_pairs_xor_even/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_same_position/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_true/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_dict_text/1",
+   "pack": "r3_sequences",
+   "gated": false,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_divisible_by_both/3",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_divisible_by_either/3",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_each_concat/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_equilibrium_index/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_first_and_last/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_first_duplicate/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_first_even_odd/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_first_missing_positive/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_first_odd/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_first_to_end/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_first_triplet_sum/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_fixed_point/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_gcd/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_heap_replace/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_heapify/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_insert_after_each/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_invert_each/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_last_char_each/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_last_to_front/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_lcm/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_lis_length/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_list_each/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_longest_bitonic/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_longest_consecutive/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_max_product_three/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_max_subarray_product/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_max_sum_bitonic/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_max_sum_increasing/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_max_sum_no_adjacent/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_min_coins/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_min_gap/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_min_jumps/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_min_max_k/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_modified_rle/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_negative_ratio/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_odd_length_subarray_sum/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_pair_absdiff_sum/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_pair_chunks/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_pair_xor_sum/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_positive_ratio/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_powerset_binary/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_powerset_by_size/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_repeat_whole/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_rotation_count/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_second_most_common/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_sequential_search/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_slice_inclusive/3",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_sort_mixed/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_stdev_sample/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_stride/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_strip_digits_each/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_super_ugly/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_swap_adjacent/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_take_indices/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_words_all/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_zip_cycle/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_count_self_inverse/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_divisible_by/2",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "seq_median/1",
+   "pack": "r3_sequences",
+   "gated": true,
+   "right": 0,
+   "wrong": 1,
+   "retired": false
+  },
+  {
+   "key": "txt_regex_span/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 3,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_equal_ends_substrings/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_ord/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_split_at_upper/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 2,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_adverb_span/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_adverb_text/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_alpha_digit_counts/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_alpha_digit_special_counts/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_bracket_swaps/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_capitalize_first_last/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_dedupe_words/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_demlo/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_first_unique_char/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_floats/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_ip_strip_zeros/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_last_position/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_last_word_length/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_lcs3_length/3",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_lcs_length/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_lower_count/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_min_flips_alternate/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_most_common_n/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_most_common_words/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_repeating_subsequence_length/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_reverse_vowels/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_roman_to_int/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_rotate_left/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_scs_length/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_signed_ints/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_split_at_lower/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_squeeze_char/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_url_dates/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_valid_invalid/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 1,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_capitalize/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_char_at/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_chunks/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_consonant_count/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_dedupe_chars/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_digit_alpha_counts/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_lower_only/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_lstrip/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_match_message/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 1,
+   "retired": false
+  },
+  {
+   "key": "txt_no_punctuation/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_ord_each/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_parse_float/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_permutations/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_rfind/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_rotate_right/2",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_rstrip/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_sort_words/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_squeeze_repeats/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_word_lengths/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  },
+  {
+   "key": "txt_yes_no/1",
+   "pack": "r3_strings",
+   "gated": true,
+   "right": 0,
+   "wrong": 0,
+   "retired": false
+  }
+ ]
+}

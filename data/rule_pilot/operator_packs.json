@@ -1,0 +1,20 @@
+{
+ "round": 3,
+ "active": [
+  "r3_numbers",
+  "r3_sequences",
+  "r3_strings",
+  "r3_nested",
+  "r3_predicates"
+ ],
+ "engine": [
+  "tie_break",
+  "description_constants"
+ ],
+ "retired": {
+  "txt_first_repeated_char/1": "a teacher flagged it as written from memory of benchmark tasks",
+  "num_nth_prime/1": "a teacher flagged it as written from memory of benchmark tasks",
+  "num_perfect_squares_in_range/2": "a teacher flagged it as written from memory of benchmark tasks",
+  "ends_with/2": "gated, more wrong than right final programs on development tasks (0 right, 2 wrong)"
+ }
+}
