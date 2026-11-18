@@ -271,7 +271,7 @@ def cmd_select(args):
             task = tasks[row["task_id"]]
             asserts = parse_prompt(task["prompt"])[1]
             attempts, seen = [], set()
-            for name, run in zip(args.candidates, runs):
+            for name, run in zip(args.candidates, [] if args.engine_only else runs):
                 first = dict(run[key]["attempts"][0])
                 code = first.get("raw_code", first["code"])
                 if code in seen:
@@ -286,6 +286,13 @@ def cmd_select(args):
                 inferred = back_infer(task, asserts, len(attempts))
                 if inferred and inferred["check"]["ok"]:
                     attempts.append(inferred)
+            if not attempts:
+                # Rule engine alone and nothing found: there is no answer to give.
+                attempts.append({"round": 0, "code": "", "raw_code": "", "source": "none", "hints": [],
+                                 "check": {"ok": False, "kind": "none", "message": ""},
+                                 "llm": {"finish_reason": "none", "prompt_tokens": 0, "completion_tokens": 0,
+                                         "prompt_tokens_processed": 0, "prompt_ms": 0, "predicted_ms": 0,
+                                         "elapsed_seconds": 0}})
             winner = next((a for a in attempts if a["check"]["ok"]), attempts[0])
             chosen[winner["source"]] = chosen.get(winner["source"], 0) + 1
             out = dict(row)
@@ -326,7 +333,7 @@ def cmd_score(args):
                                               "rule_ids", "fired_rule_ids", "chosen", "visible_ok")}
             inferred = [a for a in row["attempts"] if a.get("source") == "backinfer"]
             scored.update(base=result["base"], plus=result["plus"], solved=result["solved"],
-                          calls=len(row["attempts"]) - len(inferred),
+                          calls=sum(a["llm"]["completion_tokens"] > 0 for a in row["attempts"]),
                           inferred=inferred[-1]["inference"] if inferred else None,
                           completion_tokens=sum(a["llm"]["completion_tokens"] for a in row["attempts"]),
                           prompt_tokens_processed=sum(a["llm"]["prompt_tokens_processed"] or 0
@@ -571,6 +578,8 @@ def main():
     select.add_argument("--candidates", nargs="+", required=True)
     select.add_argument("--output-name", required=True)
     select.add_argument("--splits", nargs="+", default=["test"], choices=["train", "val", "test"])
+    select.add_argument("--engine-only", action="store_true",
+                        help="ignore every model answer: what the rule engine solves with no model at all")
     select.set_defaults(func=cmd_select)
     score = sub.add_parser("score")
     score.add_argument("--name", required=True)
