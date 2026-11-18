@@ -448,6 +448,47 @@ def cmd_probe_stats(args):
     print(json.dumps(report, indent=1))
 
 
+def cmd_breakdown(args):
+    """Where the gain of a branch-and-select run comes from; counts only, so it is safe on the test split."""
+    baseline = {r["task_id"]: r for r in read_jsonl(OUT / "scored" / f"{args.baseline}.jsonl")}
+    bank = {r["id"]: r for r in json.loads(rulelib.BANK.read_text())["rules"]}
+    rows = [r for r in read_jsonl(OUT / "scored" / f"{args.name}.jsonl") if r["split"] == args.split]
+    report = {"name": args.name, "baseline": args.baseline, "split": args.split, "tasks": len(rows),
+              "solved": sum(r["solved"] for r in rows),
+              "baseline_solved": sum(baseline[r["task_id"]]["solved"] for r in rows), "branches": {}}
+
+    def tally(group):
+        return {"tasks": len(group), "passes_visible_example": sum(bool(r.get("visible_ok")) for r in group),
+                "solved": sum(r["solved"] for r in group),
+                "baseline_solved": sum(baseline[r["task_id"]]["solved"] for r in group),
+                "fixed": sum(r["solved"] and not baseline[r["task_id"]]["solved"] for r in group),
+                "broken": sum(not r["solved"] and baseline[r["task_id"]]["solved"] for r in group)}
+
+    for branch in sorted({r.get("chosen") or "single" for r in rows}):
+        report["branches"][branch] = tally([r for r in rows if (r.get("chosen") or "single") == branch])
+    inferred = [r for r in rows if r.get("inferred")]
+    report["inference"] = {
+        "programs_used": len(inferred), "solved": sum(r["solved"] for r in inferred),
+        "confident": {"n": sum(r["inferred"]["confident"] for r in inferred),
+                      "solved": sum(r["solved"] for r in inferred if r["inferred"]["confident"])},
+        "knowledge_operator": {"n": sum(r["inferred"]["knowledge"] for r in inferred),
+                               "solved": sum(r["solved"] for r in inferred if r["inferred"]["knowledge"])},
+        "generic_operators_only": {"n": sum(not r["inferred"]["knowledge"] for r in inferred),
+                                   "solved": sum(r["solved"] for r in inferred if not r["inferred"]["knowledge"])}}
+    # Rules written for a concept seen in a train failure vs. concepts the teacher added from its own knowledge.
+    by_origin = {}
+    for r in rows:
+        origins = {bank[i]["provenance"] for i in (r.get("rule_ids") or []) if i in bank}
+        if origins and "rules" in (r.get("chosen") or ""):
+            key = "train_failure" if any("train_failure" in o for o in origins) else "category_only"
+            by_origin.setdefault(key, []).append(r)
+    report["rule_branch_by_origin"] = {k: tally(v) for k, v in by_origin.items()}
+    print(json.dumps(report, indent=1))
+    if args.output:
+        Path(args.output).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.output).write_text(json.dumps(report, indent=1) + "\n")
+
+
 def cmd_summary(args):
     reference = None
     table = []
@@ -551,6 +592,12 @@ def main():
     probe.add_argument("--name", required=True)
     probe.add_argument("--output", required=True)
     probe.set_defaults(func=cmd_probe_stats)
+    breakdown = sub.add_parser("breakdown")
+    breakdown.add_argument("--name", required=True)
+    breakdown.add_argument("--baseline", required=True)
+    breakdown.add_argument("--split", default="test", choices=["train", "val", "test"])
+    breakdown.add_argument("--output")
+    breakdown.set_defaults(func=cmd_breakdown)
     summary = sub.add_parser("summary")
     summary.add_argument("--names", nargs="+", required=True)
     summary.add_argument("--split", default="test", choices=["train", "val", "test"])

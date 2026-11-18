@@ -1,0 +1,60 @@
+{
+ "name": "s15-branch-dev",
+ "baseline": "s15-base",
+ "split": "val",
+ "tasks": 45,
+ "solved": 29,
+ "baseline_solved": 24,
+ "branches": {
+  "backinfer": {
+   "tasks": 5,
+   "passes_visible_example": 5,
+   "solved": 2,
+   "baseline_solved": 0,
+   "fixed": 2,
+   "broken": 0
+  },
+  "s15-rules-dev": {
+   "tasks": 40,
+   "passes_visible_example": 35,
+   "solved": 27,
+   "baseline_solved": 24,
+   "fixed": 3,
+   "broken": 0
+  }
+ },
+ "inference": {
+  "programs_used": 5,
+  "solved": 2,
+  "confident": {
+   "n": 3,
+   "solved": 1
+  },
+  "knowledge_operator": {
+   "n": 0,
+   "solved": 0
+  },
+  "generic_operators_only": {
+   "n": 5,
+   "solved": 2
+  }
+ },
+ "rule_branch_by_origin": {
+  "category_only": {
+   "tasks": 5,
+   "passes_visible_example": 5,
+   "solved": 5,
+   "baseline_solved": 3,
+   "fixed": 2,
+   "broken": 0
+  },
+  "train_failure": {
+   "tasks": 3,
+   "passes_visible_example": 3,
+   "solved": 2,
+   "baseline_solved": 1,
+   "fixed": 1,
+   "broken": 0
+  }
+ }
+}

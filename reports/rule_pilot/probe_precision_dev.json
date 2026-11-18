@@ -1,0 +1,127 @@
+{
+ "name": "s15-base",
+ "families": {
+  "empty": {
+   "train": {
+    "fired": 17,
+    "hidden_failures_caught": 3,
+    "precision": 0.176,
+    "recall": 0.188
+   },
+   "val": {
+    "fired": 3,
+    "hidden_failures_caught": 2,
+    "precision": 0.667,
+    "recall": 0.222
+   }
+  },
+  "single": {
+   "train": {
+    "fired": 5,
+    "hidden_failures_caught": 0,
+    "precision": 0.0,
+    "recall": 0.0
+   },
+   "val": {
+    "fired": 2,
+    "hidden_failures_caught": 2,
+    "precision": 1.0,
+    "recall": 0.222
+   }
+  },
+  "negative": {
+   "train": {
+    "fired": 6,
+    "hidden_failures_caught": 2,
+    "precision": 0.333,
+    "recall": 0.125
+   },
+   "val": {
+    "fired": 0,
+    "hidden_failures_caught": 0,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "zero": {
+   "train": {
+    "fired": 4,
+    "hidden_failures_caught": 0,
+    "precision": 0.0,
+    "recall": 0.0
+   },
+   "val": {
+    "fired": 0,
+    "hidden_failures_caught": 0,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "float": {
+   "train": {
+    "fired": 18,
+    "hidden_failures_caught": 5,
+    "precision": 0.278,
+    "recall": 0.312
+   },
+   "val": {
+    "fired": 7,
+    "hidden_failures_caught": 3,
+    "precision": 0.429,
+    "recall": 0.333
+   }
+  },
+  "large": {
+   "train": {
+    "fired": 8,
+    "hidden_failures_caught": 0,
+    "precision": 0.0,
+    "recall": 0.0
+   },
+   "val": {
+    "fired": 2,
+    "hidden_failures_caught": 2,
+    "precision": 1.0,
+    "recall": 0.222
+   }
+  },
+  "duplicates": {
+   "train": {
+    "fired": 2,
+    "hidden_failures_caught": 0,
+    "precision": 0.0,
+    "recall": 0.0
+   },
+   "val": {
+    "fired": 1,
+    "hidden_failures_caught": 1,
+    "precision": 1.0,
+    "recall": 0.111
+   }
+  },
+  "nested_empty": {
+   "train": {
+    "fired": 7,
+    "hidden_failures_caught": 0,
+    "precision": 0.0,
+    "recall": 0.0
+   },
+   "val": {
+    "fired": 0,
+    "hidden_failures_caught": 0,
+    "precision": null,
+    "recall": 0.0
+   }
+  }
+ },
+ "train": {
+  "tasks": 182,
+  "visible_ok": 131,
+  "hidden_failures_among_visible_ok": 16
+ },
+ "val": {
+  "tasks": 45,
+  "visible_ok": 33,
+  "hidden_failures_among_visible_ok": 9
+ }
+}

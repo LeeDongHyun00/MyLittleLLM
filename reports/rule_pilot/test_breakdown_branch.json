@@ -1,0 +1,68 @@
+{
+ "name": "s15-branch",
+ "baseline": "s15-base",
+ "split": "test",
+ "tasks": 151,
+ "solved": 97,
+ "baseline_solved": 89,
+ "branches": {
+  "backinfer": {
+   "tasks": 16,
+   "passes_visible_example": 16,
+   "solved": 5,
+   "baseline_solved": 0,
+   "fixed": 5,
+   "broken": 0
+  },
+  "s15-base": {
+   "tasks": 6,
+   "passes_visible_example": 6,
+   "solved": 3,
+   "baseline_solved": 3,
+   "fixed": 0,
+   "broken": 0
+  },
+  "s15-rules": {
+   "tasks": 129,
+   "passes_visible_example": 113,
+   "solved": 89,
+   "baseline_solved": 86,
+   "fixed": 3,
+   "broken": 0
+  }
+ },
+ "inference": {
+  "programs_used": 16,
+  "solved": 5,
+  "confident": {
+   "n": 13,
+   "solved": 5
+  },
+  "knowledge_operator": {
+   "n": 2,
+   "solved": 1
+  },
+  "generic_operators_only": {
+   "n": 14,
+   "solved": 4
+  }
+ },
+ "rule_branch_by_origin": {
+  "train_failure": {
+   "tasks": 13,
+   "passes_visible_example": 12,
+   "solved": 9,
+   "baseline_solved": 8,
+   "fixed": 1,
+   "broken": 0
+  },
+  "category_only": {
+   "tasks": 9,
+   "passes_visible_example": 8,
+   "solved": 8,
+   "baseline_solved": 6,
+   "fixed": 2,
+   "broken": 0
+  }
+ }
+}
