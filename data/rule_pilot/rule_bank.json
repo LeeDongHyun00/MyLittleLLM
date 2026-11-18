@@ -172,9 +172,967 @@
      "count": 1
     }
    }
+  },
+  {
+   "round": 2,
+   "evidence": "reports/rule_pilot/attribution_round1.json",
+   "observations": [
+    "Random-subset run on train: 107/182 solved vs 115/182 without rules (7 fixed, 15 broken).",
+    "Mean change by number of rules shown: 1 rule +0.06, 2 rules -0.06, 3 rules -0.04, 4 rules -0.14.",
+    "Sample code inside a rule is copied literally (`return []`, `return 0`), also where it is wrong.",
+    "A rule that bundles several definitions gets them mixed up; a single definition shown alone was applied."
+   ],
+   "decision": "Retire every always-on and broad rule; keep only narrow triggers; one concept per knowledge rule; show at most 2 rules.",
+   "retired": [
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B07",
+    "B08",
+    "B10",
+    "B12",
+    "K01",
+    "K02",
+    "K03",
+    "K04",
+    "K05",
+    "K06",
+    "K07",
+    "K08",
+    "K09",
+    "K10",
+    "K11",
+    "K12",
+    "K15"
+   ],
+   "added": [
+    "K101",
+    "K102",
+    "K103",
+    "K104",
+    "K105",
+    "K106",
+    "K107",
+    "K108",
+    "K111",
+    "K112",
+    "K113",
+    "K114",
+    "K115",
+    "K121",
+    "K122",
+    "K123",
+    "K131",
+    "K132",
+    "K133",
+    "K134",
+    "K135",
+    "K141",
+    "K142",
+    "K143",
+    "K144",
+    "K145",
+    "K146",
+    "K147",
+    "K148",
+    "K151",
+    "K152",
+    "K153",
+    "K154",
+    "K155",
+    "K156",
+    "K157",
+    "K161",
+    "K162",
+    "K163",
+    "K164",
+    "K165",
+    "K166",
+    "K167",
+    "K171",
+    "K172",
+    "K173",
+    "K174",
+    "K175",
+    "K176",
+    "K177",
+    "K181",
+    "K182",
+    "K183",
+    "K184",
+    "K185",
+    "K191"
+   ]
   }
  ],
  "rules": [
+  {
+   "id": "K101",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?<!centered )triangular num"
+   },
+   "text": "The n-th triangular number is n*(n+1)//2.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K102",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?<!centered )pentagonal num"
+   },
+   "text": "The n-th pentagonal number is n*(3*n-1)//2.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K103",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?<!centered )hexagonal num"
+   },
+   "text": "The n-th hexagonal number is n*(2*n-1).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/135"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K104",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?<!centered )heptagonal num"
+   },
+   "text": "The n-th heptagonal number is n*(5*n-3)//2.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K105",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?<!centered )octagonal num"
+   },
+   "text": "The n-th octagonal number is n*(3*n-2).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K106",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?<!centered )nonagonal num"
+   },
+   "text": "The n-th nonagonal number is n*(7*n-5)//2.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K107",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?<!centered )decagonal num"
+   },
+   "text": "The n-th decagonal number is n*(4*n-3).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K108",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?<!centered )dodecagonal num"
+   },
+   "text": "The n-th dodecagonal number is n*(5*n-4).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K111",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "centered triangular"
+   },
+   "text": "The n-th centered triangular number is 3*n*(n-1)//2 + 1.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K112",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "centered square"
+   },
+   "text": "The n-th centered square number is 2*n*(n-1) + 1.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K113",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "centered pentagonal"
+   },
+   "text": "The n-th centered pentagonal number is 5*n*(n-1)//2 + 1.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K114",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "centered hexagonal"
+   },
+   "text": "The n-th centered hexagonal number is 3*n*(n-1) + 1.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K115",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "star num"
+   },
+   "text": "The n-th star number is 6*n*(n-1) + 1.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/268"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K121",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "tetrahedral"
+   },
+   "text": "The n-th tetrahedral number is n*(n+1)*(n+2)//6.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K122",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "pyramidal num"
+   },
+   "text": "The n-th square pyramidal number is n*(n+1)*(2*n+1)//6.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K123",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "octahedral"
+   },
+   "text": "The n-th octahedral number is n*(2*n*n+1)//3.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K131",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "wood\\w*all"
+   },
+   "text": "Woodall numbers are k*2**k - 1 for k = 1, 2, 3, ... (1, 7, 23, 63, 159, 383). To test a number, loop k upward and compare k*2**k - 1 with it until the term exceeds it.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/20"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K132",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "cullen"
+   },
+   "text": "Cullen numbers are k*2**k + 1 for k = 0, 1, 2, ... (1, 3, 9, 25, 65).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K133",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "mersenne"
+   },
+   "text": "Mersenne numbers are 2**k - 1 (1, 3, 7, 15, 31).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K134",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "carol num"
+   },
+   "text": "The n-th Carol number is (2**n - 1)**2 - 2 (-1, 7, 47, 223).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K135",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "kynea"
+   },
+   "text": "The n-th Kynea number is (2**n + 1)**2 - 2 (7, 23, 79, 287).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K141",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?<!jacobsthal )(?<!jacobsthal-)lucas"
+   },
+   "text": "Lucas numbers: L(0)=2, L(1)=1, L(n)=L(n-1)+L(n-2).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K142",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "pell num"
+   },
+   "text": "Pell numbers: P(0)=0, P(1)=1, P(n)=2*P(n-1)+P(n-2).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K143",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "jacobsthal(?!.{0,3}lucas)"
+   },
+   "text": "Jacobsthal numbers: J(0)=0, J(1)=1, J(n)=J(n-1)+2*J(n-2) (0, 1, 1, 3, 5, 11, 21).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K144",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "jacobsthal.{0,3}lucas"
+   },
+   "text": "Jacobsthal-Lucas numbers: j(0)=2, j(1)=1, j(n)=j(n-1)+2*j(n-2) (2, 1, 5, 7, 17, 31).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K145",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "perrin"
+   },
+   "text": "Perrin numbers: P(0)=3, P(1)=0, P(2)=2, P(n)=P(n-2)+P(n-3).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K146",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "padovan"
+   },
+   "text": "Padovan numbers: P(0)=P(1)=P(2)=1, P(n)=P(n-2)+P(n-3).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K147",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "newman.{0,3}conway"
+   },
+   "text": "Newman-Conway sequence: P(1)=P(2)=1 and P(n)=P(P(n-1))+P(n-P(n-1)). Fill a list bottom-up from index 1.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/84"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K148",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "shanks|newman.{0,3}prime"
+   },
+   "text": "Newman-Shanks-Williams numbers: S(0)=1, S(1)=1, S(n)=2*S(n-1)+S(n-2) (1, 1, 3, 7, 17, 41); the n-th one is S(n).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/260"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K151",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "catalan"
+   },
+   "text": "The n-th Catalan number is math.comb(2*n, n)//(n+1) (1, 1, 2, 5, 14, 42).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K152",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "bell num"
+   },
+   "text": "Bell numbers (1, 1, 2, 5, 15, 52): build the Bell triangle; each row starts with the last value of the previous row and each next entry adds the entry above-left.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K153",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "stirling"
+   },
+   "text": "Stirling numbers of the second kind: S(n,k)=k*S(n-1,k)+S(n-1,k-1), S(0,0)=1, S(n,0)=0 for n>0.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K154",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "eulerian"
+   },
+   "text": "Eulerian number: A(n,m)=(n-m)*A(n-1,m-1)+(m+1)*A(n-1,m), with A(n,0)=1 and A(n,m)=0 when m>=n.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/103"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K155",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "delannoy"
+   },
+   "text": "Delannoy number: D(m,n)=D(m-1,n)+D(m-1,n-1)+D(m,n-1), with D(0,n)=D(m,0)=1.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K156",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "even index binomial"
+   },
+   "text": "The sum of the even-index binomial coefficients C(n,0)+C(n,2)+... equals 2**(n-1).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/274"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K157",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "product of consecutive binomial"
+   },
+   "text": "The sum of products of consecutive binomial coefficients, C(n,k)*C(n,k+1) over k, equals math.comb(2*n, n-1).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/592"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K161",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "armstrong|narcissistic"
+   },
+   "text": "Armstrong number: with k = number of digits, sum(d**k for each digit d) == n. The power is k, not always 3.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/598"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K162",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "amicable"
+   },
+   "text": "Amicable numbers: let d(x) be the sum of divisors of x smaller than x. a is amicable when b = d(a) differs from a and d(b) == a. Sum every such a in the range.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/123"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K163",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "perfect num"
+   },
+   "text": "Perfect number: the sum of its divisors smaller than n equals n (6, 28, 496).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K164",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "abundant|deficient"
+   },
+   "text": "Abundant number: the sum of divisors smaller than n is greater than n; deficient: it is less than n.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K165",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "harshad|niven"
+   },
+   "text": "Harshad (Niven) number: n % (sum of its digits) == 0.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K166",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "\\bstrong num"
+   },
+   "text": "Strong number: the sum of the factorials of its digits equals n (145 = 1! + 4! + 5!).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K167",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "automorphic"
+   },
+   "text": "Automorphic number: str(n*n) ends with str(n).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K171",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?:area|volume|surface|lateral|perimeter)[^\\n]*cylinder|cylinder[^\\n]*(?:area|volume|surface|lateral|perimeter)"
+   },
+   "text": "Cylinder (math.pi): lateral surface 2*pi*r*h, total surface 2*pi*r*(r+h), volume pi*r*r*h.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/233"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 2
+  },
+  {
+   "id": "K172",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?:area|volume|surface|lateral|perimeter)[^\\n]*\\bcone\\b|\\bcone\\b[^\\n]*(?:area|volume|surface|lateral|perimeter)"
+   },
+   "text": "Cone (math.pi): slant l = sqrt(r*r+h*h), lateral surface pi*r*l, total surface pi*r*(r+l), volume pi*r*r*h/3.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K173",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?:area|volume|surface|lateral|perimeter)[^\\n]*sphere|sphere[^\\n]*(?:area|volume|surface|lateral|perimeter)"
+   },
+   "text": "Sphere (math.pi): surface 4*pi*r*r, volume 4/3*pi*r**3.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K174",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?:area|volume|surface|lateral|perimeter)[^\\n]*\\bcube\\b|\\bcube\\b[^\\n]*(?:area|volume|surface|lateral|perimeter)"
+   },
+   "text": "Cube with side a: total surface 6*a*a, lateral surface 4*a*a, volume a**3.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K175",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?:area|volume|surface|lateral|perimeter)[^\\n]*cuboid|cuboid[^\\n]*(?:area|volume|surface|lateral|perimeter)"
+   },
+   "text": "Cuboid l, w, h: total surface 2*(l*w+l*h+w*h), lateral surface 2*h*(l+w), volume l*w*h.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K176",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?:area|volume|surface|lateral|perimeter)[^\\n]*pyramid|pyramid[^\\n]*(?:area|volume|surface|lateral|perimeter)"
+   },
+   "text": "Square pyramid with base edge b and slant height s: surface b*b + 2*b*s; volume with vertical height h: b*b*h/3.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [
+    "Mbpp/581"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K177",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "(?:area|volume|surface|lateral|perimeter)[^\\n]*tetrahedron|tetrahedron[^\\n]*(?:area|volume|surface|lateral|perimeter)"
+   },
+   "text": "Regular tetrahedron with edge a: surface sqrt(3)*a*a, volume a**3/(6*sqrt(2)).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K181",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "trapez"
+   },
+   "text": "Trapezium with parallel sides a, b and height h: area (a+b)/2*h, median (a+b)/2.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
+  {
+   "id": "K182",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "rhombus"
+   },
+   "text": "Rhombus: area p*q/2 from diagonals p, q; perimeter 4*side.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K183",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "sector"
+   },
+   "text": "Circular sector with angle in degrees: area math.pi*r*r*angle/360.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K184",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "arc length"
+   },
+   "text": "Arc length with angle in degrees: 2*math.pi*r*angle/360.",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K185",
+   "kind": "knowledge",
+   "provenance": "category",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "regular polygon"
+   },
+   "text": "Regular polygon with n sides of length s: area n*s*s/(4*math.tan(math.pi/n)).",
+   "failure_mode": "knowledge_gap",
+   "motivating_tasks": [],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 0
+  },
+  {
+   "id": "K191",
+   "kind": "knowledge",
+   "provenance": "train_failure",
+   "trigger": {
+    "type": "prompt_regex",
+    "pattern": "differ\\w* at one bit|one bit position"
+   },
+   "text": "Two numbers differ in exactly one bit when x = a ^ b satisfies `x > 0 and x & (x - 1) == 0`.",
+   "failure_mode": "hidden_wrong_output_edge",
+   "motivating_tasks": [
+    "Mbpp/6"
+   ],
+   "round": 2,
+   "status": "active",
+   "train_prompts_fired": 1
+  },
   {
    "id": "K01",
    "kind": "knowledge",
@@ -189,8 +1147,19 @@
     "Mbpp/135"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 2
+   "status": "retired",
+   "train_prompts_fired": 2,
+   "round1_stats": {
+    "fired": 2,
+    "included": 1,
+    "wins": 0,
+    "losses": 0,
+    "contrast": 0.0,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 1.1406
+   },
+   "retired_in_round": 2,
+   "retire_reason": "split into one rule per polygon"
   },
   {
    "id": "K02",
@@ -206,8 +1175,19 @@
     "Mbpp/268"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 1
+   "status": "retired",
+   "train_prompts_fired": 1,
+   "round1_stats": {
+    "fired": 1,
+    "included": 1,
+    "wins": 1,
+    "losses": 0,
+    "contrast": null,
+    "lasso_coefficient": 0.543,
+    "ucb_reward": 2.1406
+   },
+   "retired_in_round": 2,
+   "retire_reason": "split into one rule per figure"
   },
   {
    "id": "K03",
@@ -221,8 +1201,11 @@
    "failure_mode": "knowledge_gap",
    "motivating_tasks": [],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 0
+   "status": "retired",
+   "train_prompts_fired": 0,
+   "round1_stats": null,
+   "retired_in_round": 2,
+   "retire_reason": "split into one rule per figure"
   },
   {
    "id": "K04",
@@ -238,8 +1221,19 @@
     "Mbpp/20"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 1
+   "status": "retired",
+   "train_prompts_fired": 1,
+   "round1_stats": {
+    "fired": 1,
+    "included": 1,
+    "wins": 0,
+    "losses": 0,
+    "contrast": null,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 1.1406
+   },
+   "retired_in_round": 2,
+   "retire_reason": "split into one rule per sequence; the bundled text was ignored for Woodall"
   },
   {
    "id": "K05",
@@ -253,8 +1247,11 @@
    "failure_mode": "knowledge_gap",
    "motivating_tasks": [],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 0
+   "status": "retired",
+   "train_prompts_fired": 0,
+   "round1_stats": null,
+   "retired_in_round": 2,
+   "retire_reason": "split into one rule per sequence"
   },
   {
    "id": "K06",
@@ -270,8 +1267,19 @@
     "Mbpp/84"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 1
+   "status": "retired",
+   "train_prompts_fired": 1,
+   "round1_stats": {
+    "fired": 1,
+    "included": 0,
+    "wins": 0,
+    "losses": 0,
+    "contrast": null,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": Infinity
+   },
+   "retired_in_round": 2,
+   "retire_reason": "replaced by the round-2 single-concept rule with the same content"
   },
   {
    "id": "K07",
@@ -287,8 +1295,19 @@
     "Mbpp/260"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 1
+   "status": "retired",
+   "train_prompts_fired": 1,
+   "round1_stats": {
+    "fired": 1,
+    "included": 1,
+    "wins": 0,
+    "losses": 0,
+    "contrast": null,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 1.1406
+   },
+   "retired_in_round": 2,
+   "retire_reason": "replaced by the round-2 single-concept rule with the same content"
   },
   {
    "id": "K08",
@@ -304,8 +1323,19 @@
     "Mbpp/103"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 1
+   "status": "retired",
+   "train_prompts_fired": 1,
+   "round1_stats": {
+    "fired": 1,
+    "included": 0,
+    "wins": 0,
+    "losses": 0,
+    "contrast": null,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": Infinity
+   },
+   "retired_in_round": 2,
+   "retire_reason": "split into one rule per sequence"
   },
   {
    "id": "K09",
@@ -322,8 +1352,19 @@
     "Mbpp/592"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 2
+   "status": "retired",
+   "train_prompts_fired": 2,
+   "round1_stats": {
+    "fired": 2,
+    "included": 0,
+    "wins": 0,
+    "losses": 0,
+    "contrast": null,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": Infinity
+   },
+   "retired_in_round": 2,
+   "retire_reason": "split into one rule per identity"
   },
   {
    "id": "K10",
@@ -340,8 +1381,19 @@
     "Mbpp/123"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 2
+   "status": "retired",
+   "train_prompts_fired": 2,
+   "round1_stats": {
+    "fired": 2,
+    "included": 1,
+    "wins": 0,
+    "losses": 0,
+    "contrast": 0.0,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 1.1406
+   },
+   "retired_in_round": 2,
+   "retire_reason": "split; the student mixed up two definitions from the same rule (digit sum used as divisor sum)"
   },
   {
    "id": "K11",
@@ -358,8 +1410,19 @@
     "Mbpp/233"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 6
+   "status": "retired",
+   "train_prompts_fired": 6,
+   "round1_stats": {
+    "fired": 6,
+    "included": 4,
+    "wins": 0,
+    "losses": 0,
+    "contrast": 0.0,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 1.3203
+   },
+   "retired_in_round": 2,
+   "retire_reason": "split into one rule per solid"
   },
   {
    "id": "K12",
@@ -373,8 +1436,19 @@
    "failure_mode": "knowledge_gap",
    "motivating_tasks": [],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 6
+   "status": "retired",
+   "train_prompts_fired": 6,
+   "round1_stats": {
+    "fired": 6,
+    "included": 4,
+    "wins": 0,
+    "losses": 0,
+    "contrast": 0.0,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 1.3203
+   },
+   "retired_in_round": 2,
+   "retire_reason": "split into one rule per figure"
   },
   {
    "id": "K13",
@@ -391,7 +1465,16 @@
    ],
    "round": 1,
    "status": "active",
-   "train_prompts_fired": 1
+   "train_prompts_fired": 1,
+   "round1_stats": {
+    "fired": 1,
+    "included": 0,
+    "wins": 0,
+    "losses": 0,
+    "contrast": null,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": Infinity
+   }
   },
   {
    "id": "K14",
@@ -409,7 +1492,16 @@
    ],
    "round": 1,
    "status": "active",
-   "train_prompts_fired": 2
+   "train_prompts_fired": 2,
+   "round1_stats": {
+    "fired": 2,
+    "included": 0,
+    "wins": 0,
+    "losses": 0,
+    "contrast": null,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": Infinity
+   }
   },
   {
    "id": "K15",
@@ -427,8 +1519,19 @@
     "Mbpp/311"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 4
+   "status": "retired",
+   "train_prompts_fired": 4,
+   "round1_stats": {
+    "fired": 4,
+    "included": 3,
+    "wins": 0,
+    "losses": 0,
+    "contrast": 0.0,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 0.9919
+   },
+   "retired_in_round": 2,
+   "retire_reason": "replaced by a single idiom for the one failure it explained"
   },
   {
    "id": "B01",
@@ -446,8 +1549,19 @@
     "Mbpp/429"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 182
+   "status": "retired",
+   "train_prompts_fired": 182,
+   "round1_stats": {
+    "fired": 182,
+    "included": 86,
+    "wins": 2,
+    "losses": 10,
+    "contrast": -0.093,
+    "lasso_coefficient": -0.03,
+    "ucb_reward": 0.6346
+   },
+   "retired_in_round": 2,
+   "retire_reason": "always-on; 2 wins vs 10 losses when included; the alias codemod fixes the same failure with no model call"
   },
   {
    "id": "B04",
@@ -465,8 +1579,19 @@
     "Mbpp/301"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 122
+   "status": "retired",
+   "train_prompts_fired": 122,
+   "round1_stats": {
+    "fired": 122,
+    "included": 52,
+    "wins": 2,
+    "losses": 9,
+    "contrast": -0.1489,
+    "lasso_coefficient": -0.1234,
+    "ucb_reward": 0.7928
+   },
+   "retired_in_round": 2,
+   "retire_reason": "fired on 67% of tasks; lasso -0.12; its sample `return []` was copied literally where the right empty value was () or 0 or a size"
   },
   {
    "id": "B05",
@@ -474,9 +1599,9 @@
    "provenance": "train_failure",
    "trigger": {
     "type": "prompt_regex",
-    "pattern": "digit|divisible|\\bbits?\\b"
+    "pattern": "digit|divisible"
    },
-   "text": "Inputs may be negative or zero: use `abs(n)` before a `str(n)` digit loop and before `bin(n)` tricks.",
+   "text": "Inputs may be negative or zero: use `abs(n)` before a `str(n)` digit loop.",
    "failure_mode": "hidden_crash_edge",
    "motivating_tasks": [
     "Mbpp/77",
@@ -484,7 +1609,16 @@
    ],
    "round": 1,
    "status": "active",
-   "train_prompts_fired": 9
+   "train_prompts_fired": 5,
+   "round1_stats": {
+    "fired": 9,
+    "included": 7,
+    "wins": 0,
+    "losses": 0,
+    "contrast": 0.0,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 0.8597
+   }
   },
   {
    "id": "B06",
@@ -502,7 +1636,16 @@
    ],
    "round": 1,
    "status": "active",
-   "train_prompts_fired": 14
+   "train_prompts_fired": 14,
+   "round1_stats": {
+    "fired": 14,
+    "included": 5,
+    "wins": 0,
+    "losses": 0,
+    "contrast": 0.0,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 1.1101
+   }
   },
   {
    "id": "B07",
@@ -519,8 +1662,19 @@
     "Mbpp/773"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 14
+   "status": "retired",
+   "train_prompts_fired": 14,
+   "round1_stats": {
+    "fired": 14,
+    "included": 6,
+    "wins": 1,
+    "losses": 1,
+    "contrast": 0.0,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 0.9657
+   },
+   "retired_in_round": 2,
+   "retire_reason": "trigger matched unrelated 'occurrence' tasks; 1 win vs 1 loss"
   },
   {
    "id": "B09",
@@ -538,7 +1692,16 @@
    ],
    "round": 1,
    "status": "active",
-   "train_prompts_fired": 3
+   "train_prompts_fired": 3,
+   "round1_stats": {
+    "fired": 3,
+    "included": 2,
+    "wins": 2,
+    "losses": 0,
+    "contrast": 1.0,
+    "lasso_coefficient": 0.8727,
+    "ucb_reward": 1.8065
+   }
   },
   {
    "id": "B10",
@@ -554,8 +1717,19 @@
     "Mbpp/392"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 13
+   "status": "retired",
+   "train_prompts_fired": 13,
+   "round1_stats": {
+    "fired": 13,
+    "included": 5,
+    "wins": 0,
+    "losses": 2,
+    "contrast": -0.525,
+    "lasso_coefficient": -0.3012,
+    "ucb_reward": 0.5101
+   },
+   "retired_in_round": 2,
+   "retire_reason": "its sample base case `return 0` overwrote correct start values (Newman-Shanks-Williams got S(0)=0)"
   },
   {
    "id": "B11",
@@ -572,7 +1746,16 @@
    ],
    "round": 1,
    "status": "active",
-   "train_prompts_fired": 5
+   "train_prompts_fired": 5,
+   "round1_stats": {
+    "fired": 5,
+    "included": 2,
+    "wins": 0,
+    "losses": 0,
+    "contrast": 0.0,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 1.8065
+   }
   },
   {
    "id": "B12",
@@ -588,8 +1771,19 @@
     "Mbpp/781"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 7
+   "status": "retired",
+   "train_prompts_fired": 7,
+   "round1_stats": {
+    "fired": 7,
+    "included": 2,
+    "wins": 0,
+    "losses": 2,
+    "contrast": -1.0,
+    "lasso_coefficient": -0.8077,
+    "ucb_reward": 0.8065
+   },
+   "retired_in_round": 2,
+   "retire_reason": "2 inclusions, 2 losses"
   },
   {
    "id": "B03",
@@ -607,8 +1801,19 @@
     "Mbpp/624"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 182
+   "status": "retired",
+   "train_prompts_fired": 182,
+   "round1_stats": {
+    "fired": 182,
+    "included": 97,
+    "wins": 4,
+    "losses": 9,
+    "contrast": -0.0163,
+    "lasso_coefficient": -0.023,
+    "ucb_reward": 0.7138
+   },
+   "retired_in_round": 2,
+   "retire_reason": "always-on; 4 wins vs 9 losses; over-applied (answers wrapped in tuples or lists that the task did not ask for)"
   },
   {
    "id": "B08",
@@ -624,8 +1829,19 @@
     "Mbpp/598"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 182
+   "status": "retired",
+   "train_prompts_fired": 182,
+   "round1_stats": {
+    "fired": 182,
+    "included": 92,
+    "wins": 3,
+    "losses": 7,
+    "contrast": 0.001,
+    "lasso_coefficient": 0.0,
+    "ucb_reward": 0.695
+   },
+   "retired_in_round": 2,
+   "retire_reason": "always-on; contrast 0.00; no measurable benefit for the prompt space it uses"
   },
   {
    "id": "B02",
@@ -645,8 +1861,19 @@
     "Mbpp/784"
    ],
    "round": 1,
-   "status": "active",
-   "train_prompts_fired": 182
+   "status": "retired",
+   "train_prompts_fired": 182,
+   "round1_stats": {
+    "fired": 182,
+    "included": 85,
+    "wins": 2,
+    "losses": 7,
+    "contrast": -0.0279,
+    "lasso_coefficient": 0.003,
+    "ucb_reward": 0.6767
+   },
+   "retired_in_round": 2,
+   "retire_reason": "always-on; 2 wins vs 7 losses; the comment did not change how the student read the example"
   }
  ],
  "codemods": [
@@ -674,5 +1901,6 @@
    ]
   }
  ],
- "checkers": []
+ "checkers": [],
+ "max_rules_per_task": 2
 }
