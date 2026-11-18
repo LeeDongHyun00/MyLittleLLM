@@ -168,8 +168,11 @@ unary("argmax", lambda x: (need(numseq(x)), x.index(max(x)))[1], "{0}.index(max(
       "index&max|position&max|index&largest|position&largest")
 unary("argmin", lambda x: (need(numseq(x)), x.index(min(x)))[1], "{0}.index(min({0}))",
       "index&min|position&min|index&smallest|position&smallest")
-unary("most_common", lambda x: (need(is_seq(x) and len(x) > 0), max(set(x), key=x.count))[1],
-      "max(set({0}), key={0}.count)", "most&frequen|most&occurr|maximum&occurr|maximum&frequen|most common")
+# Ties go to the value that occurs first. Iterating a set of strings instead would pick a different
+# winner in every process, so neither the search nor the emitted code would be reproducible.
+unary("most_common", lambda x: (need(is_seq(x) and len(x) > 0), max(dict.fromkeys(x), key=x.count))[1],
+      "max(dict.fromkeys({0}), key={0}.count)",
+      "most&frequen|most&occurr|maximum&occurr|maximum&frequen|most common")
 unary("counter", lambda x: (need(SEQ_OR_STR(x) and len(x) > 0), dict(Counter(x)))[1],
       "dict(collections.Counter({0}))", "frequen|count|occurr|times")
 unary("move_zeros", lambda x: (need(numseq(x) and 0 in x), [v for v in x if v != 0] + [0] * x.count(0))[1],

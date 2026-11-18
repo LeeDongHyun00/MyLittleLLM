@@ -283,6 +283,15 @@ class BackInferenceTests(unittest.TestCase):
         self.assertIsNone(backinfer.parse_example("assert f(3)", "f"))
         self.assertIsNone(backinfer.parse_example("assert g(3) == 1", "f"))
 
+    def test_most_common_breaks_ties_by_first_occurrence_in_the_search_and_in_the_emitted_code(self):
+        op = backinfer.OPERATORS["most_common/1"]
+        tied = ["pear", "fig", "kiwi", "fig", "pear"]
+        self.assertEqual(op.fn(tied), "pear")
+        self.assertEqual(eval(op.template.format("a0"), {"a0": tied}), "pear")
+        # String hashing is seeded per process, so only a fresh interpreter shows an order dependence.
+        code = "def f(a0):\n    return " + op.template.format("a0") + "\n"
+        self.assertEqual({run_call(code, "f", [tied])["repr"] for _ in range(4)}, {"'pear'"})
+
     def test_found_program_reproduces_the_example_and_generalises(self):
         found = self.infer("Write a function to perform the mathematical bitwise and operation across the tuples.",
                            "assert and_tuples((10, 4, 6, 9), (5, 2, 3, 3)) == (0, 0, 2, 1)", "and_tuples")
