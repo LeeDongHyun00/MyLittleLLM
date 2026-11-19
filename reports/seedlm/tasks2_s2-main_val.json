@@ -1,0 +1,36 @@
+{
+ "model": "s2-main",
+ "settings": {
+  "model": "s2-main",
+  "splits": [
+   "val"
+  ],
+  "width": 32,
+  "keep": 40
+ },
+ "val": {
+  "tasks": 45,
+  "alone": {
+   "engine": 19,
+   "model": 15,
+   "rerank": 18,
+   "open": 18,
+   "gate": 17,
+   "tie": 19,
+   "fill": 19
+  },
+  "pipelines": {
+   "s15-branch-dev-r3": {
+    "stored": 31,
+    "engine": 31,
+    "model": 29,
+    "rerank": 29,
+    "open": 29,
+    "gate": 30,
+    "tie": 31,
+    "fill": 31
+   }
+  },
+  "seconds": 187
+ }
+}
