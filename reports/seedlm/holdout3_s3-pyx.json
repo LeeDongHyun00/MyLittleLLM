@@ -1,0 +1,12 @@
+{
+ "model": "s3-pyx",
+ "tasks": 94,
+ "solved": {
+  "engine": 65,
+  "pyx_model": 51,
+  "pyx_fill": 66,
+  "pyx_tie": 67,
+  "pyx_tie_fill": 68,
+  "pyx_override": 67
+ }
+}
