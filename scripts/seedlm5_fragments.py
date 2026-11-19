@@ -10,7 +10,9 @@ training parts only):
   whole    the program itself occurs in training
 
 Leaves are reduced to their kind (argument, literal slot, bound variable, small integer, string), so a
-piece is about structure, not about which argument it reads. If most programs have known tokens and
+piece is about structure, not about which argument it reads. The coder also trained on synthetic
+library programs; a sample of them (the same sampler, operator-first rows included) adds their pieces
+to what counts as seen. If most programs have known tokens and
 edges but unknown twigs or wholes, what is missing is composition (pieces never seen together);
 if their tokens or edges are unseen, what is missing is knowledge (pieces never seen at all).
 
@@ -85,6 +87,21 @@ def pieces(tokens):
 
     walk(tree(list(tokens)))
     out["whole"] = {tuple(kind(t) for t in tokens)}
+    return out
+
+
+def synthetic_programs(count, seed=1, bank_rate=0.3):
+    """Synthetic library programs as the coder's training draws them (scripts/seedlm4_train.py)."""
+    import random
+    from mylittlellm.rulecoder import backinfer as bi
+    from mylittlellm.seedlm import argbank, data2
+    rng, bank, operators = random.Random(seed), argbank.load(), list(bi.OPERATORS.values())
+    out = []
+    while len(out) < count:
+        example = argbank.sample(rng, bank, operators) if rng.random() < bank_rate else \
+            data2.sample(rng, operators, 3, clean=True)
+        if example is not None:
+            out.append(example["program"])
     return out
 
 
@@ -231,17 +248,19 @@ def coder_by_level(model, known, width=32):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model")
+    parser.add_argument("--synthetic", type=int, default=100000, help="synthetic programs counted as seen")
     parser.add_argument("--output", default="reports/seedlm/fragments_holdout.json")
     args = parser.parse_args()
     known = {"tokens": set(), "edges": set(), "twigs": set(), "whole": set()}
     skipped = 0
-    for program in training_programs():
+    for program in training_programs() + synthetic_programs(args.synthetic):
         try:
             for name, found in pieces(program).items():
                 known[name] |= found
         except (ValueError, IndexError, KeyError):
             skipped += 1
-    report = {"training_programs_skipped": skipped, "known": {name: len(v) for name, v in known.items()}}
+    report = {"synthetic_programs": args.synthetic, "training_programs_skipped": skipped,
+              "known": {name: len(v) for name, v in known.items()}}
     for set_name, programs in evaluation_sets().items():
         entry = {"programs": 0, "all_known": {name: 0 for name in known}, "first_unknown": {}}
         for program in programs:
