@@ -3,7 +3,7 @@
   "id": "variant-p2-001-1",
   "seed": "Mbpp/392",
   "category": "numbers",
-  "description": "Write a function to evaluate max(n//2 + n//3 + n//4 + n//5, n) for a given integer n, that is, the better of keeping n or breaking it once into those four parts.",
+  "description": "Using the rule g(n) = max(n/2 + n/3 + n/4 + n/5, n) with integer division, applied only once rather than recursively, write a function that returns the maximum sum obtainable for n.",
   "entry_point": "max_split_once",
   "inputs": [
    "(60,)",
@@ -55,7 +55,7 @@
   "id": "variant-p2-001-5",
   "seed": "Mbpp/392",
   "category": "numbers",
-  "description": "Write a function that returns the larger of n and the sum of n // d taken over every divisor d in the given list.",
+  "description": "Write a function that returns the larger of n and the sum of n // d taken over every number d in the given list.",
   "entry_point": "max_split_by_divisors",
   "inputs": [
    "(30, [2, 3, 4, 5])",
@@ -120,7 +120,7 @@
   "id": "variant-p2-002-2",
   "seed": "Mbpp/794",
   "category": "unparsed",
-  "description": "Write a function that uses the regex 'a.*b$' to test whether a string has an 'a' followed by anything and ends in 'b'.",
+  "description": "Using the regex 'a.*b$', write a function to test whether a string has an 'a' followed by anything and ends in 'b'.",
   "entry_point": "match_a_anything_b",
   "inputs": [
    "(\"crab\",)",
@@ -159,7 +159,7 @@
   "id": "variant-p2-002-5",
   "seed": "Mbpp/794",
   "category": "unparsed",
-  "description": "Write a function to select the strings of a list that contain an 'a' followed by anything and end in 'b'.",
+  "description": "Given a list of strings, write a function to select those that contain an 'a' followed by anything and end in 'b'.",
   "entry_point": "filter_a_to_b",
   "inputs": [
    "([\"lab\", \"bal\", \"ab\", \"b\"],)",
@@ -211,7 +211,7 @@
   "id": "variant-p2-003-1",
   "seed": "MbppX/159",
   "category": "strings",
-  "description": "Write a function to return the season ('winter', 'spring', 'summer' or 'autumn') for a month number and a day, where each season spans three months starting with winter in January, but the next season already begins on day 21 of March, June, September and December.",
+  "description": "For a month number and a day, write a function that returns the season ('winter', 'spring', 'summer' or 'autumn'), where each season spans three months starting with winter in January, but the next season already begins on day 21 of March, June, September and December.",
   "entry_point": "season_of_date",
   "inputs": [
    "(3, 25)",
@@ -224,7 +224,7 @@
   "id": "variant-p2-003-2",
   "seed": "MbppX/159",
   "category": "strings",
-  "description": "Given a month number and a day, write a function that returns 'winter', 'spring', 'summer' or 'autumn', where the year starts in winter and the season changes on day 21 of March, June, September and December.",
+  "description": "Write a python function that takes a month number and a day and gives back 'winter', 'spring', 'summer' or 'autumn', where the year starts in winter and the season changes on day 21 of March, June, September and December.",
   "entry_point": "month_day_season",
   "inputs": [
    "(6, 21)",
@@ -315,7 +315,7 @@
   "id": "variant-p2-004-1",
   "seed": "MbppX/229",
   "category": "sequences",
-  "description": "Write a function to rearrange a list so that all negative numbers come before the non-negative ones, keeping the original order within each group.",
+  "description": "Given a list of numbers, write a function that puts all the negative numbers in front of the non-negative ones, keeping the original order within each group.",
   "entry_point": "negatives_first",
   "inputs": [
    "([5, -2, 7, -8, 0, -1],)",
@@ -419,7 +419,7 @@
   "id": "variant-p2-005-1",
   "seed": "MbppX/318",
   "category": "numbers",
-  "description": "Write a python function to find the largest volume of a cuboid whose three whole-number side lengths add up to s.",
+  "description": "A cuboid has whole-number side lengths that add up to s; write a python function to find the largest volume it can have.",
   "entry_point": "largest_cuboid_volume",
   "inputs": [
    "(9,)",
@@ -523,7 +523,7 @@
   "id": "variant-p2-006-1",
   "seed": "MbppX/337",
   "category": "strings",
-  "description": "Write a function that returns 'Found a match!' if a string ends with a word, possibly followed by punctuation, and 'Not matched!' otherwise.",
+  "description": "Write a python function to detect a word at the very end of a string, allowing punctuation after it, and return 'Found a match!' if there is one and 'Not matched!' otherwise.",
   "entry_point": "ends_with_word",
   "inputs": [
    "(\"hello world!\",)",
@@ -627,7 +627,7 @@
   "id": "variant-p2-007-1",
   "seed": "MbppX/408",
   "category": "sequences",
-  "description": "Write a function to find the k pairs [x, y], with x taken from the first list and y from the second, that have the smallest sums, listed in order of increasing sum.",
+  "description": "Write a function that returns the k pairs [x, y] with the smallest sums, where x is taken from the first list and y from the second, listed in order of increasing sum.",
   "entry_point": "smallest_sum_pairs",
   "inputs": [
    "([1, 5, 9], [2, 3], 3)",
@@ -731,7 +731,7 @@
   "id": "variant-p2-008-1",
   "seed": "MbppX/469",
   "category": "sequences",
-  "description": "Write a function to find the maximum profit from a single stock transaction, buying on one day and selling on a later day, given the list of daily prices; return 0 if no profit is possible.",
+  "description": "Given a list of daily stock prices, write a function to compute the best profit from a single transaction that buys on one day and sells on a later day, returning 0 if no profit is possible.",
   "entry_point": "best_single_trade",
   "inputs": [
    "([4, 2, 9, 1, 6],)",
@@ -744,7 +744,7 @@
   "id": "variant-p2-008-2",
   "seed": "MbppX/469",
   "category": "sequences",
-  "description": "Given the prices of a share on consecutive days, write a python function to compute the largest gain from one purchase followed by one later sale, or 0 if prices never rise.",
+  "description": "Write a python function that computes the largest gain from one purchase of a share followed by one later sale, given its prices on consecutive days, or 0 if the prices never rise.",
   "entry_point": "max_gain_one_trade",
   "inputs": [
    "([7, 3, 8, 2, 4],)",
@@ -1056,7 +1056,7 @@
   "id": "variant-p2-011-2",
   "seed": "MbppX/652",
   "category": "nested",
-  "description": "Write a function that flattens a matrix of pairs into a single list of pairs and returns, as a string, the list of its columns with each column as a tuple.",
+  "description": "Given a matrix whose entries are pairs, write a function that lines up all the pairs row by row and returns, as a string, the list of columns they form, each column a tuple.",
   "entry_point": "flatten_pairs_to_columns",
   "inputs": [
    "([[(2, 5), (6, 1), (0, 3)]],)",
@@ -1121,7 +1121,7 @@
   "id": "variant-p2-011-7",
   "seed": "MbppX/652",
   "category": "nested",
-  "description": "Write a function to rebuild a list of pairs from two tuples, the first holding all the first elements and the second all the second elements.",
+  "description": "Given two tuples, the first holding all the first elements of some pairs and the second all their second elements, write a function to rebuild the list of pairs.",
   "entry_point": "columns_to_pairs",
   "inputs": [
    "((1, 3, 5), (2, 4, 6))",
@@ -1160,7 +1160,7 @@
   "id": "variant-p2-012-2",
   "seed": "MbppX/699",
   "category": "strings",
-  "description": "Write a function to find the minimum number of swaps that turns one binary string into another of the same length, where each swap fixes two mismatched positions; return 'Not Possible' when the mismatches cannot be paired up.",
+  "description": "Given two binary strings of the same length, write a function that returns how many swaps turn the first into the second when each swap fixes two mismatched positions, or 'Not Possible' when the mismatches cannot be paired up.",
   "entry_point": "min_swaps_binary",
   "inputs": [
    "('11100', '00111')",
@@ -1186,7 +1186,7 @@
   "id": "variant-p2-012-4",
   "seed": "MbppX/699",
   "category": "strings",
-  "description": "Write a python function to find the minimum number of two-character swaps that turns one binary string into another, returning 'Not Possible' if the two strings contain different numbers of ones.",
+  "description": "Write a python function to find the minimum number of two-character swaps that turns one binary string into another of equal length, returning 'Not Possible' if the two strings contain different numbers of ones.",
   "entry_point": "swaps_if_same_ones",
   "inputs": [
    "('1100', '0011')",
@@ -1251,7 +1251,7 @@
   "id": "variant-p2-013-1",
   "seed": "MbppX/774",
   "category": "strings",
-  "description": "Write a function to check whether a string is a valid email address using the regex '^\\w+@\\w+\\.\\w{2,3}$', returning 'Valid Email' or 'Invalid Email'.",
+  "description": "Using the regex '^\\w+@\\w+\\.\\w{2,3}$', write a function that returns 'Valid Email' if a string is an email address and 'Invalid Email' otherwise.",
   "entry_point": "is_valid_email",
   "inputs": [
    "('sam_lee7@example.com',)",
@@ -1368,7 +1368,7 @@
   "id": "variant-p2-014-2",
   "seed": "MbppX/83",
   "category": "strings",
-  "description": "Write a function to find the character made by adding up the letters of a lowercase word, where a counts as 1, b as 2 and so on, and the total wraps around after 26 back to a.",
+  "description": "For a lowercase word, write a function that adds up its letters, counting a as 1, b as 2 and so on, and returns the letter for that total, wrapping around after 26 back to a.",
   "entry_point": "sum_to_letter",
   "inputs": [
    "('code',)",
@@ -1472,7 +1472,7 @@
   "id": "variant-p2-015-2",
   "seed": "MbppX/915",
   "category": "sequences",
-  "description": "Write a function that rearranges a list of numbers with a lambda sort key so that the positive numbers appear first in increasing order, then any zeros, then the negative numbers in increasing order.",
+  "description": "Using a lambda as the sort key, write a function that orders a list of numbers so that the positive numbers appear first in increasing order, then any zeros, then the negative numbers in increasing order.",
   "entry_point": "rearrange_with_lambda",
   "inputs": [
    "([4, -1, 0, 2, -6],)",

@@ -3,7 +3,7 @@
   "id": "variant-p3-001-1",
   "seed": "Mbpp/596",
   "category": "unparsed",
-  "description": "Write a function to find how many bytes the given tuple occupies in memory, where an empty tuple takes 40 bytes and each element adds 8 bytes.",
+  "description": "Create a function that computes how many bytes the given tuple occupies in memory, where an empty tuple takes 40 bytes and each element adds 8 bytes.",
   "entry_point": "tuple_memory_size",
   "inputs": [
    "(('x', 2, 'y', 4),)",
@@ -68,7 +68,7 @@
   "id": "variant-p3-001-6",
   "seed": "Mbpp/596",
   "category": "unparsed",
-  "description": "Write a function to count the characters of all the string elements of the given tuple together, ignoring elements of other types.",
+  "description": "Given a tuple of mixed values, write a function to count the characters of all its string elements together, ignoring elements of other types.",
   "entry_point": "string_chars_in_tuple",
   "inputs": [
    "(('A', 1, 'BC', 2, 'DEF', 3),)",
@@ -107,7 +107,7 @@
   "id": "variant-p3-002-1",
   "seed": "MbppX/110",
   "category": "nested",
-  "description": "Write a function that, for every range in the list, records the missing range from the end of the previous range (or the start value, for the first range) up to where this range begins, followed by the range from where it ends up to the stop value.",
+  "description": "Given a list of ranges with a start and a stop value, write a function that records, for every range, the missing range from the end of the previous range (or the start value, for the first range) up to where this range begins, followed by the range from where it ends up to the stop value.",
   "entry_point": "missing_ranges",
   "inputs": [
    "([(3, 5), (8, 12)], 1, 20)",
@@ -120,7 +120,7 @@
   "id": "variant-p3-002-2",
   "seed": "MbppX/110",
   "category": "nested",
-  "description": "Write a function to extract the missing ranges of a list of ranges between a start and a stop value: before each range take the stretch from the previous end (initially the start value) to its beginning, and after it the stretch from its end to the stop value.",
+  "description": "Implement a function that lists the missing ranges of a list of ranges between a start and a stop value: before each range, the stretch from the previous end (initially the start value) to its beginning, and after it, the stretch from its end to the stop value.",
   "entry_point": "find_missing_ranges",
   "inputs": [
    "([(5, 9), (20, 25)], 0, 30)",
@@ -149,7 +149,7 @@
   "description": "Given sorted, non-overlapping ranges that lie between a start and a stop value, write a function to return every uncovered stretch from the start value to the stop value.",
   "entry_point": "uncovered_stretches",
   "inputs": [
-   "([(6, 9), (15, 34)], 2, 40)",
+   "([(5, 8), (14, 30)], 1, 40)",
    "([(3, 7)], 0, 10)",
    "([(1, 2), (4, 5), (7, 8)], 0, 9)"
   ],
@@ -201,7 +201,7 @@
   "description": "Write a function to keep only the ranges from the list that lie completely between the given start and stop values, inclusive.",
   "entry_point": "ranges_inside",
   "inputs": [
-   "([(6, 9), (15, 34), (48, 70)], 5, 40)",
+   "([(4, 9), (12, 30), (45, 60)], 3, 35)",
    "([(1, 4)], 2, 10)",
    "([(0, 3), (3, 6)], 0, 6)"
   ],
@@ -211,7 +211,7 @@
   "id": "variant-p3-003-1",
   "seed": "MbppX/177",
   "category": "numbers",
-  "description": "Write a python function that returns two distinct numbers from the range L to R whose least common multiple also lies in that range, or -1 when no such pair exists.",
+  "description": "Create a python function that picks two distinct numbers from the range L to R whose least common multiple also lies in the range, returning -1 when no such pair exists.",
   "entry_point": "lcm_pair",
   "inputs": [
    "(5, 12)",
@@ -240,7 +240,7 @@
   "description": "Write a python function to check whether two distinct numbers can be chosen from the range L to R so that their lcm also falls inside the range.",
   "entry_point": "has_lcm_pair",
   "inputs": [
-   "(3, 8)",
+   "(3, 7)",
    "(5, 9)",
    "(4, 8)"
   ],
@@ -279,7 +279,7 @@
   "description": "Write a python function to find two distinct numbers in the range L to R, where L is at least 0, whose sum also lies in the range, or return -1 if there are none.",
   "entry_point": "sum_pair",
   "inputs": [
-   "(3, 8)",
+   "(5, 12)",
    "(4, 8)",
    "(0, 1)"
   ],
@@ -315,7 +315,7 @@
   "id": "variant-p3-004-1",
   "seed": "MbppX/236",
   "category": "numbers",
-  "description": "Write a python function to count the equilateral triangles of side K, pointing up or down, inside an equilateral triangle of side N that is split into unit triangles; return -1 if K is larger than N.",
+  "description": "Implement a python function that counts the equilateral triangles of side K, pointing up or down, inside an equilateral triangle of side N split into unit triangles, and returns -1 if K is larger than N.",
   "entry_point": "count_triangles",
   "inputs": [
    "(5, 2)",
@@ -344,7 +344,7 @@
   "description": "Write a python function to count the upward-pointing triangles of side K in a triangular grid of side N, returning 0 when K is larger than N.",
   "entry_point": "upward_triangles",
   "inputs": [
-   "(4, 2)",
+   "(5, 3)",
    "(3, 5)",
    "(5, 1)"
   ],
@@ -359,7 +359,7 @@
   "inputs": [
    "(6, 2)",
    "(3, 2)",
-   "(4, 2)"
+   "(5, 2)"
   ],
   "expression": "triangular_1(max(0, a0 - 2 * a1 + 1))"
  },
@@ -383,7 +383,7 @@
   "description": "Write a python function to count the K by K squares that fit in an N by N grid of unit squares, returning -1 if K is larger than N.",
   "entry_point": "count_squares_of_side",
   "inputs": [
-   "(4, 2)",
+   "(5, 3)",
    "(3, 5)",
    "(5, 5)"
   ],
@@ -419,7 +419,7 @@
   "id": "variant-p3-005-1",
   "seed": "MbppX/319",
   "category": "strings",
-  "description": "Write a function to extract every word that is exactly 5 characters long from the given text using regex.",
+  "description": "Using regex, write a function that extracts every word of exactly 5 characters from the given text.",
   "entry_point": "five_char_words",
   "inputs": [
    "('The quick brown fox jumps',)",
@@ -432,7 +432,7 @@
   "id": "variant-p3-005-2",
   "seed": "MbppX/319",
   "category": "strings",
-  "description": "Write a function that returns, in order, all the words of the string that have five characters.",
+  "description": "Create a function returning, in order, all the words of a string that consist of five characters.",
   "entry_point": "words_of_five",
   "inputs": [
    "('Seven brave sailors left early today',)",
@@ -523,7 +523,7 @@
   "id": "variant-p3-006-1",
   "seed": "MbppX/340",
   "category": "sequences",
-  "description": "Write a python function to add up the three smallest numbers greater than zero in the given list.",
+  "description": "Implement a python function that adds up the three smallest numbers greater than zero in the given list.",
   "entry_point": "sum_three_lowest_positive",
   "inputs": [
    "([5, -2, 8, 1, 0, 3],)",
@@ -552,7 +552,7 @@
   "description": "Write a python function to find the sum of the three largest numbers in the given list.",
   "entry_point": "sum_three_largest",
   "inputs": [
-   "([10, 20, 30, 40, 50, 60, 7],)",
+   "([15, 25, 35, 45, 5, 55],)",
    "([5, 1],)",
    "([-4, -9, -1, -7],)"
   ],
@@ -565,7 +565,7 @@
   "description": "Write a python function to return the three smallest positive numbers of the list in increasing order.",
   "entry_point": "three_lowest_positive",
   "inputs": [
-   "([10, 20, 30, 40, 50, 60, 7],)",
+   "([12, 30, 8, 45, 3, 19],)",
    "([0, -4, 2],)",
    "([5, 1, 5, 1, 3],)"
   ],
@@ -627,12 +627,12 @@
   "id": "variant-p3-007-1",
   "seed": "MbppX/416",
   "category": "numbers",
-  "description": "Write a function that breaks a number n once into the three parts n // 2, n // 3 and n // 4 and returns the larger of n and the sum of those parts.",
+  "description": "Create a function that breaks a number n once into the three parts n // 2, n // 3 and n // 4 and returns the larger of n and the sum of those parts.",
   "entry_point": "break_once",
   "inputs": [
-   "(12,)",
+   "(16,)",
    "(11,)",
-   "(24,)"
+   "(40,)"
   ],
   "expression": "max(a0, a0 // 2 + a0 // 3 + a0 // 4)"
  },
@@ -640,10 +640,10 @@
   "id": "variant-p3-007-2",
   "seed": "MbppX/416",
   "category": "numbers",
-  "description": "Write a function to find the largest total obtainable by splitting n into n // 2, n // 3 and n // 4, where each of these parts may be split the same way once more when that gives more, and n stays whole if that is best.",
+  "description": "Implement a function that finds the largest total obtainable by splitting n into n // 2, n // 3 and n // 4, where each of these parts may be split the same way once more when that gives more, and n stays whole if that is best.",
   "entry_point": "break_twice",
   "inputs": [
-   "(24,)",
+   "(32,)",
    "(11,)",
    "(36,)"
   ],
@@ -656,7 +656,7 @@
   "description": "Write a function to find the sum of n // 2, n // 3 and n // 4 for the given number n.",
   "entry_point": "sum_of_parts",
   "inputs": [
-   "(12,)",
+   "(16,)",
    "(5,)",
    "(100,)"
   ],
@@ -669,7 +669,7 @@
   "description": "Write a function to divide a number n into the parts n // 2, n // 3 and n // 4 and return them as a list.",
   "entry_point": "three_parts",
   "inputs": [
-   "(12,)",
+   "(16,)",
    "(1,)",
    "(25,)"
   ],
@@ -682,9 +682,9 @@
   "description": "Write a function to check whether splitting n into n // 2, n // 3 and n // 4 gives parts whose sum is greater than n.",
   "entry_point": "split_is_profitable",
   "inputs": [
-   "(12,)",
-   "(10,)",
-   "(24,)"
+   "(16,)",
+   "(13,)",
+   "(30,)"
   ],
   "expression": "a0 // 2 + a0 // 3 + a0 // 4 > a0"
  },
@@ -695,7 +695,7 @@
   "description": "Write a function to find by how much n // 2 + n // 3 + n // 4 exceeds n, returning 0 when it does not exceed it.",
   "entry_point": "split_gain",
   "inputs": [
-   "(24,)",
+   "(40,)",
    "(7,)",
    "(60,)"
   ],
@@ -710,7 +710,7 @@
   "inputs": [
    "(20,)",
    "(11,)",
-   "(24,)"
+   "(22,)"
   ],
   "expression": "[x for x in range(1, a0 + 1) if x // 2 + x // 3 + x // 4 > x]"
  },
@@ -721,7 +721,7 @@
   "description": "Write a function that replaces each number x of the list by the larger of x and x // 2 + x // 3 + x // 4.",
   "entry_point": "break_each",
   "inputs": [
-   "([12, 5, 24],)",
+   "([16, 5, 40],)",
    "([],)",
    "([100, 1],)"
   ],
@@ -731,7 +731,7 @@
   "id": "variant-p3-008-1",
   "seed": "MbppX/482",
   "category": "strings",
-  "description": "Write a function that uses the regex '[A-Z]+[a-z]+$' to test whether the text ends with uppercase letters followed by lowercase letters, returning 'Yes' or 'No'.",
+  "description": "Using the regex '[A-Z]+[a-z]+$', write a function that tests whether the text ends with uppercase letters followed by lowercase letters, returning 'Yes' or 'No'.",
   "entry_point": "ends_upper_lower",
   "inputs": [
    "('camelCase',)",
@@ -744,7 +744,7 @@
   "id": "variant-p3-008-2",
   "seed": "MbppX/482",
   "category": "strings",
-  "description": "Write a function to search the string with the pattern '[A-Z]+[a-z]+$', which looks for capital letters followed by small letters at the very end, and return 'Yes' on a match and 'No' otherwise.",
+  "description": "Create a function that searches the string with the pattern '[A-Z]+[a-z]+$', which looks for capital letters followed by small letters at the very end, and returns 'Yes' on a match and 'No' otherwise.",
   "entry_point": "capital_then_small",
   "inputs": [
    "('PythonProgram',)",
@@ -835,7 +835,7 @@
   "id": "variant-p3-009-1",
   "seed": "MbppX/533",
   "category": "unparsed",
-  "description": "Write a function to remove all integer elements from the given tuple and return the remaining elements as a list.",
+  "description": "Create a function that removes all integer elements from the given tuple and returns the remaining elements as a list.",
   "entry_point": "remove_ints",
   "inputs": [
    "((3, 'a', 2.5, 7, 'b'),)",
@@ -848,7 +848,7 @@
   "id": "variant-p3-009-2",
   "seed": "MbppX/533",
   "category": "unparsed",
-  "description": "Write a function to remove from the given tuple all elements of the data type named by the second argument, which is 'int', 'float' or 'str', and return the rest as a list.",
+  "description": "Given a tuple and the name of a data type ('int', 'float' or 'str'), write a function that removes every element of that type and returns the rest as a list.",
   "entry_point": "remove_named_type",
   "inputs": [
    "((3, 'a', 2.5, 7, 'b'), 'str')",
@@ -900,7 +900,7 @@
   "id": "variant-p3-009-6",
   "seed": "MbppX/533",
   "category": "unparsed",
-  "description": "Write a function to find the sum of the numbers in a tuple that also contains strings, skipping the string elements.",
+  "description": "Given a tuple that mixes numbers and strings, write a function to find the sum of its numbers, skipping the string elements.",
   "entry_point": "sum_non_strings",
   "inputs": [
    "((4, 'a', 2.5, 'b', 1),)",
@@ -939,7 +939,7 @@
   "id": "variant-p3-010-1",
   "seed": "MbppX/595",
   "category": "strings",
-  "description": "Write a python function to count the fewest swaps that turn one binary string into another of equal length, where each swap fixes two mismatched positions; return 'Not Possible' if the number of mismatches is odd.",
+  "description": "Implement a python function that counts the fewest swaps turning one binary string into another of equal length, where each swap fixes two mismatched positions; return 'Not Possible' if the number of mismatches is odd.",
   "entry_point": "min_swaps_binary",
   "inputs": [
    "('1010', '0101')",
@@ -969,7 +969,7 @@
   "entry_point": "can_swap_into",
   "inputs": [
    "('1100', '0101')",
-   "('111', '110')",
+   "('1011', '1001')",
    "('1010', '0110')"
   ],
   "expression": "a0.count('1') == a1.count('1')"
@@ -983,7 +983,7 @@
   "inputs": [
    "('1101', '1010')",
    "('000', '111')",
-   "('111', '000')"
+   "('1110', '0001')"
   ],
   "expression": "sum(x == '1' and y == '0' for x, y in zip(a0, a1))"
  },
@@ -1007,7 +1007,7 @@
   "description": "Write a python function to list the indices at which two binary strings of equal length differ.",
   "entry_point": "diff_positions",
   "inputs": [
-   "('1101', '1110')",
+   "('1001', '1100')",
    "('000', '000')",
    "('10', '01')"
   ],
@@ -1043,7 +1043,7 @@
   "id": "variant-p3-011-1",
   "seed": "MbppX/656",
   "category": "sequences",
-  "description": "Write a python function to pair the elements of two lists so that the sum of the absolute differences of the pairs is as small as possible, and return that sum.",
+  "description": "Create a python function that pairs the elements of two lists so that the sum of the absolute differences of the pairs is as small as possible, and returns that sum.",
   "entry_point": "min_abs_diff_sum",
   "inputs": [
    "([4, 1, 7], [5, 2, 3])",
@@ -1056,7 +1056,7 @@
   "id": "variant-p3-011-2",
   "seed": "MbppX/656",
   "category": "sequences",
-  "description": "Write a python function to compute the least possible total of |a[i] - b[i]| over all ways of matching the n elements of array a with the n elements of array b.",
+  "description": "Given arrays a and b of n elements each, write a python function to compute the least possible total of |a[i] - b[i]| over all ways of matching their elements.",
   "entry_point": "least_total_difference",
   "inputs": [
    "([5, 9, 1, 3], [2, 8, 4, 6], 4)",
@@ -1111,9 +1111,9 @@
   "description": "Write a python function to sort both lists and return the absolute differences between the elements at each position.",
   "entry_point": "sorted_differences",
   "inputs": [
-   "([3, 2, 1], [2, 1, 3])",
+   "([9, 2, 4], [3, 5, 1])",
    "([5, 1], [2, 8])",
-   "([4, 1, 8, 7], [2, 3, 6, 5])"
+   "([7, 7, 0], [0, 7, 7])"
   ],
   "expression": "[abs(x - y) for x, y in zip(sorted(a0), sorted(a1))]"
  },
@@ -1124,7 +1124,7 @@
   "description": "Write a python function to sort the two lists and find the largest absolute difference between elements that end up at the same position.",
   "entry_point": "max_sorted_difference",
   "inputs": [
-   "([4, 1, 8, 7], [2, 3, 6, 5])",
+   "([9, 2, 4, 6], [1, 8, 3, 2])",
    "([1, 2], [1, 2])",
    "([10, 0], [3, 4])"
   ],
@@ -1137,7 +1137,7 @@
   "description": "Write a python function to find the sum of the absolute differences between elements at the same index of two lists, keeping their original order.",
   "entry_point": "positional_abs_diff_sum",
   "inputs": [
-   "([3, 2, 1], [2, 1, 3])",
+   "([4, 2, 1], [2, 5, 3])",
    "([5], [5])",
    "([-1, 4], [1, -4])"
   ],
@@ -1147,7 +1147,7 @@
   "id": "variant-p3-012-1",
   "seed": "MbppX/719",
   "category": "strings",
-  "description": "Write a function that checks whether a string contains an 'a' followed by zero or more 'b' characters, returning 'Found a match!' or 'Not matched!'.",
+  "description": "Create a function that checks whether a string contains an 'a' followed by zero or more 'b' characters, returning 'Found a match!' or 'Not matched!'.",
   "entry_point": "match_a_bs",
   "inputs": [
    "('dabbc',)",
@@ -1251,7 +1251,7 @@
   "id": "variant-p3-013-1",
   "seed": "MbppX/810",
   "category": "numbers",
-  "description": "Write a function that takes four counts and returns a list in which 'p' is repeated by the first count, 'q' by the second, 'r' by the third and 's' by the fourth, with negative counts treated as zero.",
+  "description": "Given four counts, write a function that returns a list in which 'p' is repeated by the first count, 'q' by the second, 'r' by the third and 's' by the fourth, with negative counts treated as zero.",
   "entry_point": "expand_counts",
   "inputs": [
    "(2, 0, 1, 3)",
@@ -1264,7 +1264,7 @@
   "id": "variant-p3-013-2",
   "seed": "MbppX/810",
   "category": "numbers",
-  "description": "Write a function to list the letters 'p', 'q', 'r' and 's' in that order, each repeated as many times as the matching one of the four given numbers, leaving out letters whose number is zero or less.",
+  "description": "Create a function that lists the letters 'p', 'q', 'r' and 's' in that order, each repeated as many times as the matching one of the four given numbers, leaving out letters whose number is zero or less.",
   "entry_point": "letters_by_count",
   "inputs": [
    "(3, 1, 0, 2)",
@@ -1282,7 +1282,7 @@
   "inputs": [
    "(3, 2)",
    "(0, 4)",
-   "(2, -1)"
+   "(1, 0)"
   ],
   "expression": "'x' * a0 + 'y' * a1"
  },
@@ -1355,7 +1355,7 @@
   "id": "variant-p3-014-1",
   "seed": "MbppX/835",
   "category": "numbers",
-  "description": "Write a python function to compute the slope of the straight line passing through the points (x1, y1) and (x2, y2).",
+  "description": "Implement a python function that computes the slope of the straight line passing through the points (x1, y1) and (x2, y2).",
   "entry_point": "line_slope",
   "inputs": [
    "(1, 1, 3, 5)",
@@ -1446,7 +1446,7 @@
   "id": "variant-p3-014-8",
   "seed": "MbppX/835",
   "category": "numbers",
-  "description": "Write a function to find the slopes of the segments joining consecutive points in a list of (x, y) points.",
+  "description": "Given a list of (x, y) points, write a function to find the slopes of the segments joining consecutive points.",
   "entry_point": "segment_slopes",
   "inputs": [
    "([(0, 0), (1, 2), (3, 3)],)",
@@ -1459,7 +1459,7 @@
   "id": "variant-p3-015-1",
   "seed": "MbppX/917",
   "category": "strings",
-  "description": "Write a function to look for uppercase letters followed by lowercase letters at the end of the text with the regex '[A-Z]+[a-z]+$', returning 'Found a match!' or 'Not matched!'.",
+  "description": "Create a function that looks for uppercase letters followed by lowercase letters at the end of the text with the regex '[A-Z]+[a-z]+$', returning 'Found a match!' or 'Not matched!'.",
   "entry_point": "upper_lower_at_end",
   "inputs": [
    "('aBcDef',)",
@@ -1472,7 +1472,7 @@
   "id": "variant-p3-015-2",
   "seed": "MbppX/917",
   "category": "strings",
-  "description": "Write a function that checks if a string ends in a run of capital letters followed by a run of small letters, using the pattern '[A-Z]+[a-z]+$', and returns 'Found a match!' if so and 'Not matched!' if not.",
+  "description": "Implement a function that checks if a string ends in a run of capital letters followed by a run of small letters, using the pattern '[A-Z]+[a-z]+$', and returns 'Found a match!' if so and 'Not matched!' if not.",
   "entry_point": "capitals_then_smalls",
   "inputs": [
    "('PYTHONic',)",
@@ -1514,8 +1514,8 @@
   "description": "Write a function to count the sequences of one uppercase letter followed by lowercase letters in the string, as found by the regex '[A-Z][a-z]+'.",
   "entry_point": "count_capitalized_runs",
   "inputs": [
-   "('AaBbGg',)",
-   "('PYTHON',)",
+   "('AbCdEf',)",
+   "('NASA',)",
    "('theQuickFox',)"
   ],
   "expression": "len(re.findall('[A-Z][a-z]+', a0))"

@@ -133,14 +133,14 @@
   "id": "variant-p1-002-3",
   "seed": "Mbpp/769",
   "category": "sequences",
-  "description": "Write a python function to get the elements of the first list that do not occur in the second list, keeping their order.",
-  "entry_point": "only_in_first",
+  "description": "Write a python function to find the values of the second list that the first list lacks, without repeats and in ascending order.",
+  "entry_point": "missing_from_first",
   "inputs": [
-   "([4, 8, 15, 16, 23], [8, 16])",
-   "([1, 1, 2], [2])",
-   "([3], [3, 4])"
+   "([1, 2, 3], [4, 2, 6, 4])",
+   "([5, 6], [6, 5])",
+   "([], [9, 3, 9])"
   ],
-  "expression": "[x for x in a0 if x not in a1]"
+  "expression": "sorted(set(a1) - set(a0))"
  },
  {
   "id": "variant-p1-002-4",
