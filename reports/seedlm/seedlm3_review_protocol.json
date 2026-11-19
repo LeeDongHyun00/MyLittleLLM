@@ -12,5 +12,19 @@
  "choice": "the method with the most solved tasks on the extra pool's held-out fifth (94 tasks, judged by each task's three asserts, scripts/seedlm2_holdout.py --reviewer); ties go to review_tie, then coder_reviewer, then review",
  "gate": "validation split: alone, the chosen method solves no fewer than the engine (19 of 45) and in the 1.5B branch-and-select pipeline no fewer than with the engine (31 of 45)",
  "test": "only after the gate: MBPP+ locked split once (alone and both stored pipelines, scripts/seedlm2_tasks.py --reviewer), and HumanEval+ once (the engine with the chosen method, alone and in the pipeline)",
- "not_tuned_on": ["validation", "test", "HumanEval+"]
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ],
+ "addendum_1": {
+  "written": "2026-11-19, after building the operator-first argument bank and checking that its sampler re-executes (10,000 samples, 771 of 780 operators seen), before training any model on it and before any reviewer result",
+  "why": "43 of 780 operators never occur in SeedLM-2's synthetic programs because random arguments do not fit them; specialised operators are what real tasks call",
+  "added_candidates": {
+   "s3-bank": "a coder trained like s2-main (60 minutes, same sizes and shares) with 30% of synthetic programs sampled operator-first from the bank (scripts/seedlm2_train.py --bank-rate 0.3)",
+   "r3-review-bank": "a reviewer trained like r3-review with the same bank rate"
+  },
+  "choice": "the (coder, reviewer, method) triple with the most solved held-out tasks among s2-main or s3-bank as coder and r3-review or r3-review-bank as reviewer, over all ten methods (SeedLM-2's seven and the reviewer's three); ties go to the earlier coder, then the earlier reviewer, then the method order of the original protocol (tie, then review_tie, coder_reviewer, review, then SeedLM-2's order)",
+  "unchanged": "the validation gate, the single MBPP+ test run and the single HumanEval+ run"
+ }
 }

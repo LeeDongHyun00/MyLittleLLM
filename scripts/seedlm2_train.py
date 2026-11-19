@@ -19,7 +19,7 @@ import torch
 
 from mylittlellm.rulecoder import backinfer as bi
 from mylittlellm.rulecoder.tasks import ROOT
-from mylittlellm.seedlm import data2, language, model as seedmodel, propose2
+from mylittlellm.seedlm import argbank, data2, language, model as seedmodel, propose2
 from mylittlellm.seedlm.muon import Muon
 
 V2 = ROOT / "outputs/seedlm/v2"
@@ -113,6 +113,8 @@ def main():
                         help="reject synthetic programs that ignore an argument (mostly) or never change value")
     parser.add_argument("--natural-share", type=float, default=0.0,
                         help="fraction of training rows from teacher-written natural descriptions")
+    parser.add_argument("--bank-rate", type=float, default=0.0,
+                        help="share of synthetic programs sampled operator-first on real-shaped arguments")
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--muon-lr", type=float, default=0.02)
     parser.add_argument("--seed", type=int, default=0)
@@ -132,8 +134,9 @@ def main():
     describer = language.Describer(bi.OPERATORS, phrases)
     operators = list(bi.OPERATORS.values())
     started = time.time()
+    bank = argbank.load() if args.bank_rate else None
     synthetic = data2.build_synthetic(args.train_size, args.seed + 1, vocabulary, describer, operators,
-                                      clean=args.clean)
+                                      clean=args.clean, bank=bank, bank_rate=args.bank_rate)
     held_synthetic = data2.build_synthetic(1000, 99991, vocabulary, describer, operators)
     real = real_rows(vocabulary, "train", random.Random(args.seed + 2))
     copies = max(1, round(args.real_share * len(synthetic) / ((1 - args.real_share) * max(1, len(real)))))

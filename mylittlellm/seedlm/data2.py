@@ -206,11 +206,18 @@ def named_for_training(rng, ops, vocabulary, drop_rate=0.5):
     return names
 
 
-def build_synthetic(count, seed, vocabulary, describer, operators, max_depth=3, clean=False):
+def build_synthetic(count, seed, vocabulary, describer, operators, max_depth=3, clean=False, bank=None,
+                    bank_rate=0.0):
+    """Synthetic rows; with `bank` (seedlm.argbank), a share `bank_rate` is sampled operator-first on
+    real-shaped arguments so that operators random arguments never fit are seen as well."""
+    from . import argbank
     rng = random.Random(seed)
     rows = []
     while len(rows) < count:
-        example = sample(rng, operators, max_depth, clean=clean)
+        if bank and rng.random() < bank_rate:
+            example = argbank.sample(rng, bank, operators)
+        else:
+            example = sample(rng, operators, max_depth, clean=clean)
         if example is None:
             continue
         text = describer.describe(rng, example["program"], example["literals"])

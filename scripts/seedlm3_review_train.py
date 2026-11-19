@@ -23,7 +23,7 @@ import torch
 
 from mylittlellm.rulecoder import backinfer as bi
 from mylittlellm.rulecoder.tasks import ROOT
-from mylittlellm.seedlm import data2, language, model as seedmodel, review
+from mylittlellm.seedlm import argbank, data2, language, model as seedmodel, review
 from mylittlellm.seedlm.muon import Muon
 from seedlm2_train import V2, batches, natural_texts
 
@@ -120,6 +120,8 @@ def main():
     parser.add_argument("--real-share", type=float, default=0.1)
     parser.add_argument("--natural-share", type=float, default=0.1)
     parser.add_argument("--clean", action="store_true")
+    parser.add_argument("--bank-rate", type=float, default=0.0,
+                        help="share of synthetic programs sampled operator-first on real-shaped arguments")
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--muon-lr", type=float, default=0.02)
     parser.add_argument("--coder", default="s2-main", help="whose candidate sets to rank during training")
@@ -139,8 +141,10 @@ def main():
     describer = language.Describer(bi.OPERATORS, phrases)
     started = time.time()
     synthetic = []
+    bank = argbank.load() if args.bank_rate else None
     for _, _, example in data2.build_synthetic(args.train_size, args.seed + 1, vocabulary, describer,
-                                               list(bi.OPERATORS.values()), clean=args.clean):
+                                               list(bi.OPERATORS.values()), clean=args.clean, bank=bank,
+                                               bank_rate=args.bank_rate):
         tokens, start = review.encode(vocabulary, example["program"], example["literals"], example["args"],
                                       example["expected"], example["words"])
         if len(tokens) <= data2.MAX_LENGTH:
