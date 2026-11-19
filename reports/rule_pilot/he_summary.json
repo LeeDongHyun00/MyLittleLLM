@@ -1,0 +1,110 @@
+{
+ "tasks": 164,
+ "with_visible_example": 121,
+ "methods": {
+  "plain": {
+   "solved": 109,
+   "pct": 66.5,
+   "ci95": [
+    58.9,
+    73.2
+   ],
+   "vs_plain": [
+    0,
+    0
+   ],
+   "mcnemar_p": 1.0
+  },
+  "pipeline": {
+   "solved": 110,
+   "pct": 67.1,
+   "ci95": [
+    59.6,
+    73.8
+   ],
+   "vs_plain": [
+    1,
+    0
+   ],
+   "mcnemar_p": 1.0
+  },
+  "engine": {
+   "solved": 22,
+   "pct": 13.4,
+   "ci95": [
+    9.0,
+    19.5
+   ],
+   "vs_plain": [
+    2,
+    89
+   ],
+   "mcnemar_p": 0.0
+  },
+  "seedlm": {
+   "solved": 110,
+   "pct": 67.1,
+   "ci95": [
+    59.6,
+    73.8
+   ],
+   "vs_plain": [
+    1,
+    0
+   ],
+   "mcnemar_p": 1.0
+  },
+  "seedlm_alone": {
+   "solved": 17,
+   "pct": 10.4,
+   "ci95": [
+    6.6,
+    16.0
+   ],
+   "vs_plain": [
+    2,
+    94
+   ],
+   "mcnemar_p": 0.0
+  },
+  "engine_with_seedlm": {
+   "solved": 23,
+   "pct": 14.0,
+   "ci95": [
+    9.5,
+    20.2
+   ],
+   "vs_plain": [
+    2,
+    88
+   ],
+   "mcnemar_p": 0.0
+  },
+  "consensus_lambda0.5": {
+   "solved": 113,
+   "pct": 68.9,
+   "ci95": [
+    61.5,
+    75.5
+   ],
+   "vs_plain": [
+    6,
+    2
+   ],
+   "mcnemar_p": 0.2891
+  },
+  "consensus_lambda0": {
+   "solved": 115,
+   "pct": 70.1,
+   "ci95": [
+    62.7,
+    76.6
+   ],
+   "vs_plain": [
+    6,
+    0
+   ],
+   "mcnemar_p": 0.0312
+  }
+ }
+}
