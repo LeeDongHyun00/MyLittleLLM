@@ -6,7 +6,8 @@
                engine    - the rule engine alone (shipped library, no model)
                pipeline  - the student's answer, replaced by the engine's program only when the answer
                            fails the visible example (branch-and-select without prompt rules)
-               seedlm    - the pipeline with SeedLM-2 (rerank) in place of the engine, if --seedlm
+               seedlm    - the pipeline with SeedLM-2 tie-breaking (the gated method) in place of the engine,
+                           if --seedlm; also SeedLM-2 alone and the engine with its tie-breaking
                consensus - the pipeline plus corroboration-gated consensus, if --samples (lambda 0.5 and 0)
 """
 import argparse
@@ -53,6 +54,8 @@ def main():
     parser.add_argument("command", choices=["targets", "evaluate"])
     parser.add_argument("--base", default="he15-base")
     parser.add_argument("--seedlm")
+    parser.add_argument("--seedlm-method", default="tie",
+                        help="the SeedLM-2 method that passed its own validation gate (reports/seedlm/seedlm2_protocol.json)")
     parser.add_argument("--samples")
     parser.add_argument("--output", default="he_summary.json")
     args = parser.parse_args()
@@ -111,7 +114,7 @@ def main():
             chosen[task_id] = row["final_code"]
             if task["visible_assert"] and not (row["visible_ok"] and row["chosen"] != "backinfer"):
                 view = as_mbpp(task)
-                picked = methods_for(view, net, vocabulary, arities, 32, 40).get("rerank")
+                picked = methods_for(view, net, vocabulary, arities, 32, 40).get(args.seedlm_method)
                 if picked and picked[0]:
                     code = code_for(view, *picked)
                     if public_check(code, task["visible_assert"])["ok"]:
@@ -119,6 +122,18 @@ def main():
                     elif row["chosen"] == "backinfer":
                         chosen[task_id] = base[task_id]["final_code"]
         finals["seedlm"] = chosen
+        # SeedLM-2 on its own and the engine with SeedLM-2's tie-breaking, without the student (diagnostics).
+        alone, engine_tie = {}, {}
+        for task_id, task in tasks.items():
+            alone[task_id] = engine_tie[task_id] = ""
+            if task["visible_assert"]:
+                picked = methods_for(as_mbpp(task), net, vocabulary, arities, 32, 40)
+                for target, name in ((alone, "model"), (engine_tie, args.seedlm_method)):
+                    program = picked.get(name)
+                    if program and program[0]:
+                        target[task_id] = code_for(as_mbpp(task), *program)
+        finals["seedlm_alone"] = alone
+        finals["engine_with_seedlm"] = engine_tie
     if args.samples:
         sys.path.insert(0, str(ROOT / "scripts"))
         from consensus_select import choose

@@ -21,7 +21,7 @@ import torch
 from mylittlellm.rulecoder import backinfer as bi, scoring
 from mylittlellm.rulecoder.pipeline import public_check
 from mylittlellm.rulecoder.tasks import ROOT, load_split, parse_prompt, read_tasks
-from mylittlellm.seedlm import data2, language, propose2
+from mylittlellm.seedlm import data2, language, propose2, review
 
 OUT = ROOT / "outputs/rule_pilot"
 PIPELINES = {"val": ["s15-branch-dev-r3"], "test": ["s15-branch-test-r3", "s05-branch-test-r3"], "train": []}
@@ -32,7 +32,9 @@ def read_jsonl(path):
         return [json.loads(line) for line in stream if line.strip()]
 
 
-def methods_for(task, net, vocabulary, arities, width, keep):
+def methods_for(task, net, vocabulary, arities, width, keep, reviewer=None):
+    """Each method's program for one task; with `reviewer` (net, vocabulary), also SeedLM-3's
+    reviewer methods (reports/seedlm/seedlm3_review_protocol.json)."""
     description, asserts = parse_prompt(task["prompt"])
     example = bi.parse_example(asserts, task["entry_point"])
     if example is None or not example["args"] or len(example["args"]) > data2.MAX_ARGS:
@@ -76,7 +78,32 @@ def methods_for(task, net, vocabulary, arities, width, keep):
     top = [m for m in engine if engine and primary(m) == primary(engine[0])]
     out["tie"] = best_by_model([m["program"] for m in top]) if top else None
     out["fill"] = out["engine"] if engine else out["model"]
+    if reviewer is not None:
+        review_net, review_vocabulary = reviewer
+        pool = []
+        for program in [m["program"] for m in engine] + verified:
+            if program and "?" not in program and program not in pool:
+                pool.append(program)
+        judged = review.scores(review_net, review_vocabulary, pool, literals, example["args"], example["expected"], words)
+        scored = [(s, p) for s, p in zip(judged, pool) if s is not None]
+        out["review"] = max(scored, key=lambda x: x[0])[1] if scored else None
+        tied = [m["program"] for m in top]
+        among = [(s, p) for s, p in scored if p in tied]
+        out["review_tie"] = max(among, key=lambda x: x[0])[1] if among else out["engine"]
+        both = []
+        for s, p in scored:
+            try:
+                both.append((s + propose2.program_log_prob(net, vocabulary, prefix, p), p))
+            except KeyError:
+                continue
+        out["coder_reviewer"] = max(both, key=lambda x: x[0])[1] if both else None
     return {name: (program, literals) for name, program in out.items()}
+
+
+def load_reviewer(name):
+    if not name:
+        return None
+    return propose2.load(ROOT / "outputs/seedlm" / f"{name}.pt")
 
 
 def code_for(task, program, literals):
@@ -92,10 +119,12 @@ def main():
     parser.add_argument("--splits", nargs="+", default=["val"])
     parser.add_argument("--width", type=int, default=32)
     parser.add_argument("--keep", type=int, default=40)
+    parser.add_argument("--reviewer", help="SeedLM-3 reviewer checkpoint: adds review, review_tie, coder_reviewer")
     args = parser.parse_args()
     torch.set_num_threads(4)
     net, vocabulary = propose2.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")
     arities = propose2.arity_table(vocabulary)
+    reviewer = load_reviewer(args.reviewer)
     tasks, split = read_tasks(), load_split()
     problems = scoring.load_problems()
     oracle = scoring.groundtruth(problems)
@@ -110,11 +139,13 @@ def main():
     for part in args.splits:
         started = time.monotonic()
         names = ["engine", "model", "rerank", "open", "gate", "tie", "fill"]
+        if reviewer is not None:
+            names += ["review", "review_tie", "coder_reviewer"]
         alone = {n: 0 for n in names}
         codes = {}
         for task_id in split[part]:
             task = tasks[task_id]
-            chosen = methods_for(task, net, vocabulary, arities, args.width, args.keep)
+            chosen = methods_for(task, net, vocabulary, arities, args.width, args.keep, reviewer)
             codes[task_id] = {}
             for name in names:
                 program, literals = chosen.get(name, (None, ()))
@@ -146,7 +177,9 @@ def main():
         entry["seconds"] = round(time.monotonic() - started)
         report[part] = entry
         print(part, json.dumps(entry), flush=True)
-    (ROOT / "reports/seedlm" / f"tasks2_{args.model}_{'_'.join(args.splits)}.json").write_text(json.dumps(report, indent=1) + "\n")
+    suffix = f"_{args.reviewer}" if args.reviewer else ""
+    (ROOT / "reports/seedlm" / f"tasks2_{args.model}{suffix}_{'_'.join(args.splits)}.json").write_text(
+        json.dumps(report, indent=1) + "\n")
 
 
 if __name__ == "__main__":

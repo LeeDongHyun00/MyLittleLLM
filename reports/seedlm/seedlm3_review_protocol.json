@@ -1,0 +1,16 @@
+{
+ "written": "2026-11-19, before any reviewer was trained beyond a 20-second smoke run, and before any reviewer result on held-out, validation, test or HumanEval+ tasks",
+ "hypothesis": "Among programs that all reproduce the visible example, P(description | program) picks the correct one more often than the engine's hand-set ranking or SeedLM-2's P(program | description), because every candidate is scored on the same words and a program that leaves words unexplained is penalised (coder-reviewer reranking, Zhang et al. 2022).",
+ "reviewer": "scripts/seedlm3_review_train.py, from scratch, same data sources as SeedLM-2 read in the other direction; the first run is r3-review (60 minutes, width 256, 6 layers, real share 0.1, natural share 0.1). If more than one reviewer is trained, the one used is the one whose best method solves the most held-out tasks below; ties go to the earlier run.",
+ "coder": "s2-main (the SeedLM-2 checkpoint already chosen)",
+ "candidates": "the engine's top-40 matches plus SeedLM-2's verified beam proposals (width 32), as in rerank",
+ "methods": {
+  "review": "the candidate with the highest reviewer score",
+  "review_tie": "the reviewer only breaks ties among the engine's best-scored programs (the engine's own choice otherwise)",
+  "coder_reviewer": "the candidate with the highest SeedLM-2 log-probability plus reviewer log-probability"
+ },
+ "choice": "the method with the most solved tasks on the extra pool's held-out fifth (94 tasks, judged by each task's three asserts, scripts/seedlm2_holdout.py --reviewer); ties go to review_tie, then coder_reviewer, then review",
+ "gate": "validation split: alone, the chosen method solves no fewer than the engine (19 of 45) and in the 1.5B branch-and-select pipeline no fewer than with the engine (31 of 45)",
+ "test": "only after the gate: MBPP+ locked split once (alone and both stored pipelines, scripts/seedlm2_tasks.py --reviewer), and HumanEval+ once (the engine with the chosen method, alone and in the pipeline)",
+ "not_tuned_on": ["validation", "test", "HumanEval+"]
+}

@@ -16,7 +16,7 @@ from mylittlellm.rulecoder.sandbox import run_public_asserts
 from mylittlellm.rulecoder.tasks import ROOT
 from mylittlellm.seedlm import propose2
 from seedlm2_real import held_out
-from seedlm2_tasks import code_for, methods_for
+from seedlm2_tasks import code_for, load_reviewer, methods_for
 
 BANK = ROOT / "outputs/rule_pilot/teacher/round3"
 
@@ -26,20 +26,24 @@ def main():
     parser.add_argument("--model", required=True)
     parser.add_argument("--width", type=int, default=32)
     parser.add_argument("--keep", type=int, default=40)
+    parser.add_argument("--reviewer", help="SeedLM-3 reviewer checkpoint: adds review, review_tie, coder_reviewer")
     args = parser.parse_args()
     torch.set_num_threads(4)
     net, vocabulary = propose2.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")
     arities = propose2.arity_table(vocabulary)
+    reviewer = load_reviewer(args.reviewer)
     items = [i for i in json.loads((BANK / "all_tasks.json").read_text())
              if i["source"] == "extra" and held_out(i["task_id"])]
     status = {r["task_id"]: r["after"] for r in json.loads((BANK / "attribution_selected.json").read_text())["results"]}
     names = ["engine", "model", "rerank", "open", "gate", "tie", "fill"]
+    if reviewer is not None:
+        names += ["review", "review_tie", "coder_reviewer"]
     solved = {n: 0 for n in names}
     by_status = {}
     for item in items:
         task = {"prompt": '"""\n' + item["description"] + "\n" + item["visible_assert"] + '\n"""\n',
                 "entry_point": item["entry_point"]}
-        chosen = methods_for(task, net, vocabulary, arities, args.width, args.keep)
+        chosen = methods_for(task, net, vocabulary, arities, args.width, args.keep, reviewer)
         group = by_status.setdefault(status.get(item["task_id"], "?"), {n: 0 for n in names + ["tasks"]})
         group["tasks"] += 1
         for name in names:
@@ -50,8 +54,10 @@ def main():
                 ok = run_public_asserts(code, "\n".join(item["asserts"]))["status"] == "pass"
             solved[name] += ok
             group[name] += ok
-    report = {"model": args.model, "tasks": len(items), "solved": solved, "by_engine_status": by_status}
-    (ROOT / "reports/seedlm" / f"holdout2_{args.model}.json").write_text(json.dumps(report, indent=1) + "\n")
+    report = {"model": args.model, "reviewer": args.reviewer, "tasks": len(items), "solved": solved,
+              "by_engine_status": by_status}
+    suffix = f"_{args.reviewer}" if args.reviewer else ""
+    (ROOT / "reports/seedlm" / f"holdout2_{args.model}{suffix}.json").write_text(json.dumps(report, indent=1) + "\n")
     print(json.dumps(report, indent=1))
 
 
