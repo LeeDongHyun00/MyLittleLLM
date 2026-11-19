@@ -1,0 +1,86 @@
+{
+ "model": "s5-var",
+ "widths": [
+  8,
+  32,
+  128
+ ],
+ "teacher": {
+  "tasks": 139,
+  "by_width": {
+   "8": {
+    "verified": 87,
+    "first": 48,
+    "oracle": 55,
+    "spurious": 1.06,
+    "gold_in_beam": 39,
+    "seconds": 106.6
+   },
+   "32": {
+    "verified": 109,
+    "first": 52,
+    "oracle": 65,
+    "spurious": 3.86,
+    "gold_in_beam": 47,
+    "seconds": 230.9
+   },
+   "128": {
+    "verified": 121,
+    "first": 57,
+    "oracle": 86,
+    "spurious": 14.17,
+    "gold_in_beam": 54,
+    "seconds": 684.2
+   }
+  },
+  "gold_gap_nats": {
+   "scored": 139,
+   "quartiles": [
+    1.05,
+    12.92,
+    27.01
+   ],
+   "within_5": 52,
+   "within_10": 66
+  }
+ },
+ "beyond": {
+  "tasks": 15,
+  "by_width": {
+   "8": {
+    "verified": 8,
+    "first": 5,
+    "oracle": 5,
+    "spurious": 1.53,
+    "gold_in_beam": 2,
+    "seconds": 16.4
+   },
+   "32": {
+    "verified": 9,
+    "first": 5,
+    "oracle": 6,
+    "spurious": 5.27,
+    "gold_in_beam": 2,
+    "seconds": 34.4
+   },
+   "128": {
+    "verified": 11,
+    "first": 5,
+    "oracle": 7,
+    "spurious": 18.87,
+    "gold_in_beam": 2,
+    "seconds": 105.3
+   }
+  },
+  "gold_gap_nats": {
+   "scored": 15,
+   "quartiles": [
+    18.03,
+    29.44,
+    103.53
+   ],
+   "within_5": 2,
+   "within_10": 2
+  }
+ }
+}

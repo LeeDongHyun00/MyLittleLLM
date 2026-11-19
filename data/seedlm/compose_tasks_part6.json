@@ -978,7 +978,7 @@
   "id": "compose-p6-076",
   "pair": 690,
   "category": "numbers",
-  "description": "Given the deposits and withdrawals on an account as a list of amounts, starting from a balance of 0, return for each position the lowest balance reached up to and including that position.",
+  "description": "Given the deposits and withdrawals on an account as a list of amounts, starting from a balance of 0, return for each position the lowest balance reached after any of the amounts up to and including that position.",
   "entry_point": "running_lowest_balance",
   "inputs": [
    "([5, -10, 3, -4],)",
