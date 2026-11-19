@@ -217,9 +217,10 @@ def coder_by_level(model, known, width=32, added=None):
     cap_memory()      # a program's runaway allocation fails instead of killing the run
     net, vocabulary = coder4.load(ROOT / "outputs/seedlm" / f"{model}.pt")
     grammar = coder4.Grammar(vocabulary)
-    out, surprisal = {}, {}
+    out, surprisal, records = {}, {}, {}
     for set_name, tasks in (("teacher_holdout", teacher_cases()), ("beyond", beyond_cases())):
         table = {}
+        records[set_name] = []
         split = {"leaf": [0, 0.0, 0], "known_edges": [0, 0.0, 0], "new_edge": [0, 0.0, 0]}  # tokens, nats, first
         for task in tasks:
             try:
@@ -236,6 +237,7 @@ def coder_by_level(model, known, width=32, added=None):
             row["programs"] += 1
             correct = bool(verified) and task["judge"](verified[0])
             row["first_correct"] += correct
+            records[set_name].append({"level": level, "correct": bool(correct)})
             if added is not None and level in ("tokens", "edges", "twigs"):
                 # Are this program's new pieces among what the arm added (coverage), or not?
                 piece = pieces(task["gold"])
@@ -269,6 +271,11 @@ def coder_by_level(model, known, width=32, added=None):
         surprisal[set_name] = {name: {"tokens": n, "mean_nats": round(total / n, 2) if n else None,
                                       "ranked_first": round(first / n, 3) if n else None}
                                for name, (n, total, first) in split.items()}
+    # Per-task outcomes in the sets' fixed order, so two coders can be compared task by task. They stay
+    # local (outputs/ is not committed): the beyond set belongs to the held-out development fifth.
+    local = ROOT / "outputs/seedlm/verdicts"
+    local.mkdir(parents=True, exist_ok=True)
+    (local / f"fragments_{model}.json").write_text(json.dumps(records) + "\n")
     return out, surprisal
 
 
