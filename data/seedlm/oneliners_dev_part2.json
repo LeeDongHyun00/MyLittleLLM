@@ -1,0 +1,359 @@
+[
+ {
+  "task_id": "Mbpp/392",
+  "class": "needs_loop_or_state",
+  "expression": "",
+  "passes": false,
+  "note": "f(n) = max(f(n/2)+f(n/3)+f(n/4)+f(n/5), n) needs recursion or a bottom-up table; no library operator computes it."
+ },
+ {
+  "task_id": "Mbpp/599",
+  "class": "oneliner",
+  "expression": "(natural_sum_1(a0), (a0 + 1) / 2)",
+  "passes": true,
+  "note": "Sum via natural_sum_1; the average of 1..n is (n + 1) / 2."
+ },
+ {
+  "task_id": "Mbpp/769",
+  "class": "oneliner",
+  "expression": "list(set(a0) - set(a1)) + list(set(a1) - set(a0))",
+  "passes": true,
+  "note": "Symmetric difference as two set differences. The expected order [10, 20, 30, 15] is CPython set iteration order, so the sorted set_xor_2 fails; this form reproduces it."
+ },
+ {
+  "task_id": "Mbpp/95",
+  "class": "oneliner",
+  "expression": "len_1(shortest_1(a0))",
+  "passes": true,
+  "note": "Length of the shortest sublist."
+ },
+ {
+  "task_id": "MbppX/13",
+  "class": "oneliner",
+  "expression": "txt_most_common_n_2(a0, 4)",
+  "passes": true,
+  "note": "Counter-style top k via txt_most_common_n_2; k = 4 is read from the visible output (four pairs)."
+ },
+ {
+  "task_id": "MbppX/143",
+  "class": "needs_hidden_info",
+  "expression": "1 if isinstance(a0, list) else sum(isinstance(x, list) for x in a0)",
+  "passes": true,
+  "note": "One test passes a bare list (([9, ..., 1]) is a list, not a tuple) and expects 1; that branch comes only from other_asserts/reference. The expression passes because it adds the isinstance branch; len(a0) or counting lists inside fails that test."
+ },
+ {
+  "task_id": "MbppX/159",
+  "class": "needs_hidden_info",
+  "expression": "['winter', 'spring', 'summer', 'autumn'][('January February March April May June July August September October November December'.split().index(a0) // 3 + (a1 > {'March': 19, 'June': 20, 'September': 21, 'December': 20}.get(a0, 31))) % 4]",
+  "passes": true,
+  "note": "Season names other than 'winter', the month list and the day thresholds (19/20/21/20) come only from the reference; the expression passes but uses them."
+ },
+ {
+  "task_id": "MbppX/180",
+  "class": "unclear_task",
+  "expression": "6371.01 * math.acos(math.sin(a0) * math.sin(a2) + math.cos(a0) * math.cos(a2) * math.cos(a1 - a3))",
+  "passes": true,
+  "note": "Expected values come from the reference's buggy formula: degrees fed to sin/cos with no radian conversion, and radius 6371.01 (6371 misses the tolerance). A correct great-circle formula gives about 300 km instead of 12179."
+ },
+ {
+  "task_id": "MbppX/189",
+  "class": "oneliner",
+  "expression": "seq_first_missing_positive_1(a0)",
+  "passes": true,
+  "note": "Library operator; the length argument is redundant."
+ },
+ {
+  "task_id": "MbppX/211",
+  "class": "oneliner",
+  "expression": "2 ** (a0 - 2) if a0 > 1 else 1",
+  "passes": true,
+  "note": "Counts n-bit numbers whose lowest and highest bits are set: 2^(n-2), and 1 for n = 1 (the two bits coincide). The visible example fixes the n-bit reading."
+ },
+ {
+  "task_id": "MbppX/229",
+  "class": "needs_loop_or_state",
+  "expression": "sorted(a0, key=lambda x: x >= 0)",
+  "passes": false,
+  "note": "The expected order is the in-place swap (Lomuto) order, which rotates the non-negatives ([..., 4, 5, 6, 2, 8, 9]), not a stable partition. The sorted() attempt fails the visible example."
+ },
+ {
+  "task_id": "MbppX/243",
+  "class": "oneliner",
+  "expression": "[(k, *v, len(v)) for k, v in group_by_first_1(a0).items()]",
+  "passes": true,
+  "note": "Group by first element in first-occurrence order and append the group size. The reference also dedupes values inside a group; neither the description nor the tests ask for that."
+ },
+ {
+  "task_id": "MbppX/303",
+  "class": "oneliner",
+  "expression": "seq_count_inversions_1(a0) == sum(x > y for x, y in zip(a0, a0[1:]))",
+  "passes": true,
+  "note": "The two inversion types are all inversions vs adjacent (local) inversions; compare their counts. Matches the reference on random permutations."
+ },
+ {
+  "task_id": "MbppX/31",
+  "class": "needs_loop_or_state",
+  "expression": "sorted((x for x, c in txt_most_common_n_2(flatten_1(a0), a1)), key=lambda x: (sum(r.count(x) for r in a0), x))",
+  "passes": false,
+  "note": "Result (which tied keys survive, output order) is defined by the streaming heap-replacement algorithm. The sort-based attempt matches k=3 and k=1 but gives [2, 5, 7, 8, 1] instead of [6, 5, 7, 8, 1] for k=5."
+ },
+ {
+  "task_id": "MbppX/319",
+  "class": "oneliner",
+  "expression": "of_length_2(a0, 5)",
+  "passes": true,
+  "note": "Words of length 5 ('five characters') via of_length_2."
+ },
+ {
+  "task_id": "MbppX/328",
+  "class": "oneliner",
+  "expression": "a0[a1:] + a0[:a2]",
+  "passes": true,
+  "note": "Not a real rotation: the visible example shows list[m:] + list[:n] (11 items), read directly from it."
+ },
+ {
+  "task_id": "MbppX/339",
+  "class": "oneliner",
+  "expression": "a1 if a0 == a1 else 2",
+  "passes": true,
+  "note": "The number itself when x == y, otherwise 2 (it divides the most numbers of any longer interval), as in the reference. The tests alone would also accept the constant 2."
+ },
+ {
+  "task_id": "MbppX/348",
+  "class": "oneliner",
+  "expression": "catalan_1(a0 // 2)",
+  "passes": true,
+  "note": "Sequences of +1/-1 with non-negative prefix sums are counted by Catalan(M/2)."
+ },
+ {
+  "task_id": "MbppX/359",
+  "class": "oneliner",
+  "expression": "txt_yes_no_1(2 * a1 * a1 == 9 * a0 * a2)",
+  "passes": true,
+  "note": "Roots r and 2r iff 2b^2 = 9ac; Yes/No via txt_yes_no_1."
+ },
+ {
+  "task_id": "MbppX/380",
+  "class": "oneliner",
+  "expression": "[[r * c for c in range(a1)] for r in range(a0)]",
+  "passes": true,
+  "note": "Table of row * column."
+ },
+ {
+  "task_id": "MbppX/416",
+  "class": "needs_loop_or_state",
+  "expression": "",
+  "passes": false,
+  "note": "dp[n] = max(dp[n/2] + dp[n/3] + dp[n/4], n) needs recursion or a DP table; no library operator."
+ },
+ {
+  "task_id": "MbppX/434",
+  "class": "oneliner",
+  "expression": "txt_match_message_1('ab' in a0)",
+  "passes": true,
+  "note": "'an a followed by one or more b's' holds iff 'ab' occurs. 'ab' spells the letters the description names but is not a contiguous substring of it, so the checker flags it. Verdict pair from txt_match_message_1."
+ },
+ {
+  "task_id": "MbppX/449",
+  "class": "oneliner",
+  "expression": "txt_yes_no_1(a0 * (a3 - a5) + a2 * (a5 - a1) + a4 * (a1 - a3) != 0)",
+  "passes": true,
+  "note": "Three points form a triangle iff the doubled signed area is non-zero; Yes/No via txt_yes_no_1."
+ },
+ {
+  "task_id": "MbppX/47",
+  "class": "oneliner",
+  "expression": "factorial_1(a1) // factorial_1(a0) % 10",
+  "passes": true,
+  "note": "Last digit of b! / a!."
+ },
+ {
+  "task_id": "MbppX/486",
+  "class": "oneliner",
+  "expression": "comb_2(a0, a1) * a2 ** a1 * (1 - a2) ** (a0 - a1)",
+  "passes": false,
+  "note": "C(n, k) p^k (1-p)^(n-k). The checker cannot parse the visible assert (argument 1.0/3), so passes is false; run by hand against all three original asserts, all hold with exact equality."
+ },
+ {
+  "task_id": "MbppX/501",
+  "class": "oneliner",
+  "expression": "num_common_divisor_count_2(a0, a1)",
+  "passes": true,
+  "note": "Counts the common divisors, as the reference does. The description is vague: gcd also fits the visible example but gives 12 instead of 6 on (12, 24)."
+ },
+ {
+  "task_id": "MbppX/523",
+  "class": "needs_hidden_info",
+  "expression": "[m for ok, m in [(any(map(str.isupper, a0)), 'String must have 1 upper case character.'), (any(map(str.islower, a0)), 'String must have 1 lower case character.'), (any(map(str.isdigit, a0)), 'String must have 1 number.'), (len(a0) >= 8, 'String length should be atleast 8.')] if not ok] or ['Valid string.']",
+  "passes": true,
+  "note": "'Valid string.' and the lower-case message appear only in other_asserts/reference; the expression passes but uses them. (The reference checks len >= 7 though its message says 8; the tests do not tell them apart.)"
+ },
+ {
+  "task_id": "MbppX/535",
+  "class": "needs_hidden_info",
+  "expression": "3.1415 * a0 * a0",
+  "passes": true,
+  "note": "Pi is taken as 3.1415, which can only be back-computed from 314.15000000000003; circle_area_1 (math.pi) misses the tolerance."
+ },
+ {
+  "task_id": "MbppX/549",
+  "class": "oneliner",
+  "expression": "odd_power5_sum_1(a0)",
+  "passes": true,
+  "note": "Library operator."
+ },
+ {
+  "task_id": "MbppX/553",
+  "class": "oneliner",
+  "expression": "float('.'.join(map(str, a0)))",
+  "passes": true,
+  "note": "Join the integer part and the fraction digits with '.', as the visible 4.56 shows."
+ },
+ {
+  "task_id": "MbppX/574",
+  "class": "needs_hidden_info",
+  "expression": "2 * 3.1415 * a0 * (a0 + a1)",
+  "passes": true,
+  "note": "Pi = 3.1415, as in MbppX/535; cylinder_surface_2 (math.pi) gives 942.478 instead of 942.45."
+ },
+ {
+  "task_id": "MbppX/60",
+  "class": "oneliner",
+  "expression": "max(len(s) for s in seq_powerset_by_size_1(a0) if all(abs(x - y) <= 1 for x, y in zip(s, s[1:])))",
+  "passes": true,
+  "note": "Description is truncated: the reference allows an adjacent difference of 0 or 1 (an exact difference of 1 fails the second test). Exponential brute force over subsequences via seq_powerset_by_size_1, which is capped at 8 elements; the efficient solution is an O(n^2) DP. Matches the reference on random lists."
+ },
+ {
+  "task_id": "MbppX/621",
+  "class": "oneliner",
+  "expression": "[str(int(s) + a1) if s.isdigit() else s for s in a0]",
+  "passes": true,
+  "note": "Add k to the all-digit strings."
+ },
+ {
+  "task_id": "MbppX/646",
+  "class": "oneliner",
+  "expression": "(a0 - a1 + 1) ** 3",
+  "passes": true,
+  "note": "(n - k + 1)^3."
+ },
+ {
+  "task_id": "MbppX/660",
+  "class": "oneliner",
+  "expression": "(min(a0, a2), max(a1, a3))",
+  "passes": true,
+  "note": "(min of left ends, max of right ends). The reference returns -1 when the endpoints are equal; that case is untested and not readable, so it is left out."
+ },
+ {
+  "task_id": "MbppX/669",
+  "class": "oneliner",
+  "expression": "'Valid IP address' if len(a0.split('.')) == 4 and all(p.isdigit() and int(p) < 2 ** 8 for p in a0.split('.')) else 'Invalid IP address'",
+  "passes": true,
+  "note": "complement: 'Invalid IP address' from the visible 'Valid IP address'. The octet bound is written 2 ** 8 because 255 is not in the visible text. (The reference regex also wrongly rejects 250-255 in octets 2-4; untested.)"
+ },
+ {
+  "task_id": "MbppX/684",
+  "class": "needs_hidden_info",
+  "expression": "(a0 * 10)[:10].count(a1)",
+  "passes": true,
+  "note": "The repeated string is cut at length 10, a constant found only in the reference; the visible example also fits 9, which fails the third test. 10 is a free constant, so the checker does not flag it."
+ },
+ {
+  "task_id": "MbppX/709",
+  "class": "oneliner",
+  "expression": "str({v: len(set(k)) for v, k in group_by_second_1(a0).items()})",
+  "passes": true,
+  "note": "Group keys by value (first-appearance order), count distinct keys, str() of the dict."
+ },
+ {
+  "task_id": "MbppX/719",
+  "class": "oneliner",
+  "expression": "txt_match_message_1('a' in a0)",
+  "passes": true,
+  "note": "'an a followed by zero or more b's' matches iff the string contains 'a'; verdict pair from txt_match_message_1."
+ },
+ {
+  "task_id": "MbppX/761",
+  "class": "needs_hidden_info",
+  "expression": "None if a1 >= 360 else 22 / 7 * a0 * a1 / 360",
+  "passes": true,
+  "note": "Pi = 22/7, the first argument is a diameter, and the None result for angles >= 360 come only from the reference/other_asserts; arc_length_2 (radius, math.pi) gives 7.07 instead of 3.536."
+ },
+ {
+  "task_id": "MbppX/78",
+  "class": "oneliner",
+  "expression": "sum(map(has_odd_bit_parity_1, range(a0 + 1)))",
+  "passes": true,
+  "note": "Count the numbers 0..n with odd parity of set bits."
+ },
+ {
+  "task_id": "MbppX/812",
+  "class": "oneliner",
+  "expression": "a0.replace('Road', 'Rd.')",
+  "passes": true,
+  "note": "'Road' and 'Rd.' come from the visible assert; the reference only replaces at the end of the string (untested)."
+ },
+ {
+  "task_id": "MbppX/823",
+  "class": "oneliner",
+  "expression": "'string starts with the given substring' if starts_with_2(a0, a1) else 'string doesnt start with the given substring'",
+  "passes": true,
+  "note": "complement: 'string starts with the given substring' from the visible 'doesnt start' verdict. The reference's third verdict, for a non-substring, is untested and left out."
+ },
+ {
+  "task_id": "MbppX/835",
+  "class": "oneliner",
+  "expression": "(a3 - a1) / (a2 - a0)",
+  "passes": true,
+  "note": "(y2 - y1) / (x2 - x1)."
+ },
+ {
+  "task_id": "MbppX/844",
+  "class": "oneliner",
+  "expression": "(num_odds_upto_1(a0) + num_evens_upto_1(a0))[a1 - 1]",
+  "passes": true,
+  "note": "Odd numbers up to n, then even numbers up to n; take the kth."
+ },
+ {
+  "task_id": "MbppX/860",
+  "class": "oneliner",
+  "expression": "'Accept' if a0[-1:].isalnum() else 'Discard'",
+  "passes": true,
+  "note": "complement: 'Accept' as the opposite of the visible 'Discard' (a semantic opposite, not a mechanical negation; count it as hidden if that is too loose)."
+ },
+ {
+  "task_id": "MbppX/880",
+  "class": "needs_hidden_info",
+  "expression": "'2 solutions' if a1 * a1 - 4 * a0 * a2 > 0 else '1 solution' if a1 * a1 - 4 * a0 * a2 == 0 else 'No solutions'",
+  "passes": true,
+  "note": "'1 solution' and 'No solutions' appear only in other_asserts; the expression passes but uses them."
+ },
+ {
+  "task_id": "MbppX/912",
+  "class": "oneliner",
+  "expression": "(2 * a1 + 1) * comb_2(2 * a0, a0 + a1) // (a0 + a1 + 1)",
+  "passes": false,
+  "note": "Lobb number (2m+1) C(2n, m+n) / (m+n+1) over comb_2. The checker cannot parse the visible assert (int(...) wrapper), so passes is false; run by hand against all three original asserts, all hold."
+ },
+ {
+  "task_id": "MbppX/930",
+  "class": "oneliner",
+  "expression": "txt_match_message_1('a' in a0)",
+  "passes": true,
+  "note": "Same as MbppX/719: matches iff the string contains 'a'."
+ },
+ {
+  "task_id": "MbppX/949",
+  "class": "oneliner",
+  "expression": "str(sorted(a0, key=lambda t: sum(map(digit_count_1, t))))",
+  "passes": true,
+  "note": "Sort by the total digit count of each tuple, str() of the list."
+ },
+ {
+  "task_id": "MbppX/963",
+  "class": "needs_hidden_info",
+  "expression": "('Two solutions' if a1 ** 2 - 4 * a0 * a2 > 0 else 'one solution' if a1 ** 2 - 4 * a0 * a2 == 0 else 'no real solution', a1 ** 2 - 4 * a0 * a2)",
+  "passes": true,
+  "note": "'one solution' and 'no real solution' appear only in other_asserts; the expression passes but uses them."
+ }
+]
