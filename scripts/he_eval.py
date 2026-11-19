@@ -57,6 +57,8 @@ def main():
     parser.add_argument("--seedlm-method", default="tie",
                         help="the SeedLM-2 method that passed its own validation gate (reports/seedlm/seedlm2_protocol.json)")
     parser.add_argument("--reviewer", help="SeedLM-3 reviewer checkpoint, for the reviewer methods")
+    parser.add_argument("--pyx", help="SeedLM-3 pyx coder checkpoint (reports/seedlm/seedlm3_pyx_protocol.json)")
+    parser.add_argument("--pyx-method", default="pyx_tie_fill")
     parser.add_argument("--samples")
     parser.add_argument("--output", default="he_summary.json")
     args = parser.parse_args()
@@ -135,6 +137,29 @@ def main():
                     target[task_id] = code_for(as_mbpp(task), *program)
         finals["seedlm_alone"] = alone
         finals["engine_with_seedlm"] = engine_with
+    if args.pyx:
+        import torch
+        from mylittlellm.seedlm import coder3
+        from seedlm3_tasks import pyx_methods
+        torch.set_num_threads(4)
+        net, vocabulary = coder3.load(ROOT / "outputs/seedlm" / f"{args.pyx}.pt")
+        grammar = coder3.Grammar(vocabulary)
+        alone, chosen = {}, {}
+        for task_id, task in tasks.items():
+            codes = pyx_methods(as_mbpp(task), net, vocabulary, grammar) if task["visible_assert"] else {}
+            alone[task_id] = codes.get(args.pyx_method) or ""
+            row = pipeline[task_id]
+            chosen[task_id] = row["final_code"]
+            # As in the MBPP+ pipelines: the method replaces the engine where the student's answer fails
+            # the visible example; if it has nothing that reproduces it, the student's first answer stays.
+            if task["visible_assert"] and not (row["visible_ok"] and row["chosen"] != "backinfer"):
+                code = alone[task_id]
+                if code and public_check(code, task["visible_assert"])["ok"]:
+                    chosen[task_id] = code
+                elif row["chosen"] == "backinfer":
+                    chosen[task_id] = base[task_id]["final_code"]
+        finals["pyx_alone"] = alone
+        finals["pyx_pipeline"] = chosen
     if args.samples:
         sys.path.insert(0, str(ROOT / "scripts"))
         from consensus_select import choose
