@@ -1,0 +1,18 @@
+{
+ "written": "2026-11-19, while s6-comp trained, before the execution-MBR diagnostic or the MBR methods ran on any evaluation set; the only earlier run was a 12-task smoke test on held-out teacher tasks to check the code (first verified 5, MBR 4, oracle 6), and a 2-task smoke test on training tasks",
+ "motivation": "On held-out teacher tasks, s5-var's first verified program is correct for 52 tasks at beam width 32 and 57 at width 128, while some verified program is correct for 65 and 86 (reports/seedlm/discovery3_s5-var.json): a selection gap that grows with the beam. The consensus round found that agreement on fresh inputs is evidence of correctness (docs/consensus.md)",
+ "hypothesis": "Among the coder's verified programs, the behaviour carrying the most beam probability on probe inputs (execution minimum Bayes risk) is correct more often than the most probable program",
+ "method": "mylittlellm/seedlm/select.py as of commit 3132898: 24 probe inputs from the consensus probe grammar (type-preserving mutations of the visible example's arguments), each program run with a 0.1 s limit, two programs agree when at least 3 probes give both a value and none differ, a program's support is its own beam probability plus that of every program agreeing with it, ties keep beam order. Nothing here is tuned on any evaluation set",
+ "coder": "the adopted coder when the measures run (s5-var unless a SeedLM-6 arm is adopted first)",
+ "primary_measure": "held-out teacher tasks (139), scripts/seedlm7_mbr.py: tasks whose MBR-chosen program is correct on all three cases, against the first verified program, at widths 32 and 128. Supported if MBR solves at least 5 more than the first program at width 128 and no fewer at width 32; not supported if it solves fewer at either width; inconclusive otherwise",
+ "secondary_measures": [
+  "the same on the held-out engine failures with a teacher one-liner (15), counts only",
+  "on the held-out development fifth (scripts/seedlm4_tasks.py holdout --mbr): pyx_mbr against pyx_model, and pyx_override_mbr against pyx_override, with fixes and breaks against the engine"
+ ],
+ "choice": "an MBR method replaces the adopted method only if it solves more of the held-out development fifth than the adopted coder's best (69 for s5-var); then the validation gate (alone no fewer than the engine's 19 of 45; in the 1.5B pipeline no fewer than 31), one MBPP+ test run and one HumanEval+ run",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
