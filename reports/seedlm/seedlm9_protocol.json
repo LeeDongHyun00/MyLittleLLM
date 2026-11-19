@@ -1,0 +1,19 @@
+{
+ "written": "2026-11-19, after SeedLM-8, before s9-early was trained",
+ "motivation": "In all five recent coders' training curves (first 60 examples of each held-out set at 30, 60 and 90 minutes), held-out teacher tasks and real held-out programs are best at the first checkpoint and then decline while the synthetic set keeps improving (reports/seedlm/seedlm8_protocol.json, outcome). The small sources are repeated 20 to 95 times; after about half an hour the coder overfits them, and the coder used is always the one at the end of training",
+ "hypothesis": "A checkpoint chosen during training by rows held out from the training sources themselves is better on held-out tasks than the end-of-training coder of the same run",
+ "coder": "s9-early: scripts/seedlm4_train.py --name s9-early --minutes 120 --variant-share 0.1 --graft-share 0.1 --compose-share 0.1 --internal-val --checkpoint-minutes 15 (s8-all's mix). A twentieth of the training tasks (real rows, teacher tasks, composed tasks, by a hash of the task id) is kept out of training; every 15 training minutes the coder's top-1 reproduce rate on up to 100 rows of each is averaged, and the best checkpoint (ties: the earlier) is saved as s9-early, the end of training as s9-early-last. No measurement set is used to choose. Nothing else runs on the machine while it trains",
+ "primary_measure": "held-out teacher tasks (139), first verified program at width 32 correct on all three cases (scripts/seedlm5_fragments.py): s9-early against s9-early-last. Supported if at least 5 more; inconclusive at 1 to 4 more; not supported otherwise. If the best checkpoint is the last one, the hypothesis is not supported by construction",
+ "secondary_measures": [
+  "the same against s5-var (52) and s8-all (62)",
+  "held-out development fifth: pyx_model and the best method for both checkpoints (s5-var 57 and 69, s8-all 53 and 67), and engine failures solved by pyx_model",
+  "end-of-training metrics of both checkpoints: real held-out programs, held-out composed tasks, beyond"
+ ],
+ "choice": "s9-early replaces s5-var only if its best method solves more of the held-out development fifth than 69; then the validation gate (alone no fewer than the engine's 19 of 45; in the 1.5B pipeline no fewer than 31), one MBPP+ test run and one HumanEval+ run",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "the held-out teacher tasks and development fifth"
+ ]
+}

@@ -16,6 +16,12 @@ SeedLM-6 adds two sources of new compositions (reports/seedlm/seedlm6_protocol.j
                     from words for each piece (mylittlellm/seedlm/pyx_words.py)
   --compose-share   teacher-written tasks that join two training tasks (data/seedlm/compose_tasks_*.json);
                     a tenth of them (by id) is held out
+
+SeedLM-9 (reports/seedlm/seedlm9_protocol.json): with --internal-val, a twentieth of the training tasks
+(real rows, teacher tasks, composed tasks; by a hash of the task id) is kept out of training, and with
+--checkpoint-minutes the coder is scored on them every so many minutes of training. The best-scoring
+checkpoint is saved as <name>.pt and the last one as <name>-last.pt, each with its own report. The
+measurement sets are never used to choose.
 """
 import hashlib
 import argparse
@@ -76,6 +82,11 @@ def graft_rows(vocabulary, describer, grafts, rng, views=3):
                 rows.append((tokens, start, {"args": args, "literals": graft["literals"], "expected": expected,
                                              "program": graft["tokens"], "mode": "eq"}))
     return rows
+
+
+def internal_val(task_id):
+    """A twentieth of the training tasks, kept out of training only to choose a checkpoint (SeedLM-9)."""
+    return int(hashlib.sha256(("internal:" + task_id).encode()).hexdigest(), 16) % 20 == 0
 
 
 def variant_held(task):
@@ -152,6 +163,10 @@ def main():
     parser.add_argument("--graft-share", type=float, default=0.0, help="share of grafted programs (SeedLM-6)")
     parser.add_argument("--graft-count", type=int, default=20000)
     parser.add_argument("--compose-share", type=float, default=0.0, help="share of composed tasks (SeedLM-6)")
+    parser.add_argument("--internal-val", action="store_true",
+                        help="keep a twentieth of the training tasks out of training, to choose a checkpoint")
+    parser.add_argument("--checkpoint-minutes", type=float, default=0.0,
+                        help="score the internal validation rows every so many training minutes (0: never)")
     parser.add_argument("--views", type=int, default=3)
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--muon-lr", type=float, default=0.02)
@@ -205,6 +220,15 @@ def main():
     composed_train = convert(vocabulary, teacher_rows(vocabulary, composed, held=False, views=args.views), args.blind)
     graft_train = convert(vocabulary, graft_rows(vocabulary, describer, grafts, random.Random(args.seed + 6),
                                                  args.views), args.blind)
+    internal = {}
+    if args.internal_val:
+        def split(rows):
+            return ([r for r in rows if not internal_val(r[2].get("task_id", ""))],
+                    [r for r in rows if internal_val(r[2].get("task_id", ""))])
+        real, internal["real"] = split(real)
+        tasks_train, internal["teacher"] = split(tasks_train)
+        composed_train, internal["composed"] = split(composed_train)
+        internal = {k: v[:100] for k, v in internal.items() if v}
     n = len(synthetic)
     other = (1 - args.real_share - args.teacher_share - args.oneliner_share - args.variant_share
              - args.graft_share - args.compose_share)
@@ -229,7 +253,7 @@ def main():
           f"x{copies(args.variant_share, variants_train)}, composed {len(composed_train)} "
           f"x{copies(args.compose_share, composed_train)}, grafts {len(graft_train)} "
           f"x{copies(args.graft_share, graft_train)}; held-out real {len(held_real)}, variants {len(held_variants)}, "
-          f"composed {len(held_composed)}, "
+          f"composed {len(held_composed)}, internal validation {({k: len(v) for k, v in internal.items()})}, "
           f"teacher {len(held_teacher)}, dev one-liner tasks {sum(e['part'] == 'holdout' for e in oneliners)}; "
           f"mean length {sum(len(r[0]) for r in synthetic[:5000]) / max(1, min(5000, n)):.0f}; "
           f"data in {time.time() - started:.0f}s", flush=True)
@@ -244,6 +268,8 @@ def main():
     optimizers = [Muon(matrices, lr=args.muon_lr, weight_decay=0.01), torch.optim.AdamW(others, lr=args.lr, weight_decay=0.0)]
     base_rates = [[g["lr"] for g in opt.param_groups] for opt in optimizers]
     budget, log, step, seen, smooth = args.minutes * 60, [], 0, 0, None
+    checkpoints, best_state, best_score = [], None, None
+    next_checkpoint = args.checkpoint_minutes * 60 if args.checkpoint_minutes and internal else None
     begin, next_eval, done = time.time(), args.minutes * 60 / 4, False
     evaluating = 0.0        # beam-search evaluation time is not counted against the training budget
 
@@ -284,29 +310,57 @@ def main():
                 evaluating += time.time() - pause
                 log.append(entry)
                 print(json.dumps(entry), flush=True)
+            if next_checkpoint is not None and elapsed >= next_checkpoint:
+                next_checkpoint += args.checkpoint_minutes * 60
+                pause = time.time()
+                scores = {k: evaluate(net, vocabulary, grammar, rows, len(rows))["top1_reproduces"]
+                          for k, rows in internal.items()}
+                score = sum(scores.values()) / len(scores)
+                checkpoints.append({"minutes": round(elapsed / 60, 1), "step": step, "internal": scores,
+                                    "score": round(score, 4)})
+                if best_score is None or score > best_score:       # ties keep the earlier checkpoint
+                    best_score = score
+                    best_state = {k: v.detach().clone() for k, v in net.state_dict().items()}
+                    checkpoints[-1]["best_so_far"] = True
+                evaluating += time.time() - pause
+                print("CHECKPOINT", json.dumps(checkpoints[-1]), flush=True)
     limit = 20 if args.smoke else None
-    final = {"synthetic": evaluate(net, vocabulary, grammar, held_synthetic, limit or 300),
-             "real_holdout": evaluate(net, vocabulary, grammar, held_real, limit or len(held_real)),
-             "teacher_holdout": evaluate(net, vocabulary, grammar, held_teacher, limit or len(held_teacher)),
-             "beyond_holdout": beyond_eval(net, vocabulary, grammar, oneliners)}
-    if held_variants:
-        final["variant_holdout"] = evaluate(net, vocabulary, grammar, held_variants, limit or len(held_variants))
-    if held_composed:
-        final["composed_holdout"] = evaluate(net, vocabulary, grammar, held_composed, limit or len(held_composed))
-    record = {"name": args.name, "kind": "post-coder", "arguments": vars(args), "parameters": net.parameter_count(),
-              "vocabulary": {"size": len(vocabulary), "words": len(vocabulary.words), "program_tokens": len(vocabulary.operators)},
-              "rows": {"synthetic": n, "real": len(real), "teacher_tasks": len(tasks_train), "dev_oneliners": len(lines_train),
-                       "teacher_tasks_total": len(teacher), "variants": len(variants_train),
-                       "variant_tasks_total": len(variants), "composed": len(composed_train),
-                       "composed_tasks_total": len(composed), "grafts": len(graft_train),
-                       "graft_programs": len(grafts)},
-              "steps": step, "sequences_seen": seen, "train_seconds": round(time.time() - begin - evaluating),
-              "curve": log, "final": final, "torch": torch.__version__}
-    if not args.smoke:
-        torch.save({"state": net.state_dict(), "config": config.to_dict(), "vocabulary": vocabulary.to_dict(),
-                    "kind": "post-coder", "blind": args.blind}, ROOT / "outputs/seedlm" / f"{args.name}.pt")
-        (ROOT / "reports/seedlm" / f"{args.name}.json").write_text(json.dumps(record, indent=1) + "\n")
-    print("FINAL", json.dumps(final), "steps", step, flush=True)
+
+    def finish(name, selected=None):
+        final = {"synthetic": evaluate(net, vocabulary, grammar, held_synthetic, limit or 300),
+                 "real_holdout": evaluate(net, vocabulary, grammar, held_real, limit or len(held_real)),
+                 "teacher_holdout": evaluate(net, vocabulary, grammar, held_teacher, limit or len(held_teacher)),
+                 "beyond_holdout": beyond_eval(net, vocabulary, grammar, oneliners)}
+        if held_variants:
+            final["variant_holdout"] = evaluate(net, vocabulary, grammar, held_variants, limit or len(held_variants))
+        if held_composed:
+            final["composed_holdout"] = evaluate(net, vocabulary, grammar, held_composed, limit or len(held_composed))
+        record = {"name": name, "kind": "post-coder", "arguments": vars(args), "parameters": net.parameter_count(),
+                  "vocabulary": {"size": len(vocabulary), "words": len(vocabulary.words),
+                                 "program_tokens": len(vocabulary.operators)},
+                  "rows": {"synthetic": n, "real": len(real), "teacher_tasks": len(tasks_train),
+                           "dev_oneliners": len(lines_train), "teacher_tasks_total": len(teacher),
+                           "variants": len(variants_train), "variant_tasks_total": len(variants),
+                           "composed": len(composed_train), "composed_tasks_total": len(composed),
+                           "grafts": len(graft_train), "graft_programs": len(grafts),
+                           "internal_validation": {k: len(v) for k, v in internal.items()}},
+                  "steps": step, "sequences_seen": seen, "train_seconds": round(time.time() - begin - evaluating),
+                  "curve": log, "checkpoints": checkpoints, "selected": selected, "final": final,
+                  "torch": torch.__version__}
+        if not args.smoke:
+            torch.save({"state": net.state_dict(), "config": config.to_dict(), "vocabulary": vocabulary.to_dict(),
+                        "kind": "post-coder", "blind": args.blind}, ROOT / "outputs/seedlm" / f"{name}.pt")
+            (ROOT / "reports/seedlm" / f"{name}.json").write_text(json.dumps(record, indent=1) + "\n")
+        print("FINAL", name, json.dumps(final), "steps", step, flush=True)
+
+    if best_state is None:
+        finish(args.name)
+    else:
+        finish(args.name + "-last", selected="last checkpoint (end of training)")
+        net.load_state_dict(best_state)
+        chosen = max(checkpoints, key=lambda c: (c["score"], -c["minutes"]))
+        finish(args.name, selected=f"best internal-validation checkpoint: {chosen['minutes']} minutes, "
+                                   f"step {chosen['step']}, score {chosen['score']}")
 
 if __name__ == "__main__":
     main()
