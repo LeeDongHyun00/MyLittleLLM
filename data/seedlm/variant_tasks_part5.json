@@ -153,7 +153,7 @@
    "(50,)",
    "(100,)"
   ],
-  "expression": "(a0 * 6 + 40) * (9 if a0 > 100 else 10) / 10"
+  "expression": "(a0 * 6 + 40) * 9 / 10 if a0 > 100 else a0 * 6 + 40"
  },
  {
   "id": "variant-p5-002-5",
@@ -380,7 +380,7 @@
   "id": "variant-p5-004-6",
   "seed": "MbppX/243",
   "category": "nested",
-  "description": "Write a function that, for each distinct first element of a list of pairs, returns a pair of that element and the number of different second elements that go with it.",
+  "description": "Write a function that returns a list with, for each distinct first element of a list of pairs in order of first appearance, a pair of that element and the number of different second elements that go with it.",
   "entry_point": "distinct_partners",
   "inputs": [
    "([(1, 'a'), (1, 'a'), (2, 'b')],)",

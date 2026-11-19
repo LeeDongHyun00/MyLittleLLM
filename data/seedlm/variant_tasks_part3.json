@@ -255,7 +255,7 @@
   "inputs": [
    "(3,)",
    "(1,)",
-   "(12,)"
+   "(11,)"
   ],
   "expression": "2 * a0"
  },
@@ -982,7 +982,7 @@
   "entry_point": "count_one_zero",
   "inputs": [
    "('1101', '1010')",
-   "('000', '111')",
+   "('0011', '1111')",
    "('1110', '0001')"
   ],
   "expression": "sum(x == '1' and y == '0' for x, y in zip(a0, a1))"
@@ -1033,7 +1033,7 @@
   "description": "Write a python function to find the minimum number of characters that must be flipped to make every character of a binary string the same.",
   "entry_point": "min_flips_uniform",
   "inputs": [
-   "('1101',)",
+   "('1011',)",
    "('0000',)",
    "('010110',)"
   ],
@@ -1047,7 +1047,7 @@
   "entry_point": "min_abs_diff_sum",
   "inputs": [
    "([4, 1, 7], [5, 2, 3])",
-   "([1, 2, 3], [3, 2, 1])",
+   "([2, 4, 6], [6, 2, 4])",
    "([10, -2], [0, 5])"
   ],
   "expression": "sum(abs(x - y) for x, y in zip(sorted(a0), sorted(a1)))"

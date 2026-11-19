@@ -68,7 +68,7 @@
   "id": "variant-p2-001-6",
   "seed": "Mbpp/392",
   "category": "numbers",
-  "description": "Write a function to find by how much the total n//2 + n//3 + n//4 + n//5 exceeds n, returning 0 when it does not exceed n.",
+  "description": "Write a python function that finds by how much the total n//2 + n//3 + n//4 + n//5 exceeds n, returning 0 when it does not exceed n.",
   "entry_point": "split_gain",
   "inputs": [
    "(60,)",
@@ -250,7 +250,7 @@
   "id": "variant-p2-003-4",
   "seed": "MbppX/159",
   "category": "strings",
-  "description": "Write a function to give the meteorological season of a month number: 'winter' for December to February, 'spring' for March to May, 'summer' for June to August and 'autumn' for September to November.",
+  "description": "Write a function that gives the meteorological season of a month number: 'winter' for December to February, 'spring' for March to May, 'summer' for June to August and 'autumn' for September to November.",
   "entry_point": "meteorological_season",
   "inputs": [
    "(12,)",
@@ -341,7 +341,7 @@
   "id": "variant-p2-004-3",
   "seed": "MbppX/229",
   "category": "sequences",
-  "description": "Write a function to move all negative numbers of a list to the end, keeping both the negatives and the other numbers in their original order.",
+  "description": "Write a python function to move all negative numbers of a list to the end, keeping both the negatives and the other numbers in their original order.",
   "entry_point": "negatives_last",
   "inputs": [
    "([-1, 2, -3, 4],)",
@@ -692,7 +692,7 @@
   "id": "variant-p2-007-6",
   "seed": "MbppX/408",
   "category": "sequences",
-  "description": "Write a function to list every pair [x, y], with x from the first list and y from the second, whose sum equals a given target.",
+  "description": "Given two lists and a target, write a function to list every pair [x, y], with x from the first list and y from the second, whose sum equals the target.",
   "entry_point": "pairs_with_sum",
   "inputs": [
    "([1, 2, 3], [4, 5, 6], 7)",
@@ -757,7 +757,7 @@
   "id": "variant-p2-008-3",
   "seed": "MbppX/469",
   "category": "sequences",
-  "description": "Write a function to find the largest fall in price from one day to any later day in a list of daily prices, or 0 if the price never falls.",
+  "description": "Write a python function to find the largest fall in price from one day to any later day in a list of daily prices, or 0 if the price never falls.",
   "entry_point": "largest_price_drop",
   "inputs": [
    "([3, 8, 2, 6, 1],)",
@@ -926,7 +926,7 @@
   "id": "variant-p2-009-8",
   "seed": "MbppX/53",
   "category": "strings",
-  "description": "Write a function to check whether every string in a list starts and ends with the same character.",
+  "description": "Given a list of strings, write a function to check whether every one of them starts and ends with the same character.",
   "entry_point": "all_same_ends",
   "inputs": [
    "(['wow', 'eye', 'gig'],)",
@@ -1004,7 +1004,7 @@
   "id": "variant-p2-010-6",
   "seed": "MbppX/575",
   "category": "numbers",
-  "description": "Write a function to list the numbers from l to r (inclusive) that are not multiples of a, given a, l and r.",
+  "description": "Given a, l and r, write a function to list the numbers from l to r (inclusive) that are not multiples of a.",
   "entry_point": "list_non_multiples",
   "inputs": [
    "(3, 1, 10)",
@@ -1095,7 +1095,7 @@
   "id": "variant-p2-011-5",
   "seed": "MbppX/652",
   "category": "nested",
-  "description": "Write a function to collect the first element of every tuple in a tuple matrix, reading the rows from top to bottom.",
+  "description": "Write a python function to collect the first element of every tuple in a tuple matrix, reading the rows from top to bottom.",
   "entry_point": "first_items_of_matrix",
   "inputs": [
    "([[(3, 1), (6, 2)], [(9, 4)]],)",
@@ -1277,7 +1277,7 @@
   "id": "variant-p2-013-3",
   "seed": "MbppX/774",
   "category": "strings",
-  "description": "Write a function to extract the domain of an email address, that is, the part after the '@' sign.",
+  "description": "Write a python function to extract the domain of an email address, that is, the part after the '@' sign.",
   "entry_point": "email_domain",
   "inputs": [
    "('kim@post.example.org',)",
@@ -1420,7 +1420,7 @@
   "id": "variant-p2-014-6",
   "seed": "MbppX/83",
   "category": "strings",
-  "description": "Write a function to return the lowercase letter at position n of the alphabet (a = 1, ..., z = 26), starting again from a when n goes past 26.",
+  "description": "Write a function that returns the lowercase letter at position n of the alphabet (a = 1, ..., z = 26), starting again from a when n goes past 26.",
   "entry_point": "letter_at_position",
   "inputs": [
    "(3,)",
@@ -1485,7 +1485,7 @@
   "id": "variant-p2-015-3",
   "seed": "MbppX/915",
   "category": "sequences",
-  "description": "Write a function to sort a list so that the positive numbers come first and the negative numbers after them, each group ordered by absolute value.",
+  "description": "Write a function that sorts a list so that the positive numbers come first and the negative numbers after them, each group ordered by absolute value.",
   "entry_point": "sign_groups_by_size",
   "inputs": [
    "([5, -1, 3, -4, -2],)",
