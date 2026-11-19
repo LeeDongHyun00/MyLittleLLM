@@ -1,0 +1,1562 @@
+[
+ {
+  "id": "variant-p5-001-1",
+  "seed": "Mbpp/622",
+  "category": "sequences",
+  "description": "Given two sorted lists that each contain n numbers, write a function to return the median of all 2n numbers taken together.",
+  "entry_point": "median_of_both",
+  "inputs": [
+   "([1, 4, 9], [2, 3, 10], 3)",
+   "([-5, 0], [-2, 7], 2)",
+   "([1, 2, 3, 4], [5, 6, 7, 8], 4)"
+  ],
+  "expression": "seq_median_1(a0 + a1)"
+ },
+ {
+  "id": "variant-p5-001-2",
+  "seed": "Mbpp/622",
+  "category": "sequences",
+  "description": "Write a python function that merges two sorted arrays of equal length n and returns the average of the two middle values of the merged array.",
+  "entry_point": "merged_middle_average",
+  "inputs": [
+   "([3, 8, 11, 20], [1, 9, 13, 14], 4)",
+   "([2, 2], [2, 5], 2)",
+   "([-4, 6, 7], [-3, -1, 0], 3)"
+  ],
+  "expression": "sum(sorted(a0 + a1)[a2 - 1:a2 + 1]) / 2"
+ },
+ {
+  "id": "variant-p5-001-3",
+  "seed": "Mbpp/622",
+  "category": "sequences",
+  "description": "Write a function that takes two sorted lists of the same length n and returns, as a tuple, the two middle elements of their combined sorted order.",
+  "entry_point": "middle_pair",
+  "inputs": [
+   "([1, 5, 9], [2, 6, 8], 3)",
+   "([10, 20], [30, 40], 2)",
+   "([4], [-4], 1)"
+  ],
+  "expression": "tuple(sorted(a0 + a1)[a2 - 1:a2 + 1])"
+ },
+ {
+  "id": "variant-p5-001-4",
+  "seed": "Mbpp/622",
+  "category": "sequences",
+  "description": "Write a function to find the mean of all the numbers contained in two lists.",
+  "entry_point": "mean_of_two_lists",
+  "inputs": [
+   "([1, 12, 15], [2, 13, 17])",
+   "([4, 6], [5])",
+   "([-3], [1, 2, 6])"
+  ],
+  "expression": "sum(a0 + a1) / len(a0 + a1)"
+ },
+ {
+  "id": "variant-p5-001-5",
+  "seed": "Mbpp/622",
+  "category": "sequences",
+  "description": "Write a python function to find the absolute difference between the median of the first sorted list and the median of the second sorted list.",
+  "entry_point": "median_gap",
+  "inputs": [
+   "([1, 3, 5], [2, 10, 12])",
+   "([1, 2, 3, 4], [5, 6])",
+   "([7], [7, 8, 9])"
+  ],
+  "expression": "abs(seq_median_1(a0) - seq_median_1(a1))"
+ },
+ {
+  "id": "variant-p5-001-6",
+  "seed": "Mbpp/622",
+  "category": "sequences",
+  "description": "Write a function to find the median of two sorted lists of the same size n, rounded down to a whole number.",
+  "entry_point": "median_floor",
+  "inputs": [
+   "([2, 7, 9], [1, 4, 12], 3)",
+   "([-5, 0], [-3, 7], 2)",
+   "([3, 3], [4, 4], 2)"
+  ],
+  "expression": "sum(sorted(a0 + a1)[a2 - 1:a2 + 1]) // 2"
+ },
+ {
+  "id": "variant-p5-001-7",
+  "seed": "Mbpp/622",
+  "category": "sequences",
+  "description": "Write a function to find the middle string when all the strings of two lists, which together hold an odd number of strings, are put in alphabetical order.",
+  "entry_point": "middle_word",
+  "inputs": [
+   "(['apple', 'fig'], ['kiwi'])",
+   "(['pear'], ['date', 'lime'])",
+   "(['b', 'd', 'a'], ['c', 'e'])"
+  ],
+  "expression": "sorted(a0 + a1)[len(a0 + a1) // 2]"
+ },
+ {
+  "id": "variant-p5-001-8",
+  "seed": "Mbpp/622",
+  "category": "sequences",
+  "description": "Write a function that adds two equally long lists position by position and returns the median of the resulting sums.",
+  "entry_point": "median_of_sums",
+  "inputs": [
+   "([1, 2, 3], [4, 5, 6])",
+   "([10, 0], [1, 1])",
+   "([5, -2, 8, 1], [0, 3, -1, 2])"
+  ],
+  "expression": "seq_median_1([x + y for x, y in zip(a0, a1)])"
+ },
+ {
+  "id": "variant-p5-002-1",
+  "seed": "MbppX/136",
+  "category": "numbers",
+  "description": "Given the number of units consumed, write a function that computes the electricity bill: below 50 units every unit costs 3 and a surcharge of 25 is added, otherwise the first 50 units cost 3 each, every further unit costs 4 and the surcharge is 35.",
+  "entry_point": "electricity_bill",
+  "inputs": [
+   "(40,)",
+   "(75,)",
+   "(50,)"
+  ],
+  "expression": "a0 * 3 + 25 if a0 < 50 else 50 * 3 + (a0 - 50) * 4 + 35"
+ },
+ {
+  "id": "variant-p5-002-2",
+  "seed": "MbppX/136",
+  "category": "numbers",
+  "description": "Write a python function to work out the bill for the given units of electricity, charging 2 per unit for the first 100 units, 5 per unit for units 101 to 200 and 8 per unit above 200, plus a fixed surcharge of 50.",
+  "entry_point": "tiered_bill",
+  "inputs": [
+   "(150,)",
+   "(75,)",
+   "(265,)"
+  ],
+  "expression": "min(a0, 100) * 2 + max(min(a0, 200) - 100, 0) * 5 + max(a0 - 200, 0) * 8 + 50"
+ },
+ {
+  "id": "variant-p5-002-3",
+  "seed": "MbppX/136",
+  "category": "numbers",
+  "description": "Write a function to find how many units of electricity were used from the total bill, when each unit costs 4 and the bill includes a fixed charge of 30.",
+  "entry_point": "units_from_bill",
+  "inputs": [
+   "(130,)",
+   "(30,)",
+   "(70,)"
+  ],
+  "expression": "(a0 - 30) // 4"
+ },
+ {
+  "id": "variant-p5-002-4",
+  "seed": "MbppX/136",
+  "category": "numbers",
+  "description": "Write a function to calculate a bill of 6 per unit plus a fixed charge of 40, taking 10 percent off the whole bill when more than 100 units are used.",
+  "entry_point": "discounted_bill",
+  "inputs": [
+   "(200,)",
+   "(50,)",
+   "(100,)"
+  ],
+  "expression": "(a0 * 6 + 40) * (9 if a0 > 100 else 10) / 10"
+ },
+ {
+  "id": "variant-p5-002-5",
+  "seed": "MbppX/136",
+  "category": "numbers",
+  "description": "Write a function that returns the tariff slab for the given units: slab 1 for fewer than 50 units, slab 2 for up to 100 units, slab 3 for up to 200 units and slab 4 above 200.",
+  "entry_point": "tariff_slab",
+  "inputs": [
+   "(75,)",
+   "(30,)",
+   "(200,)"
+  ],
+  "expression": "1 if a0 < 50 else 2 if a0 <= 100 else 3 if a0 <= 200 else 4"
+ },
+ {
+  "id": "variant-p5-002-6",
+  "seed": "MbppX/136",
+  "category": "numbers",
+  "description": "Write a function to compute a monthly phone bill where the first 100 minutes are free and every further minute costs 2.",
+  "entry_point": "phone_bill",
+  "inputs": [
+   "(150,)",
+   "(80,)",
+   "(101,)"
+  ],
+  "expression": "max(a0 - 100, 0) * 2"
+ },
+ {
+  "id": "variant-p5-002-7",
+  "seed": "MbppX/136",
+  "category": "numbers",
+  "description": "Write a function to calculate weekly pay from the hours worked and the hourly rate, where every hour beyond 40 is paid at twice the rate.",
+  "entry_point": "weekly_pay",
+  "inputs": [
+   "(45, 10)",
+   "(30, 12)",
+   "(40, 8)"
+  ],
+  "expression": "a1 * (a0 + max(a0 - 40, 0))"
+ },
+ {
+  "id": "variant-p5-002-8",
+  "seed": "MbppX/136",
+  "category": "numbers",
+  "description": "Write a function to compute a bill from the units used, where each of the first 50 units costs a and every unit after the 50th costs b.",
+  "entry_point": "two_rate_bill",
+  "inputs": [
+   "(75, 2, 3)",
+   "(30, 2, 3)",
+   "(50, 4, 9)"
+  ],
+  "expression": "min(a0, 50) * a1 + max(a0 - 50, 0) * a2"
+ },
+ {
+  "id": "variant-p5-003-1",
+  "seed": "MbppX/180",
+  "category": "numbers",
+  "description": "Using the spherical law of cosines with an earth radius of 6371, write a function that returns the distance in kilometres between two places whose latitudes and longitudes are given in radians.",
+  "entry_point": "sphere_distance",
+  "inputs": [
+   "(0.5, 1.2, 0.6, 1.0)",
+   "(0.0, 0.0, 0.0, 1.0)",
+   "(1.0, -0.5, -0.2, 0.3)"
+  ],
+  "expression": "6371 * math.acos(math.sin(a0) * math.sin(a2) + math.cos(a0) * math.cos(a2) * math.cos(a1 - a3))"
+ },
+ {
+  "id": "variant-p5-003-2",
+  "seed": "MbppX/180",
+  "category": "numbers",
+  "description": "Write a python function that takes the latitude and longitude of a start point and of an end point, all in radians, and returns the great-circle distance between them, taking 6371 km as the radius of the earth.",
+  "entry_point": "great_circle_km",
+  "inputs": [
+   "(0.2, 0.3, 0.4, 0.1)",
+   "(-0.7, 2.0, 0.7, 2.0)",
+   "(1.2, 0.0, 1.2, 3.0)"
+  ],
+  "expression": "6371 * math.acos(math.sin(a0) * math.sin(a2) + math.cos(a0) * math.cos(a2) * math.cos(a1 - a3))"
+ },
+ {
+  "id": "variant-p5-003-3",
+  "seed": "MbppX/180",
+  "category": "numbers",
+  "description": "Write a function to find the central angle, in radians, between two points on a sphere whose latitudes and longitudes are given in radians.",
+  "entry_point": "central_angle",
+  "inputs": [
+   "(0.1, 0.2, 0.3, 0.4)",
+   "(0.0, 0.0, 0.0, 2.0)",
+   "(0.9, -1.0, 0.2, 1.5)"
+  ],
+  "expression": "math.acos(math.sin(a0) * math.sin(a2) + math.cos(a0) * math.cos(a2) * math.cos(a1 - a3))"
+ },
+ {
+  "id": "variant-p5-003-4",
+  "seed": "MbppX/180",
+  "category": "numbers",
+  "description": "Write a function to compute the great-circle distance in kilometres between two points whose latitudes and longitudes are given in degrees, converting them to radians first and using an earth radius of 6371.",
+  "entry_point": "distance_from_degrees",
+  "inputs": [
+   "(51.5, 0.0, 48.9, 2.35)",
+   "(0, 0, 0, 90)",
+   "(-33.9, 18.4, 40.7, -74.0)"
+  ],
+  "expression": "6371 * math.acos(math.sin(math.radians(a0)) * math.sin(math.radians(a2)) + math.cos(math.radians(a0)) * math.cos(math.radians(a2)) * math.cos(math.radians(a1 - a3)))"
+ },
+ {
+  "id": "variant-p5-003-5",
+  "seed": "MbppX/180",
+  "category": "numbers",
+  "description": "Write a function to find the Manhattan distance between the points (x1, y1) and (x2, y2), the sum of the absolute differences of their coordinates.",
+  "entry_point": "manhattan_distance",
+  "inputs": [
+   "(1, 2, 4, 6)",
+   "(-3, 5, 2, -1)",
+   "(0, 0, 0, 0)"
+  ],
+  "expression": "abs(a0 - a2) + abs(a1 - a3)"
+ },
+ {
+  "id": "variant-p5-003-6",
+  "seed": "MbppX/180",
+  "category": "numbers",
+  "description": "Write a function to compute the great-circle distance in kilometres between two points given as (latitude, longitude) tuples in radians, using an earth radius of 6371.",
+  "entry_point": "tuple_point_distance",
+  "inputs": [
+   "((0.3, 0.8), (0.5, 1.1))",
+   "((0.0, 0.0), (0.0, 0.5))",
+   "((-0.3, 2.5), (0.4, 2.0))"
+  ],
+  "expression": "6371 * math.acos(math.sin(a0[0]) * math.sin(a1[0]) + math.cos(a0[0]) * math.cos(a1[0]) * math.cos(a0[1] - a1[1]))"
+ },
+ {
+  "id": "variant-p5-003-7",
+  "seed": "MbppX/180",
+  "category": "numbers",
+  "description": "Write a function to find the straight-line distance between two points in space given as (x, y, z) tuples.",
+  "entry_point": "distance_3d",
+  "inputs": [
+   "((1, 2, 3), (4, 6, 3))",
+   "((0, 0, 0), (1, 1, 1))",
+   "((-1, 0, 2), (-1, 0, 2))"
+  ],
+  "expression": "math.dist(a0, a1)"
+ },
+ {
+  "id": "variant-p5-003-8",
+  "seed": "MbppX/180",
+  "category": "numbers",
+  "description": "Write a function to find the midpoint of the segment joining the points (x1, y1) and (x2, y2), returned as a tuple.",
+  "entry_point": "segment_midpoint",
+  "inputs": [
+   "(0, 0, 4, 6)",
+   "(-2, 5, 3, -1)",
+   "(7, 7, 7, 7)"
+  ],
+  "expression": "((a0 + a2) / 2, (a1 + a3) / 2)"
+ },
+ {
+  "id": "variant-p5-004-1",
+  "seed": "MbppX/243",
+  "category": "nested",
+  "description": "Write a function that groups a list of pairs by their first element and returns, for each key in order of first appearance, a tuple of the key, its distinct second values and the number of pairs with that key.",
+  "entry_point": "group_with_counts",
+  "inputs": [
+   "([(3, 'x'), (4, 'y'), (3, 'z')],)",
+   "([('a', 1), ('a', 1), ('b', 2)],)",
+   "([(5, 'p')],)"
+  ],
+  "expression": "[(k,) + tuple(dict.fromkeys(v)) + (len(v),) for k, v in group_by_first_1(a0).items()]"
+ },
+ {
+  "id": "variant-p5-004-2",
+  "seed": "MbppX/243",
+  "category": "nested",
+  "description": "Write a python function to merge the tuples that share the same first item into one tuple holding that item, its different second items in order of appearance, and finally how many tuples were merged.",
+  "entry_point": "merge_and_count",
+  "inputs": [
+   "([('x', 1), ('y', 2), ('x', 3), ('x', 1)],)",
+   "([(1, 'a'), (2, 'b')],)",
+   "([(0, 'k'), (0, 'k'), (0, 'm')],)"
+  ],
+  "expression": "[tuple([k] + list(dict.fromkeys(v)) + [len(v)]) for k, v in group_by_first_1(a0).items()]"
+ },
+ {
+  "id": "variant-p5-004-3",
+  "seed": "MbppX/243",
+  "category": "nested",
+  "description": "Write a function to count how many tuples there are for each distinct first element of a list of tuples, returned as a dictionary.",
+  "entry_point": "count_by_first",
+  "inputs": [
+   "([(1, 'a'), (2, 'b'), (1, 'c')],)",
+   "([('x', 5)],)",
+   "([(7, 1), (7, 2), (7, 3), (8, 4)],)"
+  ],
+  "expression": "{k: len(v) for k, v in group_by_first_1(a0).items()}"
+ },
+ {
+  "id": "variant-p5-004-4",
+  "seed": "MbppX/243",
+  "category": "nested",
+  "description": "Write a function to sort a list of tuples so that tuples whose first element occurs more often in the list come first, keeping the original order among equally frequent ones.",
+  "entry_point": "sort_by_key_frequency",
+  "inputs": [
+   "([(2, 'a'), (1, 'b'), (1, 'c')],)",
+   "([(5, 0), (6, 1), (5, 2), (6, 3), (6, 4)],)",
+   "([(3, 'q'), (4, 'r')],)"
+  ],
+  "expression": "sorted(a0, key=lambda t: -[p[0] for p in a0].count(t[0]))"
+ },
+ {
+  "id": "variant-p5-004-5",
+  "seed": "MbppX/243",
+  "category": "nested",
+  "description": "Write a function to find which first element occurs most often in a list of tuples, choosing the one seen earliest on a tie.",
+  "entry_point": "most_frequent_key",
+  "inputs": [
+   "([(1, 'a'), (2, 'b'), (2, 'c')],)",
+   "([('k', 1), ('m', 2), ('m', 3), ('k', 4)],)",
+   "([(9, 0)],)"
+  ],
+  "expression": "most_common_1([t[0] for t in a0])"
+ },
+ {
+  "id": "variant-p5-004-6",
+  "seed": "MbppX/243",
+  "category": "nested",
+  "description": "Write a function that, for each distinct first element of a list of pairs, returns a pair of that element and the number of different second elements that go with it.",
+  "entry_point": "distinct_partners",
+  "inputs": [
+   "([(1, 'a'), (1, 'a'), (2, 'b')],)",
+   "([('x', 1), ('x', 2), ('y', 3), ('x', 3)],)",
+   "([(4, 4)],)"
+  ],
+  "expression": "[(k, len(set(v))) for k, v in group_by_first_1(a0).items()]"
+ },
+ {
+  "id": "variant-p5-004-7",
+  "seed": "MbppX/243",
+  "category": "nested",
+  "description": "Write a function to list the first elements that are shared by more than one tuple of the list, in order of first appearance.",
+  "entry_point": "repeated_keys",
+  "inputs": [
+   "([(1, 'a'), (2, 'b'), (1, 'c')],)",
+   "([('a', 1), ('b', 2)],)",
+   "([(3, 0), (4, 0), (4, 1), (3, 2)],)"
+  ],
+  "expression": "[k for k, v in group_by_first_1(a0).items() if len(v) > 1]"
+ },
+ {
+  "id": "variant-p5-004-8",
+  "seed": "MbppX/243",
+  "category": "nested",
+  "description": "Write a function to group the second elements of a list of pairs by their first element into a dictionary, with each group of values sorted.",
+  "entry_point": "sorted_groups",
+  "inputs": [
+   "([(1, 'c'), (2, 'b'), (1, 'a')],)",
+   "([('x', 3), ('x', 1), ('x', 2)],)",
+   "([(0, 5), (1, 4)],)"
+  ],
+  "expression": "{k: sorted(v) for k, v in group_by_first_1(a0).items()}"
+ },
+ {
+  "id": "variant-p5-005-1",
+  "seed": "MbppX/324",
+  "category": "sequences",
+  "description": "Write a function that returns a pair: the total of the elements at odd positions of a tuple followed by the total of the elements at even positions, counting positions from 0.",
+  "entry_point": "alternate_totals",
+  "inputs": [
+   "((3, 8, 1, 4, 7),)",
+   "((10, -2, 5, -6),)",
+   "((9,),)"
+  ],
+  "expression": "(sum(a0[1::2]), sum(a0[::2]))"
+ },
+ {
+  "id": "variant-p5-005-2",
+  "seed": "MbppX/324",
+  "category": "sequences",
+  "description": "Write a python function to add up every other element of a tuple, once starting from index 1 and once starting from index 0, and return both totals as a tuple in that order.",
+  "entry_point": "every_other_sums",
+  "inputs": [
+   "((2, 4, 6, 8, 10, 12),)",
+   "((1, 1, 1),)",
+   "((0, 7),)"
+  ],
+  "expression": "(sum(a0[1::2]), sum(a0[::2]))"
+ },
+ {
+  "id": "variant-p5-005-3",
+  "seed": "MbppX/324",
+  "category": "sequences",
+  "description": "Write a function to find the sum of the elements at even indices of a tuple minus the sum of the elements at odd indices.",
+  "entry_point": "alternating_difference",
+  "inputs": [
+   "((4, 1, 7, 2),)",
+   "((1, 9),)",
+   "((5,),)"
+  ],
+  "expression": "sum(a0[::2]) - sum(a0[1::2])"
+ },
+ {
+  "id": "variant-p5-005-4",
+  "seed": "MbppX/324",
+  "category": "sequences",
+  "description": "Write a function to multiply the alternate elements of a tuple, returning the product of the elements at even indices and the product of the elements at odd indices.",
+  "entry_point": "alternate_products",
+  "inputs": [
+   "((2, 3, 4, 5),)",
+   "((1, 2, 3, 4, 5),)",
+   "((7,),)"
+  ],
+  "expression": "(math.prod(a0[::2]), math.prod(a0[1::2]))"
+ },
+ {
+  "id": "variant-p5-005-5",
+  "seed": "MbppX/324",
+  "category": "sequences",
+  "description": "Write a function to check whether the elements at even positions of a list add up to the same total as the elements at odd positions.",
+  "entry_point": "balanced_alternates",
+  "inputs": [
+   "([1, 2, 3, 2],)",
+   "([5, 1, 1],)",
+   "([],)"
+  ],
+  "expression": "sum(a0[::2]) == sum(a0[1::2])"
+ },
+ {
+  "id": "variant-p5-005-6",
+  "seed": "MbppX/324",
+  "category": "sequences",
+  "description": "Write a function to split a tuple into its two alternate chains, the elements at even indices and the elements at odd indices, and return them as a pair of tuples.",
+  "entry_point": "alternate_chains",
+  "inputs": [
+   "((1, 2, 3, 4, 5),)",
+   "(('a', 'b'),)",
+   "((),)"
+  ],
+  "expression": "(a0[::2], a0[1::2])"
+ },
+ {
+  "id": "variant-p5-005-7",
+  "seed": "MbppX/324",
+  "category": "sequences",
+  "description": "Write a function to find the sum of every third element of a list, starting from the first element.",
+  "entry_point": "sum_every_third",
+  "inputs": [
+   "([1, 2, 3, 4, 5, 6, 7],)",
+   "([10, 20],)",
+   "([],)"
+  ],
+  "expression": "sum(a0[::3])"
+ },
+ {
+  "id": "variant-p5-005-8",
+  "seed": "MbppX/324",
+  "category": "sequences",
+  "description": "Write a function to return a tuple of the largest element at an even index and the largest element at an odd index of a list with at least two elements.",
+  "entry_point": "alternate_maxima",
+  "inputs": [
+   "([3, 9, 4, 1, 8],)",
+   "([5, -1],)",
+   "([0, 0, 7, 2],)"
+  ],
+  "expression": "(max(a0[::2]), max(a0[1::2]))"
+ },
+ {
+  "id": "variant-p5-006-1",
+  "seed": "MbppX/374",
+  "category": "strings",
+  "description": "Given a string, write a function that generates every permutation of its characters, keeping repeated arrangements when a character occurs more than once.",
+  "entry_point": "all_permutations",
+  "inputs": [
+   "('cat',)",
+   "('aab',)",
+   "('xyz',)"
+  ],
+  "expression": "txt_permutations_1(a0)"
+ },
+ {
+  "id": "variant-p5-006-2",
+  "seed": "MbppX/374",
+  "category": "strings",
+  "description": "Write a python function to return all the different orderings of the letters of a string, sorted alphabetically.",
+  "entry_point": "distinct_orderings",
+  "inputs": [
+   "('bca',)",
+   "('noo',)",
+   "('aaab',)"
+  ],
+  "expression": "sorted(set(txt_permutations_1(a0)))"
+ },
+ {
+  "id": "variant-p5-006-3",
+  "seed": "MbppX/374",
+  "category": "strings",
+  "description": "Write a function to count the distinct arrangements of the letters of a word.",
+  "entry_point": "count_arrangements",
+  "inputs": [
+   "('book',)",
+   "('abc',)",
+   "('aaa',)"
+  ],
+  "expression": "math.factorial(len(a0)) // math.prod(math.factorial(a0.count(c)) for c in set(a0))"
+ },
+ {
+  "id": "variant-p5-006-4",
+  "seed": "MbppX/374",
+  "category": "strings",
+  "description": "Write a function to find the 1-based position of a word in the alphabetical list of all distinct arrangements of its letters.",
+  "entry_point": "arrangement_rank",
+  "inputs": [
+   "('bca',)",
+   "('aba',)",
+   "('cab',)"
+  ],
+  "expression": "sorted(set(txt_permutations_1(a0))).index(a0) + 1"
+ },
+ {
+  "id": "variant-p5-006-5",
+  "seed": "MbppX/374",
+  "category": "strings",
+  "description": "Write a function to list all rotations of a string, starting with the string itself and each time moving the first character to the end.",
+  "entry_point": "all_rotations",
+  "inputs": [
+   "('abc',)",
+   "('tool',)",
+   "('x',)"
+  ],
+  "expression": "[a0[i:] + a0[:i] for i in range(len(a0))]"
+ },
+ {
+  "id": "variant-p5-006-6",
+  "seed": "MbppX/374",
+  "category": "strings",
+  "description": "Write a function to insert a given character at every possible position of a string and return the list of resulting strings.",
+  "entry_point": "insert_everywhere",
+  "inputs": [
+   "('ab', 'x')",
+   "('', 'z')",
+   "('cat', 's')"
+  ],
+  "expression": "[a0[:i] + a1 + a0[i:] for i in range(len(a0) + 1)]"
+ },
+ {
+  "id": "variant-p5-006-7",
+  "seed": "MbppX/374",
+  "category": "strings",
+  "description": "Write a function to find the permutations of a string that begin with a given character.",
+  "entry_point": "permutations_starting_with",
+  "inputs": [
+   "('abc', 'b')",
+   "('dog', 'g')",
+   "('xyz', 'q')"
+  ],
+  "expression": "[p for p in txt_permutations_1(a0) if p[0] == a1]"
+ },
+ {
+  "id": "variant-p5-006-8",
+  "seed": "MbppX/374",
+  "category": "strings",
+  "description": "Write a function to swap the first character of a string with each of the other characters in turn, returning the list of strings produced.",
+  "entry_point": "swap_first_with_each",
+  "inputs": [
+   "('abc',)",
+   "('abcd',)",
+   "('xy',)"
+  ],
+  "expression": "[a0[i] + a0[1:i] + a0[0] + a0[i + 1:] for i in range(1, len(a0))]"
+ },
+ {
+  "id": "variant-p5-007-1",
+  "seed": "MbppX/431",
+  "category": "predicates",
+  "description": "Write a function to determine whether two lists share any element, returning True if they do and False otherwise.",
+  "entry_point": "share_element",
+  "inputs": [
+   "([4, 7, 1], [9, 1])",
+   "(['x', 'y'], ['z'])",
+   "([], [1, 2])"
+  ],
+  "expression": "any(x in a1 for x in a0)"
+ },
+ {
+  "id": "variant-p5-007-2",
+  "seed": "MbppX/431",
+  "category": "predicates",
+  "description": "Write a python function that returns True when at least one item of the first list also occurs in the second list, and False when none does.",
+  "entry_point": "has_overlap",
+  "inputs": [
+   "(['cat', 'dog'], ['emu', 'dog'])",
+   "([1, 2, 3], [4, 5, 6])",
+   "([0], [0])"
+  ],
+  "expression": "bool(set(a0) & set(a1))"
+ },
+ {
+  "id": "variant-p5-007-3",
+  "seed": "MbppX/431",
+  "category": "predicates",
+  "description": "Write a function to count how many elements of the first list, repeats included, are also present in the second list.",
+  "entry_point": "count_shared",
+  "inputs": [
+   "([1, 2, 3, 4], [2, 4, 6])",
+   "(['a', 'a', 'b'], ['a'])",
+   "([5], [])"
+  ],
+  "expression": "sum(x in a1 for x in a0)"
+ },
+ {
+  "id": "variant-p5-007-4",
+  "seed": "MbppX/431",
+  "category": "predicates",
+  "description": "Write a function to find the first element of the first list that also appears in the second list, or -1 if there is none.",
+  "entry_point": "first_shared",
+  "inputs": [
+   "([3, 8, 5, 1], [1, 5])",
+   "([2, 4], [6])",
+   "([7, 7], [7])"
+  ],
+  "expression": "([x for x in a0 if x in a1] + [-1])[0]"
+ },
+ {
+  "id": "variant-p5-007-5",
+  "seed": "MbppX/431",
+  "category": "predicates",
+  "description": "Write a function to check whether two words have at least one letter in common.",
+  "entry_point": "share_letter",
+  "inputs": [
+   "('apple', 'grape')",
+   "('dog', 'cat')",
+   "('', 'abc')"
+  ],
+  "expression": "any(c in a1 for c in a0)"
+ },
+ {
+  "id": "variant-p5-007-6",
+  "seed": "MbppX/431",
+  "category": "predicates",
+  "description": "Write a function to check whether some value appears in all three of the given lists.",
+  "entry_point": "common_to_three",
+  "inputs": [
+   "([1, 2, 3], [3, 4], [5, 3])",
+   "([1], [1], [2])",
+   "(['a', 'b'], ['b'], ['b', 'c'])"
+  ],
+  "expression": "bool(set(a0) & set(a1) & set(a2))"
+ },
+ {
+  "id": "variant-p5-007-7",
+  "seed": "MbppX/431",
+  "category": "predicates",
+  "description": "Write a function that returns 'Yes' if two lists have no element in common and 'No' otherwise.",
+  "entry_point": "no_overlap",
+  "inputs": [
+   "([1, 2], [3, 4])",
+   "([1, 2], [2])",
+   "([], [])"
+  ],
+  "expression": "'No' if set(a0) & set(a1) else 'Yes'"
+ },
+ {
+  "id": "variant-p5-007-8",
+  "seed": "MbppX/431",
+  "category": "predicates",
+  "description": "Write a function to check whether two lists hold the same value at some common index.",
+  "entry_point": "match_at_index",
+  "inputs": [
+   "([1, 2, 3], [3, 2, 1])",
+   "([1, 2], [2, 1])",
+   "([5], [5, 6])"
+  ],
+  "expression": "any(x == y for x, y in zip(a0, a1))"
+ },
+ {
+  "id": "variant-p5-008-1",
+  "seed": "MbppX/500",
+  "category": "sequences",
+  "description": "Write a function that builds a string by starting with a single space and then appending a space followed by each word of the list in turn.",
+  "entry_point": "spaced_concat",
+  "inputs": [
+   "(['good', 'morning'],)",
+   "(['one'],)",
+   "([],)"
+  ],
+  "expression": "' ' + ''.join(' ' + w for w in a0)"
+ },
+ {
+  "id": "variant-p5-008-2",
+  "seed": "MbppX/500",
+  "category": "sequences",
+  "description": "Write a python function to join the words of a list with single spaces and put two spaces in front of the result.",
+  "entry_point": "indent_join",
+  "inputs": [
+   "(['to', 'be', 'or', 'not'],)",
+   "(['Z'],)",
+   "(['a', 'b'],)"
+  ],
+  "expression": "'  ' + ' '.join(a0)"
+ },
+ {
+  "id": "variant-p5-008-3",
+  "seed": "MbppX/500",
+  "category": "sequences",
+  "description": "Write a function to concatenate all the strings of a list into one string with nothing between them.",
+  "entry_point": "glue_strings",
+  "inputs": [
+   "(['ab', 'cd', 'e'],)",
+   "([],)",
+   "(['x'],)"
+  ],
+  "expression": "''.join(a0)"
+ },
+ {
+  "id": "variant-p5-008-4",
+  "seed": "MbppX/500",
+  "category": "sequences",
+  "description": "Write a function to join the elements of a list, which may be numbers or strings, into one string separated by spaces.",
+  "entry_point": "join_mixed",
+  "inputs": [
+   "([1, 'apple', 2.5],)",
+   "(['a', 'b'],)",
+   "([7],)"
+  ],
+  "expression": "' '.join(str(x) for x in a0)"
+ },
+ {
+  "id": "variant-p5-008-5",
+  "seed": "MbppX/500",
+  "category": "sequences",
+  "description": "Write a function to join the words of a list into a sentence in reverse order, separated by spaces.",
+  "entry_point": "reverse_join",
+  "inputs": [
+   "(['you', 'are', 'how'],)",
+   "(['solo'],)",
+   "(['a', 'b', 'c'],)"
+  ],
+  "expression": "' '.join(a0[::-1])"
+ },
+ {
+  "id": "variant-p5-008-6",
+  "seed": "MbppX/500",
+  "category": "sequences",
+  "description": "Write a function to form a string from the first letter of each word in a list.",
+  "entry_point": "initials",
+  "inputs": [
+   "(['portable', 'network', 'graphics'],)",
+   "(['Hello', 'world'],)",
+   "([],)"
+  ],
+  "expression": "''.join(w[0] for w in a0)"
+ },
+ {
+  "id": "variant-p5-008-7",
+  "seed": "MbppX/500",
+  "category": "sequences",
+  "description": "Write a function to join, with single spaces, only the words of a list that are longer than k characters.",
+  "entry_point": "join_long_words",
+  "inputs": [
+   "(['a', 'rocky', 'day', 'ahead'], 3)",
+   "(['hi', 'yo'], 2)",
+   "(['tree'], 0)"
+  ],
+  "expression": "' '.join(w for w in a0 if len(w) > a1)"
+ },
+ {
+  "id": "variant-p5-008-8",
+  "seed": "MbppX/500",
+  "category": "sequences",
+  "description": "Write a function to join the words of a list into a title, capitalizing each word and separating the words with spaces.",
+  "entry_point": "title_join",
+  "inputs": [
+   "(['the', 'old', 'man'],)",
+   "(['NASA'],)",
+   "(['x', 'y'],)"
+  ],
+  "expression": "' '.join(w.capitalize() for w in a0)"
+ },
+ {
+  "id": "variant-p5-009-1",
+  "seed": "MbppX/553",
+  "category": "sequences",
+  "description": "Write a function that turns a pair of integers into a decimal number, using the first as the whole part and the second as the digits after the decimal point.",
+  "entry_point": "pair_to_decimal",
+  "inputs": [
+   "((3, 14),)",
+   "((0, 5),)",
+   "((12, 75),)"
+  ],
+  "expression": "float(str(a0[0]) + '.' + str(a0[1]))"
+ },
+ {
+  "id": "variant-p5-009-2",
+  "seed": "MbppX/553",
+  "category": "sequences",
+  "description": "Write a python function to join the elements of a tuple with a decimal point and convert the resulting text into a float.",
+  "entry_point": "tuple_join_float",
+  "inputs": [
+   "((9, 99),)",
+   "((100, 1),)",
+   "((-2, 5),)"
+  ],
+  "expression": "float('.'.join(str(x) for x in a0))"
+ },
+ {
+  "id": "variant-p5-009-3",
+  "seed": "MbppX/553",
+  "category": "sequences",
+  "description": "Write a function to split a positive decimal number into a tuple of its whole part and the digits after its decimal point, both as integers.",
+  "entry_point": "decimal_to_pair",
+  "inputs": [
+   "(4.56,)",
+   "(12.5,)",
+   "(0.25,)"
+  ],
+  "expression": "tuple(int(p) for p in str(a0).split('.'))"
+ },
+ {
+  "id": "variant-p5-009-4",
+  "seed": "MbppX/553",
+  "category": "sequences",
+  "description": "Write a function to convert a tuple of two digit strings into a float, the first string giving the whole part and the second the digits after the decimal point.",
+  "entry_point": "strings_to_float",
+  "inputs": [
+   "(('7', '25'),)",
+   "(('0', '05'),)",
+   "(('15', '0'),)"
+  ],
+  "expression": "float(a0[0] + '.' + a0[1])"
+ },
+ {
+  "id": "variant-p5-009-5",
+  "seed": "MbppX/553",
+  "category": "sequences",
+  "description": "Write a function to convert each (whole part, fractional digits) pair in a list into a float.",
+  "entry_point": "pairs_to_floats",
+  "inputs": [
+   "([(1, 5), (2, 25)],)",
+   "([(0, 1)],)",
+   "([],)"
+  ],
+  "expression": "[float(str(a) + '.' + str(b)) for a, b in a0]"
+ },
+ {
+  "id": "variant-p5-009-6",
+  "seed": "MbppX/553",
+  "category": "sequences",
+  "description": "Write a function to convert a tuple of hours and minutes into a number of hours as a float, an hour having 60 minutes.",
+  "entry_point": "hours_as_float",
+  "inputs": [
+   "((2, 30),)",
+   "((0, 45),)",
+   "((1, 0),)"
+  ],
+  "expression": "a0[0] + a0[1] / 60"
+ },
+ {
+  "id": "variant-p5-009-7",
+  "seed": "MbppX/553",
+  "category": "sequences",
+  "description": "Write a function to convert a tuple holding a numerator and a denominator into the floating-point value of the fraction.",
+  "entry_point": "fraction_value",
+  "inputs": [
+   "((3, 4),)",
+   "((10, 4),)",
+   "((-1, 8),)"
+  ],
+  "expression": "a0[0] / a0[1]"
+ },
+ {
+  "id": "variant-p5-009-8",
+  "seed": "MbppX/553",
+  "category": "sequences",
+  "description": "Write a function to turn a tuple of digits into a float whose whole part is the first digit and whose remaining digits come after the decimal point.",
+  "entry_point": "digits_to_float",
+  "inputs": [
+   "((3, 1, 4),)",
+   "((2, 0, 5),)",
+   "((9, 9),)"
+  ],
+  "expression": "float(str(a0[0]) + '.' + ''.join(str(d) for d in a0[1:]))"
+ },
+ {
+  "id": "variant-p5-010-1",
+  "seed": "MbppX/617",
+  "category": "numbers",
+  "description": "Given two jump lengths a and b and a distance d, write a function that returns the number of jumps needed to reach the point (d, 0) from the origin: (d + b - 1) / b if d is at least the longer length b, otherwise 0 when d is 0, 1 when d equals the shorter length and 2 in every other case.",
+  "entry_point": "jumps_needed",
+  "inputs": [
+   "(2, 5, 12)",
+   "(6, 3, 3)",
+   "(2, 5, 4)"
+  ],
+  "expression": "(a2 + max(a0, a1) - 1) / max(a0, a1) if a2 >= max(a0, a1) else 0 if a2 == 0 else 1 if a2 == min(a0, a1) else 2"
+ },
+ {
+  "id": "variant-p5-010-2",
+  "seed": "MbppX/617",
+  "category": "numbers",
+  "description": "Write a python function that counts the jumps from the origin to (d, 0) with jump lengths a and b, returning (d + L - 1) / L when d is at least the larger length L, and otherwise 0 if d is 0, 1 if d is the smaller length, else 2.",
+  "entry_point": "count_jumps",
+  "inputs": [
+   "(10, 4, 30)",
+   "(10, 4, 4)",
+   "(10, 4, 0)"
+  ],
+  "expression": "(a2 + max(a0, a1) - 1) / max(a0, a1) if a2 >= max(a0, a1) else 0 if a2 == 0 else 1 if a2 == min(a0, a1) else 2"
+ },
+ {
+  "id": "variant-p5-010-3",
+  "seed": "MbppX/617",
+  "category": "numbers",
+  "description": "Write a function to find the minimum number of jumps of length k needed to get from the origin to the point (d, 0) in a plane: 0 if d is 0, 1 if d equals k, 2 if d is less than k, and otherwise d divided by k rounded up.",
+  "entry_point": "jumps_single_length",
+  "inputs": [
+   "(5, 12)",
+   "(5, 3)",
+   "(4, 4)"
+  ],
+  "expression": "0 if a1 == 0 else 1 if a1 == a0 else 2 if a1 < a0 else (a1 + a0 - 1) // a0"
+ },
+ {
+  "id": "variant-p5-010-4",
+  "seed": "MbppX/617",
+  "category": "numbers",
+  "description": "Write a function to find the minimum number of jumps needed to cover at least a distance d along a line when each jump can be of length a or b.",
+  "entry_point": "jumps_to_cover",
+  "inputs": [
+   "(2, 7, 20)",
+   "(4, 9, 9)",
+   "(8, 3, 50)"
+  ],
+  "expression": "(a2 + max(a0, a1) - 1) // max(a0, a1)"
+ },
+ {
+  "id": "variant-p5-010-5",
+  "seed": "MbppX/617",
+  "category": "numbers",
+  "description": "Write a function that returns how many jumps of length k land exactly on the point d units away, or -1 if d cannot be reached exactly.",
+  "entry_point": "exact_jumps",
+  "inputs": [
+   "(3, 12)",
+   "(5, 12)",
+   "(2, 0)"
+  ],
+  "expression": "a1 // a0 if a1 % a0 == 0 else -1"
+ },
+ {
+  "id": "variant-p5-010-6",
+  "seed": "MbppX/617",
+  "category": "numbers",
+  "description": "Write a function to find how far short of a distance d you remain after making as many jumps of length k as possible without passing it.",
+  "entry_point": "distance_left",
+  "inputs": [
+   "(4, 11)",
+   "(5, 20)",
+   "(6, 4)"
+  ],
+  "expression": "a1 % a0"
+ },
+ {
+  "id": "variant-p5-010-7",
+  "seed": "MbppX/617",
+  "category": "numbers",
+  "description": "Write a function to find the minimum number of moves a chess king needs to go from the origin to the square (x, y).",
+  "entry_point": "king_moves",
+  "inputs": [
+   "(3, 5)",
+   "(-4, 2)",
+   "(0, 0)"
+  ],
+  "expression": "max(abs(a0), abs(a1))"
+ },
+ {
+  "id": "variant-p5-010-8",
+  "seed": "MbppX/617",
+  "category": "numbers",
+  "description": "Write a function to find how far from the start you get along a line after n jumps whose lengths alternate between a and b, starting with a.",
+  "entry_point": "alternating_jumps",
+  "inputs": [
+   "(3, 4, 5)",
+   "(2, 7, 1)",
+   "(5, 1, 0)"
+  ],
+  "expression": "a0 * ((a2 + 1) // 2) + a1 * (a2 // 2)"
+ },
+ {
+  "id": "variant-p5-011-1",
+  "seed": "MbppX/669",
+  "category": "strings",
+  "description": "Given a string, write a function that returns 'Valid IP address' if it is four numbers from 0 to 255 separated by dots and 'Invalid IP address' otherwise.",
+  "entry_point": "validate_ipv4",
+  "inputs": [
+   "('10.0.255.7',)",
+   "('256.1.1.1',)",
+   "('1.2.3',)"
+  ],
+  "expression": "'Valid IP address' if len(a0.split('.')) == 4 and all(p.isdigit() and int(p) <= 255 for p in a0.split('.')) else 'Invalid IP address'"
+ },
+ {
+  "id": "variant-p5-011-2",
+  "seed": "MbppX/669",
+  "category": "strings",
+  "description": "Write a python function to validate an IPv4 address: the text must consist of exactly four dot-separated decimal parts, each between 0 and 255; return 'Valid IP address' or 'Invalid IP address'.",
+  "entry_point": "ip_status",
+  "inputs": [
+   "('172.16.254.1',)",
+   "('8.8.8.8.8',)",
+   "('12.34.56.ab',)"
+  ],
+  "expression": "'Valid IP address' if a0.count('.') == 3 and all(p.isdigit() and int(p) <= 255 for p in a0.split('.')) else 'Invalid IP address'"
+ },
+ {
+  "id": "variant-p5-011-3",
+  "seed": "MbppX/669",
+  "category": "strings",
+  "description": "Write a function that returns True if a string is a valid IPv4 address made of four dot-separated numbers between 0 and 255, and False otherwise.",
+  "entry_point": "is_ipv4",
+  "inputs": [
+   "('127.0.0.1',)",
+   "('12.34.56',)",
+   "('1.2.3.999',)"
+  ],
+  "expression": "len(a0.split('.')) == 4 and all(p.isdigit() and int(p) <= 255 for p in a0.split('.'))"
+ },
+ {
+  "id": "variant-p5-011-4",
+  "seed": "MbppX/669",
+  "category": "strings",
+  "description": "Write a function to convert a dotted IPv4 address string into the list of its four numbers as integers.",
+  "entry_point": "ip_to_numbers",
+  "inputs": [
+   "('192.168.0.1',)",
+   "('10.0.0.255',)",
+   "('001.02.3.4',)"
+  ],
+  "expression": "[int(p) for p in a0.split('.')]"
+ },
+ {
+  "id": "variant-p5-011-5",
+  "seed": "MbppX/669",
+  "category": "strings",
+  "description": "Write a function to find the class of an IPv4 address from its first number: 'A' if it is below 128, 'B' if it is below 192, and 'C' otherwise.",
+  "entry_point": "ip_class",
+  "inputs": [
+   "('10.1.2.3',)",
+   "('128.0.0.1',)",
+   "('200.100.50.25',)"
+  ],
+  "expression": "'A' if int(a0.split('.')[0]) < 128 else 'B' if int(a0.split('.')[0]) < 192 else 'C'"
+ },
+ {
+  "id": "variant-p5-011-6",
+  "seed": "MbppX/669",
+  "category": "strings",
+  "description": "Write a function to check whether two IPv4 addresses agree in their first three numbers.",
+  "entry_point": "same_network",
+  "inputs": [
+   "('192.168.1.10', '192.168.1.200')",
+   "('10.0.0.1', '10.0.1.1')",
+   "('8.8.8.8', '8.8.8.8')"
+  ],
+  "expression": "a0.split('.')[:3] == a1.split('.')[:3]"
+ },
+ {
+  "id": "variant-p5-011-7",
+  "seed": "MbppX/669",
+  "category": "strings",
+  "description": "Write a function that takes a time written as 'HH:MM' and returns 'Valid' if the hours are at most 23 and the minutes at most 59, and 'Invalid' otherwise.",
+  "entry_point": "check_time",
+  "inputs": [
+   "('13:45',)",
+   "('24:00',)",
+   "('09:60',)"
+  ],
+  "expression": "'Valid' if int(a0[:2]) <= 23 and int(a0[3:]) <= 59 else 'Invalid'"
+ },
+ {
+  "id": "variant-p5-011-8",
+  "seed": "MbppX/669",
+  "category": "strings",
+  "description": "Write a function to count how many strings in a list are valid IPv4 addresses, made of four dot-separated numbers from 0 to 255.",
+  "entry_point": "count_valid_ips",
+  "inputs": [
+   "(['1.1.1.1', '300.1.1.1', 'abc'],)",
+   "(['10.0.0.1', '10.0.0.2'],)",
+   "([],)"
+  ],
+  "expression": "sum(len(s.split('.')) == 4 and all(p.isdigit() and int(p) <= 255 for p in s.split('.')) for s in a0)"
+ },
+ {
+  "id": "variant-p5-012-1",
+  "seed": "MbppX/746",
+  "category": "numbers",
+  "description": "Taking pi as 22/7 and a full turn as 360 degrees, write a function that returns the area of a sector with radius r and central angle a in degrees, or -1 when a is 360 or more.",
+  "entry_point": "sector_area_or_flag",
+  "inputs": [
+   "(7, 90)",
+   "(14, 360)",
+   "(3, 60)"
+  ],
+  "expression": "(22 / 7 * a0 ** 2) * (a1 / 360) if a1 < 360 else -1"
+ },
+ {
+  "id": "variant-p5-012-2",
+  "seed": "MbppX/746",
+  "category": "numbers",
+  "description": "Given the radius and the central angle in degrees, write a python function that computes the sector's area as a share of a full 360 degrees with pi approximated by 22/7, giving -1 for angles of 360 degrees and above.",
+  "entry_point": "sector_area_approx",
+  "inputs": [
+   "(14, 45)",
+   "(2, 180)",
+   "(5, 400)"
+  ],
+  "expression": "(22 / 7 * a0 ** 2) * (a1 / 360) if a1 < 360 else -1"
+ },
+ {
+  "id": "variant-p5-012-3",
+  "seed": "MbppX/746",
+  "category": "numbers",
+  "description": "Write a function to find the perimeter of a sector, its two radii plus its arc, for radius r and angle a in degrees, using 22/7 for pi and 360 degrees in a full circle.",
+  "entry_point": "sector_perimeter",
+  "inputs": [
+   "(7, 90)",
+   "(14, 180)",
+   "(1, 60)"
+  ],
+  "expression": "2 * a0 + 2 * 22 / 7 * a0 * a1 / 360"
+ },
+ {
+  "id": "variant-p5-012-4",
+  "seed": "MbppX/746",
+  "category": "numbers",
+  "description": "Write a function to find the area of a semicircle of radius r, using 22/7 as the value of pi.",
+  "entry_point": "semicircle_area",
+  "inputs": [
+   "(7,)",
+   "(1,)",
+   "(10,)"
+  ],
+  "expression": "22 / 7 * a0 * a0 / 2"
+ },
+ {
+  "id": "variant-p5-012-5",
+  "seed": "MbppX/746",
+  "category": "numbers",
+  "description": "Write a function to find the area of a sector of radius r whose central angle t is given in radians.",
+  "entry_point": "sector_area_radians",
+  "inputs": [
+   "(2, 1.5)",
+   "(10, 0.5)",
+   "(3, 2)"
+  ],
+  "expression": "a0 * a0 * a1 / 2"
+ },
+ {
+  "id": "variant-p5-012-6",
+  "seed": "MbppX/746",
+  "category": "numbers",
+  "description": "Write a function to find the central angle in degrees of a sector with the given area and radius, using 22/7 for pi and 360 degrees for a full circle.",
+  "entry_point": "sector_angle",
+  "inputs": [
+   "(77, 14)",
+   "(154, 7)",
+   "(11, 7)"
+  ],
+  "expression": "a0 * 360 / (22 / 7 * a1 * a1)"
+ },
+ {
+  "id": "variant-p5-012-7",
+  "seed": "MbppX/746",
+  "category": "numbers",
+  "description": "Write a function to find the area of a circle of radius r that remains after cutting out a sector with a central angle of a degrees, using 22/7 for pi and 360 degrees in a full turn.",
+  "entry_point": "remaining_area",
+  "inputs": [
+   "(7, 90)",
+   "(14, 0)",
+   "(2, 270)"
+  ],
+  "expression": "22 / 7 * a0 * a0 * (360 - a1) / 360"
+ },
+ {
+  "id": "variant-p5-012-8",
+  "seed": "MbppX/746",
+  "category": "numbers",
+  "description": "Write a function to find the area of a sector with radius r and angle a in degrees using math.pi, rounded to 2 decimal places, where a full turn is 360 degrees.",
+  "entry_point": "sector_area_rounded",
+  "inputs": [
+   "(5, 72)",
+   "(1, 360)",
+   "(10, 30)"
+  ],
+  "expression": "round(math.pi * a0 ** 2 * a1 / 360, 2)"
+ },
+ {
+  "id": "variant-p5-013-1",
+  "seed": "MbppX/819",
+  "category": "sequences",
+  "description": "Write a function that, for each run of equal adjacent numbers in a list, records the number and the length of the run, returning the list of numbers and the list of lengths as a pair.",
+  "entry_point": "runs_and_lengths",
+  "inputs": [
+   "([7, 7, 3, 3, 3, 7],)",
+   "([1, 2],)",
+   "([0, 0, 0, 0],)"
+  ],
+  "expression": "([g[0] for g in pack_consecutive_1(a0)], [len(g) for g in pack_consecutive_1(a0)])"
+ },
+ {
+  "id": "variant-p5-013-2",
+  "seed": "MbppX/819",
+  "category": "sequences",
+  "description": "Write a python function to compress a list into two lists: the values of the consecutive groups of equal elements and how many times each value repeats within its group.",
+  "entry_point": "group_values_counts",
+  "inputs": [
+   "([5, 5, 6, 5, 5, 5],)",
+   "([9, 8, 8],)",
+   "([4, 4],)"
+  ],
+  "expression": "([v for n, v in run_lengths_1(a0)], [n for n, v in run_lengths_1(a0)])"
+ },
+ {
+  "id": "variant-p5-013-3",
+  "seed": "MbppX/819",
+  "category": "sequences",
+  "description": "Write a function to find the length of the longest run of equal consecutive elements in a list.",
+  "entry_point": "longest_run",
+  "inputs": [
+   "([1, 2, 2, 2, 3, 3],)",
+   "([5, 6, 7],)",
+   "(['a', 'a', 'b', 'a'],)"
+  ],
+  "expression": "max(len(g) for g in pack_consecutive_1(a0))"
+ },
+ {
+  "id": "variant-p5-013-4",
+  "seed": "MbppX/819",
+  "category": "sequences",
+  "description": "Write a function to find the element that forms the longest block of consecutive repeats in a list, taking the earliest block on a tie.",
+  "entry_point": "longest_block_value",
+  "inputs": [
+   "([1, 1, 2, 2, 2, 1],)",
+   "([4, 4, 5, 5],)",
+   "([3, 7, 7],)"
+  ],
+  "expression": "max(pack_consecutive_1(a0), key=len)[0]"
+ },
+ {
+  "id": "variant-p5-013-5",
+  "seed": "MbppX/819",
+  "category": "sequences",
+  "description": "Write a function to count how many blocks of identical adjacent characters a string has.",
+  "entry_point": "count_char_blocks",
+  "inputs": [
+   "('aaabccdd',)",
+   "('zzzz',)",
+   "('abba',)"
+  ],
+  "expression": "len(run_lengths_1(a0))"
+ },
+ {
+  "id": "variant-p5-013-6",
+  "seed": "MbppX/819",
+  "category": "sequences",
+  "description": "Write a function to list the values that appear at least twice in a row in a list, once for each such run.",
+  "entry_point": "repeated_runs",
+  "inputs": [
+   "([1, 1, 2, 3, 3, 3, 1],)",
+   "([4, 5, 6],)",
+   "([2, 2, 5, 2, 2],)"
+  ],
+  "expression": "[g[0] for g in pack_consecutive_1(a0) if len(g) > 1]"
+ },
+ {
+  "id": "variant-p5-013-7",
+  "seed": "MbppX/819",
+  "category": "sequences",
+  "description": "Write a function to find how many times the last element of a list repeats consecutively at the end of the list.",
+  "entry_point": "trailing_run",
+  "inputs": [
+   "([1, 2, 2, 2],)",
+   "([5, 5, 1],)",
+   "([4, 4],)"
+  ],
+  "expression": "len(pack_consecutive_1(a0)[-1])"
+ },
+ {
+  "id": "variant-p5-013-8",
+  "seed": "MbppX/819",
+  "category": "sequences",
+  "description": "Write a function to expand a list of values and a matching list of counts into one list in which each value is repeated as many times as its count.",
+  "entry_point": "expand_counts",
+  "inputs": [
+   "([1, 2, 4], [1, 3, 3])",
+   "(['a', 'b'], [2, 0])",
+   "([], [])"
+  ],
+  "expression": "[v for v, n in zip(a0, a1) for _ in range(n)]"
+ },
+ {
+  "id": "variant-p5-014-1",
+  "seed": "MbppX/860",
+  "category": "strings",
+  "description": "Write a function that returns 'Accept' if the last character of a string is a letter or a digit and 'Discard' otherwise.",
+  "entry_point": "accept_ending",
+  "inputs": [
+   "('order66',)",
+   "('wait...',)",
+   "('',)"
+  ],
+  "expression": "'Accept' if a0[-1:].isalnum() else 'Discard'"
+ },
+ {
+  "id": "variant-p5-014-2",
+  "seed": "MbppX/860",
+  "category": "strings",
+  "description": "Write a python function to decide whether a string finishes with an alphanumeric character, giving 'Accept' when it does and 'Discard' when it does not.",
+  "entry_point": "ending_verdict",
+  "inputs": [
+   "('hello!',)",
+   "('Room 101',)",
+   "('#tag',)"
+  ],
+  "expression": "'Accept' if a0[-1:].isalnum() else 'Discard'"
+ },
+ {
+  "id": "variant-p5-014-3",
+  "seed": "MbppX/860",
+  "category": "strings",
+  "description": "Write a function that returns 'Accept' when a string begins with a letter or a digit and 'Discard' otherwise.",
+  "entry_point": "accept_start",
+  "inputs": [
+   "('@home',)",
+   "('9lives',)",
+   "('',)"
+  ],
+  "expression": "'Accept' if a0[:1].isalnum() else 'Discard'"
+ },
+ {
+  "id": "variant-p5-014-4",
+  "seed": "MbppX/860",
+  "category": "strings",
+  "description": "Write a function that returns 'Accept' if a non-empty string consists only of letters and digits, and 'Discard' otherwise.",
+  "entry_point": "accept_all_alnum",
+  "inputs": [
+   "('abc123',)",
+   "('abc 123',)",
+   "('x_y',)"
+  ],
+  "expression": "'Accept' if a0.isalnum() else 'Discard'"
+ },
+ {
+  "id": "variant-p5-014-5",
+  "seed": "MbppX/860",
+  "category": "strings",
+  "description": "Write a function to check whether a string ends with an uppercase letter.",
+  "entry_point": "ends_upper",
+  "inputs": [
+   "('helloW',)",
+   "('ABc',)",
+   "('',)"
+  ],
+  "expression": "a0[-1:].isupper()"
+ },
+ {
+  "id": "variant-p5-014-6",
+  "seed": "MbppX/860",
+  "category": "strings",
+  "description": "Write a function to keep only the strings of a list whose last character is a letter or a digit.",
+  "entry_point": "keep_clean_endings",
+  "inputs": [
+   "(['ok', 'no!', 'r2d2', 'x@'],)",
+   "(['?'],)",
+   "(['a', 'b.'],)"
+  ],
+  "expression": "[s for s in a0 if s[-1:].isalnum()]"
+ },
+ {
+  "id": "variant-p5-014-7",
+  "seed": "MbppX/860",
+  "category": "strings",
+  "description": "Write a function that returns 'Yes' if a word ends with one of the vowels 'aeiou', ignoring case, and 'No' otherwise.",
+  "entry_point": "ends_with_vowel",
+  "inputs": [
+   "('banana',)",
+   "('Sky',)",
+   "('ECHO',)"
+  ],
+  "expression": "'Yes' if a0 and a0[-1].lower() in 'aeiou' else 'No'"
+ },
+ {
+  "id": "variant-p5-014-8",
+  "seed": "MbppX/860",
+  "category": "strings",
+  "description": "Write a function to find the index of the last letter or digit in a string, or -1 if there is none.",
+  "entry_point": "last_alnum_index",
+  "inputs": [
+   "('hey!!',)",
+   "('...',)",
+   "('a1',)"
+  ],
+  "expression": "max([i for i, c in enumerate(a0) if c.isalnum()] + [-1])"
+ },
+ {
+  "id": "variant-p5-015-1",
+  "seed": "MbppX/938",
+  "category": "sequences",
+  "description": "Given two sorted lists, write a function that returns, as a tuple, the pair of elements (one from each list) whose absolute difference is smallest.",
+  "entry_point": "closest_pair",
+  "inputs": [
+   "([1, 8, 20], [5, 13, 21])",
+   "([10, 30], [26, 40])",
+   "([-5, 3], [-9, 12])"
+  ],
+  "expression": "min(((abs(x - y), x, y) for x in a0 for y in a1))[1:]"
+ },
+ {
+  "id": "variant-p5-015-2",
+  "seed": "MbppX/938",
+  "category": "sequences",
+  "description": "Write a python function to pick one value from each of two sorted arrays so that the two values are as close as possible, returning them as a tuple.",
+  "entry_point": "nearest_values",
+  "inputs": [
+   "([2, 9, 17], [11, 30])",
+   "([100], [1, 50, 99])",
+   "([0, 7], [3, 12])"
+  ],
+  "expression": "min([(x, y) for x in a0 for y in a1], key=lambda p: abs(p[0] - p[1]))"
+ },
+ {
+  "id": "variant-p5-015-3",
+  "seed": "MbppX/938",
+  "category": "sequences",
+  "description": "Write a function to find the smallest absolute difference between an element of the first list and an element of the second list.",
+  "entry_point": "min_cross_gap",
+  "inputs": [
+   "([3, 10, 25], [7, 22, 40])",
+   "([5], [5, 9])",
+   "([-10, 1], [8])"
+  ],
+  "expression": "min(abs(x - y) for x in a0 for y in a1)"
+ },
+ {
+  "id": "variant-p5-015-4",
+  "seed": "MbppX/938",
+  "category": "sequences",
+  "description": "Write a function to find the element of a list that is closest to a given target value, taking the earlier one on a tie.",
+  "entry_point": "closest_to_target",
+  "inputs": [
+   "([2, 9, 14, 20], 12)",
+   "([1, 5], 3)",
+   "([-7, 4], -6)"
+  ],
+  "expression": "min(a0, key=lambda x: abs(x - a1))"
+ },
+ {
+  "id": "variant-p5-015-5",
+  "seed": "MbppX/938",
+  "category": "sequences",
+  "description": "Write a function to count the pairs, one element taken from each of two lists, whose values differ by at most k.",
+  "entry_point": "count_close_pairs",
+  "inputs": [
+   "([1, 5, 9], [4, 10], 1)",
+   "([0], [3], 2)",
+   "([2, 3], [2, 3], 1)"
+  ],
+  "expression": "sum(abs(x - y) <= a2 for x in a0 for y in a1)"
+ },
+ {
+  "id": "variant-p5-015-6",
+  "seed": "MbppX/938",
+  "category": "sequences",
+  "description": "Write a function to find the largest absolute difference between an element of the first list and an element of the second list.",
+  "entry_point": "max_cross_gap",
+  "inputs": [
+   "([1, 4], [6, 9])",
+   "([10, 20], [0, 15])",
+   "([5], [5])"
+  ],
+  "expression": "max(abs(x - y) for x in a0 for y in a1)"
+ },
+ {
+  "id": "variant-p5-015-7",
+  "seed": "MbppX/938",
+  "category": "sequences",
+  "description": "Write a function that, for every element of the first list, finds the closest element of the second list, taking the earlier one on a tie.",
+  "entry_point": "nearest_partners",
+  "inputs": [
+   "([1, 10, 20], [3, 12, 18])",
+   "([5], [1, 9])",
+   "([0, 7], [6])"
+  ],
+  "expression": "[min(a1, key=lambda y: abs(x - y)) for x in a0]"
+ },
+ {
+  "id": "variant-p5-015-8",
+  "seed": "MbppX/938",
+  "category": "sequences",
+  "description": "Write a function to find the pair, one element from each of two lists, whose sum is closest to a target value, returned as a tuple.",
+  "entry_point": "closest_sum_pair",
+  "inputs": [
+   "([3, 8, 15], [6, 11, 20], 25)",
+   "([1, 2], [10, 12], 13)",
+   "([-4, 0], [5], 0)"
+  ],
+  "expression": "min(((abs(x + y - a2), x, y) for x in a0 for y in a1))[1:]"
+ }
+]
