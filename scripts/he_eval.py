@@ -8,6 +8,7 @@
                            fails the visible example (branch-and-select without prompt rules)
                seedlm    - the pipeline with SeedLM-2 tie-breaking (the gated method) in place of the engine,
                            if --seedlm; also SeedLM-2 alone and the engine with its tie-breaking
+               pyx/post  - SeedLM-3's (--pyx) or SeedLM-4's (--post) chosen method alone and in the pipeline
                consensus - the pipeline plus corroboration-gated consensus, if --samples (lambda 0.5 and 0)
 """
 import argparse
@@ -59,6 +60,8 @@ def main():
     parser.add_argument("--reviewer", help="SeedLM-3 reviewer checkpoint, for the reviewer methods")
     parser.add_argument("--pyx", help="SeedLM-3 pyx coder checkpoint (reports/seedlm/seedlm3_pyx_protocol.json)")
     parser.add_argument("--pyx-method", default="pyx_tie_fill")
+    parser.add_argument("--post", help="SeedLM-4 postfix coder checkpoint (reports/seedlm/seedlm4_protocol.json)")
+    parser.add_argument("--post-method", default="pyx_tie_fill")
     parser.add_argument("--samples")
     parser.add_argument("--output", default="he_summary.json")
     args = parser.parse_args()
@@ -137,17 +140,23 @@ def main():
                     target[task_id] = code_for(as_mbpp(task), *program)
         finals["seedlm_alone"] = alone
         finals["engine_with_seedlm"] = engine_with
-    if args.pyx:
+    for checkpoint, method, label in ((args.pyx, args.pyx_method, "pyx"), (args.post, args.post_method, "post")):
+        if not checkpoint:
+            continue
         import torch
-        from mylittlellm.seedlm import coder3
-        from seedlm3_tasks import pyx_methods
         torch.set_num_threads(4)
-        net, vocabulary = coder3.load(ROOT / "outputs/seedlm" / f"{args.pyx}.pt")
-        grammar = coder3.Grammar(vocabulary)
+        if label == "pyx":
+            from mylittlellm.seedlm import coder3 as coder
+            from seedlm3_tasks import pyx_methods as methods
+        else:
+            from mylittlellm.seedlm import coder4 as coder
+            from seedlm4_tasks import post_methods as methods
+        net, vocabulary = coder.load(ROOT / "outputs/seedlm" / f"{checkpoint}.pt")
+        grammar = coder.Grammar(vocabulary)
         alone, chosen = {}, {}
         for task_id, task in tasks.items():
-            codes = pyx_methods(as_mbpp(task), net, vocabulary, grammar) if task["visible_assert"] else {}
-            alone[task_id] = codes.get(args.pyx_method) or ""
+            codes = methods(as_mbpp(task), net, vocabulary, grammar) if task["visible_assert"] else {}
+            alone[task_id] = codes.get(method) or ""
             row = pipeline[task_id]
             chosen[task_id] = row["final_code"]
             # As in the MBPP+ pipelines: the method replaces the engine where the student's answer fails
@@ -158,8 +167,8 @@ def main():
                     chosen[task_id] = code
                 elif row["chosen"] == "backinfer":
                     chosen[task_id] = base[task_id]["final_code"]
-        finals["pyx_alone"] = alone
-        finals["pyx_pipeline"] = chosen
+        finals[f"{label}_alone"] = alone
+        finals[f"{label}_pipeline"] = chosen
     if args.samples:
         sys.path.insert(0, str(ROOT / "scripts"))
         from consensus_select import choose
