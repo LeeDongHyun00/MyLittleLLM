@@ -1,0 +1,81 @@
+{
+ "model": "s4-post",
+ "width": 32,
+ "alternatives": 16,
+ "teacher": {
+  "tasks": 139,
+  "distance": {
+   "0": 46,
+   "1": 6,
+   "2": 19,
+   "3": 21,
+   "4-5": 23,
+   "6+": 24
+  },
+  "beam_first": 51,
+  "beam_oracle": 69,
+  "repair_first": 51,
+  "repair_oracle": 69,
+  "repair_new": 10,
+  "combined_first": 55,
+  "seconds": 605.3,
+  "gold_surprisal": {
+   "scored": 139,
+   "top1_share_quartiles": [
+    0.36,
+    0.54,
+    0.88
+   ],
+   "top3_share_quartiles": [
+    0.84,
+    0.99,
+    1.0
+   ],
+   "tokens_above_3_nats": {
+    "0": 33,
+    "1": 29,
+    "2": 18,
+    "3": 21,
+    "4+": 38
+   }
+  }
+ },
+ "beyond": {
+  "tasks": 15,
+  "distance": {
+   "0": 2,
+   "1": 0,
+   "2": 1,
+   "3": 3,
+   "4-5": 3,
+   "6+": 6
+  },
+  "beam_first": 3,
+  "beam_oracle": 4,
+  "repair_first": 2,
+  "repair_oracle": 4,
+  "repair_new": 1,
+  "combined_first": 3,
+  "seconds": 28.4,
+  "gold_surprisal": {
+   "scored": 15,
+   "top1_share_quartiles": [
+    0.18,
+    0.35,
+    0.53
+   ],
+   "top3_share_quartiles": [
+    0.4,
+    0.82,
+    1.0
+   ],
+   "tokens_above_3_nats": {
+    "0": 2,
+    "1": 0,
+    "2": 2,
+    "3": 2,
+    "4+": 9
+   }
+  }
+ }
+}
