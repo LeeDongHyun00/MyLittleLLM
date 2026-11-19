@@ -11,6 +11,8 @@ teach which compositions exist and what they compute, from the example and the c
 Hosts and donors come from the training parts of the teacher tasks and SeedLM-5's variants only.
 
   python scripts/seedlm6_grafts.py --count 2000 [--seed 0]     prints counts and a few samples
+  python scripts/seedlm6_grafts.py --count 20000 --save        also caches them for training
+                                                               (outputs/seedlm/v6/grafts_<count>_<seed>.json)
 """
 import argparse
 import ast
@@ -24,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from mylittlellm.rulecoder import backinfer as bi
 from mylittlellm.rulecoder.limits import Timeout, time_limit
+from mylittlellm.rulecoder.tasks import ROOT
 from mylittlellm.seedlm import coder3, post, pyx
 from seedlm3_train import teacher_held, teacher_task_items
 from seedlm4_train import variant_held
@@ -137,6 +140,8 @@ def same_kind(old, new, case, literals):
 
 
 def run(tokens, cases, literals, output):
+    """The program's values on the cases, or None if one fails or is not a plain literal value (a
+    generator, a set, None, or anything repr() cannot write back), so it can be stored as text."""
     values = []
     for args in cases:
         try:
@@ -145,7 +150,12 @@ def run(tokens, cases, literals, output):
             text = repr(value)
         except (Exception, Timeout):
             return None
-        if len(text) > MAX_REPR or isinstance(value, (set, frozenset)) or value is None:
+        if len(text) > MAX_REPR or value is None or isinstance(value, (set, frozenset)):
+            return None
+        try:
+            if ast.literal_eval(text) != value:
+                return None
+        except (ValueError, SyntaxError, MemoryError, RecursionError):
             return None
         values.append(value)
     return values
@@ -179,7 +189,7 @@ def known_edges(items):
     return edges
 
 
-def grafts(count, seed=0, items=None, tries_per_graft=40):
+def grafts(count, seed=0, items=None, tries_per_graft=100):
     """Up to `count` distinct grafts, each with its host's cases and outputs on them."""
     rng = random.Random(seed)
     items = items if items is not None else programs()
@@ -235,19 +245,46 @@ def grafts(count, seed=0, items=None, tries_per_graft=40):
             continue
         if all(any(repr(arg) == text for arg in case) for case, text in zip(host["cases"], texts)):
             continue
-        found.append({"host": host["id"], "donor": donor["id"], "tokens": tokens, "cases": host["cases"],
-                      "outputs": values, "literals": host["literals"], "junction": list(junction)})
+        found.append({"host": host["id"], "donor": donor["id"], "tokens": tokens,
+                      "cases": [repr(tuple(case)) for case in host["cases"]],
+                      "outputs": [repr(v) for v in values], "literals": host["literals"],
+                      "junction": list(junction)})
     return found, attempts
+
+
+def cache_path(count, seed):
+    return ROOT / "outputs/seedlm/v6" / f"grafts_{count}_{seed}.json"
+
+
+def parsed(graft):
+    """A cached graft with its cases and outputs as values again."""
+    return dict(graft, cases=[list(ast.literal_eval(text)) for text in graft["cases"]],
+                outputs=[ast.literal_eval(text) for text in graft["outputs"]])
+
+
+def load_or_make(count, seed=0):
+    """The grafts for (count, seed), from the cache or made and cached first (deterministic), parsed."""
+    path = cache_path(count, seed)
+    if not path.exists():
+        found, _ = grafts(count, seed)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(found))
+    return [parsed(g) for g in json.loads(path.read_text())]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--count", type=int, default=2000)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--save", action="store_true")
     args = parser.parse_args()
     items = programs()
     found, attempts = grafts(args.count, args.seed, items)
+    if args.save:
+        cache_path(args.count, args.seed).parent.mkdir(parents=True, exist_ok=True)
+        cache_path(args.count, args.seed).write_text(json.dumps(found))
     junctions = {tuple(g["junction"]) for g in found}
+    found = [parsed(g) for g in found]
     print(json.dumps({"hosts_and_donors": len(items), "grafts": len(found), "attempts": attempts,
                       "distinct_new_edges": len(junctions)}))
     rng = random.Random(1)

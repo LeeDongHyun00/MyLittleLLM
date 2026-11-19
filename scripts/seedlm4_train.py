@@ -10,6 +10,12 @@ pool's held-out fifth are never trained on.
 With --variant-share, SeedLM-5's seeded variants join the mix (data/seedlm/variant_tasks_*.json:
 teacher-written neighbours of training-pool tasks the engine cannot solve); the variants of a tenth
 of the seeds are held out, so the measure on them is on seeds the coder never saw.
+
+SeedLM-6 adds two sources of new compositions (reports/seedlm/seedlm6_protocol.json):
+  --graft-share     grafted training programs (scripts/seedlm6_grafts.py) with descriptions composed
+                    from words for each piece (mylittlellm/seedlm/pyx_words.py)
+  --compose-share   teacher-written tasks that join two training tasks (data/seedlm/compose_tasks_*.json);
+                    a tenth of them (by id) is held out
 """
 import hashlib
 import argparse
@@ -26,14 +32,14 @@ import torch
 from mylittlellm.rulecoder import backinfer as bi
 from mylittlellm.rulecoder.limits import cap_memory
 from mylittlellm.rulecoder.tasks import ROOT
-from mylittlellm.seedlm import argbank, coder4, data2, language, model as seedmodel, post
+from mylittlellm.seedlm import argbank, coder3, coder4, data2, language, model as seedmodel, post
 from mylittlellm.seedlm.muon import Muon
 from seedlm2_train import V2, batches
 from seedlm3_oneliner_check import cases_for
 from seedlm3_train import (named_in, oneliner_items, oneliner_rows, real_rows, teacher_held, teacher_rows,
                            teacher_task_items)
 from seedlm2_ceiling import quick_ok
-from mylittlellm.seedlm import pyx
+from mylittlellm.seedlm import pyx, pyx_words
 
 
 def convert(vocabulary, rows, blind=False):
@@ -54,6 +60,22 @@ def convert(vocabulary, rows, blind=False):
         if len(sequence) <= coder4.MAX_LENGTH:
             out.append((sequence, start, dict(ex, postfix=postfix, notes=side)))
     return out
+
+
+def graft_rows(vocabulary, describer, grafts, rng, views=3):
+    """SeedLM-3-style rows (prefix programs) for grafted programs: each of a graft's cases is an example,
+    with a description composed from words for the program's pieces (a fresh draw per view)."""
+    rows = []
+    for graft in grafts:
+        for view in range(min(views, len(graft["cases"]))):
+            args, expected = graft["cases"][view], graft["outputs"][view]
+            words = pyx_words.describe(rng, graft["tokens"], graft["literals"], args, describer=describer)
+            tokens, start = vocabulary.encode(words, graft["literals"], args, expected,
+                                              named_in(" ".join(words)), graft["tokens"])
+            if len(tokens) <= coder3.MAX_LENGTH:
+                rows.append((tokens, start, {"args": args, "literals": graft["literals"], "expected": expected,
+                                             "program": graft["tokens"], "mode": "eq"}))
+    return rows
 
 
 def variant_held(task):
@@ -127,6 +149,9 @@ def main():
     parser.add_argument("--oneliner-share", type=float, default=0.03)
     parser.add_argument("--variant-share", type=float, default=0.0,
                         help="share of SeedLM-5's seeded variants (0: the SeedLM-4 mix, vocabulary included)")
+    parser.add_argument("--graft-share", type=float, default=0.0, help="share of grafted programs (SeedLM-6)")
+    parser.add_argument("--graft-count", type=int, default=20000)
+    parser.add_argument("--compose-share", type=float, default=0.0, help="share of composed tasks (SeedLM-6)")
     parser.add_argument("--views", type=int, default=3)
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--muon-lr", type=float, default=0.02)
@@ -146,14 +171,23 @@ def main():
     started = time.time()
     teacher = teacher_task_items()
     variants = teacher_task_items("variant_tasks") if args.variant_share else []
+    composed = teacher_task_items("compose_tasks") if args.compose_share else []
+    if args.graft_share:
+        from seedlm6_grafts import load_or_make     # here: seedlm6_grafts imports this module
+        grafts = load_or_make(args.graft_count)
+    else:
+        grafts = []
     oneliners = oneliner_items()
     phrases = language.load_phrases()
     real_train_texts = [" ".join(r["words"]) for r in json.loads((V2 / "real_dev.json").read_text()) if r["part"] == "train"]
     keyword_texts = [" ".join(language.keyword_phrases(op)) for op in bi.OPERATORS.values()]
     texts = real_train_texts + keyword_texts + [t["description"] for t in teacher if not teacher_held(t["id"])] \
         + [e["item"]["description"] for e in oneliners if e["part"] == "train"] \
-        + [t["description"] for t in variants if not variant_held(t)]
-    extra_tokens = {s for t in teacher + variants for s in t["tokens"]} | {s for e in oneliners for s in e["tokens"]}
+        + [t["description"] for t in variants if not variant_held(t)] \
+        + [t["description"] for t in composed if not teacher_held(t["id"])] \
+        + ([" ".join(pyx_words.all_words())] if grafts else [])
+    extra_tokens = {s for t in teacher + variants + composed for s in t["tokens"]} | \
+        {s for e in oneliners for s in e["tokens"]} | {s for g in grafts for s in g["tokens"]}
     vocabulary = coder4.Vocabulary(language.build_vocabulary(texts, phrases), coder4.program_tokens(extra_tokens))
     grammar = coder4.Grammar(vocabulary)
     describer = language.Describer(bi.OPERATORS, phrases)
@@ -168,24 +202,34 @@ def main():
     lines_train = convert(vocabulary, oneliner_rows(vocabulary, oneliners, "train", views=args.views), args.blind)
     variants_train = convert(vocabulary, teacher_rows(vocabulary, variants, held=False, views=args.views,
                                                       held_out=variant_held), args.blind)
+    composed_train = convert(vocabulary, teacher_rows(vocabulary, composed, held=False, views=args.views), args.blind)
+    graft_train = convert(vocabulary, graft_rows(vocabulary, describer, grafts, random.Random(args.seed + 6),
+                                                 args.views), args.blind)
     n = len(synthetic)
-    other = 1 - args.real_share - args.teacher_share - args.oneliner_share - args.variant_share
+    other = (1 - args.real_share - args.teacher_share - args.oneliner_share - args.variant_share
+             - args.graft_share - args.compose_share)
 
     def copies(share, rows):
         return max(1, round(share * n / (other * max(1, len(rows))))) if rows else 0
 
     train = (synthetic + real * copies(args.real_share, real) + tasks_train * copies(args.teacher_share, tasks_train)
              + lines_train * copies(args.oneliner_share, lines_train)
-             + variants_train * copies(args.variant_share, variants_train))
+             + variants_train * copies(args.variant_share, variants_train)
+             + composed_train * copies(args.compose_share, composed_train)
+             + graft_train * copies(args.graft_share, graft_train))
     held_real = convert(vocabulary, real_rows(vocabulary, "holdout"), args.blind)
     held_teacher = convert(vocabulary, teacher_rows(vocabulary, teacher, held=True), args.blind)
     held_variants = convert(vocabulary, teacher_rows(vocabulary, variants, held=True, held_out=variant_held),
                             args.blind)
+    held_composed = convert(vocabulary, teacher_rows(vocabulary, composed, held=True), args.blind)
     print(f"vocabulary {len(vocabulary)} (words {len(vocabulary.words)}, program tokens "
           f"{len(vocabulary.operators)}, notes {len(coder4.NOTE_INDEX)}); synthetic {n}, real {len(real)} x{copies(args.real_share, real)}, "
           f"teacher tasks {len(tasks_train)} x{copies(args.teacher_share, tasks_train)}, dev one-liners "
           f"{len(lines_train)} x{copies(args.oneliner_share, lines_train)}, variants {len(variants_train)} "
-          f"x{copies(args.variant_share, variants_train)}; held-out real {len(held_real)}, variants {len(held_variants)}, "
+          f"x{copies(args.variant_share, variants_train)}, composed {len(composed_train)} "
+          f"x{copies(args.compose_share, composed_train)}, grafts {len(graft_train)} "
+          f"x{copies(args.graft_share, graft_train)}; held-out real {len(held_real)}, variants {len(held_variants)}, "
+          f"composed {len(held_composed)}, "
           f"teacher {len(held_teacher)}, dev one-liner tasks {sum(e['part'] == 'holdout' for e in oneliners)}; "
           f"mean length {sum(len(r[0]) for r in synthetic[:5000]) / max(1, min(5000, n)):.0f}; "
           f"data in {time.time() - started:.0f}s", flush=True)
@@ -235,6 +279,8 @@ def main():
                          "teacher_holdout": evaluate(net, vocabulary, grammar, held_teacher, 60)}
                 if held_variants:
                     entry["variant_holdout"] = evaluate(net, vocabulary, grammar, held_variants, 60)
+                if held_composed:
+                    entry["composed_holdout"] = evaluate(net, vocabulary, grammar, held_composed, 60)
                 evaluating += time.time() - pause
                 log.append(entry)
                 print(json.dumps(entry), flush=True)
@@ -245,11 +291,15 @@ def main():
              "beyond_holdout": beyond_eval(net, vocabulary, grammar, oneliners)}
     if held_variants:
         final["variant_holdout"] = evaluate(net, vocabulary, grammar, held_variants, limit or len(held_variants))
+    if held_composed:
+        final["composed_holdout"] = evaluate(net, vocabulary, grammar, held_composed, limit or len(held_composed))
     record = {"name": args.name, "kind": "post-coder", "arguments": vars(args), "parameters": net.parameter_count(),
               "vocabulary": {"size": len(vocabulary), "words": len(vocabulary.words), "program_tokens": len(vocabulary.operators)},
               "rows": {"synthetic": n, "real": len(real), "teacher_tasks": len(tasks_train), "dev_oneliners": len(lines_train),
                        "teacher_tasks_total": len(teacher), "variants": len(variants_train),
-                       "variant_tasks_total": len(variants)},
+                       "variant_tasks_total": len(variants), "composed": len(composed_train),
+                       "composed_tasks_total": len(composed), "grafts": len(graft_train),
+                       "graft_programs": len(grafts)},
               "steps": step, "sequences_seen": seen, "train_seconds": round(time.time() - begin - evaluating),
               "curve": log, "final": final, "torch": torch.__version__}
     if not args.smoke:

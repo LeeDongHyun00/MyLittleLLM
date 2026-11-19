@@ -60,6 +60,16 @@ TYPES = {int: "number", float: "number", str: "string", list: "list", tuple: "tu
          set: "set", bool: "flag"}
 
 
+def all_words():
+    """Every word the node phrases use, so a vocabulary built from texts includes them."""
+    out = []
+    for table in (BINARY, BUILTIN, METHOD, COMPREHENSION):
+        for phrases in table.values():
+            out += [w for phrase in phrases for w in language.words(phrase)]
+    out += [w for phrase in CONDITION + list(TYPES.values()) for w in language.words(phrase)]
+    return sorted(set(out))
+
+
 def node_words(token):
     """Phrases for a Python node token, or None for leaves and library operators."""
     if not token.startswith("@"):
