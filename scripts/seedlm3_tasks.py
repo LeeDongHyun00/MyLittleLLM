@@ -106,6 +106,7 @@ def holdout(args, net, vocabulary, grammar, methods=None, stem="holdout3"):
              if i["source"] == "extra" and held_out(i["task_id"])]
     solved = {n: 0 for n in NAMES}
     versus = {n: [0, 0] for n in NAMES}     # [engine wrong -> right, engine right -> wrong]; counts only
+    per_task = {}
     for item in items:
         task = {"prompt": '"""\n' + item["description"] + "\n" + item["visible_assert"] + '\n"""\n',
                 "entry_point": item["entry_point"]}
@@ -120,6 +121,12 @@ def holdout(args, net, vocabulary, grammar, methods=None, stem="holdout3"):
         for name in NAMES:
             versus[name][0] += verdicts[codes[name]] and not engine
             versus[name][1] += engine and not verdicts[codes[name]]
+        per_task[item["task_id"]] = {name: verdicts[codes[name]] for name in NAMES}
+    if getattr(args, "verdicts", False):
+        # Per-task verdicts stay local (outputs/ is not committed); reports carry counts only.
+        local = ROOT / "outputs/seedlm/verdicts"
+        local.mkdir(parents=True, exist_ok=True)
+        (local / f"{stem}_{args.model}{args.suffix}.json").write_text(json.dumps(per_task) + "\n")
     report = {"model": args.model, "tasks": len(items), "solved": solved, "versus_engine": versus}
     (ROOT / "reports/seedlm" / f"{stem}_{args.model}{args.suffix}.json").write_text(json.dumps(report, indent=1) + "\n")
     print(json.dumps(report))
@@ -177,6 +184,8 @@ def main():
     parser.add_argument("--width", type=int, default=32)
     parser.add_argument("--keep", type=int, default=40)
     parser.add_argument("--suffix", default="", help="appended to the held-out report's name (diagnostic reruns)")
+    parser.add_argument("--verdicts", action="store_true",
+                        help="also keep per-task held-out verdicts locally (outputs/seedlm/verdicts)")
     args = parser.parse_args()
     torch.set_num_threads(4)
     net, vocabulary = coder3.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")

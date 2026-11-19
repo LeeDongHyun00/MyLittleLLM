@@ -97,6 +97,8 @@ def main():
     parser.add_argument("--width", type=int, default=32)
     parser.add_argument("--keep", type=int, default=40)
     parser.add_argument("--suffix", default="")
+    parser.add_argument("--verdicts", action="store_true",
+                        help="also keep per-task held-out verdicts locally (outputs/seedlm/verdicts)")
     args = parser.parse_args()
     torch.set_num_threads(4)
     net, vocabulary = coder4.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")
