@@ -18,5 +18,13 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-19, after the pre-registered measures",
+  "primary": "62 of 139 held-out teacher tasks (s5-var 52, s6-graft 61, s6-comp 59): inconclusive (supported needed 63). New compositions 24 of 77 (as s6-graft), all pieces seen 38 of 62 (s6-comp 40)",
+  "secondary": "end of training: real held-out programs top-1 reproduces 54.7% (s5-var 57.3%, s6-comp 65.3%), held-out composed tasks 42.0% (s6-comp 44.6%), held-out teacher tasks 48.2%, beyond 3 of 15; engine failures solved by pyx_model 3 (s5-var 5)",
+  "choice": "best method 67 (pyx_tie, pyx_tie_fill), not more than 69: not adopted; pyx_model alone 53 (s5-var 57)",
+  "training": "4,965 steps in 120 minutes, nothing else running",
+  "observation": "in every run's training curve (first 60 examples of each held-out set at 30, 60 and 90 minutes) held-out teacher tasks and real held-out programs peak at the first checkpoint and decline while the synthetic set keeps improving: s8-all teacher 0.567 -> 0.550 -> 0.483, real 0.80 -> 0.70 -> 0.70; s5-var teacher 0.483 -> 0.417 -> 0.367. The small sources, repeated 20 to 95 times, are overfit after about half an hour"
+ }
 }
