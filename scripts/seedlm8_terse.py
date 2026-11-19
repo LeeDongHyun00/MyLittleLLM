@@ -3,7 +3,7 @@
 Held-out teacher tasks are written explicitly (every argument named in order, every constant
 stated); real development tasks are terse MBPP-style statements. A subagent rewrote the 139
 held-out teacher descriptions in MBPP's style, keeping their meaning and constants
-(outputs/seedlm/v8/teacher_holdout_terse.json). With the program, the examples and the coder fixed,
+(data/seedlm/teacher_holdout_terse.json). With the program, the examples and the coder fixed,
 this compares, for each description style:
   first      the first verified program at beam width 32 is correct on all three cases
   gold_lp    the coder's log-probability of the teacher's program (serialized with that
@@ -29,7 +29,7 @@ from mylittlellm.seedlm import coder3, coder4, language, post, pyx
 from seedlm3_discovery import value_of
 from seedlm3_train import named_in, teacher_held, teacher_task_items
 
-TERSE = ROOT / "outputs/seedlm/v8/teacher_holdout_terse.json"
+TERSE = ROOT / "data/seedlm/teacher_holdout_terse.json"
 
 
 def cases(task, description):

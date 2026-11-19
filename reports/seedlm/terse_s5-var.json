@@ -1,0 +1,30 @@
+{
+ "model": "s5-var",
+ "width": 32,
+ "tasks": 139,
+ "first_correct": {
+  "original": 52,
+  "terse": 54,
+  "both": 42,
+  "only_original": 10,
+  "only_terse": 12
+ },
+ "words_median": {
+  "original": 21,
+  "terse": 16
+ },
+ "gold_log_prob_quartiles": {
+  "original": [
+   -31.06,
+   -14.17,
+   -3.66
+  ],
+  "terse": [
+   -30.91,
+   -13.54,
+   -2.23
+  ]
+ },
+ "gold_paired_mean_drop_nats": -0.34,
+ "gold_scored": 138
+}

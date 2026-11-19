@@ -1,0 +1,558 @@
+[
+ {
+  "id": "nested-005",
+  "terse": "Write a function to find the index of the column with the smallest sum in a list of lists."
+ },
+ {
+  "id": "nested-025",
+  "terse": "Write a function to flatten an arbitrarily nested list."
+ },
+ {
+  "id": "nested-027",
+  "terse": "Write a function to return the 'name' with the highest 'score' from a list of dictionaries."
+ },
+ {
+  "id": "nested-029",
+  "terse": "Write a python function to find the number of rows and columns of a matrix."
+ },
+ {
+  "id": "nested-044",
+  "terse": "Write a function to find the total salary of a given department from a nested dictionary of salaries."
+ },
+ {
+  "id": "nested-065",
+  "terse": "Write a python function to check whether all sublists have the same length, returning 'Yes' or 'No'."
+ },
+ {
+  "id": "nested-084",
+  "terse": "Write a function to find the sum of the anti-diagonal of a square matrix."
+ },
+ {
+  "id": "nested-089",
+  "terse": "Write a function to find the key in a dictionary that maps to a given value."
+ },
+ {
+  "id": "nested2-005",
+  "terse": "Write a python function to check whether every cell of a board holds the given value."
+ },
+ {
+  "id": "nested2-015",
+  "terse": "Write a python function to check whether two lists of points are permutations of each other."
+ },
+ {
+  "id": "nested2-030",
+  "terse": "Write a function to find the key with the largest value in a dictionary."
+ },
+ {
+  "id": "nested2-037",
+  "terse": "Write a function to compute the balance after each transaction in a list of (description, amount) tuples."
+ },
+ {
+  "id": "nested2-040",
+  "terse": "Write a function to calculate the mean absolute error of a list of (predicted, actual) pairs."
+ },
+ {
+  "id": "nested2-048",
+  "terse": "Write a function to find the sum of the k highest scores in a dictionary of player scores."
+ },
+ {
+  "id": "nested2-054",
+  "terse": "Write a function to count the records in a list of tuples that repeat an earlier record."
+ },
+ {
+  "id": "nested2-063",
+  "terse": "Write a function to fill a grid of k rows column by column from a flat list."
+ },
+ {
+  "id": "nested2-069",
+  "terse": "Write a function to group (key, value) pairs into a dictionary mapping each key to its sorted values."
+ },
+ {
+  "id": "nested2-076",
+  "terse": "Write a function to find the indices of the row and the column with the largest sums in a matrix."
+ },
+ {
+  "id": "nested2-085",
+  "terse": "Write a function to find the key with the second smallest value in a dictionary."
+ },
+ {
+  "id": "nested2-090",
+  "terse": "Write a function to keep the k entries of a dictionary with the largest values."
+ },
+ {
+  "id": "nested2-111",
+  "terse": "Write a function to find the baskets in a list that contain one given item but not another."
+ },
+ {
+  "id": "nested2-119",
+  "terse": "Write a function to convert the votes in a list of (party, votes) tuples into rounded percentages out of 100."
+ },
+ {
+  "id": "nested2-142",
+  "terse": "Write a function to find the position of a value in each inner list, or -1 if it is missing."
+ },
+ {
+  "id": "nested2-147",
+  "terse": "Write a function to map each key common to two dictionaries to a tuple of its two values."
+ },
+ {
+  "id": "numbers-005",
+  "terse": "Write a python function to count the ones in the binary representation of a non-negative integer."
+ },
+ {
+  "id": "numbers-036",
+  "terse": "Write a function to check whether a given number is an Armstrong number."
+ },
+ {
+  "id": "numbers-049",
+  "terse": "Write a python function to find the smallest prime that divides a given number."
+ },
+ {
+  "id": "numbers-058",
+  "terse": "Write a function to find the number obtained by reversing the binary digits of a positive integer."
+ },
+ {
+  "id": "numbers-066",
+  "terse": "Write a function to find the angle sum of an n-sided polygon, given that a triangle's angles total 180."
+ },
+ {
+  "id": "numbers-073",
+  "terse": "Write a python function to set bit k of a given non-negative integer."
+ },
+ {
+  "id": "numbers-081",
+  "terse": "Write a function to find the largest amount that cannot be paid with unlimited coins of two coprime values."
+ },
+ {
+  "id": "numbers-082",
+  "terse": "Write a function to find how many buses are needed to carry n students if each bus holds c."
+ },
+ {
+  "id": "numbers-097",
+  "terse": "Write a python function to count the zeros at the end of a positive integer."
+ },
+ {
+  "id": "numbers-100",
+  "terse": "Write a python function to find all divisors of a given number that are odd."
+ },
+ {
+  "id": "numbers-120",
+  "terse": "Write a function to list all perfect squares from a to b."
+ },
+ {
+  "id": "numbers-129",
+  "terse": "Write a function to count the integers from 1 to n that have exactly k set bits."
+ },
+ {
+  "id": "numbers-139",
+  "terse": "Write a function to count the integers from 1 to n that are not divisible by 2, 3 or 5."
+ },
+ {
+  "id": "numbers-147",
+  "terse": "Write a function to find the number with the largest digit sum in a list."
+ },
+ {
+  "id": "numbers2-012",
+  "terse": "Write a function to find the area of a kite from its two diagonals."
+ },
+ {
+  "id": "numbers2-014",
+  "terse": "Write a function to find the surface area of a rectangular box."
+ },
+ {
+  "id": "numbers2-028",
+  "terse": "Write a python function to count the occurrences of the digit 7 in the octal representation of a number."
+ },
+ {
+  "id": "numbers2-036",
+  "terse": "Write a function to find how many of the largest possible square tiles exactly cover an a by b floor."
+ },
+ {
+  "id": "numbers2-042",
+  "terse": "Write a function to count the triangles formed by n points of which exactly k are collinear."
+ },
+ {
+  "id": "numbers2-063",
+  "terse": "Write a python function to find the product of the distinct prime factors of a number."
+ },
+ {
+  "id": "numbers2-067",
+  "terse": "Write a python function to count the composite divisors of a given number."
+ },
+ {
+  "id": "numbers2-075",
+  "terse": "Write a function to find the volume of a hollow cylinder, rounded to 2 decimal places."
+ },
+ {
+  "id": "numbers2-081",
+  "terse": "Write a function to multiply a unit price by a quantity and round the result down to 2 decimal places."
+ },
+ {
+  "id": "numbers2-087",
+  "terse": "Write a function to count the handshakes at a party of n couples where nobody shakes their partner's hand."
+ },
+ {
+  "id": "numbers2-112",
+  "terse": "Write a function to find all numbers up to n that are the product of two primes."
+ },
+ {
+  "id": "numbers2-140",
+  "terse": "Write a function to sort a list of non-negative integers by the sum of their digits."
+ },
+ {
+  "id": "predicates-004",
+  "terse": "Write a function to check whether a positive integer is divisible by the sum of its digits."
+ },
+ {
+  "id": "predicates-010",
+  "terse": "Write a function to check whether the given number is a Woodall number."
+ },
+ {
+  "id": "predicates-022",
+  "terse": "Write a function to return 'Valid' if a given month, day and year form a real date and 'Invalid' otherwise."
+ },
+ {
+  "id": "predicates-027",
+  "terse": "Write a python function to check whether bits l to r of a number, counted from 1, are all set."
+ },
+ {
+  "id": "predicates-068",
+  "terse": "Write a python function to check whether a number is a palindrome in both decimal and binary."
+ },
+ {
+  "id": "predicates-071",
+  "terse": "Write a function to check whether the first word of a sentence is longer than its last word."
+ },
+ {
+  "id": "predicates-121",
+  "terse": "Write a function to return 'Sorted' if every inner list is in ascending order and 'Not Sorted' otherwise."
+ },
+ {
+  "id": "predicates2-028",
+  "terse": "Write a python function to check whether a number has no two adjacent set bits."
+ },
+ {
+  "id": "predicates2-032",
+  "terse": "Write a function to check whether the sum of a number and its reverse is a palindrome."
+ },
+ {
+  "id": "predicates2-045",
+  "terse": "Write a function to check whether a start time plus a duration finishes before midnight, using 60 minutes per hour and 1440 per day."
+ },
+ {
+  "id": "predicates2-050",
+  "terse": "Write a function to return 'Pangram' if two strings together form a pangram and 'Not Pangram' otherwise."
+ },
+ {
+  "id": "predicates2-051",
+  "terse": "Write a function to check whether a word has no repeated letters, ignoring case."
+ },
+ {
+  "id": "predicates2-052",
+  "terse": "Write a function to return 'Anagrams' if two phrases are anagrams, ignoring spaces and case, and 'Not Anagrams' otherwise."
+ },
+ {
+  "id": "predicates2-059",
+  "terse": "Write a function to return 'Yes' if the average of a list is a whole number and 'No' otherwise."
+ },
+ {
+  "id": "predicates2-062",
+  "terse": "Write a python function to check whether the maximum of a list appears before its minimum."
+ },
+ {
+  "id": "predicates2-070",
+  "terse": "Write a function to return 'Shuffled' if two lists are different orderings of the same elements and 'Not Shuffled' otherwise."
+ },
+ {
+  "id": "predicates2-080",
+  "terse": "Write a function to check whether the largest row minimum of a matrix equals its smallest column maximum."
+ },
+ {
+  "id": "predicates2-087",
+  "terse": "Write a function to check whether two dominoes are the same in either orientation."
+ },
+ {
+  "id": "predicates2-090",
+  "terse": "Write a function to check whether a year is a leap year and whether it is divisible by 100."
+ },
+ {
+  "id": "predicates2-124",
+  "terse": "Write a function to check whether more than half of the numbers in a list are prime."
+ },
+ {
+  "id": "predicates2-128",
+  "terse": "Write a function to return 'Pronic' if a number is the product of two consecutive integers and 'Not Pronic' otherwise."
+ },
+ {
+  "id": "predicates2-138",
+  "terse": "Write a function to check whether a password has at least k characters from a given set of special characters."
+ },
+ {
+  "id": "predicates2-149",
+  "terse": "Write a function to check whether the group sizes in a list of groups differ by at most 1."
+ },
+ {
+  "id": "sequences-007",
+  "terse": "Write a python function to find the values that occur more than once in a list."
+ },
+ {
+  "id": "sequences-021",
+  "terse": "Write a function to find the temperatures below 15 in a list."
+ },
+ {
+  "id": "sequences-022",
+  "terse": "Write a function to remove every -1 from a list of sensor readings."
+ },
+ {
+  "id": "sequences-031",
+  "terse": "Write a function to find the element-wise maximum of two lists."
+ },
+ {
+  "id": "sequences-041",
+  "terse": "Write a function to pair each item of a list with labels from a shorter list, cycling through the labels."
+ },
+ {
+  "id": "sequences-051",
+  "terse": "Write a function to find the largest and smallest values of a list."
+ },
+ {
+  "id": "sequences-076",
+  "terse": "Write a function to sort a list and remove its k smallest values."
+ },
+ {
+  "id": "sequences-081",
+  "terse": "Write a function to concatenate two lists and remove the duplicate values."
+ },
+ {
+  "id": "sequences-083",
+  "terse": "Write a function to return 'Yes' if a list contains a given value and 'No' otherwise."
+ },
+ {
+  "id": "sequences-097",
+  "terse": "Write a function to return 'Equal' if two lists have the same sum and 'Not Equal' otherwise."
+ },
+ {
+  "id": "sequences-109",
+  "terse": "Write a function to count the words in a list that start with a given letter."
+ },
+ {
+  "id": "sequences-115",
+  "terse": "Write a function to count the strings in a list that contain the letter 'e'."
+ },
+ {
+  "id": "sequences-123",
+  "terse": "Write a function to find the elements of a list that are larger than the previous element."
+ },
+ {
+  "id": "sequences-126",
+  "terse": "Write a function to count the total number of vowels in a list of words."
+ },
+ {
+  "id": "sequences-140",
+  "terse": "Write a function to convert the digit-only strings in a list to integers, dropping the rest."
+ },
+ {
+  "id": "sequences-141",
+  "terse": "Write a function to count the elements of a list that equal the sum of the two elements before them."
+ },
+ {
+  "id": "sequences2-003",
+  "terse": "Write a function to find the k lowest prices in a list of prices."
+ },
+ {
+  "id": "sequences2-004",
+  "terse": "Write a function to find the k-th largest bid in a list of bids."
+ },
+ {
+  "id": "sequences2-037",
+  "terse": "Write a function to rotate a list so that it starts with its minimum element."
+ },
+ {
+  "id": "sequences2-066",
+  "terse": "Write a function to compute the sums of all suffixes of a given list."
+ },
+ {
+  "id": "sequences2-072",
+  "terse": "Write a function to sort a list of words by their number of vowels in descending order."
+ },
+ {
+  "id": "sequences2-078",
+  "terse": "Write a function to count how many elements must be removed from a list to make its elements unique."
+ },
+ {
+  "id": "sequences2-086",
+  "terse": "Write a function to find the words in a list that are longer than the first word."
+ },
+ {
+  "id": "sequences2-106",
+  "terse": "Write a function to find the total price of a shopping list given lists of products and their prices."
+ },
+ {
+  "id": "sequences2-127",
+  "terse": "Write a function to find the words in a list that start with a vowel."
+ },
+ {
+  "id": "sequences2-145",
+  "terse": "Write a function to combine two lists element-wise into strings joined by ':'."
+ },
+ {
+  "id": "strings-001",
+  "terse": "Write a function to count how many times a given face appears in a string of dice rolls."
+ },
+ {
+  "id": "strings-003",
+  "terse": "Write a function to count the lowercase letters from 'a' to 'm' in a string."
+ },
+ {
+  "id": "strings-013",
+  "terse": "Write a function to capitalize the first character of a string and make the rest lowercase."
+ },
+ {
+  "id": "strings-030",
+  "terse": "Write a function to run-length encode a string."
+ },
+ {
+  "id": "strings-031",
+  "terse": "Write a function to convert a string into a list of the ASCII values of its characters."
+ },
+ {
+  "id": "strings-047",
+  "terse": "Write a function to remove the character at a given index of a string."
+ },
+ {
+  "id": "strings-056",
+  "terse": "Write a function to return 'Question' if a sentence ends with '?' and 'Not Question' otherwise."
+ },
+ {
+  "id": "strings-057",
+  "terse": "Write a function to find the words of a sentence that end with 'ing'."
+ },
+ {
+  "id": "strings-063",
+  "terse": "Write a function to number the lines of a text by prefixing each line with its number and ': '."
+ },
+ {
+  "id": "strings-066",
+  "terse": "Write a function to count the occurrences of a given letter in a list of words."
+ },
+ {
+  "id": "strings-069",
+  "terse": "Write a python function to sort a list of words by their last letter."
+ },
+ {
+  "id": "strings-072",
+  "terse": "Write a function to remove the words with n or fewer characters from a sentence."
+ },
+ {
+  "id": "strings-078",
+  "terse": "Write a function to remove a given list of stop words from a sentence."
+ },
+ {
+  "id": "strings-100",
+  "terse": "Write a function to extract all whole numbers from a string as integers."
+ },
+ {
+  "id": "strings-104",
+  "terse": "Write a function to insert a string into another string at a given index."
+ },
+ {
+  "id": "strings-112",
+  "terse": "Write a function to check whether a line of text starts with a digit."
+ },
+ {
+  "id": "strings-115",
+  "terse": "Write a function to check whether a username contains only letters."
+ },
+ {
+  "id": "strings-120",
+  "terse": "Write a function to count the vowels in each word of a sentence."
+ },
+ {
+  "id": "strings-123",
+  "terse": "Write a python function to split a string into blocks of 4 characters separated by spaces."
+ },
+ {
+  "id": "strings-130",
+  "terse": "Write a function to get the last k characters of a string."
+ },
+ {
+  "id": "strings-132",
+  "terse": "Write a function to split a sentence into words, stripping the characters '.,!?' from each word."
+ },
+ {
+  "id": "strings-143",
+  "terse": "Write a function to repeat every character of a string twice."
+ },
+ {
+  "id": "strings2-004",
+  "terse": "Write a function to find the palindromes in a list of strings."
+ },
+ {
+  "id": "strings2-006",
+  "terse": "Write a function to find the first occurrence of a keyword in a sentence with its start and end positions."
+ },
+ {
+  "id": "strings2-007",
+  "terse": "Write a python function to check whether a string holds a valid integer."
+ },
+ {
+  "id": "strings2-009",
+  "terse": "Write a function to find the names that appear exactly once in a list."
+ },
+ {
+  "id": "strings2-020",
+  "terse": "Write a function to find the tags common to two lists of tags."
+ },
+ {
+  "id": "strings2-035",
+  "terse": "Write a python function to extract the text inside the first pair of square brackets in a string."
+ },
+ {
+  "id": "strings2-058",
+  "terse": "Write a function to format a full name as 'Last, F.' in citation style."
+ },
+ {
+  "id": "strings2-064",
+  "terse": "Write a function to join a list of names with ', ', using ' and ' before the last name."
+ },
+ {
+  "id": "strings2-075",
+  "terse": "Write a function to find the characters that occur in exactly one of two strings."
+ },
+ {
+  "id": "strings2-079",
+  "terse": "Write a function to remove consecutive duplicate words from a sentence."
+ },
+ {
+  "id": "strings2-082",
+  "terse": "Write a function to find the difference between the largest and smallest numbers in a string."
+ },
+ {
+  "id": "strings2-090",
+  "terse": "Write a function to delete every occurrence of a substring from a sentence and normalize the spaces."
+ },
+ {
+  "id": "strings2-117",
+  "terse": "Write a function to count the words in a sentence that start with a given letter, ignoring case."
+ },
+ {
+  "id": "strings2-144",
+  "terse": "Write a function to convert a camelCase string into lowercase words separated by spaces."
+ },
+ {
+  "id": "strings2-145",
+  "terse": "Write a function to return 'Yes' if no two adjacent characters of a string are equal and 'No' otherwise."
+ },
+ {
+  "id": "strings2-148",
+  "terse": "Write a python function to find the string with the most digits in a list."
+ },
+ {
+  "id": "strings2-149",
+  "terse": "Write a function to find the distinct lengths of the words in a list."
+ },
+ {
+  "id": "strings2-150",
+  "terse": "Write a function to remove the words that contain digits from a sentence."
+ }
+]
