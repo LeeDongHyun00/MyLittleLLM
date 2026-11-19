@@ -98,6 +98,24 @@ def uses_its_variables(tokens):
     return ok
 
 
+def repeats_operand(tokens):
+    """An operation applied to the same computed operand twice (`a0 >> a0`, `v0.endswith(v0)`); sums,
+    products, slices (`a0[::-1]`) and comprehensions over the same range twice are fine."""
+    for start, end, _, _, _ in nodes(tokens):
+        token = tokens[start]
+        if pyx.arity(token) < 2 or token in ("@Add/2", "@Mult/2") or token.startswith(("@Comp:", "@Slice")):
+            continue
+        children, position = [], start + 1
+        for _ in range(pyx.arity(token)):
+            child_end = next(e for s_, e, _, _, _ in nodes(tokens) if s_ == position)
+            children.append(tuple(tokens[position:child_end]))
+            position = child_end
+        computed = [c for c in children if computes(c)]
+        if len(set(computed)) < len(computed):
+            return True
+    return False
+
+
 def leaves_fit(span, n_args, n_literals):
     for token in span:
         if re.fullmatch(r"a\d", token) and int(token[1:]) >= n_args:
@@ -205,7 +223,7 @@ def grafts(count, seed=0, items=None, tries_per_graft=40):
             postfix = post.to_postfix(tokens)
         except (ValueError, IndexError):
             continue
-        if not uses_its_variables(tokens):
+        if not uses_its_variables(tokens) or repeats_operand(tokens):
             continue
         if len(postfix) > post.MAX_POST:
             continue
