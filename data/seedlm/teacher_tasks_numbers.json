@@ -26,7 +26,7 @@
  {
   "id": "numbers-003",
   "category": "numbers",
-  "description": "Write a function to count the ways to set out n chairs in equal rows with no chair left over, where a single row is allowed and 2 rows of 3 differ from 3 rows of 2.",
+  "description": "Create a function which counts the ways to set out n chairs in equal rows with no chair left over, where a single row is allowed and 2 rows of 3 differ from 3 rows of 2.",
   "entry_point": "equal_row_layouts",
   "inputs": [
    "(12,)",
@@ -50,7 +50,7 @@
  {
   "id": "numbers-005",
   "category": "numbers",
-  "description": "The on and off states of a row of lamps are stored as the bits of a non-negative integer; write a function to count how many lamps are on.",
+  "description": "The on and off states of a row of lamps are stored as the bits of a non-negative integer, 1 meaning on; write a function to count how many lamps are on.",
   "entry_point": "lamps_on",
   "inputs": [
    "(13,)",
@@ -86,7 +86,7 @@
  {
   "id": "numbers-008",
   "category": "numbers",
-  "description": "Write a function to find how long a ladder must be to reach a window at height h when its foot stands d away from the wall, given h and d.",
+  "description": "Write a function that finds how long a ladder must be to reach a window at height h when its foot stands d away from the wall, given h and d.",
   "entry_point": "ladder_length",
   "inputs": [
    "(8, 6)",
@@ -110,7 +110,7 @@
  {
   "id": "numbers-010",
   "category": "numbers",
-  "description": "Write a function to count the pins in a triangular rack with n rows, where the first row holds 1 pin, the second 2 pins, and so on.",
+  "description": "Write a python function to count the pins in a triangular rack with n rows, where the first row holds 1 pin, the second 2 pins, and so on.",
   "entry_point": "pins_in_rack",
   "inputs": [
    "(4,)",
@@ -122,14 +122,14 @@
  {
   "id": "numbers-011",
   "category": "numbers",
-  "description": "Write a function to write a year between 1 and 3999 in Roman numerals.",
-  "entry_point": "year_in_roman",
+  "description": "Write a function to find the largest unsigned integer that can be stored in n bits.",
+  "entry_point": "bits_max_value",
   "inputs": [
-   "(2024,)",
-   "(1999,)",
-   "(444,)"
+   "(8,)",
+   "(1,)",
+   "(16,)"
   ],
-  "expression": "num_to_roman_1(a0)"
+  "expression": "mersenne_1(a0)"
  },
  {
   "id": "numbers-012",
@@ -158,7 +158,7 @@
  {
   "id": "numbers-014",
   "category": "numbers",
-  "description": "Write a function to list every prime number between two given bounds, including the bounds themselves.",
+  "description": "Given two bounds, return a list of every prime number between them, including the bounds themselves.",
   "entry_point": "primes_between",
   "inputs": [
    "(10, 30)",
@@ -206,7 +206,7 @@
  {
   "id": "numbers-018",
   "category": "numbers",
-  "description": "Write a function to check whether n identical square tiles can be laid out as one complete larger square with none left over.",
+  "description": "Write a function that checks whether n identical square tiles can be laid out as one complete larger square with none left over.",
   "entry_point": "tiles_form_square",
   "inputs": [
    "(144,)",
@@ -278,14 +278,14 @@
  {
   "id": "numbers-024",
   "category": "numbers",
-  "description": "Write a function to compute the volume of a cylindrical water tank from its radius and its height, using math.pi.",
-  "entry_point": "tank_volume",
+  "description": "All cans from a factory are 12 cm tall; write a function to compute the volume of a can from its radius in cm, using math.pi.",
+  "entry_point": "can_volume",
   "inputs": [
-   "(1, 2)",
-   "(3, 5)",
-   "(0.5, 4)"
+   "(3,)",
+   "(4,)",
+   "(2.5,)"
   ],
-  "expression": "cylinder_volume_2(a0, a1)"
+  "expression": "cylinder_volume_2(a0, 12)"
  },
  {
   "id": "numbers-025",
@@ -302,7 +302,7 @@
  {
   "id": "numbers-026",
   "category": "numbers",
-  "description": "Write a function to compute the area of a regular hexagon, the regular polygon with 6 sides, from its side length.",
+  "description": "Write a python function to compute the area of a regular hexagon, the regular polygon with 6 sides, from its side length.",
   "entry_point": "hexagon_area",
   "inputs": [
    "(2,)",
@@ -314,7 +314,7 @@
  {
   "id": "numbers-027",
   "category": "numbers",
-  "description": "Write a function to check whether a positive integer is one of the powers of ten 1, 10, 100, 1000 and so on.",
+  "description": "Create a function which checks whether a positive integer is one of the powers of ten 1, 10, 100, 1000 and so on.",
   "entry_point": "is_power_of_ten",
   "inputs": [
    "(1000,)",
@@ -350,7 +350,7 @@
  {
   "id": "numbers-030",
   "category": "numbers",
-  "description": "Write a function to round a positive price up, never down, to two decimal places.",
+  "description": "Write a function that rounds a positive price up, never down, to two decimal places.",
   "entry_point": "round_price_up",
   "inputs": [
    "(3.14159,)",
@@ -362,14 +362,14 @@
  {
   "id": "numbers-031",
   "category": "numbers",
-  "description": "Write a function to count all the squares of every size that can be traced along the lines of a grid of m by n unit cells.",
-  "entry_point": "squares_in_grid",
+  "description": "Write a function to count all the squares of every size, from single cells up to the whole board, on an n by n chessboard-style board.",
+  "entry_point": "squares_on_board",
   "inputs": [
-   "(2, 3)",
-   "(4, 4)",
-   "(1, 5)"
+   "(8,)",
+   "(1,)",
+   "(3,)"
   ],
-  "expression": "num_squares_in_rectangle_2(a0, a1)"
+  "expression": "num_squares_in_rectangle_2(a0, a0)"
  },
  {
   "id": "numbers-032",
@@ -386,7 +386,7 @@
  {
   "id": "numbers-033",
   "category": "numbers",
-  "description": "Write a function to count the ways n different people can be divided into any number of non-empty, unlabelled teams.",
+  "description": "Write a python function to count the ways n different people can be divided into any number of non-empty, unlabelled teams.",
   "entry_point": "team_splits",
   "inputs": [
    "(3,)",
@@ -422,7 +422,7 @@
  {
   "id": "numbers-036",
   "category": "numbers",
-  "description": "Write a function to check whether a non-negative integer equals the sum of its digits each raised to the power of the number of digits.",
+  "description": "Create a function which checks whether a non-negative integer equals the sum of its digits each raised to the power of the number of digits.",
   "entry_point": "equals_digit_power_sum",
   "inputs": [
    "(153,)",
@@ -494,7 +494,7 @@
  {
   "id": "numbers-042",
   "category": "numbers",
-  "description": "Given the lengths of several ribbons as a list of positive integers, write a function to find the longest piece length into which every ribbon can be cut with nothing left over.",
+  "description": "Given the lengths of several ribbons as a list of positive integers, return the longest piece length into which every ribbon can be cut with nothing left over.",
   "entry_point": "ribbon_piece_length",
   "inputs": [
    "([12, 18, 30],)",
@@ -506,7 +506,7 @@
  {
   "id": "numbers-043",
   "category": "numbers",
-  "description": "Several lighthouses all flash at time 0 and then every p seconds, with the periods p given as a list; write a function to find the next time they all flash together.",
+  "description": "Several lighthouses all flash at time 0 and then each flashes again every p seconds, with the values of p given as a list; write a function to find the next time they all flash together.",
   "entry_point": "lighthouses_together",
   "inputs": [
    "([2, 3, 4],)",
@@ -518,7 +518,7 @@
  {
   "id": "numbers-044",
   "category": "numbers",
-  "description": "Write a function to find the k-th digit after the decimal point of the fraction p / q, given a non-negative p, a positive q and k.",
+  "description": "Write a function that finds the k-th digit after the decimal point of the fraction p / q, given a non-negative p, a positive q and k.",
   "entry_point": "kth_decimal_digit",
   "inputs": [
    "(1, 7, 3)",
@@ -566,7 +566,7 @@
  {
   "id": "numbers-048",
   "category": "numbers",
-  "description": "Write a function to check whether the sum of the digits of a positive integer is a prime number.",
+  "description": "Write a python function to check whether the sum of the digits of a positive integer is a prime number.",
   "entry_point": "prime_digit_sum",
   "inputs": [
    "(23,)",
@@ -590,7 +590,7 @@
  {
   "id": "numbers-050",
   "category": "numbers",
-  "description": "Write a function to count the prime factors of an integer greater than 1, counting a repeated prime once for each time it divides.",
+  "description": "Create a function which counts the prime factors of an integer greater than 1, counting a repeated prime once for each time it divides.",
   "entry_point": "prime_factor_count",
   "inputs": [
    "(12,)",
@@ -602,7 +602,7 @@
  {
   "id": "numbers-051",
   "category": "numbers",
-  "description": "Write a function to return the sum of the proper divisors of a positive integer, its divisors other than itself, minus the integer, which is negative when the divisors fall short.",
+  "description": "Write a function that returns the sum of the proper divisors of a positive integer, its divisors other than itself, minus the integer, which is negative when the divisors fall short.",
   "entry_point": "divisor_surplus",
   "inputs": [
    "(12,)",
@@ -626,7 +626,7 @@
  {
   "id": "numbers-053",
   "category": "numbers",
-  "description": "Write a function to convert a duration of h hours, m minutes and s seconds into a total number of seconds, using 3600 seconds per hour and 60 per minute.",
+  "description": "Given a duration of h hours, m minutes and s seconds, return the total number of seconds, using 3600 seconds per hour and 60 per minute.",
   "entry_point": "to_seconds",
   "inputs": [
    "(1, 2, 3)",
@@ -674,7 +674,7 @@
  {
   "id": "numbers-057",
   "category": "numbers",
-  "description": "Write a function to check whether the binary representation of a positive integer, written without leading zeros, reads the same in both directions.",
+  "description": "Write a python function to check whether the binary representation of a positive integer, written without leading zeros, reads the same in both directions.",
   "entry_point": "binary_palindrome",
   "inputs": [
    "(9,)",
@@ -686,7 +686,7 @@
  {
   "id": "numbers-058",
   "category": "numbers",
-  "description": "Write a function to reverse the binary digits of a positive integer written without leading zeros and return the value of the reversed digits.",
+  "description": "Write a function that reverses the binary digits of a positive integer written without leading zeros and returns the value of the reversed digits.",
   "entry_point": "mirror_bits",
   "inputs": [
    "(11,)",
@@ -734,7 +734,7 @@
  {
   "id": "numbers-062",
   "category": "numbers",
-  "description": "Write a function to apply one step of the rule that halves an even number and turns an odd number n into 3n + 1.",
+  "description": "Create a function which applies one step of the rule that halves an even number and turns an odd number n into 3n + 1.",
   "entry_point": "collatz_step",
   "inputs": [
    "(6,)",
@@ -770,7 +770,7 @@
  {
   "id": "numbers-065",
   "category": "numbers",
-  "description": "Write a function to count the diagonals of a convex polygon with n sides.",
+  "description": "Write a python function to count the diagonals of a convex polygon with n sides.",
   "entry_point": "polygon_diagonals",
   "inputs": [
    "(6,)",
@@ -818,19 +818,19 @@
  {
   "id": "numbers-069",
   "category": "numbers",
-  "description": "Write a function to find the largest number that can be formed by rearranging the digits of a non-negative integer.",
-  "entry_point": "largest_rearrangement",
+  "description": "Write a function to perform one step of Kaprekar's routine on a positive integer: arrange its digits in descending and in ascending order and subtract the smaller number from the larger.",
+  "entry_point": "kaprekar_step",
   "inputs": [
-   "(2736,)",
-   "(305,)",
-   "(8,)"
+   "(3524,)",
+   "(6174,)",
+   "(1000,)"
   ],
-  "expression": "int(''.join(sorted(str(a0), reverse=True)))"
+  "expression": "int(''.join(sorted(str(a0), reverse=True))) - int(''.join(sorted(str(a0))))"
  },
  {
   "id": "numbers-070",
   "category": "numbers",
-  "description": "Write a function to check whether the first and the last digit of a non-negative integer are the same.",
+  "description": "Create a function which checks whether the first and the last digit of a non-negative integer are the same.",
   "entry_point": "same_end_digits",
   "inputs": [
    "(12321,)",
@@ -842,7 +842,7 @@
  {
   "id": "numbers-071",
   "category": "numbers",
-  "description": "Write a function to find the area of the triangle with corners (0, 0), (x1, y1) and (x2, y2), given x1, y1, x2 and y2.",
+  "description": "Given x1, y1, x2 and y2, return the area of the triangle with corners (0, 0), (x1, y1) and (x2, y2).",
   "entry_point": "triangle_area_from_origin",
   "inputs": [
    "(4, 0, 0, 3)",
@@ -866,7 +866,7 @@
  {
   "id": "numbers-073",
   "category": "numbers",
-  "description": "Write a function to switch on bit k of a non-negative integer n, where bit 0 is the least significant, and return the new value.",
+  "description": "Write a function that switches on bit k of a non-negative integer n, where bit 0 is the least significant, and returns the new value.",
   "entry_point": "switch_on_bit",
   "inputs": [
    "(8, 0)",
@@ -878,7 +878,7 @@
  {
   "id": "numbers-074",
   "category": "numbers",
-  "description": "Write a function to split a 16-bit number into a tuple of its high byte and its low byte, each between 0 and 255.",
+  "description": "Write a python function to split a 16-bit number into a tuple of its high byte and its low byte, each between 0 and 255.",
   "entry_point": "split_bytes",
   "inputs": [
    "(258,)",
@@ -926,7 +926,7 @@
  {
   "id": "numbers-078",
   "category": "numbers",
-  "description": "Write a function to find the balance after n years when a principal grows by r percent, r out of 100, each year, rounded to 2 decimal places, given the principal, r and n.",
+  "description": "A principal grows by r percent, that is r out of 100, at the end of every year; write a function to find the balance after n years rounded to 2 decimal places, given the principal, r and n.",
   "entry_point": "compound_balance",
   "inputs": [
    "(1000, 5, 2)",
@@ -986,7 +986,7 @@
  {
   "id": "numbers-083",
   "category": "numbers",
-  "description": "Write a function to build a palindromic number by writing the digits of a positive integer followed by the same digits in reverse order.",
+  "description": "Create a function which builds a palindromic number by writing the digits of a positive integer followed by the same digits in reverse order.",
   "entry_point": "mirror_number",
   "inputs": [
    "(123,)",
@@ -1022,14 +1022,14 @@
  {
   "id": "numbers-086",
   "category": "numbers",
-  "description": "Write a function to compute a raised to the power b, modulo m, for a non-negative exponent b and a positive modulus m.",
-  "entry_point": "power_mod",
+  "description": "Write a function to return both the greatest common divisor and the least common multiple of two positive integers as a tuple.",
+  "entry_point": "gcd_and_lcm",
   "inputs": [
-   "(2, 10, 1000)",
-   "(3, 200, 7)",
-   "(10, 0, 7)"
+   "(12, 18)",
+   "(7, 5)",
+   "(9, 27)"
   ],
-  "expression": "pow(a0, a1, a2)"
+  "expression": "(gcd_2(a0, a1), lcm_2(a0, a1))"
  },
  {
   "id": "numbers-087",
@@ -1046,7 +1046,7 @@
  {
   "id": "numbers-088",
   "category": "numbers",
-  "description": "Write a function to count the regions inside a circle when n points on it are all joined to each other by chords, with no three chords meeting at one inner point.",
+  "description": "Write a python function to count the regions inside a circle when n points on it are all joined to each other by chords, with no three chords meeting at one inner point.",
   "entry_point": "circle_regions",
   "inputs": [
    "(4,)",
@@ -1070,7 +1070,7 @@
  {
   "id": "numbers-090",
   "category": "numbers",
-  "description": "Write a function to round a number to the nearest integer, sending values exactly halfway between two integers upward.",
+  "description": "Write a function that rounds a number to the nearest integer, always rounding up a value whose distance to the integer below it is exactly 0.5.",
   "entry_point": "round_half_up",
   "inputs": [
    "(2.5,)",
@@ -1094,7 +1094,7 @@
  {
   "id": "numbers-092",
   "category": "numbers",
-  "description": "Write a function to count the blocks a taxi drives between the street corners (x1, y1) and (x2, y2) of a square grid, moving only along the streets.",
+  "description": "Given x1, y1, x2 and y2, return how many blocks a taxi drives from the street corner (x1, y1) to the street corner (x2, y2) of a square grid, moving only along the streets.",
   "entry_point": "taxi_blocks",
   "inputs": [
    "(1, 2, 4, 6)",
@@ -1130,7 +1130,7 @@
  {
   "id": "numbers-095",
   "category": "numbers",
-  "description": "Write a function to convert an hour on the 24-hour clock, from 0 to 23, into the hour shown on a 12-hour clock, from 1 to 12.",
+  "description": "Write a python function to convert an hour on the 24-hour clock, from 0 to 23, into the hour shown on a 12-hour clock, from 1 to 12.",
   "entry_point": "twelve_hour_clock",
   "inputs": [
    "(13,)",
@@ -1154,7 +1154,7 @@
  {
   "id": "numbers-097",
   "category": "numbers",
-  "description": "Write a function to count the zeros at the end of a positive integer written in decimal.",
+  "description": "Create a function which counts the zeros at the end of a positive integer written in decimal.",
   "entry_point": "trailing_zeros",
   "inputs": [
    "(1200,)",
@@ -1190,7 +1190,7 @@
  {
   "id": "numbers-100",
   "category": "numbers",
-  "description": "Write a function to list the odd divisors of a positive integer in increasing order.",
+  "description": "Write a python function to list the odd divisors of a positive integer in increasing order.",
   "entry_point": "odd_divisors",
   "inputs": [
    "(36,)",
@@ -1202,7 +1202,7 @@
  {
   "id": "numbers-101",
   "category": "numbers",
-  "description": "Write a function to count the prime numbers in the closed interval from a to b.",
+  "description": "Given integers a and b, return how many prime numbers lie in the closed interval from a to b.",
   "entry_point": "primes_in_interval_count",
   "inputs": [
    "(10, 20)",
@@ -1238,7 +1238,7 @@
  {
   "id": "numbers-104",
   "category": "numbers",
-  "description": "Write a function to check whether some digit occurs more than once in a non-negative integer.",
+  "description": "Write a function that checks whether some digit occurs more than once in a non-negative integer.",
   "entry_point": "has_repeated_digit",
   "inputs": [
    "(1231,)",
@@ -1262,7 +1262,7 @@
  {
   "id": "numbers-106",
   "category": "numbers",
-  "description": "Write a function to list the first k multiples of n, starting with n itself.",
+  "description": "Create a function which lists the first k multiples of n, starting with n itself.",
   "entry_point": "first_multiples",
   "inputs": [
    "(7, 4)",
@@ -1274,14 +1274,14 @@
  {
   "id": "numbers-107",
   "category": "numbers",
-  "description": "Write a function to add up the positive integers below n that are divisible by a or by b, given a, b and n.",
-  "entry_point": "sum_multiples_below",
+  "description": "Write a function to count the integers from 1 to n that are divisible by exactly one of a and b, given a, b and n.",
+  "entry_point": "count_exactly_one_divisor",
   "inputs": [
-   "(4, 6, 25)",
-   "(2, 7, 15)",
-   "(5, 5, 6)"
+   "(4, 6, 24)",
+   "(2, 5, 20)",
+   "(3, 3, 9)"
   ],
-  "expression": "sum(k for k in range(1, a2) if k % a0 == 0 or k % a1 == 0)"
+  "expression": "sum(1 for k in range(1, a2 + 1) if (k % a0 == 0) != (k % a1 == 0))"
  },
  {
   "id": "numbers-108",
@@ -1310,7 +1310,7 @@
  {
   "id": "numbers-110",
   "category": "numbers",
-  "description": "Write a function to count the integers from 1 to n that share no common factor greater than 1 with n.",
+  "description": "Write a python function to count the integers from 1 to n that share no common factor greater than 1 with n.",
   "entry_point": "count_coprime_upto",
   "inputs": [
    "(9,)",
@@ -1346,7 +1346,7 @@
  {
   "id": "numbers-113",
   "category": "numbers",
-  "description": "Write a function to list the first n powers of two, starting from 1.",
+  "description": "Write a function that lists the first n powers of two, starting from 1.",
   "entry_point": "powers_of_two",
   "inputs": [
    "(5,)",
@@ -1358,7 +1358,7 @@
  {
   "id": "numbers-114",
   "category": "numbers",
-  "description": "Write a function to list the first n triangular numbers, which begin 1, 3, 6, 10.",
+  "description": "Create a function which lists the first n triangular numbers, which begin 1, 3, 6, 10.",
   "entry_point": "triangular_numbers",
   "inputs": [
    "(5,)",
@@ -1382,7 +1382,7 @@
  {
   "id": "numbers-116",
   "category": "numbers",
-  "description": "Write a function to count the digits of a non-negative integer n that are greater than d.",
+  "description": "Given a non-negative integer n and a digit d, return how many digits of n are greater than d.",
   "entry_point": "digits_above",
   "inputs": [
    "(91827, 5)",
@@ -1394,7 +1394,7 @@
  {
   "id": "numbers-117",
   "category": "numbers",
-  "description": "Write a function to find the sum of the even digits of a non-negative integer.",
+  "description": "Write a python function to find the sum of the even digits of a non-negative integer.",
   "entry_point": "even_digit_sum",
   "inputs": [
    "(123456,)",
@@ -1406,7 +1406,7 @@
  {
   "id": "numbers-118",
   "category": "numbers",
-  "description": "Write a function to delete every 0 digit from a positive integer and return the integer that remains.",
+  "description": "Write a function that deletes every 0 digit from a positive integer and returns the integer that remains.",
   "entry_point": "drop_zero_digits",
   "inputs": [
    "(10203,)",
@@ -1466,7 +1466,7 @@
  {
   "id": "numbers-123",
   "category": "numbers",
-  "description": "Write a function to count the integers from 1 to n that contain at least one 0 digit.",
+  "description": "Write a python function to count the integers from 1 to n that contain at least one 0 digit.",
   "entry_point": "count_with_zero_digit",
   "inputs": [
    "(100,)",
@@ -1478,14 +1478,14 @@
  {
   "id": "numbers-124",
   "category": "numbers",
-  "description": "Write a function to count the integers from a to b inclusive whose first and last digits are equal.",
-  "entry_point": "same_first_last_count",
+  "description": "Write a function to count the integers from a to b inclusive that are divisible by their own last digit, skipping numbers that end in 0.",
+  "entry_point": "divisible_by_last_digit",
   "inputs": [
-   "(1, 30)",
-   "(100, 120)",
-   "(10, 10)"
+   "(10, 20)",
+   "(1, 9)",
+   "(21, 23)"
   ],
-  "expression": "sum(1 for k in range(a0, a1 + 1) if str(k)[0] == str(k)[-1])"
+  "expression": "sum(1 for k in range(a0, a1 + 1) if k % 10 != 0 and k % (k % 10) == 0)"
  },
  {
   "id": "numbers-125",
@@ -1502,7 +1502,7 @@
  {
   "id": "numbers-126",
   "category": "numbers",
-  "description": "Write a function to list all pairs (a, b) of positive integers with a <= b whose product is n, in increasing order of a.",
+  "description": "Write a function that lists all pairs (a, b) of positive integers with a <= b whose product is n, in increasing order of a.",
   "entry_point": "factor_pairs",
   "inputs": [
    "(12,)",
@@ -1526,7 +1526,7 @@
  {
   "id": "numbers-128",
   "category": "numbers",
-  "description": "Write a function to list the first n terms of the geometric sequence with first term a and ratio r, given a, r and n.",
+  "description": "Given a first term a, a ratio r and a count n, return the list of the first n terms of the geometric sequence.",
   "entry_point": "geometric_terms",
   "inputs": [
    "(3, 2, 5)",
@@ -1562,7 +1562,7 @@
  {
   "id": "numbers-131",
   "category": "numbers",
-  "description": "Write a function to count the ordered pairs (i, j) of positive integers whose product i * j is at most n.",
+  "description": "Write a python function to count the ordered pairs (i, j) of positive integers whose product i * j is at most n.",
   "entry_point": "pairs_product_at_most",
   "inputs": [
    "(4,)",
@@ -1598,7 +1598,7 @@
  {
   "id": "numbers-134",
   "category": "numbers",
-  "description": "Write a function to check whether the digits of a non-negative integer strictly increase from left to right.",
+  "description": "Create a function which checks whether the digits of a non-negative integer strictly increase from left to right.",
   "entry_point": "digits_strictly_increase",
   "inputs": [
    "(1359,)",
@@ -1622,7 +1622,7 @@
  {
   "id": "numbers-136",
   "category": "numbers",
-  "description": "Write a function to add up the factorials of the digits of a non-negative integer.",
+  "description": "Write a python function to add up the factorials of the digits of a non-negative integer.",
   "entry_point": "digit_factorial_sum",
   "inputs": [
    "(25,)",
@@ -1634,14 +1634,14 @@
  {
   "id": "numbers-137",
   "category": "numbers",
-  "description": "Write a function to find the largest divisor of an integer n greater than 1 that is smaller than n itself.",
-  "entry_point": "largest_proper_divisor",
+  "description": "A snail climbs 1 metre on the first day, 2 metres on the second day, 3 on the third and so on; write a function to find on which day its total climb first reaches at least n metres.",
+  "entry_point": "snail_climb_day",
   "inputs": [
-   "(12,)",
-   "(13,)",
-   "(49,)"
+   "(10,)",
+   "(11,)",
+   "(1,)"
   ],
-  "expression": "max(k for k in range(1, a0) if a0 % k == 0)"
+  "expression": "min(k for k in range(1, a0 + 1) if triangular_1(k) >= a0)"
  },
  {
   "id": "numbers-138",
@@ -1658,7 +1658,7 @@
  {
   "id": "numbers-139",
   "category": "numbers",
-  "description": "Write a function to count the integers from 1 to n that are divisible by none of 2, 3 and 5.",
+  "description": "Write a function that counts the integers from 1 to n that are divisible by none of 2, 3 and 5.",
   "entry_point": "count_rough_numbers",
   "inputs": [
    "(10,)",
@@ -1682,7 +1682,7 @@
  {
   "id": "numbers-141",
   "category": "numbers",
-  "description": "Write a function to find the largest prime number smaller than n, for an integer n greater than 2.",
+  "description": "Given an integer n greater than 2, return the largest prime number smaller than n.",
   "entry_point": "prime_below",
   "inputs": [
    "(10,)",
@@ -1706,7 +1706,7 @@
  {
   "id": "numbers-143",
   "category": "numbers",
-  "description": "Write a function to list the primes p up to n for which 2 * p + 1 is also prime.",
+  "description": "Write a python function to list the primes p up to n for which 2 * p + 1 is also prime.",
   "entry_point": "safe_prime_partners",
   "inputs": [
    "(30,)",
@@ -1718,14 +1718,14 @@
  {
   "id": "numbers-144",
   "category": "numbers",
-  "description": "Write a function to list the numbers from a to b inclusive in which no digit appears twice.",
-  "entry_point": "no_repeat_digit_numbers",
+  "description": "Write a function to list the integers from a to b inclusive whose squares read the same forwards and backwards.",
+  "entry_point": "palindromic_squares",
   "inputs": [
-   "(98, 103)",
-   "(10, 12)",
-   "(110, 112)"
+   "(1, 30)",
+   "(100, 120)",
+   "(4, 10)"
   ],
-  "expression": "[k for k in range(a0, a1 + 1) if len(set(str(k))) == len(str(k))]"
+  "expression": "[k for k in range(a0, a1 + 1) if is_palindrome_number_1(k * k)]"
  },
  {
   "id": "numbers-145",
@@ -1754,7 +1754,7 @@
  {
   "id": "numbers-147",
   "category": "numbers",
-  "description": "Write a function to return the number with the largest digit sum in a list of non-negative integers, choosing the earliest one on a tie.",
+  "description": "Write a function that returns the number with the largest digit sum in a list of non-negative integers, choosing the earliest one on a tie.",
   "entry_point": "max_digit_sum_number",
   "inputs": [
    "([302, 81, 11],)",
@@ -1766,7 +1766,7 @@
  {
   "id": "numbers-148",
   "category": "numbers",
-  "description": "Write a function to check whether every two neighbouring numbers in a list of positive integers have no common factor greater than 1.",
+  "description": "Create a function which checks whether every two neighbouring numbers in a list of positive integers have no common factor greater than 1.",
   "entry_point": "neighbours_coprime",
   "inputs": [
    "([4, 9, 25, 7],)",
@@ -1797,6 +1797,6 @@
    "(1,)",
    "(40,)"
   ],
-  "expression": "[k for k in range(a0.bit_length()) if a0 >> k & 1 == 1]"
+  "expression": "[k for k in range(len(binary_1(a0))) if a0 >> k & 1 == 1]"
  }
 ]
