@@ -1,0 +1,44 @@
+{
+ "model": "s3-pyx",
+ "settings": {
+  "command": "splits",
+  "model": "s3-pyx",
+  "splits": [
+   "test"
+  ],
+  "width": 32,
+  "keep": 40
+ },
+ "test": {
+  "tasks": 151,
+  "alone": {
+   "engine": 68,
+   "pyx_model": 58,
+   "pyx_fill": 68,
+   "pyx_tie": 68,
+   "pyx_tie_fill": 68,
+   "pyx_override": 69
+  },
+  "pipelines": {
+   "s15-branch-test-r3": {
+    "stored": 98,
+    "engine": 98,
+    "pyx_model": 98,
+    "pyx_fill": 98,
+    "pyx_tie": 98,
+    "pyx_tie_fill": 98,
+    "pyx_override": 98
+   },
+   "s05-branch-test-r3": {
+    "stored": 80,
+    "engine": 80,
+    "pyx_model": 76,
+    "pyx_fill": 80,
+    "pyx_tie": 80,
+    "pyx_tie_fill": 80,
+    "pyx_override": 81
+   }
+  },
+  "seconds": 237
+ }
+}
