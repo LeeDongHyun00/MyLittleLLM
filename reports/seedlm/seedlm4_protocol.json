@@ -16,5 +16,15 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "primary_measure": "s4-post's pyx_model solves 4 held-out tasks the engine fails (and fails 12 the engine solves); s3-pyx 4/18, s3b-pyx 4/14. The hypothesis predicted more than 4: not supported",
+  "choice": "best methods pyx_tie and pyx_tie_fill solve 68 of 94, equal to s3-pyx's 68; ties keep s3-pyx, so s4-post is not adopted and no validation, test or HumanEval+ run is made",
+  "ablation": "not trained: the primary measure did not exceed 4",
+  "coder_measures": "teacher holdout top-1 reproduces 47.5% (s3b-pyx 23.7%), beam-8 64.0% (44.6%); held-out failing development tasks with a teacher one-liner: 3 of 15 (s3b-pyx 4)",
+  "files": [
+   "reports/seedlm/s4-post.json",
+   "reports/seedlm/holdout4_s4-post.json"
+  ]
+ }
 }
