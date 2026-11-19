@@ -1,0 +1,214 @@
+{
+ "name": "s8-all",
+ "kind": "post-coder",
+ "arguments": {
+  "name": "s8-all",
+  "minutes": 120.0,
+  "d_model": 320,
+  "layers": 8,
+  "heads": 10,
+  "batch": 64,
+  "train_size": 300000,
+  "bank_rate": 0.3,
+  "real_share": 0.1,
+  "teacher_share": 0.15,
+  "oneliner_share": 0.03,
+  "variant_share": 0.1,
+  "graft_share": 0.1,
+  "graft_count": 20000,
+  "compose_share": 0.1,
+  "views": 3,
+  "lr": 0.002,
+  "muon_lr": 0.02,
+  "seed": 0,
+  "smoke": false,
+  "blind": false,
+  "threads": 4
+ },
+ "parameters": 12521040,
+ "vocabulary": {
+  "size": 4145,
+  "words": 2824,
+  "program_tokens": 1045
+ },
+ "rows": {
+  "synthetic": 300000,
+  "real": 1216,
+  "teacher_tasks": 3924,
+  "dev_oneliners": 226,
+  "teacher_tasks_total": 1447,
+  "variants": 2046,
+  "variant_tasks_total": 698,
+  "composed": 3213,
+  "composed_tasks_total": 1183,
+  "grafts": 46206,
+  "graft_programs": 15402
+ },
+ "steps": 4965,
+ "sequences_seen": 317760,
+ "train_seconds": 7696,
+ "curve": [
+  {
+   "step": 1303,
+   "seconds": 1801,
+   "train_loss": 0.5047,
+   "synthetic": {
+    "loss": 0.9294,
+    "top1_exact": 0.567,
+    "top1_reproduces": 0.833,
+    "beam8_reproduces": 0.867,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.4614,
+    "top1_exact": 0.5,
+    "top1_reproduces": 0.8,
+    "beam8_reproduces": 0.883,
+    "examples": 60
+   },
+   "teacher_holdout": {
+    "loss": 1.5855,
+    "top1_exact": 0.217,
+    "top1_reproduces": 0.567,
+    "beam8_reproduces": 0.667,
+    "examples": 60
+   },
+   "variant_holdout": {
+    "loss": 2.2942,
+    "top1_exact": 0.0,
+    "top1_reproduces": 0.5,
+    "beam8_reproduces": 0.562,
+    "examples": 16
+   },
+   "composed_holdout": {
+    "loss": 1.2015,
+    "top1_exact": 0.183,
+    "top1_reproduces": 0.467,
+    "beam8_reproduces": 0.517,
+    "examples": 60
+   }
+  },
+  {
+   "step": 2570,
+   "seconds": 3600,
+   "train_loss": 0.2855,
+   "synthetic": {
+    "loss": 0.6247,
+    "top1_exact": 0.683,
+    "top1_reproduces": 0.833,
+    "beam8_reproduces": 0.883,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.4953,
+    "top1_exact": 0.617,
+    "top1_reproduces": 0.7,
+    "beam8_reproduces": 0.867,
+    "examples": 60
+   },
+   "teacher_holdout": {
+    "loss": 1.8171,
+    "top1_exact": 0.233,
+    "top1_reproduces": 0.55,
+    "beam8_reproduces": 0.633,
+    "examples": 60
+   },
+   "variant_holdout": {
+    "loss": 2.538,
+    "top1_exact": 0.0,
+    "top1_reproduces": 0.562,
+    "beam8_reproduces": 0.625,
+    "examples": 16
+   },
+   "composed_holdout": {
+    "loss": 1.2672,
+    "top1_exact": 0.117,
+    "top1_reproduces": 0.4,
+    "beam8_reproduces": 0.5,
+    "examples": 60
+   }
+  },
+  {
+   "step": 3767,
+   "seconds": 5402,
+   "train_loss": 0.1843,
+   "synthetic": {
+    "loss": 0.4198,
+    "top1_exact": 0.733,
+    "top1_reproduces": 0.867,
+    "beam8_reproduces": 0.95,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.5471,
+    "top1_exact": 0.5,
+    "top1_reproduces": 0.7,
+    "beam8_reproduces": 0.883,
+    "examples": 60
+   },
+   "teacher_holdout": {
+    "loss": 1.9857,
+    "top1_exact": 0.15,
+    "top1_reproduces": 0.483,
+    "beam8_reproduces": 0.7,
+    "examples": 60
+   },
+   "variant_holdout": {
+    "loss": 2.7067,
+    "top1_exact": 0.0,
+    "top1_reproduces": 0.375,
+    "beam8_reproduces": 0.562,
+    "examples": 16
+   },
+   "composed_holdout": {
+    "loss": 1.3316,
+    "top1_exact": 0.167,
+    "top1_reproduces": 0.433,
+    "beam8_reproduces": 0.533,
+    "examples": 60
+   }
+  }
+ ],
+ "final": {
+  "synthetic": {
+   "loss": 0.3132,
+   "top1_exact": 0.76,
+   "top1_reproduces": 0.903,
+   "beam8_reproduces": 0.963,
+   "examples": 300
+  },
+  "real_holdout": {
+   "loss": 1.6697,
+   "top1_exact": 0.453,
+   "top1_reproduces": 0.547,
+   "beam8_reproduces": 0.733,
+   "examples": 75
+  },
+  "teacher_holdout": {
+   "loss": 2.0388,
+   "top1_exact": 0.173,
+   "top1_reproduces": 0.482,
+   "beam8_reproduces": 0.676,
+   "examples": 139
+  },
+  "beyond_holdout": {
+   "tasks": 15,
+   "solved": 3
+  },
+  "variant_holdout": {
+   "loss": 2.9053,
+   "top1_exact": 0.0,
+   "top1_reproduces": 0.375,
+   "beam8_reproduces": 0.562,
+   "examples": 16
+  },
+  "composed_holdout": {
+   "loss": 1.4126,
+   "top1_exact": 0.179,
+   "top1_reproduces": 0.42,
+   "beam8_reproduces": 0.598,
+   "examples": 112
+  }
+ },
+ "torch": "2.15.0+cpu"
+}
