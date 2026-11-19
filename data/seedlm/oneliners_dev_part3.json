@@ -1,0 +1,359 @@
+[
+ {
+  "task_id": "Mbpp/459",
+  "class": "oneliner",
+  "expression": "no_upper_1(a0)",
+  "passes": true,
+  "note": "Library no_upper deletes the capital letters."
+ },
+ {
+  "task_id": "Mbpp/622",
+  "class": "oneliner",
+  "expression": "seq_median_1(a0 + a1)",
+  "passes": true,
+  "note": "Median of the merged lists is the mean of its two middle elements."
+ },
+ {
+  "task_id": "Mbpp/781",
+  "class": "oneliner",
+  "expression": "is_even_1(num_divisor_count_1(a0))",
+  "passes": true,
+  "note": "Divisor count, then its parity."
+ },
+ {
+  "task_id": "MbppX/107",
+  "class": "needs_operator",
+  "expression": "sum(i // 16 ** k % 16 > 9 for i in range(a0, a1 + 1) for k in range(len(str(i))))",
+  "passes": true,
+  "note": "Counts hex letter digits (a-f) over the range, like the reference. Passes, but base 16 is not a free or readable constant and hex() is not allowed; needs a hex-conversion operator."
+ },
+ {
+  "task_id": "MbppX/134",
+  "class": "needs_hidden_info",
+  "expression": "'ODD' if a2 == 1 and sum(a0) % 2 == 0 else 'EVEN'",
+  "passes": true,
+  "note": "The 'operation' is never described; the rule (p == 1 and even sum -> ODD, else EVEN) is the reference's. 'EVEN' is the complement of the visible 'ODD'."
+ },
+ {
+  "task_id": "MbppX/148",
+  "class": "oneliner",
+  "expression": "max(digit_sum_1(i) + digit_sum_1(a0 - i) for i in range(a0 + 1))",
+  "passes": true,
+  "note": "Brute force over all splits i + (n - i); agrees with the reference's 99..9 construction on random inputs."
+ },
+ {
+  "task_id": "MbppX/177",
+  "class": "oneliner",
+  "expression": "(a0, 2 * a0) if 2 * a0 <= a1 else -1",
+  "passes": true,
+  "note": "(L, 2L) has the smallest possible lcm, 2L; -1 (free sentinel, untested) when 2L > R."
+ },
+ {
+  "task_id": "MbppX/182",
+  "class": "unclear_task",
+  "expression": "(list(upper_only_1(a0)), list(txt_lower_only_1(a0)), list(digits_only_1(a0)), [c for c in a0 if not c.isalnum()])",
+  "passes": true,
+  "note": "Description lists special characters before numeric ones, but the tests return digits third and specials fourth; the visible example (both empty) cannot decide. Expression follows the tests."
+ },
+ {
+  "task_id": "MbppX/190",
+  "class": "oneliner",
+  "expression": "(a2 - a0 - 1) * (a3 - a1 - 1)",
+  "passes": true,
+  "note": "Strictly interior lattice points of the axis-aligned square."
+ },
+ {
+  "task_id": "MbppX/218",
+  "class": "needs_hidden_info",
+  "expression": "max(a0, a1) // gcd_2(a0, a1) - 1",
+  "passes": true,
+  "note": "The allowed operation is not stated; larger // gcd - 1 comes from the reference. The visible (2, 4) -> 1 fits many formulas."
+ },
+ {
+  "task_id": "MbppX/236",
+  "class": "needs_hidden_info",
+  "expression": "-1 if a0 < a1 else triangular_1(a0 - a1 + 1) + triangular_1(max(a0 - 2 * a1 + 1, 0))",
+  "passes": true,
+  "note": "K (side of the small triangles) is not described, and -1 for K > N is only in other_asserts (0 is the natural count). Upward T(N-K+1) plus downward T(N-2K+1)."
+ },
+ {
+  "task_id": "MbppX/254",
+  "class": "unclear_task",
+  "expression": "[w[min(i for i, c in enumerate(w[:-1]) if c in ('a', 'e')):] for w in a0.split() if 'a' in w[:-1] or 'e' in w[:-1]]",
+  "passes": true,
+  "note": "Description says words starting with 'a'/'e', tests want the regex [ae]\\w+ artifact: each word's suffix from its first a/e ('programe' -> 'ame'). Mirrors that regex without a pattern constant."
+ },
+ {
+  "task_id": "MbppX/304",
+  "class": "needs_loop_or_state",
+  "expression": "",
+  "passes": false,
+  "note": "The range rotations must be applied one after another (a fold over the rotation list); no stateless form."
+ },
+ {
+  "task_id": "MbppX/315",
+  "class": "needs_hidden_info",
+  "expression": "max([w for w in a0.split() if len(w) % 2 == 0], key=len, default=-1)",
+  "passes": false,
+  "note": "First longest even-length word via max(key=len). The no-match result must be the string '-1', seen only in other_asserts, so this returns int -1 and fails that test."
+ },
+ {
+  "task_id": "MbppX/323",
+  "class": "oneliner",
+  "expression": "[x for p in zip(negatives_1(a0) + [None] * len(a0), ge_2(a0, 0) + [None] * len(a0)) for x in p if x is not None]",
+  "passes": true,
+  "note": "Negatives and non-negatives interleaved in their original order, leftovers appended (zip with None padding); agrees with the reference's rotation algorithm on random inputs."
+ },
+ {
+  "task_id": "MbppX/330",
+  "class": "oneliner",
+  "expression": "[w for w in a0.split() if 3 <= len(w) <= 5]",
+  "passes": true,
+  "note": "Words of three to five characters."
+ },
+ {
+  "task_id": "MbppX/340",
+  "class": "oneliner",
+  "expression": "sum(nsmallest_2(positives_1(a0), 3))",
+  "passes": true,
+  "note": "The three smallest of the positive numbers."
+ },
+ {
+  "task_id": "MbppX/350",
+  "class": "oneliner",
+  "expression": "len(a0) - max(counter_1(a0).values())",
+  "passes": true,
+  "note": "Remove every occurrence of the most frequent character."
+ },
+ {
+  "task_id": "MbppX/374",
+  "class": "unclear_task",
+  "expression": "txt_permutations_1(a0)",
+  "passes": false,
+  "note": "Tests need the order of a recursive insertion algorithm (abc, bac, bca, ...), not itertools order; visible 'ab' fits both. txt_permutations_1 also rejects strings outside 3-5 chars."
+ },
+ {
+  "task_id": "MbppX/39",
+  "class": "unclear_task",
+  "expression": "'' if 2 * max(map(a0.count, a0)) > len(a0) + 1 else ''.join(sorted(a0, key=lambda c: (-a0.count(c), c))[i // 2 + i % 2 * ((len(a0) + 1) // 2)] for i in range(len(a0)))",
+  "passes": false,
+  "note": "Description says 'check if'; tests want the one arrangement a heap greedy picks ('abccdd' -> 'cdabcd'). This always gives a valid arrangement ('cdcadb'); an exact match needs the heap loop."
+ },
+ {
+  "task_id": "MbppX/43",
+  "class": "oneliner",
+  "expression": "txt_match_message_1(a0.count('_') == 1 and all(p.isalpha() and p.islower() for p in a0.split('_')))",
+  "passes": true,
+  "note": "Whole string is two lowercase runs joined by one underscore (as the reference's anchored regex); messages from txt_match_message_1."
+ },
+ {
+  "task_id": "MbppX/438",
+  "class": "unclear_task",
+  "expression": "str(sum(a0[j][0] == a0[i][1] for i in range(len(a0)) for j in range(i + 1, len(a0))))",
+  "passes": true,
+  "note": "Tests encode the reference's duplicated condition (pairs i<j with L[j][0] == L[i][1] only); counting real bidirectional pairs gives '3', not '4', on test 3."
+ },
+ {
+  "task_id": "MbppX/461",
+  "class": "unclear_task",
+  "expression": "upper_count_1(a0[:1])",
+  "passes": true,
+  "note": "Tests encode the reference's early return: 1 iff the first character is uppercase ('PYthon' -> 1, not 2)."
+ },
+ {
+  "task_id": "MbppX/482",
+  "class": "oneliner",
+  "expression": "txt_yes_no_1(any(x.isupper() and y.islower() for x, y in zip(a0, a0[1:])))",
+  "passes": true,
+  "note": "Some uppercase letter directly followed by a lowercase letter; Yes/No from txt_yes_no_1."
+ },
+ {
+  "task_id": "MbppX/493",
+  "class": "needs_loop_or_state",
+  "expression": "",
+  "passes": false,
+  "note": "Reference accumulates float offsets in while loops; a closed-form comprehension (tried) is off in the last bit on later rows in 2 of 3 tests. Grid extents and row offsets are undescribed."
+ },
+ {
+  "task_id": "MbppX/508",
+  "class": "oneliner",
+  "expression": "keep_common_2(a0, a1) == keep_common_2(a1, a0)",
+  "passes": true,
+  "note": "Common elements kept in each list's order must coincide."
+ },
+ {
+  "task_id": "MbppX/53",
+  "class": "oneliner",
+  "expression": "'Equal' if same_first_last_1(a0) else 'Not Equal'",
+  "passes": true,
+  "note": "complement: 'Not Equal' is the opposite of the visible 'Equal'."
+ },
+ {
+  "task_id": "MbppX/540",
+  "class": "oneliner",
+  "expression": "range_width_1(values_1(counter_1(a0)))",
+  "passes": true,
+  "note": "Highest minus lowest element frequency. The reference is buggy off the tests (skips the last group); this follows the description."
+ },
+ {
+  "task_id": "MbppX/550",
+  "class": "oneliner",
+  "expression": "max_1(a0)",
+  "passes": true,
+  "note": "Maximum of the array; low/high are only recursion bounds in the reference."
+ },
+ {
+  "task_id": "MbppX/570",
+  "class": "oneliner",
+  "expression": "[' '.join(w for w in s.split() if not any(map(w.count, a1))) for s in a0]",
+  "passes": true,
+  "note": "Drop the words containing any of the given substrings, then re-join each string."
+ },
+ {
+  "task_id": "MbppX/575",
+  "class": "oneliner",
+  "expression": "[i for i in range(a2, a3 + 1) if i % a0][a1 - 1]",
+  "passes": true,
+  "note": "N-th number in [L, R] that is not a multiple of A."
+ },
+ {
+  "task_id": "MbppX/601",
+  "class": "needs_loop_or_state",
+  "expression": "",
+  "passes": false,
+  "note": "Longest chain is a DP over the pairs; the asserts also build Pair objects, which the checker cannot parse."
+ },
+ {
+  "task_id": "MbppX/636",
+  "class": "oneliner",
+  "expression": "txt_yes_no_1(a0 == a2)",
+  "passes": true,
+  "note": "Roots are reciprocal iff their product c/a is 1, i.e. a == c."
+ },
+ {
+  "task_id": "MbppX/652",
+  "class": "oneliner",
+  "expression": "str(unzip_1(flatten_1(a0)))",
+  "passes": true,
+  "note": "Flatten the rows, transpose into column tuples, return the text form as the visible example shows."
+ },
+ {
+  "task_id": "MbppX/661",
+  "class": "oneliner",
+  "expression": "max(sum(a0[i] for i in range(a1) if m >> i & 1) for m in range(2 ** a1) if not m & m >> 1 & m >> 2)",
+  "passes": true,
+  "note": "Exponential brute force over subset bitmasks with no three consecutive set bits (the reference uses DP); agrees on random inputs."
+ },
+ {
+  "task_id": "MbppX/670",
+  "class": "unclear_task",
+  "expression": "is_sorted_1(a0)",
+  "passes": true,
+  "note": "Description says decreasing, but the tests expect True for increasing input; checks ascending order like the reference."
+ },
+ {
+  "task_id": "MbppX/699",
+  "class": "needs_hidden_info",
+  "expression": "sum(x != y for x, y in zip(a0, a1)) // 2 if a0.count('1') == a1.count('1') else -1",
+  "passes": false,
+  "note": "Half the mismatches when the counts of 1s agree. The impossible case must return 'Not Possible', which appears only in other_asserts, so this attempt returns -1 and fails that test."
+ },
+ {
+  "task_id": "MbppX/711",
+  "class": "oneliner",
+  "expression": "math.prod(digits_1(a0)[::2]) == math.prod(digits_1(a0)[1::2])",
+  "passes": true,
+  "note": "Products of digits at alternate positions; reading direction does not change the equality."
+ },
+ {
+  "task_id": "MbppX/73",
+  "class": "oneliner",
+  "expression": "[q for p in a0.splitlines() for q in p.split('*')]",
+  "passes": true,
+  "note": "Delimiters shown in the visible example: newline and '*'; splitlines avoids a newline literal."
+ },
+ {
+  "task_id": "MbppX/774",
+  "class": "oneliner",
+  "expression": "txt_valid_invalid_1(a0.count('@') == 1 and '.' in a0.split('@')[1]) + ' Email'",
+  "passes": true,
+  "note": "Simple check (one '@', a dot in the domain); txt_valid_invalid_1 supplies Valid/Invalid and ' Email' is read from the visible output."
+ },
+ {
+  "task_id": "MbppX/802",
+  "class": "oneliner",
+  "expression": "min((i for i in range(1, a1) if a0[i] < a0[i - 1]), default=0)",
+  "passes": true,
+  "note": "Index of the first descent, 0 if already sorted; the visible [3,2,1] -> 1 rules out index of the minimum."
+ },
+ {
+  "task_id": "MbppX/819",
+  "class": "oneliner",
+  "expression": "(row_first_1(pack_consecutive_1(a0)), len_each_1(pack_consecutive_1(a0)))",
+  "passes": true,
+  "note": "Element and length of each run of equal neighbours."
+ },
+ {
+  "task_id": "MbppX/826",
+  "class": "needs_hidden_info",
+  "expression": "'Right-angled Triangle' if 2 * max(a0, a1, a2) ** 2 == a0 ** 2 + a1 ** 2 + a2 ** 2 else 'Obtuse-angled Triangle' if 2 * max(a0, a1, a2) ** 2 > a0 ** 2 + a1 ** 2 + a2 ** 2 else 'Acute-angled Triangle'",
+  "passes": true,
+  "note": "Comparing 2*max^2 with the sum of squares is easy, but only 'Obtuse-angled Triangle' is visible; the acute and right labels are natural completions of it, not readable constants."
+ },
+ {
+  "task_id": "MbppX/838",
+  "class": "oneliner",
+  "expression": "-1 if (a0 + a1).count('1') % 2 else (sum(x < y for x, y in zip(a0, a1)) + 1) // 2 + (sum(x > y for x, y in zip(a0, a1)) + 1) // 2",
+  "passes": true,
+  "note": "Swaps go across the strings (the visible example is impossible otherwise): two 0/1 mismatches of one kind cost 1, a mixed pair 2; -1 (untested) when the total number of 1s is odd."
+ },
+ {
+  "task_id": "MbppX/846",
+  "class": "oneliner",
+  "expression": "max([1] + [sum(a <= t <= d for a, d in zip(a0, a1)) for t in a0])",
+  "passes": true,
+  "note": "Most trains present at any arrival time, at least 1 like the standard algorithm's first platform (test 3 has departures before arrivals); agrees with the reference on valid random schedules."
+ },
+ {
+  "task_id": "MbppX/867",
+  "class": "needs_hidden_info",
+  "expression": "2 - sum(a0) % 2",
+  "passes": true,
+  "note": "Borderline: visible shows only the odd-sum case (1); 2 for an even sum assumes the added number must be positive, which is unstated (0 is as plausible)."
+ },
+ {
+  "task_id": "MbppX/882",
+  "class": "unclear_task",
+  "expression": "2 * a0 * a1",
+  "passes": true,
+  "note": "Tests use 2*b*h (10, 20 -> 400), not a perimeter 2*(a+b)."
+ },
+ {
+  "task_id": "MbppX/915",
+  "class": "oneliner",
+  "expression": "sorted(a0, key=lambda x: (x < 0, x))",
+  "passes": true,
+  "note": "Positives ascending, then negatives ascending, with a lambda sort key."
+ },
+ {
+  "task_id": "MbppX/938",
+  "class": "oneliner",
+  "expression": "min(((x, y, min(a2, key=lambda z: max(x, y, z) - min(x, y, z))) for x in a0 for y in a1), key=lambda t: max(t) - min(t))",
+  "passes": true,
+  "note": "Minimise max - min over x in A, y in B and the best z in C (brute force within two for clauses); agrees with the reference's three-pointer result on random inputs."
+ },
+ {
+  "task_id": "MbppX/950",
+  "class": "needs_hidden_info",
+  "expression": "['Monkey', 'Rooster', 'Dog', 'Pig', 'Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Goat'][a0 % 12]",
+  "passes": true,
+  "note": "Only 'Ox' is readable; the other eleven signs and the 12-year cycle are world knowledge (the reference even spells 'Hare' and 'sheep'). This standard table passes the three tests."
+ },
+ {
+  "task_id": "MbppX/968",
+  "class": "needs_hidden_info",
+  "expression": "a0 * min(a1 - 1, a2) // a1",
+  "passes": true,
+  "note": "The periodic function floor(A*x/B) - A*floor(x/B) is never given; the closed form is the reference's."
+ }
+]
