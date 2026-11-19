@@ -1,0 +1,56 @@
+{
+ "training_programs_skipped": 0,
+ "known": {
+  "tokens": 794,
+  "edges": 3399,
+  "twigs": 3146,
+  "whole": 2234
+ },
+ "teacher_holdout": {
+  "programs": 139,
+  "all_known": {
+   "tokens": 135,
+   "edges": 67,
+   "twigs": 55,
+   "whole": 27
+  },
+  "first_unknown": {
+   "edges": 68,
+   "nothing (seen whole)": 27,
+   "whole": 28,
+   "twigs": 12,
+   "tokens": 4
+  }
+ },
+ "variant_holdout": {
+  "programs": 16,
+  "all_known": {
+   "tokens": 14,
+   "edges": 13,
+   "twigs": 5,
+   "whole": 0
+  },
+  "first_unknown": {
+   "whole": 5,
+   "tokens": 2,
+   "twigs": 8,
+   "edges": 1
+  }
+ },
+ "beyond": {
+  "programs": 15,
+  "all_known": {
+   "tokens": 13,
+   "edges": 7,
+   "twigs": 5,
+   "whole": 1
+  },
+  "first_unknown": {
+   "twigs": 2,
+   "edges": 6,
+   "whole": 4,
+   "nothing (seen whole)": 1,
+   "tokens": 2
+  }
+ }
+}
