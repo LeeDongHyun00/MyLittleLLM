@@ -1,0 +1,52 @@
+{
+ "model": "s5-var",
+ "settings": {
+  "command": "splits",
+  "model": "s5-var",
+  "splits": [
+   "test"
+  ],
+  "width": 32,
+  "keep": 40,
+  "suffix": "",
+  "verdicts": false
+ },
+ "test": {
+  "tasks": 151,
+  "alone": {
+   "engine": 68,
+   "pyx_model": 64,
+   "pyx_fill": 71,
+   "pyx_tie": 69,
+   "pyx_tie_fill": 72,
+   "pyx_override": 72,
+   "pyx_rerank": 66,
+   "pyx_margin": 70
+  },
+  "pipelines": {
+   "s15-branch-test-r3": {
+    "stored": 98,
+    "engine": 98,
+    "pyx_model": 99,
+    "pyx_fill": 98,
+    "pyx_tie": 98,
+    "pyx_tie_fill": 98,
+    "pyx_override": 98,
+    "pyx_rerank": 99,
+    "pyx_margin": 99
+   },
+   "s05-branch-test-r3": {
+    "stored": 80,
+    "engine": 80,
+    "pyx_model": 78,
+    "pyx_fill": 81,
+    "pyx_tie": 81,
+    "pyx_tie_fill": 82,
+    "pyx_override": 82,
+    "pyx_rerank": 79,
+    "pyx_margin": 81
+   }
+  },
+  "seconds": 576
+ }
+}
