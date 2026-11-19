@@ -189,7 +189,22 @@ def postfix_order(tokens):
     return order
 
 
-def coder_by_level(model, known, width=32):
+def added_pieces(arm):
+    """Edges and twigs of the programs an arm adds to s5-var's data (SeedLM-6): "graft" or "compose"."""
+    found = {"edges": set(), "twigs": set()}
+    if arm == "graft":
+        from seedlm6_grafts import load_or_make
+        programs = [g["tokens"] for g in load_or_make(20000)]
+    else:
+        programs = [t["tokens"] for t in teacher_task_items("compose_tasks") if not teacher_held(t["id"])]
+    for program in programs:
+        piece = pieces(program)
+        found["edges"] |= piece["edges"]
+        found["twigs"] |= piece["twigs"]
+    return found
+
+
+def coder_by_level(model, known, width=32, added=None):
     """{set: {level: {"programs", "first_correct"}}} for the coder's first verified program, and the
     teacher program's per-token surprisal by kind of decision. The coder writes postfix: an operator
     comes after its operands, so writing it decides its links to its children (its outgoing edges).
@@ -219,7 +234,17 @@ def coder_by_level(model, known, width=32):
                         if coder4.reproduces(p, task["args"], task["literals"], task["expected"], task["mode"])]
             row = table.setdefault(level, {"programs": 0, "first_correct": 0})
             row["programs"] += 1
-            row["first_correct"] += bool(verified) and task["judge"](verified[0])
+            correct = bool(verified) and task["judge"](verified[0])
+            row["first_correct"] += correct
+            if added is not None and level in ("tokens", "edges", "twigs"):
+                # Are this program's new pieces among what the arm added (coverage), or not?
+                piece = pieces(task["gold"])
+                new = (piece["edges"] - known["edges"]) | (piece["twigs"] - known["twigs"])
+                covered = bool(new) and new <= (added["edges"] | added["twigs"])
+                cell = table.setdefault("new_" + ("covered" if covered else "uncovered"),
+                                        {"programs": 0, "first_correct": 0})
+                cell["programs"] += 1
+                cell["first_correct"] += correct
             try:
                 gold = list(task["gold"])
                 order, edges = postfix_order(gold), outgoing_edges(gold)
@@ -250,9 +275,13 @@ def coder_by_level(model, known, width=32):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model")
+    parser.add_argument("--arm", choices=["graft", "compose"],
+                        help="also split new-composition programs by whether the arm's added data covers them")
     parser.add_argument("--synthetic", type=int, default=100000, help="synthetic programs counted as seen")
-    parser.add_argument("--output", default="reports/seedlm/fragments_holdout.json")
+    parser.add_argument("--output", help="default reports/seedlm/fragments_holdout.json, or fragments_<model>.json")
     args = parser.parse_args()
+    args.output = args.output or ("reports/seedlm/fragments_holdout.json" if not args.model
+                                  else f"reports/seedlm/fragments_{args.model}.json")
     known = {"tokens": set(), "edges": set(), "twigs": set(), "whole": set()}
     skipped = 0
     for program in training_programs() + synthetic_programs(args.synthetic):
@@ -278,7 +307,8 @@ def main():
             entry["first_unknown"][label] = entry["first_unknown"].get(label, 0) + 1
         report[set_name] = entry
     if args.model:
-        levels, surprisal = coder_by_level(args.model, known)
+        levels, surprisal = coder_by_level(args.model, known,
+                                           added=added_pieces(args.arm) if args.arm else None)
         report["coder"] = {"model": args.model, "width": 32, "by_first_unknown": levels,
                            "teacher_program_tokens": surprisal}
     (ROOT / args.output).write_text(json.dumps(report, indent=1) + "\n")
