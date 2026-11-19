@@ -72,8 +72,8 @@ LIBRARY = {callable_name(key): key for key in bi.OPERATORS}
 
 
 def arity(token):
-    """Children a token takes; leaves take none."""
-    if "/" in token:
+    """Children a token takes; leaves take none (a short string such as "$/" is a leaf)."""
+    if "/" in token and not token.startswith("$"):
         return int(token.rsplit("/", 1)[1])
     return 0
 
