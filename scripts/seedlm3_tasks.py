@@ -32,7 +32,8 @@ from seedlm2_tasks import PIPELINES, read_jsonl
 
 OUT = ROOT / "outputs/rule_pilot"
 BANK = ROOT / "outputs/rule_pilot/teacher/round3"
-NAMES = ["engine", "pyx_model", "pyx_fill", "pyx_tie", "pyx_tie_fill", "pyx_override"]
+NAMES = ["engine", "pyx_model", "pyx_fill", "pyx_tie", "pyx_tie_fill", "pyx_override", "pyx_rerank", "pyx_margin"]
+MARGIN = 2.0     # nats by which a coder-only program must beat the engine's choice (protocol addendum 2)
 
 
 def pyx_methods(task, net, vocabulary, grammar, width=32, keep=40):
@@ -74,6 +75,28 @@ def pyx_methods(task, net, vocabulary, grammar, width=32, keep=40):
     out["pyx_tie_fill"] = tie or out["pyx_model"]
     confident = bool(found and found.get("confident"))
     out["pyx_override"] = out["pyx_tie_fill"] if confident or not out["pyx_model"] else out["pyx_model"]
+    # Full trust in the coder: every engine match and every verified beam program, by the coder's
+    # log-probability; and the cautious version, where a coder-only program must win by MARGIN nats.
+    pool = []
+    for match in engine:
+        program = match.get("program") or []
+        if program and "?" not in program:
+            try:
+                pool.append((coder3.program_log_prob(net, vocabulary, prefix, program), match["code"], "engine"))
+            except KeyError:
+                continue
+    for program, _ in beam:
+        if coder3.reproduces(program, example["args"], literals, example["expected"], example["mode"]):
+            code = pyx.to_code(task["entry_point"], len(example["args"]), program, literals, output)
+            pool.append((coder3.program_log_prob(net, vocabulary, prefix, program), code, "coder"))
+    best = max(pool, key=lambda s: s[0]) if pool else None
+    out["pyx_rerank"] = best[1] if best else None
+    tie_score = max((s[0] for s in scored), default=None)
+    coder_best = max((s for s in pool if s[2] == "coder"), key=lambda s: s[0], default=None)
+    if coder_best and (tie_score is None or coder_best[0] > tie_score + MARGIN):
+        out["pyx_margin"] = coder_best[1]
+    else:
+        out["pyx_margin"] = out["pyx_tie_fill"]
     return out
 
 
