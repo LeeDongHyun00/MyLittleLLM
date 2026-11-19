@@ -33,5 +33,25 @@
   "test",
   "HumanEval+",
   "the held-out teacher tasks and development fifth (used only to measure)"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-19, after both arms' pre-registered measures",
+  "baseline": "s5-var: 17 of the 77 held-out teacher programs with a new link or twig; 35 of the 62 others (reports/seedlm/fragments_s5-var.json)",
+  "s6-graft": {
+   "primary": "24 of 77 (+7): inconclusive by the pre-registered rule (supported needed +8)",
+   "guard": "37 of 62 (+2)",
+   "coverage": "22 of its 24 are programs whose new pieces the grafts do not hold (70 such programs, 7 covered)",
+   "secondary": "engine failures solved by pyx_model 4 (s5-var 5); beyond 3 of 15 (5); new-join tokens 4.06 nats / 37% first on teacher tasks (4.71 / 37%) and 6.73 / 12.5% on beyond (9.36 / 0%), with all tokens cheaper",
+   "training": "4,354 steps in 120 minutes (s5-var 5,524); held-out losses lower throughout (teacher 2.01 vs 2.61)",
+   "choice": "best method 68 (pyx_tie, pyx_tie_fill), not more than 69: not adopted"
+  },
+  "s6-comp": {
+   "primary": "19 of 77 (+2): not supported",
+   "guard": "40 of 62 (+5)",
+   "secondary": "engine failures solved by pyx_model 4; beyond 4 of 15; held-out teacher tasks top-1 reproduces 49.6% (48.2%), real held-out programs 65.3% (57.3%)",
+   "training": "5,055 steps",
+   "choice": "best method 68 (pyx_tie, pyx_tie_fill, pyx_override), not more than 69: not adopted"
+  },
+  "overlap": "the six coders' fixes beyond the engine still fall in the same 6 tasks (reports/seedlm/overlap_holdout_s6.json)"
+ }
 }
