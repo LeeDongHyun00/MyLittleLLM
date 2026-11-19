@@ -56,6 +56,7 @@ def main():
     parser.add_argument("--seedlm")
     parser.add_argument("--seedlm-method", default="tie",
                         help="the SeedLM-2 method that passed its own validation gate (reports/seedlm/seedlm2_protocol.json)")
+    parser.add_argument("--reviewer", help="SeedLM-3 reviewer checkpoint, for the reviewer methods")
     parser.add_argument("--samples")
     parser.add_argument("--output", default="he_summary.json")
     args = parser.parse_args()
@@ -104,36 +105,36 @@ def main():
     if args.seedlm:
         import torch
         from mylittlellm.seedlm import propose2
-        from seedlm2_tasks import code_for, methods_for
+        from seedlm2_tasks import code_for, load_reviewer, methods_for
         torch.set_num_threads(4)
         net, vocabulary = propose2.load(ROOT / "outputs/seedlm" / f"{args.seedlm}.pt")
         arities = propose2.arity_table(vocabulary)
+        reviewer = load_reviewer(args.reviewer)
+        picks = {task_id: methods_for(as_mbpp(task), net, vocabulary, arities, 32, 40, reviewer)
+                 if task["visible_assert"] else {} for task_id, task in tasks.items()}
         chosen = {}
         for task_id, row in pipeline.items():
             task = tasks[task_id]
             chosen[task_id] = row["final_code"]
             if task["visible_assert"] and not (row["visible_ok"] and row["chosen"] != "backinfer"):
-                view = as_mbpp(task)
-                picked = methods_for(view, net, vocabulary, arities, 32, 40).get(args.seedlm_method)
+                picked = picks[task_id].get(args.seedlm_method)
                 if picked and picked[0]:
-                    code = code_for(view, *picked)
+                    code = code_for(as_mbpp(task), *picked)
                     if public_check(code, task["visible_assert"])["ok"]:
                         chosen[task_id] = code
                     elif row["chosen"] == "backinfer":
                         chosen[task_id] = base[task_id]["final_code"]
         finals["seedlm"] = chosen
-        # SeedLM-2 on its own and the engine with SeedLM-2's tie-breaking, without the student (diagnostics).
-        alone, engine_tie = {}, {}
+        # The coder on its own and the engine with the chosen method, without the student (diagnostics).
+        alone, engine_with = {}, {}
         for task_id, task in tasks.items():
-            alone[task_id] = engine_tie[task_id] = ""
-            if task["visible_assert"]:
-                picked = methods_for(as_mbpp(task), net, vocabulary, arities, 32, 40)
-                for target, name in ((alone, "model"), (engine_tie, args.seedlm_method)):
-                    program = picked.get(name)
-                    if program and program[0]:
-                        target[task_id] = code_for(as_mbpp(task), *program)
+            alone[task_id] = engine_with[task_id] = ""
+            for target, name in ((alone, "model"), (engine_with, args.seedlm_method)):
+                program = picks[task_id].get(name)
+                if program and program[0]:
+                    target[task_id] = code_for(as_mbpp(task), *program)
         finals["seedlm_alone"] = alone
-        finals["engine_with_seedlm"] = engine_tie
+        finals["engine_with_seedlm"] = engine_with
     if args.samples:
         sys.path.insert(0, str(ROOT / "scripts"))
         from consensus_select import choose
