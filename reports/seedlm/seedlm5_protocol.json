@@ -18,5 +18,10 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "addendum_1": {
+  "written": "2026-11-19, after s4-post's discovery diagnostic and before the variants were checked or any SeedLM-5 coder trained",
+  "reason": "on the 15 held-out engine failures with a teacher one-liner, s4-post's oracle is close to its first verified program (4 vs 3 at width 32) and the teacher's program sits a median 36.3 nats below the beam's best (quartiles 17.6 / 36.3 / 99.5): the coder does not propose those programs at all. A continuous measure of that gap has more power than a count out of 15",
+  "secondary_measure": "scripts/seedlm3_discovery.py --model s5-var --widths 8 32 128 on the same sets; the hypothesis predicts the teacher programs move closer to the beam's best on the 15 engine failures: a lower median gap than s4-post's 36.3 nats, with the gap shrinking on at least 10 of the 15 tasks (paired by task, counts only)"
+ }
 }
