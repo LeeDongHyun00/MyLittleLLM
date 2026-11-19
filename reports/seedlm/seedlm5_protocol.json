@@ -23,5 +23,20 @@
   "written": "2026-11-19, after s4-post's discovery diagnostic and before the variants were checked or any SeedLM-5 coder trained",
   "reason": "on the 15 held-out engine failures with a teacher one-liner, s4-post's oracle is close to its first verified program (4 vs 3 at width 32) and the teacher's program sits a median 36.3 nats below the beam's best (quartiles 17.6 / 36.3 / 99.5): the coder does not propose those programs at all. A continuous measure of that gap has more power than a count out of 15",
   "secondary_measure": "scripts/seedlm3_discovery.py --model s5-var --widths 8 32 128 on the same sets; the hypothesis predicts the teacher programs move closer to the beam's best on the 15 engine failures: a lower median gap than s4-post's 36.3 nats, with the gap shrinking on at least 10 of the 15 tasks (paired by task, counts only)"
+ },
+ "outcome": {
+  "written": "2026-11-19, after the pre-registered measurements",
+  "primary": "5 of 29 engine failures solved by pyx_model (s3-pyx, s3b-pyx, s4-post: 4 each): inconclusive by the pre-registered rule; all 5 are among the 6 tasks the earlier coders reached (reports/seedlm/overlap_holdout_s5.json)",
+  "secondary": {
+   "beyond_15_end_of_training": "5 (s4-post 3)",
+   "variant_holdout_top1_reproduces": "56.2% of 16 rows (2 held-out seeds only)",
+   "teacher_holdout_top1_reproduces": "48.2% (s4-post 47.5%): the generic tasks did not suffer"
+  },
+  "addendum_1": "beyond gold gap median 36.3 -> 29.4 nats, shrinking on 9 of 15 tasks (4 grow, 2 zero in both): the median criterion holds, the 10-of-15 criterion does not",
+  "choice": "pyx_override 69 > 68: s5-var replaces s3-pyx",
+  "validation_gate": "passed with ties: 19 alone (engine 19), 31 in the 1.5B pipeline (stored 31)",
+  "test": "pyx_override 72 alone (engine 68; s3-pyx's pyx_tie_fill 68); 98 in the 1.5B pipeline (98); 82 in the 0.5B pipeline (80)",
+  "humaneval": "pyx_override 24 alone (engine 22); 110 in the 1.5B pipeline (110)",
+  "diagnostics": "training programs as they are cover 4 of 29 engine failures (reports/seedlm/coverage_holdout.json); the coder finds 29 of 37 held-out teacher programs it has seen whole but 17 of 77 with a new link or twig (reports/seedlm/fragments_s5-var.json); see docs/seed_lm5.md"
  }
 }
