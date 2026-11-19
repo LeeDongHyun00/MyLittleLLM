@@ -1,0 +1,22 @@
+{
+ "written": "2026-11-19, while six teacher subagents were writing the variants and before any SeedLM-5 coder was trained or any variant was checked",
+ "motivation": "Three coders each fix 4 of the 29 held-out development tasks the engine fails (s3-pyx, s3b-pyx, s4-post), although s4-post doubled the in-distribution rate (held-out teacher tasks, first beam program reproduces the example: 23.7% -> 47.5%). The teacher tasks were imagined by category; the tasks the engine fails are a region of their own (its blind spots), and the coder had seen only 82 real programs from it (development one-liners, training part)",
+ "hypothesis": "Teacher-written neighbours of the training pool's engine failures teach the coder that region, so a coder trained with them fixes more held-out engine failures than s4-post with the same architecture and compute",
+ "data": "seeds: the 91 training-pool tasks (MBPP train split and the extra pool's training part) without a known correct library program (scripts/seedlm5_seeds.py); per seed a teacher writes 2 restatements and 6 neighbours, each a one-line pyx-writable task with three inputs (data/seedlm/variant_tasks_part*.json), checked by scripts/seedlm3_task_check.py and decontaminated against every evaluation description by scripts/seedlm3_decontaminate.py --prefix variant_tasks. The variants of a tenth of the seeds (by a hash of the seed id) are held out",
+ "coder": "s5-var: scripts/seedlm4_train.py --name s5-var --minutes 120 --variant-share 0.1, everything else as s4-post (the share is taken from the synthetic rows)",
+ "primary_measure": "on the extra pool's held-out fifth (94 tasks), the number of tasks the engine fails that pyx_model solves (s3-pyx, s3b-pyx and s4-post: 4 each). Supported if at least 7 (three more than every earlier coder); 5 or 6 is inconclusive; 4 or fewer is not supported",
+ "secondary_measures": [
+  "held-out failing development tasks with a teacher one-liner (15): the first verified program passes the task's tests (s4-post 3)",
+  "variants of held-out seeds: first beam program reproduces the visible example (no earlier coder was measured on them)",
+  "held-out teacher tasks: first beam program reproduces the example (s4-post 47.5%), to see whether the generic tasks suffer"
+ ],
+ "methods": "the eight methods of SeedLM-3, computed by scripts/seedlm4_tasks.py",
+ "choice": "s5-var replaces s3-pyx only if its best method solves more held-out tasks than s3-pyx's 68 (ties keep s3-pyx); ties among methods in SeedLM-3's order",
+ "then": "a chosen s5-var gets the same validation gate (alone no fewer than the engine's 19 of 45; in the 1.5B pipeline no fewer than 31), one MBPP+ test run and one HumanEval+ run",
+ "caveat": "a gain could come from more teacher data of any kind rather than from its region; doubling the generic teacher tasks (s3-pyx -> s3b-pyx) did not change the primary measure, which is the nearest control available",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
