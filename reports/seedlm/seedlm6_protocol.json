@@ -1,0 +1,37 @@
+{
+ "written": "2026-11-19, after SeedLM-5's measurements and diagnostics, before any graft was trained on, before any teacher wrote a composed task, and before s5-var's baseline on the primary measure was computed with the synthetic programs counted as seen",
+ "motivation": [
+  "Training programs as they are solve 4 of the 29 held-out development tasks the engine fails (reports/seedlm/coverage_holdout.json); the coders reach 6, and SeedLM-5's neighbours of engine failures reached none new (reports/seedlm/overlap_holdout_s5.json)",
+  "On held-out teacher tasks, s5-var's first verified program is correct for 20 of the 27 programs it has seen whole, but for 0 of the 12 whose node-with-children combinations (twigs) are new although every link is known, and for 20 of 68 with a new parent -> child link (reports/seedlm/fragments_holdout.json, before synthetic programs were counted as seen)",
+  "In the teacher's programs, tokens that join children to a parent in a way training never did cost 4.4 nats on held-out teacher tasks (37% ranked first) and 9.0 nats on held-out engine failures (4% ranked first), against 2.9 and 5.0 for known joins",
+  "The teacher's program loses most of its probability in at most three tokens on held-out teacher tasks (median share 100%), and one-token repairs of the beam reach 10 more correct programs (reports/seedlm/nearmiss_s5-var.json)"
+ ],
+ "hypothesis": "The coder composes only what it has seen composed. Training data that joins known pieces in new ways teaches composition itself, so a coder trained on it finds more programs whose compositions are new to it",
+ "arms": {
+  "s6-graft": {
+   "data": "grafts (scripts/seedlm6_grafts.py, seed 0, 20,000 or as many as the attempt budget yields): a training program (training parts of the teacher tasks and the variants) with one subtree replaced by a subtree of another, joined at a link no training program has; it must run on all three of the host's inputs, change with the input, differ from the host and not return an argument; comprehensions and key functions must use their variables; a closed subtree is replaced only by one of the same type. Descriptions are composed from words for each piece (mylittlellm/seedlm/pyx_words.py: teacher phrases for library operators, plain task words for Python nodes, argument types)",
+   "coder": "scripts/seedlm4_train.py --name s6-graft --minutes 120 --variant-share 0.1 --graft-share 0.1, everything else as s5-var"
+  },
+  "s6-comp": {
+   "data": "composed tasks (data/seedlm/compose_tasks_part*.json): six teacher subagents each get 220 pairs of training-part tasks (scripts/seedlm6_pairs.py, seed 6) and write natural tasks whose one-line program joins a computation of one into the other; each must pass scripts/seedlm3_task_check.py and hold at least one link or twig no training program has (scripts/seedlm6_novelty.py); decontaminated against every evaluation description (scripts/seedlm3_decontaminate.py --prefix compose_tasks); a tenth (by a hash of the id) is held out",
+   "coder": "scripts/seedlm4_train.py --name s6-comp --minutes 120 --variant-share 0.1 --compose-share 0.1, everything else as s5-var"
+  }
+ },
+ "primary_measure": "held-out teacher tasks (139) whose program holds a link or twig that s5-var's training programs (with 100,000 synthetic programs from the training sampler) do not: the number whose first verified program at beam width 32 is correct on all three cases (scripts/seedlm5_fragments.py --model, the subset fixed by the cached seen pieces of s5-var's data). Against s5-var on the same tasks: supported if at least 8 more, inconclusive at 4 to 7 more, not supported at 3 or fewer. Each arm is judged on its own",
+ "guard": "on the other held-out teacher tasks (all pieces seen), the arm may lose at most 4 against s5-var; a larger loss is reported as a cost of the arm",
+ "secondary_measures": [
+  "held-out development tasks the engine fails that pyx_model solves (s5-var 5)",
+  "held-out engine failures with a teacher one-liner at the end of training (s5-var 5 of 15)",
+  "mean surprisal and ranked-first rate of the teacher program's new-join tokens on both sets (s5-var 4.39 nats / 37% and 8.99 nats / 4%)",
+  "whether the new pieces of each primary-measure program occur in the arm's added data (covered) or not: a gain only on covered programs would mean coverage rather than composition",
+  "end-of-training metrics (real held-out programs, synthetic, held-out teacher tasks), to see what the added data costs"
+ ],
+ "choice": "an arm replaces s5-var only if its best method solves more of the held-out development fifth than s5-var's 69 (ties keep s5-var); a chosen arm gets the validation gate (alone no fewer than the engine's 19 of 45; in the 1.5B pipeline no fewer than 31), one MBPP+ test run and one HumanEval+ run",
+ "order": "s6-graft trains first, while the teachers write; s6-comp trains when the composed tasks are checked",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "the held-out teacher tasks and development fifth (used only to measure)"
+ ]
+}
