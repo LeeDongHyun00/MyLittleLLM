@@ -1,0 +1,71 @@
+{
+ "tasks": 164,
+ "with_visible_example": 121,
+ "methods": {
+  "plain": {
+   "solved": 109,
+   "pct": 66.5,
+   "ci95": [
+    58.9,
+    73.2
+   ],
+   "vs_plain": [
+    0,
+    0
+   ],
+   "mcnemar_p": 1.0
+  },
+  "pipeline": {
+   "solved": 110,
+   "pct": 67.1,
+   "ci95": [
+    59.6,
+    73.8
+   ],
+   "vs_plain": [
+    1,
+    0
+   ],
+   "mcnemar_p": 1.0
+  },
+  "engine": {
+   "solved": 22,
+   "pct": 13.4,
+   "ci95": [
+    9.0,
+    19.5
+   ],
+   "vs_plain": [
+    2,
+    89
+   ],
+   "mcnemar_p": 0.0
+  },
+  "post_alone": {
+   "solved": 24,
+   "pct": 14.6,
+   "ci95": [
+    10.0,
+    20.9
+   ],
+   "vs_plain": [
+    2,
+    87
+   ],
+   "mcnemar_p": 0.0
+  },
+  "post_pipeline": {
+   "solved": 110,
+   "pct": 67.1,
+   "ci95": [
+    59.6,
+    73.8
+   ],
+   "vs_plain": [
+    1,
+    0
+   ],
+   "mcnemar_p": 1.0
+  }
+ }
+}
