@@ -1,0 +1,31 @@
+{
+ "base": "s5-var",
+ "model": "s6-graft",
+ "set": "teacher_holdout",
+ "new_composition": {
+  "both": 13,
+  "only_base": 4,
+  "only_model": 11,
+  "neither": 49
+ },
+ "all_pieces_seen": {
+  "both": 28,
+  "only_base": 7,
+  "only_model": 9,
+  "neither": 18
+ },
+ "by_coverage": {
+  "covered": {
+   "both": 0,
+   "only_base": 1,
+   "only_model": 2,
+   "neither": 4
+  },
+  "uncovered": {
+   "both": 13,
+   "only_base": 3,
+   "only_model": 9,
+   "neither": 45
+  }
+ }
+}

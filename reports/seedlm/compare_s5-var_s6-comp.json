@@ -1,0 +1,31 @@
+{
+ "base": "s5-var",
+ "model": "s6-comp",
+ "set": "teacher_holdout",
+ "new_composition": {
+  "both": 12,
+  "only_base": 5,
+  "only_model": 7,
+  "neither": 53
+ },
+ "all_pieces_seen": {
+  "both": 30,
+  "only_base": 5,
+  "only_model": 10,
+  "neither": 17
+ },
+ "by_coverage": {
+  "covered": {
+   "both": 2,
+   "only_base": 1,
+   "only_model": 0,
+   "neither": 2
+  },
+  "uncovered": {
+   "both": 10,
+   "only_base": 4,
+   "only_model": 7,
+   "neither": 51
+  }
+ }
+}
