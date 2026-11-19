@@ -50,7 +50,7 @@
  {
   "id": "nested-005",
   "category": "nested",
-  "description": "Write a function to return the index of the column with the smallest total in a list of lists, the lowest index on ties.",
+  "description": "Write a function that returns the index of the column with the smallest total in a list of lists, the lowest index on ties.",
   "entry_point": "lightest_column",
   "inputs": [
    "([[4, 1, 3], [2, 2, 5]],)",
@@ -98,7 +98,7 @@
  {
   "id": "nested-009",
   "category": "nested",
-  "description": "Write a function to map every key of a dictionary of lists to the number of items in its list.",
+  "description": "Create a function which maps every key of a dictionary of lists to the number of items in its list.",
   "entry_point": "list_sizes",
   "inputs": [
    "({'red': [1, 2], 'blue': [3], 'green': []},)",
@@ -122,7 +122,7 @@
  {
   "id": "nested-011",
   "category": "nested",
-  "description": "Write a function to read a matrix column by column, returning all of its values in one flat list.",
+  "description": "Write a function that reads a matrix column by column and returns all of its values in one flat list.",
   "entry_point": "column_major",
   "inputs": [
    "([[1, 2, 3], [4, 5, 6]],)",
@@ -134,7 +134,7 @@
  {
   "id": "nested-012",
   "category": "nested",
-  "description": "Write a function to keep only the entries of a dictionary whose keys appear in the given list of keys.",
+  "description": "Create a function which keeps only the entries of a dictionary whose keys appear in the given list of keys.",
   "entry_point": "pick_keys",
   "inputs": [
    "({'a': 1, 'b': 2, 'c': 3}, ['c', 'a'])",
@@ -194,7 +194,7 @@
  {
   "id": "nested-017",
   "category": "nested",
-  "description": "Write a function to count the total number of elements across all the inner lists of a list.",
+  "description": "Write a python function to count the total number of elements across all the inner lists of a list.",
   "entry_point": "count_all",
   "inputs": [
    "([[1, 2], [3], [4, 5, 6]],)",
@@ -218,7 +218,7 @@
  {
   "id": "nested-019",
   "category": "nested",
-  "description": "Write a function to find the numbers that occur in every one of the given lists, returned in ascending order.",
+  "description": "Given the lists of free days of several friends, write a function to return the days on which every friend is free, in ascending order.",
   "entry_point": "in_every_list",
   "inputs": [
    "([[5, 1, 3, 9], [3, 9, 4, 1], [9, 1, 7]],)",
@@ -230,7 +230,7 @@
  {
   "id": "nested-020",
   "category": "nested",
-  "description": "Write a function to list the distinct values of a list of lists in the order in which they first appear.",
+  "description": "Write a python function to list the distinct values of a list of lists in the order in which they first appear.",
   "entry_point": "first_seen_values",
   "inputs": [
    "([[3, 1, 3], [2, 1], [4]],)",
@@ -254,19 +254,19 @@
  {
   "id": "nested-022",
   "category": "nested",
-  "description": "Write a python function to count how many of the inner lists contain the given value at least once.",
+  "description": "Given a list of shopping baskets, each a list of items, and an item, write a python function to count how many baskets contain that item at least once.",
   "entry_point": "rows_containing",
   "inputs": [
-   "([[1, 2, 1], [3, 4], [5, 1]], 1)",
-   "([[7, 7], [7], [1, 7]], 7)",
-   "([[0, 2], [4, 6]], 5)"
+   "([['egg', 'tea', 'egg'], ['jam'], ['tea', 'egg']], 'egg')",
+   "([['jam', 'jam'], ['jam'], ['egg', 'jam']], 'jam')",
+   "([['tea'], ['egg']], 'oil')"
   ],
   "expression": "count_rows_with_2(a0, a1)"
  },
  {
   "id": "nested-023",
   "category": "nested",
-  "description": "Write a function to count how many times each value appears across all the inner lists, returning a dictionary from value to count.",
+  "description": "Write a function that counts how many times each value appears across all the inner lists and returns a dictionary from value to count.",
   "entry_point": "value_counts",
   "inputs": [
    "([[1, 2], [2, 3], [2]],)",
@@ -326,7 +326,7 @@
  {
   "id": "nested-028",
   "category": "nested",
-  "description": "Write a function that deletes the element at position k from every row of a list of lists.",
+  "description": "Given a table as a list of rows and a position k, write a function that returns the table with the value at position k removed from every row.",
   "entry_point": "remove_column",
   "inputs": [
    "([[1, 2, 3], [4, 5, 6]], 1)",
@@ -338,7 +338,7 @@
  {
   "id": "nested-029",
   "category": "nested",
-  "description": "Write a function to return the shape of a rectangular matrix as a (number of rows, number of columns) tuple.",
+  "description": "Write a python function to return the shape of a rectangular matrix as a (number of rows, number of columns) tuple.",
   "entry_point": "matrix_shape",
   "inputs": [
    "([[1, 2, 3], [4, 5, 6]],)",
@@ -362,7 +362,7 @@
  {
   "id": "nested-031",
   "category": "nested",
-  "description": "Write a function to remove every key whose value is None from a dictionary, keeping the other values even when they are falsy.",
+  "description": "Write a function that removes every key whose value is None from a dictionary, keeping the other values even when they are falsy.",
   "entry_point": "prune_missing",
   "inputs": [
    "({'a': 1, 'b': None, 'c': 0},)",
@@ -398,7 +398,7 @@
  {
   "id": "nested-034",
   "category": "nested",
-  "description": "Write a function to discard every tuple in a list that contains at least one None.",
+  "description": "Create a function which discards every tuple in a list that contains at least one None.",
   "entry_point": "complete_rows",
   "inputs": [
    "([(1, None), (0, 3), (None, None)],)",
@@ -422,7 +422,7 @@
  {
   "id": "nested-036",
   "category": "nested",
-  "description": "Write a function to sort the rows of a list of lists by their totals, smallest total first.",
+  "description": "Write a function that sorts the rows of a list of lists by their totals, smallest total first.",
   "entry_point": "rows_by_total",
   "inputs": [
    "([[5, 5], [1, 2, 3], [9]],)",
@@ -458,7 +458,7 @@
  {
   "id": "nested-039",
   "category": "nested",
-  "description": "Write a function to swap the two values inside every pair of a list of pairs.",
+  "description": "Write a python function to swap the two values inside every pair of a list of pairs.",
   "entry_point": "swap_pairs",
   "inputs": [
    "([(1, 'a'), (2, 'b')],)",
@@ -470,7 +470,7 @@
  {
   "id": "nested-040",
   "category": "nested",
-  "description": "Write a function that keeps only the menu items whose price is at least 20, given a dictionary from item name to price.",
+  "description": "Write a function that keeps only the entries of a menu dictionary, from item name to price, whose price is at least 20.",
   "entry_point": "pricey_items",
   "inputs": [
    "({'tea': 12, 'cake': 20, 'pie': 35},)",
@@ -542,7 +542,7 @@
  {
   "id": "nested-046",
   "category": "nested",
-  "description": "Write a function to concatenate the inner lists of a list of lists into one list, flattening only one level.",
+  "description": "Write a python function to concatenate the inner lists of a list of lists into one list, flattening only one level.",
   "entry_point": "flatten_once",
   "inputs": [
    "([[1, 2], [3], [], [4, 5]],)",
@@ -554,7 +554,7 @@
  {
   "id": "nested-047",
   "category": "nested",
-  "description": "Write a function to return the key of a dictionary that has the largest value.",
+  "description": "Write a python function to return the key of a dictionary that has the largest value.",
   "entry_point": "key_of_max",
   "inputs": [
    "({'a': 3, 'b': 9, 'c': 4},)",
@@ -566,7 +566,7 @@
  {
   "id": "nested-048",
   "category": "nested",
-  "description": "Write a function to build a dictionary that maps the first element of each tuple to a tuple of its remaining elements.",
+  "description": "Create a function which builds a dictionary that maps the first element of each tuple to a tuple of its remaining elements.",
   "entry_point": "head_to_rest",
   "inputs": [
    "([('a', 1, 2), ('b', 3)],)",
@@ -614,7 +614,7 @@
  {
   "id": "nested-052",
   "category": "nested",
-  "description": "Write a function to swap the keys and values of a dictionary whose values are all distinct.",
+  "description": "Create a function which swaps the keys and values of a dictionary whose values are all distinct.",
   "entry_point": "flip_mapping",
   "inputs": [
    "({'a': 1, 'b': 2},)",
@@ -626,7 +626,7 @@
  {
   "id": "nested-053",
   "category": "nested",
-  "description": "Write a function to compute the average of the values in a dictionary of scores.",
+  "description": "Write a python function to compute the average of the values in a dictionary of scores.",
   "entry_point": "average_score",
   "inputs": [
    "({'ann': 80, 'bob': 90, 'cy': 70},)",
@@ -638,7 +638,7 @@
  {
   "id": "nested-054",
   "category": "nested",
-  "description": "Write a function to return all the keys of a dictionary that share the largest value, in their original order.",
+  "description": "Create a function which returns all the keys of a dictionary that share the largest value, in their original order.",
   "entry_point": "all_top_keys",
   "inputs": [
    "({'a': 3, 'b': 7, 'c': 7, 'd': 1},)",
@@ -674,7 +674,7 @@
  {
   "id": "nested-057",
   "category": "nested",
-  "description": "Write a function to merge a list of dictionaries into one dictionary, with later dictionaries overriding earlier ones on shared keys.",
+  "description": "Write a function that merges a list of dictionaries into one dictionary, with later dictionaries overriding earlier ones on shared keys.",
   "entry_point": "merge_all",
   "inputs": [
    "([{'a': 1}, {'b': 2}, {'a': 3}],)",
@@ -710,7 +710,7 @@
  {
   "id": "nested-060",
   "category": "nested",
-  "description": "Write a function to collect the values stored under the given key from those dictionaries in a list that have that key.",
+  "description": "Write a function that collects the values stored under the given key from those dictionaries in a list that have that key.",
   "entry_point": "gather_field",
   "inputs": [
    "([{'a': 1, 'b': 2}, {'b': 3}, {'a': 4}], 'a')",
@@ -806,7 +806,7 @@
  {
   "id": "nested-068",
   "category": "nested",
-  "description": "Write a function to check whether the first elements of the tuples in a list are all different from one another.",
+  "description": "Write a python function to check whether the first elements of the tuples in a list are all different from one another.",
   "entry_point": "unique_heads",
   "inputs": [
    "([(1, 'a'), (2, 'b'), (1, 'c')],)",
@@ -842,7 +842,7 @@
  {
   "id": "nested-071",
   "category": "nested",
-  "description": "Write a function to check whether any value occurs more than once across all the inner lists of a list.",
+  "description": "Write a python function to check whether any value occurs more than once across all the inner lists of a list.",
   "entry_point": "any_repeat",
   "inputs": [
    "([[1, 2], [3, 1]],)",
@@ -854,7 +854,7 @@
  {
   "id": "nested-072",
   "category": "nested",
-  "description": "Write a function to return, in sorted order, the keys that two dictionaries have in common.",
+  "description": "Write a function that returns, in sorted order, the keys that two dictionaries have in common.",
   "entry_point": "shared_keys",
   "inputs": [
    "({'c': 1, 'a': 2, 'b': 3}, {'b': 0, 'c': 9, 'd': 4})",
@@ -878,7 +878,7 @@
  {
   "id": "nested-074",
   "category": "nested",
-  "description": "Write a function to check whether a square matrix given as a list of lists is equal to its own transpose.",
+  "description": "Create a function which checks whether a square matrix given as a list of lists is equal to its own transpose.",
   "entry_point": "is_symmetric",
   "inputs": [
    "([[1, 2], [2, 1]],)",
@@ -914,7 +914,7 @@
  {
   "id": "nested-077",
   "category": "nested",
-  "description": "Write a function to count the distinct categories in a list of (category, item) pairs.",
+  "description": "Write a python function to count the distinct categories in a list of (category, item) pairs.",
   "entry_point": "category_count",
   "inputs": [
    "([('fruit', 'fig'), ('veg', 'leek'), ('fruit', 'kiwi')],)",
@@ -962,7 +962,7 @@
  {
   "id": "nested-081",
   "category": "nested",
-  "description": "Write a function to return the main diagonal of a square matrix given as a list of lists, from the top-left corner down.",
+  "description": "Write a function that returns the main diagonal of a square matrix given as a list of lists, from the top-left corner down.",
   "entry_point": "main_diagonal",
   "inputs": [
    "([[1, 2, 3], [4, 5, 6], [7, 8, 9]],)",
@@ -1070,7 +1070,7 @@
  {
   "id": "nested-090",
   "category": "nested",
-  "description": "Write a function to add up all the even numbers in a list of lists.",
+  "description": "Write a python function to add up all the even numbers in a list of lists.",
   "entry_point": "even_total",
   "inputs": [
    "([[1, 2, 3], [4, 5], [6]],)",
@@ -1130,7 +1130,7 @@
  {
   "id": "nested-095",
   "category": "nested",
-  "description": "Write a function to sort every column of a matrix in ascending order independently, returning the result as a list of rows.",
+  "description": "Create a function which sorts every column of a matrix in ascending order independently, returning the result as a list of rows.",
   "entry_point": "sort_columns",
   "inputs": [
    "([[3, 1], [1, 2], [2, 0]],)",
@@ -1166,7 +1166,7 @@
  {
   "id": "nested-098",
   "category": "nested",
-  "description": "Write a function to rotate a grid given as a list of lists by 180 degrees.",
+  "description": "Write a function that rotates a grid given as a list of lists by 180 degrees.",
   "entry_point": "rotate_half_turn",
   "inputs": [
    "([[1, 2], [3, 4]],)",
@@ -1214,7 +1214,7 @@
  {
   "id": "nested-102",
   "category": "nested",
-  "description": "Write a function to find, for each inner list, the position of its largest value, using the first position on ties.",
+  "description": "Write a function that finds, for each inner list, the position of its largest value, using the first position on ties.",
   "entry_point": "argmax_per_row",
   "inputs": [
    "([[3, 9, 9], [7, 1], [4, 4, 5]],)",
@@ -1346,7 +1346,7 @@
  {
   "id": "nested-113",
   "category": "nested",
-  "description": "Write a function to find the smallest of the row maximums of a list of lists.",
+  "description": "Write a python function to find the smallest of the row maximums of a list of lists.",
   "entry_point": "min_of_maxes",
   "inputs": [
    "([[3, 7], [5, 2], [9, 1]],)",
@@ -1370,7 +1370,7 @@
  {
   "id": "nested-115",
   "category": "nested",
-  "description": "Write a function to break a flat list into consecutive rows of k elements each, the last row holding whatever is left over.",
+  "description": "Create a function which breaks a flat list into consecutive rows of k elements each, the last row holding whatever is left over.",
   "entry_point": "into_rows",
   "inputs": [
    "([1, 2, 3, 4, 5, 6, 7], 3)",
@@ -1394,7 +1394,7 @@
  {
   "id": "nested-117",
   "category": "nested",
-  "description": "Write a function to check whether a list of lists forms a square matrix, with every row having as many elements as there are rows.",
+  "description": "Write a python function to check whether a list of lists forms a square matrix, with every row having as many elements as there are rows.",
   "entry_point": "is_square",
   "inputs": [
    "([[1, 2, 3], [4, 5, 6]],)",
@@ -1418,7 +1418,7 @@
  {
   "id": "nested-119",
   "category": "nested",
-  "description": "Write a function that appends to a list of numeric rows one extra row holding the column totals.",
+  "description": "Write a function that returns a list of numeric rows with one extra row added at the end holding the column totals.",
   "entry_point": "with_totals_row",
   "inputs": [
    "([[1, 2], [3, 4]],)",
@@ -1466,7 +1466,7 @@
  {
   "id": "nested-123",
   "category": "nested",
-  "description": "Write a function to append to every row of a list of lists the total of that row.",
+  "description": "Create a function which appends to every row of a list of lists the total of that row.",
   "entry_point": "rows_with_total",
   "inputs": [
    "([[1, 2], [3, 4, 5]],)",
@@ -1502,7 +1502,7 @@
  {
   "id": "nested-126",
   "category": "nested",
-  "description": "Write a function to return the inner list with the largest sum, the first one if several tie.",
+  "description": "Write a function that returns the inner list with the largest sum, the first one if several tie.",
   "entry_point": "heaviest_row",
   "inputs": [
    "([[1, 2, 3], [9, 2], [10]],)",
@@ -1514,7 +1514,7 @@
  {
   "id": "nested-127",
   "category": "nested",
-  "description": "Write a function to find the total of all the amounts in a dictionary that maps expense names to amounts.",
+  "description": "Write a python function to find the total of all the amounts in a dictionary that maps expense names to amounts.",
   "entry_point": "total_expenses",
   "inputs": [
    "({'rent': 900, 'food': 250, 'bus': 40},)",
@@ -1562,7 +1562,7 @@
  {
   "id": "nested-131",
   "category": "nested",
-  "description": "Write a function to compute the average of the values in column k of a list of lists.",
+  "description": "Write a python function to compute the average of the values in column k of a list of lists.",
   "entry_point": "column_average",
   "inputs": [
    "([[1, 10], [3, 20], [5, 60]], 1)",
@@ -1658,7 +1658,7 @@
  {
   "id": "nested-139",
   "category": "nested",
-  "description": "Write a function to build a dictionary from a list of keys and a matching list of values, leaving out every key whose value is None.",
+  "description": "Create a function which builds a dictionary from a list of keys and a matching list of values, leaving out every key whose value is None.",
   "entry_point": "zip_skip_none",
   "inputs": [
    "(['a', 'b', 'c'], [0, None, 3])",
@@ -1706,7 +1706,7 @@
  {
   "id": "nested-143",
   "category": "nested",
-  "description": "Given a list of (team, members) tuples where members is a list, sort the tuples by the number of members, smallest team first.",
+  "description": "Given a list of (team, members) tuples where members is a list, return the tuples sorted by the number of members, smallest team first.",
   "entry_point": "teams_by_size",
   "inputs": [
    "([('r', [1, 2]), ('b', [3]), ('g', [4, 5, 6])],)",
@@ -1790,7 +1790,7 @@
  {
   "id": "nested-150",
   "category": "nested",
-  "description": "Write a function to remove the given key from every dictionary in a list, returning new dictionaries.",
+  "description": "Write a function that removes the given key from every dictionary in a list, returning new dictionaries.",
   "entry_point": "drop_field",
   "inputs": [
    "([{'a': 1, 'b': 2}, {'a': 3, 'c': 4}], 'a')",
