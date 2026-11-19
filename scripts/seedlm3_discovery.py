@@ -130,7 +130,7 @@ class Postfix(Prefix):
 def measure(coder, vocabulary, tasks, widths):
     result = {w: {"verified": 0, "first": 0, "oracle": 0, "spurious": [], "gold_in_beam": 0, "seconds": 0.0}
               for w in widths}
-    gaps = []
+    gaps, paired = [], []      # paired: one gap (or None) per task, in the sets' fixed order
     for task in tasks:
         prefix = vocabulary.condition(language.words(task["description"]), task["literals"], task["args"],
                                       task["expected"], named_in(task["description"]))
@@ -158,12 +158,13 @@ def measure(coder, vocabulary, tasks, widths):
             gold = None
         if gold is not None and best is not None:
             gaps.append(best - gold)
+        paired.append(round(best - gold, 3) if gold is not None and best is not None else None)
     for width in widths:
         entry = result[width]
         entry["spurious"] = round(statistics.mean(entry["spurious"]), 2) if entry["spurious"] else 0
         entry["seconds"] = round(entry["seconds"], 1)
     quantiles = statistics.quantiles(gaps, n=4) if len(gaps) >= 4 else []
-    return {"tasks": len(tasks), "by_width": result,
+    return {"tasks": len(tasks), "by_width": result, "paired_gaps": paired,
             "gold_gap_nats": {"scored": len(gaps), "quartiles": [round(q, 2) for q in quantiles],
                               "within_5": sum(g <= 5 for g in gaps), "within_10": sum(g <= 10 for g in gaps)}}
 
@@ -188,6 +189,11 @@ def main():
     for name in args.sets:
         tasks = (teacher_cases if name == "teacher" else beyond_cases)()[:args.limit]
         report[name] = measure(coder, vocabulary, tasks, args.widths)
+        # Per-task gaps let two coders be compared task by task; they stay local (outputs/ is not
+        # committed) because the beyond set belongs to the held-out development fifth.
+        local = ROOT / "outputs/seedlm/verdicts"
+        local.mkdir(parents=True, exist_ok=True)
+        (local / f"discovery3_{args.model}_{name}.json").write_text(json.dumps(report[name].pop("paired_gaps")) + "\n")
         print(name, json.dumps(report[name]), flush=True)
     suffix = "" if args.limit is None else f"_limit{args.limit}"
     (ROOT / "reports/seedlm" / f"discovery3_{args.model}{suffix}.json").write_text(json.dumps(report, indent=1) + "\n")
