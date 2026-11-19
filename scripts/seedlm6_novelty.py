@@ -40,7 +40,13 @@ def seen_pieces(refresh=False):
 
 
 def verdict(task, seen):
-    ok, reason, details = check(task)
+    missing = [k for k in ("id", "description", "entry_point", "inputs", "expression") if not task.get(k)]
+    if missing:
+        return {"id": task.get("id"), "ok": False, "reason": f"missing {missing}"}
+    try:
+        ok, reason, details = check(task)
+    except Exception as error:          # a malformed task must not stop the check of the others
+        ok, reason, details = False, f"{type(error).__name__}: {error}"[:200], {}
     if not ok:
         return {"id": task.get("id"), "ok": False, "reason": reason}
     found = pieces(details["tokens"])
@@ -59,9 +65,13 @@ def main():
     args = parser.parse_args()
     seen = seen_pieces(args.refresh)
     total = valid = novel = 0
+    ids = set()
     for name in args.files:
         for task in json.loads(Path(name).read_text()):
             result = verdict(task, seen)
+            if result["ok"] and task["id"] in ids:
+                result = {"id": task["id"], "ok": False, "reason": "duplicate id"}
+            ids.add(task.get("id"))
             total += 1
             valid += result["ok"]
             novel += result.get("novel", False)
