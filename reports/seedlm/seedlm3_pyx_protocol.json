@@ -1,0 +1,17 @@
+{
+ "written": "2026-11-19, before any pyx coder was trained (only unit tests and a round-trip of the teacher one-liners had run) and while the teacher-authored tasks were still being written",
+ "hypothesis": "A coder that writes Python expressions over the library (pyx) can solve some of the development tasks the rule engine cannot reach at all, because 108 of the 154 tasks it fails have a one-line solution over the library; teacher-authored tasks teach the composition.",
+ "coder": "s3-pyx: scripts/seedlm3_train.py, 75 minutes, width 256, 6 layers, bank rate 0.3, shares real 0.1, teacher tasks 0.15, development one-liners 0.03 (training part only). If a second pyx coder is trained, the one used is the one whose best method solves the most held-out tasks below; ties go to the earlier run.",
+ "data_rules": "teacher-authored tasks are dropped when scripts/seedlm3_decontaminate.py finds a six-word run in common with, or content-word Jaccard >= 0.6 to, any MBPP+ validation or test, HumanEval+ or held-out development description; only counts are reported",
+ "methods": {
+  "pyx_model": "the coder's first beam proposal (width 32) that reproduces the visible example",
+  "pyx_fill": "the engine's program where it has one, else pyx_model",
+  "pyx_tie": "the coder's log-probability breaks ties among the engine's best-scored programs",
+  "pyx_tie_fill": "pyx_tie, else pyx_model where the engine has no program",
+  "pyx_override": "pyx_tie_fill, except that pyx_model replaces the engine's program when the engine itself marks its program as not confident (backinfer.synthesize's confident flag)"
+ },
+ "choice": "the method with the most solved tasks on the extra pool's held-out fifth (94 tasks, judged by each task's three asserts); ties go to pyx_tie_fill, then pyx_fill, then pyx_tie, then pyx_override, then pyx_model",
+ "gate": "validation split: alone, the chosen method solves no fewer than the engine (19 of 45) and in the 1.5B branch-and-select pipeline no fewer than with the engine (31 of 45)",
+ "test": "only after the gate: MBPP+ locked split once (alone and both stored pipelines) and HumanEval+ once (alone and in the pipeline)",
+ "not_tuned_on": ["validation", "test", "HumanEval+"]
+}
