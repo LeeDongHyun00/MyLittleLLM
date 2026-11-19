@@ -100,7 +100,8 @@ def pyx_methods(task, net, vocabulary, grammar, width=32, keep=40):
     return out
 
 
-def holdout(args, net, vocabulary, grammar):
+def holdout(args, net, vocabulary, grammar, methods=None, stem="holdout3"):
+    methods = methods or pyx_methods
     items = [i for i in json.loads((BANK / "all_tasks.json").read_text())
              if i["source"] == "extra" and held_out(i["task_id"])]
     solved = {n: 0 for n in NAMES}
@@ -108,7 +109,7 @@ def holdout(args, net, vocabulary, grammar):
     for item in items:
         task = {"prompt": '"""\n' + item["description"] + "\n" + item["visible_assert"] + '\n"""\n',
                 "entry_point": item["entry_point"]}
-        codes = pyx_methods(task, net, vocabulary, grammar, args.width, args.keep)
+        codes = methods(task, net, vocabulary, grammar, args.width, args.keep)
         verdicts = {}
         for name in NAMES:
             code = codes[name]
@@ -120,11 +121,12 @@ def holdout(args, net, vocabulary, grammar):
             versus[name][0] += verdicts[codes[name]] and not engine
             versus[name][1] += engine and not verdicts[codes[name]]
     report = {"model": args.model, "tasks": len(items), "solved": solved, "versus_engine": versus}
-    (ROOT / "reports/seedlm" / f"holdout3_{args.model}{args.suffix}.json").write_text(json.dumps(report, indent=1) + "\n")
+    (ROOT / "reports/seedlm" / f"{stem}_{args.model}{args.suffix}.json").write_text(json.dumps(report, indent=1) + "\n")
     print(json.dumps(report))
 
 
-def splits(args, net, vocabulary, grammar):
+def splits(args, net, vocabulary, grammar, methods=None, stem="tasks3"):
+    methods = methods or pyx_methods
     tasks, split = read_tasks(), load_split()
     problems = scoring.load_problems()
     oracle = scoring.groundtruth(problems)
@@ -138,7 +140,7 @@ def splits(args, net, vocabulary, grammar):
     report = {"model": args.model, "settings": vars(args)}
     for part in args.splits:
         started = time.monotonic()
-        codes = {t: pyx_methods(tasks[t], net, vocabulary, grammar, args.width, args.keep) for t in split[part]}
+        codes = {t: methods(tasks[t], net, vocabulary, grammar, args.width, args.keep) for t in split[part]}
         entry = {"tasks": len(split[part]),
                  "alone": {n: sum(judge(t, codes[t][n]) for t in split[part]) for n in NAMES}, "pipelines": {}}
         for run in PIPELINES[part]:
@@ -163,7 +165,7 @@ def splits(args, net, vocabulary, grammar):
         entry["seconds"] = round(time.monotonic() - started)
         report[part] = entry
         print(part, json.dumps(entry), flush=True)
-    (ROOT / "reports/seedlm" / f"tasks3_{args.model}_{'_'.join(args.splits)}.json").write_text(
+    (ROOT / "reports/seedlm" / f"{stem}_{args.model}_{'_'.join(args.splits)}.json").write_text(
         json.dumps(report, indent=1) + "\n")
 
 

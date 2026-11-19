@@ -338,8 +338,11 @@ def _emit_call(node, scope, out, n_args, literals, output):
 
 
 # ---------------------------------------------------------------- tokens -> Python expression
-def deserialize(tokens):
-    """The Python expression (an ast node) a token sequence spells; raises ValueError if malformed."""
+def deserialize(tokens, depth=0):
+    """The Python expression (an ast node) a token sequence spells; raises ValueError if malformed.
+
+    `depth` is the number of variables already bound around the expression, for a subtree read on its
+    own: a comprehension inside it then binds v{depth}, as it does in the whole program."""
     position = 0
 
     def read(depth):
@@ -350,7 +353,7 @@ def deserialize(tokens):
         position += 1
         return _node(token, depth, read)
 
-    node = read(0)
+    node = read(depth)
     if position != len(tokens):
         raise ValueError("trailing tokens")
     return node

@@ -27,7 +27,7 @@ import torch
 from mylittlellm.rulecoder import backinfer as bi
 from mylittlellm.rulecoder.limits import Timeout, time_limit
 from mylittlellm.rulecoder.tasks import ROOT
-from mylittlellm.seedlm import coder3, language, pyx
+from mylittlellm.seedlm import coder3, coder4, language, post, pyx
 from seedlm2_ceiling import quick_ok
 from seedlm3_oneliner_check import cases_for
 from seedlm3_train import named_in, oneliner_items, teacher_held, teacher_task_items
@@ -90,7 +90,44 @@ def beyond_cases():
     return out
 
 
-def measure(net, vocabulary, grammar, tasks, widths):
+class Prefix:
+    """SeedLM-3's coder: prefix pyx programs."""
+
+    def __init__(self, net, vocabulary):
+        self.net, self.vocabulary, self.grammar = net, vocabulary, coder3.Grammar(vocabulary)
+
+    def search(self, prefix, task, width):
+        found = coder3.wide_beam_search(self.net, self.vocabulary, self.grammar, prefix, len(task["args"]),
+                                        len(task["literals"]), isinstance(task["expected"], str), width)
+        return found
+
+    def program(self, found):
+        return found
+
+    def gold(self, task):
+        return list(task["gold"])
+
+    def log_prob(self, prefix, task):
+        return coder3.program_log_prob(self.net, self.vocabulary, prefix, list(task["gold"]))
+
+
+class Postfix(Prefix):
+    """SeedLM-4's coder: annotated postfix programs (its programs are turned back into prefix pyx to be judged)."""
+
+    def __init__(self, net, vocabulary):
+        self.net, self.vocabulary, self.grammar = net, vocabulary, coder4.Grammar(vocabulary)
+
+    def search(self, prefix, task, width):
+        found = coder4.beam_search(self.net, self.vocabulary, self.grammar, prefix, task["args"], task["literals"],
+                                   task["expected"], task["mode"], width)
+        return [(post.to_prefix(p), s) for p, s in found]
+
+    def log_prob(self, prefix, task):
+        return coder4.program_log_prob(self.net, self.vocabulary, prefix, post.to_postfix(list(task["gold"])),
+                                       task["args"], task["literals"], task["expected"], task["mode"])
+
+
+def measure(coder, vocabulary, tasks, widths):
     result = {w: {"verified": 0, "first": 0, "oracle": 0, "spurious": [], "gold_in_beam": 0, "seconds": 0.0}
               for w in widths}
     gaps = []
@@ -102,8 +139,7 @@ def measure(net, vocabulary, grammar, tasks, widths):
         best = None
         for width in widths:
             started = time.monotonic()
-            found = coder3.wide_beam_search(net, vocabulary, coder3.Grammar(vocabulary) if grammar is None else grammar,
-                                            prefix, len(task["args"]), len(task["literals"]), string_output, width)
+            found = coder.search(prefix, task, width)
             result[width]["seconds"] += time.monotonic() - started
             if found and best is None:
                 best = found[0][1]
@@ -117,8 +153,8 @@ def measure(net, vocabulary, grammar, tasks, widths):
             entry["spurious"].append(sum(not v for v in verdicts))
             entry["gold_in_beam"] += any(p == list(task["gold"]) for p, _ in found)
         try:
-            gold = coder3.program_log_prob(net, vocabulary, prefix, list(task["gold"]))
-        except KeyError:
+            gold = coder.log_prob(prefix, task)
+        except (KeyError, ValueError):
             gold = None
         if gold is not None and best is not None:
             gaps.append(best - gold)
@@ -140,12 +176,18 @@ def main():
     parser.add_argument("--limit", type=int)
     args = parser.parse_args()
     torch.set_num_threads(4)
-    net, vocabulary = coder3.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")
-    grammar = coder3.Grammar(vocabulary)
+    path = ROOT / "outputs/seedlm" / f"{args.model}.pt"
+    kind = torch.load(path).get("kind")
+    if kind == "post-coder":
+        net, vocabulary = coder4.load(path)
+        coder = Postfix(net, vocabulary)
+    else:
+        net, vocabulary = coder3.load(path)
+        coder = Prefix(net, vocabulary)
     report = {"model": args.model, "widths": args.widths}
     for name in args.sets:
         tasks = (teacher_cases if name == "teacher" else beyond_cases)()[:args.limit]
-        report[name] = measure(net, vocabulary, grammar, tasks, args.widths)
+        report[name] = measure(coder, vocabulary, tasks, args.widths)
         print(name, json.dumps(report[name]), flush=True)
     suffix = "" if args.limit is None else f"_limit{args.limit}"
     (ROOT / "reports/seedlm" / f"discovery3_{args.model}{suffix}.json").write_text(json.dumps(report, indent=1) + "\n")

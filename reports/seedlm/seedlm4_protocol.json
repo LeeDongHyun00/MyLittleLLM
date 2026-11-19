@@ -1,0 +1,20 @@
+{
+ "written": "2026-11-19, before any SeedLM-4 coder was trained: only unit tests, round trips of the 1,447 teacher programs and 97 development one-liners through postfix, and smoke runs of untrained nets had run",
+ "motivation": "s3-pyx and s3b-pyx (twice the teacher tasks and parameters) each solved 4 of the 29 held-out development tasks the rule engine fails (pyx_model fixed/broken against the engine 4/18 and 4/14); scaling improved agreement with the engine, not discovery beyond it",
+ "hypothesis": "A coder that sees what its partial program computes on the visible example discovers more correct programs beyond the engine than SeedLM-3's top-down coder with the same data and compute. SeedLM-4 writes pyx programs in postfix order (operands first; comprehensions and key functions open a scope after their iterable), and every program token's position carries three notes added to its embedding: the kind, the relation to the expected output and the size of the newest value (a vector over the first bindings inside a scope)",
+ "coder": "s4-post: scripts/seedlm4_train.py with s3b-pyx's data and settings (views 3, width 320, 8 layers, 10 heads, bank rate 0.3, shares real 0.1, teacher tasks 0.15, development one-liners 0.03, 120 minutes of training, evaluation time excluded)",
+ "primary_measure": "on the extra pool's held-out fifth (94 tasks, three asserts each), the number of tasks the engine fails that pyx_model solves (s3-pyx 4, s3b-pyx 4); the hypothesis predicts more than 4",
+ "secondary_measures": [
+  "held-out failing development tasks with a teacher one-liner (15): the first verified program passes the task's tests (s3-pyx 4, s3b-pyx 4)",
+  "held-out teacher tasks (139): first beam program reproduces the visible example (s3b-pyx 23.7%), and scripts/seedlm3_discovery.py at widths 8, 32, 128"
+ ],
+ "methods": "the eight methods of SeedLM-3 (scripts/seedlm3_tasks.py), unchanged in meaning, computed by scripts/seedlm4_tasks.py",
+ "choice": "s4-post replaces s3-pyx only if its best method solves more held-out tasks than s3-pyx's 68 (ties keep s3-pyx); ties among methods in SeedLM-3's order (pyx_tie_fill, pyx_fill, pyx_tie, pyx_override, pyx_model, pyx_margin, pyx_rerank)",
+ "then": "a chosen s4-post gets the same validation gate (alone no fewer than the engine's 19 of 45; in the 1.5B pipeline no fewer than 31), one MBPP+ test run (alone and both stored pipelines) and one HumanEval+ run",
+ "ablation": "if the primary measure exceeds 4, s4-blind (the same run with every note set to 'no note') is trained to tell whether the gain comes from the values or from the postfix order; it is measured on the same held-out tasks only",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
