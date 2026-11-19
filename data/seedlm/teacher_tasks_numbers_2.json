@@ -38,7 +38,7 @@
  {
   "id": "numbers2-004",
   "category": "numbers",
-  "description": "Write a function to count the balls in a stack shaped like two square pyramids joined at their shared square base of n by n balls.",
+  "description": "Write a python function to count the balls in a stack shaped like two square pyramids joined at their shared square base of n by n balls.",
   "entry_point": "double_pyramid_balls",
   "inputs": [
    "(3,)",
@@ -50,7 +50,7 @@
  {
   "id": "numbers2-005",
   "category": "numbers",
-  "description": "Write a function to count the orderings of the numbers 1 to n that have exactly k places where a number is immediately followed by a larger one.",
+  "description": "Create a function which counts the orderings of the numbers 1 to n that have exactly k places where a number is immediately followed by a larger one.",
   "entry_point": "orderings_with_k_rises",
   "inputs": [
    "(4, 1)",
@@ -86,7 +86,7 @@
  {
   "id": "numbers2-008",
   "category": "numbers",
-  "description": "Write a function to check whether the divisors of a positive integer, not counting the integer itself, add up to more than the integer.",
+  "description": "Write a python function to check whether the proper divisors of a positive integer, all its divisors except itself, add up to more than the integer.",
   "entry_point": "divisors_exceed_number",
   "inputs": [
    "(12,)",
@@ -278,7 +278,7 @@
  {
   "id": "numbers2-024",
   "category": "numbers",
-  "description": "Write a function to count the ways to tile a 2 by n strip with 1 by 2 dominoes, which may lie either way, and 2 by 2 squares.",
+  "description": "Write a python function to count the ways to tile a 2 by n strip with 1 by 2 dominoes, which may lie either way, and 2 by 2 squares.",
   "entry_point": "strip_tilings",
   "inputs": [
    "(4,)",
@@ -290,7 +290,7 @@
  {
   "id": "numbers2-025",
   "category": "numbers",
-  "description": "Write a function to count the cells of an endless square grid that a game piece can reach from its starting cell in at most d single steps up, down, left or right, the starting cell included.",
+  "description": "Create a function which counts the cells of an endless square grid that a game piece can reach from its starting cell in at most d single steps up, down, left or right, the starting cell included.",
   "entry_point": "cells_within_steps",
   "inputs": [
    "(2,)",
@@ -302,7 +302,7 @@
  {
   "id": "numbers2-026",
   "category": "numbers",
-  "description": "Write a function to count the letters needed to write a whole number from 1 to 3999 in Roman numerals.",
+  "description": "Write a function to count the letters in the Roman numeral for a number from 1 to 3999.",
   "entry_point": "roman_letter_count",
   "inputs": [
    "(1888,)",
@@ -314,7 +314,7 @@
  {
   "id": "numbers2-027",
   "category": "numbers",
-  "description": "Write a function to find how far a positive integer of at least 10 lies above the largest smaller number that reads the same forwards and backwards.",
+  "description": "Write a function to find the difference between a positive integer of at least 10 and the largest palindromic number below it.",
   "entry_point": "above_previous_palindrome",
   "inputs": [
    "(125,)",
@@ -326,7 +326,7 @@
  {
   "id": "numbers2-028",
   "category": "numbers",
-  "description": "Write a python function to count the digits 7 in the base 8 form of a non-negative integer.",
+  "description": "Write a python function to count the occurrences of the digit 7 in the base 8 representation of a non-negative integer.",
   "entry_point": "octal_sevens",
   "inputs": [
    "(511,)",
@@ -362,7 +362,7 @@
  {
   "id": "numbers2-031",
   "category": "numbers",
-  "description": "Write a function to find the largest gap between two consecutive primes that are both at most n, for n of at least 3.",
+  "description": "Write a function to find the largest difference between consecutive primes not exceeding n, for n of at least 3.",
   "entry_point": "largest_prime_gap",
   "inputs": [
    "(30,)",
@@ -374,7 +374,7 @@
  {
   "id": "numbers2-032",
   "category": "numbers",
-  "description": "Write a function to check whether an integer greater than 1 is a power of a single prime number.",
+  "description": "Write a function to check whether the given integer, greater than 1, is a power of a prime number.",
   "entry_point": "is_prime_power",
   "inputs": [
    "(27,)",
@@ -386,7 +386,7 @@
  {
   "id": "numbers2-033",
   "category": "numbers",
-  "description": "Write a function to find the largest divisor of an integer greater than 1 that is smaller than the integer itself.",
+  "description": "Write a function to find the largest divisor of an integer greater than 1, other than the integer itself.",
   "entry_point": "largest_proper_divisor",
   "inputs": [
    "(100,)",
@@ -446,7 +446,7 @@
  {
   "id": "numbers2-038",
   "category": "numbers",
-  "description": "Write a python function to count the blocks of consecutive 1 bits in the binary form of a positive integer.",
+  "description": "Write a python function to count the groups of consecutive set bits in a positive integer.",
   "entry_point": "one_bit_blocks",
   "inputs": [
    "(179,)",
@@ -458,7 +458,7 @@
  {
   "id": "numbers2-039",
   "category": "numbers",
-  "description": "Write a function to multiply together the digits of a non-negative integer and then multiply together the digits of that product.",
+  "description": "Create a function which multiplies the digits of a non-negative integer together and then multiplies the digits of that product together.",
   "entry_point": "digit_product_twice",
   "inputs": [
    "(39,)",
@@ -470,7 +470,7 @@
  {
   "id": "numbers2-040",
   "category": "numbers",
-  "description": "Write a function to check whether a number with at least two digits is prime and stays prime when its digits are written in reverse order.",
+  "description": "Write a function that checks whether a number of two or more digits is a prime that stays prime when its digits are reversed.",
   "entry_point": "prime_both_ways",
   "inputs": [
    "(13,)",
@@ -530,7 +530,7 @@
  {
   "id": "numbers2-045",
   "category": "numbers",
-  "description": "Write a function to count the ways to hand out n different prizes to k children so that every child receives at least one prize.",
+  "description": "Write a python function to count the ways to hand out n different prizes to k children so that every child receives at least one prize.",
   "entry_point": "prizes_to_children",
   "inputs": [
    "(4, 2)",
@@ -631,7 +631,7 @@
   "inputs": [
    "(75, 50)",
    "(50, 50)",
-   "(65, 50)"
+   "(70, 50)"
   ],
   "expression": "0 if a0 <= a1 else 100 if a0 - a1 <= 20 else 300"
  },
@@ -642,8 +642,8 @@
   "entry_point": "ticket_price",
   "inputs": [
    "(30,)",
-   "(8,)",
-   "(70,)"
+   "(11,)",
+   "(65,)"
   ],
   "expression": "6 if a0 < 12 else 7 if a0 >= 65 else 10"
  },
@@ -686,7 +686,7 @@
  {
   "id": "numbers2-058",
   "category": "numbers",
-  "description": "Write a function to find the code word with index n of the reflected binary Gray code, in which neighbouring code words differ in exactly one bit, as an integer.",
+  "description": "Write a function to find the n-th code word, counting from 0, of the reflected binary Gray code as an integer.",
   "entry_point": "gray_code_word",
   "inputs": [
    "(5,)",
@@ -734,7 +734,7 @@
  {
   "id": "numbers2-062",
   "category": "numbers",
-  "description": "Write a function to count how many times in a row a positive integer can be halved while staying a whole number.",
+  "description": "Write a python function to count how many times in a row a positive integer can be divided by 2 without a remainder.",
   "entry_point": "times_halvable",
   "inputs": [
    "(40,)",
@@ -782,7 +782,7 @@
  {
   "id": "numbers2-066",
   "category": "numbers",
-  "description": "Write a function to add up the divisors of a positive integer other than the integer itself, and then do the same for that sum.",
+  "description": "Write a function to add up the divisors of an integer greater than 1 other than the integer itself, and then do the same for that sum.",
   "entry_point": "aliquot_two_steps",
   "inputs": [
    "(12,)",
@@ -794,7 +794,7 @@
  {
   "id": "numbers2-067",
   "category": "numbers",
-  "description": "Write a function to count the divisors of an integer greater than 1 that are neither 1 nor a prime number.",
+  "description": "Write a function to count the composite divisors of an integer greater than 1, the divisors that are neither 1 nor prime.",
   "entry_point": "composite_divisor_count",
   "inputs": [
    "(12,)",
@@ -830,7 +830,7 @@
  {
   "id": "numbers2-070",
   "category": "numbers",
-  "description": "Write a function to check whether adding a number of at least two digits to the number with its digits reversed gives a palindrome.",
+  "description": "Write a function that checks whether a number of at least two digits plus its digit reversal is a palindrome.",
   "entry_point": "reverse_add_palindrome",
   "inputs": [
    "(56,)",
@@ -878,14 +878,14 @@
  {
   "id": "numbers2-074",
   "category": "numbers",
-  "description": "Write a function to find the fewest moves a chess king needs to go from the square in column c1 and row r1 to the square in column c2 and row r2 of an empty board, given c1, r1, c2 and r2.",
-  "entry_point": "king_moves",
+  "description": "Write a function to find how many minutes two taps take to fill a tub together when one alone takes a minutes and the other alone b minutes, rounded to 2 decimal places.",
+  "entry_point": "fill_time_together",
   "inputs": [
-   "(1, 1, 4, 3)",
-   "(5, 5, 5, 5)",
-   "(2, 7, 8, 2)"
+   "(3, 6)",
+   "(5, 20)",
+   "(7, 3)"
   ],
-  "expression": "max(abs(a0 - a2), abs(a1 - a3))"
+  "expression": "round(a0 * a1 / (a0 + a1), 2)"
  },
  {
   "id": "numbers2-075",
@@ -914,7 +914,7 @@
  {
   "id": "numbers2-077",
   "category": "numbers",
-  "description": "Write a function to check whether a triangle with sides a, b and c has an angle of more than 90 degrees.",
+  "description": "Write a function to check whether the triangle with sides a, b and c is obtuse, that is has an angle of more than 90 degrees.",
   "entry_point": "has_obtuse_angle",
   "inputs": [
    "(2, 3, 4)",
@@ -950,7 +950,7 @@
  {
   "id": "numbers2-080",
   "category": "numbers",
-  "description": "Write a function to join the binary forms of two positive integers, the first on the left, and return the value of the joined binary number.",
+  "description": "Create a function which writes two positive integers in binary one after the other, the first on the left, and returns the value of the resulting binary number.",
   "entry_point": "join_binary",
   "inputs": [
    "(2, 3)",
@@ -974,7 +974,7 @@
  {
   "id": "numbers2-082",
   "category": "numbers",
-  "description": "Write a function to check whether n identical small cubes can be stacked into one solid larger cube with none left over.",
+  "description": "Write a function to check whether the given number of identical small cubes can be stacked into one solid larger cube with none left over.",
   "entry_point": "forms_a_cube",
   "inputs": [
    "(64,)",
@@ -998,12 +998,12 @@
  {
   "id": "numbers2-084",
   "category": "numbers",
-  "description": "Write a function to count the prime numbers that are greater than n and at most 2 * n, for a positive integer n.",
+  "description": "Write a python function to count the primes p with n < p <= 2 * n for a positive integer n.",
   "entry_point": "primes_up_to_double",
   "inputs": [
    "(10,)",
-   "(1,)",
-   "(25,)"
+   "(13,)",
+   "(1,)"
   ],
   "expression": "len(num_primes_in_range_2(a0 + 1, 2 * a0))"
  },
@@ -1022,7 +1022,7 @@
  {
   "id": "numbers2-086",
   "category": "numbers",
-  "description": "Write a function to list in increasing order the divisors of an integer greater than 1 other than 1 and the integer itself.",
+  "description": "Write a function to find the divisors of an integer greater than 1 other than 1 and the integer itself, in increasing order.",
   "entry_point": "inner_divisors",
   "inputs": [
    "(12,)",
@@ -1130,7 +1130,7 @@
  {
   "id": "numbers2-095",
   "category": "numbers",
-  "description": "Write a function to find the length of the longest block of consecutive 1 bits in the binary form of a positive integer.",
+  "description": "Write a function to find the length of the longest run of consecutive set bits in a positive integer.",
   "entry_point": "longest_one_block",
   "inputs": [
    "(2006,)",
@@ -1154,7 +1154,7 @@
  {
   "id": "numbers2-097",
   "category": "numbers",
-  "description": "Write a function to count the integers from 1 to n whose divisors other than the integer itself add up to less than the integer.",
+  "description": "Write a python function to count the integers from 1 to n whose proper divisors, the divisors other than the integer itself, add up to less than the integer.",
   "entry_point": "count_deficient_upto",
   "inputs": [
    "(12,)",
@@ -1178,7 +1178,7 @@
  {
   "id": "numbers2-099",
   "category": "numbers",
-  "description": "Write a function to list in increasing order the divisors of a positive integer that are perfect squares.",
+  "description": "Write a function to find the divisors of a positive integer that are perfect squares, in increasing order.",
   "entry_point": "square_divisors",
   "inputs": [
    "(72,)",
@@ -1202,7 +1202,7 @@
  {
   "id": "numbers2-101",
   "category": "numbers",
-  "description": "Write a function to return the number in a list of integers greater than 1 that has the most distinct prime factors, taking the earliest one on a tie.",
+  "description": "Given a list of integers greater than 1, return the one with the most distinct prime factors, taking the earliest one on a tie.",
   "entry_point": "most_prime_factors",
   "inputs": [
    "([12, 30, 49],)",
@@ -1250,7 +1250,7 @@
  {
   "id": "numbers2-105",
   "category": "numbers",
-  "description": "Write a function to list in increasing order the distinct remainders left when the squares of 1, 2, ..., p - 1 are divided by p.",
+  "description": "Create a function which lists in increasing order the distinct remainders left when the squares of 1, 2, ..., p - 1 are divided by p.",
   "entry_point": "square_remainders",
   "inputs": [
    "(7,)",
@@ -1298,7 +1298,7 @@
  {
   "id": "numbers2-109",
   "category": "numbers",
-  "description": "Write a function to count the different values that appear in an n by n multiplication table.",
+  "description": "Write a function to count the distinct numbers in an n by n multiplication table.",
   "entry_point": "distinct_table_products",
   "inputs": [
    "(4,)",
@@ -1310,7 +1310,7 @@
  {
   "id": "numbers2-110",
   "category": "numbers",
-  "description": "Write a function to count the pairs of different integers from 1 to n whose sum is a prime number.",
+  "description": "Write a python function to count the pairs of different integers from 1 to n whose sum is prime.",
   "entry_point": "prime_sum_pairs",
   "inputs": [
    "(4,)",
@@ -1370,7 +1370,7 @@
  {
   "id": "numbers2-115",
   "category": "numbers",
-  "description": "Write a function to add up all the numbers obtained by rotating the digits of a positive integer, the integer itself included.",
+  "description": "Write a function to find the sum of all the cyclic rotations of the digits of a positive integer, the integer itself included.",
   "entry_point": "rotation_sum",
   "inputs": [
    "(123,)",
@@ -1382,7 +1382,7 @@
  {
   "id": "numbers2-116",
   "category": "numbers",
-  "description": "Write a function to replace every digit d of a non-negative integer by 9 - d and return the resulting number.",
+  "description": "Create a function which replaces every digit d of a non-negative integer by 9 - d and returns the resulting number.",
   "entry_point": "nines_complement",
   "inputs": [
    "(1234,)",
@@ -1406,7 +1406,7 @@
  {
   "id": "numbers2-118",
   "category": "numbers",
-  "description": "Write a function to count the places where two neighbouring digits of a non-negative integer differ.",
+  "description": "Write a python function to count the places where two neighbouring digits of a non-negative integer differ.",
   "entry_point": "digit_changes",
   "inputs": [
    "(112233,)",
@@ -1502,7 +1502,7 @@
  {
   "id": "numbers2-126",
   "category": "numbers",
-  "description": "Write a function to find the longest streak of equal neighbouring values in a list of at least two die rolls.",
+  "description": "Write a function to find the length of the longest run of equal neighbouring values in a list of at least two die rolls.",
   "entry_point": "longest_roll_streak",
   "inputs": [
    "([2, 6, 6, 6, 1, 1],)",
@@ -1514,7 +1514,7 @@
  {
   "id": "numbers2-127",
   "category": "numbers",
-  "description": "Write a function to compute the average of every 3 neighbouring values in a list of at least 3 numbers, each rounded to 2 decimal places.",
+  "description": "Write a function to find the average of every 3 neighbouring values in a list of at least 3 numbers, each rounded to 2 decimal places.",
   "entry_point": "three_day_averages",
   "inputs": [
    "([1, 2, 3, 4, 5],)",
@@ -1526,7 +1526,7 @@
  {
   "id": "numbers2-128",
   "category": "numbers",
-  "description": "Write a function to count the scores in a list that are strictly above the average score.",
+  "description": "Write a python function to count the scores in a list that are strictly above the average score.",
   "entry_point": "above_average_count",
   "inputs": [
    "([50, 60, 70, 80],)",
@@ -1550,7 +1550,7 @@
  {
   "id": "numbers2-130",
   "category": "numbers",
-  "description": "Write a function to find the geometric mean of a list of positive numbers, the n-th root of the product of the n numbers, rounded to 2 decimal places.",
+  "description": "Write a function to find the geometric mean of a list of positive numbers, rounded to 2 decimal places.",
   "entry_point": "geometric_mean",
   "inputs": [
    "([2, 8],)",
@@ -1622,7 +1622,7 @@
  {
   "id": "numbers2-136",
   "category": "numbers",
-  "description": "Write a function to add up 1 / (k * (k + 1)) for k from 1 to n, rounded to 4 decimal places.",
+  "description": "Write a function to find the sum of 1 / (k * (k + 1)) for k from 1 to n, rounded to 4 decimal places.",
   "entry_point": "telescoping_sum",
   "inputs": [
    "(3,)",
@@ -1634,7 +1634,7 @@
  {
   "id": "numbers2-137",
   "category": "numbers",
-  "description": "Write a function to multiply together all the even numbers from 2 up to n, for n of at least 2.",
+  "description": "Write a function to find the product of all the even numbers from 2 to n, for n of at least 2.",
   "entry_point": "even_product",
   "inputs": [
    "(8,)",
@@ -1658,7 +1658,7 @@
  {
   "id": "numbers2-139",
   "category": "numbers",
-  "description": "Write a function to list the positions, counting from 0, of the prime numbers in a list of integers.",
+  "description": "Write a function to find the indices, counting from 0, of the prime numbers in a list of integers.",
   "entry_point": "prime_positions",
   "inputs": [
    "([4, 7, 9, 11, 1],)",
@@ -1718,7 +1718,7 @@
  {
   "id": "numbers2-144",
   "category": "numbers",
-  "description": "Write a function to count the points (x, y) with whole-number coordinates from 1 to n whose two coordinates share no common factor greater than 1.",
+  "description": "Create a function which counts the points (x, y) with whole-number coordinates from 1 to n whose coordinates share no common factor greater than 1.",
   "entry_point": "visible_points",
   "inputs": [
    "(3,)",
@@ -1742,7 +1742,7 @@
  {
   "id": "numbers2-146",
   "category": "numbers",
-  "description": "Write a function to count the pairs of integers a < b from 1 to n for which a divides b.",
+  "description": "Write a python function to count the pairs of integers a < b from 1 to n such that a divides b.",
   "entry_point": "dividing_pairs",
   "inputs": [
    "(6,)",
@@ -1754,7 +1754,7 @@
  {
   "id": "numbers2-147",
   "category": "numbers",
-  "description": "Write a function to add up the greatest common divisors of n with each of 1, 2, ..., n.",
+  "description": "Write a function to find the sum of the greatest common divisors of n with each of 1, 2, ..., n.",
   "entry_point": "gcd_total",
   "inputs": [
    "(6,)",
