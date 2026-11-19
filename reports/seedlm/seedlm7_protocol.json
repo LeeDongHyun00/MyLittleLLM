@@ -14,5 +14,15 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-19, after the pre-registered measures on s5-var",
+  "primary": "held-out teacher tasks: MBR 48 vs first 52 at width 32 (15 picks changed), 52 vs 57 at width 128 (28 changed); oracle 65 and 86. MBR solves fewer at both widths: not supported (reports/seedlm/mbr_s5-var.json)",
+  "secondary": {
+   "beyond": "5 vs 5 at both widths",
+   "held_out_development": "pyx_mbr 58 vs pyx_model 57 (fixes/breaks against the engine 5/12 vs 5/13); pyx_override_mbr 69 vs pyx_override 69; the eight earlier methods reproduce s5-var's earlier run exactly (reports/seedlm/holdout4_s5-var_mbr.json)"
+  },
+  "choice": "best method 69, not more than 69: nothing replaced",
+  "reading": "Programs in one coder's beam share its mistakes: wrong programs come as families of near-equivalent variants that agree on probes and pool their probability, while a correct program is often alone. Agreement is evidence only between sources whose errors are independent (docs/consensus.md); within a beam it measures the coder's own bias"
+ }
 }
