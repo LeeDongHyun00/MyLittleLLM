@@ -8,8 +8,10 @@ evaluation: MBPP+ validation and test, HumanEval+, and the extra pool's held-out
 development check). Nothing about the evaluation tasks is printed. (A first run that kept the
 boilerplate dropped a third of the teacher tasks for sharing "write a python function to count the".)
 
-  python scripts/seedlm3_decontaminate.py   writes data/seedlm/teacher_tasks_dropped.json
+  python scripts/seedlm3_decontaminate.py                           writes data/seedlm/teacher_tasks_dropped.json
+  python scripts/seedlm3_decontaminate.py --prefix variant_tasks    the same rules for SeedLM-5's seeded variants
 """
+import argparse
 import json
 from pathlib import Path
 import re
@@ -56,11 +58,14 @@ def evaluation_descriptions():
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--prefix", default="teacher_tasks", help="authored task files data/seedlm/<prefix>_*.json")
+    args = parser.parse_args()
     references = [body(t) for t in evaluation_descriptions()]
     reference_shingles = set().union(*(shingles(w) for w in references))
     reference_content = [content(w) for w in references]
     dropped, total = [], 0
-    for path in sorted(DATA.glob("teacher_tasks_*.json")):
+    for path in sorted(DATA.glob(f"{args.prefix}_*.json")):
         if path.name.endswith("_dropped.json"):
             continue
         for task in json.loads(path.read_text()):
@@ -71,8 +76,8 @@ def main():
             similar = any(mine and len(mine & other) / len(mine | other) >= 0.6 for other in reference_content)
             if overlap or similar:
                 dropped.append({"id": task["id"], "reason": "six-word run" if overlap else "content Jaccard >= 0.6"})
-    (DATA / "teacher_tasks_dropped.json").write_text(json.dumps(dropped, indent=1) + "\n")
-    print(json.dumps({"teacher_tasks": total, "dropped": len(dropped),
+    (DATA / f"{args.prefix}_dropped.json").write_text(json.dumps(dropped, indent=1) + "\n")
+    print(json.dumps({args.prefix: total, "dropped": len(dropped),
                       "by_reason": {r: sum(d["reason"] == r for d in dropped) for r in {d["reason"] for d in dropped}},
                       "evaluation_descriptions": len(references)}))
 

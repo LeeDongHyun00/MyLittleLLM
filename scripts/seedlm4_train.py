@@ -6,7 +6,12 @@ the program in postfix order (mylittlellm/seedlm/post.py), each token followed b
 relation to the expected output and the size of what the partial program computes on the row's
 example. Only the program tokens are trained on. Validation and test tasks, HumanEval+ and the extra
 pool's held-out fifth are never trained on.
+
+With --variant-share, SeedLM-5's seeded variants join the mix (data/seedlm/variant_tasks_*.json:
+teacher-written neighbours of training-pool tasks the engine cannot solve); the variants of a tenth
+of the seeds are held out, so the measure on them is on seeds the coder never saw.
 """
+import hashlib
 import argparse
 import json
 from pathlib import Path
@@ -48,6 +53,11 @@ def convert(vocabulary, rows, blind=False):
         if len(sequence) <= coder4.MAX_LENGTH:
             out.append((sequence, start, dict(ex, postfix=postfix, notes=side)))
     return out
+
+
+def variant_held(task):
+    """A tenth of the seeds: all their variants are held out together, so none of them leaks."""
+    return int(hashlib.sha256(task.get("seed", task["id"]).encode()).hexdigest(), 16) % 10 == 0
 
 
 @torch.no_grad()
@@ -114,6 +124,8 @@ def main():
     parser.add_argument("--real-share", type=float, default=0.1)
     parser.add_argument("--teacher-share", type=float, default=0.15)
     parser.add_argument("--oneliner-share", type=float, default=0.03)
+    parser.add_argument("--variant-share", type=float, default=0.0,
+                        help="share of SeedLM-5's seeded variants (0: the SeedLM-4 mix, vocabulary included)")
     parser.add_argument("--views", type=int, default=3)
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--muon-lr", type=float, default=0.02)
@@ -131,13 +143,15 @@ def main():
 
     started = time.time()
     teacher = teacher_task_items()
+    variants = teacher_task_items("variant_tasks") if args.variant_share else []
     oneliners = oneliner_items()
     phrases = language.load_phrases()
     real_train_texts = [" ".join(r["words"]) for r in json.loads((V2 / "real_dev.json").read_text()) if r["part"] == "train"]
     keyword_texts = [" ".join(language.keyword_phrases(op)) for op in bi.OPERATORS.values()]
     texts = real_train_texts + keyword_texts + [t["description"] for t in teacher if not teacher_held(t["id"])] \
-        + [e["item"]["description"] for e in oneliners if e["part"] == "train"]
-    extra_tokens = {s for t in teacher for s in t["tokens"]} | {s for e in oneliners for s in e["tokens"]}
+        + [e["item"]["description"] for e in oneliners if e["part"] == "train"] \
+        + [t["description"] for t in variants if not variant_held(t)]
+    extra_tokens = {s for t in teacher + variants for s in t["tokens"]} | {s for e in oneliners for s in e["tokens"]}
     vocabulary = coder4.Vocabulary(language.build_vocabulary(texts, phrases), coder4.program_tokens(extra_tokens))
     grammar = coder4.Grammar(vocabulary)
     describer = language.Describer(bi.OPERATORS, phrases)
@@ -150,20 +164,26 @@ def main():
     real = convert(vocabulary, real_rows(vocabulary, "train", random.Random(args.seed + 2), views=args.views), args.blind)
     tasks_train = convert(vocabulary, teacher_rows(vocabulary, teacher, held=False, views=args.views), args.blind)
     lines_train = convert(vocabulary, oneliner_rows(vocabulary, oneliners, "train", views=args.views), args.blind)
+    variants_train = convert(vocabulary, teacher_rows(vocabulary, variants, held=False, views=args.views,
+                                                      held_out=variant_held), args.blind)
     n = len(synthetic)
-    other = 1 - args.real_share - args.teacher_share - args.oneliner_share
+    other = 1 - args.real_share - args.teacher_share - args.oneliner_share - args.variant_share
 
     def copies(share, rows):
         return max(1, round(share * n / (other * max(1, len(rows))))) if rows else 0
 
     train = (synthetic + real * copies(args.real_share, real) + tasks_train * copies(args.teacher_share, tasks_train)
-             + lines_train * copies(args.oneliner_share, lines_train))
+             + lines_train * copies(args.oneliner_share, lines_train)
+             + variants_train * copies(args.variant_share, variants_train))
     held_real = convert(vocabulary, real_rows(vocabulary, "holdout"), args.blind)
     held_teacher = convert(vocabulary, teacher_rows(vocabulary, teacher, held=True), args.blind)
+    held_variants = convert(vocabulary, teacher_rows(vocabulary, variants, held=True, held_out=variant_held),
+                            args.blind)
     print(f"vocabulary {len(vocabulary)} (words {len(vocabulary.words)}, program tokens "
           f"{len(vocabulary.operators)}, notes {len(coder4.NOTE_INDEX)}); synthetic {n}, real {len(real)} x{copies(args.real_share, real)}, "
           f"teacher tasks {len(tasks_train)} x{copies(args.teacher_share, tasks_train)}, dev one-liners "
-          f"{len(lines_train)} x{copies(args.oneliner_share, lines_train)}; held-out real {len(held_real)}, "
+          f"{len(lines_train)} x{copies(args.oneliner_share, lines_train)}, variants {len(variants_train)} "
+          f"x{copies(args.variant_share, variants_train)}; held-out real {len(held_real)}, variants {len(held_variants)}, "
           f"teacher {len(held_teacher)}, dev one-liner tasks {sum(e['part'] == 'holdout' for e in oneliners)}; "
           f"mean length {sum(len(r[0]) for r in synthetic[:5000]) / max(1, min(5000, n)):.0f}; "
           f"data in {time.time() - started:.0f}s", flush=True)
@@ -211,6 +231,8 @@ def main():
                          "synthetic": evaluate(net, vocabulary, grammar, held_synthetic, 60),
                          "real_holdout": evaluate(net, vocabulary, grammar, held_real, 60),
                          "teacher_holdout": evaluate(net, vocabulary, grammar, held_teacher, 60)}
+                if held_variants:
+                    entry["variant_holdout"] = evaluate(net, vocabulary, grammar, held_variants, 60)
                 evaluating += time.time() - pause
                 log.append(entry)
                 print(json.dumps(entry), flush=True)
@@ -219,10 +241,13 @@ def main():
              "real_holdout": evaluate(net, vocabulary, grammar, held_real, limit or len(held_real)),
              "teacher_holdout": evaluate(net, vocabulary, grammar, held_teacher, limit or len(held_teacher)),
              "beyond_holdout": beyond_eval(net, vocabulary, grammar, oneliners)}
+    if held_variants:
+        final["variant_holdout"] = evaluate(net, vocabulary, grammar, held_variants, limit or len(held_variants))
     record = {"name": args.name, "kind": "post-coder", "arguments": vars(args), "parameters": net.parameter_count(),
               "vocabulary": {"size": len(vocabulary), "words": len(vocabulary.words), "program_tokens": len(vocabulary.operators)},
               "rows": {"synthetic": n, "real": len(real), "teacher_tasks": len(tasks_train), "dev_oneliners": len(lines_train),
-                       "teacher_tasks_total": len(teacher)},
+                       "teacher_tasks_total": len(teacher), "variants": len(variants_train),
+                       "variant_tasks_total": len(variants)},
               "steps": step, "sequences_seen": seen, "train_seconds": round(time.time() - begin - evaluating),
               "curve": log, "final": final, "torch": torch.__version__}
     if not args.smoke:

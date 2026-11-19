@@ -39,12 +39,12 @@ def named_in(description):
     return [k for k, op in bi.OPERATORS.items() if op.named_in(description.lower())]
 
 
-def teacher_task_items():
-    """Checked, decontaminated teacher-authored tasks with their tokens and outputs."""
-    dropped_path = DATA / "teacher_tasks_dropped.json"
+def teacher_task_items(prefix="teacher_tasks"):
+    """Checked, decontaminated teacher-authored tasks (data/seedlm/<prefix>_*.json) with their tokens and outputs."""
+    dropped_path = DATA / f"{prefix}_dropped.json"
     dropped = {d["id"] for d in json.loads(dropped_path.read_text())} if dropped_path.exists() else set()
     items = []
-    for path in sorted(DATA.glob("teacher_tasks_*.json")):
+    for path in sorted(DATA.glob(f"{prefix}_*.json")):
         if path.name.endswith("_dropped.json"):
             continue
         for task in json.loads(path.read_text()):
@@ -73,11 +73,13 @@ def view_program(expression, n_args, literals, args, expected):
     return tokens
 
 
-def teacher_rows(vocabulary, items, held, views=1):
-    """With views > 1, each of a task's inputs is shown as the example in turn (training rows only)."""
+def teacher_rows(vocabulary, items, held, views=1, held_out=None):
+    """With views > 1, each of a task's inputs is shown as the example in turn (training rows only).
+    `held_out(task)` says which part a task belongs to (by default a tenth of the task ids)."""
+    held_out = held_out or (lambda task: teacher_held(task["id"]))
     rows = []
     for task in items:
-        if teacher_held(task["id"]) != held:
+        if held_out(task) != held:
             continue
         literals = bi.description_literals(task["description"])
         for view in range(min(views, len(task["inputs"]))):
