@@ -26,6 +26,7 @@ import itertools
 import math
 import re
 import types
+import warnings
 
 from ..rulecoder import backinfer as bi
 from ..rulecoder.limits import Timeout, time_limit
@@ -215,7 +216,11 @@ def _compiled(tokens, depth):
         if len(_CODE) > 200000:
             _CODE.clear()
         tree = pyx._Guarded().visit(pyx.deserialize(list(tokens), depth))
-        code = compile(ast.fix_missing_locations(ast.Expression(tree)), "<post>", "eval")
+        with warnings.catch_warnings():
+            # Partial programs such as None[0] are legal to write and fail when run; the compiler's
+            # warning about them is noise here.
+            warnings.simplefilter("ignore", SyntaxWarning)
+            code = compile(ast.fix_missing_locations(ast.Expression(tree)), "<post>", "eval")
         _CODE[key] = code
     return code
 
