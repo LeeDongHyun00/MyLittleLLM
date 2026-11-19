@@ -107,27 +107,27 @@
   "id": "variant-p1-002-1",
   "seed": "Mbpp/769",
   "category": "sequences",
-  "description": "Write a python function to find the difference between two lists: the elements of the first list that are not in the second, followed by the elements of the second list that are not in the first.",
+  "description": "Write a python function to find the difference between two lists by way of sets: the values of the first list that are not in the second, followed by the values of the second list that are not in the first.",
   "entry_point": "list_difference",
   "inputs": [
-   "([10, 15, 20, 25], [20, 30, 15])",
-   "([1, 2, 3], [3, 2, 1])",
-   "([], [4, 8])"
+   "([1, 2, 3, 4, 5], [4, 5, 6, 7])",
+   "([3, 3, 1], [1])",
+   "([10, 20, 30, 40], [30, 50])"
   ],
-  "expression": "[x for x in a0 if x not in a1] + [x for x in a1 if x not in a0]"
+  "expression": "list(set(a0) - set(a1)) + list(set(a1) - set(a0))"
  },
  {
   "id": "variant-p1-002-2",
   "seed": "Mbpp/769",
   "category": "sequences",
-  "description": "Write a python function that returns, in ascending order, the values that belong to only one of two given lists.",
-  "entry_point": "sorted_difference",
+  "description": "Write a python function that turns two lists into sets and returns, as one list, the members found only in the first set followed by the members found only in the second.",
+  "entry_point": "set_difference_list",
   "inputs": [
-   "([5, 1, 9, 3], [3, 4, 1])",
-   "([2, 2, 6], [6])",
-   "([7, 8], [8, 7])"
+   "([12, 5, 7, 9], [7, 1])",
+   "([2, 4], [4, 2])",
+   "([], [6, 6, 8])"
   ],
-  "expression": "sorted(set(a0) ^ set(a1))"
+  "expression": "list(set(a0) - set(a1)) + list(set(a1) - set(a0))"
  },
  {
   "id": "variant-p1-002-3",
@@ -198,14 +198,14 @@
   "id": "variant-p1-002-8",
   "seed": "Mbpp/769",
   "category": "sequences",
-  "description": "Write a python function to add up the distinct numbers that belong to just one of two lists.",
-  "entry_point": "sum_difference",
+  "description": "Write a python function that returns, in ascending order, the values that belong to only one of two given lists.",
+  "entry_point": "sorted_difference",
   "inputs": [
-   "([1, 2, 3], [2, 3, 10])",
-   "([5, 5], [5])",
-   "([-2, 7], [])"
+   "([5, 1, 9, 3], [3, 4, 1])",
+   "([2, 2, 6], [6])",
+   "([7, 8], [8, 7])"
   ],
-  "expression": "sum(set(a0) ^ set(a1))"
+  "expression": "sorted(set(a0) ^ set(a1))"
  },
  {
   "id": "variant-p1-003-1",
@@ -328,14 +328,14 @@
   "id": "variant-p1-004-2",
   "seed": "MbppX/220",
   "category": "strings",
-  "description": "Write a function to change the first n characters of a text that are any of ' ,.' into ':' and leave the rest unchanged.",
+  "description": "Write a function to change the first n spaces, commas or dots of a text into colons and leave the rest unchanged.",
   "entry_point": "colon_replace",
   "inputs": [
-   "('a.b.c d', 3)",
+   "('a.b.c d e', 3)",
    "('x, y, z', 2)",
    "('a b', 4)"
   ],
-  "expression": "re.sub('[' + ' ,.' + ']', ':', a0, a1)"
+  "expression": "re.sub('[ ' + ',.' + ']', ':', a0, a1)"
  },
  {
   "id": "variant-p1-004-3",
@@ -1293,9 +1293,9 @@
   "description": "Write a function to find the length of the chord cut off by a central angle given in degrees on a circle of diameter d.",
   "entry_point": "chord_length",
   "inputs": [
-   "(10, 60)",
+   "(10, 90)",
    "(2, 180)",
-   "(8, 90)"
+   "(8, 120)"
   ],
   "expression": "a0 * math.sin(math.radians(a1) / 2)"
  },
