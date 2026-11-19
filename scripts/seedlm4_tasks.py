@@ -14,6 +14,12 @@ by writing it in postfix and annotating it on the visible example.
 
   holdout --model NAME            the extra pool's held-out fifth, judged by each task's three asserts
   splits --model NAME --splits S  MBPP+ splits (EvalPlus scoring), alone and in the stored pipelines
+
+With --mbr, two more methods choose among the coder's verified programs by their behaviour on probe
+inputs (execution minimum Bayes risk, mylittlellm/seedlm/select.py) instead of taking the first:
+  pyx_mbr           the chosen program
+  pyx_override_mbr  pyx_override with the chosen program in place of pyx_model's
+(reports get the suffix _mbr).
 """
 import argparse
 from pathlib import Path
@@ -26,8 +32,10 @@ import torch
 from mylittlellm.rulecoder.limits import cap_memory
 from mylittlellm.rulecoder import backinfer as bi
 from mylittlellm.rulecoder.tasks import ROOT, parse_prompt
-from mylittlellm.seedlm import coder4, data2, language, post, pyx
+from mylittlellm.seedlm import coder4, data2, language, post, pyx, select
 from seedlm3_tasks import MARGIN, NAMES, holdout, splits
+
+MBR_NAMES = ["pyx_mbr", "pyx_override_mbr"]
 
 
 def post_methods(task, net, vocabulary, grammar, width=32, keep=40):
@@ -87,6 +95,11 @@ def post_methods(task, net, vocabulary, grammar, width=32, keep=40):
         out["pyx_margin"] = coder_best[1]
     else:
         out["pyx_margin"] = out["pyx_tie_fill"]
+    if "pyx_mbr" in out:
+        pick = select.mbr_pick([post.to_prefix(p) for p, _ in verified], [s for _, s in verified], args, literals,
+                               output) if verified else None
+        out["pyx_mbr"] = code(verified[pick][0]) if verified else None
+        out["pyx_override_mbr"] = out["pyx_tie_fill"] if confident or not out["pyx_mbr"] else out["pyx_mbr"]
     return out
 
 
@@ -100,7 +113,11 @@ def main():
     parser.add_argument("--suffix", default="")
     parser.add_argument("--verdicts", action="store_true",
                         help="also keep per-task held-out verdicts locally (outputs/seedlm/verdicts)")
+    parser.add_argument("--mbr", action="store_true", help="add the two execution-MBR methods")
     args = parser.parse_args()
+    if args.mbr:
+        NAMES.extend(MBR_NAMES)      # the list seedlm3_tasks' loops read
+        args.suffix += "_mbr"
     torch.set_num_threads(4)
     cap_memory()      # a program's runaway allocation fails instead of killing the run
     net, vocabulary = coder4.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")
