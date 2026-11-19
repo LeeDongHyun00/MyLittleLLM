@@ -1,0 +1,13 @@
+{
+ "written": 1207,
+ "dropped_by_decontamination": 24,
+ "usable": 1183,
+ "training_part": 1071,
+ "tokens_quartiles": [
+  7.0,
+  10.0,
+  13.0
+ ],
+ "new_edges_vs_s5_data": 1028,
+ "new_twigs_vs_s5_data": 1301
+}

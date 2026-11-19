@@ -1,0 +1,98 @@
+[
+ {
+  "id": "compose-p1-115",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p1-172",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p2-034",
+  "reason": "content Jaccard >= 0.6"
+ },
+ {
+  "id": "compose-p2-050",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p2-074",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p2-103",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p2-117",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p2-167",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p2-177",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p3-121",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p3-198",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p4-002",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p4-092",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p4-116",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p4-120",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p4-199",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p4-210",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p4-212",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p5-021",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p5-059",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p5-095",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p5-132",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p5-161",
+  "reason": "six-word run"
+ },
+ {
+  "id": "compose-p6-059",
+  "reason": "six-word run"
+ }
+]
