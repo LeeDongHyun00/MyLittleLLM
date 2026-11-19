@@ -1,0 +1,197 @@
+{
+ "synthetic_programs": 100000,
+ "training_programs_skipped": 0,
+ "known": {
+  "tokens": 972,
+  "edges": 37090,
+  "twigs": 36895,
+  "whole": 34101
+ },
+ "teacher_holdout": {
+  "programs": 139,
+  "all_known": {
+   "tokens": 138,
+   "edges": 74,
+   "twigs": 62,
+   "whole": 37
+  },
+  "first_unknown": {
+   "edges": 64,
+   "nothing (seen whole)": 37,
+   "whole": 25,
+   "twigs": 12,
+   "tokens": 1
+  }
+ },
+ "variant_holdout": {
+  "programs": 16,
+  "all_known": {
+   "tokens": 14,
+   "edges": 13,
+   "twigs": 5,
+   "whole": 0
+  },
+  "first_unknown": {
+   "whole": 5,
+   "tokens": 2,
+   "twigs": 8,
+   "edges": 1
+  }
+ },
+ "beyond": {
+  "programs": 15,
+  "all_known": {
+   "tokens": 15,
+   "edges": 8,
+   "twigs": 6,
+   "whole": 2
+  },
+  "first_unknown": {
+   "twigs": 2,
+   "edges": 7,
+   "whole": 4,
+   "nothing (seen whole)": 2
+  }
+ },
+ "coder": {
+  "model": "s8-all",
+  "width": 32,
+  "by_first_unknown": {
+   "teacher_holdout": {
+    "edges": {
+     "programs": 64,
+     "first_correct": 19
+    },
+    "nothing (seen whole)": {
+     "programs": 37,
+     "first_correct": 28
+    },
+    "whole": {
+     "programs": 25,
+     "first_correct": 10
+    },
+    "twigs": {
+     "programs": 12,
+     "first_correct": 4
+    },
+    "tokens": {
+     "programs": 1,
+     "first_correct": 1
+    }
+   },
+   "beyond": {
+    "twigs": {
+     "programs": 2,
+     "first_correct": 0
+    },
+    "edges": {
+     "programs": 7,
+     "first_correct": 0
+    },
+    "whole": {
+     "programs": 4,
+     "first_correct": 1
+    },
+    "nothing (seen whole)": {
+     "programs": 2,
+     "first_correct": 2
+    }
+   }
+  },
+  "teacher_program_tokens": {
+   "teacher_holdout": {
+    "leaf": {
+     "tokens": 481,
+     "mean_nats": 2.3,
+     "ranked_first": 0.632
+    },
+    "known_edges": {
+     "tokens": 375,
+     "mean_nats": 2.25,
+     "ranked_first": 0.568
+    },
+    "new_edge": {
+     "tokens": 86,
+     "mean_nats": 3.95,
+     "ranked_first": 0.384
+    },
+    "leaf_by_kind": {
+     "ARG": {
+      "tokens": 247,
+      "mean_nats": 1.53,
+      "ranked_first": 0.737
+     },
+     "INT": {
+      "tokens": 74,
+      "mean_nats": 4.68,
+      "ranked_first": 0.324
+     },
+     "LIT": {
+      "tokens": 32,
+      "mean_nats": 4.25,
+      "ranked_first": 0.25
+     },
+     "None": {
+      "tokens": 19,
+      "mean_nats": 3.8,
+      "ranked_first": 0.421
+     },
+     "STR": {
+      "tokens": 8,
+      "mean_nats": 9.33,
+      "ranked_first": 0.0
+     },
+     "VAR": {
+      "tokens": 83,
+      "mean_nats": 1.05,
+      "ranked_first": 0.795
+     },
+     "o": {
+      "tokens": 9,
+      "mean_nats": 1.16,
+      "ranked_first": 0.778
+     },
+     "o!": {
+      "tokens": 9,
+      "mean_nats": 0.01,
+      "ranked_first": 1.0
+     }
+    }
+   },
+   "beyond": {
+    "leaf": {
+     "tokens": 62,
+     "mean_nats": 4.69,
+     "ranked_first": 0.387
+    },
+    "known_edges": {
+     "tokens": 55,
+     "mean_nats": 4.17,
+     "ranked_first": 0.382
+    },
+    "new_edge": {
+     "tokens": 24,
+     "mean_nats": 7.79,
+     "ranked_first": 0.167
+    },
+    "leaf_by_kind": {
+     "ARG": {
+      "tokens": 24,
+      "mean_nats": 3.46,
+      "ranked_first": 0.583
+     },
+     "INT": {
+      "tokens": 18,
+      "mean_nats": 7.14,
+      "ranked_first": 0.111
+     },
+     "VAR": {
+      "tokens": 20,
+      "mean_nats": 3.94,
+      "ranked_first": 0.4
+     }
+    }
+   }
+  }
+ }
+}
