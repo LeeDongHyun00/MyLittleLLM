@@ -89,5 +89,17 @@ class NoveltyTests(unittest.TestCase):
         self.assertFalse(verdict({"id": "c"}, seen)["ok"])
 
 
+
+class MbrTests(unittest.TestCase):
+    def test_the_behaviour_with_more_probability_behind_it_wins(self):
+        from mylittlellm.seedlm import select
+        programs = [pyx.serialize("a0[0]", 1), pyx.serialize("min(a0)", 1), pyx.serialize("sorted(a0)[0]", 1)]
+        # a0[0] alone is the most probable, but min and sorted()[0] behave alike and together outweigh it.
+        self.assertEqual(select.mbr_pick(programs, [-1.0, -1.5, -1.6], [[1, 5, 3]]), 1)
+        # With one program, or a clear favourite, the beam order stands.
+        self.assertEqual(select.mbr_pick(programs[:1], [-1.0], [[1, 5, 3]]), 0)
+        self.assertEqual(select.mbr_pick(programs, [-1.0, -9.0, -9.5], [[1, 5, 3]]), 0)
+
+
 if __name__ == "__main__":
     unittest.main()
