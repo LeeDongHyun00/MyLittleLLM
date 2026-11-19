@@ -1,0 +1,1802 @@
+[
+ {
+  "id": "numbers2-001",
+  "category": "numbers",
+  "description": "Write a function to find the term at index n, counting from 0, of the sequence 0, 1, 1, 3, 5, 11, 21, ... in which every term is the previous term plus twice the term before that.",
+  "entry_point": "jacobsthal_term",
+  "inputs": [
+   "(6,)",
+   "(0,)",
+   "(10,)"
+  ],
+  "expression": "jacobsthal_1(a0)"
+ },
+ {
+  "id": "numbers2-002",
+  "category": "numbers",
+  "description": "Write a python function to return the term at index n, counting from 0, of the sequence 3, 0, 2, 3, 2, 5, 5, 7, ... where each term is the sum of the terms two and three places before it.",
+  "entry_point": "perrin_term",
+  "inputs": [
+   "(10,)",
+   "(1,)",
+   "(14,)"
+  ],
+  "expression": "perrin_1(a0)"
+ },
+ {
+  "id": "numbers2-003",
+  "category": "numbers",
+  "description": "Create a function which counts the holes on a six-pointed star board of size n, where the boards of sizes 1, 2 and 3 have 1, 13 and 37 holes and each size adds 12 * (n - 1) holes to the size before it.",
+  "entry_point": "star_board_holes",
+  "inputs": [
+   "(5,)",
+   "(1,)",
+   "(9,)"
+  ],
+  "expression": "star_1(a0)"
+ },
+ {
+  "id": "numbers2-004",
+  "category": "numbers",
+  "description": "Write a function to count the balls in a stack shaped like two square pyramids joined at their shared square base of n by n balls.",
+  "entry_point": "double_pyramid_balls",
+  "inputs": [
+   "(3,)",
+   "(1,)",
+   "(6,)"
+  ],
+  "expression": "octahedral_1(a0)"
+ },
+ {
+  "id": "numbers2-005",
+  "category": "numbers",
+  "description": "Write a function to count the orderings of the numbers 1 to n that have exactly k places where a number is immediately followed by a larger one.",
+  "entry_point": "orderings_with_k_rises",
+  "inputs": [
+   "(4, 1)",
+   "(5, 2)",
+   "(3, 0)"
+  ],
+  "expression": "eulerian_2(a0, a1)"
+ },
+ {
+  "id": "numbers2-006",
+  "category": "numbers",
+  "description": "Two meshing gear wheels have a and b teeth; write a function to check whether they first come back to their starting position together only after a * b teeth have passed the point of contact.",
+  "entry_point": "gears_full_cycle",
+  "inputs": [
+   "(12, 35)",
+   "(12, 18)",
+   "(9, 4)"
+  ],
+  "expression": "coprime_2(a0, a1)"
+ },
+ {
+  "id": "numbers2-007",
+  "category": "numbers",
+  "description": "A panel of on/off sensors is read twice and each reading is stored as a non-negative integer with one bit per sensor; write a function to check whether exactly one sensor changed between the two readings.",
+  "entry_point": "one_sensor_changed",
+  "inputs": [
+   "(12, 13)",
+   "(5, 6)",
+   "(8, 8)"
+  ],
+  "expression": "differ_one_bit_2(a0, a1)"
+ },
+ {
+  "id": "numbers2-008",
+  "category": "numbers",
+  "description": "Write a function to check whether the divisors of a positive integer, not counting the integer itself, add up to more than the integer.",
+  "entry_point": "divisors_exceed_number",
+  "inputs": [
+   "(12,)",
+   "(13,)",
+   "(28,)"
+  ],
+  "expression": "is_abundant_1(a0)"
+ },
+ {
+  "id": "numbers2-009",
+  "category": "numbers",
+  "description": "Write a function that checks whether a non-negative integer appears in the sequence 0, 1, 1, 2, 3, 5, 8, 13, ... in which each term is the sum of the two terms before it.",
+  "entry_point": "in_fibonacci_sequence",
+  "inputs": [
+   "(21,)",
+   "(22,)",
+   "(144,)"
+  ],
+  "expression": "is_fibonacci_number_1(a0)"
+ },
+ {
+  "id": "numbers2-010",
+  "category": "numbers",
+  "description": "Given a Unix file permission written as a base 8 number such as 755, stored as an integer whose digits are all below 8, return its ordinary integer value.",
+  "entry_point": "permission_value",
+  "inputs": [
+   "(755,)",
+   "(644,)",
+   "(17,)"
+  ],
+  "expression": "num_octal_to_decimal_1(a0)"
+ },
+ {
+  "id": "numbers2-011",
+  "category": "numbers",
+  "description": "A kite flies on a tight string of length L tied to a peg in the ground, directly above a point d away from the peg; write a function to find the height of the kite, given L and d.",
+  "entry_point": "kite_height",
+  "inputs": [
+   "(13, 5)",
+   "(5, 4)",
+   "(10, 6)"
+  ],
+  "expression": "num_right_triangle_leg_2(a0, a1)"
+ },
+ {
+  "id": "numbers2-012",
+  "category": "numbers",
+  "description": "Write a function to find the area of a kite-shaped tile whose two diagonals, of lengths p and q, cross at right angles.",
+  "entry_point": "kite_tile_area",
+  "inputs": [
+   "(6, 4)",
+   "(5, 3)",
+   "(10, 10)"
+  ],
+  "expression": "rhombus_area_2(a0, a1)"
+ },
+ {
+  "id": "numbers2-013",
+  "category": "numbers",
+  "description": "Write a function to find the area of a garden bed shaped like a trapezoid with parallel sides a and b and height h.",
+  "entry_point": "trapezoid_bed_area",
+  "inputs": [
+   "(3, 5, 4)",
+   "(2, 7, 3)",
+   "(4, 4, 5)"
+  ],
+  "expression": "trapezium_area_3(a0, a1, a2)"
+ },
+ {
+  "id": "numbers2-014",
+  "category": "numbers",
+  "description": "Write a function to find the area of wrapping paper that covers a closed box of length l, width w and height h exactly, with no overlap.",
+  "entry_point": "box_wrapping_area",
+  "inputs": [
+   "(2, 3, 4)",
+   "(1, 1, 1)",
+   "(5, 2, 1)"
+  ],
+  "expression": "cuboid_surface_3(a0, a1, a2)"
+ },
+ {
+  "id": "numbers2-015",
+  "category": "numbers",
+  "description": "A ball's height after t seconds is a * t * t + b * t + c, where a is negative; given a, b and c, return a tuple of the time at which the ball is highest and that greatest height.",
+  "entry_point": "ball_peak",
+  "inputs": [
+   "(-5, 20, 1)",
+   "(-1, 4, 0)",
+   "(-2, 6, 3)"
+  ],
+  "expression": "num_parabola_vertex_3(a0, a1, a2)"
+ },
+ {
+  "id": "numbers2-016",
+  "category": "numbers",
+  "description": "A punched tape stores a positive integer in binary, written without leading zeros, with a hole for each 1 and a blank for each 0; write a function to count the blanks.",
+  "entry_point": "tape_blanks",
+  "inputs": [
+   "(100,)",
+   "(7,)",
+   "(1024,)"
+  ],
+  "expression": "num_unset_bit_count_1(a0)"
+ },
+ {
+  "id": "numbers2-017",
+  "category": "numbers",
+  "description": "Write a function to find the n-th term, counting from 1, of the sequence 1, 6, 16, 31, 51, ... whose successive differences are 5, 10, 15, 20 and so on.",
+  "entry_point": "pentagon_ring_term",
+  "inputs": [
+   "(5,)",
+   "(1,)",
+   "(10,)"
+  ],
+  "expression": "centered_pentagonal_1(a0)"
+ },
+ {
+  "id": "numbers2-018",
+  "category": "numbers",
+  "description": "Write a function to find the area enclosed by an oval running track that is an ellipse with semi-axes a and b.",
+  "entry_point": "oval_track_area",
+  "inputs": [
+   "(3, 2)",
+   "(5, 5)",
+   "(1, 4)"
+  ],
+  "expression": "ellipse_area_2(a0, a1)"
+ },
+ {
+  "id": "numbers2-019",
+  "category": "numbers",
+  "description": "A tent is a triangular prism whose triangular end has base b and height h, and whose length is l; given b, h and l, write a function to find the volume of air inside.",
+  "entry_point": "tent_volume",
+  "inputs": [
+   "(2, 3, 4)",
+   "(4, 2, 5)",
+   "(3, 3, 3)"
+  ],
+  "expression": "prism_volume_3(a0, a1, a2)"
+ },
+ {
+  "id": "numbers2-020",
+  "category": "numbers",
+  "description": "In a chain letter the first round sends a letters and every later round sends r times as many as the round before; given a, the round number n and r, write a function to find how many letters round n sends.",
+  "entry_point": "chain_letter_round",
+  "inputs": [
+   "(2, 4, 3)",
+   "(5, 1, 10)",
+   "(1, 6, 2)"
+  ],
+  "expression": "num_gp_term_3(a0, a1, a2)"
+ },
+ {
+  "id": "numbers2-021",
+  "category": "numbers",
+  "description": "A runner covers a km on the first day of training and d km more each day than the day before; given a, the number of days n and d, write a function to find the total distance run.",
+  "entry_point": "training_distance",
+  "inputs": [
+   "(5, 3, 1)",
+   "(2, 4, 3)",
+   "(10, 1, 5)"
+  ],
+  "expression": "num_ap_sum_3(a0, a1, a2)"
+ },
+ {
+  "id": "numbers2-022",
+  "category": "numbers",
+  "description": "The spaces of a car park row are the bits of a positive integer written without leading zeros, 1 for taken and 0 for free, with bit 0 nearest the gate; write a function to fill the free space nearest the gate and return the new value, leaving a full row unchanged.",
+  "entry_point": "fill_nearest_space",
+  "inputs": [
+   "(11,)",
+   "(7,)",
+   "(8,)"
+  ],
+  "expression": "num_set_rightmost_unset_bit_1(a0)"
+ },
+ {
+  "id": "numbers2-023",
+  "category": "numbers",
+  "description": "A frog hops along a row of stones, always jumping forward either 2 or 3 stones; write a function to count the different hop sequences that take it from stone 0 to exactly stone n, for n of at least 2.",
+  "entry_point": "frog_hop_sequences",
+  "inputs": [
+   "(10,)",
+   "(2,)",
+   "(14,)"
+  ],
+  "expression": "padovan_1(a0 - 2)"
+ },
+ {
+  "id": "numbers2-024",
+  "category": "numbers",
+  "description": "Write a function to count the ways to tile a 2 by n strip with 1 by 2 dominoes, which may lie either way, and 2 by 2 squares.",
+  "entry_point": "strip_tilings",
+  "inputs": [
+   "(4,)",
+   "(1,)",
+   "(6,)"
+  ],
+  "expression": "jacobsthal_1(a0 + 1)"
+ },
+ {
+  "id": "numbers2-025",
+  "category": "numbers",
+  "description": "Write a function to count the cells of an endless square grid that a game piece can reach from its starting cell in at most d single steps up, down, left or right, the starting cell included.",
+  "entry_point": "cells_within_steps",
+  "inputs": [
+   "(2,)",
+   "(0,)",
+   "(5,)"
+  ],
+  "expression": "centered_square_1(a0 + 1)"
+ },
+ {
+  "id": "numbers2-026",
+  "category": "numbers",
+  "description": "Write a function to count the letters needed to write a whole number from 1 to 3999 in Roman numerals.",
+  "entry_point": "roman_letter_count",
+  "inputs": [
+   "(1888,)",
+   "(1000,)",
+   "(49,)"
+  ],
+  "expression": "len(num_to_roman_1(a0))"
+ },
+ {
+  "id": "numbers2-027",
+  "category": "numbers",
+  "description": "Write a function to find how far a positive integer of at least 10 lies above the largest smaller number that reads the same forwards and backwards.",
+  "entry_point": "above_previous_palindrome",
+  "inputs": [
+   "(125,)",
+   "(10,)",
+   "(5000,)"
+  ],
+  "expression": "a0 - num_previous_palindrome_1(a0)"
+ },
+ {
+  "id": "numbers2-028",
+  "category": "numbers",
+  "description": "Write a python function to count the digits 7 in the base 8 form of a non-negative integer.",
+  "entry_point": "octal_sevens",
+  "inputs": [
+   "(511,)",
+   "(63,)",
+   "(8,)"
+  ],
+  "expression": "str(num_decimal_to_octal_1(a0)).count('7')"
+ },
+ {
+  "id": "numbers2-029",
+  "category": "numbers",
+  "description": "Identical books of length 1 are stacked at the edge of a table so that the k-th book from the top sticks out 1 / (2 * k) beyond the book below it; write a function to find the total overhang of n books, rounded to 4 decimal places.",
+  "entry_point": "book_stack_overhang",
+  "inputs": [
+   "(4,)",
+   "(1,)",
+   "(10,)"
+  ],
+  "expression": "round(num_harmonic_sum_1(a0) / 2, 4)"
+ },
+ {
+  "id": "numbers2-030",
+  "category": "numbers",
+  "description": "A fountain pours w litres in minute 0 and in every later minute half as much as in the minute before; given w and n, write a function to find the total poured in minutes 0 to n.",
+  "entry_point": "fountain_total",
+  "inputs": [
+   "(8, 3)",
+   "(4, 0)",
+   "(10, 5)"
+  ],
+  "expression": "a0 * num_geometric_sum_1(a1)"
+ },
+ {
+  "id": "numbers2-031",
+  "category": "numbers",
+  "description": "Write a function to find the largest gap between two consecutive primes that are both at most n, for n of at least 3.",
+  "entry_point": "largest_prime_gap",
+  "inputs": [
+   "(30,)",
+   "(5,)",
+   "(100,)"
+  ],
+  "expression": "max(adjacent_diff_1(num_primes_upto_1(a0)))"
+ },
+ {
+  "id": "numbers2-032",
+  "category": "numbers",
+  "description": "Write a function to check whether an integer greater than 1 is a power of a single prime number.",
+  "entry_point": "is_prime_power",
+  "inputs": [
+   "(27,)",
+   "(12,)",
+   "(13,)"
+  ],
+  "expression": "len(num_prime_factors_1(a0)) == 1"
+ },
+ {
+  "id": "numbers2-033",
+  "category": "numbers",
+  "description": "Write a function to find the largest divisor of an integer greater than 1 that is smaller than the integer itself.",
+  "entry_point": "largest_proper_divisor",
+  "inputs": [
+   "(100,)",
+   "(49,)",
+   "(13,)"
+  ],
+  "expression": "num_divisors_1(a0)[-2]"
+ },
+ {
+  "id": "numbers2-034",
+  "category": "numbers",
+  "description": "In a hallway of closed lockers numbered from 1, pupil k for k = 1, 2, 3, ... flips every locker whose number is a multiple of k; write a function to check whether locker n is open once every pupil has passed.",
+  "entry_point": "locker_is_open",
+  "inputs": [
+   "(36,)",
+   "(12,)",
+   "(1,)"
+  ],
+  "expression": "num_divisor_count_1(a0) % 2 == 1"
+ },
+ {
+  "id": "numbers2-035",
+  "category": "numbers",
+  "description": "Two meshing gears have a and b teeth and start with a marked pair of teeth touching; write a function to return a tuple of how many full turns each gear makes before the marked teeth touch again.",
+  "entry_point": "gear_turns",
+  "inputs": [
+   "(12, 18)",
+   "(5, 7)",
+   "(8, 4)"
+  ],
+  "expression": "(lcm_2(a0, a1) // a0, lcm_2(a0, a1) // a1)"
+ },
+ {
+  "id": "numbers2-036",
+  "category": "numbers",
+  "description": "Write a function to count the tiles needed to cover an a by b floor exactly with equal square tiles of the largest possible whole-number side.",
+  "entry_point": "largest_tile_count",
+  "inputs": [
+   "(360, 150)",
+   "(7, 7)",
+   "(9, 6)"
+  ],
+  "expression": "a0 * a1 // gcd_2(a0, a1) ** 2"
+ },
+ {
+  "id": "numbers2-037",
+  "category": "numbers",
+  "description": "A knockout draw for n players is filled up with empty slots to the smallest power of two that is at least n, and a player drawn against an empty slot gets a bye; write a function to count the byes.",
+  "entry_point": "count_byes",
+  "inputs": [
+   "(100,)",
+   "(64,)",
+   "(5,)"
+  ],
+  "expression": "num_next_power_of_2_1(a0) - a0"
+ },
+ {
+  "id": "numbers2-038",
+  "category": "numbers",
+  "description": "Write a python function to count the blocks of consecutive 1 bits in the binary form of a positive integer.",
+  "entry_point": "one_bit_blocks",
+  "inputs": [
+   "(179,)",
+   "(8,)",
+   "(231,)"
+  ],
+  "expression": "len(binary_1(a0).replace('0', ' ').split())"
+ },
+ {
+  "id": "numbers2-039",
+  "category": "numbers",
+  "description": "Write a function to multiply together the digits of a non-negative integer and then multiply together the digits of that product.",
+  "entry_point": "digit_product_twice",
+  "inputs": [
+   "(39,)",
+   "(77,)",
+   "(25,)"
+  ],
+  "expression": "prod_1(digits_1(prod_1(digits_1(a0))))"
+ },
+ {
+  "id": "numbers2-040",
+  "category": "numbers",
+  "description": "Write a function to check whether a number with at least two digits is prime and stays prime when its digits are written in reverse order.",
+  "entry_point": "prime_both_ways",
+  "inputs": [
+   "(13,)",
+   "(19,)",
+   "(107,)"
+  ],
+  "expression": "is_prime_1(a0) and is_prime_1(reverse_digits_1(a0))"
+ },
+ {
+  "id": "numbers2-041",
+  "category": "numbers",
+  "description": "Write a python function to check whether n * n + n + 41 is a prime number for a non-negative integer n.",
+  "entry_point": "euler_polynomial_prime",
+  "inputs": [
+   "(10,)",
+   "(40,)",
+   "(39,)"
+  ],
+  "expression": "is_prime_1(a0 * a0 + a0 + 41)"
+ },
+ {
+  "id": "numbers2-042",
+  "category": "numbers",
+  "description": "Write a function to count the triangles with corners among n points in the plane when exactly k of the points lie on one straight line and no other three of them are in line.",
+  "entry_point": "triangles_from_points",
+  "inputs": [
+   "(10, 4)",
+   "(5, 3)",
+   "(6, 2)"
+  ],
+  "expression": "comb_2(a0, 3) - comb_2(a1, 3)"
+ },
+ {
+  "id": "numbers2-043",
+  "category": "numbers",
+  "description": "Write a function to count the different cups of k scoops that can be made from n flavours of ice cream, when a flavour may be used more than once and the order of the scoops does not matter.",
+  "entry_point": "ice_cream_cups",
+  "inputs": [
+   "(3, 2)",
+   "(5, 3)",
+   "(1, 4)"
+  ],
+  "expression": "comb_2(a0 + a1 - 1, a1)"
+ },
+ {
+  "id": "numbers2-044",
+  "category": "numbers",
+  "description": "Write a function to count the different rows that can be made from n beads, of which r are identical red beads, b are identical blue beads and the rest all have different colours, given n, r and b.",
+  "entry_point": "bead_rows",
+  "inputs": [
+   "(5, 2, 2)",
+   "(4, 1, 1)",
+   "(6, 3, 3)"
+  ],
+  "expression": "factorial_1(a0) // (factorial_1(a1) * factorial_1(a2))"
+ },
+ {
+  "id": "numbers2-045",
+  "category": "numbers",
+  "description": "Write a function to count the ways to hand out n different prizes to k children so that every child receives at least one prize.",
+  "entry_point": "prizes_to_children",
+  "inputs": [
+   "(4, 2)",
+   "(5, 3)",
+   "(3, 3)"
+  ],
+  "expression": "stirling2_2(a0, a1) * factorial_1(a1)"
+ },
+ {
+  "id": "numbers2-046",
+  "category": "numbers",
+  "description": "Write a function to count the rows of n lamps, each on or off, in which no two neighbouring lamps are both on.",
+  "entry_point": "lamp_rows_no_neighbours",
+  "inputs": [
+   "(3,)",
+   "(1,)",
+   "(10,)"
+  ],
+  "expression": "fibonacci_1(a0 + 2)"
+ },
+ {
+  "id": "numbers2-047",
+  "category": "numbers",
+  "description": "Squares with sides 1, 1, 2, 3, 5, 8, ..., each side the sum of the two before it, are laid in a spiral so that the first n of them form a rectangle; write a function to find the area of that rectangle.",
+  "entry_point": "fibonacci_rectangle_area",
+  "inputs": [
+   "(5,)",
+   "(1,)",
+   "(8,)"
+  ],
+  "expression": "fibonacci_1(a0) * fibonacci_1(a0 + 1)"
+ },
+ {
+  "id": "numbers2-048",
+  "category": "numbers",
+  "description": "Create a function which checks whether n bowling pins can be set out as a complete triangle with rows of 1, 2, 3 and so on pins.",
+  "entry_point": "pins_form_triangle",
+  "inputs": [
+   "(10,)",
+   "(12,)",
+   "(55,)"
+  ],
+  "expression": "is_perfect_square_1(8 * a0 + 1)"
+ },
+ {
+  "id": "numbers2-049",
+  "category": "numbers",
+  "description": "Savings grow by r percent, that is r out of 100, at the end of every year; write a function to find the fewest whole years after which they have at least doubled.",
+  "entry_point": "years_to_double",
+  "inputs": [
+   "(7,)",
+   "(100,)",
+   "(3,)"
+  ],
+  "expression": "math.ceil(math.log(2) / math.log(1 + a0 / 100))"
+ },
+ {
+  "id": "numbers2-050",
+  "category": "numbers",
+  "description": "A digital clock shows the time as one number, the hour times 100 plus the minutes, so 9:30 shows as 930; write a function to return the number shown n minutes after midnight, using 60 minutes per hour.",
+  "entry_point": "clock_display",
+  "inputs": [
+   "(570,)",
+   "(0,)",
+   "(1439,)"
+  ],
+  "expression": "a0 // 60 * 100 + a0 % 60"
+ },
+ {
+  "id": "numbers2-051",
+  "category": "numbers",
+  "description": "A car park charges 3 for the first hour or part of it and 2 for every further hour or part of an hour; write a function to return the charge for a stay of m minutes, where m is at least 1 and an hour is 60 minutes.",
+  "entry_point": "parking_charge",
+  "inputs": [
+   "(150,)",
+   "(60,)",
+   "(61,)"
+  ],
+  "expression": "3 + 2 * ((a0 - 1) // 60)"
+ },
+ {
+  "id": "numbers2-052",
+  "category": "numbers",
+  "description": "An electricity company charges 5 per unit for the first 100 units used in a month and 8 per unit for every unit beyond those; write a function to compute the monthly bill for u units.",
+  "entry_point": "electricity_bill",
+  "inputs": [
+   "(150,)",
+   "(80,)",
+   "(100,)"
+  ],
+  "expression": "min(a0, 100) * 5 + max(a0 - 100, 0) * 8"
+ },
+ {
+  "id": "numbers2-053",
+  "category": "numbers",
+  "description": "Given a measured speed and the speed limit, return the fine, which is 0 at or below the limit, 100 for going at most 20 over the limit and 300 for going faster than that.",
+  "entry_point": "speeding_fine",
+  "inputs": [
+   "(75, 50)",
+   "(50, 50)",
+   "(65, 50)"
+  ],
+  "expression": "0 if a0 <= a1 else 100 if a0 - a1 <= 20 else 300"
+ },
+ {
+  "id": "numbers2-054",
+  "category": "numbers",
+  "description": "A cinema charges 6 for a child under 12, 7 for a visitor aged 65 or over and 10 for everyone else; write a function that returns the ticket price for a given age.",
+  "entry_point": "ticket_price",
+  "inputs": [
+   "(30,)",
+   "(8,)",
+   "(70,)"
+  ],
+  "expression": "6 if a0 < 12 else 7 if a0 >= 65 else 10"
+ },
+ {
+  "id": "numbers2-055",
+  "category": "numbers",
+  "description": "Write a function to convert a height of f feet and i inches into centimetres, rounded to 1 decimal place, using 12 inches per foot and 254 centimetres per 100 inches.",
+  "entry_point": "height_in_cm",
+  "inputs": [
+   "(5, 11)",
+   "(6, 0)",
+   "(0, 1)"
+  ],
+  "expression": "round((a0 * 12 + a1) * 254 / 100, 1)"
+ },
+ {
+  "id": "numbers2-056",
+  "category": "numbers",
+  "description": "Given a run's total time in seconds and its distance in whole kilometres, return the average pace per kilometre as a tuple of minutes and seconds, rounding the seconds per kilometre to the nearest whole number first and using 60 seconds per minute.",
+  "entry_point": "pace_per_km",
+  "inputs": [
+   "(1500, 5)",
+   "(3000, 7)",
+   "(2730, 6)"
+  ],
+  "expression": "divmod(round(a0 / a1), 60)"
+ },
+ {
+  "id": "numbers2-057",
+  "category": "numbers",
+  "description": "Write a function to check whether a screen that is w pixels wide and h pixels high has the aspect ratio 16:9.",
+  "entry_point": "is_widescreen",
+  "inputs": [
+   "(1920, 1080)",
+   "(1024, 768)",
+   "(1280, 720)"
+  ],
+  "expression": "a0 * 9 == a1 * 16"
+ },
+ {
+  "id": "numbers2-058",
+  "category": "numbers",
+  "description": "Write a function to find the code word with index n of the reflected binary Gray code, in which neighbouring code words differ in exactly one bit, as an integer.",
+  "entry_point": "gray_code_word",
+  "inputs": [
+   "(5,)",
+   "(0,)",
+   "(12,)"
+  ],
+  "expression": "a0 ^ a0 >> 1"
+ },
+ {
+  "id": "numbers2-059",
+  "category": "numbers",
+  "description": "A byte from 0 to 255 is made of a high half and a low half of 4 bits each; write a function to swap the two halves, using 15 as the mask of the low half.",
+  "entry_point": "swap_nibbles",
+  "inputs": [
+   "(171,)",
+   "(16,)",
+   "(255,)"
+  ],
+  "expression": "(a0 & 15) << 4 | a0 >> 4"
+ },
+ {
+  "id": "numbers2-060",
+  "category": "numbers",
+  "description": "Write a function to pack the red, green and blue levels of a colour, each from 0 to 255, into one integer by shifting red left by 16 bits and green left by 8 bits.",
+  "entry_point": "pack_colour",
+  "inputs": [
+   "(255, 0, 0)",
+   "(1, 2, 3)",
+   "(0, 128, 255)"
+  ],
+  "expression": "a0 << 16 | a1 << 8 | a2"
+ },
+ {
+  "id": "numbers2-061",
+  "category": "numbers",
+  "description": "A printer works in batches of k sheets and fills up the last batch with blank sheets; write a function to find how many blank sheets are added to a job of n pages.",
+  "entry_point": "blank_sheets",
+  "inputs": [
+   "(45, 20)",
+   "(40, 20)",
+   "(1, 8)"
+  ],
+  "expression": "-a0 % a1"
+ },
+ {
+  "id": "numbers2-062",
+  "category": "numbers",
+  "description": "Write a function to count how many times in a row a positive integer can be halved while staying a whole number.",
+  "entry_point": "times_halvable",
+  "inputs": [
+   "(40,)",
+   "(7,)",
+   "(1024,)"
+  ],
+  "expression": "num_lowest_set_bit_position_1(a0) - 1"
+ },
+ {
+  "id": "numbers2-063",
+  "category": "numbers",
+  "description": "Write a function to find the product of the distinct prime factors of an integer greater than 1.",
+  "entry_point": "prime_radical",
+  "inputs": [
+   "(72,)",
+   "(49,)",
+   "(1001,)"
+  ],
+  "expression": "prod_1(num_prime_factors_1(a0))"
+ },
+ {
+  "id": "numbers2-064",
+  "category": "numbers",
+  "description": "Given an integer n greater than 1 and a prime p, return the largest k for which p ** k divides n.",
+  "entry_point": "prime_exponent",
+  "inputs": [
+   "(360, 2)",
+   "(360, 7)",
+   "(243, 3)"
+  ],
+  "expression": "num_prime_factorization_1(a0).count(a1)"
+ },
+ {
+  "id": "numbers2-065",
+  "category": "numbers",
+  "description": "Create a function which checks whether no prime divides an integer greater than 1 more than once.",
+  "entry_point": "no_repeated_prime",
+  "inputs": [
+   "(30,)",
+   "(12,)",
+   "(17,)"
+  ],
+  "expression": "num_prime_factorization_1(a0) == num_prime_factors_1(a0)"
+ },
+ {
+  "id": "numbers2-066",
+  "category": "numbers",
+  "description": "Write a function to add up the divisors of a positive integer other than the integer itself, and then do the same for that sum.",
+  "entry_point": "aliquot_two_steps",
+  "inputs": [
+   "(12,)",
+   "(220,)",
+   "(8,)"
+  ],
+  "expression": "num_proper_divisor_sum_1(num_proper_divisor_sum_1(a0))"
+ },
+ {
+  "id": "numbers2-067",
+  "category": "numbers",
+  "description": "Write a function to count the divisors of an integer greater than 1 that are neither 1 nor a prime number.",
+  "entry_point": "composite_divisor_count",
+  "inputs": [
+   "(12,)",
+   "(13,)",
+   "(36,)"
+  ],
+  "expression": "num_divisor_count_1(a0) - len(num_prime_factors_1(a0)) - 1"
+ },
+ {
+  "id": "numbers2-068",
+  "category": "numbers",
+  "description": "Given a and m with no common factor greater than 1, return the number x from 1 to m - 1 for which a * x leaves remainder 1 when divided by m.",
+  "entry_point": "inverse_mod",
+  "inputs": [
+   "(3, 7)",
+   "(10, 17)",
+   "(2, 5)"
+  ],
+  "expression": "pow(a0, -1, a1)"
+ },
+ {
+  "id": "numbers2-069",
+  "category": "numbers",
+  "description": "Write a function to find the number formed by the last k digits of a ** b, given a, b and k.",
+  "entry_point": "last_digits_of_power",
+  "inputs": [
+   "(2, 100, 3)",
+   "(7, 4, 2)",
+   "(3, 5, 4)"
+  ],
+  "expression": "pow(a0, a1, 10 ** a2)"
+ },
+ {
+  "id": "numbers2-070",
+  "category": "numbers",
+  "description": "Write a function to check whether adding a number of at least two digits to the number with its digits reversed gives a palindrome.",
+  "entry_point": "reverse_add_palindrome",
+  "inputs": [
+   "(56,)",
+   "(89,)",
+   "(12,)"
+  ],
+  "expression": "is_palindrome_number_1(a0 + reverse_digits_1(a0))"
+ },
+ {
+  "id": "numbers2-071",
+  "category": "numbers",
+  "description": "Write a function to check whether two non-negative integers are written with exactly the same digits, possibly in a different order.",
+  "entry_point": "same_digits",
+  "inputs": [
+   "(1234, 4321)",
+   "(112, 122)",
+   "(105, 510)"
+  ],
+  "expression": "sorted(str(a0)) == sorted(str(a1))"
+ },
+ {
+  "id": "numbers2-072",
+  "category": "numbers",
+  "description": "Write a function to move the first digit of a positive integer to the end and return the new number.",
+  "entry_point": "rotate_digits_left",
+  "inputs": [
+   "(1234,)",
+   "(105,)",
+   "(7,)"
+  ],
+  "expression": "int(str(a0)[1:] + str(a0)[0])"
+ },
+ {
+  "id": "numbers2-073",
+  "category": "numbers",
+  "description": "Write a function to find each interior angle, in degrees, of a regular polygon with n sides, given that a full turn is 360 degrees and a straight angle 180 degrees.",
+  "entry_point": "regular_interior_angle",
+  "inputs": [
+   "(6,)",
+   "(4,)",
+   "(5,)"
+  ],
+  "expression": "180 - 360 / a0"
+ },
+ {
+  "id": "numbers2-074",
+  "category": "numbers",
+  "description": "Write a function to find the fewest moves a chess king needs to go from the square in column c1 and row r1 to the square in column c2 and row r2 of an empty board, given c1, r1, c2 and r2.",
+  "entry_point": "king_moves",
+  "inputs": [
+   "(1, 1, 4, 3)",
+   "(5, 5, 5, 5)",
+   "(2, 7, 8, 2)"
+  ],
+  "expression": "max(abs(a0 - a2), abs(a1 - a3))"
+ },
+ {
+  "id": "numbers2-075",
+  "category": "numbers",
+  "description": "Write a function to find the volume of material in a pipe of length l with outer radius R and inner radius r, rounded to 2 decimal places, given R, r and l.",
+  "entry_point": "pipe_material_volume",
+  "inputs": [
+   "(5, 3, 10)",
+   "(2, 1, 1)",
+   "(10, 9, 2)"
+  ],
+  "expression": "round(cylinder_volume_2(a0, a2) - cylinder_volume_2(a1, a2), 2)"
+ },
+ {
+  "id": "numbers2-076",
+  "category": "numbers",
+  "description": "Write a function to find how many cans of paint are needed to coat a spherical tank of radius r when one can covers c square metres, given r and c.",
+  "entry_point": "paint_cans_for_tank",
+  "inputs": [
+   "(3, 10)",
+   "(1, 20)",
+   "(5, 7)"
+  ],
+  "expression": "math.ceil(sphere_surface_1(a0) / a1)"
+ },
+ {
+  "id": "numbers2-077",
+  "category": "numbers",
+  "description": "Write a function to check whether a triangle with sides a, b and c has an angle of more than 90 degrees.",
+  "entry_point": "has_obtuse_angle",
+  "inputs": [
+   "(2, 3, 4)",
+   "(3, 4, 5)",
+   "(5, 5, 5)"
+  ],
+  "expression": "2 * max(a0, a1, a2) ** 2 > a0 ** 2 + a1 ** 2 + a2 ** 2"
+ },
+ {
+  "id": "numbers2-078",
+  "category": "numbers",
+  "description": "Given the deposits and withdrawals on an account as a list of positive and negative amounts, starting from a balance of 0, return the lowest balance reached after any of them.",
+  "entry_point": "lowest_balance",
+  "inputs": [
+   "([5, -10, 3, 4],)",
+   "([1, 2],)",
+   "([-3, 1, 1, 1],)"
+  ],
+  "expression": "min(prefix_sums_1(a0))"
+ },
+ {
+  "id": "numbers2-079",
+  "category": "numbers",
+  "description": "A hiker takes n steps, each one either 1 metre up or 1 metre down, starting and ending at sea level and never going below it; write a function to count the possible walks.",
+  "entry_point": "mountain_walks",
+  "inputs": [
+   "(6,)",
+   "(7,)",
+   "(10,)"
+  ],
+  "expression": "catalan_1(a0 // 2) if a0 % 2 == 0 else 0"
+ },
+ {
+  "id": "numbers2-080",
+  "category": "numbers",
+  "description": "Write a function to join the binary forms of two positive integers, the first on the left, and return the value of the joined binary number.",
+  "entry_point": "join_binary",
+  "inputs": [
+   "(2, 3)",
+   "(1, 1)",
+   "(5, 8)"
+  ],
+  "expression": "int(binary_1(a0) + binary_1(a1), 2)"
+ },
+ {
+  "id": "numbers2-081",
+  "category": "numbers",
+  "description": "A shop never charges fractions of a cent; write a function to multiply a unit price by a quantity and round the result down to 2 decimal places.",
+  "entry_point": "charge_rounded_down",
+  "inputs": [
+   "(1.999, 3)",
+   "(0.333, 3)",
+   "(2.5, 4)"
+  ],
+  "expression": "num_round_down_to_2(a0 * a1, 2)"
+ },
+ {
+  "id": "numbers2-082",
+  "category": "numbers",
+  "description": "Write a function to check whether n identical small cubes can be stacked into one solid larger cube with none left over.",
+  "entry_point": "forms_a_cube",
+  "inputs": [
+   "(64,)",
+   "(100,)",
+   "(1000,)"
+  ],
+  "expression": "round(a0 ** (1 / 3)) ** 3 == a0"
+ },
+ {
+  "id": "numbers2-083",
+  "category": "numbers",
+  "description": "Write a function to find the distance from a non-negative integer to the nearest perfect square.",
+  "entry_point": "distance_to_square",
+  "inputs": [
+   "(20,)",
+   "(49,)",
+   "(31,)"
+  ],
+  "expression": "min(a0 - math.isqrt(a0) ** 2, (math.isqrt(a0) + 1) ** 2 - a0)"
+ },
+ {
+  "id": "numbers2-084",
+  "category": "numbers",
+  "description": "Write a function to count the prime numbers that are greater than n and at most 2 * n, for a positive integer n.",
+  "entry_point": "primes_up_to_double",
+  "inputs": [
+   "(10,)",
+   "(1,)",
+   "(25,)"
+  ],
+  "expression": "len(num_primes_in_range_2(a0 + 1, 2 * a0))"
+ },
+ {
+  "id": "numbers2-085",
+  "category": "numbers",
+  "description": "A loan P is repaid in n equal monthly payments at r percent a year, a monthly rate of r / 1200; write a function to find the payment P * rate / (1 - (1 + rate) ** -n), rounded to 2 decimal places, given P, r and n.",
+  "entry_point": "monthly_loan_payment",
+  "inputs": [
+   "(10000, 6, 12)",
+   "(1200, 12, 6)",
+   "(5000, 3, 24)"
+  ],
+  "expression": "round(a0 * a1 / 1200 / (1 - (1 + a1 / 1200) ** -a2), 2)"
+ },
+ {
+  "id": "numbers2-086",
+  "category": "numbers",
+  "description": "Write a function to list in increasing order the divisors of an integer greater than 1 other than 1 and the integer itself.",
+  "entry_point": "inner_divisors",
+  "inputs": [
+   "(12,)",
+   "(13,)",
+   "(49,)"
+  ],
+  "expression": "num_divisors_1(a0)[1:-1]"
+ },
+ {
+  "id": "numbers2-087",
+  "category": "numbers",
+  "description": "At a party of n couples everyone shakes hands once with every other guest except their own partner; write a function to count the handshakes.",
+  "entry_point": "couples_handshakes",
+  "inputs": [
+   "(3,)",
+   "(1,)",
+   "(10,)"
+  ],
+  "expression": "comb_2(2 * a0, 2) - a0"
+ },
+ {
+  "id": "numbers2-088",
+  "category": "numbers",
+  "description": "A pendulum of length L swings through an angle of t degrees; given L and t, write a function to find the length of the arc its tip travels, rounded to 2 decimal places.",
+  "entry_point": "pendulum_arc",
+  "inputs": [
+   "(2, 30)",
+   "(1, 90)",
+   "(10, 12)"
+  ],
+  "expression": "round(arc_length_2(a0, a1), 2)"
+ },
+ {
+  "id": "numbers2-089",
+  "category": "numbers",
+  "description": "A ramp of length L rises at an angle of t degrees; given t and L, write a function to find how high it rises, rounded to 2 decimal places.",
+  "entry_point": "ramp_height",
+  "inputs": [
+   "(30, 10)",
+   "(90, 3)",
+   "(45, 2)"
+  ],
+  "expression": "round(math.sin(num_degrees_to_radians_1(a0)) * a1, 2)"
+ },
+ {
+  "id": "numbers2-090",
+  "category": "numbers",
+  "description": "Write a function to find the probability of exactly k successes in n independent tries that each succeed with probability p, rounded to 4 decimal places, given n, k and p.",
+  "entry_point": "binomial_chance",
+  "inputs": [
+   "(4, 2, 0.5)",
+   "(3, 3, 0.1)",
+   "(5, 1, 0.2)"
+  ],
+  "expression": "round(comb_2(a0, a1) * a2 ** a1 * (1 - a2) ** (a0 - a1), 4)"
+ },
+ {
+  "id": "numbers2-091",
+  "category": "numbers",
+  "description": "Write a function to find the chance of rolling at least one 6 in n rolls of a fair die with faces 1 to 6, rounded to 4 decimal places.",
+  "entry_point": "at_least_one_six",
+  "inputs": [
+   "(1,)",
+   "(4,)",
+   "(10,)"
+  ],
+  "expression": "round(1 - (5 / 6) ** a0, 4)"
+ },
+ {
+  "id": "numbers2-092",
+  "category": "numbers",
+  "description": "Given two compass bearings in whole degrees from 0 to 359, return the smaller angle between them, a full turn being 360 degrees.",
+  "entry_point": "compass_angle",
+  "inputs": [
+   "(350, 10)",
+   "(90, 270)",
+   "(45, 45)"
+  ],
+  "expression": "min(abs(a0 - a1), 360 - abs(a0 - a1))"
+ },
+ {
+  "id": "numbers2-093",
+  "category": "numbers",
+  "description": "Two products list their features as bit masks, one bit per feature; write a function to count the features both products have.",
+  "entry_point": "shared_features",
+  "inputs": [
+   "(12, 10)",
+   "(7, 7)",
+   "(8, 7)"
+  ],
+  "expression": "popcount_1(a0 & a1)"
+ },
+ {
+  "id": "numbers2-094",
+  "category": "numbers",
+  "description": "Write a function that returns 'Yes' if the square of a positive integer has the same digit sum as the integer itself and 'No' otherwise.",
+  "entry_point": "digit_sum_kept_by_square",
+  "inputs": [
+   "(9,)",
+   "(12,)",
+   "(10,)"
+  ],
+  "expression": "'Yes' if digit_sum_1(a0 * a0) == digit_sum_1(a0) else 'No'"
+ },
+ {
+  "id": "numbers2-095",
+  "category": "numbers",
+  "description": "Write a function to find the length of the longest block of consecutive 1 bits in the binary form of a positive integer.",
+  "entry_point": "longest_one_block",
+  "inputs": [
+   "(2006,)",
+   "(8,)",
+   "(1023,)"
+  ],
+  "expression": "max(len(r) for r in binary_1(a0).split('0'))"
+ },
+ {
+  "id": "numbers2-096",
+  "category": "numbers",
+  "description": "Write a function to count the integers from a to b inclusive whose digits add up to a prime number.",
+  "entry_point": "count_prime_digit_sums",
+  "inputs": [
+   "(10, 20)",
+   "(1, 1)",
+   "(100, 130)"
+  ],
+  "expression": "sum(1 for k in range(a0, a1 + 1) if is_prime_1(digit_sum_1(k)))"
+ },
+ {
+  "id": "numbers2-097",
+  "category": "numbers",
+  "description": "Write a function to count the integers from 1 to n whose divisors other than the integer itself add up to less than the integer.",
+  "entry_point": "count_deficient_upto",
+  "inputs": [
+   "(12,)",
+   "(1,)",
+   "(30,)"
+  ],
+  "expression": "sum(1 for k in range(1, a0 + 1) if is_deficient_1(k))"
+ },
+ {
+  "id": "numbers2-098",
+  "category": "numbers",
+  "description": "Write a function to list the integers from 1 to n that have exactly k divisors.",
+  "entry_point": "exactly_k_divisors",
+  "inputs": [
+   "(30, 4)",
+   "(10, 1)",
+   "(50, 3)"
+  ],
+  "expression": "[k for k in range(1, a0 + 1) if num_divisor_count_1(k) == a1]"
+ },
+ {
+  "id": "numbers2-099",
+  "category": "numbers",
+  "description": "Write a function to list in increasing order the divisors of a positive integer that are perfect squares.",
+  "entry_point": "square_divisors",
+  "inputs": [
+   "(72,)",
+   "(15,)",
+   "(144,)"
+  ],
+  "expression": "[d for d in num_divisors_1(a0) if is_perfect_square_1(d)]"
+ },
+ {
+  "id": "numbers2-100",
+  "category": "numbers",
+  "description": "Write a function to check whether an integer greater than 1 equals b ** e for some integers b and e that are both at least 2.",
+  "entry_point": "is_perfect_power",
+  "inputs": [
+   "(32,)",
+   "(12,)",
+   "(49,)"
+  ],
+  "expression": "any(is_power_of_2(a0, b) for b in range(2, math.isqrt(a0) + 1))"
+ },
+ {
+  "id": "numbers2-101",
+  "category": "numbers",
+  "description": "Write a function to return the number in a list of integers greater than 1 that has the most distinct prime factors, taking the earliest one on a tie.",
+  "entry_point": "most_prime_factors",
+  "inputs": [
+   "([12, 30, 49],)",
+   "([8, 9, 25],)",
+   "([7, 210, 60],)"
+  ],
+  "expression": "max(a0, key=lambda x: len(num_prime_factors_1(x)))"
+ },
+ {
+  "id": "numbers2-102",
+  "category": "numbers",
+  "description": "Write a function to find the prime number nearest to a positive integer n, taking the smaller prime when two are equally near.",
+  "entry_point": "nearest_prime",
+  "inputs": [
+   "(20,)",
+   "(26,)",
+   "(2,)"
+  ],
+  "expression": "min(num_primes_upto_1(2 * a0), key=lambda p: abs(p - a0))"
+ },
+ {
+  "id": "numbers2-103",
+  "category": "numbers",
+  "description": "Write a function to factor an integer greater than 1 into a list of (prime, exponent) pairs in increasing order of the primes.",
+  "entry_point": "prime_exponent_pairs",
+  "inputs": [
+   "(360,)",
+   "(97,)",
+   "(1024,)"
+  ],
+  "expression": "[(p, num_prime_factorization_1(a0).count(p)) for p in num_prime_factors_1(a0)]"
+ },
+ {
+  "id": "numbers2-104",
+  "category": "numbers",
+  "description": "Given a positive integer a and an integer m greater than 1 that share no common factor greater than 1, return the smallest positive k for which a ** k leaves remainder 1 when divided by m.",
+  "entry_point": "multiplicative_order",
+  "inputs": [
+   "(2, 7)",
+   "(3, 7)",
+   "(10, 11)"
+  ],
+  "expression": "min(k for k in range(1, a1) if pow(a0, k, a1) == 1)"
+ },
+ {
+  "id": "numbers2-105",
+  "category": "numbers",
+  "description": "Write a function to list in increasing order the distinct remainders left when the squares of 1, 2, ..., p - 1 are divided by p.",
+  "entry_point": "square_remainders",
+  "inputs": [
+   "(7,)",
+   "(11,)",
+   "(5,)"
+  ],
+  "expression": "sorted(set(k * k % a0 for k in range(1, a0)))"
+ },
+ {
+  "id": "numbers2-106",
+  "category": "numbers",
+  "description": "Eggs in a basket leave r over when taken out m at a time and s over when taken out n at a time, where m and n share no common factor greater than 1; given r, m, s and n, write a function to find the smallest possible number of eggs.",
+  "entry_point": "fewest_eggs",
+  "inputs": [
+   "(2, 3, 3, 5)",
+   "(0, 2, 1, 3)",
+   "(6, 7, 1, 4)"
+  ],
+  "expression": "min(x for x in range(a1 * a3) if x % a1 == a0 and x % a3 == a2)"
+ },
+ {
+  "id": "numbers2-107",
+  "category": "numbers",
+  "description": "Pens cost a and pencils cost b; write a function to count the ways to spend exactly n on at least one pen and at least one pencil, given a, b and n.",
+  "entry_point": "pen_pencil_ways",
+  "inputs": [
+   "(2, 3, 20)",
+   "(1, 1, 5)",
+   "(4, 6, 10)"
+  ],
+  "expression": "sum(1 for x in range(1, a2) for y in range(1, a2) if a0 * x + a1 * y == a2)"
+ },
+ {
+  "id": "numbers2-108",
+  "category": "numbers",
+  "description": "Write a function to count the ways to split n identical marbles into three heaps when heaps may be empty and the order of the heaps does not matter.",
+  "entry_point": "three_heaps",
+  "inputs": [
+   "(6,)",
+   "(1,)",
+   "(10,)"
+  ],
+  "expression": "sum(1 for x in range(a0 + 1) for y in range(x, a0 + 1) if a0 - x - y >= y)"
+ },
+ {
+  "id": "numbers2-109",
+  "category": "numbers",
+  "description": "Write a function to count the different values that appear in an n by n multiplication table.",
+  "entry_point": "distinct_table_products",
+  "inputs": [
+   "(4,)",
+   "(1,)",
+   "(6,)"
+  ],
+  "expression": "len(set(a * b for a in range(1, a0 + 1) for b in range(1, a0 + 1)))"
+ },
+ {
+  "id": "numbers2-110",
+  "category": "numbers",
+  "description": "Write a function to count the pairs of different integers from 1 to n whose sum is a prime number.",
+  "entry_point": "prime_sum_pairs",
+  "inputs": [
+   "(4,)",
+   "(2,)",
+   "(7,)"
+  ],
+  "expression": "sum(1 for i in range(1, a0 + 1) for j in range(i + 1, a0 + 1) if is_prime_1(i + j))"
+ },
+ {
+  "id": "numbers2-111",
+  "category": "numbers",
+  "description": "Write a function to list the integers from 1 to n whose square ends with the digits of the integer itself.",
+  "entry_point": "square_ends_with_self",
+  "inputs": [
+   "(100,)",
+   "(4,)",
+   "(30,)"
+  ],
+  "expression": "[k for k in range(1, a0 + 1) if str(k * k).endswith(str(k))]"
+ },
+ {
+  "id": "numbers2-112",
+  "category": "numbers",
+  "description": "Write a function to list the integers from 2 to n that are the product of exactly two primes, which may be equal.",
+  "entry_point": "two_prime_products",
+  "inputs": [
+   "(20,)",
+   "(5,)",
+   "(35,)"
+  ],
+  "expression": "[k for k in range(2, a0 + 1) if len(num_prime_factorization_1(k)) == 2]"
+ },
+ {
+  "id": "numbers2-113",
+  "category": "numbers",
+  "description": "Write a function to count the integers from a to b inclusive whose digits never decrease from left to right.",
+  "entry_point": "count_rising_digits",
+  "inputs": [
+   "(10, 30)",
+   "(5, 5)",
+   "(100, 125)"
+  ],
+  "expression": "sum(1 for k in range(a0, a1 + 1) if list(str(k)) == sorted(str(k)))"
+ },
+ {
+  "id": "numbers2-114",
+  "category": "numbers",
+  "description": "Write a function to list the numbers formed by the first 1, 2, 3 and so on digits of a positive integer.",
+  "entry_point": "digit_prefixes",
+  "inputs": [
+   "(4096,)",
+   "(7,)",
+   "(120,)"
+  ],
+  "expression": "[int(str(a0)[:i]) for i in range(1, len(str(a0)) + 1)]"
+ },
+ {
+  "id": "numbers2-115",
+  "category": "numbers",
+  "description": "Write a function to add up all the numbers obtained by rotating the digits of a positive integer, the integer itself included.",
+  "entry_point": "rotation_sum",
+  "inputs": [
+   "(123,)",
+   "(5,)",
+   "(10,)"
+  ],
+  "expression": "sum(int(str(a0)[i:] + str(a0)[:i]) for i in range(len(str(a0))))"
+ },
+ {
+  "id": "numbers2-116",
+  "category": "numbers",
+  "description": "Write a function to replace every digit d of a non-negative integer by 9 - d and return the resulting number.",
+  "entry_point": "nines_complement",
+  "inputs": [
+   "(1234,)",
+   "(909,)",
+   "(5,)"
+  ],
+  "expression": "int(''.join(str(9 - int(d)) for d in str(a0)))"
+ },
+ {
+  "id": "numbers2-117",
+  "category": "numbers",
+  "description": "Given a non-negative integer n and a digit d, return the positions, counting from 0 at the left, at which d appears in n.",
+  "entry_point": "digit_positions",
+  "inputs": [
+   "(12321, 2)",
+   "(5, 7)",
+   "(7007, 7)"
+  ],
+  "expression": "[i for i, c in enumerate(str(a0)) if c == str(a1)]"
+ },
+ {
+  "id": "numbers2-118",
+  "category": "numbers",
+  "description": "Write a function to count the places where two neighbouring digits of a non-negative integer differ.",
+  "entry_point": "digit_changes",
+  "inputs": [
+   "(112233,)",
+   "(5,)",
+   "(1212,)"
+  ],
+  "expression": "sum(1 for x, y in zip(str(a0), str(a0)[1:]) if x != y)"
+ },
+ {
+  "id": "numbers2-119",
+  "category": "numbers",
+  "description": "Write a function to keep only the even digits of a non-negative integer, in order, and return them as a number, which is 0 when no even digit is left.",
+  "entry_point": "keep_even_digits",
+  "inputs": [
+   "(123456,)",
+   "(1357,)",
+   "(8020,)"
+  ],
+  "expression": "int('0' + ''.join(d for d in str(a0) if int(d) % 2 == 0))"
+ },
+ {
+  "id": "numbers2-120",
+  "category": "numbers",
+  "description": "Write a function to list the integers from a to b inclusive whose binary form, without leading zeros, has as many 0 bits as 1 bits.",
+  "entry_point": "balanced_binary",
+  "inputs": [
+   "(1, 20)",
+   "(13, 14)",
+   "(35, 45)"
+  ],
+  "expression": "[k for k in range(a0, a1 + 1) if binary_1(k).count('0') == popcount_1(k)]"
+ },
+ {
+  "id": "numbers2-121",
+  "category": "numbers",
+  "description": "Write a function to list the powers 1, b, b ** 2 and so on of an integer b of at least 2 that do not exceed n, given n and b.",
+  "entry_point": "powers_up_to",
+  "inputs": [
+   "(100, 3)",
+   "(1, 5)",
+   "(64, 2)"
+  ],
+  "expression": "[a1 ** e for e in range(a0.bit_length()) if a1 ** e <= a0]"
+ },
+ {
+  "id": "numbers2-122",
+  "category": "numbers",
+  "description": "Write a function to list the numbers from a to b inclusive, with a of at least 1, that can be set out as a full triangle of dots with rows of 1, 2, 3 and so on dots.",
+  "entry_point": "triangle_numbers_between",
+  "inputs": [
+   "(10, 40)",
+   "(1, 1)",
+   "(50, 60)"
+  ],
+  "expression": "[triangular_1(k) for k in range(a1 + 1) if a0 <= triangular_1(k) <= a1]"
+ },
+ {
+  "id": "numbers2-123",
+  "category": "numbers",
+  "description": "A lift stops at the floors in a list in the given order; write a function to find the total number of floors it travels.",
+  "entry_point": "lift_travel",
+  "inputs": [
+   "([0, 5, 2, 8],)",
+   "([3, 3],)",
+   "([10, 1],)"
+  ],
+  "expression": "sum(abs(x - y) for x, y in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "numbers2-124",
+  "category": "numbers",
+  "description": "Write a function to count the days in a list of daily temperatures that were warmer than the day before.",
+  "entry_point": "warmer_days",
+  "inputs": [
+   "([3, 5, 4, 6, 7],)",
+   "([9, 8],)",
+   "([1, 1, 2],)"
+  ],
+  "expression": "sum(1 for x, y in zip(a0, a0[1:]) if y > x)"
+ },
+ {
+  "id": "numbers2-125",
+  "category": "numbers",
+  "description": "Write a function to count the record scores in a list, where a score is a record when it is higher than every score before it, so the first score always counts.",
+  "entry_point": "count_records",
+  "inputs": [
+   "([3, 1, 4, 1, 5, 9, 2, 6],)",
+   "([5, 5, 5],)",
+   "([1, 2, 3],)"
+  ],
+  "expression": "sum(1 for i, x in enumerate(a0) if all(y < x for y in a0[:i]))"
+ },
+ {
+  "id": "numbers2-126",
+  "category": "numbers",
+  "description": "Write a function to find the longest streak of equal neighbouring values in a list of at least two die rolls.",
+  "entry_point": "longest_roll_streak",
+  "inputs": [
+   "([2, 6, 6, 6, 1, 1],)",
+   "([4, 5],)",
+   "([3, 3, 1, 3, 3, 3, 3],)"
+  ],
+  "expression": "max(len(r) for r in pack_consecutive_1(a0))"
+ },
+ {
+  "id": "numbers2-127",
+  "category": "numbers",
+  "description": "Write a function to compute the average of every 3 neighbouring values in a list of at least 3 numbers, each rounded to 2 decimal places.",
+  "entry_point": "three_day_averages",
+  "inputs": [
+   "([1, 2, 3, 4, 5],)",
+   "([10, 20, 31],)",
+   "([5, 5, 5, 8],)"
+  ],
+  "expression": "[round(sum(a0[i:i + 3]) / 3, 2) for i in range(len(a0) - 2)]"
+ },
+ {
+  "id": "numbers2-128",
+  "category": "numbers",
+  "description": "Write a function to count the scores in a list that are strictly above the average score.",
+  "entry_point": "above_average_count",
+  "inputs": [
+   "([50, 60, 70, 80],)",
+   "([5, 5, 5],)",
+   "([1, 2, 3, 10],)"
+  ],
+  "expression": "sum(1 for x in a0 if x > mean_1(a0))"
+ },
+ {
+  "id": "numbers2-129",
+  "category": "numbers",
+  "description": "Write a function to find the combined resistance of resistors connected in parallel, given their resistances as a list, rounded to 2 decimal places.",
+  "entry_point": "parallel_resistance",
+  "inputs": [
+   "([6, 3],)",
+   "([10, 10, 10],)",
+   "([4],)"
+  ],
+  "expression": "round(1 / sum(1 / r for r in a0), 2)"
+ },
+ {
+  "id": "numbers2-130",
+  "category": "numbers",
+  "description": "Write a function to find the geometric mean of a list of positive numbers, the n-th root of the product of the n numbers, rounded to 2 decimal places.",
+  "entry_point": "geometric_mean",
+  "inputs": [
+   "([2, 8],)",
+   "([1, 3, 9],)",
+   "([5, 7],)"
+  ],
+  "expression": "round(prod_1(a0) ** (1 / len(a0)), 2)"
+ },
+ {
+  "id": "numbers2-131",
+  "category": "numbers",
+  "description": "Given song lengths as (minutes, seconds) pairs, return the total length as a tuple of minutes and seconds, using 60 seconds per minute.",
+  "entry_point": "playlist_length",
+  "inputs": [
+   "([(3, 45), (4, 30)],)",
+   "([(0, 59)],)",
+   "([(1, 30), (2, 40), (0, 50)],)"
+  ],
+  "expression": "divmod(sum(m * 60 + s for m, s in a0), 60)"
+ },
+ {
+  "id": "numbers2-132",
+  "category": "numbers",
+  "description": "Write a function to count the days in the calendar years from y1 to y2 inclusive, where a year has 365 days plus one more in a leap year of the Gregorian calendar.",
+  "entry_point": "days_in_years",
+  "inputs": [
+   "(2020, 2023)",
+   "(1900, 1900)",
+   "(2000, 2000)"
+  ],
+  "expression": "sum(365 + is_leap_year_1(y) for y in range(a0, a1 + 1))"
+ },
+ {
+  "id": "numbers2-133",
+  "category": "numbers",
+  "description": "Write a function to count how many of the 12 months of year y have a day numbered d, given d and y.",
+  "entry_point": "months_with_day",
+  "inputs": [
+   "(31, 2023)",
+   "(29, 2024)",
+   "(30, 2023)"
+  ],
+  "expression": "sum(is_valid_date_3(m + 1, a0, a1) for m in range(12))"
+ },
+ {
+  "id": "numbers2-134",
+  "category": "numbers",
+  "description": "A lock code is a sequence of between 1 and k different symbols chosen from n symbols, where order matters; write a function to count the possible codes, given n and k.",
+  "entry_point": "count_lock_codes",
+  "inputs": [
+   "(4, 2)",
+   "(3, 3)",
+   "(10, 1)"
+  ],
+  "expression": "sum(perm_2(a0, k) for k in range(1, a1 + 1))"
+ },
+ {
+  "id": "numbers2-135",
+  "category": "numbers",
+  "description": "Write a function to find the chance that at least two of n people share a birthday, assuming 365 equally likely birthdays, rounded to 4 decimal places.",
+  "entry_point": "shared_birthday_chance",
+  "inputs": [
+   "(23,)",
+   "(1,)",
+   "(10,)"
+  ],
+  "expression": "round(1 - prod_1([(365 - k) / 365 for k in range(a0)]), 4)"
+ },
+ {
+  "id": "numbers2-136",
+  "category": "numbers",
+  "description": "Write a function to add up 1 / (k * (k + 1)) for k from 1 to n, rounded to 4 decimal places.",
+  "entry_point": "telescoping_sum",
+  "inputs": [
+   "(3,)",
+   "(1,)",
+   "(9,)"
+  ],
+  "expression": "round(sum(1 / (k * (k + 1)) for k in range(1, a0 + 1)), 4)"
+ },
+ {
+  "id": "numbers2-137",
+  "category": "numbers",
+  "description": "Write a function to multiply together all the even numbers from 2 up to n, for n of at least 2.",
+  "entry_point": "even_product",
+  "inputs": [
+   "(8,)",
+   "(2,)",
+   "(11,)"
+  ],
+  "expression": "prod_1(list(range(2, a0 + 1, 2)))"
+ },
+ {
+  "id": "numbers2-138",
+  "category": "numbers",
+  "description": "Write a function to turn a list of vote counts into percentages of the total, each multiplied by 100 and rounded to the nearest whole number.",
+  "entry_point": "vote_percentages",
+  "inputs": [
+   "([30, 50, 20],)",
+   "([1, 3],)",
+   "([1, 2],)"
+  ],
+  "expression": "[round(100 * x / sum(a0)) for x in a0]"
+ },
+ {
+  "id": "numbers2-139",
+  "category": "numbers",
+  "description": "Write a function to list the positions, counting from 0, of the prime numbers in a list of integers.",
+  "entry_point": "prime_positions",
+  "inputs": [
+   "([4, 7, 9, 11, 1],)",
+   "([0, 1],)",
+   "([2, 3],)"
+  ],
+  "expression": "[i for i, x in enumerate(a0) if is_prime_1(x)]"
+ },
+ {
+  "id": "numbers2-140",
+  "category": "numbers",
+  "description": "Write a function to sort a list of non-negative integers by the sums of their digits, keeping the original order of numbers with equal digit sums.",
+  "entry_point": "sort_by_digit_sum",
+  "inputs": [
+   "([91, 23, 100, 5],)",
+   "([16, 7],)",
+   "([30, 12, 3],)"
+  ],
+  "expression": "sorted(a0, key=digit_sum_1)"
+ },
+ {
+  "id": "numbers2-141",
+  "category": "numbers",
+  "description": "Given a list of numbers and a target, return the number in the list closest to the target, taking the earliest one when two are equally close.",
+  "entry_point": "closest_to_target",
+  "inputs": [
+   "([4, 9, 15], 11)",
+   "([3], 100)",
+   "([10, 20], 15)"
+  ],
+  "expression": "min(a0, key=lambda x: abs(x - a1))"
+ },
+ {
+  "id": "numbers2-142",
+  "category": "numbers",
+  "description": "A 13-digit barcode, given as a list of digits, is valid when the digits at even positions, counting from 0, plus 3 times the digits at odd positions add up to a multiple of 10; write a function to check a barcode.",
+  "entry_point": "barcode_is_valid",
+  "inputs": [
+   "([4, 0, 0, 6, 3, 8, 1, 3, 3, 3, 9, 3, 1],)",
+   "([4, 0, 0, 6, 3, 8, 1, 3, 3, 3, 9, 3, 2],)",
+   "([9, 7, 8, 0, 3, 0, 6, 4, 0, 6, 1, 5, 7],)"
+  ],
+  "expression": "sum(d * (3 if i % 2 else 1) for i, d in enumerate(a0)) % 10 == 0"
+ },
+ {
+  "id": "numbers2-143",
+  "category": "numbers",
+  "description": "Given a list of (grade, credits) pairs, return the average grade weighted by credits, rounded to 2 decimal places.",
+  "entry_point": "weighted_grade",
+  "inputs": [
+   "([(4, 3), (3, 2)],)",
+   "([(2, 5)],)",
+   "([(4, 1), (2, 1), (3, 2)],)"
+  ],
+  "expression": "round(sum(g * c for g, c in a0) / sum(c for g, c in a0), 2)"
+ },
+ {
+  "id": "numbers2-144",
+  "category": "numbers",
+  "description": "Write a function to count the points (x, y) with whole-number coordinates from 1 to n whose two coordinates share no common factor greater than 1.",
+  "entry_point": "visible_points",
+  "inputs": [
+   "(3,)",
+   "(1,)",
+   "(5,)"
+  ],
+  "expression": "sum(1 for x in range(1, a0 + 1) for y in range(1, a0 + 1) if gcd_2(x, y) == 1)"
+ },
+ {
+  "id": "numbers2-145",
+  "category": "numbers",
+  "description": "Write a function to list the integers from a to b inclusive whose digits have a product equal to their sum.",
+  "entry_point": "product_equals_sum",
+  "inputs": [
+   "(10, 30)",
+   "(1, 9)",
+   "(100, 200)"
+  ],
+  "expression": "[k for k in range(a0, a1 + 1) if prod_1(digits_1(k)) == digit_sum_1(k)]"
+ },
+ {
+  "id": "numbers2-146",
+  "category": "numbers",
+  "description": "Write a function to count the pairs of integers a < b from 1 to n for which a divides b.",
+  "entry_point": "dividing_pairs",
+  "inputs": [
+   "(6,)",
+   "(1,)",
+   "(10,)"
+  ],
+  "expression": "sum(1 for a in range(1, a0 + 1) for b in range(a + 1, a0 + 1) if b % a == 0)"
+ },
+ {
+  "id": "numbers2-147",
+  "category": "numbers",
+  "description": "Write a function to add up the greatest common divisors of n with each of 1, 2, ..., n.",
+  "entry_point": "gcd_total",
+  "inputs": [
+   "(6,)",
+   "(1,)",
+   "(12,)"
+  ],
+  "expression": "sum(gcd_2(k, a0) for k in range(1, a0 + 1))"
+ },
+ {
+  "id": "numbers2-148",
+  "category": "numbers",
+  "description": "Write a function to count the numbers with exactly d digits whose digits add up to s, given d and s.",
+  "entry_point": "digit_sum_count",
+  "inputs": [
+   "(2, 5)",
+   "(1, 9)",
+   "(3, 26)"
+  ],
+  "expression": "sum(1 for k in range(10 ** (a0 - 1), 10 ** a0) if digit_sum_1(k) == a1)"
+ },
+ {
+  "id": "numbers2-149",
+  "category": "numbers",
+  "description": "A batch of parts is accepted when every measured length differs from the target length by at most a tolerance; given the list of lengths, the target and the tolerance, return 'Accept' or 'Discard'.",
+  "entry_point": "batch_check",
+  "inputs": [
+   "([10, 11, 9], 10, 1)",
+   "([10, 13], 10, 2)",
+   "([5], 5, 0)"
+  ],
+  "expression": "'Accept' if all(abs(x - a1) <= a2 for x in a0) else 'Discard'"
+ },
+ {
+  "id": "numbers2-150",
+  "category": "numbers",
+  "description": "Write a function that returns 'Equal' if a non-negative integer has as many odd digits as even digits and 'Not Equal' otherwise.",
+  "entry_point": "even_odd_digit_balance",
+  "inputs": [
+   "(1234,)",
+   "(135,)",
+   "(88,)"
+  ],
+  "expression": "'Equal' if 2 * sum(1 for d in str(a0) if int(d) % 2) == len(str(a0)) else 'Not Equal'"
+ }
+]
