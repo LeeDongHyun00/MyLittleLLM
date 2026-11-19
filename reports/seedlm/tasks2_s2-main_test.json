@@ -1,0 +1,46 @@
+{
+ "model": "s2-main",
+ "settings": {
+  "model": "s2-main",
+  "splits": [
+   "test"
+  ],
+  "width": 32,
+  "keep": 40
+ },
+ "test": {
+  "tasks": 151,
+  "alone": {
+   "engine": 68,
+   "model": 58,
+   "rerank": 65,
+   "open": 66,
+   "gate": 65,
+   "tie": 70,
+   "fill": 68
+  },
+  "pipelines": {
+   "s15-branch-test-r3": {
+    "stored": 98,
+    "engine": 98,
+    "model": 98,
+    "rerank": 98,
+    "open": 98,
+    "gate": 98,
+    "tie": 98,
+    "fill": 98
+   },
+   "s05-branch-test-r3": {
+    "stored": 80,
+    "engine": 80,
+    "model": 78,
+    "rerank": 80,
+    "open": 80,
+    "gate": 80,
+    "tie": 81,
+    "fill": 80
+   }
+  },
+  "seconds": 362
+ }
+}
