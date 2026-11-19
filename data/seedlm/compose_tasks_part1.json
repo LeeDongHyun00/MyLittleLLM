@@ -1,0 +1,2537 @@
+[
+ {
+  "id": "compose-p1-001",
+  "pair": 1,
+  "category": "strings",
+  "description": "Write a function to abbreviate every word of a sentence that fully matches the pattern 'ab*', an 'a' followed by zero or more 'b' characters, to its first n characters followed by '.', leaving the other words unchanged.",
+  "entry_point": "abbreviate_ab_words",
+  "inputs": [
+   "('abbb is a cab abb', 2)",
+   "('abbbbb x ab ba', 3)",
+   "('no match here', 1)"
+  ],
+  "expression": "' '.join(w[:a1] + '.' if re.fullmatch('ab*', w) else w for w in a0.split())"
+ },
+ {
+  "id": "compose-p1-002",
+  "pair": 7,
+  "category": "nested",
+  "description": "Given a rectangular grid as a list of rows and a value, return the (row, column) of the first cell, reading row by row, that holds the value, as a tuple.",
+  "entry_point": "find_cell",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6]], 5)",
+   "([[7, 8], [9, 7], [1, 1]], 1)",
+   "([[3, 4, 5, 6]], 6)"
+  ],
+  "expression": "divmod(flatten_1(a0).index(a1), len(a0[0]))"
+ },
+ {
+  "id": "compose-p1-003",
+  "pair": 13,
+  "category": "numbers",
+  "description": "Create a function which counts the holes on six-pointed star boards of every size from 1 to n together, where a board of size s has 6 * s * (s - 1) + 1 holes.",
+  "entry_point": "total_star_holes",
+  "inputs": [
+   "(3,)",
+   "(1,)",
+   "(5,)"
+  ],
+  "expression": "sum(star_1(k) for k in range(1, a0 + 1))"
+ },
+ {
+  "id": "compose-p1-004",
+  "pair": 31,
+  "category": "strings",
+  "description": "Write a function that removes the part in parentheses at the end of a string, together with the space before it, and then tests what remains against the regex 'a.*b$', returning 'Found a match!' or 'Not matched!'.",
+  "entry_point": "match_without_note",
+  "inputs": [
+   "('kebab (food)',)",
+   "('bob (ab)',)",
+   "('a crab',)"
+  ],
+  "expression": "txt_match_message_1(bool(re.search('a.*b$', a0.split('(')[0].rstrip())))"
+ },
+ {
+  "id": "compose-p1-005",
+  "pair": 37,
+  "category": "numbers",
+  "description": "Given a starting value a, a count n and a ratio r, write a function to list the first n terms of the geometric sequence that starts at a and is multiplied by r at every step.",
+  "entry_point": "geometric_terms",
+  "inputs": [
+   "(2, 4, 3)",
+   "(5, 1, 10)",
+   "(1, 5, 2)"
+  ],
+  "expression": "[num_gp_term_3(a0, k, a2) for k in range(1, a1 + 1)]"
+ },
+ {
+  "id": "compose-p1-006",
+  "pair": 43,
+  "category": "sequences",
+  "description": "Write a function to list, once each and from largest to smallest, the values that occur an even number of times in a list.",
+  "entry_point": "even_count_values_desc",
+  "inputs": [
+   "([1, 2, 1, 3, 3, 3, 2],)",
+   "([5, 5, 9, 9, 7],)",
+   "([4, 4, 4, 6, 6],)"
+  ],
+  "expression": "sorted_set_1([v for v in a0 if a0.count(v) % 2 == 0])[::-1]"
+ },
+ {
+  "id": "compose-p1-007",
+  "pair": 55,
+  "category": "numbers",
+  "description": "Squares with sides 1, 1, 2, 3, 5, 8, ..., each side the sum of the two before it, are laid in a spiral so that the first n of them form a rectangle; write a function to find the ratio of the long side of that rectangle to its short side, rounded to 4 decimal places.",
+  "entry_point": "spiral_rectangle_ratio",
+  "inputs": [
+   "(5,)",
+   "(1,)",
+   "(10,)"
+  ],
+  "expression": "round(fibonacci_1(a0 + 1) / fibonacci_1(a0), 4)"
+ },
+ {
+  "id": "compose-p1-008",
+  "pair": 61,
+  "category": "strings",
+  "description": "A block of code is accepted when the indentation of every line, that is the number of whitespace characters at its beginning, differs from a target by at most a tolerance; given the list of lines, the target and the tolerance, return 'Accept' or 'Discard'.",
+  "entry_point": "check_indentation",
+  "inputs": [
+   "(['    x = 1', '   y = 2', '     z'], 4, 1)",
+   "(['  a', 'b'], 2, 1)",
+   "([' a', '   b'], 2, 1)"
+  ],
+  "expression": "'Accept' if all(abs(len(s) - len(s.lstrip()) - a1) <= a2 for s in a0) else 'Discard'"
+ },
+ {
+  "id": "compose-p1-009",
+  "pair": 67,
+  "category": "sequences",
+  "description": "Write a function to count how many runs of identical adjacent words a sentence has.",
+  "entry_point": "count_word_runs",
+  "inputs": [
+   "('the the cat sat sat sat on on the mat',)",
+   "('go go go',)",
+   "('a b a b',)"
+  ],
+  "expression": "len(run_lengths_1(a0.split()))"
+ },
+ {
+  "id": "compose-p1-010",
+  "pair": 73,
+  "category": "predicates",
+  "description": "Given a list of numbers and a number k, write a function to check whether the k largest numbers of the list leave k different remainders when divided by k.",
+  "entry_point": "largest_cover_remainders",
+  "inputs": [
+   "([4, 9, 6, 11, 2], 3)",
+   "([1, 5, 7, 8, 3], 2)",
+   "([10, 3, 4, 5], 3)"
+  ],
+  "expression": "len({x % a1 for x in sorted(a0)[-a1:]}) == a1"
+ },
+ {
+  "id": "compose-p1-011",
+  "pair": 79,
+  "category": "predicates",
+  "description": "Write a function that answers 'Found a match!' if every word of a heading starts with a capital letter followed only by lowercase letters, and 'Not matched!' otherwise.",
+  "entry_point": "title_heading_match",
+  "inputs": [
+   "('The Quick Fox',)",
+   "('The quick Fox',)",
+   "('NASA Rocks',)"
+  ],
+  "expression": "txt_match_message_1(a0 == title_1(a0))"
+ },
+ {
+  "id": "compose-p1-012",
+  "pair": 85,
+  "category": "numbers",
+  "description": "Write a function to list the sizes from 1 to n whose six-pointed star boards have a prime number of holes, where a board of size s has 6 * s * (s - 1) + 1 holes.",
+  "entry_point": "prime_star_sizes",
+  "inputs": [
+   "(5,)",
+   "(1,)",
+   "(10,)"
+  ],
+  "expression": "[k for k in range(1, a0 + 1) if is_prime_1(star_1(k))]"
+ },
+ {
+  "id": "compose-p1-013",
+  "pair": 91,
+  "category": "strings",
+  "description": "Write a function to count the words of a sentence in which some character appears again exactly two positions later, as in 'aba'.",
+  "entry_point": "count_echo_words",
+  "inputs": [
+   "('banana level noon abc',)",
+   "('xyxy test',)",
+   "('hello world',)"
+  ],
+  "expression": "sum(any(a == c for a, b, c in zip(w, w[1:], w[2:])) for w in a0.split())"
+ },
+ {
+  "id": "compose-p1-014",
+  "pair": 97,
+  "category": "nested",
+  "description": "Given a list of (category, amount) expenses and a list of categories, return a dictionary of the total amount spent in each of those categories, in order of first appearance among the expenses.",
+  "entry_point": "category_totals_for",
+  "inputs": [
+   "([('food', 12), ('bus', 3), ('food', 8), ('fun', 5)], ['food', 'fun'])",
+   "([('a', 1), ('b', 2)], ['c'])",
+   "([('x', 4), ('y', 6), ('x', 1)], ['y', 'x'])"
+  ],
+  "expression": "{k: sum(v) for k, v in group_by_first_1(a0).items() if k in a1}"
+ },
+ {
+  "id": "compose-p1-015",
+  "pair": 121,
+  "category": "sequences",
+  "description": "Write a function to draw a bar for every percentage of a list, as a string of '*' characters with one '*' for every full 10 percent.",
+  "entry_point": "percent_bars",
+  "inputs": [
+   "([50, 0, 100],)",
+   "([35, 99],)",
+   "([10, 20, 5],)"
+  ],
+  "expression": "['*' * (v // 10) for v in a0]"
+ },
+ {
+  "id": "compose-p1-016",
+  "pair": 127,
+  "category": "numbers",
+  "description": "Write a function to list the integers from 2 to n whose proper divisors, the divisors other than the integer itself, add up to a prime number.",
+  "entry_point": "prime_aliquot_numbers",
+  "inputs": [
+   "(10,)",
+   "(3,)",
+   "(27,)"
+  ],
+  "expression": "[k for k in range(2, a0 + 1) if is_prime_1(num_proper_divisor_sum_1(k))]"
+ },
+ {
+  "id": "compose-p1-017",
+  "pair": 139,
+  "category": "nested",
+  "description": "Write a function to sort the dictionaries of a list that contain the given key in ascending order of the value they store under it, leaving out the dictionaries without that key.",
+  "entry_point": "sort_dicts_having_key",
+  "inputs": [
+   "([{'a': 3}, {'b': 1}, {'a': 1, 'b': 2}], 'a')",
+   "([{'x': 5, 'y': 1}, {'x': 2}], 'x')",
+   "([{'p': 1, 'q': 4}, {'p': 2}, {'q': 0}], 'q')"
+  ],
+  "expression": "sort_dicts_by_key_2([d for d in a0 if a1 in d], a1)"
+ },
+ {
+  "id": "compose-p1-018",
+  "pair": 145,
+  "category": "sequences",
+  "description": "Write a function to count how many words of a list have each length, returned as a dictionary from lengths to counts in order of first appearance.",
+  "entry_point": "length_histogram",
+  "inputs": [
+   "(['Paris', 'Rome', 'Oslo', 'Lima', 'Berlin'],)",
+   "(['a', 'bb', 'cc', 'd'],)",
+   "(['tree'],)"
+  ],
+  "expression": "counter_1(len_each_1(a0))"
+ },
+ {
+  "id": "compose-p1-019",
+  "pair": 151,
+  "category": "sequences",
+  "description": "Given a list of positive integers and a number k, return the greatest common divisor of each integer with k.",
+  "entry_point": "gcd_with_each",
+  "inputs": [
+   "([12, 18, 7], 6)",
+   "([10, 25], 5)",
+   "([9, 4, 15], 12)"
+  ],
+  "expression": "[gcd_2(v, a1) for v in a0]"
+ },
+ {
+  "id": "compose-p1-020",
+  "pair": 157,
+  "category": "unparsed",
+  "description": "Write a function to compute the probability of at least one success in n independent trials, where the success probability of each trial is the average of a list of estimates after discarding one lowest and one highest estimate.",
+  "entry_point": "prob_at_least_one_trimmed",
+  "inputs": [
+   "(2, [0.125, 0.5, 0.5, 0.875])",
+   "(1, [0.25, 0.375, 0.5])",
+   "(3, [0.0, 0.5, 1.0])"
+  ],
+  "expression": "1 - (1 - mean_1(sorted(a1)[1:-1])) ** a0"
+ },
+ {
+  "id": "compose-p1-021",
+  "pair": 163,
+  "category": "unparsed",
+  "description": "Given the number of trials n and the success probability p of each independent trial, write a function to find the most likely number of successes, taking the smallest one on ties.",
+  "entry_point": "binomial_mode",
+  "inputs": [
+   "(10, 0.3)",
+   "(4, 0.5)",
+   "(5, 0.9)"
+  ],
+  "expression": "max(range(a0 + 1), key=lambda k: comb_2(a0, k) * a1 ** k * (1 - a1) ** (a0 - k))"
+ },
+ {
+  "id": "compose-p1-022",
+  "pair": 169,
+  "category": "nested",
+  "description": "Given a table as a list of rows and a number k, write a function to return the first k columns of the table, each column as a list.",
+  "entry_point": "first_columns",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6]], 2)",
+   "([[7, 8], [9, 10], [11, 12]], 1)",
+   "([[1, 2, 3]], 3)"
+  ],
+  "expression": "transpose_1(a0)[:a1]"
+ },
+ {
+  "id": "compose-p1-023",
+  "pair": 175,
+  "category": "strings",
+  "description": "Write a python function to answer 'Even' if a sentence contains an even number of words that fully match the pattern '[A-Z][a-z]+', an uppercase letter followed by one or more lowercase letters, and 'Odd' otherwise.",
+  "entry_point": "even_capitalized_words",
+  "inputs": [
+   "('Alice met Bob in Paris',)",
+   "('Ann and Bob',)",
+   "('NASA met Tom',)"
+  ],
+  "expression": "'Even' if sum(bool(re.fullmatch('[A-Z][a-z]+', w)) for w in a0.split()) % 2 == 0 else 'Odd'"
+ },
+ {
+  "id": "compose-p1-024",
+  "pair": 181,
+  "category": "sequences",
+  "description": "Given a list of lists of daily temperatures, one inner list per city, return a dictionary mapping each highest city temperature to the number of cities that reached it as their highest, in order of first appearance.",
+  "entry_point": "max_temperature_counts",
+  "inputs": [
+   "([[12, 15, 11], [20, 18], [15, 3]],)",
+   "([[1], [2], [3]],)",
+   "([[-2, -5, 0], [0, -1]],)"
+  ],
+  "expression": "counter_1(row_max_1(a0))"
+ },
+ {
+  "id": "compose-p1-025",
+  "pair": 187,
+  "category": "predicates",
+  "description": "Write a function to check whether every diagonal entry of a square matrix has the largest absolute value in its row.",
+  "entry_point": "diagonal_abs_largest",
+  "inputs": [
+   "([[4, 1, -2], [1, -5, 3], [0, 2, 3]],)",
+   "([[1, -3], [2, 2]],)",
+   "([[-7, 7], [0, 1]],)"
+  ],
+  "expression": "all(abs(r[i]) == max(abs_each_1(r)) for i, r in enumerate(a0))"
+ },
+ {
+  "id": "compose-p1-026",
+  "pair": 193,
+  "category": "sequences",
+  "description": "Given a list of lists and a number k, write a function to find, in increasing order, the k smallest values of the first inner list that appear in none of the other inner lists.",
+  "entry_point": "smallest_exclusive_values",
+  "inputs": [
+   "([[9, 1, 3, 5, 8], [3, 9, 4], [9, 7]], 2)",
+   "([[4, 2, 6], [6]], 1)",
+   "([[1, 2, 3], [2, 1]], 1)"
+  ],
+  "expression": "nsmallest_2([x for x in a0[0] if all(x not in r for r in a0[1:])], a1)"
+ },
+ {
+  "id": "compose-p1-027",
+  "pair": 199,
+  "category": "predicates",
+  "description": "Write a function to count the numbers, across a list of lists, that equal the sum of their digits each raised to the power of the number of digits they have.",
+  "entry_point": "count_armstrong_nested",
+  "inputs": [
+   "([[153, 10], [370, 371, 5]],)",
+   "([[12, 22]],)",
+   "([[9474], [1, 407]],)"
+  ],
+  "expression": "sum(is_armstrong_1(x) for x in flatten_1(a0))"
+ },
+ {
+  "id": "compose-p1-028",
+  "pair": 205,
+  "category": "sequences",
+  "description": "Given two lists of words of the same length n and the number n, write a python function to find the median of the lengths of all their words, that is the average of the two middle lengths.",
+  "entry_point": "median_word_length",
+  "inputs": [
+   "(['a', 'abc', 'abcde'], ['ab', 'abcd', 'abcdef'], 3)",
+   "(['hi', 'there'], ['you', 'x'], 2)",
+   "(['tree'], ['skyline'], 1)"
+  ],
+  "expression": "sum(sorted(len_each_1(a0 + a1))[a2 - 1:a2 + 1]) / 2"
+ },
+ {
+  "id": "compose-p1-029",
+  "pair": 211,
+  "category": "nested",
+  "description": "Write a function that groups a list of pairs by their first element and returns a dictionary telling, for each key in order of first appearance, whether its second values never decrease from one to the next.",
+  "entry_point": "groups_sorted",
+  "inputs": [
+   "([(1, 3), (2, 5), (1, 7), (2, 4)],)",
+   "([('a', 1), ('a', 1)],)",
+   "([('x', 9), ('y', 2), ('x', 1), ('y', 5)],)"
+  ],
+  "expression": "{k: is_sorted_1(v) for k, v in group_by_first_1(a0).items()}"
+ },
+ {
+  "id": "compose-p1-030",
+  "pair": 217,
+  "category": "predicates",
+  "description": "Given a tuple mixing integers with other values and a lower and an upper bound, count the integer elements that lie between the bounds inclusive.",
+  "entry_point": "count_ints_in_range",
+  "inputs": [
+   "((3, 'a', 2.5, 7, 'b', 12), 2, 10)",
+   "((1, 'x'), 5, 9)",
+   "((5, 6.0, 7, 8, 'z'), 5, 7)"
+  ],
+  "expression": "seq_count_in_range_3([x for x in a0 if isinstance(x, int)], a1, a2)"
+ },
+ {
+  "id": "compose-p1-031",
+  "pair": 223,
+  "category": "numbers",
+  "description": "Write a function to replace every number of a list of positive integers by the smallest prime number strictly greater than it.",
+  "entry_point": "next_primes",
+  "inputs": [
+   "([10, 1, 13],)",
+   "([2],)",
+   "([20, 7, 24],)"
+  ],
+  "expression": "[min(k for k in range(x + 1, 2 * x + 2) if is_prime_1(k)) for x in a0]"
+ },
+ {
+  "id": "compose-p1-032",
+  "pair": 229,
+  "category": "strings",
+  "description": "Write a function that answers 'Found a match!' if a string contains a word beginning with an uppercase letter and 'Not matched!' otherwise, where the words are the runs of letters, digits and underscores.",
+  "entry_point": "has_capitalized_word",
+  "inputs": [
+   "('Alice met Bob',)",
+   "('no capitals here',)",
+   "('see (Paris) now',)"
+  ],
+  "expression": "txt_match_message_1(any(w[0].isupper() for w in words_1(a0)))"
+ },
+ {
+  "id": "compose-p1-033",
+  "pair": 235,
+  "category": "numbers",
+  "description": "Write a python function to find the largest number of a list of positive integers whose binary representation, written without leading zeros, reads the same in both directions, or -1 if there is none.",
+  "entry_point": "largest_binary_palindrome",
+  "inputs": [
+   "([9, 10, 5, 7],)",
+   "([2, 4],)",
+   "([1, 3, 6, 15, 17],)"
+  ],
+  "expression": "max([x for x in a0 if binary_1(x) == binary_1(x)[::-1]], default=-1)"
+ },
+ {
+  "id": "compose-p1-034",
+  "pair": 241,
+  "category": "numbers",
+  "description": "Given a list of (player, score) tuples in the order the scores were set, return the names of the players who set a record, where a score is a record when it is higher than every score before it, so the first score always counts.",
+  "entry_point": "record_setters",
+  "inputs": [
+   "([('ann', 3), ('bob', 1), ('cy', 4), ('dee', 4), ('eve', 9)],)",
+   "([('zed', 5)],)",
+   "([('a', 2), ('b', 1), ('c', 0)],)"
+  ],
+  "expression": "[p[0] for i, p in enumerate(a0) if all(q[1] < p[1] for q in a0[:i])]"
+ },
+ {
+  "id": "compose-p1-035",
+  "pair": 247,
+  "category": "strings",
+  "description": "Write a function that converts a string to uppercase and then uses the regex '[A-Z][0-9]' to check whether a letter is immediately followed by a digit, returning 'Found a match!' or 'Not matched!'.",
+  "entry_point": "upper_letter_digit_match",
+  "inputs": [
+   "('room b12',)",
+   "('Room 12',)",
+   "('x9 and Y',)"
+  ],
+  "expression": "txt_match_message_1(bool(re.search('[A-Z][0-9]', a0.upper())))"
+ },
+ {
+  "id": "compose-p1-036",
+  "pair": 253,
+  "category": "nested",
+  "description": "Given a tuple of equal-length tuples of exam scores, one tuple per student, write a function that adds up the best score achieved on each exam.",
+  "entry_point": "sum_of_best_scores",
+  "inputs": [
+   "(((70, 85, 90), (88, 60, 95), (75, 92, 80)),)",
+   "(((1, 2),),)",
+   "(((5, 1), (3, 4)),)"
+  ],
+  "expression": "sum(col_max_1(a0))"
+ },
+ {
+  "id": "compose-p1-037",
+  "pair": 259,
+  "category": "unparsed",
+  "description": "A tuple takes 40 bytes of memory plus 8 bytes for each element; write a function to compute how many bytes a tuple of tuples occupies, counting the outer tuple and every inner tuple.",
+  "entry_point": "tuples_memory",
+  "inputs": [
+   "(((1, 2), (), ('x', 'y', 'z')),)",
+   "(((5,),),)",
+   "(((), (), ()),)"
+  ],
+  "expression": "40 + 8 * len(a0) + sum(40 + 8 * len(t) for t in a0)"
+ },
+ {
+  "id": "compose-p1-038",
+  "pair": 265,
+  "category": "predicates",
+  "description": "Given two lists of measurements taken at the same times and a tolerance, return the positions, counting from 0, of the times at which the two measurements differ by more than the tolerance.",
+  "entry_point": "times_out_of_tolerance",
+  "inputs": [
+   "([1.0, 2.5, 3.1], [1.2, 2.4, 3.9], 0.3)",
+   "([1.0, 5.0], [1.1, 5.2], 0.3)",
+   "([2.0, 9.0, 4.0], [3.0, 7.5, 4.5], 0.4)"
+  ],
+  "expression": "[i for i in range(len(a0)) if abs(a0[i] - a1[i]) > a2]"
+ },
+ {
+  "id": "compose-p1-039",
+  "pair": 271,
+  "category": "sequences",
+  "description": "Write a function to convert a flat list of alternating x and y coordinates into a list of [x, y] points and return its last k points.",
+  "entry_point": "last_points",
+  "inputs": [
+   "([1, 2, 3, 4, 5, 6], 2)",
+   "([0, 0, 7, 8], 1)",
+   "([5, 6, 1, 1, 2, 2, 3, 3], 3)"
+  ],
+  "expression": "take_last_2(seq_pair_chunks_1(a0), a1)"
+ },
+ {
+  "id": "compose-p1-040",
+  "pair": 283,
+  "category": "nested",
+  "description": "Given a list of (name, postal code) pairs in which a later pair overrides an earlier one with the same name, and a name, return the format mask of that name's final postal code, writing '9' for each digit and 'A' for each letter and keeping every other character.",
+  "entry_point": "final_postal_mask",
+  "inputs": [
+   "([('ann', 'SW1A 1AA'), ('bo', '12345'), ('ann', 'B2 3CD')], 'ann')",
+   "([('cy', '90210')], 'cy')",
+   "([('x', 'K1A-0B1'), ('y', 'E1')], 'x')"
+  ],
+  "expression": "''.join('9' if c.isdigit() else 'A' if c.isalpha() else c for c in dict(a0)[a1])"
+ },
+ {
+  "id": "compose-p1-041",
+  "pair": 289,
+  "category": "predicates",
+  "description": "Given a number of bowling pins, write a function to find how many rows they fill when set up as a complete triangle with rows of 1, 2, 3 and so on pins, or -1 if they cannot be set up as a complete triangle.",
+  "entry_point": "pin_triangle_rows",
+  "inputs": [
+   "(10,)",
+   "(7,)",
+   "(21,)"
+  ],
+  "expression": "(math.isqrt(8 * a0 + 1) - 1) // 2 if is_perfect_square_1(8 * a0 + 1) else -1"
+ },
+ {
+  "id": "compose-p1-042",
+  "pair": 295,
+  "category": "strings",
+  "description": "Given a list of fractions as (numerator, denominator) pairs, write a function to reduce each fraction to lowest terms and return the most common reduced fraction, the first one on ties.",
+  "entry_point": "most_common_reduced_fraction",
+  "inputs": [
+   "([(1, 2), (2, 3), (2, 4), (4, 6), (3, 6)],)",
+   "([(5, 10)],)",
+   "([(3, 9), (2, 5), (4, 10)],)"
+  ],
+  "expression": "most_common_1([(a // gcd_2(a, b), b // gcd_2(a, b)) for a, b in a0])"
+ },
+ {
+  "id": "compose-p1-043",
+  "pair": 301,
+  "category": "numbers",
+  "description": "Write a function to list the last digits of the Fibonacci numbers F(0) to F(n - 1), where F(0) = 0 and F(1) = 1.",
+  "entry_point": "fibonacci_last_digits",
+  "inputs": [
+   "(10,)",
+   "(1,)",
+   "(15,)"
+  ],
+  "expression": "[fibonacci_1(k) % 10 for k in range(a0)]"
+ },
+ {
+  "id": "compose-p1-044",
+  "pair": 313,
+  "category": "sequences",
+  "description": "Write a python function to count the distinct characters used in the five-character words of a string, where the words are the runs of letters, digits and underscores.",
+  "entry_point": "distinct_chars_five_letter",
+  "inputs": [
+   "('Seven brave sailors left early today',)",
+   "('a bb ccc dddd eeeee',)",
+   "('apple, mango and lemon!',)"
+  ],
+  "expression": "len(set(join_1([w for w in words_1(a0) if len(w) == 5])))"
+ },
+ {
+  "id": "compose-p1-045",
+  "pair": 319,
+  "category": "strings",
+  "description": "Given a list and a number n, write a python function to count the negative numbers among the first n elements of the list repeated over and over.",
+  "entry_point": "count_negatives_repeated",
+  "inputs": [
+   "([1, -2, 3], 8)",
+   "([-1], 3)",
+   "([4, 5, -6, -7], 2)"
+  ],
+  "expression": "len(negatives_1((a0 * a1)[:a1]))"
+ },
+ {
+  "id": "compose-p1-046",
+  "pair": 325,
+  "category": "sequences",
+  "description": "Write a function to find the letter that occurs most often in a string, ignoring all other characters and counting uppercase and lowercase letters separately, taking the one that appears first on ties.",
+  "entry_point": "most_common_letter",
+  "inputs": [
+   "('a1b2b3a4b',)",
+   "('x-y-x!',)",
+   "('Hello, world!',)"
+  ],
+  "expression": "most_common_1(list(letters_only_1(a0)))"
+ },
+ {
+  "id": "compose-p1-047",
+  "pair": 331,
+  "category": "numbers",
+  "description": "Write a function to check whether every number in a list of integers of at least two digits has digits that never decrease from left to right.",
+  "entry_point": "all_digits_nondecreasing",
+  "inputs": [
+   "([12, 159, 77],)",
+   "([123, 321],)",
+   "([11, 22, 334],)"
+  ],
+  "expression": "all(is_sorted_1(digits_1(x)) for x in a0)"
+ },
+ {
+  "id": "compose-p1-048",
+  "pair": 337,
+  "category": "nested",
+  "description": "Given a dictionary of default settings and a dictionary of user settings that take precedence, return the names of the settings whose value in effect differs from the default, in the order of the defaults.",
+  "entry_point": "changed_settings",
+  "inputs": [
+   "({'font': 12, 'theme': 'light', 'lang': 'en'}, {'theme': 'dark', 'lang': 'en'})",
+   "({'a': 1}, {'b': 2})",
+   "({'x': 1, 'y': 2}, {'y': 3, 'x': 0})"
+  ],
+  "expression": "[k for k in a0 if merge_dicts_2(a0, a1)[k] != a0[k]]"
+ },
+ {
+  "id": "compose-p1-049",
+  "pair": 343,
+  "category": "numbers",
+  "description": "Given a list of non-negative integers and a target, write a function to return the integer whose binary representation differs from the target's in the fewest bit positions, the first one on ties.",
+  "entry_point": "closest_in_bits",
+  "inputs": [
+   "([7, 8, 5], 4)",
+   "([1, 2, 3], 3)",
+   "([15, 0], 9)"
+  ],
+  "expression": "min(a0, key=lambda x: num_hamming_distance_2(x, a1))"
+ },
+ {
+  "id": "compose-p1-050",
+  "pair": 349,
+  "category": "strings",
+  "description": "Given a comma-separated list of votes, return the vote chosen most often, trimming the spaces around each vote and taking the one that appears first on ties.",
+  "entry_point": "winning_vote",
+  "inputs": [
+   "('yes, no, yes,yes',)",
+   "('red,blue , blue,red',)",
+   "('a, b, b',)"
+  ],
+  "expression": "most_common_1(split_comma_1(a0))"
+ },
+ {
+  "id": "compose-p1-051",
+  "pair": 355,
+  "category": "strings",
+  "description": "Given a list of expenses and a budget, write a function to find the positions of the expenses whose removal brings the total of the remaining expenses within the budget.",
+  "entry_point": "removable_expenses",
+  "inputs": [
+   "([20, 35, 10], 40)",
+   "([5, 5], 20)",
+   "([50, 10, 30], 50)"
+  ],
+  "expression": "[i for i, x in enumerate(a0) if sum(a0) - x <= a1]"
+ },
+ {
+  "id": "compose-p1-052",
+  "pair": 361,
+  "category": "strings",
+  "description": "Write a function to find the vowel that occurs most often in a word, treating uppercase vowels the same as lowercase ones, returning it in lowercase and taking the one that appears first on ties.",
+  "entry_point": "most_common_vowel",
+  "inputs": [
+   "('Banana',)",
+   "('education',)",
+   "('OOgie',)"
+  ],
+  "expression": "most_common_1([c for c in a0.lower() if is_vowel_1(c)])"
+ },
+ {
+  "id": "compose-p1-053",
+  "pair": 367,
+  "category": "numbers",
+  "description": "Given a list of points in space as (x, y, z) tuples and one more point, return the point of the list closest to that point in straight-line distance, the first one on ties.",
+  "entry_point": "closest_point",
+  "inputs": [
+   "([(1, 2, 3), (4, 6, 3), (0, 0, 0)], (4, 5, 3))",
+   "([(1, 1, 1)], (0, 0, 0))",
+   "([(2, 0, 0), (0, 2, 0)], (0, 0, 0))"
+  ],
+  "expression": "min(a0, key=lambda p: math.dist(p, a1))"
+ },
+ {
+  "id": "compose-p1-054",
+  "pair": 373,
+  "category": "unparsed",
+  "description": "Given a number of independent trials n, two bounds lo and hi and a success probability p, write a function that calculates the probability that the number of successes lies between lo and hi, both included.",
+  "entry_point": "binomial_between",
+  "inputs": [
+   "(4, 1, 2, 0.5)",
+   "(3, 0, 1, 0.5)",
+   "(5, 5, 5, 0.5)"
+  ],
+  "expression": "sum(comb_2(a0, k) * a3 ** k * (1 - a3) ** (a0 - k) for k in range(a1, a2 + 1))"
+ },
+ {
+  "id": "compose-p1-055",
+  "pair": 379,
+  "category": "predicates",
+  "description": "Given a dictionary that maps each person to their best friend, count the pairs of people who name each other as best friend.",
+  "entry_point": "count_mutual_friends",
+  "inputs": [
+   "({'ann': 'bo', 'bo': 'ann', 'cy': 'ann'},)",
+   "({'a': 'b', 'b': 'c', 'c': 'a'},)",
+   "({'x': 'y', 'y': 'x', 'u': 'v', 'v': 'u', 'w': 'z'},)"
+  ],
+  "expression": "sum(a0.get(a0[p]) == p for p in a0) // 2"
+ },
+ {
+  "id": "compose-p1-056",
+  "pair": 385,
+  "category": "sequences",
+  "description": "Write a function to convert a flat list of alternating x and y coordinates, holding an odd number of points, into [x, y] points and return the middle point.",
+  "entry_point": "middle_point",
+  "inputs": [
+   "([1, 2, 3, 4, 5, 6],)",
+   "([7, 8],)",
+   "([0, 0, 1, 1, 2, 2, 3, 3, 4, 4],)"
+  ],
+  "expression": "seq_pair_chunks_1(a0)[len(seq_pair_chunks_1(a0)) // 2]"
+ },
+ {
+  "id": "compose-p1-057",
+  "pair": 391,
+  "category": "sequences",
+  "description": "Write a function that checks whether rotating a list to the left until its first smallest element comes first leaves it sorted in non-decreasing order.",
+  "entry_point": "sorted_after_min_rotation",
+  "inputs": [
+   "([3, 4, 5, 1, 2],)",
+   "([2, 1, 3],)",
+   "([2, 2, 3, 1, 1],)"
+  ],
+  "expression": "is_sorted_1(rotate_left_2(a0, a0.index(min(a0))))"
+ },
+ {
+  "id": "compose-p1-058",
+  "pair": 397,
+  "category": "numbers",
+  "description": "Write a function to find the sum of the least common multiples of n with each of 1, 2, ..., n.",
+  "entry_point": "sum_of_lcms",
+  "inputs": [
+   "(4,)",
+   "(1,)",
+   "(6,)"
+  ],
+  "expression": "sum(lcm_2(k, a0) for k in range(1, a0 + 1))"
+ },
+ {
+  "id": "compose-p1-059",
+  "pair": 409,
+  "category": "nested",
+  "description": "Given a list of card values dealt one at a time to k players in turn, return the list of cards of the player whose cards have the highest total, the earliest player on ties.",
+  "entry_point": "winning_hand",
+  "inputs": [
+   "([5, 2, 9, 1, 3, 4, 7], 3)",
+   "([1, 2, 3, 4], 2)",
+   "([6, 1, 1, 6], 2)"
+  ],
+  "expression": "max(every_nth_2(a0, a1), key=sum)"
+ },
+ {
+  "id": "compose-p1-060",
+  "pair": 415,
+  "category": "sequences",
+  "description": "Write a function to find, for every row of a table given as a list of rows of numbers, the difference between the mean and the median of that row.",
+  "entry_point": "row_mean_minus_median",
+  "inputs": [
+   "([[1, 2, 3, 10], [4, 4, 7]],)",
+   "([[5, 5]],)",
+   "([[1, 2, 9], [0, 10]],)"
+  ],
+  "expression": "[mean_1(r) - seq_median_1(r) for r in a0]"
+ },
+ {
+  "id": "compose-p1-061",
+  "pair": 427,
+  "category": "numbers",
+  "description": "Write a function to find the area of a sector of radius r whose central angle is given in degrees, converting the angle to radians first.",
+  "entry_point": "sector_area_degrees",
+  "inputs": [
+   "(2, 90)",
+   "(1, 180)",
+   "(3, 60)"
+  ],
+  "expression": "a0 * a0 * math.radians(a1) / 2"
+ },
+ {
+  "id": "compose-p1-062",
+  "pair": 433,
+  "category": "sequences",
+  "description": "Write a function to sort a list of numbers in increasing order and keep the values that are equal to their own index in the sorted list.",
+  "entry_point": "sorted_fixed_points",
+  "inputs": [
+   "([2, 0, 5, 1],)",
+   "([5, 6],)",
+   "([1, 1, 2, 0],)"
+  ],
+  "expression": "[v for i, v in enumerate(sorted(a0)) if v == i]"
+ },
+ {
+  "id": "compose-p1-063",
+  "pair": 439,
+  "category": "sequences",
+  "description": "Given a list of words and a number k, write a function to keep the words longer than k characters and order them by length, from the shortest to the longest, keeping words of equal length in their original order.",
+  "entry_point": "long_words_by_length",
+  "inputs": [
+   "(['banana', 'kiwi', 'apple', 'fig', 'cherry'], 3)",
+   "(['a', 'bbbbbb', 'cc'], 1)",
+   "(['pear', 'plum', 'grape', 'melon'], 4)"
+  ],
+  "expression": "sort_by_len_1([w for w in a0 if len(w) > a1])"
+ },
+ {
+  "id": "compose-p1-064",
+  "pair": 445,
+  "category": "nested",
+  "description": "Write a function to find the student with the highest average mark from a list of (student, mark) results, the first such student on ties.",
+  "entry_point": "best_average_student",
+  "inputs": [
+   "([('ann', 80), ('bob', 70), ('ann', 90), ('bob', 100)],)",
+   "([('cy', 55)],)",
+   "([('a', 60), ('b', 90), ('a', 100)],)"
+  ],
+  "expression": "max(group_by_first_1(a0).items(), key=lambda kv: mean_1(kv[1]))[0]"
+ },
+ {
+  "id": "compose-p1-065",
+  "pair": 451,
+  "category": "nested",
+  "description": "Write a function to list the distinct items of a list ordered by how often they occur, from the least frequent to the most frequent, keeping the order of first appearance on ties.",
+  "entry_point": "items_by_rarity",
+  "inputs": [
+   "(['b', 'a', 'b', 'c', 'b', 'a'],)",
+   "([3, 3, 1],)",
+   "(['x', 'y'],)"
+  ],
+  "expression": "sorted(counter_1(a0), key=counter_1(a0).get)"
+ },
+ {
+  "id": "compose-p1-066",
+  "pair": 457,
+  "category": "sequences",
+  "description": "Write a function to keep the numbers of a list of positive integers that are divisible by the sum of their own digits.",
+  "entry_point": "divisible_by_digit_sum",
+  "inputs": [
+   "([12, 13, 18, 21, 25],)",
+   "([11, 19],)",
+   "([100, 7, 102],)"
+  ],
+  "expression": "[v for v in a0 if v % digit_sum_1(v) == 0]"
+ },
+ {
+  "id": "compose-p1-067",
+  "pair": 469,
+  "category": "numbers",
+  "description": "Write a python function to find the sum of the absolute differences between the elements of a list and the integers 1, 2, 3 and so on at the same positions.",
+  "entry_point": "distance_from_counting",
+  "inputs": [
+   "([3, 1, 2],)",
+   "([1, 2, 3, 4],)",
+   "([10, 0],)"
+  ],
+  "expression": "sum(abs(x - y) for x, y in zip(a0, range(1, len(a0) + 1)))"
+ },
+ {
+  "id": "compose-p1-068",
+  "pair": 475,
+  "category": "strings",
+  "description": "Write a function to check whether a ticket number, given as a string of an even number of digits, is lucky, meaning that the digits of its front half add up to the same total as the digits of its back half.",
+  "entry_point": "is_lucky_ticket",
+  "inputs": [
+   "('123321',)",
+   "('1234',)",
+   "('550901',)"
+  ],
+  "expression": "digit_sum_1(int(a0[:len(a0) // 2])) == digit_sum_1(int(a0[len(a0) // 2:]))"
+ },
+ {
+  "id": "compose-p1-069",
+  "pair": 481,
+  "category": "sequences",
+  "description": "Given a list of lists of integers, return a new list of lists in which every even value is doubled and every odd value is left unchanged.",
+  "entry_point": "double_even_values",
+  "inputs": [
+   "([[1, 2], [3, 4, 6]],)",
+   "([[7]],)",
+   "([[0, -2], [], [5]],)"
+  ],
+  "expression": "[[v * 2 if v % 2 == 0 else v for v in r] for r in a0]"
+ },
+ {
+  "id": "compose-p1-070",
+  "pair": 487,
+  "category": "numbers",
+  "description": "Given a list of (x, y) squares, return the square that a chess king standing on the origin can reach in the fewest moves, the first one on ties.",
+  "entry_point": "nearest_king_square",
+  "inputs": [
+   "([(3, 5), (-2, 1), (4, 0)],)",
+   "([(1, 1)],)",
+   "([(0, -6), (5, 5), (-5, 2)],)"
+  ],
+  "expression": "min(a0, key=lambda p: max(abs(p[0]), abs(p[1])))"
+ },
+ {
+  "id": "compose-p1-071",
+  "pair": 499,
+  "category": "nested",
+  "description": "Given a list of (player, score) tuples, return the names of the players whose score reads the same forwards and backwards, in their original order.",
+  "entry_point": "palindrome_scorers",
+  "inputs": [
+   "([('ann', 121), ('bob', 10), ('cy', 7), ('dee', 33)],)",
+   "([('eve', 12)],)",
+   "([('a', 1001), ('b', 1010)],)"
+  ],
+  "expression": "[n for n, s in a0 if is_palindrome_number_1(s)]"
+ },
+ {
+  "id": "compose-p1-072",
+  "pair": 505,
+  "category": "predicates",
+  "description": "Given a list of pairs of non-zero integers, count the pairs in which exactly one of the two numbers is negative.",
+  "entry_point": "count_opposite_pairs",
+  "inputs": [
+   "([(-3, 8), (2, 5), (-1, -1), (4, -9)],)",
+   "([(1, 2)],)",
+   "([(-5, 1)],)"
+  ],
+  "expression": "sum(opposite_signs_2(a, b) for a, b in a0)"
+ },
+ {
+  "id": "compose-p1-073",
+  "pair": 511,
+  "category": "strings",
+  "description": "Given a sentence and a number k, write a function that moves the first k words of the sentence to its end, joining the words with single spaces.",
+  "entry_point": "move_words_to_end",
+  "inputs": [
+   "('ready you are now', 1)",
+   "('one two three four', 2)",
+   "('x y z', 2)"
+  ],
+  "expression": "join_space_1(rotate_left_2(a0.split(), a1))"
+ },
+ {
+  "id": "compose-p1-074",
+  "pair": 517,
+  "category": "predicates",
+  "description": "Given a list of PIN codes as strings, keep only those that consist of digits only and have exactly 4 characters.",
+  "entry_point": "valid_pins",
+  "inputs": [
+   "(['4821', '12a4', '123', '0000'],)",
+   "(['9999'],)",
+   "(['12345', 'abcd'],)"
+  ],
+  "expression": "[p for p in a0 if is_digits_only_1(p) and len(p) == 4]"
+ },
+ {
+  "id": "compose-p1-075",
+  "pair": 529,
+  "category": "strings",
+  "description": "Write a function to keep the strings of a list that fully match the pattern 'ab*', a single 'a' followed by zero or more 'b' characters.",
+  "entry_point": "keep_ab_strings",
+  "inputs": [
+   "(['abbb', 'aab', 'a', 'ba'],)",
+   "(['b', 'abc'],)",
+   "(['ab', 'abb'],)"
+  ],
+  "expression": "[s for s in a0 if re.fullmatch('ab*', s)]"
+ },
+ {
+  "id": "compose-p1-076",
+  "pair": 535,
+  "category": "sequences",
+  "description": "Given a text and a list of literal strings, write a function that checks whether any of the strings occurs in the text as a complete word, where the words of the text are its runs of letters, digits and underscores so that punctuation is ignored, returning 'Matched!' or 'Not Matched!'.",
+  "entry_point": "match_whole_words",
+  "inputs": [
+   "('the cat sat.', ['at', 'sat'])",
+   "('a dog, a log', ['do', 'og'])",
+   "('(hello) world', ['hello'])"
+  ],
+  "expression": "'Matched!' if any(p in words_1(a0) for p in a1) else 'Not Matched!'"
+ },
+ {
+  "id": "compose-p1-077",
+  "pair": 541,
+  "category": "predicates",
+  "description": "Write a function to count the numbers of a list whose square is a palindrome.",
+  "entry_point": "count_palindromic_squares",
+  "inputs": [
+   "([26, 11, 12, 3],)",
+   "([4, 5],)",
+   "([1, 2, 22, 101],)"
+  ],
+  "expression": "sum(is_palindrome_number_1(x * x) for x in a0)"
+ },
+ {
+  "id": "compose-p1-078",
+  "pair": 547,
+  "category": "nested",
+  "description": "Given a list of team names and a matching list of lists of goals scored per match, return the team that scored the most goals in a single match, the first one on ties.",
+  "entry_point": "best_single_match_team",
+  "inputs": [
+   "(['owls', 'cats', 'elks'], [[1, 2], [3, 1, 1], [0, 4]])",
+   "(['ants'], [[2]])",
+   "(['a', 'b'], [[5, 0], [1, 5]])"
+  ],
+  "expression": "a0[argmax_1(row_max_1(a1))]"
+ },
+ {
+  "id": "compose-p1-079",
+  "pair": 559,
+  "category": "predicates",
+  "description": "Write a python function to count the pairs of elements at different positions in a list whose product is a perfect square.",
+  "entry_point": "count_square_product_pairs",
+  "inputs": [
+   "([2, 8, 3, 12],)",
+   "([1, 4, 9],)",
+   "([2, 3],)"
+  ],
+  "expression": "sum(is_perfect_square_1(a0[i] * a0[j]) for i in range(len(a0)) for j in range(i))"
+ },
+ {
+  "id": "compose-p1-080",
+  "pair": 565,
+  "category": "predicates",
+  "description": "Given a sentence, return 'Matched!' if it starts and ends with the same word and 'Not Matched!' otherwise, where the words are the runs of letters, digits and underscores so that punctuation is ignored.",
+  "entry_point": "same_first_last_word",
+  "inputs": [
+   "('dog eat dog!',)",
+   "('the cat sat.',)",
+   "('(echo) echo',)"
+  ],
+  "expression": "'Matched!' if words_1(a0)[0] == words_1(a0)[-1] else 'Not Matched!'"
+ },
+ {
+  "id": "compose-p1-081",
+  "pair": 571,
+  "category": "numbers",
+  "description": "Given a list of (item, price) pairs and a target price, return the name of the item whose price is closest to the target, taking the earliest one when two are equally close.",
+  "entry_point": "closest_price_item",
+  "inputs": [
+   "([('pen', 3), ('cup', 8), ('ink', 12)], 9)",
+   "([('pad', 5)], 1)",
+   "([('a', 4), ('b', 6), ('c', 5)], 5)"
+  ],
+  "expression": "min(a0, key=lambda p: abs(p[1] - a1))[0]"
+ },
+ {
+  "id": "compose-p1-082",
+  "pair": 577,
+  "category": "sequences",
+  "description": "Given the changes of a bank balance that starts at 0, return the balance after each change, showing every negative balance as 0.",
+  "entry_point": "clipped_balances",
+  "inputs": [
+   "([5, -8, 4, 10],)",
+   "([-3],)",
+   "([2, 2, -1],)"
+  ],
+  "expression": "[max(v, 0) for v in prefix_sums_1(a0)]"
+ },
+ {
+  "id": "compose-p1-083",
+  "pair": 583,
+  "category": "numbers",
+  "description": "Write a function to find the largest of the counts of orderings of the numbers 1 to n with exactly 0, 1, ..., n - 1 places where a number is immediately followed by a larger one.",
+  "entry_point": "largest_eulerian",
+  "inputs": [
+   "(4,)",
+   "(1,)",
+   "(5,)"
+  ],
+  "expression": "max(eulerian_2(a0, k) for k in range(a0))"
+ },
+ {
+  "id": "compose-p1-084",
+  "pair": 589,
+  "category": "predicates",
+  "description": "Given a seating plan as a list of tables, each a list of names, and a name, return the other people sitting at the same table as that person.",
+  "entry_point": "table_mates",
+  "inputs": [
+   "([['ann', 'bo'], ['cy', 'dee', 'eve']], 'dee')",
+   "([['x']], 'x')",
+   "([['a', 'b'], ['c']], 'a')"
+  ],
+  "expression": "[n for t in a0 if a1 in t for n in t if n != a1]"
+ },
+ {
+  "id": "compose-p1-085",
+  "pair": 595,
+  "category": "nested",
+  "description": "Given a list of sentences and a number k, write a function to keep, for each sentence, its k longest words from longest to shortest, keeping words of equal length in their original order.",
+  "entry_point": "longest_words_each",
+  "inputs": [
+   "(['the quick brown fox', 'a big elephant'], 2)",
+   "(['hello world'], 1)",
+   "(['aa bbb c', 'dd e'], 3)"
+  ],
+  "expression": "[sorted(s.split(), key=len, reverse=True)[:a1] for s in a0]"
+ },
+ {
+  "id": "compose-p1-086",
+  "pair": 601,
+  "category": "nested",
+  "description": "Given a list of (player, move) tuples in the order the moves were made, return the sequence of turns as player names, collapsing consecutive moves by the same player into one entry.",
+  "entry_point": "turn_sequence",
+  "inputs": [
+   "([('ann', 'e4'), ('ann', 'd4'), ('bob', 'e5'), ('ann', 'f4')],)",
+   "([('x', 1), ('y', 2)],)",
+   "([('a', 1), ('b', 2), ('b', 3), ('b', 4)],)"
+  ],
+  "expression": "drop_consecutive_1(row_first_1(a0))"
+ },
+ {
+  "id": "compose-p1-087",
+  "pair": 607,
+  "category": "unparsed",
+  "description": "Given n and p, write a function to return the list of binomial probabilities P(X = k) for k = 0, 1, ..., n, where X counts the successes in n independent trials with success probability p.",
+  "entry_point": "binomial_distribution",
+  "inputs": [
+   "(2, 0.5)",
+   "(1, 0.3)",
+   "(3, 0.5)"
+  ],
+  "expression": "[math.comb(a0, k) * pow(a1, k) * pow(1 - a1, a0 - k) for k in range(a0 + 1)]"
+ },
+ {
+  "id": "compose-p1-088",
+  "pair": 613,
+  "category": "strings",
+  "description": "Write a function to find the latest version among version strings such as '1.10.2', comparing them by their numeric parts so that '1.10' is later than '1.9'.",
+  "entry_point": "latest_version",
+  "inputs": [
+   "(['1.10', '1.9', '1.2.5'],)",
+   "(['2.0'],)",
+   "(['0.9.9', '0.10', '0.9.10'],)"
+  ],
+  "expression": "max(a0, key=lambda v: [int(x) for x in v.split('.')])"
+ },
+ {
+  "id": "compose-p1-089",
+  "pair": 625,
+  "category": "strings",
+  "description": "Write a function to check whether every street name in a list ends with 'Road' or with 'Street'.",
+  "entry_point": "all_roads_or_streets",
+  "inputs": [
+   "(['Mill Road', 'High Street'],)",
+   "(['Mill Road', 'Elm Avenue'],)",
+   "(['Streetside Lane'],)"
+  ],
+  "expression": "all(s.endswith(('Road', 'Street')) for s in a0)"
+ },
+ {
+  "id": "compose-p1-090",
+  "pair": 637,
+  "category": "unparsed",
+  "description": "Write a function to compute the probability that the first success occurs within the first k trials when each trial succeeds with probability p.",
+  "entry_point": "first_success_within",
+  "inputs": [
+   "(3, 0.5)",
+   "(1, 0.2)",
+   "(2, 0.1)"
+  ],
+  "expression": "sum((1 - a1) ** (i - 1) * a1 for i in range(1, a0 + 1))"
+ },
+ {
+  "id": "compose-p1-091",
+  "pair": 643,
+  "category": "predicates",
+  "description": "Write a function that returns 'Yes' if every number formed by the first 1, 2, 3 and so on digits of a positive integer is prime, and 'No' otherwise.",
+  "entry_point": "all_prefixes_prime",
+  "inputs": [
+   "(2399,)",
+   "(13,)",
+   "(73,)"
+  ],
+  "expression": "txt_yes_no_1(all(is_prime_1(int(str(a0)[:i])) for i in range(1, len(str(a0)) + 1)))"
+ },
+ {
+  "id": "compose-p1-092",
+  "pair": 649,
+  "category": "unparsed",
+  "description": "Given a number of independent trials n, a number k and a success probability p, write a function to compute the probability of getting at least k successes, rounded to 4 decimal places.",
+  "entry_point": "binomial_at_least",
+  "inputs": [
+   "(3, 2, 0.5)",
+   "(4, 0, 0.3)",
+   "(5, 4, 0.2)"
+  ],
+  "expression": "round(sum(comb_2(a0, i) * a2 ** i * (1 - a2) ** (a0 - i) for i in range(a1, a0 + 1)), 4)"
+ },
+ {
+  "id": "compose-p1-093",
+  "pair": 661,
+  "category": "nested",
+  "description": "Given a list of lists of points scored per round, one inner list per team, and a number k, return the index of the team with the highest total over the first k rounds, the lowest index on ties.",
+  "entry_point": "leader_after_rounds",
+  "inputs": [
+   "([[3, 4, 9], [10, 0, 1], [6, 6, 0]], 2)",
+   "([[1, 9], [5, 0]], 1)",
+   "([[2, 2], [1, 3]], 2)"
+  ],
+  "expression": "argmax_1(row_sum_1([r[:a1] for r in a0]))"
+ },
+ {
+  "id": "compose-p1-094",
+  "pair": 673,
+  "category": "unparsed",
+  "description": "Given n and p, write a function to return the probability that an even number of successes, counting 0 as even, occurs in n independent trials with success probability p.",
+  "entry_point": "binomial_even_successes",
+  "inputs": [
+   "(2, 0.5)",
+   "(3, 0.25)",
+   "(1, 0.25)"
+  ],
+  "expression": "sum(math.comb(a0, k) * pow(a1, k) * pow(1 - a1, a0 - k) for k in range(0, a0 + 1, 2))"
+ },
+ {
+  "id": "compose-p1-095",
+  "pair": 679,
+  "category": "nested",
+  "description": "Write a function that returns, in sorted order, the keys that two dictionaries have in common but map to different values.",
+  "entry_point": "changed_common_keys",
+  "inputs": [
+   "({'c': 1, 'a': 2, 'b': 3}, {'b': 0, 'c': 1, 'a': 5})",
+   "({'x': 1}, {'y': 1})",
+   "({'k': 'v', 'j': 'w'}, {'j': 'x', 'k': 'y'})"
+  ],
+  "expression": "sorted(k for k in a0 if k in a1 and a0[k] != a1[k])"
+ },
+ {
+  "id": "compose-p1-096",
+  "pair": 685,
+  "category": "numbers",
+  "description": "Write a function to count the non-negative integers of a list whose first and last digits are the same.",
+  "entry_point": "count_same_end_digits",
+  "inputs": [
+   "([12321, 45, 7, 1001],)",
+   "([10, 23],)",
+   "([0, 99, 101, 120],)"
+  ],
+  "expression": "sum(digits_1(x)[0] == digits_1(x)[-1] for x in a0)"
+ },
+ {
+  "id": "compose-p1-097",
+  "pair": 691,
+  "category": "predicates",
+  "description": "Given a string, return, in order of first appearance, the characters that occur in it more than 2 times.",
+  "entry_point": "frequent_characters",
+  "inputs": [
+   "('bananas',)",
+   "('hello',)",
+   "('mississippi',)"
+  ],
+  "expression": "[c for c in dedupe_1(list(a0)) if a0.count(c) > 2]"
+ },
+ {
+  "id": "compose-p1-098",
+  "pair": 703,
+  "category": "sequences",
+  "description": "Write a function to split a camel-case string into its words with the regex '[A-Z][a-z]+', which finds an uppercase letter followed by lowercase letters, and join them with single spaces.",
+  "entry_point": "split_camel_case",
+  "inputs": [
+   "('HelloWorldFOO',)",
+   "('ThisIsPython',)",
+   "('OneTwo',)"
+  ],
+  "expression": "join_space_1(re.findall('[A-Z][a-z]+', a0))"
+ },
+ {
+  "id": "compose-p1-099",
+  "pair": 709,
+  "category": "sequences",
+  "description": "Write a python function to count the numbers of a list that no prime divides more than once.",
+  "entry_point": "count_squarefree",
+  "inputs": [
+   "([30, 12, 7, 18],)",
+   "([4, 9],)",
+   "([10, 15, 21],)"
+  ],
+  "expression": "sum(len(num_prime_factorization_1(x)) == len(num_prime_factors_1(x)) for x in a0)"
+ },
+ {
+  "id": "compose-p1-100",
+  "pair": 715,
+  "category": "sequences",
+  "description": "Given a list of (start floor, end floor) elevator trips, write a function to return the number of floors travelled on each trip, listing the downward trips after the others and keeping the original order within each group.",
+  "entry_point": "downward_trips_last",
+  "inputs": [
+   "([(0, 5), (7, 2), (3, 3), (4, 1), (1, 9)],)",
+   "([(5, 0), (0, 2)],)",
+   "([(2, 1), (1, 2)],)"
+  ],
+  "expression": "pair_absdiff_1(sorted(a0, key=lambda t: t[1] < t[0]))"
+ },
+ {
+  "id": "compose-p1-101",
+  "pair": 721,
+  "category": "sequences",
+  "description": "Given two texts, write a python function to find the capitalized words of the second text, found with the regex '[A-Z][a-z]+', that the first text lacks, without repeats and in alphabetical order.",
+  "entry_point": "new_capitalized_words",
+  "inputs": [
+   "('Ann met Bob', 'Bob saw Cy and Dee and Cy')",
+   "('Rome and Oslo', 'Oslo then Rome')",
+   "('nobody', 'Zed saw Amy')"
+  ],
+  "expression": "sorted(set(re.findall('[A-Z][a-z]+', a1)) - set(re.findall('[A-Z][a-z]+', a0)))"
+ },
+ {
+  "id": "compose-p1-102",
+  "pair": 733,
+  "category": "predicates",
+  "description": "Given a list of class sizes and a team size, return the class sizes that can be split into teams of exactly that size with nobody left out.",
+  "entry_point": "splittable_classes",
+  "inputs": [
+   "([24, 25, 30, 7], 6)",
+   "([10, 15], 4)",
+   "([12, 8, 9], 3)"
+  ],
+  "expression": "[n for n in a0 if divisible_2(n, a1)]"
+ },
+ {
+  "id": "compose-p1-103",
+  "pair": 739,
+  "category": "nested",
+  "description": "Write a function to find the tuples in a list that include both of two given elements anywhere.",
+  "entry_point": "tuples_with_both",
+  "inputs": [
+   "([(1, 2, 3), (3, 4), (2, 5, 3)], 2, 3)",
+   "([(1, 2)], 1, 5)",
+   "([(7, 8), (8, 9, 7)], 8, 7)"
+  ],
+  "expression": "rows_with_2(rows_with_2(a0, a1), a2)"
+ },
+ {
+  "id": "compose-p1-104",
+  "pair": 745,
+  "category": "nested",
+  "description": "Given a list of (name, score) pairs and a list of names, return the total score of each of those names, using 0 for any name that has no pair.",
+  "entry_point": "totals_for_names",
+  "inputs": [
+   "([('ann', 5), ('bob', 3), ('ann', 2)], ['bob', 'cy', 'ann'])",
+   "([('x', 1)], ['x'])",
+   "([('a', 4), ('a', 4)], ['b', 'a'])"
+  ],
+  "expression": "[sum(group_by_first_1(a0).get(n, [])) for n in a1]"
+ },
+ {
+  "id": "compose-p1-105",
+  "pair": 757,
+  "category": "strings",
+  "description": "Write a python function to find the word of a list with the most lowercase letters, the first one on ties.",
+  "entry_point": "most_lowercase_word",
+  "inputs": [
+   "(['PassWord', 'abc', 'HELLO'],)",
+   "(['x'],)",
+   "(['ab', 'CD', 'ef'],)"
+  ],
+  "expression": "max(a0, key=txt_lower_count_1)"
+ },
+ {
+  "id": "compose-p1-106",
+  "pair": 763,
+  "category": "predicates",
+  "description": "Write a function to check whether the words of a sentence read the same when taken in reverse order, ignoring case and punctuation, where the words are the runs of letters, digits and underscores.",
+  "entry_point": "word_palindrome",
+  "inputs": [
+   "('Red, blue, green; blue red.',)",
+   "('one two',)",
+   "('Echo echo!',)"
+  ],
+  "expression": "is_palindrome_1(words_1(a0.lower()))"
+ },
+ {
+  "id": "compose-p1-107",
+  "pair": 775,
+  "category": "nested",
+  "description": "Given a list of ballots, each a list of candidates in order of preference with the same length, return for every position the candidate named most often in that position, the first one on ties.",
+  "entry_point": "favourite_per_position",
+  "inputs": [
+   "([['ann', 'bob'], ['bob', 'ann'], ['ann', 'cy']],)",
+   "([['x', 'y', 'z'], ['x', 'z', 'z']],)",
+   "([['a', 'b'], ['b', 'a']],)"
+  ],
+  "expression": "[most_common_1(c) for c in transpose_1(a0)]"
+ },
+ {
+  "id": "compose-p1-108",
+  "pair": 781,
+  "category": "strings",
+  "description": "Write a function that echoes every word of a sentence by writing it a given number of times with nothing in between, keeping single spaces between the words.",
+  "entry_point": "echo_each_word",
+  "inputs": [
+   "('ha ho', 3)",
+   "('go', 2)",
+   "('a b c', 1)"
+  ],
+  "expression": "' '.join(repeat_2(w, a1) for w in a0.split())"
+ },
+ {
+  "id": "compose-p1-109",
+  "pair": 793,
+  "category": "strings",
+  "description": "Write a function to check whether the character codes of a string form an arithmetic progression, that is, whether all the differences between the codes of neighbouring characters are equal.",
+  "entry_point": "codes_in_progression",
+  "inputs": [
+   "('aceg',)",
+   "('abd',)",
+   "('zyx',)"
+  ],
+  "expression": "all_same_1([ord(b) - ord(a) for a, b in zip(a0, a0[1:])])"
+ },
+ {
+  "id": "compose-p1-110",
+  "pair": 799,
+  "category": "predicates",
+  "description": "Given the positions of trees along a road and a distance d, return how many pairs of neighbouring trees stand less than d metres apart.",
+  "entry_point": "close_tree_pairs",
+  "inputs": [
+   "([2, 15, 8, 30], 7)",
+   "([0, 10], 5)",
+   "([5, 1, 3, 2], 2)"
+  ],
+  "expression": "sum(b - a < a1 for a, b in zip(sorted(a0), sorted(a0)[1:]))"
+ },
+ {
+  "id": "compose-p1-111",
+  "pair": 805,
+  "category": "nested",
+  "description": "Given a list of (home goals, away goals) results of matches a team played at home, return its total points, with 3 points for a win and 1 for a draw.",
+  "entry_point": "home_points",
+  "inputs": [
+   "([(2, 1), (0, 0), (1, 3), (4, 2)],)",
+   "([(0, 1)],)",
+   "([(1, 1), (2, 2)],)"
+  ],
+  "expression": "sum(3 * (a > b) + (a == b) for a, b in a0)"
+ },
+ {
+  "id": "compose-p1-112",
+  "pair": 811,
+  "category": "nested",
+  "description": "Create a function which removes the repeated items from every list of a dictionary of lists, keeping the first copy of each item.",
+  "entry_point": "dedupe_dict_lists",
+  "inputs": [
+   "({'red': [1, 2, 1], 'blue': [3, 3]},)",
+   "({'a': ['x', 'y', 'x']},)",
+   "({'p': [1, 2, 3], 'q': [4, 4, 5, 4]},)"
+  ],
+  "expression": "{k: dedupe_1(v) for k, v in a0.items()}"
+ },
+ {
+  "id": "compose-p1-113",
+  "pair": 817,
+  "category": "nested",
+  "description": "Given two lists of (name, score) records from two rounds of a quiz, return the names that appear in either round, once each and in alphabetical order.",
+  "entry_point": "names_in_either_round",
+  "inputs": [
+   "([('zed', 5), ('amy', 7)], [('bo', 9), ('zed', 1)])",
+   "([('a', 1)], [('a', 2)])",
+   "([('x', 0), ('c', 1)], [('m', 2)])"
+  ],
+  "expression": "set_or_2(row_first_1(a0), row_first_1(a1))"
+ },
+ {
+  "id": "compose-p1-114",
+  "pair": 823,
+  "category": "numbers",
+  "description": "Given a list of (name, speed in kilometres per hour) tuples, return the highest speed converted to metres per second, using 1000 metres per kilometre and 3600 seconds per hour, rounded to 2 decimal places.",
+  "entry_point": "top_speed_ms",
+  "inputs": [
+   "([('car', 90), ('bike', 25)],)",
+   "([('walk', 5)],)",
+   "([('a', 36), ('b', 72), ('c', 54)],)"
+  ],
+  "expression": "round(max(column_2(a0, 1)) * 1000 / 3600, 2)"
+ },
+ {
+  "id": "compose-p1-115",
+  "pair": 829,
+  "category": "strings",
+  "description": "Given a string and a list of prefixes, write a function to find the permutations of the string that begin with any of the prefixes.",
+  "entry_point": "permutations_with_prefix",
+  "inputs": [
+   "('abc', ['b', 'ca'])",
+   "('xyz', ['z'])",
+   "('dog', ['do', 'g'])"
+  ],
+  "expression": "[p for p in txt_permutations_1(a0) if p.startswith(tuple(a1))]"
+ },
+ {
+  "id": "compose-p1-116",
+  "pair": 853,
+  "category": "sequences",
+  "description": "Write a function to gather the numbers of a list of lists into one list sorted by their absolute values, keeping numbers with the same absolute value in their original order.",
+  "entry_point": "flatten_sorted_by_abs",
+  "inputs": [
+   "([[-7, 2], [-1, 5]],)",
+   "([[3], [-3, 1]],)",
+   "([[0, -4], [4, -2]],)"
+  ],
+  "expression": "sorted(flatten_1(a0), key=abs)"
+ },
+ {
+  "id": "compose-p1-117",
+  "pair": 859,
+  "category": "unparsed",
+  "description": "Given n, k and a list of success probabilities, write a function to return, for each probability p, the binomial probability of exactly k successes in n trials, rounded to 4 decimal places.",
+  "entry_point": "binomial_for_each_p",
+  "inputs": [
+   "(10, 5, [0.3, 0.5])",
+   "(4, 2, [0.1])",
+   "(3, 0, [0.5, 0.9, 0.2])"
+  ],
+  "expression": "[round(comb_2(a0, a1) * p ** a1 * (1 - p) ** (a0 - a1), 4) for p in a2]"
+ },
+ {
+  "id": "compose-p1-118",
+  "pair": 865,
+  "category": "predicates",
+  "description": "Given a list of email addresses, return True if no two of them are the same after trimming the surrounding whitespace and converting them to lowercase.",
+  "entry_point": "unique_emails",
+  "inputs": [
+   "(['Ann@x.com', ' bob@x.com'],)",
+   "(['ann@x.com ', 'ANN@X.COM'],)",
+   "(['a@b.c'],)"
+  ],
+  "expression": "all_unique_1([e.strip().lower() for e in a0])"
+ },
+ {
+  "id": "compose-p1-119",
+  "pair": 871,
+  "category": "sequences",
+  "description": "Write a function to keep, in each string of a list, only the words that begin with an uppercase letter.",
+  "entry_point": "keep_capitalized_words",
+  "inputs": [
+   "(['Red rose', 'green Leaf', 'tulip'],)",
+   "(['Hi There'],)",
+   "(['a B c D'],)"
+  ],
+  "expression": "[' '.join(w for w in s.split() if w[0].isupper()) for s in a0]"
+ },
+ {
+  "id": "compose-p1-120",
+  "pair": 877,
+  "category": "numbers",
+  "description": "Write a function to count the numbers of a list that are primes staying prime when their digits are reversed.",
+  "entry_point": "count_emirps",
+  "inputs": [
+   "([13, 23, 17, 4],)",
+   "([10, 19],)",
+   "([31, 37, 71, 73],)"
+  ],
+  "expression": "sum(is_prime_1(x) and is_prime_1(reverse_digits_1(x)) for x in a0)"
+ },
+ {
+  "id": "compose-p1-121",
+  "pair": 883,
+  "category": "strings",
+  "description": "Write a python function to check whether a code can be turned into a second code by moving its first k characters to the end, for some k from 1 to one less than the length of the code.",
+  "entry_point": "is_rotated_code",
+  "inputs": [
+   "('abcdef', 'cdefab')",
+   "('abc', 'acb')",
+   "('hello', 'lohel')"
+  ],
+  "expression": "any(txt_rotate_left_2(a0, k) == a1 for k in range(1, len(a0)))"
+ },
+ {
+  "id": "compose-p1-122",
+  "pair": 889,
+  "category": "sequences",
+  "description": "Given a list of sentences and a list of search terms, write a python function that answers, for each sentence, 'Matched!' when at least one of the terms occurs in it and 'Not Matched!' when none does.",
+  "entry_point": "match_each_sentence",
+  "inputs": [
+   "(['A rainy day', 'sunny sky', 'cold'], ['sun', 'rain'])",
+   "(['x'], ['y'])",
+   "(['abc', 'bcd'], ['b'])"
+  ],
+  "expression": "['Matched!' if any(p in s for p in a1) else 'Not Matched!' for s in a0]"
+ },
+ {
+  "id": "compose-p1-123",
+  "pair": 895,
+  "category": "predicates",
+  "description": "Write a function to check whether every dot-separated part of a string holds a whole number, optionally preceded by a plus or minus sign.",
+  "entry_point": "all_parts_integers",
+  "inputs": [
+   "('192.168.0.1',)",
+   "('10.a.3',)",
+   "('-4.+7',)"
+  ],
+  "expression": "all(is_integer_string_1(p) for p in a0.split('.'))"
+ },
+ {
+  "id": "compose-p1-124",
+  "pair": 901,
+  "category": "sequences",
+  "description": "Create a function which finds the largest absolute value among the numbers of a list of lists.",
+  "entry_point": "largest_abs_nested",
+  "inputs": [
+   "([[3, -8], [5]],)",
+   "([[-1, -2], [0]],)",
+   "([[7], [-7, 2]],)"
+  ],
+  "expression": "max(abs_each_1(flatten_1(a0)))"
+ },
+ {
+  "id": "compose-p1-125",
+  "pair": 907,
+  "category": "unparsed",
+  "description": "Given a list of (start, end) meetings in any order, write a function to sort them by start time and find the longest break between the end of one meeting and the start of the next.",
+  "entry_point": "longest_break",
+  "inputs": [
+   "([(5, 6), (1, 2), (7, 8)],)",
+   "([(9, 10), (0, 4)],)",
+   "([(1, 3), (3, 5), (6, 7)],)"
+  ],
+  "expression": "max(y[0] - x[1] for x, y in zip(sorted(a0), sorted(a0)[1:]))"
+ },
+ {
+  "id": "compose-p1-126",
+  "pair": 913,
+  "category": "predicates",
+  "description": "Given a list of daily weather labels and a number k, return, once each and in order of first appearance, the labels that occur on more than k days in a row somewhere in the list.",
+  "entry_point": "long_streak_labels",
+  "inputs": [
+   "(['sun', 'sun', 'sun', 'rain', 'sun', 'sun', 'sun'], 2)",
+   "(['a', 'b', 'b', 'a'], 1)",
+   "(['fog', 'fog', 'rain', 'rain', 'rain'], 1)"
+  ],
+  "expression": "dedupe_1([v for c, v in run_lengths_1(a0) if c > a1])"
+ },
+ {
+  "id": "compose-p1-127",
+  "pair": 925,
+  "category": "strings",
+  "description": "Write a python function that answers, for each word of a sentence, 'Equal' when its first and last letters are the same letter regardless of case and 'Not Equal' otherwise.",
+  "entry_point": "equal_ends_each_word",
+  "inputs": [
+   "('Anna went to Toronto',)",
+   "('hello world',)",
+   "('Bob saw a kayak',)"
+  ],
+  "expression": "['Equal' if w[0].lower() == w[-1].lower() else 'Not Equal' for w in a0.split()]"
+ },
+ {
+  "id": "compose-p1-128",
+  "pair": 931,
+  "category": "sequences",
+  "description": "Write a function to count how many times the running totals of a list of numbers switch between negative and non-negative from one position to the next, treating zero as non-negative.",
+  "entry_point": "running_sign_changes",
+  "inputs": [
+   "([5, -8, 4, 10, -20],)",
+   "([1, 2, 3],)",
+   "([-1, 1, -1, 1],)"
+  ],
+  "expression": "sum((x < 0) != (y < 0) for x, y in zip(prefix_sums_1(a0), prefix_sums_1(a0)[1:]))"
+ },
+ {
+  "id": "compose-p1-129",
+  "pair": 937,
+  "category": "sequences",
+  "description": "Write a function to count the non-empty subsequences of a list whose sum is a prime number.",
+  "entry_point": "count_prime_sum_subsequences",
+  "inputs": [
+   "([1, 2, 3],)",
+   "([4, 6],)",
+   "([2, 5],)"
+  ],
+  "expression": "sum(is_prime_1(sum(s)) for s in seq_powerset_by_size_1(a0) if s)"
+ },
+ {
+  "id": "compose-p1-130",
+  "pair": 943,
+  "category": "numbers",
+  "description": "Several documents, given as a list of their page counts, are printed together as one job by a printer that works in batches of k sheets and fills up the last batch with blank sheets; given the list and k, write a function to find how many blank sheets are added.",
+  "entry_point": "total_blank_sheets",
+  "inputs": [
+   "([45, 20, 1], 20)",
+   "([10, 30], 10)",
+   "([7, 4], 3)"
+  ],
+  "expression": "-sum(a0) % a1"
+ },
+ {
+  "id": "compose-p1-131",
+  "pair": 949,
+  "category": "sequences",
+  "description": "Write a function to add up, separately for every inner list of a list of lists, the values that occur more than once in it, counting each such value a single time.",
+  "entry_point": "sum_repeated_each_row",
+  "inputs": [
+   "([[1, 2, 2], [3, 3, 3, 4]],)",
+   "([[1, 1], [2, 5]],)",
+   "([[5, 5, 6, 6]],)"
+  ],
+  "expression": "[sum(repeated_1(r)) for r in a0]"
+ },
+ {
+  "id": "compose-p1-132",
+  "pair": 967,
+  "category": "sequences",
+  "description": "Write a function to find the largest even number in a list of lists of integers, or -1 if there is none.",
+  "entry_point": "largest_even_nested",
+  "inputs": [
+   "([[3, 8], [9, 6]],)",
+   "([[1, 3], [5]],)",
+   "([[-2], [-4, 7]],)"
+  ],
+  "expression": "max(evens_1(flatten_1(a0)), default=-1)"
+ },
+ {
+  "id": "compose-p1-133",
+  "pair": 973,
+  "category": "numbers",
+  "description": "Write a function to compute the total phone bill over several months, given the list of minutes used in each month, where the first 100 minutes of every month are free and every further minute costs 2.",
+  "entry_point": "total_phone_bill",
+  "inputs": [
+   "([150, 80, 101],)",
+   "([100],)",
+   "([300, 200],)"
+  ],
+  "expression": "sum(max(m - 100, 0) * 2 for m in a0)"
+ },
+ {
+  "id": "compose-p1-134",
+  "pair": 979,
+  "category": "numbers",
+  "description": "Write a function that answers, for each number n of a list, 'Yes' if both n and n + 2 are prime numbers and 'No' otherwise.",
+  "entry_point": "twin_prime_answers",
+  "inputs": [
+   "([11, 7, 3],)",
+   "([4],)",
+   "([17, 29, 23],)"
+  ],
+  "expression": "[txt_yes_no_1(is_prime_1(x) and is_prime_1(x + 2)) for x in a0]"
+ },
+ {
+  "id": "compose-p1-135",
+  "pair": 985,
+  "category": "nested",
+  "description": "Write a function that removes from a list of (origin, destination) flights every flight that also appears in a list of cancelled flights, and then counts the remaining flights leaving each origin, as a dictionary in order of first appearance.",
+  "entry_point": "flights_per_origin",
+  "inputs": [
+   "([('ny', 'la'), ('la', 'sf'), ('ny', 'sf')], [('la', 'sf')])",
+   "([('a', 'b')], [('b', 'a')])",
+   "([('x', 'y'), ('x', 'z'), ('y', 'x')], [('x', 'y'), ('y', 'x')])"
+  ],
+  "expression": "counter_1(row_first_1(remove_present_2(a0, a1)))"
+ },
+ {
+  "id": "compose-p1-136",
+  "pair": 997,
+  "category": "strings",
+  "description": "Given a comma-separated list of city names, return the distinct cities in alphabetical order after trimming the spaces around each name and writing it with the first letter uppercase and the rest lowercase.",
+  "entry_point": "distinct_cities",
+  "inputs": [
+   "('paris, ROME ,oslo, rome',)",
+   "('Lima , lima,LIMA',)",
+   "('a,b',)"
+  ],
+  "expression": "sorted(set(s.strip().capitalize() for s in a0.split(',')))"
+ },
+ {
+  "id": "compose-p1-137",
+  "pair": 1003,
+  "category": "nested",
+  "description": "Given a list of directed edges (a, b) of a graph, return the nodes that have no outgoing edge, in order of first appearance.",
+  "entry_point": "sink_nodes",
+  "inputs": [
+   "([(1, 2), (1, 3), (2, 3)],)",
+   "([(1, 2), (3, 4), (2, 5)],)",
+   "([('a', 'b'), ('b', 'a')],)"
+  ],
+  "expression": "[n for n, s in successors_dict_1(a0).items() if not s]"
+ },
+ {
+  "id": "compose-p1-138",
+  "pair": 1009,
+  "category": "nested",
+  "description": "Given a list of (category, item) pairs and a category, return the number of distinct items in that category.",
+  "entry_point": "distinct_items_in_category",
+  "inputs": [
+   "([('fruit', 'fig'), ('veg', 'leek'), ('fruit', 'kiwi'), ('fruit', 'fig')], 'fruit')",
+   "([('a', 1)], 'a')",
+   "([('x', 1), ('x', 2), ('y', 3), ('x', 3)], 'x')"
+  ],
+  "expression": "len(set(group_by_first_1(a0)[a1]))"
+ },
+ {
+  "id": "compose-p1-139",
+  "pair": 1015,
+  "category": "numbers",
+  "description": "Write a function to return the right-angled triangles of a list of side triples (a, b, c), where c is always the longest side, sorted by their perimeter.",
+  "entry_point": "right_triangles_by_perimeter",
+  "inputs": [
+   "([(6, 8, 10), (2, 3, 4), (3, 4, 5)],)",
+   "([(1, 1, 1)],)",
+   "([(5, 12, 13), (8, 15, 17), (3, 4, 5)],)"
+  ],
+  "expression": "sorted([t for t in a0 if t[0] ** 2 + t[1] ** 2 == t[2] ** 2], key=sum)"
+ },
+ {
+  "id": "compose-p1-140",
+  "pair": 1021,
+  "category": "strings",
+  "description": "Given a list of file names, write a function to count how many files have each extension, the part after the last '.', returned as a dictionary in order of first appearance.",
+  "entry_point": "count_extensions",
+  "inputs": [
+   "(['a.txt', 'b.py', 'archive.tar.gz', 'c.txt'],)",
+   "(['x.md'],)",
+   "(['p.py', 'q.py'],)"
+  ],
+  "expression": "counter_1([f.rsplit('.', 1)[1] for f in a0])"
+ },
+ {
+  "id": "compose-p1-141",
+  "pair": 1027,
+  "category": "sequences",
+  "description": "Given a list of words and two lengths lo and hi, write a function to join, with single spaces, the words whose length lies between lo and hi inclusive.",
+  "entry_point": "join_words_in_length_range",
+  "inputs": [
+   "(['a', 'rocky', 'day', 'ahead'], 3, 5)",
+   "(['hi', 'there'], 3, 4)",
+   "(['one', 'three', 'five'], 4, 5)"
+  ],
+  "expression": "' '.join(w for w in a0 if a1 <= len(w) <= a2)"
+ },
+ {
+  "id": "compose-p1-142",
+  "pair": 1033,
+  "category": "strings",
+  "description": "Write a function to count the words of a sentence that contain a match of the regex '[a-z]+[A-Z]$', meaning they end with lowercase letters followed by one uppercase letter.",
+  "entry_point": "count_lower_then_upper_words",
+  "inputs": [
+   "('helloW and testS ok',)",
+   "('ABC def',)",
+   "('xY',)"
+  ],
+  "expression": "sum(bool(re.search('[a-z]+[A-Z]$', w)) for w in a0.split())"
+ },
+ {
+  "id": "compose-p1-143",
+  "pair": 1039,
+  "category": "predicates",
+  "description": "Given a word and a list of words, return the words of the list into which a one-to-one letter substitution turns the first word.",
+  "entry_point": "isomorphic_matches",
+  "inputs": [
+   "('abca', ['zyzx', 'xyzx', 'abcd'])",
+   "('egg', ['add', 'foo', 'bar'])",
+   "('ab', ['cc'])"
+  ],
+  "expression": "[w for w in a1 if is_isomorphic_2(a0, w)]"
+ },
+ {
+  "id": "compose-p1-144",
+  "pair": 1045,
+  "category": "unparsed",
+  "description": "Given n, p and a threshold t, write a function to list the numbers of successes k from 0 to n whose binomial probability P(X = k) in n independent trials with success probability p is at least t.",
+  "entry_point": "likely_success_counts",
+  "inputs": [
+   "(4, 0.5, 0.25)",
+   "(3, 0.1, 0.5)",
+   "(2, 0.5, 0.3)"
+  ],
+  "expression": "[k for k in range(a0 + 1) if math.comb(a0, k) * pow(a1, k) * pow(1 - a1, a0 - k) >= a2]"
+ },
+ {
+  "id": "compose-p1-145",
+  "pair": 1051,
+  "category": "predicates",
+  "description": "Write a function to list the integers from 2 to n whose proper divisors, the divisors other than the integer itself, add up to exactly one less than the integer.",
+  "entry_point": "almost_perfect_numbers",
+  "inputs": [
+   "(20,)",
+   "(3,)",
+   "(70,)"
+  ],
+  "expression": "[k for k in range(2, a0 + 1) if num_proper_divisor_sum_1(k) == k - 1]"
+ },
+ {
+  "id": "compose-p1-146",
+  "pair": 1057,
+  "category": "sequences",
+  "description": "Given a list and a number k, write a python function to count the pairs of elements at different positions whose sum is divisible by k.",
+  "entry_point": "count_pair_sums_divisible",
+  "inputs": [
+   "([1, 2, 3, 4, 5], 3)",
+   "([1, 1], 5)",
+   "([2, 4, 6], 2)"
+  ],
+  "expression": "sum((a0[i] + a0[j]) % a1 == 0 for i in range(len(a0)) for j in range(i))"
+ },
+ {
+  "id": "compose-p1-147",
+  "pair": 1063,
+  "category": "nested",
+  "description": "Given a table as a list of rows and a position k, write a function that returns the column totals of the table after the value at position k is removed from every row.",
+  "entry_point": "totals_without_column",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6]], 1)",
+   "([[1, 2], [3, 4]], 0)",
+   "([[5, 1, 1], [5, 2, 2], [5, 3, 3]], 2)"
+  ],
+  "expression": "col_sum_1(drop_column_2(a0, a1))"
+ },
+ {
+  "id": "compose-p1-148",
+  "pair": 1069,
+  "category": "nested",
+  "description": "Given a list of card values dealt one at a time to k players in turn, return the cards of each player sorted in increasing order.",
+  "entry_point": "sorted_hands",
+  "inputs": [
+   "([5, 2, 9, 1, 3, 4, 7], 3)",
+   "([4, 3, 2, 1], 2)",
+   "([8, 1, 6], 2)"
+  ],
+  "expression": "[sorted(h) for h in every_nth_2(a0, a1)]"
+ },
+ {
+  "id": "compose-p1-149",
+  "pair": 1075,
+  "category": "sequences",
+  "description": "Given a sentence and a number k, write a function to count the positions at which a word of the sentence equals the word k places later.",
+  "entry_point": "count_repeating_words",
+  "inputs": [
+   "('a b a b a', 2)",
+   "('to be or not to be', 4)",
+   "('x y z', 1)"
+  ],
+  "expression": "sum(a == b for a, b in zip(a0.split(), a0.split()[a1:]))"
+ },
+ {
+  "id": "compose-p1-150",
+  "pair": 1087,
+  "category": "sequences",
+  "description": "Write a python function to find the spread between the lengths of the longest and the shortest word of a sentence, where the words are the runs of letters, digits and underscores so that punctuation is not counted.",
+  "entry_point": "word_length_spread",
+  "inputs": [
+   "('the quick brown fox jumps!',)",
+   "('a bb ccc',)",
+   "('same, size',)"
+  ],
+  "expression": "range_width_1(len_each_1(words_1(a0)))"
+ },
+ {
+  "id": "compose-p1-151",
+  "pair": 1093,
+  "category": "sequences",
+  "description": "Write a python function to find how many positions apart the first longest word and the first shortest word of a sentence are.",
+  "entry_point": "longest_shortest_gap",
+  "inputs": [
+   "('a quick brown fox jumped',)",
+   "('hi there',)",
+   "('one three four',)"
+  ],
+  "expression": "abs(argmax_1(len_each_1(a0.split())) - argmin_1(len_each_1(a0.split())))"
+ },
+ {
+  "id": "compose-p1-152",
+  "pair": 1117,
+  "category": "sequences",
+  "description": "Given a list and a number k, write a python function to count the values that occur more than once in the list and are divisible by k, counting each such value a single time.",
+  "entry_point": "count_repeated_divisible",
+  "inputs": [
+   "([3, 6, 6, 7, 9, 9, 4, 4], 3)",
+   "([1, 1, 2, 3], 2)",
+   "([10, 10, 5, 5], 5)"
+  ],
+  "expression": "sum(v % a1 == 0 for v in repeated_1(a0))"
+ },
+ {
+  "id": "compose-p1-153",
+  "pair": 1129,
+  "category": "strings",
+  "description": "Write a function to find the total number of letters and the total number of digits over a list of serial numbers, as a pair.",
+  "entry_point": "total_letters_digits",
+  "inputs": [
+   "(['SN-482', 'XZ-13'],)",
+   "(['1234'],)",
+   "(['ab', 'c9'],)"
+  ],
+  "expression": "txt_alpha_digit_counts_1(join_1(a0))"
+ },
+ {
+  "id": "compose-p1-154",
+  "pair": 1135,
+  "category": "predicates",
+  "description": "Given a grid as a list of rows and a list of allowed values, write a function to return the (row, column) positions of the entries that are not allowed, reading row by row.",
+  "entry_point": "disallowed_positions",
+  "inputs": [
+   "([[1, 0], [0, 2]], [0, 1])",
+   "([[1, 1]], [1])",
+   "([[5, 0, 7], [0, 0, 9]], [0])"
+  ],
+  "expression": "[(i, j) for i, r in enumerate(a0) for j, x in enumerate(r) if x not in a1]"
+ },
+ {
+  "id": "compose-p1-155",
+  "pair": 1141,
+  "category": "predicates",
+  "description": "Given a list of trucks, each a list of how many of each item it carries, a list of the weights of the items and a weight limit, return 'Safe' if no truck's total weight exceeds the limit and 'Not Safe' otherwise.",
+  "entry_point": "trucks_safe",
+  "inputs": [
+   "([[2, 1], [0, 3]], [100, 50], 250)",
+   "([[1, 1]], [300, 300], 500)",
+   "([[4, 0], [1, 1], [0, 2]], [10, 20], 40)"
+  ],
+  "expression": "'Safe' if max(sum(x * y for x, y in zip(r, a1)) for r in a0) <= a2 else 'Not Safe'"
+ },
+ {
+  "id": "compose-p1-156",
+  "pair": 1147,
+  "category": "numbers",
+  "description": "Days of the week are numbered 0 for Monday to 6 for Sunday; given today's number and a list of day counts, write a function to find the day numbers reached by moving forward from today by each count of days, listed once each in increasing order.",
+  "entry_point": "weekdays_reached",
+  "inputs": [
+   "(4, [1, 8, 3, 10])",
+   "(0, [7, 14])",
+   "(6, [6, 7, 8, 1])"
+  ],
+  "expression": "sorted_set_1([(a0 + d) % 7 for d in a1])"
+ },
+ {
+  "id": "compose-p1-157",
+  "pair": 1153,
+  "category": "numbers",
+  "description": "Write a python function to count the positive integers of a list whose proper divisors, the divisors other than the integer itself, add up to less than the integer.",
+  "entry_point": "count_deficient",
+  "inputs": [
+   "([10, 12, 13, 20],)",
+   "([12, 18],)",
+   "([1, 2, 3],)"
+  ],
+  "expression": "sum(is_deficient_1(x) for x in a0)"
+ },
+ {
+  "id": "compose-p1-158",
+  "pair": 1159,
+  "category": "predicates",
+  "description": "Write a function to count the words of a sentence that have more vowels than consonants.",
+  "entry_point": "count_vowel_heavy_words",
+  "inputs": [
+   "('audio is a great idea',)",
+   "('strength',)",
+   "('area eye oak',)"
+  ],
+  "expression": "sum(vowel_count_1(w) > txt_consonant_count_1(w) for w in a0.split())"
+ },
+ {
+  "id": "compose-p1-159",
+  "pair": 1165,
+  "category": "strings",
+  "description": "Write a function that answers, for each string of a list, 'Found a match!' if it ends with a letter or digit, with no punctuation or space after its last word, and 'Not matched!' otherwise.",
+  "entry_point": "match_each_ending",
+  "inputs": [
+   "(['python', 'hello!', 'go 2'],)",
+   "(['end.'],)",
+   "(['a b', 'x ', 'Z9'],)"
+  ],
+  "expression": "[txt_match_message_1(s[-1:].isalnum()) for s in a0]"
+ },
+ {
+  "id": "compose-p1-160",
+  "pair": 1171,
+  "category": "sequences",
+  "description": "Write a function to list the distinct characters of a string from the most frequent to the least frequent, keeping the order of first appearance on ties.",
+  "entry_point": "chars_by_frequency",
+  "inputs": [
+   "('banana',)",
+   "('abc',)",
+   "('mississippi',)"
+  ],
+  "expression": "sorted(dedupe_1(list(a0)), key=a0.count, reverse=True)"
+ },
+ {
+  "id": "compose-p1-161",
+  "pair": 1183,
+  "category": "strings",
+  "description": "Write a function to count, for each string of a list, the sequences of one uppercase letter followed by lowercase letters, as found by the regex '[A-Z][a-z]+'.",
+  "entry_point": "capitalized_counts_each",
+  "inputs": [
+   "(['AbCdEf', 'hello', 'HelloWorld'],)",
+   "(['ABC'],)",
+   "(['Xy Zz', 'Q'],)"
+  ],
+  "expression": "[len(re.findall('[A-Z][a-z]+', s)) for s in a0]"
+ },
+ {
+  "id": "compose-p1-162",
+  "pair": 1195,
+  "category": "unparsed",
+  "description": "Write a function to compute the probability of at least one success in a series of independent trials, given the list of the success chances of the trials in percent, that is out of 100.",
+  "entry_point": "prob_any_success",
+  "inputs": [
+   "([50, 50, 50],)",
+   "([25],)",
+   "([12.5, 50],)"
+  ],
+  "expression": "1 - prod_1([1 - p / 100 for p in a0])"
+ },
+ {
+  "id": "compose-p1-163",
+  "pair": 1201,
+  "category": "sequences",
+  "description": "Write a function to return, in order, the numbers of a list of lists that exceed a given threshold.",
+  "entry_point": "nested_above_threshold",
+  "inputs": [
+   "([[5, 12], [8, 20]], 8)",
+   "([[1, 2], [7]], 5)",
+   "([[9], [10, 3]], 2)"
+  ],
+  "expression": "gt_2(flatten_1(a0), a1)"
+ },
+ {
+  "id": "compose-p1-164",
+  "pair": 1219,
+  "category": "strings",
+  "description": "Write a function that reduces a crossword answer to its letters written in lowercase, dropping spaces, hyphens, digits and punctuation.",
+  "entry_point": "crossword_letters_lower",
+  "inputs": [
+   "('Ice-Cream Cone!',)",
+   "('B2B',)",
+   "('abc',)"
+  ],
+  "expression": "letters_only_1(a0).lower()"
+ },
+ {
+  "id": "compose-p1-165",
+  "pair": 1231,
+  "category": "predicates",
+  "description": "Write a function to list the numbers from a to b inclusive that are prime and stay prime when their digits are reversed.",
+  "entry_point": "emirps_between",
+  "inputs": [
+   "(10, 40)",
+   "(20, 30)",
+   "(70, 80)"
+  ],
+  "expression": "[k for k in range(a0, a1 + 1) if is_prime_1(k) and is_prime_1(reverse_digits_1(k))]"
+ },
+ {
+  "id": "compose-p1-166",
+  "pair": 1243,
+  "category": "numbers",
+  "description": "A car drives a route made of legs of equal length, each at its own speed; given the list of speeds, write a function to compute its average speed over the whole route.",
+  "entry_point": "average_speed_legs",
+  "inputs": [
+   "([4, 8],)",
+   "([50],)",
+   "([2, 4, 4],)"
+  ],
+  "expression": "len(a0) / sum(1 / v for v in a0)"
+ },
+ {
+  "id": "compose-p1-167",
+  "pair": 1249,
+  "category": "strings",
+  "description": "Given a string, write a function that generates every distinct permutation of its characters, listing each arrangement once in the order it first appears when the characters are permuted by position.",
+  "entry_point": "distinct_permutations",
+  "inputs": [
+   "('aab',)",
+   "('abc',)",
+   "('xxy',)"
+  ],
+  "expression": "dedupe_1(txt_permutations_1(a0))"
+ },
+ {
+  "id": "compose-p1-168",
+  "pair": 1261,
+  "category": "sequences",
+  "description": "Given a list of positive integers, write a python function that finds how many of its non-empty subsequences have a product that is a perfect square.",
+  "entry_point": "count_square_product_subsequences",
+  "inputs": [
+   "([2, 8, 3],)",
+   "([1, 4],)",
+   "([2, 3, 5],)"
+  ],
+  "expression": "sum(is_perfect_square_1(prod_1(s)) for s in seq_powerset_by_size_1(a0) if s)"
+ },
+ {
+  "id": "compose-p1-169",
+  "pair": 1267,
+  "category": "sequences",
+  "description": "Write a python function to count the pairs of elements at different positions in a list that have no common divisor greater than 1.",
+  "entry_point": "count_coprime_pairs",
+  "inputs": [
+   "([2, 3, 4, 9],)",
+   "([6, 10],)",
+   "([5, 7, 11],)"
+  ],
+  "expression": "sum(gcd_2(a0[i], a0[j]) == 1 for i in range(len(a0)) for j in range(i))"
+ },
+ {
+  "id": "compose-p1-170",
+  "pair": 1285,
+  "category": "nested",
+  "description": "Given a list of dictionaries and a string of key names separated by commas, write a function that removes those keys from every dictionary, trimming the spaces around each name, and returns the new dictionaries.",
+  "entry_point": "remove_listed_keys",
+  "inputs": [
+   "([{'a': 1, 'b': 2, 'c': 3}, {'a': 4, 'd': 5}], 'a, c')",
+   "([{'x': 1}], 'y,z')",
+   "([{'p': 1, 'q': 2}], 'q, r')"
+  ],
+  "expression": "[{k: v for k, v in d.items() if k not in split_comma_1(a1)} for d in a0]"
+ },
+ {
+  "id": "compose-p1-171",
+  "pair": 1291,
+  "category": "numbers",
+  "description": "Write a function to compute the arc length for a circle of diameter d and an angle in degrees, taking pi as 22/7 and a full turn as 360 degrees, rounded up, never down, to two decimal places.",
+  "entry_point": "arc_length_rounded_up",
+  "inputs": [
+   "(8, 100)",
+   "(10, 45)",
+   "(5, 30)"
+  ],
+  "expression": "num_round_up_to_2(22 / 7 * a0 * a1 / 360, 2)"
+ },
+ {
+  "id": "compose-p1-172",
+  "pair": 1303,
+  "category": "sequences",
+  "description": "Given a sentence and a word, write a function to find the length of the longest unbroken run of that word among the words of the sentence, or 0 if the word does not occur.",
+  "entry_point": "longest_word_run",
+  "inputs": [
+   "('a a b a a a', 'a')",
+   "('x y', 'z')",
+   "('go go stop go', 'go')"
+  ],
+  "expression": "max([c for c, v in run_lengths_1(a0.split()) if v == a1], default=0)"
+ },
+ {
+  "id": "compose-p1-173",
+  "pair": 19,
+  "category": "numbers",
+  "description": "Write a function to find the central angle, in degrees rounded to 4 decimal places, between a first point with latitude lat1 and longitude lon1 and a second point with latitude lat2 and longitude lon2 on a sphere, all four given in radians.",
+  "entry_point": "central_angle_degrees",
+  "inputs": [
+   "(0.1, 0.2, 0.3, 0.4)",
+   "(0.0, 0.0, 0.0, 1.0)",
+   "(0.5, 1.2, 0.6, 1.0)"
+  ],
+  "expression": "round(math.degrees(math.acos(math.sin(a0) * math.sin(a2) + math.cos(a0) * math.cos(a2) * math.cos(a1 - a3))), 4)"
+ },
+ {
+  "id": "compose-p1-174",
+  "pair": 133,
+  "category": "sequences",
+  "description": "Given two lists of positive integers and a number k, write a function that returns the k pairs [x, y] with the smallest products, where x is taken from the first list and y from the second, listed in order of increasing product; pairs with equal products keep the order in which x runs through the first list and, for each x, y runs through the second.",
+  "entry_point": "smallest_product_pairs",
+  "inputs": [
+   "([1, 5, 9], [2, 3], 3)",
+   "([4], [1, 2], 1)",
+   "([1, 3], [9, 4], 3)"
+  ],
+  "expression": "sorted([[x, y] for x in a0 for y in a1], key=prod_1)[:a2]"
+ },
+ {
+  "id": "compose-p1-175",
+  "pair": 277,
+  "category": "numbers",
+  "description": "Write a python function to find the smallest side N of a triangular grid that contains at least k upward-pointing equilateral triangles, counting triangles of every size.",
+  "entry_point": "smallest_triangle_grid",
+  "inputs": [
+   "(5,)",
+   "(1,)",
+   "(20,)"
+  ],
+  "expression": "min(n for n in range(1, a0 + 1) if tetrahedral_1(n) >= a0)"
+ },
+ {
+  "id": "compose-p1-176",
+  "pair": 463,
+  "category": "nested",
+  "description": "Given a list of lists and a value, return a tuple with the number of inner lists that contain the value and the number of inner lists that do not.",
+  "entry_point": "count_with_without",
+  "inputs": [
+   "([[1, 2], [3], [2, 5]], 2)",
+   "([[1]], 4)",
+   "([[7, 7], [7]], 7)"
+  ],
+  "expression": "(len(rows_with_2(a0, a1)), len(rows_without_2(a0, a1)))"
+ },
+ {
+  "id": "compose-p1-177",
+  "pair": 553,
+  "category": "strings",
+  "description": "Write a function that scores every password of a list from 0 to 3, giving one point each for containing a lowercase letter, an uppercase letter and a digit.",
+  "entry_point": "score_passwords",
+  "inputs": [
+   "(['Secret123', 'abc'],)",
+   "(['ABC1'],)",
+   "(['x', 'Yz', '9'],)"
+  ],
+  "expression": "[any(c.islower() for c in p) + any(c.isupper() for c in p) + any(c.isdigit() for c in p) for p in a0]"
+ },
+ {
+  "id": "compose-p1-178",
+  "pair": 631,
+  "category": "predicates",
+  "description": "Given several binary heaps, each a list of priorities stored level by level, return those in which every parent has a priority at least as large as each of its children.",
+  "entry_point": "valid_max_heaps",
+  "inputs": [
+   "([[90, 15, 10, 7, 12, 2], [1, 2, 3]],)",
+   "([[5, 6]],)",
+   "([[9, 8], [3, 1, 2]],)"
+  ],
+  "expression": "[r for r in a0 if is_max_heap_1(r)]"
+ },
+ {
+  "id": "compose-p1-179",
+  "pair": 655,
+  "category": "predicates",
+  "description": "Given a tic-tac-toe board as a list of rows holding 'X', 'O' or '.', return the marks of the rows and then of the columns that are filled entirely with the same mark of one player.",
+  "entry_point": "filled_line_marks",
+  "inputs": [
+   "([['X', 'O', '.'], ['X', 'O', '.'], ['X', 'O', 'O']],)",
+   "([['X', 'O'], ['O', 'X']],)",
+   "([['O', 'O'], ['O', '.']],)"
+  ],
+  "expression": "[r[0] for r in a0 + transpose_1(a0) if r[0] != '.' and all_same_1(r)]"
+ },
+ {
+  "id": "compose-p1-180",
+  "pair": 667,
+  "category": "nested",
+  "description": "Given a list of lists of distinct integers and a number k, write a python function that returns a dictionary mapping the k values found in the most lists to the number of lists containing them, most common first and ties going to the value seen first.",
+  "entry_point": "most_common_counts",
+  "inputs": [
+   "([[10, 20, 30], [20, 30], [30, 40]], 2)",
+   "([[1], [2]], 1)",
+   "([[5, 6], [6, 7], [7, 6]], 3)"
+  ],
+  "expression": "dict(txt_most_common_n_2(flatten_1(a0), a1))"
+ },
+ {
+  "id": "compose-p1-181",
+  "pair": 697,
+  "category": "numbers",
+  "description": "Assuming 365 equally likely birthdays, write a function to find the smallest number of people, from 1 to 365, for which the chance that at least two of them share a birthday is at least p.",
+  "entry_point": "birthday_group_size",
+  "inputs": [
+   "(0.5,)",
+   "(0.0,)",
+   "(0.9,)"
+  ],
+  "expression": "min(n for n in range(1, 365 + 1) if 1 - prod_1([(365 - k) / 365 for k in range(n)]) >= a0)"
+ },
+ {
+  "id": "compose-p1-182",
+  "pair": 727,
+  "category": "predicates",
+  "description": "Write a function to find, once each and in order of first appearance, the values of a dictionary that belong to more than one key, which are the values that stop it from being inverted without losing entries.",
+  "entry_point": "shared_values",
+  "inputs": [
+   "({'a': 1, 'b': 2, 'c': 1},)",
+   "({'x': 5, 'y': 6},)",
+   "({'p': 'q', 'r': 's', 't': 's', 'u': 'q'},)"
+  ],
+  "expression": "repeated_1(list(a0.values()))"
+ },
+ {
+  "id": "compose-p1-183",
+  "pair": 769,
+  "category": "nested",
+  "description": "Given several lists of distinct integers and a number k, create a function that finds the k integers occurring most often across the lists, with ties going to the integer that appears first, and returns them in increasing order.",
+  "entry_point": "top_k_sorted",
+  "inputs": [
+   "([[1, 3, 5], [3, 5, 7], [5, 9]], 2)",
+   "([[4], [4, 8]], 1)",
+   "([[2, 6], [6], [2, 6]], 2)"
+  ],
+  "expression": "sorted(x for x, c in txt_most_common_n_2(flatten_1(a0), a1))"
+ },
+ {
+  "id": "compose-p1-184",
+  "pair": 955,
+  "category": "numbers",
+  "description": "Savings grow by r percent, that is r out of 100, at the end of every year; given r and a factor k, write a function to find the fewest whole years after which they have grown to at least k times their starting value.",
+  "entry_point": "years_to_multiply",
+  "inputs": [
+   "(7, 2)",
+   "(10, 3)",
+   "(50, 4)"
+  ],
+  "expression": "math.ceil(math.log(a1) / math.log(1 + a0 / 100))"
+ },
+ {
+  "id": "compose-p1-185",
+  "pair": 1081,
+  "category": "predicates",
+  "description": "Given a dictionary from words to numbers, return, in order, the words that are not mapped to their own length.",
+  "entry_point": "wrong_length_words",
+  "inputs": [
+   "({'cat': 3, 'horse': 4, 'ox': 3},)",
+   "({'a': 1},)",
+   "({'tree': 5, 'sky': 1},)"
+  ],
+  "expression": "[k for k, v in a0.items() if len(k) != v]"
+ },
+ {
+  "id": "compose-p1-186",
+  "pair": 1105,
+  "category": "nested",
+  "description": "Given a tuple of equal-length tuples of exam scores, one tuple per student, write a function that returns a tuple with the difference between the best and the worst score on each exam.",
+  "entry_point": "exam_score_ranges",
+  "inputs": [
+   "(((70, 85, 90), (88, 60, 95), (75, 92, 80)),)",
+   "(((1, 2),),)",
+   "(((5, 1), (3, 4)),)"
+  ],
+  "expression": "tuple(max(c) - min(c) for c in transpose_1(a0))"
+ },
+ {
+  "id": "compose-p1-187",
+  "pair": 1189,
+  "category": "numbers",
+  "description": "Kites fly on tight strings tied to pegs in the ground; given a list of (L, d) pairs, where L is the length of a kite's string and d the distance from its peg to the point right below the kite, write a function to find the height of each kite.",
+  "entry_point": "kite_heights",
+  "inputs": [
+   "([(13, 5), (5, 3)],)",
+   "([(10, 6)],)",
+   "([(25, 7), (17, 8)],)"
+  ],
+  "expression": "[num_right_triangle_leg_2(a, b) for a, b in a0]"
+ },
+ {
+  "id": "compose-p1-188",
+  "pair": 1207,
+  "category": "numbers",
+  "description": "Given a positive integer N, write a python function to compute the sum of 1/d over all divisors d of N, rounded to two decimals.",
+  "entry_point": "sum_divisor_reciprocals",
+  "inputs": [
+   "(8,)",
+   "(6,)",
+   "(12,)"
+  ],
+  "expression": "round((num_proper_divisor_sum_1(a0) + a0) / a0, 2)"
+ },
+ {
+  "id": "compose-p1-189",
+  "pair": 1213,
+  "category": "sequences",
+  "description": "Write a function to find the sum of every third element of a list of lists read row by row, starting from the first element.",
+  "entry_point": "sum_every_third_nested",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6, 7]],)",
+   "([[5]],)",
+   "([[1, 1], [1, 1], [2, 0, 0, 2]],)"
+  ],
+  "expression": "sum(flatten_1(a0)[::3])"
+ },
+ {
+  "id": "compose-p1-190",
+  "pair": 1225,
+  "category": "unparsed",
+  "description": "Write a function to compute the probability that the first success occurs exactly on trial k when each trial succeeds with probability p, rounded up, never down, to 4 decimal places.",
+  "entry_point": "first_success_rounded_up",
+  "inputs": [
+   "(3, 0.125)",
+   "(1, 0.2)",
+   "(5, 0.5)"
+  ],
+  "expression": "num_round_up_to_2((1 - a1) ** (a0 - 1) * a1, 4)"
+ },
+ {
+  "id": "compose-p1-191",
+  "pair": 1237,
+  "category": "strings",
+  "description": "Write a function to abbreviate every word of a sentence that starts with an uppercase letter to its first n characters followed by '.', leaving the other words unchanged.",
+  "entry_point": "abbreviate_capitalized",
+  "inputs": [
+   "('International Business machines', 5)",
+   "('see You tomorrow', 2)",
+   "('lower case only', 3)"
+  ],
+  "expression": "' '.join(w[:a1] + '.' if w[0].isupper() else w for w in a0.split())"
+ },
+ {
+  "id": "compose-p1-192",
+  "pair": 1297,
+  "category": "strings",
+  "description": "Write a function that answers, for each word of a sentence, 'Found a match!' if it is made of two runs of lowercase letters joined by a single underscore and 'Not matched!' otherwise.",
+  "entry_point": "snake_case_each_word",
+  "inputs": [
+   "('snake_case camelCase bad_Case',)",
+   "('a_b_c',)",
+   "('one_two three_four',)"
+  ],
+  "expression": "[txt_match_message_1(w.count('_') == 1 and all(p.isalpha() and p.islower() for p in w.split('_'))) for w in a0.split()]"
+ },
+ {
+  "id": "compose-p1-193",
+  "pair": 1315,
+  "category": "strings",
+  "description": "Write a function that answers, for each word of a sentence, 'Yes' if the word ends in 'b' and has an 'a' somewhere before that final 'b', and 'No' otherwise.",
+  "entry_point": "a_b_words_each",
+  "inputs": [
+   "('the crab ate',)",
+   "('bob is here',)",
+   "('a kebab lab',)"
+  ],
+  "expression": "[txt_yes_no_1(w.endswith('b') and 'a' in w[:-1]) for w in a0.split()]"
+ },
+ {
+  "id": "compose-p1-194",
+  "pair": 1099,
+  "category": "strings",
+  "description": "Given a list of passwords and a number k, write a function to keep the passwords that have an upper case letter, a lower case letter, a digit and at least k characters.",
+  "entry_point": "valid_passwords",
+  "inputs": [
+   "(['Abc123', 'abc123', 'A1b'], 6)",
+   "(['Pass1'], 8)",
+   "(['xY9', 'Zz00'], 3)"
+  ],
+  "expression": "[p for p in a0 if any(c.isupper() for c in p) and any(c.islower() for c in p) and any(c.isdigit() for c in p) and len(p) >= a1]"
+ },
+ {
+  "id": "compose-p1-195",
+  "pair": 1111,
+  "category": "nested",
+  "description": "Given two tuples, the first holding all the first elements of some pairs and the second all their second elements, write a function to rebuild the list of pairs, keeping only the pairs whose second element is one of the powers of ten 1, 10, 100, 1000 and so on.",
+  "entry_point": "pairs_with_power_of_ten",
+  "inputs": [
+   "((1, 3, 5), (10, 2, 100))",
+   "((7,), (1,))",
+   "(('a', 'b', 'c'), (5, 20, 1000))"
+  ],
+  "expression": "[(a, b) for a, b in zip(a0, a1) if is_power_of_2(b, 10)]"
+ }
+]
