@@ -1,0 +1,1802 @@
+[
+ {
+  "id": "nested2-001",
+  "category": "nested",
+  "description": "Write a function to find the volume of each box in a list of (length, width, height) tuples.",
+  "entry_point": "box_volumes",
+  "inputs": [
+   "([(2, 3, 4), (1, 1, 5), (10, 2, 3)],)",
+   "([(3, 3, 3)],)",
+   "([(2, 5, 1), (4, 4, 2), (7, 1, 1), (6, 2, 2)],)"
+  ],
+  "expression": "row_prod_1(a0)"
+ },
+ {
+  "id": "nested2-002",
+  "category": "nested",
+  "description": "Write a function to find the fastest lap of each runner from a list of lists of lap times, one inner list per runner.",
+  "entry_point": "best_laps",
+  "inputs": [
+   "([[62, 58, 60], [71, 69], [55, 57, 54]],)",
+   "([[40]],)",
+   "([[33, 31], [30, 35, 29], [38, 38]],)"
+  ],
+  "expression": "row_min_1(a0)"
+ },
+ {
+  "id": "nested2-003",
+  "category": "nested",
+  "description": "Create a function which discards every shopping basket, given as a list of items, that contains the given item.",
+  "entry_point": "baskets_without",
+  "inputs": [
+   "([['milk', 'eggs'], ['bread'], ['eggs', 'jam']], 'eggs')",
+   "([['tea'], ['tea', 'tea'], ['rice', 'beans']], 'rice')",
+   "([['oil', 'salt'], ['figs']], 'nuts')"
+  ],
+  "expression": "rows_without_2(a0, a1)"
+ },
+ {
+  "id": "nested2-004",
+  "category": "nested",
+  "description": "Given a table as a list of rows and a list of row positions, return the rows at those positions, in the order the positions are listed.",
+  "entry_point": "rows_at",
+  "inputs": [
+   "([[1, 2], [3, 4], [5, 6]], [2, 0])",
+   "([['a', 1], ['b', 2], ['c', 3], ['d', 4]], [1, 1, 3])",
+   "([[7], [8], [9]], [0])"
+  ],
+  "expression": "seq_take_indices_2(a0, a1)"
+ },
+ {
+  "id": "nested2-005",
+  "category": "nested",
+  "description": "Write a python function to check whether every cell of a game board, given as a list of rows, holds the given value.",
+  "entry_point": "board_filled_with",
+  "inputs": [
+   "([[0, 0], [0, 0]], 0)",
+   "([[1, 1, 1], [1, 2, 1]], 1)",
+   "([['o', 'o', 'o']], 'o')"
+  ],
+  "expression": "all_nested_equal_to_2(a0, a1)"
+ },
+ {
+  "id": "nested2-006",
+  "category": "nested",
+  "description": "Write a function to convert a flat list of alternating x and y coordinates into a list of [x, y] points.",
+  "entry_point": "coords_to_points",
+  "inputs": [
+   "([1, 2, 3, 4, 5, 6],)",
+   "([0, -1, 7, 7],)",
+   "([9, 8],)"
+  ],
+  "expression": "seq_pair_chunks_1(a0)"
+ },
+ {
+  "id": "nested2-007",
+  "category": "nested",
+  "description": "Given a list of (row, column) cells visited by a robot and a number k, return the k most visited cells with their visit counts, most visited first and earlier cells first on ties.",
+  "entry_point": "busiest_cells",
+  "inputs": [
+   "([(0, 0), (0, 1), (0, 0), (1, 1), (0, 1), (0, 0)], 2)",
+   "([(2, 2), (1, 2), (1, 2)], 1)",
+   "([(5, 5), (4, 4), (5, 5), (4, 4), (3, 3)], 3)"
+  ],
+  "expression": "txt_most_common_n_2(a0, a1)"
+ },
+ {
+  "id": "nested2-008",
+  "category": "nested",
+  "description": "Write a function to find the number of floors travelled on each trip of a list of (start floor, end floor) elevator trips.",
+  "entry_point": "floors_travelled",
+  "inputs": [
+   "([(0, 5), (7, 2), (3, 3)],)",
+   "([(10, -1), (4, 9)],)",
+   "([(6, 1), (1, 6), (2, 9), (9, 2)],)"
+  ],
+  "expression": "pair_absdiff_1(a0)"
+ },
+ {
+  "id": "nested2-009",
+  "category": "nested",
+  "description": "Given a list of student names and a matching list of their grades, return a list of (name, grade) tuples.",
+  "entry_point": "name_grade_pairs",
+  "inputs": [
+   "(['ann', 'bob', 'cy'], ['B', 'A', 'C'])",
+   "(['dee'], [7])",
+   "(['eve', 'fay'], [90, 85])"
+  ],
+  "expression": "zip_2(a0, a1)"
+ },
+ {
+  "id": "nested2-010",
+  "category": "nested",
+  "description": "Write a function to return a tuple of the first and the last record of a log given as a list of (time, event) tuples.",
+  "entry_point": "first_and_last_records",
+  "inputs": [
+   "([(1, 'boot'), (5, 'load'), (9, 'stop')],)",
+   "([(3, 'ping'), (4, 'pong')],)",
+   "([(0, 'a'), (2, 'b'), (2, 'c'), (7, 'd')],)"
+  ],
+  "expression": "seq_first_and_last_1(a0)"
+ },
+ {
+  "id": "nested2-011",
+  "category": "nested",
+  "description": "Given the list of (column, row) squares a chess knight landed on, return the squares it landed on more than once, each listed once in order of first visit.",
+  "entry_point": "revisited_squares",
+  "inputs": [
+   "([(1, 2), (3, 3), (1, 2), (2, 4), (3, 3), (1, 2)],)",
+   "([(0, 0), (1, 2)],)",
+   "([(5, 4), (4, 2), (4, 2), (5, 4)],)"
+  ],
+  "expression": "repeated_1(a0)"
+ },
+ {
+  "id": "nested2-012",
+  "category": "nested",
+  "description": "Write a function to remove repeated (x, y) points from a list, keeping the first occurrence of each point.",
+  "entry_point": "unique_points",
+  "inputs": [
+   "([(1, 2), (3, 4), (1, 2), (5, 6), (3, 4)],)",
+   "([(0, 0), (0, 0)],)",
+   "([(2, 1), (1, 2), (2, 1)],)"
+  ],
+  "expression": "dedupe_1(a0)"
+ },
+ {
+  "id": "nested2-013",
+  "category": "nested",
+  "description": "Given the lists of (row, column) squares held by two players, return the squares held by both players, in ascending order.",
+  "entry_point": "contested_squares",
+  "inputs": [
+   "([(1, 2), (0, 0), (3, 1)], [(3, 1), (1, 2), (2, 2)])",
+   "([(0, 1)], [(1, 0)])",
+   "([(2, 2), (0, 5), (1, 1)], [(1, 1), (0, 5), (2, 2)])"
+  ],
+  "expression": "set_and_2(a0, a1)"
+ },
+ {
+  "id": "nested2-014",
+  "category": "nested",
+  "description": "Write a function that removes from a list of (origin, destination) flights every flight that also appears in a list of cancelled flights, keeping the original order.",
+  "entry_point": "flights_running",
+  "inputs": [
+   "([('ny', 'la'), ('la', 'sf'), ('sf', 'ny')], [('la', 'sf')])",
+   "([('a', 'b'), ('b', 'a'), ('a', 'b')], [('a', 'b')])",
+   "([('x', 'y')], [('y', 'x')])"
+  ],
+  "expression": "remove_present_2(a0, a1)"
+ },
+ {
+  "id": "nested2-015",
+  "category": "nested",
+  "description": "Write a python function to check whether two lists of (x, y) points contain the same points the same number of times, in any order.",
+  "entry_point": "same_points",
+  "inputs": [
+   "([(1, 2), (3, 4), (1, 2)], [(3, 4), (1, 2), (1, 2)])",
+   "([(1, 2), (1, 2)], [(1, 2)])",
+   "([(0, 1), (1, 0)], [(1, 0), (0, 1)])"
+  ],
+  "expression": "same_elements_2(a0, a1)"
+ },
+ {
+  "id": "nested2-016",
+  "category": "nested",
+  "description": "Write a function to find the number of stops on each route of a list of bus routes, where every route is a list of stop names.",
+  "entry_point": "route_sizes",
+  "inputs": [
+   "([['a', 'b', 'c'], ['d'], ['e', 'f']],)",
+   "([['x', 'y']],)",
+   "([['p'], ['q', 'r', 's', 't'], [], ['u']],)"
+  ],
+  "expression": "len_each_1(a0)"
+ },
+ {
+  "id": "nested2-017",
+  "category": "nested",
+  "description": "Write a function to find the most frequent point of a list of (x, y) points, taking the earliest such point on ties.",
+  "entry_point": "most_frequent_point",
+  "inputs": [
+   "([(1, 1), (2, 3), (2, 3), (0, 0)],)",
+   "([(5, 5), (4, 4), (4, 4), (5, 5)],)",
+   "([(7, 0)],)"
+  ],
+  "expression": "most_common_1(a0)"
+ },
+ {
+  "id": "nested2-018",
+  "category": "nested",
+  "description": "Write a python function to count the different routes in a list of routes, where each route is a list of stops.",
+  "entry_point": "count_distinct_routes",
+  "inputs": [
+   "([[1, 2, 3], [3, 2, 1], [1, 2, 3]],)",
+   "([['a'], ['a'], ['a']],)",
+   "([[4, 5], [5], [4, 5, 6], [5]],)"
+  ],
+  "expression": "distinct_rows_count_1(a0)"
+ },
+ {
+  "id": "nested2-019",
+  "category": "nested",
+  "description": "Create a function which sorts a list of (row, column) cells into reading order, top row first and left to right within each row.",
+  "entry_point": "reading_order",
+  "inputs": [
+   "([(1, 2), (0, 5), (1, 0), (0, 1)],)",
+   "([(2, 2), (2, 1)],)",
+   "([(3, 0), (0, 3), (1, 1)],)"
+  ],
+  "expression": "sorted_1(a0)"
+ },
+ {
+  "id": "nested2-020",
+  "category": "nested",
+  "description": "Write a function to find the position of the first occurrence of a given (x, y) point in a list of points.",
+  "entry_point": "point_position",
+  "inputs": [
+   "([(0, 0), (2, 3), (4, 1)], (2, 3))",
+   "([(1, 1), (5, 5), (1, 1)], (1, 1))",
+   "([(9, 9), (8, 8), (7, 7), (6, 6)], (6, 6))"
+  ],
+  "expression": "index_2(a0, a1)"
+ },
+ {
+  "id": "nested2-021",
+  "category": "nested",
+  "description": "Given the lists of (day, hour) slots booked by two people, write a python function to check whether the two people have no slot in common.",
+  "entry_point": "no_clash",
+  "inputs": [
+   "([(1, 9), (2, 14)], [(1, 10), (3, 9)])",
+   "([(4, 8), (5, 8)], [(5, 8)])",
+   "([(1, 1)], [(1, 2), (2, 1)])"
+  ],
+  "expression": "are_disjoint_2(a0, a1)"
+ },
+ {
+  "id": "nested2-022",
+  "category": "nested",
+  "description": "Write a function to find the weekly totals of a tuple of tuples of daily step counts, one inner tuple per week, returned as a tuple.",
+  "entry_point": "weekly_steps",
+  "inputs": [
+   "(((100, 200, 300), (50, 50), (0, 10, 20, 30)),)",
+   "(((7, 8),),)",
+   "(((1, 2), (3, 4), (5, 6)),)"
+  ],
+  "expression": "row_sum_1(a0)"
+ },
+ {
+  "id": "nested2-023",
+  "category": "nested",
+  "description": "Write a function to find the sum of the best roll of each round in a list of rounds, each a list of dice rolls.",
+  "entry_point": "best_rolls_total",
+  "inputs": [
+   "([[3, 6, 2], [5, 1], [4, 4]],)",
+   "([[1]],)",
+   "([[2, 2, 6], [6, 3], [1, 5, 2], [4]],)"
+  ],
+  "expression": "sum_1(row_max_1(a0))"
+ },
+ {
+  "id": "nested2-024",
+  "category": "nested",
+  "description": "Write a function to find the average of all the numbers in a list of lists.",
+  "entry_point": "overall_average",
+  "inputs": [
+   "([[1, 2], [3, 4, 5]],)",
+   "([[10], [0, 5]],)",
+   "([[2, 2, 2, 2], [12]],)"
+  ],
+  "expression": "mean_1(flatten_1(a0))"
+ },
+ {
+  "id": "nested2-025",
+  "category": "nested",
+  "description": "Write a function to find the median of all the values in a list of lists of numbers.",
+  "entry_point": "grid_median",
+  "inputs": [
+   "([[5, 1], [9, 3, 7]],)",
+   "([[4, 2], [8, 6]],)",
+   "([[10], [1, 2, 3]],)"
+  ],
+  "expression": "seq_median_1(flatten_1(a0))"
+ },
+ {
+  "id": "nested2-026",
+  "category": "nested",
+  "description": "Given the lists of votes cast in several rooms, return the candidate with the most votes overall, the one appearing first on ties.",
+  "entry_point": "overall_winner",
+  "inputs": [
+   "([['ann', 'bob'], ['bob', 'cy'], ['ann', 'bob']],)",
+   "([['x'], ['y', 'y'], ['x', 'z', 'x']],)",
+   "([['amy', 'li'], ['li', 'amy']],)"
+  ],
+  "expression": "most_common_1(flatten_1(a0))"
+ },
+ {
+  "id": "nested2-027",
+  "category": "nested",
+  "description": "Write a function that lists the values occurring exactly once across all the inner lists of a list, in reading order.",
+  "entry_point": "single_occurrences",
+  "inputs": [
+   "([[1, 2, 3], [2, 4], [5, 1]],)",
+   "([[7, 7], [8]],)",
+   "([[1, 2], [3, 4]],)"
+  ],
+  "expression": "once_only_1(flatten_1(a0))"
+ },
+ {
+  "id": "nested2-028",
+  "category": "nested",
+  "description": "Write a function to find the k-th largest number in a list of lists, counting repeated values separately.",
+  "entry_point": "kth_largest_cell",
+  "inputs": [
+   "([[4, 9, 1], [7, 9], [3]], 2)",
+   "([[5, 2], [8, 6]], 3)",
+   "([[1], [2], [3]], 1)"
+  ],
+  "expression": "kth_largest_2(flatten_1(a0), a1)"
+ },
+ {
+  "id": "nested2-029",
+  "category": "nested",
+  "description": "Write a function to find the total of all the expenses in a dictionary that maps each month to a list of expenses.",
+  "entry_point": "total_spent",
+  "inputs": [
+   "({'jan': [20, 35], 'feb': [10], 'mar': [5, 5, 5]},)",
+   "({'apr': [100]},)",
+   "({'may': [1, 2], 'jun': [3, 4]},)"
+  ],
+  "expression": "sum_1(flatten_1(values_1(a0)))"
+ },
+ {
+  "id": "nested2-030",
+  "category": "nested",
+  "description": "Write a function to find the key with the largest value in a dictionary, taking the alphabetically first key on ties.",
+  "entry_point": "top_key_alphabetical",
+  "inputs": [
+   "({'b': 5, 'a': 5, 'c': 2},)",
+   "({'x': 1, 'y': 3},)",
+   "({'pear': 4, 'fig': 9, 'kiwi': 9, 'apple': 1},)"
+  ],
+  "expression": "first_of_max_by_second_1(sorted_items_1(a0))"
+ },
+ {
+  "id": "nested2-031",
+  "category": "nested",
+  "description": "Given a dictionary from each customer to the list of products they bought and a number k, return the k most bought products with their counts, most bought first.",
+  "entry_point": "top_products",
+  "inputs": [
+   "({'ann': ['tea', 'jam'], 'bob': ['tea'], 'cy': ['jam', 'tea']}, 2)",
+   "({'dan': ['pen', 'ink', 'ink']}, 1)",
+   "({'eve': ['a', 'b'], 'fay': ['c', 'b']}, 3)"
+  ],
+  "expression": "txt_most_common_n_2(flatten_1(values_1(a0)), a1)"
+ },
+ {
+  "id": "nested2-032",
+  "category": "nested",
+  "description": "Given a dictionary from each person to a list of films watched and two names, return the films watched by exactly one of the two people, in alphabetical order.",
+  "entry_point": "films_not_shared",
+  "inputs": [
+   "({'ann': ['up', 'jaws', 'heat'], 'bob': ['heat', 'cars']}, 'ann', 'bob')",
+   "({'cy': ['x', 'y'], 'di': ['y', 'x'], 'ed': ['z']}, 'cy', 'ed')",
+   "({'jo': ['a'], 'kim': ['a']}, 'jo', 'kim')"
+  ],
+  "expression": "set_xor_2(a0[a1], a0[a2])"
+ },
+ {
+  "id": "nested2-033",
+  "category": "nested",
+  "description": "Write a python function to check whether more than half of the shopping baskets in a list contain the given item.",
+  "entry_point": "mostly_bought",
+  "inputs": [
+   "([['egg', 'tea'], ['egg'], ['jam']], 'egg')",
+   "([['egg'], ['jam'], ['tea'], ['egg']], 'egg')",
+   "([['a', 'a'], ['b'], ['c']], 'a')"
+  ],
+  "expression": "count_rows_with_2(a0, a1) * 2 > len_1(a0)"
+ },
+ {
+  "id": "nested2-034",
+  "category": "nested",
+  "description": "Given lists of sensor readings, one list per sensor, and a lower and an upper limit, return the total of all readings of the sensors whose readings all stay within the limits, inclusive.",
+  "entry_point": "steady_sensor_total",
+  "inputs": [
+   "([[3, 5, 7], [2, 9], [4, 4, 6]], 3, 7)",
+   "([[10, 12], [8, 15], [11]], 10, 12)",
+   "([[1, 2], [0, 5], [6]], 1, 5)"
+  ],
+  "expression": "sum_1(flatten_1(rows_within_3(a0, a1, a2)))"
+ },
+ {
+  "id": "nested2-035",
+  "category": "nested",
+  "description": "Given a list of (month, income, spending) tuples, return the total spending divided by the total income.",
+  "entry_point": "spending_ratio",
+  "inputs": [
+   "([('jan', 500, 400), ('feb', 500, 350)],)",
+   "([('mar', 200, 100)],)",
+   "([('apr', 300, 330), ('may', 100, 70), ('jun', 100, 100)],)"
+  ],
+  "expression": "sum_1(column_2(a0, 2)) / sum_1(column_2(a0, 1))"
+ },
+ {
+  "id": "nested2-036",
+  "category": "nested",
+  "description": "Write a function to find the difference between the tallest and the shortest height in a list of (name, height) tuples.",
+  "entry_point": "height_gap",
+  "inputs": [
+   "([('ann', 160), ('bob', 182), ('cy', 175)],)",
+   "([('dee', 150), ('eve', 150)],)",
+   "([('fay', 171), ('gus', 158), ('hal', 190), ('ivy', 166)],)"
+  ],
+  "expression": "range_width_1(column_2(a0, 1))"
+ },
+ {
+  "id": "nested2-037",
+  "category": "nested",
+  "description": "Write a function that returns the running balance after each transaction of a list of (description, amount) transactions, starting from a balance of 0.",
+  "entry_point": "running_balance",
+  "inputs": [
+   "([('pay', 100), ('rent', -60), ('gift', 25)],)",
+   "([('fee', -5)],)",
+   "([('a', 10), ('b', 10), ('c', -30), ('d', 5)],)"
+  ],
+  "expression": "prefix_sums_1(column_2(a0, 1))"
+ },
+ {
+  "id": "nested2-038",
+  "category": "nested",
+  "description": "Given a list of (stop, change in passengers) tuples for a bus that starts empty, return the largest number of passengers on board after any stop.",
+  "entry_point": "peak_load",
+  "inputs": [
+   "([('a', 5), ('b', 3), ('c', -6), ('d', 2)],)",
+   "([('x', 4)],)",
+   "([('p', 2), ('q', -1), ('r', 6), ('s', -7)],)"
+  ],
+  "expression": "max_1(prefix_sums_1(column_2(a0, 1)))"
+ },
+ {
+  "id": "nested2-039",
+  "category": "nested",
+  "description": "Write a function to find the change in weight from each record to the next in a list of (date, weight) records kept in date order.",
+  "entry_point": "weight_changes",
+  "inputs": [
+   "([('mon', 70), ('tue', 71), ('wed', 69)],)",
+   "([('d1', 80), ('d2', 80)],)",
+   "([('a', 60), ('b', 63), ('c', 66), ('d', 62)],)"
+  ],
+  "expression": "adjacent_diff_1(column_2(a0, 1))"
+ },
+ {
+  "id": "nested2-040",
+  "category": "nested",
+  "description": "Write a function to find the mean absolute error of a list of (predicted, actual) pairs.",
+  "entry_point": "mean_abs_error",
+  "inputs": [
+   "([(10, 7), (3, 8), (5, 4)],)",
+   "([(0, -4), (12, 20)],)",
+   "([(6, 1), (1, 6), (2, 2), (9, 8)],)"
+  ],
+  "expression": "mean_1(pair_absdiff_1(a0))"
+ },
+ {
+  "id": "nested2-041",
+  "category": "nested",
+  "description": "Given a table as a list of rows of numbers and a list of column names, return a dictionary mapping each column name to the total of its column.",
+  "entry_point": "named_column_totals",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6]], ['a', 'b', 'c'])",
+   "([[10, 20]], ['x', 'y'])",
+   "([[1, 1], [2, 2], [3, 0]], ['p', 'q'])"
+  ],
+  "expression": "zip_dict_2(a1, col_sum_1(a0))"
+ },
+ {
+  "id": "nested2-042",
+  "category": "nested",
+  "description": "Create a function which turns a table given as a list of rows, together with a list of column names, into a dictionary from each column name to the list of values in that column.",
+  "entry_point": "table_columns",
+  "inputs": [
+   "([[1, 'ann'], [2, 'bob']], ['id', 'name'])",
+   "([[5, 6, 7]], ['x', 'y', 'z'])",
+   "([[0, 1], [2, 3], [4, 5]], ['a', 'b'])"
+  ],
+  "expression": "zip_dict_2(a1, transpose_1(a0))"
+ },
+ {
+  "id": "nested2-043",
+  "category": "nested",
+  "description": "Write a function to find the total of all the prices of a dictionary of standard prices after applying a dictionary of price overrides.",
+  "entry_point": "total_after_overrides",
+  "inputs": [
+   "({'tea': 3, 'cake': 5, 'pie': 4}, {'cake': 2})",
+   "({'pen': 10}, {'ink': 6})",
+   "({'a': 1, 'b': 1}, {'a': 5, 'b': 7})"
+  ],
+  "expression": "sum_values_1(merge_dicts_2(a0, a1))"
+ },
+ {
+  "id": "nested2-044",
+  "category": "nested",
+  "description": "Given a dictionary of default settings, a dictionary of user settings that take precedence, and a setting name, return the value in effect for that setting.",
+  "entry_point": "effective_setting",
+  "inputs": [
+   "({'font': 12, 'theme': 'light'}, {'theme': 'dark'}, 'theme')",
+   "({'font': 12, 'zoom': 1}, {'zoom': 2}, 'font')",
+   "({'lang': 'en'}, {'lang': 'fr', 'tz': 'utc'}, 'tz')"
+  ],
+  "expression": "merge_dicts_2(a0, a1)[a2]"
+ },
+ {
+  "id": "nested2-045",
+  "category": "nested",
+  "description": "Given the stock dictionaries of two warehouses, return the item with the largest combined stock, taking the item listed first on ties.",
+  "entry_point": "most_stocked",
+  "inputs": [
+   "({'nut': 5, 'bolt': 9}, {'nut': 7, 'gear': 3})",
+   "({'cap': 2}, {'hat': 2})",
+   "({'a': 1, 'b': 4}, {'c': 6, 'a': 3})"
+  ],
+  "expression": "items_by_value_desc_1(add_dicts_2(a0, a1))[0][0]"
+ },
+ {
+  "id": "nested2-046",
+  "category": "nested",
+  "description": "Write a function to find the keys that appear in exactly one of two dictionaries, in sorted order.",
+  "entry_point": "unmatched_keys",
+  "inputs": [
+   "({'a': 1, 'b': 2}, {'b': 3, 'c': 4})",
+   "({'x': 0}, {'x': 9})",
+   "({'m': 1, 'k': 2}, {'z': 1})"
+  ],
+  "expression": "set_xor_2(keys_1(a0), keys_1(a1))"
+ },
+ {
+  "id": "nested2-047",
+  "category": "nested",
+  "description": "Given an old and a new version of a price dictionary, write a function to return the items dropped from the new version, in their old order.",
+  "entry_point": "dropped_items",
+  "inputs": [
+   "({'tea': 3, 'jam': 4, 'oat': 2}, {'oat': 2, 'tea': 5})",
+   "({'pen': 1, 'cup': 2, 'mug': 3}, {'cup': 2})",
+   "({'a': 1}, {'a': 1, 'b': 2})"
+  ],
+  "expression": "remove_present_2(keys_1(a0), keys_1(a1))"
+ },
+ {
+  "id": "nested2-048",
+  "category": "nested",
+  "description": "Write a function to find the total of the k highest scores in a dictionary of player scores.",
+  "entry_point": "top_k_total",
+  "inputs": [
+   "({'ann': 40, 'bob': 75, 'cy': 60, 'dee': 90}, 2)",
+   "({'eve': 10, 'fay': 10}, 1)",
+   "({'gus': 5, 'hal': 8, 'ivy': 3}, 3)"
+  ],
+  "expression": "sum_1(nlargest_2(values_1(a0), a1))"
+ },
+ {
+  "id": "nested2-049",
+  "category": "nested",
+  "description": "Given a dictionary of team points and a team name, return how many points that team trails the leading team by.",
+  "entry_point": "points_behind",
+  "inputs": [
+   "({'reds': 30, 'blues': 42, 'greens': 25}, 'reds')",
+   "({'owls': 18, 'cats': 18}, 'cats')",
+   "({'ants': 7, 'bees': 15, 'elks': 11}, 'ants')"
+  ],
+  "expression": "max_1(values_1(a0)) - a0[a1]"
+ },
+ {
+  "id": "nested2-050",
+  "category": "nested",
+  "description": "Write a function that counts, for a dictionary from each student to a grade letter, how many students received each grade, returning a dictionary.",
+  "entry_point": "grade_counts",
+  "inputs": [
+   "({'ann': 'A', 'bob': 'B', 'cy': 'A'},)",
+   "({'dee': 'C'},)",
+   "({'eve': 'B', 'fay': 'B', 'gus': 'B', 'hal': 'D'},)"
+  ],
+  "expression": "counter_1(values_1(a0))"
+ },
+ {
+  "id": "nested2-051",
+  "category": "nested",
+  "description": "Create a function which turns a dictionary from each employee to the city of their office into a dictionary from each city to the list of its employees, in dictionary order.",
+  "entry_point": "staff_by_city",
+  "inputs": [
+   "({'ann': 'rome', 'bob': 'oslo', 'cy': 'rome'},)",
+   "({'dee': 'lima'},)",
+   "({'eve': 'kyiv', 'fay': 'riga', 'gus': 'riga', 'hal': 'kyiv'},)"
+  ],
+  "expression": "group_by_second_1(list(a0.items()))"
+ },
+ {
+  "id": "nested2-052",
+  "category": "nested",
+  "description": "Write a python function that returns 'Yes' if no two keys of a dictionary share the same value and 'No' otherwise.",
+  "entry_point": "values_distinct",
+  "inputs": [
+   "({'a': 1, 'b': 2, 'c': 3},)",
+   "({'x': 5, 'y': 5},)",
+   "({'p': 'red', 'q': 'blue', 'r': 'red'},)"
+  ],
+  "expression": "txt_yes_no_1(all_unique_1(values_1(a0)))"
+ },
+ {
+  "id": "nested2-053",
+  "category": "nested",
+  "description": "Write a function to find the distinct customers of a list of (customer, item) orders, in the order of their first order.",
+  "entry_point": "customers_in_order",
+  "inputs": [
+   "([('zoe', 'tea'), ('adam', 'jam'), ('zoe', 'oat')],)",
+   "([('li', 'pen')],)",
+   "([('bo', 'a'), ('cy', 'b'), ('al', 'c'), ('cy', 'd')],)"
+  ],
+  "expression": "dedupe_1(row_first_1(a0))"
+ },
+ {
+  "id": "nested2-054",
+  "category": "nested",
+  "description": "Write a function to count the records of a list of tuples that are exact repeats of an earlier record.",
+  "entry_point": "repeat_records",
+  "inputs": [
+   "([(1, 'a'), (2, 'b'), (1, 'a'), (1, 'a')],)",
+   "([(3, 'c')],)",
+   "([(1, 2), (2, 1), (1, 2)],)"
+  ],
+  "expression": "len_1(a0) - len_1(dedupe_1(a0))"
+ },
+ {
+  "id": "nested2-055",
+  "category": "nested",
+  "description": "Given a list of (name, event) sign-ups, return the names that signed up more than once, each listed once, in order of first sign-up.",
+  "entry_point": "repeat_signups",
+  "inputs": [
+   "([('ann', 'run'), ('bob', 'swim'), ('ann', 'bike'), ('cy', 'run'), ('bob', 'row')],)",
+   "([('dee', 'ski')],)",
+   "([('eve', 'a'), ('fay', 'b'), ('fay', 'c'), ('eve', 'd')],)"
+  ],
+  "expression": "repeated_1(row_first_1(a0))"
+ },
+ {
+  "id": "nested2-056",
+  "category": "nested",
+  "description": "Given two lists of (name, score) records from two rounds of a quiz, return the names that appear in both rounds, in alphabetical order.",
+  "entry_point": "in_both_rounds",
+  "inputs": [
+   "([('zed', 5), ('amy', 7), ('bo', 2)], [('bo', 9), ('zed', 1)])",
+   "([('cy', 3)], [('di', 3)])",
+   "([('eli', 1), ('fin', 2)], [('fin', 5), ('eli', 6), ('gil', 0)])"
+  ],
+  "expression": "set_and_2(row_first_1(a0), row_first_1(a1))"
+ },
+ {
+  "id": "nested2-057",
+  "category": "nested",
+  "description": "Given a list of runner names and a matching list of finishing times, return the names ordered from the fastest time to the slowest, keeping the original order on ties.",
+  "entry_point": "finishing_order",
+  "inputs": [
+   "(['ann', 'bob', 'cy'], [31, 28, 35])",
+   "(['dee', 'eve'], [40, 40])",
+   "(['fay', 'gus', 'hal', 'ivy'], [50, 45, 52, 44])"
+  ],
+  "expression": "row_first_1(sort_by_column_2(zip_2(a0, a1), 1))"
+ },
+ {
+  "id": "nested2-058",
+  "category": "nested",
+  "description": "Given a list of team names and a matching list of lists of goals scored per match, return the team with the most goals in total, the first one on ties.",
+  "entry_point": "top_scoring_team",
+  "inputs": [
+   "(['owls', 'cats', 'elks'], [[1, 2], [3, 1, 1], [0, 4]])",
+   "(['a', 'b'], [[2], [1, 1]])",
+   "(['x', 'y', 'z'], [[0], [0, 0], [1]])"
+  ],
+  "expression": "a0[argmax_1(row_sum_1(a1))]"
+ },
+ {
+  "id": "nested2-059",
+  "category": "nested",
+  "description": "Write a function to find the sum of all the cells in row k and column k of a square grid, counting the cell where they cross only once.",
+  "entry_point": "cross_sum",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 1)",
+   "([[1, 0], [0, 1]], 0)",
+   "([[2, 4, 6], [1, 3, 5], [0, 7, 9]], 2)"
+  ],
+  "expression": "sum_1(a0[a1]) + column_sum_2(a0, a1) - a0[a1][a1]"
+ },
+ {
+  "id": "nested2-060",
+  "category": "nested",
+  "description": "Write a function to get the value at position k, counted from 0, when a list of lists is read row by row.",
+  "entry_point": "kth_in_reading_order",
+  "inputs": [
+   "([[4, 5, 6], [7, 8]], 3)",
+   "([[1], [2, 3]], 0)",
+   "([['a', 'b'], [], ['c', 'd']], 3)"
+  ],
+  "expression": "flatten_1(a0)[a1]"
+ },
+ {
+  "id": "nested2-061",
+  "category": "nested",
+  "description": "Given a rectangular grid as a list of rows and a position k counted row by row from 0, return the (row, column) of that cell as a tuple.",
+  "entry_point": "cell_of_position",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6]], 4)",
+   "([[0, 0], [0, 0], [0, 0]], 5)",
+   "([[9, 9, 9, 9]], 2)"
+  ],
+  "expression": "divmod(a1, len_1(a0[0]))"
+ },
+ {
+  "id": "nested2-062",
+  "category": "nested",
+  "description": "Write a function to reshape a list of lists into rows of k values each, reading the values row by row and letting the last row be shorter.",
+  "entry_point": "reshape_rows",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6]], 2)",
+   "([[1, 2], [3, 4, 5]], 4)",
+   "([[7], [8, 9, 10]], 3)"
+  ],
+  "expression": "chunks_2(flatten_1(a0), a1)"
+ },
+ {
+  "id": "nested2-063",
+  "category": "nested",
+  "description": "Given a flat list and a column height k that divides its length, fill a grid column by column and return it as a list of rows.",
+  "entry_point": "fill_by_columns",
+  "inputs": [
+   "([1, 2, 3, 4, 5, 6], 3)",
+   "([5, 6, 7, 8], 2)",
+   "(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], 4)"
+  ],
+  "expression": "transpose_1(chunks_2(a0, a1))"
+ },
+ {
+  "id": "nested2-064",
+  "category": "nested",
+  "description": "Given a list of card values dealt one at a time to k players in turn, return the total value of the cards of each player.",
+  "entry_point": "hand_totals",
+  "inputs": [
+   "([5, 2, 9, 1, 3, 4, 7], 3)",
+   "([1, 2, 3, 4], 2)",
+   "([10, 1, 10, 1, 10], 5)"
+  ],
+  "expression": "row_sum_1(every_nth_2(a0, a1))"
+ },
+ {
+  "id": "nested2-065",
+  "category": "nested",
+  "description": "Given a circular route as a list of stops, return the (from, to) legs of the route, including the leg from the last stop back to the first.",
+  "entry_point": "circular_legs",
+  "inputs": [
+   "(['home', 'shop', 'gym'],)",
+   "([1, 2],)",
+   "(['a', 'b', 'c', 'd'],)"
+  ],
+  "expression": "zip_2(a0, rotate_left_2(a0, 1))"
+ },
+ {
+  "id": "nested2-066",
+  "category": "nested",
+  "description": "Create a function which counts each (from, to) move in the sequence of rooms a visitor walked through, returning a dictionary.",
+  "entry_point": "move_counts",
+  "inputs": [
+   "(['hall', 'cafe', 'hall', 'cafe'],)",
+   "(['a', 'b'],)",
+   "([1, 2, 1, 2, 1],)"
+  ],
+  "expression": "counter_1(adjacent_pairs_1(a0))"
+ },
+ {
+  "id": "nested2-067",
+  "category": "nested",
+  "description": "Write a function to find the total price of the k cheapest items in a list of (item, price) tuples.",
+  "entry_point": "cheapest_k_total",
+  "inputs": [
+   "([('pen', 3), ('cup', 8), ('ink', 2), ('pad', 5)], 2)",
+   "([('tea', 4)], 1)",
+   "([('a', 7), ('b', 1), ('c', 7), ('d', 1)], 3)"
+  ],
+  "expression": "sum_1(nsmallest_2(column_2(a0, 1), a1))"
+ },
+ {
+  "id": "nested2-068",
+  "category": "nested",
+  "description": "Write a python function to check whether a list of undirected edges contains the same edge more than once, treating (a, b) and (b, a) as the same edge.",
+  "entry_point": "repeated_edge",
+  "inputs": [
+   "([(1, 2), (3, 4), (2, 1)],)",
+   "([(1, 2), (2, 3), (3, 1)],)",
+   "([(5, 5), (5, 6), (6, 5)],)"
+  ],
+  "expression": "has_duplicates_1(row_sorted_tuple_1(a0))"
+ },
+ {
+  "id": "nested2-069",
+  "category": "nested",
+  "description": "Write a function to group (key, value) pairs into a dictionary from each key to its list of values, with the keys in ascending order and every list sorted.",
+  "entry_point": "sorted_groups",
+  "inputs": [
+   "([('b', 3), ('a', 2), ('b', 1)],)",
+   "([(2, 'x'), (1, 'y')],)",
+   "([('k', 9), ('k', 4), ('k', 7)],)"
+  ],
+  "expression": "group_by_first_1(sorted_1(a0))"
+ },
+ {
+  "id": "nested2-070",
+  "category": "nested",
+  "description": "Given a list of directed edges (a, b) and a node of the graph, return the list of nodes the node points to, which is empty when it has no outgoing edge.",
+  "entry_point": "next_nodes",
+  "inputs": [
+   "([(1, 2), (1, 3), (2, 3)], 1)",
+   "([(1, 2), (1, 3), (2, 3)], 3)",
+   "([('a', 'b'), ('b', 'c'), ('b', 'a')], 'b')"
+  ],
+  "expression": "successors_dict_1(a0)[a1]"
+ },
+ {
+  "id": "nested2-071",
+  "category": "nested",
+  "description": "Write a python function to check whether the inner lists of a list are arranged in non-decreasing order of their totals.",
+  "entry_point": "rows_in_total_order",
+  "inputs": [
+   "([[1, 2], [4], [2, 2, 1]],)",
+   "([[5], [1, 1]],)",
+   "([[3], [1, 2], [0, 4]],)"
+  ],
+  "expression": "is_sorted_1(row_sum_1(a0))"
+ },
+ {
+  "id": "nested2-072",
+  "category": "nested",
+  "description": "Write a function that checks whether the timestamps stored at index 1 of each log record strictly increase from one record to the next.",
+  "entry_point": "timestamps_ordered",
+  "inputs": [
+   "([('boot', 3), ('load', 8), ('run', 15)],)",
+   "([('a', 5), ('b', 5)],)",
+   "([('x', 1), ('y', 4), ('z', 2)],)"
+  ],
+  "expression": "strictly_increasing_1(column_2(a0, 1))"
+ },
+ {
+  "id": "nested2-073",
+  "category": "nested",
+  "description": "Write a function to check whether two lists of (key, value) pairs build the same dictionary, where a later pair overrides an earlier pair with the same key.",
+  "entry_point": "same_mapping",
+  "inputs": [
+   "([('a', 1), ('b', 2)], [('b', 2), ('a', 1)])",
+   "([('a', 1), ('a', 3)], [('a', 1)])",
+   "([('x', 0), ('y', 5), ('x', 9)], [('y', 5), ('x', 9)])"
+  ],
+  "expression": "pairs_to_dict_1(a0) == pairs_to_dict_1(a1)"
+ },
+ {
+  "id": "nested2-074",
+  "category": "nested",
+  "description": "Write a function to find the column totals of two tables with the same number of columns taken together, where each table is a list of rows of numbers.",
+  "entry_point": "combined_column_totals",
+  "inputs": [
+   "([[1, 2], [3, 4]], [[10, 20]])",
+   "([[5, 5, 5]], [[1, 2, 3], [0, 0, 1]])",
+   "([[0, 1]], [[2, 0]])"
+  ],
+  "expression": "col_sum_1(a0 + a1)"
+ },
+ {
+  "id": "nested2-075",
+  "category": "nested",
+  "description": "Write a function to find the bounding box of a list of (x, y) points as the tuple (min x, min y, max x, max y).",
+  "entry_point": "bounding_box",
+  "inputs": [
+   "([(1, 5), (4, 2), (3, 7)],)",
+   "([(0, 0)],)",
+   "([(-2, 3), (5, -1), (0, 0), (2, 8)],)"
+  ],
+  "expression": "tuple(col_min_1(a0) + col_max_1(a0))"
+ },
+ {
+  "id": "nested2-076",
+  "category": "nested",
+  "description": "Given a matrix as a list of rows, return a tuple of the index of the row with the largest total and the index of the column with the largest total, the first index on ties.",
+  "entry_point": "heaviest_row_and_column",
+  "inputs": [
+   "([[1, 2, 3], [4, 0, 9]],)",
+   "([[5, 5], [5, 5]],)",
+   "([[0, 4], [1, 1], [2, 0]],)"
+  ],
+  "expression": "(argmax_1(row_sum_1(a0)), argmax_1(col_sum_1(a0)))"
+ },
+ {
+  "id": "nested2-077",
+  "category": "nested",
+  "description": "Write a function to find the largest and the smallest value of a list of lists, returned together as a tuple.",
+  "entry_point": "grid_extremes",
+  "inputs": [
+   "([[3, 8], [1, 9, 2]],)",
+   "([[5]],)",
+   "([[-4, 0], [7], [2, -6]],)"
+  ],
+  "expression": "(max_1(flatten_1(a0)), min_1(flatten_1(a0)))"
+ },
+ {
+  "id": "nested2-078",
+  "category": "nested",
+  "description": "Create a function which splits a list of lists into a tuple of two lists, the inner lists that contain the given value and those that do not.",
+  "entry_point": "partition_by_value",
+  "inputs": [
+   "([[1, 2], [3], [2, 5]], 2)",
+   "([[4], [5]], 6)",
+   "([[7, 7], [8, 7], [9]], 7)"
+  ],
+  "expression": "(rows_with_2(a0, a1), rows_without_2(a0, a1))"
+ },
+ {
+  "id": "nested2-079",
+  "category": "nested",
+  "description": "Write a python function that returns 'Even' if the sum of all the numbers in a list of lists is even and 'Odd' otherwise.",
+  "entry_point": "grid_sum_parity",
+  "inputs": [
+   "([[1, 2], [3, 4]],)",
+   "([[1, 2], [4]],)",
+   "([[5], [5, 5]],)"
+  ],
+  "expression": "'Even' if sum_1(flatten_1(a0)) % 2 == 0 else 'Odd'"
+ },
+ {
+  "id": "nested2-080",
+  "category": "nested",
+  "description": "Write a python function to find the combined count of two items in a dictionary of item counts, treating a missing item as 0.",
+  "entry_point": "combined_count",
+  "inputs": [
+   "({'pen': 4, 'cup': 2, 'mug': 7}, 'pen', 'mug')",
+   "({'pen': 4}, 'pen', 'ink')",
+   "({'a': 1}, 'b', 'c')"
+  ],
+  "expression": "a0.get(a1, 0) + a0.get(a2, 0)"
+ },
+ {
+  "id": "nested2-081",
+  "category": "nested",
+  "description": "Write a function to find the spread, the largest minus the smallest value, of each column of a matrix given as a list of rows.",
+  "entry_point": "column_spreads",
+  "inputs": [
+   "([[1, 9], [4, 2], [3, 5]],)",
+   "([[6, 6, 6]],)",
+   "([[10, 0], [-2, 3]],)"
+  ],
+  "expression": "each_sub_2(col_max_1(a0), col_min_1(a0))"
+ },
+ {
+  "id": "nested2-082",
+  "category": "nested",
+  "description": "Given a list of (salesperson, list of daily sales) pairs, return the salesperson with the highest total sales, the first one on ties.",
+  "entry_point": "top_seller",
+  "inputs": [
+   "([('ann', [3, 4, 5]), ('bob', [10, 1]), ('cy', [2, 2])],)",
+   "([('dee', [5]), ('eve', [2, 3])],)",
+   "([('fay', [1, 1]), ('gus', [0]), ('hal', [9])],)"
+  ],
+  "expression": "first_of_max_by_second_1(record_sum_1(a0))"
+ },
+ {
+  "id": "nested2-083",
+  "category": "nested",
+  "description": "Write a function to find the total of each column of a table read from a text file as a list of tuples of digit strings.",
+  "entry_point": "text_column_totals",
+  "inputs": [
+   "([('1', '20'), ('3', '40')],)",
+   "([('7', '0', '5')],)",
+   "([('10', '2'), ('5', '5'), ('0', '1')],)"
+  ],
+  "expression": "col_sum_1(rows_to_int_1(a0))"
+ },
+ {
+  "id": "nested2-084",
+  "category": "nested",
+  "description": "Given a dictionary of scores and a number k, return the names of the k highest scorers, best first, keeping dictionary order on ties.",
+  "entry_point": "top_k_names",
+  "inputs": [
+   "({'ann': 70, 'bob': 95, 'cy': 82, 'dee': 60}, 2)",
+   "({'eve': 5, 'fay': 9, 'gus': 9}, 1)",
+   "({'hal': 3, 'ivy': 3, 'jo': 1}, 3)"
+  ],
+  "expression": "row_first_1(items_by_value_desc_1(a0))[:a1]"
+ },
+ {
+  "id": "nested2-085",
+  "category": "nested",
+  "description": "Write a function to find the key with the second smallest value in a dictionary, using dictionary order on ties.",
+  "entry_point": "second_lowest_key",
+  "inputs": [
+   "({'a': 5, 'b': 2, 'c': 9},)",
+   "({'x': 1, 'y': 1},)",
+   "({'p': 7, 'q': 3, 'r': 4, 's': 0},)"
+  ],
+  "expression": "items_by_value_1(a0)[1][0]"
+ },
+ {
+  "id": "nested2-086",
+  "category": "nested",
+  "description": "Write a function to find the average number of items per basket in a list of shopping baskets, each a list of items.",
+  "entry_point": "average_basket_size",
+  "inputs": [
+   "([['egg', 'tea'], ['jam'], ['oat', 'fig', 'nut']],)",
+   "([['pen']],)",
+   "([['a', 'b', 'c', 'd'], ['e']],)"
+  ],
+  "expression": "mean_1(len_each_1(a0))"
+ },
+ {
+  "id": "nested2-087",
+  "category": "nested",
+  "description": "Write a function to find the indices of all the shortest inner lists of a list of lists.",
+  "entry_point": "shortest_indices",
+  "inputs": [
+   "([[1, 2], [3], [4, 5], [6]],)",
+   "([[1, 2, 3]],)",
+   "([[], [1], []],)"
+  ],
+  "expression": "seq_argmin_all_1(len_each_1(a0))"
+ },
+ {
+  "id": "nested2-088",
+  "category": "nested",
+  "description": "Given a list of daily sales and a block length k, cut the days into consecutive blocks of k days, the last block possibly shorter, and return the largest block total.",
+  "entry_point": "best_block",
+  "inputs": [
+   "([3, 1, 4, 1, 5, 9, 2], 3)",
+   "([2, 2, 2, 2], 2)",
+   "([1, 9, 9, 1, 1], 4)"
+  ],
+  "expression": "max_1(row_sum_1(chunks_2(a0, a1)))"
+ },
+ {
+  "id": "nested2-089",
+  "category": "nested",
+  "description": "Write a function that reads the cell at row r and column c of a grid given as a list of rows, with r and c counted from 0, returning 0 when the position lies outside the grid.",
+  "entry_point": "cell_or_zero",
+  "inputs": [
+   "([[1, 2], [3, 4]], 1, 0)",
+   "([[9, 8, 7], [6, 5, 4]], 0, 2)",
+   "([[5, 6, 7], [8]], 1, 1)"
+  ],
+  "expression": "a0[a1][a2] if a1 < len(a0) and a2 < len(a0[a1]) else 0"
+ },
+ {
+  "id": "nested2-090",
+  "category": "nested",
+  "description": "Create a function which keeps only the k entries of a dictionary with the largest values, returning a dictionary ordered from the largest value to the smallest.",
+  "entry_point": "top_k_entries",
+  "inputs": [
+   "({'a': 3, 'b': 8, 'c': 5, 'd': 1}, 2)",
+   "({'x': 2, 'y': 7}, 1)",
+   "({'p': 4, 'q': 4, 'r': 9}, 3)"
+  ],
+  "expression": "dict(items_by_value_desc_1(a0)[:a1])"
+ },
+ {
+  "id": "nested2-091",
+  "category": "nested",
+  "description": "Given a list of (category, amount) expenses, return a dictionary of the total amount spent in each category, in order of first appearance.",
+  "entry_point": "spend_by_category",
+  "inputs": [
+   "([('food', 12), ('bus', 3), ('food', 8)],)",
+   "([('rent', 500)],)",
+   "([('a', 1), ('b', 2), ('a', 3), ('b', 4), ('c', 5)],)"
+  ],
+  "expression": "{k: sum(v) for k, v in group_by_first_1(a0).items()}"
+ },
+ {
+  "id": "nested2-092",
+  "category": "nested",
+  "description": "Write a function to find the average mark of each student from a list of (student, mark) results, returned as a dictionary.",
+  "entry_point": "average_marks",
+  "inputs": [
+   "([('ann', 80), ('bob', 70), ('ann', 90)],)",
+   "([('cy', 55)],)",
+   "([('dee', 1), ('dee', 2), ('eve', 4), ('dee', 6)],)"
+  ],
+  "expression": "{k: sum(v) / len(v) for k, v in group_by_first_1(a0).items()}"
+ },
+ {
+  "id": "nested2-093",
+  "category": "nested",
+  "description": "Given a list of directed edges (a, b), return a dictionary mapping every node, in order of first appearance, to the number of edges leaving it, which is 0 for a node with no outgoing edge.",
+  "entry_point": "out_degrees",
+  "inputs": [
+   "([(1, 2), (1, 3), (2, 3)],)",
+   "([('a', 'b')],)",
+   "([(5, 5), (5, 6)],)"
+  ],
+  "expression": "{n: sum(a == n for a, b in a0) for n in dedupe_1(flatten_1(a0))}"
+ },
+ {
+  "id": "nested2-094",
+  "category": "nested",
+  "description": "Write a function to find, in ascending order, the nodes of a list of directed edges (a, b) that have no outgoing edge.",
+  "entry_point": "dead_ends",
+  "inputs": [
+   "([(1, 2), (1, 3), (2, 3), (4, 1)],)",
+   "([('a', 'b'), ('a', 'c')],)",
+   "([(1, 2), (2, 1)],)"
+  ],
+  "expression": "sorted(k for k, v in successors_dict_1(a0).items() if not v)"
+ },
+ {
+  "id": "nested2-095",
+  "category": "nested",
+  "description": "Write a function that returns the employees of a dictionary of salaries who earn more than the average salary, in dictionary order.",
+  "entry_point": "above_average_pay",
+  "inputs": [
+   "({'ann': 50, 'bob': 30, 'cy': 70},)",
+   "({'dee': 40, 'eve': 40},)",
+   "({'fay': 10, 'gus': 90, 'hal': 60, 'ivy': 20},)"
+  ],
+  "expression": "[k for k in a0 if a0[k] > mean_1(values_1(a0))]"
+ },
+ {
+  "id": "nested2-096",
+  "category": "nested",
+  "description": "Given a list of field names and a list of rows, return a list of dictionaries, one per row, mapping each field name to the value at the same position of the row.",
+  "entry_point": "rows_to_records",
+  "inputs": [
+   "(['id', 'qty'], [[1, 5], [2, 0]])",
+   "(['x'], [[7]])",
+   "(['a', 'b', 'c'], [[1, 2, 3], [4, 5, 6]])"
+  ],
+  "expression": "[dict(zip(a0, r)) for r in a1]"
+ },
+ {
+  "id": "nested2-097",
+  "category": "nested",
+  "description": "Create a function which turns a list of dictionaries and a list of keys into one row per dictionary holding its values for those keys, in the order the keys are listed.",
+  "entry_point": "records_to_rows",
+  "inputs": [
+   "([{'a': 1, 'b': 2, 'c': 3}, {'a': 4, 'b': 5, 'c': 6}], ['c', 'a'])",
+   "([{'x': 'p', 'y': 'q'}], ['y'])",
+   "([{'n': 1, 'm': 2}, {'n': 3, 'm': 4}, {'n': 5, 'm': 6}], ['n', 'm'])"
+  ],
+  "expression": "[[d[k] for k in a1] for d in a0]"
+ },
+ {
+  "id": "nested2-098",
+  "category": "nested",
+  "description": "Write a function to keep only the first k columns of every row of a list of lists.",
+  "entry_point": "first_columns",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6]], 2)",
+   "([['a', 'b'], ['c', 'd']], 1)",
+   "([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]], 3)"
+  ],
+  "expression": "[r[:a1] for r in a0]"
+ },
+ {
+  "id": "nested2-099",
+  "category": "nested",
+  "description": "Given a list of (item, price) tuples and a budget, return the tuple whose price is closest to the budget, the first one on ties.",
+  "entry_point": "closest_to_budget",
+  "inputs": [
+   "([('tea', 4), ('cake', 9), ('pie', 6)], 7)",
+   "([('a', 10), ('b', 20)], 15)",
+   "([('x', 3), ('y', 12), ('z', 8)], 13)"
+  ],
+  "expression": "min(a0, key=lambda r: abs(r[1] - a1))"
+ },
+ {
+  "id": "nested2-100",
+  "category": "nested",
+  "description": "Write a function to read a grid in snake order, the first row from left to right, the second from right to left and so on, returning one flat list.",
+  "entry_point": "snake_read",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6], [7, 8, 9]],)",
+   "([[1, 2], [3, 4]],)",
+   "([[1, 2], [3, 4], [5, 6], [7, 8]],)"
+  ],
+  "expression": "[x for i, r in enumerate(a0) for x in (r if i % 2 == 0 else r[::-1])]"
+ },
+ {
+  "id": "nested2-101",
+  "category": "nested",
+  "description": "Given a dictionary of prices, an amount and a list of items, return a new dictionary in which every listed item costs that amount more and the other prices are unchanged.",
+  "entry_point": "raise_prices",
+  "inputs": [
+   "({'tea': 3, 'jam': 5, 'oat': 2}, 1, ['jam'])",
+   "({'pen': 10, 'ink': 4}, 5, ['pen', 'ink'])",
+   "({'a': 1}, 2, ['b'])"
+  ],
+  "expression": "{k: v + a1 if k in a2 else v for k, v in a0.items()}"
+ },
+ {
+  "id": "nested2-102",
+  "category": "nested",
+  "description": "Given a dictionary of account balances keyed by account code and a prefix, return the total balance of the accounts whose code starts with the prefix.",
+  "entry_point": "balance_by_prefix",
+  "inputs": [
+   "({'us01': 100, 'us02': 50, 'eu01': 70}, 'us')",
+   "({'ab': 5, 'ba': 7}, 'b')",
+   "({'x1': 3, 'x2': 4, 'y1': 9}, 'z')"
+  ],
+  "expression": "sum(v for k, v in a0.items() if k.startswith(a1))"
+ },
+ {
+  "id": "nested2-103",
+  "category": "nested",
+  "description": "Create a function which maps each sensor of a dictionary of reading lists to its latest reading, leaving out the sensors that have no readings.",
+  "entry_point": "latest_readings",
+  "inputs": [
+   "({'t1': [20, 21, 19], 't2': [], 't3': [5]},)",
+   "({'a': [1, 2]},)",
+   "({'x': [], 'y': [7, 7, 8], 'z': [0]},)"
+  ],
+  "expression": "{k: v[-1] for k, v in a0.items() if v}"
+ },
+ {
+  "id": "nested2-104",
+  "category": "nested",
+  "description": "Write a function to find the team with the highest total score in a dictionary from team name to a list of match scores, the first one listed on ties.",
+  "entry_point": "best_team",
+  "inputs": [
+   "({'owls': [3, 1], 'cats': [2, 4], 'elks': [5]},)",
+   "({'a': [1, 1], 'b': [2]},)",
+   "({'x': [0], 'y': [], 'z': [1, 0]},)"
+  ],
+  "expression": "max(a0, key=lambda k: sum(a0[k]))"
+ },
+ {
+  "id": "nested2-105",
+  "category": "nested",
+  "description": "Write a function to find the indices of the inner lists of a list that contain the given value.",
+  "entry_point": "rows_holding",
+  "inputs": [
+   "([[1, 2], [3], [2, 2, 4]], 2)",
+   "([['a'], ['b']], 'c')",
+   "([[5], [6, 5], [5, 7]], 5)"
+  ],
+  "expression": "[i for i, r in enumerate(a0) if a1 in r]"
+ },
+ {
+  "id": "nested2-106",
+  "category": "nested",
+  "description": "Write a function that removes every occurrence of a given value from each inner list of a list of lists.",
+  "entry_point": "strip_value",
+  "inputs": [
+   "([[1, 0, 2], [0, 0], [3]], 0)",
+   "([['a', 'b'], ['b', 'c']], 'b')",
+   "([[4, 5]], 9)"
+  ],
+  "expression": "[[x for x in r if x != a1] for r in a0]"
+ },
+ {
+  "id": "nested2-107",
+  "category": "nested",
+  "description": "Write a function to shift each row of a matrix so that its smallest value becomes 0, by subtracting the row minimum from every value of the row.",
+  "entry_point": "zero_based_rows",
+  "inputs": [
+   "([[3, 5, 4], [10, 7]],)",
+   "([[2, 2]],)",
+   "([[-1, 4], [0, 9, 3]],)"
+  ],
+  "expression": "[[x - min(r) for x in r] for r in a0]"
+ },
+ {
+  "id": "nested2-108",
+  "category": "nested",
+  "description": "Given a list of lists of positive numbers, return each value divided by the total of its own list, rounded to 2 decimal places.",
+  "entry_point": "row_shares",
+  "inputs": [
+   "([[1, 3], [2, 2]],)",
+   "([[1, 1, 2]],)",
+   "([[3, 7], [1, 2]],)"
+  ],
+  "expression": "[[round(x / sum(r), 2) for x in r] for r in a0]"
+ },
+ {
+  "id": "nested2-109",
+  "category": "nested",
+  "description": "Given a list of lists of marks, one inner list per diver, return the total of each diver after dropping one highest and one lowest mark.",
+  "entry_point": "trimmed_totals",
+  "inputs": [
+   "([[6, 8, 7, 9], [5, 5, 6]],)",
+   "([[1, 2, 3]],)",
+   "([[9, 9, 9, 1, 5], [4, 7, 7]],)"
+  ],
+  "expression": "[sum(r) - max(r) - min(r) for r in a0]"
+ },
+ {
+  "id": "nested2-110",
+  "category": "nested",
+  "description": "Create a function which keeps only the inner lists of a list that contain no repeated value.",
+  "entry_point": "rows_without_repeats",
+  "inputs": [
+   "([[1, 2, 3], [4, 4], [5, 6, 5], [7]],)",
+   "([['a', 'b'], ['c', 'c']],)",
+   "([[1, 1]],)"
+  ],
+  "expression": "[r for r in a0 if len(r) == len(set(r))]"
+ },
+ {
+  "id": "nested2-111",
+  "category": "nested",
+  "description": "Given a list of shopping baskets and two items, return the baskets that contain the first item but not the second.",
+  "entry_point": "with_but_without",
+  "inputs": [
+   "([['egg', 'tea'], ['egg', 'jam'], ['tea']], 'egg', 'jam')",
+   "([['a', 'b'], ['a'], ['b']], 'a', 'c')",
+   "([['x', 'y']], 'y', 'x')"
+  ],
+  "expression": "[r for r in a0 if a1 in r and a2 not in r]"
+ },
+ {
+  "id": "nested2-112",
+  "category": "nested",
+  "description": "Given a list of recipes, each a list of ingredients, and a list of pantry ingredients, return the recipes that can be made using only pantry ingredients.",
+  "entry_point": "possible_recipes",
+  "inputs": [
+   "([['egg', 'oil'], ['egg', 'ham'], ['oil']], ['oil', 'egg', 'salt'])",
+   "([['rice']], ['bean'])",
+   "([['a', 'b'], ['b', 'c'], ['c']], ['b', 'c'])"
+  ],
+  "expression": "[r for r in a0 if set(r) <= set(a1)]"
+ },
+ {
+  "id": "nested2-113",
+  "category": "nested",
+  "description": "Write a function to find the positions of the inner lists of a list ordered from the smallest total to the largest, keeping the original order on ties.",
+  "entry_point": "rank_rows_by_total",
+  "inputs": [
+   "([[5, 5], [1, 2], [9], [3, 3]],)",
+   "([[2], [1, 1]],)",
+   "([[0, 7], [4], [1, 1, 1]],)"
+  ],
+  "expression": "sorted(range(len(a0)), key=lambda i: sum(a0[i]))"
+ },
+ {
+  "id": "nested2-114",
+  "category": "nested",
+  "description": "Write a function to sort a list of (name, grade, score) tuples by grade in ascending order and, within the same grade, by score from highest to lowest.",
+  "entry_point": "sort_grade_score",
+  "inputs": [
+   "([('ann', 2, 70), ('bob', 1, 65), ('cy', 2, 90)],)",
+   "([('dee', 3, 50), ('eve', 3, 80)],)",
+   "([('fay', 1, 10), ('gus', 2, 30), ('hal', 1, 20)],)"
+  ],
+  "expression": "sorted(a0, key=lambda r: (r[1], -r[2]))"
+ },
+ {
+  "id": "nested2-115",
+  "category": "nested",
+  "description": "Given a list of task dictionaries with keys 'id', 'due' and 'pri', return the task ids ordered by 'due' ascending and, for the same 'due', by 'pri' from highest to lowest.",
+  "entry_point": "task_order",
+  "inputs": [
+   "([{'id': 1, 'due': 3, 'pri': 2}, {'id': 2, 'due': 1, 'pri': 1}, {'id': 3, 'due': 3, 'pri': 5}],)",
+   "([{'id': 7, 'due': 2, 'pri': 1}, {'id': 8, 'due': 2, 'pri': 1}],)",
+   "([{'id': 4, 'due': 5, 'pri': 0}, {'id': 5, 'due': 4, 'pri': 9}, {'id': 6, 'due': 4, 'pri': 3}],)"
+  ],
+  "expression": "[d['id'] for d in sorted(a0, key=lambda d: (d['due'], -d['pri']))]"
+ },
+ {
+  "id": "nested2-116",
+  "category": "nested",
+  "description": "Given a list of (product, weight, price) tuples, return the name of the product that gives the most weight per unit of price, the first one on ties.",
+  "entry_point": "best_value_product",
+  "inputs": [
+   "([('rice', 1000, 4), ('oats', 500, 3), ('beans', 800, 2)],)",
+   "([('a', 10, 5), ('b', 4, 2)],)",
+   "([('x', 6, 3), ('y', 9, 3), ('z', 1, 1)],)"
+  ],
+  "expression": "max(a0, key=lambda r: r[1] / r[2])[0]"
+ },
+ {
+  "id": "nested2-117",
+  "category": "nested",
+  "description": "Write a function to sort a list of (team, goals for, goals against) tuples by goal difference from best to worst, keeping the original order on ties.",
+  "entry_point": "standings",
+  "inputs": [
+   "([('ab', 5, 3), ('cd', 7, 2), ('ef', 4, 4)],)",
+   "([('gh', 1, 0), ('ij', 3, 2)],)",
+   "([('kl', 0, 3), ('mn', 2, 2), ('op', 6, 1)],)"
+  ],
+  "expression": "sorted(a0, key=lambda r: r[1] - r[2], reverse=True)"
+ },
+ {
+  "id": "nested2-118",
+  "category": "nested",
+  "description": "Given a list of (name, score) tuples and a margin k, return the names of those whose score is within k points of the top score, in their original order.",
+  "entry_point": "near_the_top",
+  "inputs": [
+   "([('ann', 60), ('bob', 90), ('cy', 85)], 5)",
+   "([('dee', 5), ('eve', 9)], 0)",
+   "([('fay', 10), ('gus', 40), ('hal', 30), ('ivy', 39)], 10)"
+  ],
+  "expression": "[n for n, s in a0 if s >= max_1(column_2(a0, 1)) - a1]"
+ },
+ {
+  "id": "nested2-119",
+  "category": "nested",
+  "description": "Given a list of (party, votes) tuples, return (party, percentage) tuples, the percentage being the party's votes times 100 divided by all the votes, rounded to the nearest whole number.",
+  "entry_point": "vote_shares",
+  "inputs": [
+   "([('red', 45), ('blue', 30), ('green', 15)],)",
+   "([('ayes', 7), ('noes', 3)],)",
+   "([('x', 1), ('y', 1), ('z', 1)],)"
+  ],
+  "expression": "[(n, round(s * 100 / sum_1(column_2(a0, 1)))) for n, s in a0]"
+ },
+ {
+  "id": "nested2-120",
+  "category": "nested",
+  "description": "Write a function to count the points of a list of (x, y) points whose two coordinates are both positive.",
+  "entry_point": "first_quadrant_count",
+  "inputs": [
+   "([(1, 2), (-1, 3), (4, 0), (2, 2)],)",
+   "([(0, 0)],)",
+   "([(5, 1), (3, 3), (-2, -2), (1, 9)],)"
+  ],
+  "expression": "sum(1 for x, y in a0 if x > 0 and y > 0)"
+ },
+ {
+  "id": "nested2-121",
+  "category": "nested",
+  "description": "Given a list of (x, y) points and a target point, return the point nearest to the target by Manhattan distance, the first one on ties.",
+  "entry_point": "nearest_point",
+  "inputs": [
+   "([(0, 0), (5, 5), (2, 3)], (3, 3))",
+   "([(1, 0), (0, 1)], (0, 0))",
+   "([(-1, 4), (6, 6), (2, -2)], (1, -1))"
+  ],
+  "expression": "min(a0, key=lambda p: abs(p[0] - a1[0]) + abs(p[1] - a1[1]))"
+ },
+ {
+  "id": "nested2-122",
+  "category": "nested",
+  "description": "Write a function to rotate every (x, y) point of a list a quarter turn clockwise about the origin, which maps (x, y) to (y, -x).",
+  "entry_point": "rotate_points",
+  "inputs": [
+   "([(1, 0), (2, 3)],)",
+   "([(0, 5)],)",
+   "([(-1, -2), (4, -4), (0, 0)],)"
+  ],
+  "expression": "[(y, -x) for x, y in a0]"
+ },
+ {
+  "id": "nested2-123",
+  "category": "nested",
+  "description": "Write a python function to get the values of a grid, given as a list of rows, at each position of a list of (row, column) positions.",
+  "entry_point": "values_at",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6]], [(0, 2), (1, 0)])",
+   "([['a', 'b'], ['c', 'd']], [(1, 1)])",
+   "([[7, 8], [9, 0]], [(0, 0), (1, 1), (0, 0)])"
+  ],
+  "expression": "[a0[i][j] for i, j in a1]"
+ },
+ {
+  "id": "nested2-124",
+  "category": "nested",
+  "description": "Write a function to find the sum of the cells of a grid whose row index plus column index is even.",
+  "entry_point": "dark_square_sum",
+  "inputs": [
+   "([[1, 2], [3, 4]],)",
+   "([[5, 5, 5]],)",
+   "([[1, 2, 3], [4, 5, 6], [7, 8, 9]],)"
+  ],
+  "expression": "sum(x for i, r in enumerate(a0) for j, x in enumerate(r) if (i + j) % 2 == 0)"
+ },
+ {
+  "id": "nested2-125",
+  "category": "nested",
+  "description": "Write a python function to check whether all the inner lists of a list have the same total.",
+  "entry_point": "equal_totals",
+  "inputs": [
+   "([[1, 3], [2, 2], [4]],)",
+   "([[1, 1], [3]],)",
+   "([[0], [5, -5], [2, -1, -1]],)"
+  ],
+  "expression": "all(sum(r) == sum(a0[0]) for r in a0)"
+ },
+ {
+  "id": "nested2-126",
+  "category": "nested",
+  "description": "Given a list of stock dictionaries with keys 'id', 'qty' and 'min', return the ids of the items whose 'qty' is below their 'min', in their original order.",
+  "entry_point": "below_minimum",
+  "inputs": [
+   "([{'id': 1, 'qty': 0, 'min': 2}, {'id': 2, 'qty': 5, 'min': 3}, {'id': 3, 'qty': 1, 'min': 4}],)",
+   "([{'id': 9, 'qty': 3, 'min': 3}],)",
+   "([{'id': 5, 'qty': 7, 'min': 1}, {'id': 6, 'qty': 0, 'min': 1}],)"
+  ],
+  "expression": "[d['id'] for d in a0 if d['qty'] < d['min']]"
+ },
+ {
+  "id": "nested2-127",
+  "category": "nested",
+  "description": "Given a list of person dictionaries with keys 'name' and 'age', return the names ordered from the youngest person to the oldest, keeping the original order on equal ages.",
+  "entry_point": "names_by_age",
+  "inputs": [
+   "([{'name': 'ann', 'age': 41}, {'name': 'bob', 'age': 23}, {'name': 'cy', 'age': 35}],)",
+   "([{'name': 'dee', 'age': 30}, {'name': 'eve', 'age': 30}],)",
+   "([{'name': 'fay', 'age': 9}, {'name': 'gus', 'age': 70}, {'name': 'hal', 'age': 8}],)"
+  ],
+  "expression": "[d['name'] for d in sort_dicts_by_key_2(a0, 'age')]"
+ },
+ {
+  "id": "nested2-128",
+  "category": "nested",
+  "description": "Create a function which selects, from a list of dictionaries, those that agree with every field of a dictionary of required field values.",
+  "entry_point": "match_all_fields",
+  "inputs": [
+   "([{'c': 'red', 's': 2}, {'c': 'blue', 's': 2}, {'c': 'red', 's': 3}], {'c': 'red'})",
+   "([{'c': 'red', 's': 2}, {'c': 'blue', 's': 2}], {'c': 'blue', 's': 3})",
+   "([{'a': 1, 'b': 2}, {'a': 1, 'b': 3}], {'a': 1, 'b': 3})"
+  ],
+  "expression": "[d for d in a0 if all(d[k] == v for k, v in a1.items())]"
+ },
+ {
+  "id": "nested2-129",
+  "category": "nested",
+  "description": "Write a function to find the total of each field over a list of dictionaries that all have the same numeric fields, returned as a dictionary.",
+  "entry_point": "field_totals",
+  "inputs": [
+   "([{'cal': 200, 'fat': 9}, {'cal': 150, 'fat': 4}],)",
+   "([{'x': 1}],)",
+   "([{'a': 1, 'b': 0}, {'a': 2, 'b': 5}, {'a': 3, 'b': 1}],)"
+  ],
+  "expression": "{k: sum(d[k] for d in a0) for k in a0[0]}"
+ },
+ {
+  "id": "nested2-130",
+  "category": "nested",
+  "description": "Write a function that turns a list of dictionaries sharing the same keys into one dictionary mapping each key to the list of its values, in record order.",
+  "entry_point": "records_to_columns",
+  "inputs": [
+   "([{'x': 1, 'y': 2}, {'x': 3, 'y': 4}],)",
+   "([{'id': 7}],)",
+   "([{'a': 'p', 'b': 0}, {'a': 'q', 'b': 1}, {'a': 'r', 'b': 2}],)"
+  ],
+  "expression": "{k: [d[k] for d in a0] for k in a0[0]}"
+ },
+ {
+  "id": "nested2-131",
+  "category": "nested",
+  "description": "Write a function that turns a dictionary of equal-length lists, one list per field, into a list of dictionaries, one for each position.",
+  "entry_point": "columns_to_records",
+  "inputs": [
+   "({'x': [1, 3], 'y': [2, 4]},)",
+   "({'id': [7, 8, 9]},)",
+   "({'a': ['p'], 'b': [0], 'c': [True]},)"
+  ],
+  "expression": "[dict(zip(a0, r)) for r in transpose_1(values_1(a0))]"
+ },
+ {
+  "id": "nested2-132",
+  "category": "nested",
+  "description": "Write a function to list every key that appears in a list of dictionaries, each key once, in order of first appearance.",
+  "entry_point": "all_keys",
+  "inputs": [
+   "([{'a': 1, 'b': 2}, {'b': 3, 'c': 4}, {'a': 5}],)",
+   "([{'z': 0}],)",
+   "([{'y': 1}, {'x': 2, 'y': 3}, {'w': 4}],)"
+  ],
+  "expression": "dedupe_1([k for d in a0 for k in d])"
+ },
+ {
+  "id": "nested2-133",
+  "category": "nested",
+  "description": "Given a list of (customer, order number) pairs and a number k, return the customers with at least k orders, in order of first appearance.",
+  "entry_point": "frequent_customers",
+  "inputs": [
+   "([('ann', 1), ('bob', 2), ('ann', 3), ('cy', 4), ('ann', 5)], 2)",
+   "([('dee', 1), ('eve', 2)], 1)",
+   "([('fay', 1), ('gus', 2), ('gus', 3), ('fay', 4)], 3)"
+  ],
+  "expression": "[k for k, v in group_by_first_1(a0).items() if len(v) >= a1]"
+ },
+ {
+  "id": "nested2-134",
+  "category": "nested",
+  "description": "Given a list of (row, seat) bookings, return a dictionary of the seats booked more than once, mapped to the number of times each was booked.",
+  "entry_point": "double_bookings",
+  "inputs": [
+   "([(1, 4), (2, 2), (1, 4), (3, 1), (2, 2), (1, 4)],)",
+   "([(5, 5)],)",
+   "([(1, 1), (1, 2), (1, 1)],)"
+  ],
+  "expression": "{k: v for k, v in counter_1(a0).items() if v > 1}"
+ },
+ {
+  "id": "nested2-135",
+  "category": "nested",
+  "description": "Write a function to find the values of the first inner list that appear in none of the other inner lists, in the order of the first list.",
+  "entry_point": "only_in_first",
+  "inputs": [
+   "([[9, 1, 3, 5], [3, 9, 4], [9, 7]],)",
+   "([['b', 'a'], ['c']],)",
+   "([[1, 2], [2], [1]],)"
+  ],
+  "expression": "[x for x in a0[0] if all(x not in r for r in a0[1:])]"
+ },
+ {
+  "id": "nested2-136",
+  "category": "nested",
+  "description": "Write a function that expands a dictionary of lists into a list of (key, item) pairs, keeping the order of the keys and of each list.",
+  "entry_point": "expand_pairs",
+  "inputs": [
+   "({'a': [1, 2], 'b': [3]},)",
+   "({'x': []},)",
+   "({'p': ['q'], 'r': ['s', 't']},)"
+  ],
+  "expression": "[(k, x) for k, v in a0.items() for x in v]"
+ },
+ {
+  "id": "nested2-137",
+  "category": "nested",
+  "description": "Create a function which turns a dictionary from each team to the list of its members into a dictionary from each member to their team.",
+  "entry_point": "member_team",
+  "inputs": [
+   "({'red': ['ann', 'bob'], 'blue': ['cy']},)",
+   "({'solo': ['dee']},)",
+   "({'a': ['x', 'y', 'z'], 'b': ['w']},)"
+  ],
+  "expression": "{x: k for k, v in a0.items() for x in v}"
+ },
+ {
+  "id": "nested2-138",
+  "category": "nested",
+  "description": "Given a dictionary of lists, return its keys ordered from the longest list to the shortest, breaking ties alphabetically.",
+  "entry_point": "keys_by_list_size",
+  "inputs": [
+   "({'b': [1, 2], 'a': [3, 4], 'c': [5, 6, 7]},)",
+   "({'x': []},)",
+   "({'m': [1], 'k': [], 'z': [2, 3]},)"
+  ],
+  "expression": "sorted(a0, key=lambda k: (-len(a0[k]), k))"
+ },
+ {
+  "id": "nested2-139",
+  "category": "nested",
+  "description": "Write a function to find the total value, price times quantity, of the stock of a given category in a list of (category, price, quantity) tuples.",
+  "entry_point": "category_value",
+  "inputs": [
+   "([('fruit', 2, 10), ('veg', 1, 5), ('fruit', 3, 4)], 'fruit')",
+   "([('fruit', 2, 10), ('veg', 1, 5)], 'veg')",
+   "([('toy', 7, 1)], 'tool')"
+  ],
+  "expression": "sum(p * q for c, p, q in a0 if c == a1)"
+ },
+ {
+  "id": "nested2-140",
+  "category": "nested",
+  "description": "Write a function to find the links of a list of directed (a, b) links whose reverse link (b, a) is missing from the list, in their original order.",
+  "entry_point": "one_way_links",
+  "inputs": [
+   "([(1, 2), (2, 1), (2, 3), (3, 4)],)",
+   "([('a', 'b'), ('b', 'a')],)",
+   "([(5, 6), (7, 7), (6, 7)],)"
+  ],
+  "expression": "[(a, b) for a, b in a0 if (b, a) not in a0]"
+ },
+ {
+  "id": "nested2-141",
+  "category": "nested",
+  "description": "Write a function to find, in ascending order, the nodes of a list of directed edges (a, b) that have outgoing edges but no incoming edge.",
+  "entry_point": "source_nodes",
+  "inputs": [
+   "([(1, 2), (1, 3), (4, 3)],)",
+   "([(1, 2), (2, 1)],)",
+   "([('s', 'a'), ('a', 'b'), ('t', 'b')],)"
+  ],
+  "expression": "sorted({a for a, b in a0} - {b for a, b in a0})"
+ },
+ {
+  "id": "nested2-142",
+  "category": "nested",
+  "description": "Create a function which finds, for each inner list of a list, the position of the first occurrence of the given value, or -1 when the value is missing.",
+  "entry_point": "positions_or_minus_one",
+  "inputs": [
+   "([[4, 7, 7], [1, 2], [7]], 7)",
+   "([['a', 'b'], ['b', 'a']], 'a')",
+   "([[3]], 5)"
+  ],
+  "expression": "[r.index(a1) if a1 in r else -1 for r in a0]"
+ },
+ {
+  "id": "nested2-143",
+  "category": "nested",
+  "description": "Write a function to keep, for each inner list of a list, its k largest values from largest to smallest.",
+  "entry_point": "top_k_each",
+  "inputs": [
+   "([[3, 9, 1, 7], [5, 2, 8]], 2)",
+   "([[1, 1, 1]], 1)",
+   "([[4, 6], [10, 0, 5], [2, 2, 3]], 3)"
+  ],
+  "expression": "[sorted(r, reverse=True)[:a1] for r in a0]"
+ },
+ {
+  "id": "nested2-144",
+  "category": "nested",
+  "description": "Write a function to find the average of each inner list of a list of lists, rounded to 1 decimal place.",
+  "entry_point": "rounded_row_means",
+  "inputs": [
+   "([[1, 2, 2], [4, 5]],)",
+   "([[10]],)",
+   "([[1, 1, 2], [0, 1], [3, 3, 3, 5]],)"
+  ],
+  "expression": "[round(m, 1) for m in row_mean_1(a0)]"
+ },
+ {
+  "id": "nested2-145",
+  "category": "nested",
+  "description": "Given three lists of the same length holding names, ages and cities, return a list of rows, each a list [name, age, city].",
+  "entry_point": "build_rows",
+  "inputs": [
+   "(['ann', 'bob'], [30, 25], ['rome', 'oslo'])",
+   "(['cy'], [41], ['lima'])",
+   "(['a', 'b', 'c'], [1, 2, 3], ['x', 'y', 'z'])"
+  ],
+  "expression": "[list(t) for t in zip(a0, a1, a2)]"
+ },
+ {
+  "id": "nested2-146",
+  "category": "nested",
+  "description": "Given a list of (home goals, away goals) match results, return a tuple counting the home wins, the draws and the away wins.",
+  "entry_point": "result_summary",
+  "inputs": [
+   "([(2, 1), (0, 0), (1, 3), (4, 2)],)",
+   "([(1, 1)],)",
+   "([(0, 2), (1, 2), (3, 3)],)"
+  ],
+  "expression": "(sum(a > b for a, b in a0), sum(a == b for a, b in a0), sum(a < b for a, b in a0))"
+ },
+ {
+  "id": "nested2-147",
+  "category": "nested",
+  "description": "Given two dictionaries, return a dictionary that maps each key found in both to a tuple of its value in the first and its value in the second.",
+  "entry_point": "paired_values",
+  "inputs": [
+   "({'a': 1, 'b': 2, 'c': 3}, {'c': 30, 'a': 10})",
+   "({'x': 5}, {'y': 6})",
+   "({'p': 'r', 'q': 's'}, {'q': 't', 'p': 'u'})"
+  ],
+  "expression": "{k: (v, a1[k]) for k, v in a0.items() if k in a1}"
+ },
+ {
+  "id": "nested2-148",
+  "category": "nested",
+  "description": "Write a function that returns the keys of the old version of a dictionary whose value changed or that are missing from the new version, in old order.",
+  "entry_point": "changed_keys",
+  "inputs": [
+   "({'a': 1, 'b': 2, 'c': 3}, {'a': 1, 'b': 5})",
+   "({'x': 0}, {'x': 0, 'y': 1})",
+   "({'p': 4, 'q': 4}, {'q': 5, 'p': 5})"
+  ],
+  "expression": "[k for k in a0 if a0[k] != a1.get(k)]"
+ },
+ {
+  "id": "nested2-149",
+  "category": "nested",
+  "description": "Write a function to find the scalar product of the two rows at the given indices of a matrix given as a list of rows.",
+  "entry_point": "row_scalar_product",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6], [0, 1, 0]], 0, 1)",
+   "([[1, 2, 3], [4, 5, 6], [0, 1, 0]], 1, 2)",
+   "([[2, -1], [3, 4]], 1, 1)"
+  ],
+  "expression": "sum(x * y for x, y in zip(a0[a1], a0[a2]))"
+ },
+ {
+  "id": "nested2-150",
+  "category": "nested",
+  "description": "Create a function which keeps only the entries of a dictionary whose values are integers.",
+  "entry_point": "integer_entries",
+  "inputs": [
+   "({'a': 1, 'b': 'x', 'c': 2.5, 'd': 4},)",
+   "({'n': 'none'},)",
+   "({'p': [1], 'q': 0, 'r': -3},)"
+  ],
+  "expression": "{k: v for k, v in a0.items() if isinstance(v, int)}"
+ }
+]
