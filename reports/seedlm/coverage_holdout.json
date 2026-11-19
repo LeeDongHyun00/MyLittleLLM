@@ -1,0 +1,33 @@
+{
+ "verdicts": "holdout4_s4-post_verdicts",
+ "tasks": 94,
+ "engine_fails": 29,
+ "programs": {
+  "teacher": 1258,
+  "variants": 627,
+  "oneliners": 81,
+  "real": 461
+ },
+ "covered": {
+  "teacher": {
+   "engine_fails": 2,
+   "engine_solves": 22
+  },
+  "variants": {
+   "engine_fails": 0,
+   "engine_solves": 8
+  },
+  "oneliners": {
+   "engine_fails": 0,
+   "engine_solves": 2
+  },
+  "real": {
+   "engine_fails": 2,
+   "engine_solves": 17
+  },
+  "any": {
+   "engine_fails": 4,
+   "engine_solves": 34
+  }
+ }
+}

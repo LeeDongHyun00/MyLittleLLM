@@ -1,0 +1,21 @@
+{
+ "method": "pyx_model",
+ "tasks": 94,
+ "engine_fails": 29,
+ "fixes": {
+  "holdout3_s3-pyx_verdicts": 4,
+  "holdout3_s3b-pyx_verdicts": 4,
+  "holdout4_s4-post_verdicts": 4,
+  "holdout4_s5-var": 5
+ },
+ "pairwise_shared": {
+  "holdout3_s3-pyx_verdicts & holdout3_s3b-pyx_verdicts": 3,
+  "holdout3_s3-pyx_verdicts & holdout4_s4-post_verdicts": 3,
+  "holdout3_s3-pyx_verdicts & holdout4_s5-var": 4,
+  "holdout3_s3b-pyx_verdicts & holdout4_s4-post_verdicts": 3,
+  "holdout3_s3b-pyx_verdicts & holdout4_s5-var": 4,
+  "holdout4_s4-post_verdicts & holdout4_s5-var": 3
+ },
+ "shared_by_all": 3,
+ "reached_by_any": 6
+}
