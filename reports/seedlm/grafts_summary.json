@@ -1,0 +1,63 @@
+{
+ "grafts": 15402,
+ "attempts": 2000000,
+ "hosts": 1716,
+ "donors": 1592,
+ "tokens_quartiles": [
+  8.0,
+  11.0,
+  16.0
+ ],
+ "new_edges_vs_s5_data": 6723,
+ "new_twigs_vs_s5_data": 9748,
+ "junction_parents_top": [
+  [
+   "library",
+   3206
+  ],
+  [
+   "@Add",
+   817
+  ],
+  [
+   "@Mult",
+   605
+  ],
+  [
+   "@IfExp",
+   570
+  ],
+  [
+   "@Sub",
+   563
+  ],
+  [
+   "@And",
+   476
+  ],
+  [
+   "@Slice",
+   449
+  ],
+  [
+   "@Tuple",
+   416
+  ],
+  [
+   "@.replace",
+   380
+  ],
+  [
+   "@Comp:list:1i1",
+   379
+  ],
+  [
+   "@Comp:gen:1i1",
+   313
+  ],
+  [
+   "@range",
+   303
+  ]
+ ]
+}
