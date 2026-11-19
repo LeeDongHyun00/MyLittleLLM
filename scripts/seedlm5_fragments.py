@@ -222,6 +222,7 @@ def coder_by_level(model, known, width=32, added=None):
         table = {}
         records[set_name] = []
         split = {"leaf": [0, 0.0, 0], "known_edges": [0, 0.0, 0], "new_edge": [0, 0.0, 0]}  # tokens, nats, first
+        leaves = {}                                   # the same for leaves, by kind (argument, literal, ...)
         for index, task in enumerate(tasks):
             try:
                 level = first_unknown(pieces(task["gold"]), known)
@@ -264,13 +265,22 @@ def coder_by_level(model, known, width=32, added=None):
                 links = edges[index]
                 entry = split["leaf" if not links else "known_edges" if all(e in known["edges"] for e in links)
                               else "new_edge"]
+                cost, first = -float(log_probs[at - 1, tokens[at]]), int(log_probs[at - 1].argmax()) == tokens[at]
                 entry[0] += 1
-                entry[1] += -float(log_probs[at - 1, tokens[at]])
-                entry[2] += int(log_probs[at - 1].argmax()) == tokens[at]
+                entry[1] += cost
+                entry[2] += first
+                if not links:
+                    cell = leaves.setdefault(kind(gold[index]), [0, 0.0, 0])
+                    cell[0] += 1
+                    cell[1] += cost
+                    cell[2] += first
         out[set_name] = table
         surprisal[set_name] = {name: {"tokens": n, "mean_nats": round(total / n, 2) if n else None,
                                       "ranked_first": round(first / n, 3) if n else None}
                                for name, (n, total, first) in split.items()}
+        surprisal[set_name]["leaf_by_kind"] = {name: {"tokens": n, "mean_nats": round(total / n, 2),
+                                                      "ranked_first": round(first / n, 3)}
+                                               for name, (n, total, first) in sorted(leaves.items())}
     # Per-task outcomes in the sets' fixed order, so two coders can be compared task by task. They stay
     # local (outputs/ is not committed): the beyond set belongs to the held-out development fifth.
     local = ROOT / "outputs/seedlm/verdicts"

@@ -114,6 +114,48 @@
      "tokens": 86,
      "mean_nats": 4.71,
      "ranked_first": 0.372
+    },
+    "leaf_by_kind": {
+     "ARG": {
+      "tokens": 247,
+      "mean_nats": 1.36,
+      "ranked_first": 0.777
+     },
+     "INT": {
+      "tokens": 74,
+      "mean_nats": 5.9,
+      "ranked_first": 0.27
+     },
+     "LIT": {
+      "tokens": 32,
+      "mean_nats": 6.68,
+      "ranked_first": 0.281
+     },
+     "None": {
+      "tokens": 19,
+      "mean_nats": 3.35,
+      "ranked_first": 0.421
+     },
+     "STR": {
+      "tokens": 8,
+      "mean_nats": 12.86,
+      "ranked_first": 0.0
+     },
+     "VAR": {
+      "tokens": 83,
+      "mean_nats": 2.12,
+      "ranked_first": 0.735
+     },
+     "o": {
+      "tokens": 9,
+      "mean_nats": 2.14,
+      "ranked_first": 0.667
+     },
+     "o!": {
+      "tokens": 9,
+      "mean_nats": 0.25,
+      "ranked_first": 0.889
+     }
     }
    },
    "beyond": {
@@ -131,6 +173,23 @@
      "tokens": 24,
      "mean_nats": 9.36,
      "ranked_first": 0.0
+    },
+    "leaf_by_kind": {
+     "ARG": {
+      "tokens": 24,
+      "mean_nats": 3.4,
+      "ranked_first": 0.625
+     },
+     "INT": {
+      "tokens": 18,
+      "mean_nats": 7.97,
+      "ranked_first": 0.111
+     },
+     "VAR": {
+      "tokens": 20,
+      "mean_nats": 5.58,
+      "ranked_first": 0.4
+     }
     }
    }
   }
