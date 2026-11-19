@@ -110,8 +110,71 @@ def first_unknown(found, known):
     return "nothing (seen whole)"
 
 
+def incoming_edges(tokens):
+    """The edge into each prefix position (None for the root)."""
+    edges = [None] * len(tokens)
+    position = 0
+
+    def read():
+        nonlocal position
+        index, token = position, tokens[position]
+        position += 1
+        for slot in range(pyx.arity(token)):
+            edges[position] = (kind(token), slot, kind(tokens[position]))
+            read()
+        return index
+
+    read()
+    return edges
+
+
+def postfix_order(tokens):
+    """The prefix position of each postfix token (None for a scope opener), as post.to_postfix orders them."""
+    from mylittlellm.seedlm import post
+    order, position = [], 0
+
+    def read():
+        nonlocal position
+        index, token = position, tokens[position]
+        position += 1
+        return token, index, [read() for _ in range(pyx.arity(token))]
+
+    def emit(node):
+        token, index, children = node
+        if post.is_comprehension(token):
+            kind_, shapes = post.comprehension_shape(token)
+            elements = 2 if kind_ == "dict" else 1
+            rest, i = children[elements:], 0
+            for _, conditions in shapes:
+                emit(rest[i])
+                i += 1
+                order.append(None)
+                for _ in range(conditions):
+                    emit(rest[i])
+                    i += 1
+            for element in children[:elements]:
+                emit(element)
+        elif post.is_key(token):
+            for argument in children[2:]:
+                emit(argument)
+            emit(children[1])
+            order.append(None)
+            emit(children[0])
+        else:
+            for child in children:
+                emit(child)
+        order.append(index)
+
+    emit(read())
+    postfix = post.to_postfix(list(tokens))
+    if [tokens[i] for i in order if i is not None] != [t for t in postfix if not t.startswith(post.FOR)]:
+        raise ValueError("order mismatch")
+    return order
+
+
 def coder_by_level(model, known, width=32):
-    """{set: {level: {"programs", "first_correct"}}} for the coder's first verified program."""
+    """{set: {level: {"programs", "first_correct"}}} for the coder's first verified program, and the
+    teacher program's per-token surprisal split by whether the token's incoming edge is known."""
     import torch
     from mylittlellm.seedlm import coder4, language, post
     from seedlm3_discovery import beyond_cases, teacher_cases
@@ -119,9 +182,10 @@ def coder_by_level(model, known, width=32):
     torch.set_num_threads(4)
     net, vocabulary = coder4.load(ROOT / "outputs/seedlm" / f"{model}.pt")
     grammar = coder4.Grammar(vocabulary)
-    out = {}
+    out, surprisal = {}, {}
     for set_name, tasks in (("teacher_holdout", teacher_cases()), ("beyond", beyond_cases())):
         table = {}
+        split = {"known_edge": [0, 0.0, 0], "new_edge": [0, 0.0, 0]}      # tokens, nats, ranked first
         for task in tasks:
             try:
                 level = first_unknown(pieces(task["gold"]), known)
@@ -136,8 +200,29 @@ def coder_by_level(model, known, width=32):
             row = table.setdefault(level, {"programs": 0, "first_correct": 0})
             row["programs"] += 1
             row["first_correct"] += bool(verified) and task["judge"](verified[0])
+            try:
+                gold = list(task["gold"])
+                order, edges = postfix_order(gold), incoming_edges(gold)
+                tokens, side = coder4.encode(vocabulary, prefix, post.annotated(
+                    post.to_postfix(gold), task["args"], task["literals"], task["expected"], task["mode"]))
+            except (KeyError, ValueError):
+                continue
+            with torch.no_grad(), torch.autocast("cpu", dtype=torch.bfloat16):
+                logits = net(torch.tensor([tokens]), notes=torch.tensor([side]))[0]
+            log_probs = torch.log_softmax(logits.float(), dim=-1)
+            for j, index in enumerate(order):
+                if index is None or edges[index] is None:
+                    continue
+                at = len(prefix) + j
+                entry = split["known_edge" if edges[index] in known["edges"] else "new_edge"]
+                entry[0] += 1
+                entry[1] += -float(log_probs[at - 1, tokens[at]])
+                entry[2] += int(log_probs[at - 1].argmax()) == tokens[at]
         out[set_name] = table
-    return out
+        surprisal[set_name] = {name: {"tokens": n, "mean_nats": round(total / n, 2) if n else None,
+                                      "ranked_first": round(first / n, 3) if n else None}
+                               for name, (n, total, first) in split.items()}
+    return out, surprisal
 
 
 def main():
@@ -169,7 +254,9 @@ def main():
             entry["first_unknown"][label] = entry["first_unknown"].get(label, 0) + 1
         report[set_name] = entry
     if args.model:
-        report["coder"] = {"model": args.model, "width": 32, "by_first_unknown": coder_by_level(args.model, known)}
+        levels, surprisal = coder_by_level(args.model, known)
+        report["coder"] = {"model": args.model, "width": 32, "by_first_unknown": levels,
+                           "teacher_program_tokens": surprisal}
     (ROOT / args.output).write_text(json.dumps(report, indent=1) + "\n")
     print(json.dumps(report))
 
