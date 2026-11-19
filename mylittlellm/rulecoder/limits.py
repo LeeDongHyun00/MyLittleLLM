@@ -30,3 +30,18 @@ def time_limit(seconds):
     finally:
         signal.setitimer(signal.ITIMER_REAL, 0)
         signal.signal(signal.SIGALRM, previous)
+
+
+def cap_memory(gigabytes=8.0):
+    """Make a runaway allocation raise MemoryError in this process instead of getting it killed.
+
+    The wall-clock limit cannot stop a single C-level call: `list(range(a0 ** a1))` or `[0] * n` can
+    allocate gigabytes before the alarm is delivered, and the kernel then kills the whole evaluation.
+    With the data segment capped, that allocation fails inside the program, which counts as an error.
+    """
+    import resource
+    limit = int(gigabytes * 2 ** 30)
+    _, hard = resource.getrlimit(resource.RLIMIT_DATA)
+    if hard != resource.RLIM_INFINITY:
+        limit = min(limit, hard)
+    resource.setrlimit(resource.RLIMIT_DATA, (limit, hard))

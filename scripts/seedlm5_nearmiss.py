@@ -34,6 +34,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import torch
 
+from mylittlellm.rulecoder.limits import cap_memory
 from mylittlellm.rulecoder.tasks import ROOT
 from mylittlellm.seedlm import coder3, coder4, language, post
 from seedlm3_discovery import beyond_cases, teacher_cases
@@ -187,6 +188,7 @@ def main():
     parser.add_argument("--sets", nargs="+", default=["teacher", "beyond"])
     args = parser.parse_args()
     torch.set_num_threads(4)
+    cap_memory()      # a program's runaway allocation fails instead of killing the run
     net, vocabulary = coder4.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")
     grammar = coder4.Grammar(vocabulary)
     report = {"model": args.model, "width": args.width, "alternatives": args.alternatives}

@@ -23,6 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import torch
 
+from mylittlellm.rulecoder.limits import cap_memory
 from mylittlellm.rulecoder import backinfer as bi
 from mylittlellm.rulecoder.tasks import ROOT, parse_prompt
 from mylittlellm.seedlm import coder4, data2, language, post, pyx
@@ -101,6 +102,7 @@ def main():
                         help="also keep per-task held-out verdicts locally (outputs/seedlm/verdicts)")
     args = parser.parse_args()
     torch.set_num_threads(4)
+    cap_memory()      # a program's runaway allocation fails instead of killing the run
     net, vocabulary = coder4.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")
     grammar = coder4.Grammar(vocabulary)
     if args.command == "holdout":

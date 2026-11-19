@@ -25,7 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import torch
 
 from mylittlellm.rulecoder import backinfer as bi
-from mylittlellm.rulecoder.limits import Timeout, time_limit
+from mylittlellm.rulecoder.limits import cap_memory, time_limit, Timeout
 from mylittlellm.rulecoder.tasks import ROOT
 from mylittlellm.seedlm import coder3, coder4, language, post, pyx
 from seedlm2_ceiling import quick_ok
@@ -177,6 +177,7 @@ def main():
     parser.add_argument("--limit", type=int)
     args = parser.parse_args()
     torch.set_num_threads(4)
+    cap_memory()      # a program's runaway allocation fails instead of killing the run
     path = ROOT / "outputs/seedlm" / f"{args.model}.pt"
     kind = torch.load(path).get("kind")
     if kind == "post-coder":

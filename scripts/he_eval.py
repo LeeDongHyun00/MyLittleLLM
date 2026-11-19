@@ -17,6 +17,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from mylittlellm.rulecoder.limits import cap_memory
 from mylittlellm.rulecoder import backinfer as bi, humaneval as he, scoring
 from mylittlellm.rulecoder.pipeline import public_check
 from mylittlellm.rulecoder.stats import mcnemar_exact, wilson
@@ -112,6 +113,7 @@ def main():
         from mylittlellm.seedlm import propose2
         from seedlm2_tasks import code_for, load_reviewer, methods_for
         torch.set_num_threads(4)
+        cap_memory()      # a program's runaway allocation fails instead of killing the run
         net, vocabulary = propose2.load(ROOT / "outputs/seedlm" / f"{args.seedlm}.pt")
         arities = propose2.arity_table(vocabulary)
         reviewer = load_reviewer(args.reviewer)
@@ -145,6 +147,7 @@ def main():
             continue
         import torch
         torch.set_num_threads(4)
+        cap_memory()      # a program's runaway allocation fails instead of killing the run
         if label == "pyx":
             from mylittlellm.seedlm import coder3 as coder
             from seedlm3_tasks import pyx_methods as methods

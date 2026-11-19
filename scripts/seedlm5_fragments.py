@@ -34,6 +34,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from mylittlellm.rulecoder.limits import cap_memory
 from mylittlellm.rulecoder.tasks import ROOT
 from mylittlellm.seedlm import pyx
 from seedlm3_train import oneliner_items, teacher_held, teacher_task_items
@@ -198,6 +199,7 @@ def coder_by_level(model, known, width=32):
     from seedlm3_discovery import beyond_cases, teacher_cases
     from seedlm3_train import named_in
     torch.set_num_threads(4)
+    cap_memory()      # a program's runaway allocation fails instead of killing the run
     net, vocabulary = coder4.load(ROOT / "outputs/seedlm" / f"{model}.pt")
     grammar = coder4.Grammar(vocabulary)
     out, surprisal = {}, {}
