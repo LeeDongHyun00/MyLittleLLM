@@ -1,0 +1,1802 @@
+[
+ {
+  "id": "strings-001",
+  "category": "strings",
+  "description": "Given a string of dice rolls and a face character, return how many times that face was rolled.",
+  "entry_point": "count_die_face",
+  "inputs": [
+   "('3615266', '6')",
+   "('111111', '1')",
+   "('2345', '6')"
+  ],
+  "expression": "count_2(a0, a1)"
+ },
+ {
+  "id": "strings-002",
+  "category": "strings",
+  "description": "Write a function to turn an article title into a URL slug made of its lowercase words joined by hyphens.",
+  "entry_point": "title_slug",
+  "inputs": [
+   "('Hello World From Python',)",
+   "('  Spaced   Out  ',)",
+   "('One',)"
+  ],
+  "expression": "'-'.join(a0.lower().split())"
+ },
+ {
+  "id": "strings-003",
+  "category": "strings",
+  "description": "Write a function to tally the lowercase letters from 'a' to 'm' that appear in a string.",
+  "entry_point": "first_half_letters",
+  "inputs": [
+   "('hello world',)",
+   "('xyz',)",
+   "('abc nop',)"
+  ],
+  "expression": "sum('a' <= c <= 'm' for c in a0)"
+ },
+ {
+  "id": "strings-004",
+  "category": "strings",
+  "description": "Write a python function to confirm that a coupon code is non-empty and contains only letters and digits.",
+  "entry_point": "is_clean_coupon",
+  "inputs": [
+   "('SAVE20',)",
+   "('SAVE-20',)",
+   "('X9',)"
+  ],
+  "expression": "is_alphanumeric_1(a0)"
+ },
+ {
+  "id": "strings-005",
+  "category": "strings",
+  "description": "Write a python function to abbreviate a long word as its first letter, then the count of letters between the first and the last, then its last letter.",
+  "entry_point": "numeronym",
+  "inputs": [
+   "('internationalization',)",
+   "('localization',)",
+   "('cat',)"
+  ],
+  "expression": "a0[0] + str(len(a0) - 2) + a0[-1]"
+ },
+ {
+  "id": "strings-006",
+  "category": "strings",
+  "description": "Write a function to test whether a word contains every character of a second string.",
+  "entry_point": "uses_all_letters",
+  "inputs": [
+   "('elephant', 'pea')",
+   "('elephant', 'pez')",
+   "('cab', 'abc')"
+  ],
+  "expression": "all(c in a0 for c in a1)"
+ },
+ {
+  "id": "strings-007",
+  "category": "strings",
+  "description": "Write a python function to total the single digits scattered through an order code, ignoring letters and symbols.",
+  "entry_point": "order_code_digit_total",
+  "inputs": [
+   "('AB-12-C7',)",
+   "('XYZ',)",
+   "('9z9z9',)"
+  ],
+  "expression": "digit_sum_str_1(a0)"
+ },
+ {
+  "id": "strings-008",
+  "category": "strings",
+  "description": "Write a function to reply 'Found a match!' when a keyword occurs in a text regardless of case, and 'Not matched!' otherwise.",
+  "entry_point": "search_message",
+  "inputs": [
+   "('Python is FUN', 'fun')",
+   "('hello', 'bye')",
+   "('Data', 'TA')"
+  ],
+  "expression": "txt_match_message_1(has_substring_2(a0.lower(), a1.lower()))"
+ },
+ {
+  "id": "strings-009",
+  "category": "strings",
+  "description": "Write a function that tells whether a sentence is a tautogram, meaning every word starts with the same letter when case is ignored.",
+  "entry_point": "is_tautogram",
+  "inputs": [
+   "('Peter Piper picked peppers',)",
+   "('Peter picked apples',)",
+   "('silly snakes slither',)"
+  ],
+  "expression": "len(set(w[0].lower() for w in a0.split())) == 1"
+ },
+ {
+  "id": "strings-010",
+  "category": "strings",
+  "description": "Write a python function to produce, for a typesetting tool, the list of character counts of the words in a line of text.",
+  "entry_point": "word_widths",
+  "inputs": [
+   "('the cat sat on the mat',)",
+   "('extraordinary',)",
+   "('I am  here',)"
+  ],
+  "expression": "txt_word_lengths_1(a0)"
+ },
+ {
+  "id": "strings-011",
+  "category": "strings",
+  "description": "Given a file path, return the file name, which is the text after the last '/' character.",
+  "entry_point": "file_name_from_path",
+  "inputs": [
+   "('/home/user/notes.txt',)",
+   "('readme.md',)",
+   "('docs/2024/report.pdf',)"
+  ],
+  "expression": "a0.split('/')[-1]"
+ },
+ {
+  "id": "strings-012",
+  "category": "strings",
+  "description": "Write a function to pick the longest word of a sentence in which no letter repeats, preferring the earliest such word on ties.",
+  "entry_point": "longest_unrepeated_word",
+  "inputs": [
+   "('a letter arrived with stamps',)",
+   "('moon sun',)",
+   "('abc xyz',)"
+  ],
+  "expression": "max((w for w in a0.split() if len(set(w)) == len(w)), key=len)"
+ },
+ {
+  "id": "strings-013",
+  "category": "strings",
+  "description": "Write a function to put a shouted chat message into sentence case, with the first character uppercase and every other character lowercase.",
+  "entry_point": "sentence_case",
+  "inputs": [
+   "('HELLO THERE FRIEND',)",
+   "('wHy NoT',)",
+   "('ok',)"
+  ],
+  "expression": "txt_capitalize_1(a0)"
+ },
+ {
+  "id": "strings-014",
+  "category": "strings",
+  "description": "Write a function that strips the leading zeros from a number written as text, giving '0' when nothing else is left.",
+  "entry_point": "strip_leading_zeros",
+  "inputs": [
+   "('000123',)",
+   "('0000',)",
+   "('1050',)"
+  ],
+  "expression": "a0.lstrip('0') or '0'"
+ },
+ {
+  "id": "strings-015",
+  "category": "strings",
+  "description": "Create a function which groups words held in a list into a dictionary keyed by first letter, where each value lists the words with that initial in their original order.",
+  "entry_point": "group_by_initial",
+  "inputs": [
+   "(['ant', 'bee', 'ape', 'cow'],)",
+   "(['one'],)",
+   "(['dog', 'deer', 'duck'],)"
+  ],
+  "expression": "{w[0]: [v for v in a0 if v[0] == w[0]] for w in a0}"
+ },
+ {
+  "id": "strings-016",
+  "category": "strings",
+  "description": "Write a function to repair text typed on a sticky keyboard by collapsing each run of identical neighbouring characters into a single character.",
+  "entry_point": "fix_sticky_keys",
+  "inputs": [
+   "('heeelllo  thhere',)",
+   "('bookkeeper',)",
+   "('abcabc',)"
+  ],
+  "expression": "txt_squeeze_repeats_1(a0)"
+ },
+ {
+  "id": "strings-017",
+  "category": "strings",
+  "description": "Create a function which trims from the end of a sentence every trailing character found in '!?.'.",
+  "entry_point": "strip_end_marks",
+  "inputs": [
+   "('Really?!',)",
+   "('Stop...',)",
+   "('a.b',)"
+  ],
+  "expression": "a0.rstrip('!?.')"
+ },
+ {
+  "id": "strings-018",
+  "category": "strings",
+  "description": "Given a sentence, return the average number of characters per word.",
+  "entry_point": "mean_word_length",
+  "inputs": [
+   "('the cat sat',)",
+   "('a abc',)",
+   "('I am here',)"
+  ],
+  "expression": "sum(len(w) for w in a0.split()) / len(a0.split())"
+ },
+ {
+  "id": "strings-019",
+  "category": "strings",
+  "description": "Create a function which collapses every run of two or more copies of a chosen character in a string into one copy.",
+  "entry_point": "collapse_separator",
+  "inputs": [
+   "('a--b---c', '-')",
+   "('path//to///file', '/')",
+   "('aaa bb', 'b')"
+  ],
+  "expression": "txt_squeeze_char_2(a0, a1)"
+ },
+ {
+  "id": "strings-020",
+  "category": "strings",
+  "description": "Create a function which exchanges the letters 'a' and 'b' throughout a string, so each 'a' becomes 'b' and each 'b' becomes 'a'.",
+  "entry_point": "swap_a_and_b",
+  "inputs": [
+   "('abba',)",
+   "('banana',)",
+   "('xyz',)"
+  ],
+  "expression": "a0.translate(str.maketrans('ab', 'ba'))"
+ },
+ {
+  "id": "strings-021",
+  "category": "strings",
+  "description": "Create a function which builds a dictionary mapping each word of a sentence to its number of characters.",
+  "entry_point": "word_length_map",
+  "inputs": [
+   "('red green blue',)",
+   "('hi',)",
+   "('a bb a',)"
+  ],
+  "expression": "{w: len(w) for w in a0.split()}"
+ },
+ {
+  "id": "strings-022",
+  "category": "strings",
+  "description": "Write a function to turn a phone number written with spaces, dashes and brackets into the string of its digits.",
+  "entry_point": "dialable_number",
+  "inputs": [
+   "('(555) 123-4567',)",
+   "('+44 20 7946 0958',)",
+   "('0-800-FLOWERS',)"
+  ],
+  "expression": "digits_only_1(a0)"
+ },
+ {
+  "id": "strings-023",
+  "category": "strings",
+  "description": "Given a full name, return a login name made of the first letter of the first name followed by the last name, all in lowercase.",
+  "entry_point": "login_name",
+  "inputs": [
+   "('Ada Lovelace',)",
+   "('Grace Brewster Hopper',)",
+   "('ALAN TURING',)"
+  ],
+  "expression": "(a0.split()[0][0] + a0.split()[-1]).lower()"
+ },
+ {
+  "id": "strings-024",
+  "category": "strings",
+  "description": "Write a function to give a sorted list of the characters that occur more than once in a string.",
+  "entry_point": "repeated_characters",
+  "inputs": [
+   "('programming',)",
+   "('abc',)",
+   "('aabbcc',)"
+  ],
+  "expression": "sorted(set(c for c in a0 if a0.count(c) > 1))"
+ },
+ {
+  "id": "strings-025",
+  "category": "strings",
+  "description": "Write a function that echoes a word by writing it a given number of times with nothing in between.",
+  "entry_point": "echo_word",
+  "inputs": [
+   "('ha', 3)",
+   "('echo', 1)",
+   "('-=', 4)"
+  ],
+  "expression": "repeat_2(a0, a1)"
+ },
+ {
+  "id": "strings-026",
+  "category": "strings",
+  "description": "Write a function to pick the longest word of a book title, preferring the earliest one when several words tie.",
+  "entry_point": "longest_title_word",
+  "inputs": [
+   "('I love programming in Python',)",
+   "('cat dog emu',)",
+   "('a bb ccc bb',)"
+  ],
+  "expression": "max(a0.split(), key=len)"
+ },
+ {
+  "id": "strings-027",
+  "category": "strings",
+  "description": "Write a function to collect the hashtags of a post, meaning the words that start with '#', without the '#' sign.",
+  "entry_point": "extract_hashtags",
+  "inputs": [
+   "('Loving the #sun and #sea today',)",
+   "('no tags here',)",
+   "('#a #b c',)"
+  ],
+  "expression": "[w[1:] for w in a0.split() if w.startswith('#')]"
+ },
+ {
+  "id": "strings-028",
+  "category": "strings",
+  "description": "Write a function to clean a log message by deleting every occurrence of the tag '[DEBUG]' from it.",
+  "entry_point": "drop_debug_tag",
+  "inputs": [
+   "('[DEBUG] disk ok',)",
+   "('start [DEBUG]x[DEBUG] end',)",
+   "('[DEBUG][DEBUG]',)"
+  ],
+  "expression": "remove_sub_2(a0, '[DEBUG]')"
+ },
+ {
+  "id": "strings-029",
+  "category": "strings",
+  "description": "Write a function to lowercase the words of a sentence and keep only the first appearance of each word, as a list.",
+  "entry_point": "distinct_words_in_order",
+  "inputs": [
+   "('The cat and THE dog',)",
+   "('a A b',)",
+   "('one',)"
+  ],
+  "expression": "dedupe_1(a0.lower().split())"
+ },
+ {
+  "id": "strings-030",
+  "category": "strings",
+  "description": "Write a function to run-length encode a string, writing each run of equal neighbouring characters as its length followed by the character.",
+  "entry_point": "run_length_code",
+  "inputs": [
+   "('aaabcc',)",
+   "('wwwwwwwwww',)",
+   "('ab',)"
+  ],
+  "expression": "''.join(str(n) + c for n, c in run_lengths_1(a0))"
+ },
+ {
+  "id": "strings-031",
+  "category": "strings",
+  "description": "Write a function to encode a short code as the list of ASCII values of its characters.",
+  "entry_point": "ascii_codes",
+  "inputs": [
+   "('AZ',)",
+   "('a1!',)",
+   "('Hi',)"
+  ],
+  "expression": "txt_ord_each_1(a0)"
+ },
+ {
+  "id": "strings-032",
+  "category": "strings",
+  "description": "Given an email address, return its domain, which is everything after the '@' sign.",
+  "entry_point": "email_domain",
+  "inputs": [
+   "('alice@example.com',)",
+   "('bob@mail.co.uk',)",
+   "('x@y',)"
+  ],
+  "expression": "a0.split('@')[1]"
+ },
+ {
+  "id": "strings-033",
+  "category": "strings",
+  "description": "Write a function to give the GC content of a DNA strand as a percentage, that is 100 times the share of its characters that are 'G' or 'C', rounded to 1 decimal place.",
+  "entry_point": "gc_percentage",
+  "inputs": [
+   "('AGCTATAG',)",
+   "('ACG',)",
+   "('ATTA',)"
+  ],
+  "expression": "round(100 * sum(c in 'GC' for c in a0) / len(a0), 1)"
+ },
+ {
+  "id": "strings-034",
+  "category": "strings",
+  "description": "Write a function to scrub every punctuation mark out of a chat message while keeping letters, digits and spaces.",
+  "entry_point": "strip_chat_punctuation",
+  "inputs": [
+   "('Wait... what?! No way!',)",
+   "('e-mail me @ 5pm.',)",
+   "('plain words',)"
+  ],
+  "expression": "txt_no_punctuation_1(a0)"
+ },
+ {
+  "id": "strings-035",
+  "category": "strings",
+  "description": "Write a function to keep, with repeats and in order, the words of a first sentence that also appear in a second sentence.",
+  "entry_point": "words_also_in",
+  "inputs": [
+   "('the cat saw the dog', 'the dog barked')",
+   "('a b c', 'x y')",
+   "('red blue red', 'red')"
+  ],
+  "expression": "keep_common_2(a0.split(), a1.split())"
+ },
+ {
+  "id": "strings-036",
+  "category": "strings",
+  "description": "Write a python function to report the indices at which two equally long strings hold different characters.",
+  "entry_point": "mismatch_positions",
+  "inputs": [
+   "('flame', 'blame')",
+   "('abc', 'abc')",
+   "('abcd', 'abdc')"
+  ],
+  "expression": "[i for i in range(len(a0)) if a0[i] != a1[i]]"
+ },
+ {
+  "id": "strings-037",
+  "category": "strings",
+  "description": "Write a function to spin a ring of letters k steps to the right, so that the last k letters wrap around to the front.",
+  "entry_point": "spin_letter_ring",
+  "inputs": [
+   "('abcdef', 2)",
+   "('rotor', 1)",
+   "('python', 4)"
+  ],
+  "expression": "txt_rotate_right_2(a0, a1)"
+ },
+ {
+  "id": "strings-038",
+  "category": "strings",
+  "description": "Write a function to give a sorted list of the distinct characters that occur in both of two strings.",
+  "entry_point": "shared_characters",
+  "inputs": [
+   "('hello', 'world')",
+   "('abc', 'xyz')",
+   "('banana', 'cabana')"
+  ],
+  "expression": "sorted(set(a0) & set(a1))"
+ },
+ {
+  "id": "strings-039",
+  "category": "strings",
+  "description": "Write a python function to tally how often each letter occurs in a string, ignoring case and skipping non-letters, as a dictionary keyed by lowercase letter in order of first appearance.",
+  "entry_point": "letter_frequencies",
+  "inputs": [
+   "('Hello!',)",
+   "('AaB',)",
+   "('1 2 3',)"
+  ],
+  "expression": "{c: a0.lower().count(c) for c in a0.lower() if c.isalpha()}"
+ },
+ {
+  "id": "strings-040",
+  "category": "strings",
+  "description": "Write a function to order words held in a list by length, from the shortest to the longest, keeping words of equal length in their original order.",
+  "entry_point": "order_by_length",
+  "inputs": [
+   "(['banana', 'kiwi', 'apple', 'fig'],)",
+   "(['ccc', 'a', 'bb'],)",
+   "(['dd', 'aa', 'c'],)"
+  ],
+  "expression": "sort_by_len_1(a0)"
+ },
+ {
+  "id": "strings-041",
+  "category": "strings",
+  "description": "Write a function to report a pair giving how many vowels and how many consonants a word has, ignoring case.",
+  "entry_point": "vowel_consonant_split",
+  "inputs": [
+   "('Education',)",
+   "('rhythm',)",
+   "('Queue',)"
+  ],
+  "expression": "(vowel_count_1(a0), txt_consonant_count_1(a0))"
+ },
+ {
+  "id": "strings-042",
+  "category": "strings",
+  "description": "Write a function to give the index of the first vowel in a word, treating uppercase vowels the same as lowercase ones.",
+  "entry_point": "first_vowel_index",
+  "inputs": [
+   "('strength',)",
+   "('Apple',)",
+   "('rhythmic',)"
+  ],
+  "expression": "[i for i, c in enumerate(a0) if is_vowel_1(c)][0]"
+ },
+ {
+  "id": "strings-043",
+  "category": "strings",
+  "description": "Write a function to measure the length of every city name in a list.",
+  "entry_point": "city_name_lengths",
+  "inputs": [
+   "(['Paris', 'Rome', 'New York'],)",
+   "(['Ur'],)",
+   "(['Oslo', 'Lima', 'Kyiv'],)"
+  ],
+  "expression": "len_each_1(a0)"
+ },
+ {
+  "id": "strings-044",
+  "category": "strings",
+  "description": "Create a function which labels a single letter 'Vowel' if it is a vowel in either case and 'Not Vowel' otherwise.",
+  "entry_point": "vowel_verdict",
+  "inputs": [
+   "('E',)",
+   "('k',)",
+   "('u',)"
+  ],
+  "expression": "'Vowel' if is_vowel_1(a0) else 'Not Vowel'"
+ },
+ {
+  "id": "strings-045",
+  "category": "strings",
+  "description": "Write a function to map each character of a string to the last index at which it occurs.",
+  "entry_point": "last_seen_index",
+  "inputs": [
+   "('abca',)",
+   "('xx',)",
+   "('hello',)"
+  ],
+  "expression": "{c: i for i, c in enumerate(a0)}"
+ },
+ {
+  "id": "strings-046",
+  "category": "strings",
+  "description": "Write a function that formats a movie name so that every word starts with an uppercase letter and continues in lowercase.",
+  "entry_point": "format_movie_name",
+  "inputs": [
+   "('the GODFATHER returns',)",
+   "('jaws',)",
+   "('back to the future',)"
+  ],
+  "expression": "title_1(a0)"
+ },
+ {
+  "id": "strings-047",
+  "category": "strings",
+  "description": "Write a function that cuts out the character at a given zero-based position of a string.",
+  "entry_point": "delete_char_at",
+  "inputs": [
+   "('hello', 1)",
+   "('python', 5)",
+   "('abc', 0)"
+  ],
+  "expression": "a0[:a1] + a0[a1 + 1:]"
+ },
+ {
+  "id": "strings-048",
+  "category": "strings",
+  "description": "Write a function to evaluate a sum written as whole numbers joined by '+' signs with no spaces.",
+  "entry_point": "evaluate_sum",
+  "inputs": [
+   "('12+7+30',)",
+   "('5',)",
+   "('100+200',)"
+  ],
+  "expression": "sum(int(x) for x in a0.split('+'))"
+ },
+ {
+  "id": "strings-049",
+  "category": "strings",
+  "description": "Write a function to report whether a lowercase word contains the letter 'q'.",
+  "entry_point": "mentions_q",
+  "inputs": [
+   "('quiet',)",
+   "('seven',)",
+   "('iraq',)"
+  ],
+  "expression": "has_letter_q_1(a0)"
+ },
+ {
+  "id": "strings-050",
+  "category": "strings",
+  "description": "Write a function to mask an email address by keeping the first character of the user name, replacing the rest of the user name with '*' characters and keeping everything from the '@' sign on.",
+  "entry_point": "mask_email",
+  "inputs": [
+   "('john.doe@mail.com',)",
+   "('ab@x.io',)",
+   "('z@q.org',)"
+  ],
+  "expression": "a0[0] + '*' * (a0.index('@') - 1) + a0[a0.index('@'):]"
+ },
+ {
+  "id": "strings-051",
+  "category": "strings",
+  "description": "Write a function to produce every pair of neighbouring characters of a string as 2-character strings, from left to right.",
+  "entry_point": "char_bigrams",
+  "inputs": [
+   "('hello',)",
+   "('ab',)",
+   "('abcd',)"
+  ],
+  "expression": "[a0[i:i + 2] for i in range(len(a0) - 1)]"
+ },
+ {
+  "id": "strings-052",
+  "category": "strings",
+  "description": "Write a function to glue several words held in a list into one text, placing a given separator of at most 2 characters between neighbouring words.",
+  "entry_point": "join_with_separator",
+  "inputs": [
+   "(['red', 'green', 'blue'], ', ')",
+   "(['a', 'b'], '-')",
+   "(['solo'], '+')"
+  ],
+  "expression": "join_with_2(a0, a1)"
+ },
+ {
+  "id": "strings-053",
+  "category": "strings",
+  "description": "Write a python function to answer 'Even' if a word contains an even number of vowels, ignoring case, and 'Odd' otherwise.",
+  "entry_point": "vowel_parity",
+  "inputs": [
+   "('Book',)",
+   "('cat',)",
+   "('rhythm',)"
+  ],
+  "expression": "'Even' if vowel_count_1(a0) % 2 == 0 else 'Odd'"
+ },
+ {
+  "id": "strings-054",
+  "category": "strings",
+  "description": "Write a function to collect the words of a sentence that have at least 2 letters and read the same backwards.",
+  "entry_point": "palindrome_words",
+  "inputs": [
+   "('mom and dad saw a racecar',)",
+   "('no palindromes here',)",
+   "('a level eye',)"
+  ],
+  "expression": "[w for w in a0.split() if len(w) > 1 and w == w[::-1]]"
+ },
+ {
+  "id": "strings-055",
+  "category": "strings",
+  "description": "Write a function to decide whether a forum post is shouting, meaning it has cased letters and all of them are uppercase.",
+  "entry_point": "is_shouting",
+  "inputs": [
+   "('STOP DOING THAT!',)",
+   "('Stop doing that',)",
+   "('OK 100%',)"
+  ],
+  "expression": "is_uppercase_1(a0)"
+ },
+ {
+  "id": "strings-056",
+  "category": "strings",
+  "description": "Write a function to label a sentence 'Question' if it ends with '?' and 'Not Question' otherwise.",
+  "entry_point": "question_verdict",
+  "inputs": [
+   "('How are you?',)",
+   "('I am fine.',)",
+   "('Really?',)"
+  ],
+  "expression": "'Question' if a0.endswith('?') else 'Not Question'"
+ },
+ {
+  "id": "strings-057",
+  "category": "strings",
+  "description": "Create a function which collects the words of a sentence that end with 'ing'.",
+  "entry_point": "ing_words",
+  "inputs": [
+   "('singing and dancing all evening',)",
+   "('no match',)",
+   "('king ring rings',)"
+  ],
+  "expression": "[w for w in a0.split() if w.endswith('ing')]"
+ },
+ {
+  "id": "strings-058",
+  "category": "strings",
+  "description": "Write a function that trims the trailing whitespace from a line of source code while leaving its indentation alone.",
+  "entry_point": "trim_line_end",
+  "inputs": [
+   "('    x = 1   ',)",
+   "('print(2)\\t\\n',)",
+   "('  pass ',)"
+  ],
+  "expression": "txt_rstrip_1(a0)"
+ },
+ {
+  "id": "strings-059",
+  "category": "strings",
+  "description": "Write a function that pads a ticket number string with leading zeros until it is 6 characters long.",
+  "entry_point": "pad_ticket_number",
+  "inputs": [
+   "('42',)",
+   "('123456',)",
+   "('7',)"
+  ],
+  "expression": "a0.zfill(6)"
+ },
+ {
+  "id": "strings-060",
+  "category": "strings",
+  "description": "Write a function to give a lowercase sentence headline style, where every word longer than 3 characters gets an uppercase first letter.",
+  "entry_point": "headline_case",
+  "inputs": [
+   "('the lord of the rings',)",
+   "('a tale of two cities',)",
+   "('it is fun',)"
+  ],
+  "expression": "' '.join(w.capitalize() if len(w) > 3 else w for w in a0.split())"
+ },
+ {
+  "id": "strings-061",
+  "category": "strings",
+  "description": "Write a function to break a text into word tokens, where a token is a run of letters, digits or underscores and punctuation is skipped.",
+  "entry_point": "word_tokens",
+  "inputs": [
+   "('Hello, world! How are you?',)",
+   "('snake_case-name',)",
+   "('...',)"
+  ],
+  "expression": "words_1(a0)"
+ },
+ {
+  "id": "strings-062",
+  "category": "strings",
+  "description": "Write a function that normalizes an email address by trimming the whitespace around it and converting it to lowercase.",
+  "entry_point": "normalize_email",
+  "inputs": [
+   "('  John.Doe@Example.COM ',)",
+   "('a@b.c',)",
+   "('\\tMAIL@X.ORG\\n',)"
+  ],
+  "expression": "a0.strip().lower()"
+ },
+ {
+  "id": "strings-063",
+  "category": "strings",
+  "description": "Write a function to number the lines of a text, putting the 1-based line number and ': ' in front of every line and keeping newline characters between lines.",
+  "entry_point": "number_lines",
+  "inputs": [
+   "('first\\nsecond',)",
+   "('only',)",
+   "('a\\nb\\nc',)"
+  ],
+  "expression": "'\\n'.join(str(i + 1) + ': ' + l for i, l in enumerate(a0.split('\\n')))"
+ },
+ {
+  "id": "strings-064",
+  "category": "strings",
+  "description": "Write a python function to alphabetize the items of a space-separated lowercase shopping list and join them back with single spaces.",
+  "entry_point": "alphabetize_shopping_list",
+  "inputs": [
+   "('milk eggs bread apples',)",
+   "('zucchini apricots',)",
+   "('tea coffee tea',)"
+  ],
+  "expression": "txt_sort_words_1(a0)"
+ },
+ {
+  "id": "strings-065",
+  "category": "strings",
+  "description": "Write a function to answer 'Valid' for a postal code made of exactly 5 digits and 'Invalid' for anything else.",
+  "entry_point": "zip_code_verdict",
+  "inputs": [
+   "('90210',)",
+   "('9021',)",
+   "('9021O',)"
+  ],
+  "expression": "txt_valid_invalid_1(len(a0) == 5 and a0.isdigit())"
+ },
+ {
+  "id": "strings-066",
+  "category": "strings",
+  "description": "Given some words in a list together with a letter, return how many times that letter appears across all of them.",
+  "entry_point": "letter_total_in_words",
+  "inputs": [
+   "(['banana', 'apple', 'cherry'], 'a')",
+   "(['xyz'], 'q')",
+   "(['ee', 'e', 'bee'], 'e')"
+  ],
+  "expression": "sum(w.count(a1) for w in a0)"
+ },
+ {
+  "id": "strings-067",
+  "category": "strings",
+  "description": "Write a python function to abbreviate a weekday name to its first 3 letters.",
+  "entry_point": "weekday_abbreviation",
+  "inputs": [
+   "('Wednesday',)",
+   "('Friday',)",
+   "('Sunday',)"
+  ],
+  "expression": "take_2(a0, 3)"
+ },
+ {
+  "id": "strings-068",
+  "category": "strings",
+  "description": "Given a piece of text, add up the whole numbers written in it and return the total.",
+  "entry_point": "total_of_numbers",
+  "inputs": [
+   "('room 12 has 3 beds',)",
+   "('none',)",
+   "('a1b22c333',)"
+  ],
+  "expression": "sum(numbers_in_1(a0))"
+ },
+ {
+  "id": "strings-069",
+  "category": "strings",
+  "description": "Write a python function to order a list of words by their final letter, keeping words that end with the same letter in their original order.",
+  "entry_point": "sort_by_final_letter",
+  "inputs": [
+   "(['apple', 'kiwi', 'banana', 'fig'],)",
+   "(['cat', 'dog', 'eat'],)",
+   "(['zb', 'ya', 'xc'],)"
+  ],
+  "expression": "sorted(a0, key=lambda w: w[-1])"
+ },
+ {
+  "id": "strings-070",
+  "category": "strings",
+  "description": "Given a full name, return its initials by keeping only the uppercase letters.",
+  "entry_point": "name_initials",
+  "inputs": [
+   "('John Ronald Reuel Tolkien',)",
+   "('Mary-Kate Olsen',)",
+   "('ada lovelace',)"
+  ],
+  "expression": "upper_only_1(a0)"
+ },
+ {
+  "id": "strings-071",
+  "category": "strings",
+  "description": "Write a function to hide a card number on a receipt by replacing every character except the last 4 with '#'.",
+  "entry_point": "mask_card_number",
+  "inputs": [
+   "('1234567812345678',)",
+   "('98765',)",
+   "('4321',)"
+  ],
+  "expression": "'#' * (len(a0) - 4) + a0[-4:]"
+ },
+ {
+  "id": "strings-072",
+  "category": "strings",
+  "description": "Write a function to discard the words of a sentence that have n or fewer characters and join the remaining words with single spaces.",
+  "entry_point": "drop_short_words",
+  "inputs": [
+   "('a quick brown fox jumps', 3)",
+   "('to be or not', 2)",
+   "('hello world', 5)"
+  ],
+  "expression": "' '.join(w for w in a0.split() if len(w) > a1)"
+ },
+ {
+  "id": "strings-073",
+  "category": "strings",
+  "description": "Write a function to verify that a meter reading consists solely of digit characters.",
+  "entry_point": "is_meter_reading",
+  "inputs": [
+   "('004213',)",
+   "('42.13',)",
+   "('12a4',)"
+  ],
+  "expression": "is_digits_only_1(a0)"
+ },
+ {
+  "id": "strings-074",
+  "category": "strings",
+  "description": "Create a function which highlights a keyword inside a sentence by rewriting every occurrence of it in uppercase.",
+  "entry_point": "highlight_keyword",
+  "inputs": [
+   "('the cat sat on the mat', 'at')",
+   "('hello world', 'world')",
+   "('abc', 'x')"
+  ],
+  "expression": "a0.replace(a1, a1.upper())"
+ },
+ {
+  "id": "strings-075",
+  "category": "strings",
+  "description": "Write a python function to spell backwards every word of a sentence that is longer than 4 characters, leaving shorter words as they are.",
+  "entry_point": "reverse_long_words",
+  "inputs": [
+   "('jumps over the lazy dog',)",
+   "('hello big world',)",
+   "('abcd abcde',)"
+  ],
+  "expression": "' '.join(w[::-1] if len(w) > 4 else w for w in a0.split())"
+ },
+ {
+  "id": "strings-076",
+  "category": "strings",
+  "description": "Write a function to detect whether a username contains a forbidden fragment as one contiguous piece, matching case exactly.",
+  "entry_point": "contains_forbidden_fragment",
+  "inputs": [
+   "('superadmin99', 'admin')",
+   "('Administrator', 'admin')",
+   "('a_d_m_i_n', 'admin')"
+  ],
+  "expression": "has_substring_2(a0, a1)"
+ },
+ {
+  "id": "strings-077",
+  "category": "strings",
+  "description": "Given a position in the alphabet from 1 to 26, return the uppercase letter found there, where 1 stands for 'A'.",
+  "entry_point": "letter_at_position",
+  "inputs": [
+   "(8,)",
+   "(1,)",
+   "(26,)"
+  ],
+  "expression": "chr(ord('A') + a0 - 1)"
+ },
+ {
+  "id": "strings-078",
+  "category": "strings",
+  "description": "Given a sentence and a list of stop words, return the sentence without those words, joined with single spaces.",
+  "entry_point": "remove_stop_words",
+  "inputs": [
+   "('the cat sat on the mat', ['the', 'on'])",
+   "('a b c', ['x'])",
+   "('is it', ['is', 'it'])"
+  ],
+  "expression": "' '.join(w for w in a0.split() if w not in a1)"
+ },
+ {
+  "id": "strings-079",
+  "category": "strings",
+  "description": "Create a function which reports the zero-based index where a substring occurs for the last time in a text that contains it.",
+  "entry_point": "last_match_index",
+  "inputs": [
+   "('abcabcabc', 'bc')",
+   "('hello world', 'l')",
+   "('one two one', 'one')"
+  ],
+  "expression": "txt_rfind_2(a0, a1)"
+ },
+ {
+  "id": "strings-080",
+  "category": "strings",
+  "description": "Write a function to measure the indentation of a code line, meaning how many whitespace characters come before its first visible character.",
+  "entry_point": "indentation_width",
+  "inputs": [
+   "('    return x',)",
+   "('print(1)',)",
+   "('\\t\\tpass',)"
+  ],
+  "expression": "len(a0) - len(a0.lstrip())"
+ },
+ {
+  "id": "strings-081",
+  "category": "strings",
+  "description": "Write a function to turn a full name into initials, writing the uppercase first letter of each part followed by '.'.",
+  "entry_point": "dotted_initials",
+  "inputs": [
+   "('john ronald tolkien',)",
+   "('Ada Lovelace',)",
+   "('cher',)"
+  ],
+  "expression": "''.join(w[0].upper() + '.' for w in a0.split())"
+ },
+ {
+  "id": "strings-082",
+  "category": "strings",
+  "description": "Write a function to rewrite every product code in a list in uppercase letters.",
+  "entry_point": "normalize_codes",
+  "inputs": [
+   "(['ab12', 'cd-3'],)",
+   "(['Xy'],)",
+   "(['ok', 'OK', 'Ok'],)"
+  ],
+  "expression": "upper_each_1(a0)"
+ },
+ {
+  "id": "strings-083",
+  "category": "strings",
+  "description": "Write a function to interpret a text made only of the characters '0' and '1' as a binary numeral and give back the integer it denotes.",
+  "entry_point": "binary_text_value",
+  "inputs": [
+   "('1011',)",
+   "('0',)",
+   "('11111111',)"
+  ],
+  "expression": "int(a0, 2)"
+ },
+ {
+  "id": "strings-084",
+  "category": "strings",
+  "description": "Write a function to encode a string by replacing each character with the character whose code is one higher.",
+  "entry_point": "shift_codes_up",
+  "inputs": [
+   "('HAL',)",
+   "('abc',)",
+   "('09',)"
+  ],
+  "expression": "''.join(chr(ord(c) + 1) for c in a0)"
+ },
+ {
+  "id": "strings-085",
+  "category": "strings",
+  "description": "Write a function to read all integers from a temperature log, keeping the minus sign of values below zero.",
+  "entry_point": "temperature_readings",
+  "inputs": [
+   "('Mon -3, Tue 5, Wed -12',)",
+   "('low -40 high -2',)",
+   "('drop to -7 then 10',)"
+  ],
+  "expression": "txt_signed_ints_1(a0)"
+ },
+ {
+  "id": "strings-086",
+  "category": "strings",
+  "description": "Write a function to answer 'Yes' if a name spells the same backwards once letter case is ignored, and 'No' otherwise.",
+  "entry_point": "name_palindrome_verdict",
+  "inputs": [
+   "('Hannah',)",
+   "('Henry',)",
+   "('Otto',)"
+  ],
+  "expression": "txt_yes_no_1(is_palindrome_1(a0.lower()))"
+ },
+ {
+  "id": "strings-087",
+  "category": "strings",
+  "description": "Create a function which picks the word of a sentence with the most vowels, taking the earliest one when there is a tie.",
+  "entry_point": "most_vowel_word",
+  "inputs": [
+   "('the beautiful sunrise',)",
+   "('sky fly',)",
+   "('an idea',)"
+  ],
+  "expression": "max(a0.split(), key=vowel_count_1)"
+ },
+ {
+  "id": "strings-088",
+  "category": "strings",
+  "description": "Write a python function to tally the consonants of a phrase, where a consonant is any letter other than a, e, i, o and u.",
+  "entry_point": "consonant_tally",
+  "inputs": [
+   "('Programming 101',)",
+   "('aeiou',)",
+   "('Sky High!',)"
+  ],
+  "expression": "txt_consonant_count_1(a0)"
+ },
+ {
+  "id": "strings-089",
+  "category": "strings",
+  "description": "Write a function to interpret a number written with commas between its digit groups, giving back its integer value.",
+  "entry_point": "parse_grouped_number",
+  "inputs": [
+   "('1,234,567',)",
+   "('999',)",
+   "('10,000',)"
+  ],
+  "expression": "int(a0.replace(',', ''))"
+ },
+ {
+  "id": "strings-090",
+  "category": "strings",
+  "description": "Write a function that builds an uppercase acronym from the first letter of every word of a phrase.",
+  "entry_point": "make_acronym",
+  "inputs": [
+   "('portable network graphics',)",
+   "('As Soon As Possible',)",
+   "('laugh out loud',)"
+  ],
+  "expression": "''.join(w[0] for w in a0.split()).upper()"
+ },
+ {
+  "id": "strings-091",
+  "category": "strings",
+  "description": "Write a function to read a comma-separated tag line into a list of tags, trimming the spaces around each tag.",
+  "entry_point": "parse_tags",
+  "inputs": [
+   "('python, data science ,ml',)",
+   "('a,b',)",
+   "(' x , y , z ',)"
+  ],
+  "expression": "split_comma_1(a0)"
+ },
+ {
+  "id": "strings-092",
+  "category": "strings",
+  "description": "Write a function to test whether a lowercase phrase reads the same in both directions once all its spaces are removed.",
+  "entry_point": "palindrome_without_spaces",
+  "inputs": [
+   "('never odd or even',)",
+   "('hello world',)",
+   "('step on no pets',)"
+  ],
+  "expression": "a0.replace(' ', '') == a0.replace(' ', '')[::-1]"
+ },
+ {
+  "id": "strings-093",
+  "category": "strings",
+  "description": "Write a function to score a lowercase word by adding up the alphabet positions of its letters, where 'a' is worth 1 and 'z' is worth 26.",
+  "entry_point": "word_letter_score",
+  "inputs": [
+   "('abc',)",
+   "('z',)",
+   "('hello',)"
+  ],
+  "expression": "sum(ord(c) - ord('a') + 1 for c in a0)"
+ },
+ {
+  "id": "strings-094",
+  "category": "strings",
+  "description": "Write a function to fill a message template by replacing every occurrence of a placeholder with a value.",
+  "entry_point": "fill_template",
+  "inputs": [
+   "('Hi NAME, bye NAME', 'NAME', 'Ann')",
+   "('Total: X USD', 'X', '42')",
+   "('{a}{a}{b}', '{a}', '1')"
+  ],
+  "expression": "replace_3(a0, a1, a2)"
+ },
+ {
+  "id": "strings-095",
+  "category": "strings",
+  "description": "Write a function to turn a phrase into a hashtag by writing each word with an uppercase first letter and a lowercase rest, removing the spaces and putting '#' in front.",
+  "entry_point": "make_hashtag",
+  "inputs": [
+   "('happy new year',)",
+   "('python',)",
+   "('I love NYC',)"
+  ],
+  "expression": "'#' + a0.title().replace(' ', '')"
+ },
+ {
+  "id": "strings-096",
+  "category": "strings",
+  "description": "Write a function to tally the words of a sentence whose first letter is a vowel, in either case.",
+  "entry_point": "vowel_initial_words",
+  "inputs": [
+   "('An apple is on the table',)",
+   "('my dry gym',)",
+   "('Under Over',)"
+  ],
+  "expression": "sum(is_vowel_1(w[0]) for w in a0.split())"
+ },
+ {
+  "id": "strings-097",
+  "category": "strings",
+  "description": "Write a function to pick out, for a word game, the words of a sentence that have exactly 5 characters.",
+  "entry_point": "five_letter_words",
+  "inputs": [
+   "('the happy dog barks loudly at night',)",
+   "('one two three',)",
+   "('a bc def',)"
+  ],
+  "expression": "of_length_2(a0, 5)"
+ },
+ {
+  "id": "strings-098",
+  "category": "strings",
+  "description": "Write a function to compute how many whitespace-separated words of a lowercase sentence are exactly 'the'.",
+  "entry_point": "count_word_the",
+  "inputs": [
+   "('the cat ate the other mouse',)",
+   "('then there',)",
+   "('the end',)"
+  ],
+  "expression": "a0.split().count('the')"
+ },
+ {
+  "id": "strings-099",
+  "category": "strings",
+  "description": "Given a list of labels, return those that contain at least one digit.",
+  "entry_point": "labels_with_digits",
+  "inputs": [
+   "(['abc', 'a1', '2b', 'cd'],)",
+   "(['none'],)",
+   "(['v2', 'x9y'],)"
+  ],
+  "expression": "[s for s in a0 if any(c.isdigit() for c in s)]"
+ },
+ {
+  "id": "strings-100",
+  "category": "strings",
+  "description": "Write a function to pull every whole number out of an invoice line, giving them back as integers in order.",
+  "entry_point": "invoice_numbers",
+  "inputs": [
+   "('qty 3 x item 1042 at 15 each',)",
+   "('no figures',)",
+   "('A7B88',)"
+  ],
+  "expression": "numbers_in_1(a0)"
+ },
+ {
+  "id": "strings-101",
+  "category": "strings",
+  "description": "Write a function to shorten a label, keeping it unchanged if it has at most 5 characters and otherwise keeping its first 5 characters followed by '.'.",
+  "entry_point": "shorten_label",
+  "inputs": [
+   "('information',)",
+   "('data',)",
+   "('table',)"
+  ],
+  "expression": "a0 if len(a0) <= 5 else a0[:5] + '.'"
+ },
+ {
+  "id": "strings-102",
+  "category": "strings",
+  "description": "Write a function to report every zero-based position at which a chosen character occurs in a string.",
+  "entry_point": "char_positions",
+  "inputs": [
+   "('banana', 'a')",
+   "('hello', 'z')",
+   "('a-b-c', '-')"
+  ],
+  "expression": "[i for i, c in enumerate(a0) if c == a1]"
+ },
+ {
+  "id": "strings-103",
+  "category": "strings",
+  "description": "Write a python function to read every decimal number, including negative ones, from a line of sensor output and return them as floats.",
+  "entry_point": "sensor_values",
+  "inputs": [
+   "('t=21.5 h=40.25 p=-3.0',)",
+   "('x 1.5 y 2',)",
+   "('readings: 3.14, 2.71',)"
+  ],
+  "expression": "txt_floats_1(a0)"
+ },
+ {
+  "id": "strings-104",
+  "category": "strings",
+  "description": "Write a function to splice a second string into a first string so that it begins at a given index.",
+  "entry_point": "insert_text_at",
+  "inputs": [
+   "('helloworld', ', ', 5)",
+   "('abc', 'X', 0)",
+   "('abc', 'yz', 3)"
+  ],
+  "expression": "a0[:a2] + a1 + a0[a2:]"
+ },
+ {
+  "id": "strings-105",
+  "category": "strings",
+  "description": "Write a function to report, for each character of a second string, how many times it occurs in a first string, as a list.",
+  "entry_point": "letter_counts_for",
+  "inputs": [
+   "('hello world', 'lo')",
+   "('banana', 'abc')",
+   "('aaa', 'a')"
+  ],
+  "expression": "[a0.count(c) for c in a1]"
+ },
+ {
+  "id": "strings-106",
+  "category": "strings",
+  "description": "Write a python function to tally the vowels in a song title, treating uppercase and lowercase vowels alike.",
+  "entry_point": "count_title_vowels",
+  "inputs": [
+   "('Yellow Submarine',)",
+   "('Rhythm Of The Rain',)",
+   "('ABBA Gold',)"
+  ],
+  "expression": "vowel_count_1(a0)"
+ },
+ {
+  "id": "strings-107",
+  "category": "strings",
+  "description": "Write a function to strip the prefix 'un' from a word that starts with it and return any other word unchanged.",
+  "entry_point": "drop_un_prefix",
+  "inputs": [
+   "('undo',)",
+   "('unnamed',)",
+   "('sunny',)"
+  ],
+  "expression": "a0[2:] if a0.startswith('un') else a0"
+ },
+ {
+  "id": "strings-108",
+  "category": "strings",
+  "description": "Write a function that capitalizes every word of a sentence, making only its first character uppercase and the rest lowercase, and joins the words with single spaces.",
+  "entry_point": "capitalize_words",
+  "inputs": [
+   "(\"don't STOP me now\",)",
+   "('hello world',)",
+   "('a  b',)"
+  ],
+  "expression": "' '.join(w.capitalize() for w in a0.split())"
+ },
+ {
+  "id": "strings-109",
+  "category": "strings",
+  "description": "Create a function which builds a cipher keyword from a phrase by keeping each character only where it first appears, in the original order.",
+  "entry_point": "cipher_keyword",
+  "inputs": [
+   "('mississippi',)",
+   "('hello world',)",
+   "('Aardvark',)"
+  ],
+  "expression": "txt_dedupe_chars_1(a0)"
+ },
+ {
+  "id": "strings-110",
+  "category": "strings",
+  "description": "Given a clock time written as 'hh:mm', return the number of minutes after midnight, with 60 minutes in an hour.",
+  "entry_point": "minutes_since_midnight",
+  "inputs": [
+   "('01:30',)",
+   "('00:05',)",
+   "('23:59',)"
+  ],
+  "expression": "int(a0[:2]) * 60 + int(a0[3:])"
+ },
+ {
+  "id": "strings-111",
+  "category": "strings",
+  "description": "Given a line of integers separated by spaces, return the largest of them as an integer.",
+  "entry_point": "largest_listed_number",
+  "inputs": [
+   "('3 -1 42 7',)",
+   "('-5 -2 -9',)",
+   "('8 10',)"
+  ],
+  "expression": "max(int(x) for x in a0.split())"
+ },
+ {
+  "id": "strings-112",
+  "category": "strings",
+  "description": "Write a function that tells whether a line of a document begins with a digit, as numbered list items do.",
+  "entry_point": "is_numbered_line",
+  "inputs": [
+   "('1. Buy milk',)",
+   "('- Buy eggs',)",
+   "('10) Call mom',)"
+  ],
+  "expression": "starts_with_digit_1(a0)"
+ },
+ {
+  "id": "strings-113",
+  "category": "strings",
+  "description": "Given a configuration setting, cut it at its first '=' sign and return the key and the value as a tuple.",
+  "entry_point": "parse_setting",
+  "inputs": [
+   "('mode=dark',)",
+   "('url=a=b',)",
+   "('x=',)"
+  ],
+  "expression": "tuple(a0.split('=', 1))"
+ },
+ {
+  "id": "strings-114",
+  "category": "strings",
+  "description": "Create a function which tells whether a string is a hex color code, meaning a '#' followed by exactly 6 characters from '0123456789abcdef' in either case.",
+  "entry_point": "is_hex_color",
+  "inputs": [
+   "('#1a2B3c',)",
+   "('#12345G',)",
+   "('1234567',)"
+  ],
+  "expression": "len(a0) == 7 and a0[0] == '#' and all(c in '0123456789abcdef' for c in a0[1:].lower())"
+ },
+ {
+  "id": "strings-115",
+  "category": "strings",
+  "description": "Write a function that tells whether a username is made up of letters only, with no digits, spaces or symbols.",
+  "entry_point": "is_plain_username",
+  "inputs": [
+   "('JaneDoe',)",
+   "('jane_doe',)",
+   "('John2',)"
+  ],
+  "expression": "is_letters_only_1(a0)"
+ },
+ {
+  "id": "strings-116",
+  "category": "strings",
+  "description": "Write a function to divide a string into a front half and a back half returned as a tuple, giving the extra character to the back half when the length is odd.",
+  "entry_point": "split_halves",
+  "inputs": [
+   "('abcdef',)",
+   "('hello',)",
+   "('xy',)"
+  ],
+  "expression": "(a0[:len(a0) // 2], a0[len(a0) // 2:])"
+ },
+ {
+  "id": "strings-117",
+  "category": "strings",
+  "description": "Write a python function to tally the positions at which two DNA strands of equal length carry different bases.",
+  "entry_point": "strand_differences",
+  "inputs": [
+   "('GATTACA', 'GACTATA')",
+   "('AAAA', 'AAAA')",
+   "('ACGT', 'TGCA')"
+  ],
+  "expression": "sum(a != b for a, b in zip(a0, a1))"
+ },
+ {
+  "id": "strings-118",
+  "category": "strings",
+  "description": "Write a function to gather every word appearing in a list of text lines into one flat list, in reading order.",
+  "entry_point": "words_of_all_lines",
+  "inputs": [
+   "(['hello world', 'good morning'],)",
+   "(['one'],)",
+   "(['a b c', '', 'd'],)"
+  ],
+  "expression": "seq_words_all_1(a0)"
+ },
+ {
+  "id": "strings-119",
+  "category": "strings",
+  "description": "Write a function to work out how many lines a block of text has, where lines are separated by newline characters.",
+  "entry_point": "count_lines",
+  "inputs": [
+   "('line one\\nline two\\nline three',)",
+   "('single',)",
+   "('a\\n\\nb',)"
+  ],
+  "expression": "a0.count('\\n') + 1"
+ },
+ {
+  "id": "strings-120",
+  "category": "strings",
+  "description": "Write a function to report how many vowels each word of a sentence has, ignoring case, as a list.",
+  "entry_point": "vowels_per_word",
+  "inputs": [
+   "('Hello beautiful world',)",
+   "('sky',)",
+   "('AEIOU io',)"
+  ],
+  "expression": "[vowel_count_1(w) for w in a0.split()]"
+ },
+ {
+  "id": "strings-121",
+  "category": "strings",
+  "description": "Given a website breadcrumb, return the list of its parts, cutting it at every ' > ' separator.",
+  "entry_point": "split_breadcrumb",
+  "inputs": [
+   "('Home > Books > Fiction',)",
+   "('Shop > Sale',)",
+   "('A > B > C > D',)"
+  ],
+  "expression": "split_on_2(a0, ' > ')"
+ },
+ {
+  "id": "strings-122",
+  "category": "strings",
+  "description": "Write a python function to center a word inside a banner of width 11, filling the free space on both sides with '*' characters.",
+  "entry_point": "star_banner",
+  "inputs": [
+   "('hello',)",
+   "('odd',)",
+   "('elevenchars',)"
+  ],
+  "expression": "a0.center(11, '*')"
+ },
+ {
+  "id": "strings-123",
+  "category": "strings",
+  "description": "Write a python function to chop a string into blocks of 4 characters and join the blocks with single spaces.",
+  "entry_point": "blocks_of_four",
+  "inputs": [
+   "('1234567890123456',)",
+   "('abcdef',)",
+   "('abc',)"
+  ],
+  "expression": "' '.join(a0[i:i + 4] for i in range(0, len(a0), 4))"
+ },
+ {
+  "id": "strings-124",
+  "category": "strings",
+  "description": "Write a function to cut a product serial key into consecutive groups of 4 characters, where the final group may be shorter.",
+  "entry_point": "group_serial_key",
+  "inputs": [
+   "('ABCD1234EFGH',)",
+   "('XY12Z',)",
+   "('QWERTY',)"
+  ],
+  "expression": "txt_chunks_2(a0, 4)"
+ },
+ {
+  "id": "strings-125",
+  "category": "strings",
+  "description": "Write a function to give the place of a lowercase letter in the alphabet, counting 'a' as 1 and 'z' as 26.",
+  "entry_point": "alphabet_position",
+  "inputs": [
+   "('c',)",
+   "('z',)",
+   "('a',)"
+  ],
+  "expression": "ord(a0) - ord('a') + 1"
+ },
+ {
+  "id": "strings-126",
+  "category": "strings",
+  "description": "Write a function to censor the vowels of a string, in either case, by replacing each one with '*'.",
+  "entry_point": "star_vowels",
+  "inputs": [
+   "('Hello World',)",
+   "('AEIOUxyz',)",
+   "('sky',)"
+  ],
+  "expression": "''.join('*' if is_vowel_1(c) else c for c in a0)"
+ },
+ {
+  "id": "strings-127",
+  "category": "strings",
+  "description": "Write a function to tell whether a software version label ends with a digit.",
+  "entry_point": "label_ends_in_digit",
+  "inputs": [
+   "('v1.2.3',)",
+   "('release-beta',)",
+   "('build 7',)"
+  ],
+  "expression": "ends_with_digit_1(a0)"
+ },
+ {
+  "id": "strings-128",
+  "category": "strings",
+  "description": "Write a function to test whether a file name ends with '.jpg' or '.png'.",
+  "entry_point": "is_image_file",
+  "inputs": [
+   "('cat.jpg',)",
+   "('doc.pdf',)",
+   "('logo.png',)"
+  ],
+  "expression": "a0.endswith(('.jpg', '.png'))"
+ },
+ {
+  "id": "strings-129",
+  "category": "strings",
+  "description": "Write a function to collect the words of a sentence that consist only of digits, converted to integers.",
+  "entry_point": "numeric_words",
+  "inputs": [
+   "('I bought 3 apples for 12 dollars',)",
+   "('room 4b',)",
+   "('2024 06 30',)"
+  ],
+  "expression": "[int(w) for w in a0.split() if w.isdigit()]"
+ },
+ {
+  "id": "strings-130",
+  "category": "strings",
+  "description": "Write a function to show only the last k characters of a parcel tracking code.",
+  "entry_point": "tracking_suffix",
+  "inputs": [
+   "('1Z999AA10123456784', 4)",
+   "('ABCDEF', 2)",
+   "('12345', 3)"
+  ],
+  "expression": "take_last_2(a0, a1)"
+ },
+ {
+  "id": "strings-131",
+  "category": "strings",
+  "description": "Write a function to answer 'Equal' if two words have the same number of characters and 'Not Equal' otherwise.",
+  "entry_point": "same_length_verdict",
+  "inputs": [
+   "('cat', 'dog')",
+   "('hello', 'hi')",
+   "('abcd', 'wxyz')"
+  ],
+  "expression": "'Equal' if len(a0) == len(a1) else 'Not Equal'"
+ },
+ {
+  "id": "strings-132",
+  "category": "strings",
+  "description": "Write a function to break a sentence into words and strip the characters '.,!?' from both ends of each word.",
+  "entry_point": "clean_words",
+  "inputs": [
+   "('Hello, world!',)",
+   "('Wait... what?',)",
+   "('no punctuation',)"
+  ],
+  "expression": "[w.strip('.,!?') for w in a0.split()]"
+ },
+ {
+  "id": "strings-133",
+  "category": "strings",
+  "description": "Create a function which lists the words of a headline that are shorter than n characters.",
+  "entry_point": "short_headline_words",
+  "inputs": [
+   "('Mayor opens new bridge in town', 4)",
+   "('A big day', 3)",
+   "('Elephants everywhere', 5)"
+  ],
+  "expression": "shorter_than_2(a0, a1)"
+ },
+ {
+  "id": "strings-134",
+  "category": "strings",
+  "description": "Given a file name, return its extension, meaning the part after the last '.' character.",
+  "entry_point": "file_extension",
+  "inputs": [
+   "('archive.tar.gz',)",
+   "('photo.JPG',)",
+   "('notes.txt',)"
+  ],
+  "expression": "a0.split('.')[-1]"
+ },
+ {
+  "id": "strings-135",
+  "category": "strings",
+  "description": "Write a function to alphabetize a list of words without regard to letter case, keeping the original spelling of each word.",
+  "entry_point": "sort_ignoring_case",
+  "inputs": [
+   "(['banana', 'Apple', 'cherry'],)",
+   "(['b', 'A', 'a', 'B'],)",
+   "(['Zed', 'alpha'],)"
+  ],
+  "expression": "sorted(a0, key=lambda w: w.lower())"
+ },
+ {
+  "id": "strings-136",
+  "category": "strings",
+  "description": "Write a function that compacts a serial number by deleting every hyphen in it.",
+  "entry_point": "compact_serial",
+  "inputs": [
+   "('AB-12-CD',)",
+   "('2024-01-01',)",
+   "('no-dash-here-',)"
+  ],
+  "expression": "a0.replace('-', '')"
+ },
+ {
+  "id": "strings-137",
+  "category": "strings",
+  "description": "Write a python function to test whether two words are neighbours in a word ladder, meaning they have the same length and differ in exactly one position.",
+  "entry_point": "ladder_neighbours",
+  "inputs": [
+   "('cold', 'cord')",
+   "('cold', 'warm')",
+   "('cat', 'cats')"
+  ],
+  "expression": "len(a0) == len(a1) and sum(a != b for a, b in zip(a0, a1)) == 1"
+ },
+ {
+  "id": "strings-138",
+  "category": "strings",
+  "description": "Given a domain name, return it with its dot-separated labels in the opposite order.",
+  "entry_point": "reverse_domain",
+  "inputs": [
+   "('www.example.com',)",
+   "('a.b',)",
+   "('localhost',)"
+  ],
+  "expression": "'.'.join(a0.split('.')[::-1])"
+ },
+ {
+  "id": "strings-139",
+  "category": "strings",
+  "description": "Write a function to test whether the letters of a lowercase word appear in alphabetical order, with repeated letters allowed.",
+  "entry_point": "letters_in_order",
+  "inputs": [
+   "('almost',)",
+   "('hello',)",
+   "('billowy',)"
+  ],
+  "expression": "all(a <= b for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "strings-140",
+  "category": "strings",
+  "description": "Write a function to work out what fraction of the letters in a string are uppercase, rounded to 2 decimal places.",
+  "entry_point": "uppercase_share",
+  "inputs": [
+   "('Hello World',)",
+   "('ABCd',)",
+   "('NASA rocks!',)"
+  ],
+  "expression": "round(upper_count_1(a0) / char_count_1(a0), 2)"
+ },
+ {
+  "id": "strings-141",
+  "category": "strings",
+  "description": "Write a function to tally how many characters of a string occur in it exactly once.",
+  "entry_point": "count_unique_chars",
+  "inputs": [
+   "('swiss',)",
+   "('aabb',)",
+   "('abc',)"
+  ],
+  "expression": "sum(a0.count(c) == 1 for c in a0)"
+ },
+ {
+  "id": "strings-142",
+  "category": "strings",
+  "description": "Write a function that grades a password as 'Valid' when it has at least 8 characters and contains both a letter and a digit, and as 'Invalid' otherwise.",
+  "entry_point": "password_verdict",
+  "inputs": [
+   "('hunter2024',)",
+   "('abc123',)",
+   "('password',)"
+  ],
+  "expression": "'Valid' if len(a0) >= 8 and has_letter_and_digit_1(a0) else 'Invalid'"
+ },
+ {
+  "id": "strings-143",
+  "category": "strings",
+  "description": "Write a function that stutters a string by writing every character twice in a row.",
+  "entry_point": "double_letters",
+  "inputs": [
+   "('abc',)",
+   "('Hi!',)",
+   "('a b',)"
+  ],
+  "expression": "''.join(c * 2 for c in a0)"
+ },
+ {
+  "id": "strings-144",
+  "category": "strings",
+  "description": "Write a function to decide whether a word has more vowels than consonants, ignoring case.",
+  "entry_point": "vowel_heavy",
+  "inputs": [
+   "('audio',)",
+   "('rhythm',)",
+   "('bead',)"
+  ],
+  "expression": "vowel_count_1(a0) > txt_consonant_count_1(a0)"
+ },
+ {
+  "id": "strings-145",
+  "category": "strings",
+  "description": "Create a function which writes the characters at even indices in uppercase and those at odd indices in lowercase.",
+  "entry_point": "alternating_caps",
+  "inputs": [
+   "('hello',)",
+   "('PYTHON',)",
+   "('a b c',)"
+  ],
+  "expression": "''.join(c.upper() if i % 2 == 0 else c.lower() for i, c in enumerate(a0))"
+ },
+ {
+  "id": "strings-146",
+  "category": "strings",
+  "description": "Create a function which forms the plural of a regular noun by adding 'es' when it ends in 's', 'x' or 'h', and 's' otherwise.",
+  "entry_point": "plural_noun",
+  "inputs": [
+   "('box',)",
+   "('cat',)",
+   "('church',)"
+  ],
+  "expression": "a0 + 'es' if a0.endswith(('s', 'x', 'h')) else a0 + 's'"
+ },
+ {
+  "id": "strings-147",
+  "category": "strings",
+  "description": "Write a function to give, for each character of a second string, the index of its first occurrence in a first string, using -1 when it is absent.",
+  "entry_point": "first_indices_of",
+  "inputs": [
+   "('hello', 'lo')",
+   "('abc', 'xa')",
+   "('banana', 'nab')"
+  ],
+  "expression": "[a0.find(c) for c in a1]"
+ },
+ {
+  "id": "strings-148",
+  "category": "strings",
+  "description": "Write a function to tally how many times each word occurs in a sentence, as a dictionary ordered by first appearance.",
+  "entry_point": "word_frequencies",
+  "inputs": [
+   "('a rose is a rose',)",
+   "('hi',)",
+   "('x y x',)"
+  ],
+  "expression": "counter_1(a0.split())"
+ },
+ {
+  "id": "strings-149",
+  "category": "strings",
+  "description": "Write a function to abbreviate every word of a sentence that is longer than n characters to its first n characters followed by '.', leaving the other words unchanged.",
+  "entry_point": "abbreviate_long_words",
+  "inputs": [
+   "('international business machines', 5)",
+   "('see you tomorrow', 4)",
+   "('short words', 5)"
+  ],
+  "expression": "' '.join(w[:a1] + '.' if len(w) > a1 else w for w in a0.split())"
+ },
+ {
+  "id": "strings-150",
+  "category": "strings",
+  "description": "Write a function to assemble a string from the characters of a text found at a given list of indices.",
+  "entry_point": "chars_at_indices",
+  "inputs": [
+   "('python', [0, 2, 4])",
+   "('hello', [4, 3, 2, 1, 0])",
+   "('abc', [1, 1])"
+  ],
+  "expression": "''.join(a0[i] for i in a1)"
+ }
+]
