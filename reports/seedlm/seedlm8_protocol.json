@@ -1,0 +1,22 @@
+{
+ "written": "2026-11-19, after SeedLM-6 and SeedLM-7, before s8-all was trained",
+ "motivation": [
+  "On the 139 held-out teacher tasks (first verified program at beam width 32 correct on all three cases), s5-var solves 52, s6-graft 61 and s6-comp 59 (reports/seedlm/fragments_*.json): both added data sources help, in different places. Grafts gained most on programs with a new composition (17 -> 24), composed tasks on programs whose pieces were all seen (35 -> 40); grafts also kept held-out losses low through training",
+  "Neither single arm beat s5-var on the held-out development fifth (68 vs 69); that set's 29 engine failures cannot detect gains of this size (six coders all fix 4 or 5 of them)",
+  "Terse MBPP-style statements do not hurt the coder (reports/seedlm/terse_s5-var.json), so the data's long explicit statements are not what keeps it from real tasks"
+ ],
+ "hypothesis": "The two sources are complementary: a coder trained on both solves more held-out teacher tasks than either single-source coder",
+ "coder": "s8-all: scripts/seedlm4_train.py --name s8-all --minutes 120 --variant-share 0.1 --graft-share 0.1 --compose-share 0.1, everything else as s5-var; nothing else runs on the machine while it trains (s6-graft lost steps to checks run alongside it)",
+ "primary_measure": "held-out teacher tasks (139), first verified program at width 32 correct on all three cases (scripts/seedlm5_fragments.py --model s8-all): supported if at least 63 (more than both single-source coders' 61 and 59 by 2), inconclusive at 58 to 62, not supported at 57 or fewer",
+ "secondary_measures": [
+  "the same split by novelty: new compositions (s5-var 17, s6-graft 24, s6-comp 19 of 77) and all pieces seen (35, 37, 40 of 62)",
+  "end-of-training metrics: real held-out programs, held-out composed tasks (s6-comp 44.6% top-1 reproduces), held-out teacher tasks, beyond",
+  "engine failures solved by pyx_model on the held-out development fifth (s5-var 5)"
+ ],
+ "choice": "s8-all replaces s5-var only if its best method solves more of the held-out development fifth than 69; then the validation gate (alone no fewer than the engine's 19 of 45; in the 1.5B pipeline no fewer than 31), one MBPP+ test run and one HumanEval+ run",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
