@@ -1,0 +1,35 @@
+{
+ "model": "s3-pyx",
+ "settings": {
+  "command": "splits",
+  "model": "s3-pyx",
+  "splits": [
+   "val"
+  ],
+  "width": 32,
+  "keep": 40
+ },
+ "val": {
+  "tasks": 45,
+  "alone": {
+   "engine": 19,
+   "pyx_model": 15,
+   "pyx_fill": 19,
+   "pyx_tie": 19,
+   "pyx_tie_fill": 19,
+   "pyx_override": 19
+  },
+  "pipelines": {
+   "s15-branch-dev-r3": {
+    "stored": 31,
+    "engine": 31,
+    "pyx_model": 30,
+    "pyx_fill": 31,
+    "pyx_tie": 31,
+    "pyx_tie_fill": 31,
+    "pyx_override": 31
+   }
+  },
+  "seconds": 106
+ }
+}
