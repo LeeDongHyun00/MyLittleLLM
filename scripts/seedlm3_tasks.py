@@ -104,6 +104,7 @@ def holdout(args, net, vocabulary, grammar):
     items = [i for i in json.loads((BANK / "all_tasks.json").read_text())
              if i["source"] == "extra" and held_out(i["task_id"])]
     solved = {n: 0 for n in NAMES}
+    versus = {n: [0, 0] for n in NAMES}     # [engine wrong -> right, engine right -> wrong]; counts only
     for item in items:
         task = {"prompt": '"""\n' + item["description"] + "\n" + item["visible_assert"] + '\n"""\n',
                 "entry_point": item["entry_point"]}
@@ -114,8 +115,12 @@ def holdout(args, net, vocabulary, grammar):
             if code not in verdicts:
                 verdicts[code] = bool(code) and run_public_asserts(code, "\n".join(item["asserts"]))["status"] == "pass"
             solved[name] += verdicts[code]
-    report = {"model": args.model, "tasks": len(items), "solved": solved}
-    (ROOT / "reports/seedlm" / f"holdout3_{args.model}.json").write_text(json.dumps(report, indent=1) + "\n")
+        engine = verdicts[codes["engine"]]
+        for name in NAMES:
+            versus[name][0] += verdicts[codes[name]] and not engine
+            versus[name][1] += engine and not verdicts[codes[name]]
+    report = {"model": args.model, "tasks": len(items), "solved": solved, "versus_engine": versus}
+    (ROOT / "reports/seedlm" / f"holdout3_{args.model}{args.suffix}.json").write_text(json.dumps(report, indent=1) + "\n")
     print(json.dumps(report))
 
 
@@ -169,6 +174,7 @@ def main():
     parser.add_argument("--splits", nargs="+", default=["val"])
     parser.add_argument("--width", type=int, default=32)
     parser.add_argument("--keep", type=int, default=40)
+    parser.add_argument("--suffix", default="", help="appended to the held-out report's name (diagnostic reruns)")
     args = parser.parse_args()
     torch.set_num_threads(4)
     net, vocabulary = coder3.load(ROOT / "outputs/seedlm" / f"{args.model}.pt")

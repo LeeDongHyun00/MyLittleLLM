@@ -33,6 +33,7 @@
    "pyx_margin": "pyx_tie_fill, except that the coder's best verified program replaces it when its log-probability exceeds that of the engine's best tied program by more than 2.0 nats (or the engine has none)"
   },
   "choice": "for s3b-pyx the choice is over all eight methods by held-out solved count; ties in the original order, then pyx_margin, then pyx_rerank; s3b-pyx still replaces s3-pyx only if its best method beats 68",
-  "note": "s3-pyx is not re-evaluated with the new methods for the choice; its 68 stands"
+  "note": "s3-pyx is not re-evaluated with the new methods for the choice; its 68 stands",
+  "outcome": "s3b-pyx held-out (94): engine 65, pyx_model 55, pyx_fill 65, pyx_tie 67, pyx_tie_fill 67, pyx_override 66, pyx_rerank 65, pyx_margin 66; best 67 does not beat s3-pyx's 68, so s3-pyx stays and s3b-pyx gets no validation, test or HumanEval+ run"
  }
 }

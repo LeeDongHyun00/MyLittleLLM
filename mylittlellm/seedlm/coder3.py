@@ -136,6 +136,65 @@ def beam_search(net, vocabulary, grammar, prefix, n_args, n_literals, string_out
     return [([vocabulary.symbol(t) for t in tokens], score) for score, tokens, _, _ in finished[:width]]
 
 
+@torch.no_grad()
+def wide_beam_search(net, vocabulary, grammar, prefix, n_args, n_literals, string_output, width=128,
+                     max_tokens=MAX_PROGRAM, keep=None):
+    """beam_search with the per-row loop replaced by tensor operations, for widths in the hundreds.
+
+    Every hypothesis has the same length at a step, so the room left is shared; a program finishes when
+    its last open slot is filled by a leaf. Each row contributes its `width` best finishing leaves, and
+    the best `width` non-finishing extensions over all rows continue. Returns up to `keep` (default
+    `width`) finished programs, best first.
+    """
+    base = grammar.base_mask(n_args, n_literals, string_output)
+    leaf = grammar.arity == 0
+    variable = grammar.variable
+    has_variable = variable >= 0
+    stacks, scores, sequences, finished = [[0]], torch.zeros(1), [[]], []
+    with torch.autocast("cpu", dtype=torch.bfloat16):
+        logits, cache = net.prefill(torch.tensor([prefix]))
+    log_probs = torch.log_softmax(logits.float(), dim=-1)
+    for step in range(max_tokens):
+        room = max_tokens - step - 1
+        open_slots = torch.tensor([len(s) - 1 for s in stacks]).unsqueeze(1)
+        depth = torch.tensor([s[-1] for s in stacks]).unsqueeze(1)
+        allowed = base.unsqueeze(0) & (open_slots + grammar.arity.unsqueeze(0) <= room)
+        allowed &= ~(has_variable.unsqueeze(0) & (variable.unsqueeze(0) >= depth))
+        allowed &= depth + grammar.binds.unsqueeze(0) <= pyx.MAX_VARS
+        total = (scores.unsqueeze(1) + log_probs).masked_fill(~allowed, float("-inf"))
+        closing = (open_slots == 0) & leaf.unsqueeze(0)
+        ends = total.masked_fill(~closing, float("-inf"))
+        values, indices = ends.topk(min(width, ends.shape[1]), dim=1)
+        for row in range(len(stacks)):
+            for value, index in zip(values[row].tolist(), indices[row].tolist()):
+                if value == float("-inf"):
+                    break
+                finished.append((value, sequences[row] + [index]))
+        going = total.masked_fill(closing, float("-inf")).flatten()
+        count = min(width, int(torch.isfinite(going).sum()))
+        if count == 0:
+            break
+        values, flat = going.topk(count)
+        size = total.shape[1]
+        parents, new_stacks, new_sequences = [], [], []
+        for value, position in zip(values.tolist(), flat.tolist()):
+            row, index = divmod(position, size)
+            stack = stacks[row]
+            symbol = vocabulary.symbol(index)
+            parents.append(row)
+            new_stacks.append(stack[:-1] + list(reversed(child_depths(symbol, stack[-1]))))
+            new_sequences.append(sequences[row] + [index])
+        scores = values
+        stacks, sequences = new_stacks, new_sequences
+        rows = torch.tensor(parents)
+        cache = [(k[rows], v[rows]) for k, v in cache]
+        with torch.autocast("cpu", dtype=torch.bfloat16):
+            logits, cache = net.step(torch.tensor([s[-1] for s in sequences]), cache)
+        log_probs = torch.log_softmax(logits.float(), dim=-1)
+    finished.sort(key=lambda e: -e[0])
+    return [([vocabulary.symbol(t) for t in tokens], score) for score, tokens in finished[:keep or width]]
+
+
 def reproduces(program, args, literals, expected, mode="eq"):
     try:
         with time_limit(EXECUTION_SECONDS):
