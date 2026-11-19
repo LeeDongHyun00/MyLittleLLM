@@ -1,0 +1,1802 @@
+[
+ {
+  "id": "predicates-001",
+  "category": "predicates",
+  "description": "Given a ticket number, return True if it is a prime number and False otherwise.",
+  "entry_point": "is_prime_ticket",
+  "inputs": [
+   "(91,)",
+   "(97,)",
+   "(2,)"
+  ],
+  "expression": "is_prime_1(a0)"
+ },
+ {
+  "id": "predicates-002",
+  "category": "predicates",
+  "description": "Write a python function to check whether a given number of tiles can be laid out as one complete square.",
+  "entry_point": "tiles_form_square",
+  "inputs": [
+   "(196,)",
+   "(200,)",
+   "(1,)"
+  ],
+  "expression": "is_perfect_square_1(a0)"
+ },
+ {
+  "id": "predicates-003",
+  "category": "predicates",
+  "description": "Write a function that tests if a number equals the sum of its digits, each raised to the power of the number of digits it has.",
+  "entry_point": "is_digit_power_sum",
+  "inputs": [
+   "(372,)",
+   "(371,)",
+   "(1634,)"
+  ],
+  "expression": "is_armstrong_1(a0)"
+ },
+ {
+  "id": "predicates-004",
+  "category": "predicates",
+  "description": "Write a function to determine whether a positive integer is evenly divisible by the sum of its own digits.",
+  "entry_point": "divisible_by_digit_sum",
+  "inputs": [
+   "(18,)",
+   "(19,)",
+   "(21,)"
+  ],
+  "expression": "is_harshad_1(a0)"
+ },
+ {
+  "id": "predicates-005",
+  "category": "predicates",
+  "description": "Write a function that returns 'Happy' if the number is a happy number, meaning the repeated sum of the squares of its digits eventually reaches 1, and 'Not Happy' otherwise.",
+  "entry_point": "happy_verdict",
+  "inputs": [
+   "(4,)",
+   "(28,)",
+   "(7,)"
+  ],
+  "expression": "'Happy' if is_happy_1(a0) else 'Not Happy'"
+ },
+ {
+  "id": "predicates-006",
+  "category": "predicates",
+  "description": "Create a function which returns True if the given count appears somewhere in the Fibonacci sequence and False otherwise.",
+  "entry_point": "in_fibonacci",
+  "inputs": [
+   "(22,)",
+   "(21,)",
+   "(144,)"
+  ],
+  "expression": "is_fibonacci_number_1(a0)"
+ },
+ {
+  "id": "predicates-007",
+  "category": "predicates",
+  "description": "Write a function that returns 'Yes' if the buffer size is an exact power of two and 'No' otherwise.",
+  "entry_point": "buffer_power_of_two",
+  "inputs": [
+   "(96,)",
+   "(64,)",
+   "(128,)"
+  ],
+  "expression": "txt_yes_no_1(is_power_of_two_1(a0))"
+ },
+ {
+  "id": "predicates-008",
+  "category": "predicates",
+  "description": "Given a year, return 'Leap' when February has 29 days that year and 'Not Leap' otherwise.",
+  "entry_point": "leap_label",
+  "inputs": [
+   "(2100,)",
+   "(2028,)",
+   "(2400,)"
+  ],
+  "expression": "'Leap' if is_leap_year_1(a0) else 'Not Leap'"
+ },
+ {
+  "id": "predicates-009",
+  "category": "predicates",
+  "description": "Write a function to test if the number is a Keith number, one that appears in the sequence that starts with its own digits and continues by adding up the previous k terms, where k is its digit count.",
+  "entry_point": "is_keith_like",
+  "inputs": [
+   "(47,)",
+   "(48,)",
+   "(742,)"
+  ],
+  "expression": "is_keith_1(a0)"
+ },
+ {
+  "id": "predicates-010",
+  "category": "predicates",
+  "description": "Write a function to check whether the number is a Woodall number, that is, equal to n * 2^n - 1 for some positive integer n.",
+  "entry_point": "is_n_times_power_minus_one",
+  "inputs": [
+   "(161,)",
+   "(159,)",
+   "(2047,)"
+  ],
+  "expression": "is_woodall_1(a0)"
+ },
+ {
+  "id": "predicates-011",
+  "category": "predicates",
+  "description": "Create a function which returns 'Perfect' if the number equals the sum of its proper divisors and 'Not Perfect' otherwise.",
+  "entry_point": "perfect_label",
+  "inputs": [
+   "(496,)",
+   "(12,)",
+   "(6,)"
+  ],
+  "expression": "'Perfect' if is_perfect_number_1(a0) else 'Not Perfect'"
+ },
+ {
+  "id": "predicates-012",
+  "category": "predicates",
+  "description": "Write a function to check whether the proper divisors of the number add up to more than the number itself.",
+  "entry_point": "divisors_exceed_number",
+  "inputs": [
+   "(16,)",
+   "(18,)",
+   "(20,)"
+  ],
+  "expression": "is_abundant_1(a0)"
+ },
+ {
+  "id": "predicates-013",
+  "category": "predicates",
+  "description": "Write a python function to identify numbers that are not prime, returning True for them and False for primes.",
+  "entry_point": "is_non_prime",
+  "inputs": [
+   "(91,)",
+   "(97,)",
+   "(1,)"
+  ],
+  "expression": "not_prime_1(a0)"
+ },
+ {
+  "id": "predicates-014",
+  "category": "predicates",
+  "description": "Write a python function to check whether the given number stays the same when its digits are written in reverse order.",
+  "entry_point": "number_reads_same_backwards",
+  "inputs": [
+   "(12312,)",
+   "(12321,)",
+   "(7,)"
+  ],
+  "expression": "is_palindrome_number_1(a0)"
+ },
+ {
+  "id": "predicates-015",
+  "category": "predicates",
+  "description": "Write a python function to check whether the given number is a multiple of 7.",
+  "entry_point": "is_multiple_of_seven",
+  "inputs": [
+   "(343,)",
+   "(100,)",
+   "(56,)"
+  ],
+  "expression": "divisible_by_7_1(a0)"
+ },
+ {
+  "id": "predicates-016",
+  "category": "predicates",
+  "description": "Write a python function that returns 'Even' when the binary representation of the number contains an even count of ones and 'Odd' otherwise.",
+  "entry_point": "bit_parity_label",
+  "inputs": [
+   "(9,)",
+   "(7,)",
+   "(12,)"
+  ],
+  "expression": "'Even' if has_even_bit_parity_1(a0) else 'Odd'"
+ },
+ {
+  "id": "predicates-017",
+  "category": "predicates",
+  "description": "Write a python function to check whether two gear tooth counts share no common factor other than 1.",
+  "entry_point": "gears_coprime",
+  "inputs": [
+   "(12, 18)",
+   "(15, 28)",
+   "(9, 16)"
+  ],
+  "expression": "coprime_2(a0, a1)"
+ },
+ {
+  "id": "predicates-018",
+  "category": "predicates",
+  "description": "Write a function to find out whether the binary forms of two numbers differ in exactly one position.",
+  "entry_point": "one_bit_apart",
+  "inputs": [
+   "(12, 8)",
+   "(7, 4)",
+   "(0, 16)"
+  ],
+  "expression": "differ_one_bit_2(a0, a1)"
+ },
+ {
+  "id": "predicates-019",
+  "category": "predicates",
+  "description": "Given two non-zero integers, return True when exactly one of them is negative.",
+  "entry_point": "exactly_one_negative",
+  "inputs": [
+   "(-3, 8)",
+   "(4, 9)",
+   "(-2, -6)"
+  ],
+  "expression": "opposite_signs_2(a0, a1)"
+ },
+ {
+  "id": "predicates-020",
+  "category": "predicates",
+  "description": "Write a function to check whether two integers are written with the same number of digits, ignoring any minus sign.",
+  "entry_point": "same_width",
+  "inputs": [
+   "(45, 1000)",
+   "(123, 987)",
+   "(-50, 77)"
+  ],
+  "expression": "same_digit_count_2(a0, a1)"
+ },
+ {
+  "id": "predicates-021",
+  "category": "predicates",
+  "description": "Write a function that tests if the first number is an exact power of the second number.",
+  "entry_point": "is_exact_power",
+  "inputs": [
+   "(81, 3)",
+   "(72, 6)",
+   "(125, 5)"
+  ],
+  "expression": "is_power_of_2(a0, a1)"
+ },
+ {
+  "id": "predicates-022",
+  "category": "predicates",
+  "description": "Given a month, day and year, return 'Valid' if they form a date that exists on the calendar, otherwise 'Invalid'.",
+  "entry_point": "date_check",
+  "inputs": [
+   "(2, 29, 2023)",
+   "(2, 29, 2024)",
+   "(4, 31, 2021)"
+  ],
+  "expression": "txt_valid_invalid_1(is_valid_date_3(a0, a1, a2))"
+ },
+ {
+  "id": "predicates-023",
+  "category": "predicates",
+  "description": "Create a function which returns 'Yes' if three sticks of the given lengths can be joined end to end into a triangle and 'No' otherwise.",
+  "entry_point": "sticks_make_triangle",
+  "inputs": [
+   "(6, 8, 9)",
+   "(2, 4, 6)",
+   "(5, 5, 9)"
+  ],
+  "expression": "'Yes' if triangle_sides_valid_3(a0, a1, a2) else 'No'"
+ },
+ {
+  "id": "predicates-024",
+  "category": "predicates",
+  "description": "Create a function which returns 'YES' if three positive angles in degrees can be the angles of one triangle and 'NO' otherwise.",
+  "entry_point": "angles_fit_triangle",
+  "inputs": [
+   "(90, 60, 40)",
+   "(60, 60, 60)",
+   "(100, 50, 30)"
+  ],
+  "expression": "'YES' if triangle_angles_valid_3(a0, a1, a2) else 'NO'"
+ },
+ {
+  "id": "predicates-025",
+  "category": "predicates",
+  "description": "Write a function that tests if three side lengths, given in any order, form a right-angled triangle.",
+  "entry_point": "is_right_angled",
+  "inputs": [
+   "(2, 3, 4)",
+   "(5, 3, 4)",
+   "(13, 12, 5)"
+  ],
+  "expression": "is_right_triangle_3(a0, a1, a2)"
+ },
+ {
+  "id": "predicates-026",
+  "category": "predicates",
+  "description": "Given a start a, a number b and a step d, return True if b is one of the terms a, a + d, a + 2d and so on.",
+  "entry_point": "on_arithmetic_track",
+  "inputs": [
+   "(3, 15, 4)",
+   "(10, 2, 4)",
+   "(3, 14, 4)"
+  ],
+  "expression": "in_arithmetic_sequence_3(a0, a1, a2)"
+ },
+ {
+  "id": "predicates-027",
+  "category": "predicates",
+  "description": "Write a python function to check whether all bits of n from position l to position r, counting from 1 at the least significant bit, are set.",
+  "entry_point": "bits_all_on",
+  "inputs": [
+   "(10, 1, 3)",
+   "(15, 2, 4)",
+   "(60, 3, 6)"
+  ],
+  "expression": "bits_set_in_range_3(a0, a1, a2)"
+ },
+ {
+  "id": "predicates-028",
+  "category": "predicates",
+  "description": "Write a function to check whether a sentence uses every letter of the English alphabet at least once, ignoring case.",
+  "entry_point": "uses_whole_alphabet",
+  "inputs": [
+   "('Hello there, general Kenobi',)",
+   "('Sphinx of black quartz, judge my vow',)",
+   "('Jackdaws love my big sphinx of quartz',)"
+  ],
+  "expression": "is_pangram_1(a0)"
+ },
+ {
+  "id": "predicates-029",
+  "category": "predicates",
+  "description": "Write a function that returns 'Balanced' if every bracket in the expression is closed in the right order and 'Not Balanced' otherwise.",
+  "entry_point": "bracket_report",
+  "inputs": [
+   "('(a[b)c]',)",
+   "('(a[b]{c})',)",
+   "('{[()]}',)"
+  ],
+  "expression": "'Balanced' if is_balanced_1(a0) else 'Not Balanced'"
+ },
+ {
+  "id": "predicates-030",
+  "category": "predicates",
+  "description": "Write a function to check whether the string is a web address that begins with http:// or https:// followed by a domain name.",
+  "entry_point": "looks_like_url",
+  "inputs": [
+   "('https://www.example.com',)",
+   "('www.example',)",
+   "('http://docs.python.org',)"
+  ],
+  "expression": "is_valid_url_1(a0)"
+ },
+ {
+  "id": "predicates-031",
+  "category": "predicates",
+  "description": "Write a python function that returns 'Valid' if the price string is a non-negative number with at most two digits after the decimal point, otherwise 'Invalid'.",
+  "entry_point": "price_format",
+  "inputs": [
+   "('12.50',)",
+   "('3.141',)",
+   "('7',)"
+  ],
+  "expression": "txt_valid_invalid_1(is_decimal_2_1(a0))"
+ },
+ {
+  "id": "predicates-032",
+  "category": "predicates",
+  "description": "Write a function that tests if the text holds a whole number, optionally preceded by a plus or minus sign.",
+  "entry_point": "is_whole_number_text",
+  "inputs": [
+   "('-42',)",
+   "('4.2',)",
+   "('+7',)"
+  ],
+  "expression": "is_integer_string_1(a0)"
+ },
+ {
+  "id": "predicates-033",
+  "category": "predicates",
+  "description": "Write a function to determine whether the string is made of exactly two different characters that take turns.",
+  "entry_point": "two_chars_alternate",
+  "inputs": [
+   "('xyyx',)",
+   "('xyxyx',)",
+   "('mnmn',)"
+  ],
+  "expression": "two_alternating_1(a0)"
+ },
+ {
+  "id": "predicates-034",
+  "category": "predicates",
+  "description": "Write a function to check whether the text has a word with the letter 'z' somewhere in its middle, not at its start or end.",
+  "entry_point": "inner_z",
+  "inputs": [
+   "('The pizza is hot',)",
+   "('zoo fez',)",
+   "('lazy dogs',)"
+  ],
+  "expression": "has_inner_z_1(a0)"
+ },
+ {
+  "id": "predicates-035",
+  "category": "predicates",
+  "description": "Write a function that returns 'yes' if the named month has thirty-one days and 'no' otherwise.",
+  "entry_point": "long_month",
+  "inputs": [
+   "('August',)",
+   "('June',)",
+   "('December',)"
+  ],
+  "expression": "'yes' if month_name_has_31_days_1(a0) else 'no'"
+ },
+ {
+  "id": "predicates-036",
+  "category": "predicates",
+  "description": "Write a function to check whether a one-to-one letter substitution turns the first word into the second.",
+  "entry_point": "substitution_cipher_match",
+  "inputs": [
+   "('abca', 'zyzx')",
+   "('moon', 'deer')",
+   "('kitten', 'sitter')"
+  ],
+  "expression": "is_isomorphic_2(a0, a1)"
+ },
+ {
+  "id": "predicates-037",
+  "category": "predicates",
+  "description": "Write a python function to check whether the second string can be made by moving some characters from the front of the first string to its end.",
+  "entry_point": "is_shifted_copy",
+  "inputs": [
+   "('rotation', 'tationro')",
+   "('abcd', 'acbd')",
+   "('hello', 'llohe')"
+  ],
+  "expression": "is_rotation_2(a0, a1)"
+ },
+ {
+  "id": "predicates-038",
+  "category": "predicates",
+  "description": "Given two strings, return True when the first one is just the second one written several times in a row.",
+  "entry_point": "is_repeated_block",
+  "inputs": [
+   "('abcabcabc', 'abc')",
+   "('abcabca', 'abc')",
+   "('zzzz', 'z')"
+  ],
+  "expression": "is_repetition_of_2(a0, a1)"
+ },
+ {
+  "id": "predicates-039",
+  "category": "predicates",
+  "description": "Write a function to check whether the second list occurs as an unbroken run of consecutive elements inside the first list.",
+  "entry_point": "contains_run",
+  "inputs": [
+   "([4, 8, 15, 16, 23], [8, 16])",
+   "([4, 8, 15, 16, 23], [15, 16])",
+   "([1, 2, 3], [1, 2, 3])"
+  ],
+  "expression": "is_sublist_2(a0, a1)"
+ },
+ {
+  "id": "predicates-040",
+  "category": "predicates",
+  "description": "Given a list of sensor readings, return 'Monotonic' if they never change direction, staying either non-increasing or non-decreasing, and 'Not Monotonic' otherwise.",
+  "entry_point": "trend_label",
+  "inputs": [
+   "([5, 5, 3, 1],)",
+   "([1, 3, 2],)",
+   "([2, 2, 2, 7],)"
+  ],
+  "expression": "'Monotonic' if is_monotonic_1(a0) else 'Not Monotonic'"
+ },
+ {
+  "id": "predicates-041",
+  "category": "predicates",
+  "description": "Write a function to check whether the array satisfies the min-heap property, with every parent no larger than its children.",
+  "entry_point": "is_min_heap_array",
+  "inputs": [
+   "([3, 1, 2],)",
+   "([1, 3, 2, 7, 4],)",
+   "([2, 5, 9, 6, 8],)"
+  ],
+  "expression": "is_min_heap_1(a0)"
+ },
+ {
+  "id": "predicates-042",
+  "category": "predicates",
+  "description": "Write a function that returns 'Magic' if every row, every column and both diagonals of the square grid have the same sum, and 'Not Magic' otherwise.",
+  "entry_point": "magic_label",
+  "inputs": [
+   "([[4, 9, 2], [3, 5, 7], [8, 1, 6]],)",
+   "([[1, 2, 3], [2, 3, 1], [3, 1, 2]],)",
+   "([[16, 3, 2, 13], [5, 10, 11, 8], [9, 6, 7, 12], [4, 15, 14, 1]],)"
+  ],
+  "expression": "'Magic' if is_magic_square_1(a0) else 'Not Magic'"
+ },
+ {
+  "id": "predicates-043",
+  "category": "predicates",
+  "description": "Create a function which returns 'Possible' if some selection of the coins, each used at most once, adds up to exactly the amount, and 'Not Possible' otherwise.",
+  "entry_point": "coins_reach_amount",
+  "inputs": [
+   "([7, 3, 11, 5], 6)",
+   "([7, 3, 11, 5], 15)",
+   "([10, 20, 15], 35)"
+  ],
+  "expression": "'Possible' if subset_sum_2(a0, a1) else 'Not Possible'"
+ },
+ {
+  "id": "predicates-044",
+  "category": "predicates",
+  "description": "Write a function to test whether any three numbers of the list add up to the target value.",
+  "entry_point": "three_reach_target",
+  "inputs": [
+   "([2, 9, 4, 13, 7], 20)",
+   "([1, 2, 3, 4], 12)",
+   "([5, -2, 9, 0], 12)"
+  ],
+  "expression": "triplet_sum_2(a0, a1)"
+ },
+ {
+  "id": "predicates-045",
+  "category": "predicates",
+  "description": "Write a function to check whether two lists hold the same items the same number of times, in any order.",
+  "entry_point": "same_multiset",
+  "inputs": [
+   "([1, 2, 2], [1, 1, 2])",
+   "([3, 1, 2, 1], [1, 1, 2, 3])",
+   "(['b', 'a'], ['a', 'b'])"
+  ],
+  "expression": "same_elements_2(a0, a1)"
+ },
+ {
+  "id": "predicates-046",
+  "category": "predicates",
+  "description": "Write a function to check whether the record tuple has any missing field marked as None.",
+  "entry_point": "has_missing_field",
+  "inputs": [
+   "((1, None, 'x'),)",
+   "((1, 0, ''),)",
+   "((None,),)"
+  ],
+  "expression": "has_none_1(a0)"
+ },
+ {
+  "id": "predicates-047",
+  "category": "predicates",
+  "description": "Write a function that returns 'Unique' if no badge number repeats in the list and 'Not Unique' otherwise.",
+  "entry_point": "badge_check",
+  "inputs": [
+   "([5, 6, 5],)",
+   "([101, 202, 303],)",
+   "([9],)"
+  ],
+  "expression": "'Unique' if all_unique_1(a0) else 'Not Unique'"
+ },
+ {
+  "id": "predicates-048",
+  "category": "predicates",
+  "description": "Write a function to check whether each score in the list is strictly higher than the one before it.",
+  "entry_point": "scores_keep_rising",
+  "inputs": [
+   "([1, 4, 9, 16],)",
+   "([1, 4, 4, 9],)",
+   "([-5, 0, 5],)"
+  ],
+  "expression": "strictly_increasing_1(a0)"
+ },
+ {
+  "id": "predicates-049",
+  "category": "predicates",
+  "description": "Write a function to check whether two teams have no player in common.",
+  "entry_point": "teams_disjoint",
+  "inputs": [
+   "(['ann', 'bob'], ['bob', 'eve'])",
+   "(['ann', 'bob'], ['cat', 'dan'])",
+   "([1, 2, 3], [4, 5])"
+  ],
+  "expression": "are_disjoint_2(a0, a1)"
+ },
+ {
+  "id": "predicates-050",
+  "category": "predicates",
+  "description": "Given the round scores of team A and team B as two tuples, return True when team A scored more than team B in every round.",
+  "entry_point": "won_every_round",
+  "inputs": [
+   "((10, 4, 5), (2, 3, 4))",
+   "((1, 2, 3), (0, 2, 1))",
+   "((7, 8), (6, 7))"
+  ],
+  "expression": "each_greater_2(a0, a1)"
+ },
+ {
+  "id": "predicates-051",
+  "category": "predicates",
+  "description": "Write a function to check whether both the number and the number formed by reversing its digits are prime.",
+  "entry_point": "prime_both_ways",
+  "inputs": [
+   "(23,)",
+   "(13,)",
+   "(11,)"
+  ],
+  "expression": "is_prime_1(a0) and is_prime_1(reverse_digits_1(a0))"
+ },
+ {
+  "id": "predicates-052",
+  "category": "predicates",
+  "description": "Write a python function to check whether the binary form of the number has more ones than zeros.",
+  "entry_point": "more_ones_than_zeros",
+  "inputs": [
+   "(13,)",
+   "(8,)",
+   "(10,)"
+  ],
+  "expression": "popcount_1(a0) > num_unset_bit_count_1(a0)"
+ },
+ {
+  "id": "predicates-053",
+  "category": "predicates",
+  "description": "Given a word, return True if it has more vowels than consonants.",
+  "entry_point": "vowel_heavy",
+  "inputs": [
+   "('audio',)",
+   "('bead',)",
+   "('queue',)"
+  ],
+  "expression": "vowel_count_1(a0) > txt_consonant_count_1(a0)"
+ },
+ {
+  "id": "predicates-054",
+  "category": "predicates",
+  "description": "Write a function to check whether the string has as many uppercase letters as lowercase letters.",
+  "entry_point": "case_balanced",
+  "inputs": [
+   "('HeLLo wOrLd',)",
+   "('Hello',)",
+   "('aB',)"
+  ],
+  "expression": "upper_count_1(a0) == txt_lower_count_1(a0)"
+ },
+ {
+  "id": "predicates-055",
+  "category": "predicates",
+  "description": "Write a function to check whether the product of the digits of the number is greater than their sum.",
+  "entry_point": "digit_product_wins",
+  "inputs": [
+   "(234,)",
+   "(111,)",
+   "(22,)"
+  ],
+  "expression": "prod_1(digits_1(a0)) > digit_sum_1(a0)"
+ },
+ {
+  "id": "predicates-056",
+  "category": "predicates",
+  "description": "Write a python function to check whether two integers end in the same digit, ignoring their signs.",
+  "entry_point": "same_last_digit",
+  "inputs": [
+   "(34, 43)",
+   "(127, 57)",
+   "(-13, 23)"
+  ],
+  "expression": "num_last_digit_1(a0) == num_last_digit_1(a1)"
+ },
+ {
+  "id": "predicates-057",
+  "category": "predicates",
+  "description": "Write a function that tests if two strings are built from the same distinct characters, regardless of order or repetition.",
+  "entry_point": "same_character_set",
+  "inputs": [
+   "('abc', 'abd')",
+   "('aabbc', 'cab')",
+   "('xyz', 'zzyx')"
+  ],
+  "expression": "set(a0) == set(a1)"
+ },
+ {
+  "id": "predicates-058",
+  "category": "predicates",
+  "description": "Write a function to check whether the total weight of the parcels in the list exceeds 50.",
+  "entry_point": "overweight_load",
+  "inputs": [
+   "([20, 15, 18],)",
+   "([10, 20, 20],)",
+   "([49],)"
+  ],
+  "expression": "sum(a0) > 50"
+ },
+ {
+  "id": "predicates-059",
+  "category": "predicates",
+  "description": "Given a list of marks, return True if their average is at least 40.",
+  "entry_point": "passes_on_average",
+  "inputs": [
+   "([30, 40, 45],)",
+   "([35, 45, 50],)",
+   "([40, 40],)"
+  ],
+  "expression": "mean_1(a0) >= 40"
+ },
+ {
+  "id": "predicates-060",
+  "category": "predicates",
+  "description": "Write a function to check whether the largest number in the list is more than twice the smallest.",
+  "entry_point": "max_dominates_min",
+  "inputs": [
+   "([3, 7, 5],)",
+   "([4, 8, 5],)",
+   "([10, 30],)"
+  ],
+  "expression": "max(a0) > 2 * min(a0)"
+ },
+ {
+  "id": "predicates-061",
+  "category": "predicates",
+  "description": "Given a list of readings, return 'Stable' if the largest and smallest values differ by at most 5, and 'Not Stable' otherwise.",
+  "entry_point": "stability_label",
+  "inputs": [
+   "([1, 9],)",
+   "([12, 15, 17],)",
+   "([4, 4],)"
+  ],
+  "expression": "'Stable' if range_width_1(a0) <= 5 else 'Not Stable'"
+ },
+ {
+  "id": "predicates-062",
+  "category": "predicates",
+  "description": "Write a function to determine whether the given number of seconds is an exact multiple of 3600.",
+  "entry_point": "whole_hours",
+  "inputs": [
+   "(7200,)",
+   "(5400,)",
+   "(36000,)"
+  ],
+  "expression": "a0 % 3600 == 0"
+ },
+ {
+  "id": "predicates-063",
+  "category": "predicates",
+  "description": "Write a function that returns 'Even' if the sum of the two numbers is even and 'Odd' otherwise.",
+  "entry_point": "sum_parity",
+  "inputs": [
+   "(2, 7)",
+   "(3, 5)",
+   "(10, 4)"
+  ],
+  "expression": "'Even' if (a0 + a1) % 2 == 0 else 'Odd'"
+ },
+ {
+  "id": "predicates-064",
+  "category": "predicates",
+  "description": "Write a function to check whether the product of the two numbers is a perfect square.",
+  "entry_point": "product_is_square",
+  "inputs": [
+   "(3, 6)",
+   "(2, 8)",
+   "(5, 5)"
+  ],
+  "expression": "is_perfect_square_1(a0 * a1)"
+ },
+ {
+  "id": "predicates-065",
+  "category": "predicates",
+  "description": "Given two positive integers, return True when their sum is a prime number.",
+  "entry_point": "sum_is_prime",
+  "inputs": [
+   "(5, 7)",
+   "(4, 7)",
+   "(10, 3)"
+  ],
+  "expression": "is_prime_1(a0 + a1)"
+ },
+ {
+  "id": "predicates-066",
+  "category": "predicates",
+  "description": "Write a python function to check whether the least common multiple of the two numbers equals their product.",
+  "entry_point": "lcm_is_product",
+  "inputs": [
+   "(4, 9)",
+   "(4, 6)",
+   "(5, 7)"
+  ],
+  "expression": "lcm_2(a0, a1) == a0 * a1"
+ },
+ {
+  "id": "predicates-067",
+  "category": "predicates",
+  "description": "Write a python function that returns 'Palindrome' if the phrase reads the same backwards once spaces are removed and case is ignored, and 'Not Palindrome' otherwise.",
+  "entry_point": "phrase_palindrome",
+  "inputs": [
+   "('Never odd or even',)",
+   "('Hello olleh x',)",
+   "('Step on no pets',)"
+  ],
+  "expression": "'Palindrome' if is_palindrome_1(no_spaces_1(a0.lower())) else 'Not Palindrome'"
+ },
+ {
+  "id": "predicates-068",
+  "category": "predicates",
+  "description": "Write a python function to check whether the number reads the same backwards in both decimal and binary.",
+  "entry_point": "double_base_palindrome",
+  "inputs": [
+   "(585,)",
+   "(11,)",
+   "(33,)"
+  ],
+  "expression": "is_palindrome_number_1(a0) and is_palindrome_1(binary_1(a0))"
+ },
+ {
+  "id": "predicates-069",
+  "category": "predicates",
+  "description": "Create a function which returns 'Prime' if the sum of the numbers in the list is a prime number and 'Not Prime' otherwise.",
+  "entry_point": "total_prime_label",
+  "inputs": [
+   "([3, 4, 6],)",
+   "([2, 2],)",
+   "([10, 1],)"
+  ],
+  "expression": "'Prime' if is_prime_1(sum(a0)) else 'Not Prime'"
+ },
+ {
+  "id": "predicates-070",
+  "category": "predicates",
+  "description": "Write a function that returns 'Even' if the sentence has an even number of words and 'Odd' otherwise.",
+  "entry_point": "word_count_parity",
+  "inputs": [
+   "('one two three',)",
+   "('the cat sat down',)",
+   "('hi there',)"
+  ],
+  "expression": "'Even' if len(a0.split()) % 2 == 0 else 'Odd'"
+ },
+ {
+  "id": "predicates-071",
+  "category": "predicates",
+  "description": "Write a function to check whether the first word of the sentence is longer than the last word.",
+  "entry_point": "first_word_longer",
+  "inputs": [
+   "('elephants are big',)",
+   "('a big dog',)",
+   "('hello world',)"
+  ],
+  "expression": "len(a0.split()[0]) > len(a0.split()[-1])"
+ },
+ {
+  "id": "predicates-072",
+  "category": "predicates",
+  "description": "Write a function that tests if the hour falls within working hours, from 9 to 17 inclusive.",
+  "entry_point": "in_working_hours",
+  "inputs": [
+   "(18,)",
+   "(12,)",
+   "(9,)"
+  ],
+  "expression": "9 <= a0 <= 17"
+ },
+ {
+  "id": "predicates-073",
+  "category": "predicates",
+  "description": "Write a function that returns 'YES' if the three numbers are given in strictly increasing order and 'NO' otherwise.",
+  "entry_point": "ascending_triple",
+  "inputs": [
+   "(1, 5, 5)",
+   "(1, 5, 9)",
+   "(-3, 0, 2)"
+  ],
+  "expression": "'YES' if a0 < a1 < a2 else 'NO'"
+ },
+ {
+  "id": "predicates-074",
+  "category": "predicates",
+  "description": "Given the coordinates x and y of a point and a radius r, return True when the point lies strictly inside the circle of radius r centered at the origin.",
+  "entry_point": "inside_circle",
+  "inputs": [
+   "(1, 2, 3)",
+   "(3, 4, 5)",
+   "(0, -2, 3)"
+  ],
+  "expression": "a0 ** 2 + a1 ** 2 < a2 ** 2"
+ },
+ {
+  "id": "predicates-075",
+  "category": "predicates",
+  "description": "Write a function to check whether the number is divisible by 3 or by 5 but not by both.",
+  "entry_point": "three_xor_five",
+  "inputs": [
+   "(9,)",
+   "(15,)",
+   "(10,)"
+  ],
+  "expression": "divisible_by_3_1(a0) != divisible_by_5_1(a0)"
+ },
+ {
+  "id": "predicates-076",
+  "category": "predicates",
+  "description": "Write a function that returns 'Equal' if the list contains as many even numbers as odd numbers and 'Not Equal' otherwise.",
+  "entry_point": "parity_balance",
+  "inputs": [
+   "([1, 2, 3, 4],)",
+   "([1, 3, 5, 2],)",
+   "([7, 8],)"
+  ],
+  "expression": "'Equal' if seq_count_even_1(a0) == seq_count_odd_1(a0) else 'Not Equal'"
+ },
+ {
+  "id": "predicates-077",
+  "category": "predicates",
+  "description": "Write a function to check whether the elements at even indices add up to the same total as the elements at odd indices.",
+  "entry_point": "alternating_sums_match",
+  "inputs": [
+   "([1, 2, 3, 2],)",
+   "([5, 1, 1],)",
+   "([2, 3, 4, 3],)"
+  ],
+  "expression": "sum(a0[::2]) == sum(a0[1::2])"
+ },
+ {
+  "id": "predicates-078",
+  "category": "predicates",
+  "description": "Given a list, return 'Matched!' if it starts and ends with the same element and 'Not Matched!' otherwise.",
+  "entry_point": "ends_match",
+  "inputs": [
+   "([1, 2],)",
+   "([3, 5, 3],)",
+   "(['x'],)"
+  ],
+  "expression": "'Matched!' if a0[0] == a0[-1] else 'Not Matched!'"
+ },
+ {
+  "id": "predicates-079",
+  "category": "predicates",
+  "description": "The input is a dictionary and a key. Write a function to check whether the key is present and the value stored under it is positive.",
+  "entry_point": "key_has_positive",
+  "inputs": [
+   "({'a': 3, 'b': -1}, 'a')",
+   "({'a': 3, 'b': -1}, 'b')",
+   "({'a': 3}, 'c')"
+  ],
+  "expression": "a1 in a0 and a0[a1] > 0"
+ },
+ {
+  "id": "predicates-080",
+  "category": "predicates",
+  "description": "Create a function which returns 'Yes' if the two lists have the same total and 'No' otherwise.",
+  "entry_point": "same_total",
+  "inputs": [
+   "([1, 2], [4])",
+   "([1, 2, 3], [6])",
+   "([], [0])"
+  ],
+  "expression": "txt_yes_no_1(sum(a0) == sum(a1))"
+ },
+ {
+  "id": "predicates-081",
+  "category": "predicates",
+  "description": "Write a function to check whether the given number of bowling pins can be set up as a complete triangle with rows of 1, 2, 3 and so on.",
+  "entry_point": "pins_form_triangle",
+  "inputs": [
+   "(10,)",
+   "(11,)",
+   "(15,)"
+  ],
+  "expression": "is_perfect_square_1(8 * a0 + 1)"
+ },
+ {
+  "id": "predicates-082",
+  "category": "predicates",
+  "description": "Write a python function to find out whether the digit sum of the number is a prime number.",
+  "entry_point": "digit_sum_prime",
+  "inputs": [
+   "(44,)",
+   "(23,)",
+   "(101,)"
+  ],
+  "expression": "is_prime_1(digit_sum_1(a0))"
+ },
+ {
+  "id": "predicates-083",
+  "category": "predicates",
+  "description": "Write a function that tests if the word contains more than 2 vowels.",
+  "entry_point": "many_vowels",
+  "inputs": [
+   "('education',)",
+   "('bake',)",
+   "('area',)"
+  ],
+  "expression": "vowel_count_1(a0) > 2"
+ },
+ {
+  "id": "predicates-084",
+  "category": "predicates",
+  "description": "Create a function which returns 'YES' if the number has exactly 3 divisors and 'NO' otherwise.",
+  "entry_point": "three_divisors",
+  "inputs": [
+   "(49,)",
+   "(36,)",
+   "(4,)"
+  ],
+  "expression": "'YES' if num_divisor_count_1(a0) == 3 else 'NO'"
+ },
+ {
+  "id": "predicates-085",
+  "category": "predicates",
+  "description": "Write a function that returns 'Valid' if the username is between 4 and 12 characters long and contains only letters and digits, and 'Invalid' otherwise.",
+  "entry_point": "username_check",
+  "inputs": [
+   "('alice99',)",
+   "('bob',)",
+   "('charlie_7',)"
+  ],
+  "expression": "txt_valid_invalid_1(4 <= len(a0) <= 12 and a0.isalnum())"
+ },
+ {
+  "id": "predicates-086",
+  "category": "predicates",
+  "description": "Write a python function to check whether one of the two numbers divides the other evenly.",
+  "entry_point": "one_divides_other",
+  "inputs": [
+   "(5, 7)",
+   "(12, 4)",
+   "(3, 9)"
+  ],
+  "expression": "a0 % a1 == 0 or a1 % a0 == 0"
+ },
+ {
+  "id": "predicates-087",
+  "category": "predicates",
+  "description": "Given the length and width of a rectangle, return True if its area is larger than its perimeter.",
+  "entry_point": "area_beats_perimeter",
+  "inputs": [
+   "(5, 6)",
+   "(2, 3)",
+   "(4, 4)"
+  ],
+  "expression": "a0 * a1 > 2 * (a0 + a1)"
+ },
+ {
+  "id": "predicates-088",
+  "category": "predicates",
+  "description": "Write a function that returns 'EVEN' if the number is written with an even count of digits and 'ODD' otherwise.",
+  "entry_point": "digit_count_parity",
+  "inputs": [
+   "(123,)",
+   "(1234,)",
+   "(56,)"
+  ],
+  "expression": "'EVEN' if digit_count_1(a0) % 2 == 0 else 'ODD'"
+ },
+ {
+  "id": "predicates-089",
+  "category": "predicates",
+  "description": "Write a python function that returns 'Yes' if the product of the numbers in the list is negative and 'No' otherwise.",
+  "entry_point": "negative_product",
+  "inputs": [
+   "([2, -3, 4],)",
+   "([-1, -2],)",
+   "([-5],)"
+  ],
+  "expression": "txt_yes_no_1(prod_1(a0) < 0)"
+ },
+ {
+  "id": "predicates-090",
+  "category": "predicates",
+  "description": "Write a function to check whether the number equals the sum of the factorials of its digits.",
+  "entry_point": "factorial_digit_sum_match",
+  "inputs": [
+   "(145,)",
+   "(146,)",
+   "(2,)"
+  ],
+  "expression": "a0 == sum(factorial_1(d) for d in digits_1(a0))"
+ },
+ {
+  "id": "predicates-091",
+  "category": "predicates",
+  "description": "Write a function that returns 'Yes' if the numbers in the list form an arithmetic progression in the given order and 'No' otherwise.",
+  "entry_point": "is_progression",
+  "inputs": [
+   "([3, 7, 11, 15],)",
+   "([1, 2, 4],)",
+   "([5, 3, 1],)"
+  ],
+  "expression": "txt_yes_no_1(len(set(adjacent_diff_1(a0))) <= 1)"
+ },
+ {
+  "id": "predicates-092",
+  "category": "predicates",
+  "description": "Write a function that returns 'Found a match!' if the text contains a word ending in 'ly' and 'Not matched!' otherwise.",
+  "entry_point": "ly_word_search",
+  "inputs": [
+   "('He ran quickly home',)",
+   "('He ran home',)",
+   "('only',)"
+  ],
+  "expression": "txt_match_message_1(any(w.endswith('ly') for w in a0.split()))"
+ },
+ {
+  "id": "predicates-093",
+  "category": "predicates",
+  "description": "Write a function to check whether the string contains some character twice in a row.",
+  "entry_point": "has_double_letter",
+  "inputs": [
+   "('abcdef',)",
+   "('bookkeeper',)",
+   "('aa',)"
+  ],
+  "expression": "a0 != txt_squeeze_repeats_1(a0)"
+ },
+ {
+  "id": "predicates-094",
+  "category": "predicates",
+  "description": "Write a function to test if the square matrix is equal to its own transpose.",
+  "entry_point": "is_symmetric_matrix",
+  "inputs": [
+   "([[1, 2], [2, 1]],)",
+   "([[1, 2], [3, 1]],)",
+   "([[4]],)"
+  ],
+  "expression": "a0 == transpose_1(a0)"
+ },
+ {
+  "id": "predicates-095",
+  "category": "predicates",
+  "description": "Write a function to check whether the digits of the number never decrease from left to right.",
+  "entry_point": "digits_non_decreasing",
+  "inputs": [
+   "(1243,)",
+   "(1229,)",
+   "(3459,)"
+  ],
+  "expression": "is_sorted_1(digits_1(a0))"
+ },
+ {
+  "id": "predicates-096",
+  "category": "predicates",
+  "description": "Write a function that tests if every word in the sentence appears only once.",
+  "entry_point": "no_repeated_words",
+  "inputs": [
+   "('the cat and dog',)",
+   "('the cat and the dog',)",
+   "('hi',)"
+  ],
+  "expression": "all_unique_1(a0.split())"
+ },
+ {
+  "id": "predicates-097",
+  "category": "predicates",
+  "description": "Given two lists of numbers, return True if every number in the first list is smaller than every number in the second list.",
+  "entry_point": "lists_separated",
+  "inputs": [
+   "([1, 6], [5, 9])",
+   "([1, 4, 2], [5, 9])",
+   "([-3], [0])"
+  ],
+  "expression": "max(a0) < min(a1)"
+ },
+ {
+  "id": "predicates-098",
+  "category": "predicates",
+  "description": "Write a function to check whether more than half of the numbers in the list are even.",
+  "entry_point": "mostly_even",
+  "inputs": [
+   "([2, 4, 5],)",
+   "([2, 3],)",
+   "([6],)"
+  ],
+  "expression": "2 * seq_count_even_1(a0) > len(a0)"
+ },
+ {
+  "id": "predicates-099",
+  "category": "predicates",
+  "description": "Write a function to check whether every row of the matrix has the same sum.",
+  "entry_point": "equal_row_sums",
+  "inputs": [
+   "([[1, 2], [3, 0]],)",
+   "([[1, 2], [2, 2]],)",
+   "([[5]],)"
+  ],
+  "expression": "len(set(row_sum_1(a0))) == 1"
+ },
+ {
+  "id": "predicates-100",
+  "category": "predicates",
+  "description": "Write a function to check whether the second string is the first string written backwards.",
+  "entry_point": "is_reverse_of",
+  "inputs": [
+   "('drawer', 'reward')",
+   "('loop', 'loop')",
+   "('ab', 'ba')"
+  ],
+  "expression": "a1 == a0[::-1]"
+ },
+ {
+  "id": "predicates-101",
+  "category": "predicates",
+  "description": "Write a function that returns 'Yes' if every number in the list is a multiple of 5 and 'No' otherwise.",
+  "entry_point": "all_fives",
+  "inputs": [
+   "([10, 22],)",
+   "([10, 25, 40],)",
+   "([0, -5],)"
+  ],
+  "expression": "txt_yes_no_1(all(x % 5 == 0 for x in a0))"
+ },
+ {
+  "id": "predicates-102",
+  "category": "predicates",
+  "description": "Write a function to check whether any word in the list starts with a capital letter.",
+  "entry_point": "has_capitalized_word",
+  "inputs": [
+   "(['apple', 'Banana'],)",
+   "(['kiwi', 'lime'],)",
+   "(['Fig'],)"
+  ],
+  "expression": "any(w[:1].isupper() for w in a0)"
+ },
+ {
+  "id": "predicates-103",
+  "category": "predicates",
+  "description": "Create a function which returns 'YES' if at least 3 numbers in the list are negative and 'NO' otherwise.",
+  "entry_point": "three_negatives",
+  "inputs": [
+   "([-1, 2, -3],)",
+   "([-1, -2, 3, -4],)",
+   "([-5, -5, -5],)"
+  ],
+  "expression": "'YES' if sum(x < 0 for x in a0) >= 3 else 'NO'"
+ },
+ {
+  "id": "predicates-104",
+  "category": "predicates",
+  "description": "Write a function to check whether exactly one element of the list is zero.",
+  "entry_point": "single_zero",
+  "inputs": [
+   "([3, 0, 5],)",
+   "([0, 0, 1],)",
+   "([0],)"
+  ],
+  "expression": "a0.count(0) == 1"
+ },
+ {
+  "id": "predicates-105",
+  "category": "predicates",
+  "description": "Given a list of words, return True if every word is longer than 3 characters.",
+  "entry_point": "all_long_words",
+  "inputs": [
+   "(['tree', 'cat'],)",
+   "(['tree', 'house'],)",
+   "(['abcd'],)"
+  ],
+  "expression": "all(len(w) > 3 for w in a0)"
+ },
+ {
+  "id": "predicates-106",
+  "category": "predicates",
+  "description": "Write a function to check whether the list has two equal elements standing next to each other.",
+  "entry_point": "has_adjacent_twins",
+  "inputs": [
+   "([1, 2, 1, 2],)",
+   "([1, 2, 2, 3],)",
+   "(['a', 'a'],)"
+  ],
+  "expression": "any(a == b for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "predicates-107",
+  "category": "predicates",
+  "description": "Write a function to check whether each element of the list is larger than the sum of all the elements before it.",
+  "entry_point": "superincreasing",
+  "inputs": [
+   "([1, 2, 4, 8],)",
+   "([1, 2, 3],)",
+   "([5, 6, 12],)"
+  ],
+  "expression": "all(x > sum(a0[:i]) for i, x in enumerate(a0))"
+ },
+ {
+  "id": "predicates-108",
+  "category": "predicates",
+  "description": "Write a python function to check whether every string in the list contains the letter 'e'.",
+  "entry_point": "all_have_e",
+  "inputs": [
+   "(['tree', 'bee'],)",
+   "(['tree', 'cat'],)",
+   "(['e'],)"
+  ],
+  "expression": "all('e' in w for w in a0)"
+ },
+ {
+  "id": "predicates-109",
+  "category": "predicates",
+  "description": "Given a list of readings, return 'Safe' if no two neighbouring values differ by more than 10 and 'Not Safe' otherwise.",
+  "entry_point": "smooth_readings",
+  "inputs": [
+   "([1, 5, 9, 12],)",
+   "([1, 5, 20],)",
+   "([30, 20],)"
+  ],
+  "expression": "'Safe' if all(abs(a - b) <= 10 for a, b in zip(a0, a0[1:])) else 'Not Safe'"
+ },
+ {
+  "id": "predicates-110",
+  "category": "predicates",
+  "description": "Write a function to determine whether the list has more positive numbers than negative numbers.",
+  "entry_point": "positives_outnumber",
+  "inputs": [
+   "([1, -2, 3],)",
+   "([-1, -2, 0, 4],)",
+   "([0, 5],)"
+  ],
+  "expression": "sum(x > 0 for x in a0) > sum(x < 0 for x in a0)"
+ },
+ {
+  "id": "predicates-111",
+  "category": "predicates",
+  "description": "Write a function that returns 'Valid' if every interval (start, end) in the list has its start smaller than its end, and 'Invalid' otherwise.",
+  "entry_point": "intervals_check",
+  "inputs": [
+   "([(1, 2), (5, 5)],)",
+   "([(1, 2), (3, 7)],)",
+   "([(-4, 0)],)"
+  ],
+  "expression": "txt_valid_invalid_1(all(a < b for a, b in a0))"
+ },
+ {
+  "id": "predicates-112",
+  "category": "predicates",
+  "description": "Write a function to check whether any key of the dictionary is longer than 5 characters.",
+  "entry_point": "has_long_key",
+  "inputs": [
+   "({'apple': 1, 'banana': 2},)",
+   "({'fig': 3, 'plum': 6},)",
+   "({'cherry': 0},)"
+  ],
+  "expression": "any(len(k) > 5 for k in a0)"
+ },
+ {
+  "id": "predicates-113",
+  "category": "predicates",
+  "description": "Given a dictionary of counts, return True when every value in it is even.",
+  "entry_point": "even_values",
+  "inputs": [
+   "({'a': 2, 'b': 3},)",
+   "({'a': 2, 'b': 8},)",
+   "({'x': 0},)"
+  ],
+  "expression": "all(v % 2 == 0 for v in a0.values())"
+ },
+ {
+  "id": "predicates-114",
+  "category": "predicates",
+  "description": "Write a function to check whether the grid has a row made up entirely of zeros.",
+  "entry_point": "has_zero_row",
+  "inputs": [
+   "([[1, 2], [0, 0]],)",
+   "([[1, 0], [0, 1]],)",
+   "([[0, 0, 0]],)"
+  ],
+  "expression": "any(not any(r) for r in a0)"
+ },
+ {
+  "id": "predicates-115",
+  "category": "predicates",
+  "description": "Write a function that tests if the string contains at least one digit.",
+  "entry_point": "has_digit",
+  "inputs": [
+   "('abc',)",
+   "('abc1',)",
+   "('9',)"
+  ],
+  "expression": "any(c.isdigit() for c in a0)"
+ },
+ {
+  "id": "predicates-116",
+  "category": "predicates",
+  "description": "Write a function that returns 'Yes' if all digits of the number are odd and 'No' otherwise.",
+  "entry_point": "odd_digits_only",
+  "inputs": [
+   "(1357,)",
+   "(1352,)",
+   "(9,)"
+  ],
+  "expression": "txt_yes_no_1(all(d % 2 == 1 for d in digits_1(a0)))"
+ },
+ {
+  "id": "predicates-117",
+  "category": "predicates",
+  "description": "Create a function which returns 'Yes' if every element of the first list occurs in the second list at least as many times, and 'No' otherwise.",
+  "entry_point": "covered_by",
+  "inputs": [
+   "([1, 1, 2], [2, 1, 1, 3])",
+   "([1, 1, 2], [1, 2, 3])",
+   "(['a'], ['a', 'b'])"
+  ],
+  "expression": "'Yes' if all(a0.count(x) <= a1.count(x) for x in a0) else 'No'"
+ },
+ {
+  "id": "predicates-118",
+  "category": "predicates",
+  "description": "Write a function to check whether some element of the list equals the sum of all the other elements.",
+  "entry_point": "element_balances_rest",
+  "inputs": [
+   "([1, 2, 3],)",
+   "([1, 2, 4],)",
+   "([5, 1, 4],)"
+  ],
+  "expression": "any(2 * x == sum(a0) for x in a0)"
+ },
+ {
+  "id": "predicates-119",
+  "category": "predicates",
+  "description": "Write a python function to check whether each element of the list is divisible by the element just before it.",
+  "entry_point": "divisible_chain",
+  "inputs": [
+   "([2, 6, 9],)",
+   "([2, 4, 12, 24],)",
+   "([3, 3],)"
+  ],
+  "expression": "all(b % a == 0 for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "predicates-120",
+  "category": "predicates",
+  "description": "The input is a list mixing numbers and strings. Write a function to check whether it contains at least 2 strings.",
+  "entry_point": "two_or_more_strings",
+  "inputs": [
+   "([1, 'a', 'b'],)",
+   "(['a', 2, 3],)",
+   "(['x', 'y', 'z'],)"
+  ],
+  "expression": "sum(isinstance(x, str) for x in a0) >= 2"
+ },
+ {
+  "id": "predicates-121",
+  "category": "predicates",
+  "description": "Write a function that returns 'Sorted' if every inner list is in ascending order and 'Not Sorted' otherwise.",
+  "entry_point": "rows_sorted_label",
+  "inputs": [
+   "([[1, 2], [3, 5, 9]],)",
+   "([[1, 2], [4, 3]],)",
+   "([[0], []],)"
+  ],
+  "expression": "'Sorted' if all(r == sorted(r) for r in a0) else 'Not Sorted'"
+ },
+ {
+  "id": "predicates-122",
+  "category": "predicates",
+  "description": "Write a function to check whether at least 2 words of the sentence are longer than 4 letters.",
+  "entry_point": "two_long_words",
+  "inputs": [
+   "('a big red apple',)",
+   "('large green apples',)",
+   "('hello there',)"
+  ],
+  "expression": "sum(len(w) > 4 for w in a0.split()) >= 2"
+ },
+ {
+  "id": "predicates-123",
+  "category": "predicates",
+  "description": "Write a function to check whether every number in the list lies between 1 and 100 inclusive.",
+  "entry_point": "all_in_percent_range",
+  "inputs": [
+   "([1, 50, 100],)",
+   "([0, 50],)",
+   "([99],)"
+  ],
+  "expression": "all(1 <= x <= 100 for x in a0)"
+ },
+ {
+  "id": "predicates-124",
+  "category": "predicates",
+  "description": "Write a function to check whether the list contains at least one perfect square.",
+  "entry_point": "has_square",
+  "inputs": [
+   "([3, 5, 9],)",
+   "([2, 3, 5],)",
+   "([16],)"
+  ],
+  "expression": "any(map(is_perfect_square_1, a0))"
+ },
+ {
+  "id": "predicates-125",
+  "category": "predicates",
+  "description": "Write a function that returns 'Yes' if every number in the list is prime and 'No' otherwise.",
+  "entry_point": "all_prime_label",
+  "inputs": [
+   "([2, 9],)",
+   "([2, 3, 5, 7],)",
+   "([11],)"
+  ],
+  "expression": "txt_yes_no_1(all(map(is_prime_1, a0)))"
+ },
+ {
+  "id": "predicates-126",
+  "category": "predicates",
+  "description": "Write a function that tests if exactly 2 numbers in the list are prime.",
+  "entry_point": "two_primes",
+  "inputs": [
+   "([4, 5, 6, 7],)",
+   "([2, 3, 5],)",
+   "([1, 13, 9, 2],)"
+  ],
+  "expression": "sum(map(is_prime_1, a0)) == 2"
+ },
+ {
+  "id": "predicates-127",
+  "category": "predicates",
+  "description": "Write a function to check whether every string in the list is a palindrome.",
+  "entry_point": "all_palindromes",
+  "inputs": [
+   "(['anna', 'bob', 'tom'],)",
+   "(['anna', 'civic'],)",
+   "(['x'],)"
+  ],
+  "expression": "all(is_palindrome_1(s) for s in a0)"
+ },
+ {
+  "id": "predicates-128",
+  "category": "predicates",
+  "description": "Given a sentence, return True if it contains a palindromic word of at least 3 letters.",
+  "entry_point": "has_long_palindrome_word",
+  "inputs": [
+   "('my mom said wow',)",
+   "('aa bb cc',)",
+   "('noon',)"
+  ],
+  "expression": "any(len(w) >= 3 and w == w[::-1] for w in a0.split())"
+ },
+ {
+  "id": "predicates-129",
+  "category": "predicates",
+  "description": "Given a list of pairs, return 'Equal' if all of them have the same sum and 'Not Equal' otherwise.",
+  "entry_point": "pair_sums_equal",
+  "inputs": [
+   "([(1, 5), (2, 4), (3, 3)],)",
+   "([(1, 2), (2, 2)],)",
+   "([(0, 7)],)"
+  ],
+  "expression": "'Equal' if len({a + b for a, b in a0}) == 1 else 'Not Equal'"
+ },
+ {
+  "id": "predicates-130",
+  "category": "predicates",
+  "description": "Write a function to check whether every number in the list is exactly 1 more than the number before it.",
+  "entry_point": "counts_up_by_one",
+  "inputs": [
+   "([4, 5, 6, 7],)",
+   "([4, 5, 7],)",
+   "([-1, 0],)"
+  ],
+  "expression": "all(b - a == 1 for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "predicates-131",
+  "category": "predicates",
+  "description": "Write a function to check whether every string in the list ends with the given suffix.",
+  "entry_point": "all_end_with",
+  "inputs": [
+   "(['walking', 'walked'], 'ing')",
+   "(['walking', 'singing'], 'ing')",
+   "(['cats', 'dogs'], 's')"
+  ],
+  "expression": "all(s.endswith(a1) for s in a0)"
+ },
+ {
+  "id": "predicates-132",
+  "category": "predicates",
+  "description": "Write a function that returns 'Found' if some number in the tuple is divisible by 7 and 'Not Found' otherwise.",
+  "entry_point": "seven_multiple_search",
+  "inputs": [
+   "((3, 14, 5),)",
+   "((1, 2, 3),)",
+   "((49,),)"
+  ],
+  "expression": "'Found' if any(x % 7 == 0 for x in a0) else 'Not Found'"
+ },
+ {
+  "id": "predicates-133",
+  "category": "predicates",
+  "description": "Write a function to check whether every word of the sentence contains at least one vowel.",
+  "entry_point": "words_have_vowels",
+  "inputs": [
+   "('the cat sat',)",
+   "('my gym bag',)",
+   "('I am',)"
+  ],
+  "expression": "all(vowel_count_1(w) > 0 for w in a0.split())"
+ },
+ {
+  "id": "predicates-134",
+  "category": "predicates",
+  "description": "Write a function that returns 'Valid' if none of the inner lists is empty and 'Invalid' otherwise.",
+  "entry_point": "no_empty_rows",
+  "inputs": [
+   "([[1], [2, 3]],)",
+   "([[1], []],)",
+   "([[0]],)"
+  ],
+  "expression": "txt_valid_invalid_1(all(len(r) > 0 for r in a0))"
+ },
+ {
+  "id": "predicates-135",
+  "category": "predicates",
+  "description": "Write a function that returns 'Found' if some value occurs exactly 3 times in the list and 'Not Found' otherwise.",
+  "entry_point": "triple_value",
+  "inputs": [
+   "([4, 4, 4, 4, 2],)",
+   "([1, 2, 1, 1],)",
+   "(['z', 'z', 'z'],)"
+  ],
+  "expression": "'Found' if any(a0.count(x) == 3 for x in a0) else 'Not Found'"
+ },
+ {
+  "id": "predicates-136",
+  "category": "predicates",
+  "description": "Write a function to check whether every value in the list equals its own index.",
+  "entry_point": "values_match_indices",
+  "inputs": [
+   "([0, 1, 2],)",
+   "([0, 2, 1],)",
+   "([0],)"
+  ],
+  "expression": "all(i == x for i, x in enumerate(a0))"
+ },
+ {
+  "id": "predicates-137",
+  "category": "predicates",
+  "description": "Write a function that tests if every element of the tuple is an integer.",
+  "entry_point": "all_integers",
+  "inputs": [
+   "((1, 2.5),)",
+   "((1, 2, 3),)",
+   "((7,),)"
+  ],
+  "expression": "all(isinstance(x, int) for x in a0)"
+ },
+ {
+  "id": "predicates-138",
+  "category": "predicates",
+  "description": "Write a function that returns 'Valid' if every record dictionary in the list has the key 'id' and 'Invalid' otherwise.",
+  "entry_point": "records_have_id",
+  "inputs": [
+   "([{'id': 1}, {'id': 2, 'x': 0}],)",
+   "([{'id': 1}, {'name': 'a'}],)",
+   "([{'id': 5}],)"
+  ],
+  "expression": "txt_valid_invalid_1(all('id' in d for d in a0))"
+ },
+ {
+  "id": "predicates-139",
+  "category": "predicates",
+  "description": "The input is a batch of measurements as a list. Write a function that returns 'Accept' if it has no negative numbers and 'Discard' otherwise.",
+  "entry_point": "non_negative_batch",
+  "inputs": [
+   "([0, 3, 8],)",
+   "([1, -1],)",
+   "([5],)"
+  ],
+  "expression": "'Accept' if all(x >= 0 for x in a0) else 'Discard'"
+ },
+ {
+  "id": "predicates-140",
+  "category": "predicates",
+  "description": "Write a function to check whether any string in the list is longer than the given length.",
+  "entry_point": "any_longer_than",
+  "inputs": [
+   "(['hi', 'hello'], 4)",
+   "(['hi', 'hey'], 3)",
+   "(['abcdef'], 5)"
+  ],
+  "expression": "any(len(s) > a1 for s in a0)"
+ },
+ {
+  "id": "predicates-141",
+  "category": "predicates",
+  "description": "Write a python function that returns 'YES' if every element of the list appears exactly twice and 'NO' otherwise.",
+  "entry_point": "all_paired",
+  "inputs": [
+   "([1, 2, 1, 2],)",
+   "([1, 1, 2],)",
+   "(['a', 'a'],)"
+  ],
+  "expression": "'YES' if all(a0.count(x) == 2 for x in a0) else 'NO'"
+ },
+ {
+  "id": "predicates-142",
+  "category": "predicates",
+  "description": "Write a function to check whether the tuple contains a value greater than 100.",
+  "entry_point": "has_over_hundred",
+  "inputs": [
+   "((100, 99),)",
+   "((50, 150),)",
+   "((101,),)"
+  ],
+  "expression": "any(x > 100 for x in a0)"
+ },
+ {
+  "id": "predicates-143",
+  "category": "predicates",
+  "description": "Write a function to check whether every character of the string is either a letter or a space.",
+  "entry_point": "letters_and_spaces",
+  "inputs": [
+   "('hello world',)",
+   "('hello, world',)",
+   "('abc',)"
+  ],
+  "expression": "all(c.isalpha() or c == ' ' for c in a0)"
+ },
+ {
+  "id": "predicates-144",
+  "category": "predicates",
+  "description": "Write a function that returns 'Same' if all numbers in the list have the same sign and 'Not Same' otherwise.",
+  "entry_point": "sign_agreement",
+  "inputs": [
+   "([3, 5, 1],)",
+   "([3, -5],)",
+   "([-2, -8],)"
+  ],
+  "expression": "'Same' if all(x > 0 for x in a0) or all(x < 0 for x in a0) else 'Not Same'"
+ },
+ {
+  "id": "predicates-145",
+  "category": "predicates",
+  "description": "Write a function to check whether every column of the matrix adds up to an even number.",
+  "entry_point": "even_column_sums",
+  "inputs": [
+   "([[1, 2], [2, 2]],)",
+   "([[1, 3], [1, 5]],)",
+   "([[4, 6]],)"
+  ],
+  "expression": "all(s % 2 == 0 for s in col_sum_1(a0))"
+ },
+ {
+  "id": "predicates-146",
+  "category": "predicates",
+  "description": "Write a function that returns 'Yes' if any row of the matrix contains a negative number and 'No' otherwise.",
+  "entry_point": "negative_in_matrix",
+  "inputs": [
+   "([[1, 2], [0, 4]],)",
+   "([[1, 2], [3, -4]],)",
+   "([[-1]],)"
+  ],
+  "expression": "'Yes' if any(x < 0 for r in a0 for x in r) else 'No'"
+ },
+ {
+  "id": "predicates-147",
+  "category": "predicates",
+  "description": "Write a function that returns 'Yes' if two different elements of the list multiply to give the target and 'No' otherwise.",
+  "entry_point": "product_pair_exists",
+  "inputs": [
+   "([2, 5, 3, 4], 12)",
+   "([2, 5, 3], 7)",
+   "([6, 1], 6)"
+  ],
+  "expression": "txt_yes_no_1(any(x * y == a1 for i, x in enumerate(a0) for y in a0[i + 1:]))"
+ },
+ {
+  "id": "predicates-148",
+  "category": "predicates",
+  "description": "Given a list of names, return 'Yes' if every name starts with the same letter and 'No' otherwise.",
+  "entry_point": "shared_initial",
+  "inputs": [
+   "(['anna', 'alex', 'amy'],)",
+   "(['anna', 'bob'],)",
+   "(['zed'],)"
+  ],
+  "expression": "'Yes' if len({s[0] for s in a0}) == 1 else 'No'"
+ },
+ {
+  "id": "predicates-149",
+  "category": "predicates",
+  "description": "Given a string and a character, return True if the character occurs in the string more than 2 times.",
+  "entry_point": "char_frequent",
+  "inputs": [
+   "('banana', 'a')",
+   "('banana', 'n')",
+   "('aaa', 'a')"
+  ],
+  "expression": "a0.count(a1) > 2"
+ },
+ {
+  "id": "predicates-150",
+  "category": "predicates",
+  "description": "Write a function to check whether each element of the list is either equal to the previous element or exactly one more.",
+  "entry_point": "steps_of_zero_or_one",
+  "inputs": [
+   "([1, 1, 2, 3, 3],)",
+   "([1, 3],)",
+   "([5, 5],)"
+  ],
+  "expression": "all(b - a in (0, 1) for a, b in zip(a0, a0[1:]))"
+ }
+]
