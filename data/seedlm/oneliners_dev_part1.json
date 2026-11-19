@@ -1,0 +1,366 @@
+[
+ {
+  "task_id": "Mbpp/239",
+  "class": "oneliner",
+  "expression": "seq_coin_ways_2([1] + [2 ** i for i in range(a1)], a0 - 2 ** (a1 - 1)) if a0 >= 2 ** (a1 - 1) else 0",
+  "passes": true,
+  "note": "Reduction to coin-change counting: with b_i = a_(i+1) - 2*a_i and a slack term, sequences correspond to the ways to make m - 2^(n-1) from coins 1, 1, 2, ..., 2^(n-1); 0 when m < 2^(n-1). Non-obvious, but exact: agrees with the reference DP on random inputs."
+ },
+ {
+  "task_id": "Mbpp/596",
+  "class": "needs_operator",
+  "expression": "a0.__sizeof__()",
+  "passes": false,
+  "note": "Needs sys.getsizeof, which is not in scope; a0.__sizeof__() gives 72 instead of 88 because it leaves out the GC header. The checker also cannot parse the visible assert, whose right side calls sys.getsizeof."
+ },
+ {
+  "task_id": "Mbpp/732",
+  "class": "oneliner",
+  "expression": "a0.replace(' ', ':').replace(',', ':').replace('.', ':')",
+  "passes": true,
+  "note": "Three replaces using the characters the description names (space, comma, dot to colon); avoids the unreadable regex class '[ ,.]'."
+ },
+ {
+  "task_id": "Mbpp/794",
+  "class": "oneliner",
+  "expression": "a0.endswith('b') and 'a' in a0[:-1]",
+  "passes": true,
+  "note": "Ends in 'b' with an 'a' somewhere before it: same truth value as re.search('a.*?b$', text), without a regex constant."
+ },
+ {
+  "task_id": "MbppX/110",
+  "class": "unclear_task",
+  "expression": "[p for s, t in zip(a0, [a1] + row_last_1(a0)) for p in ((t, s[0]), (s[1], a2))]",
+  "passes": true,
+  "note": "Description asks for the missing ranges, but the tests (the visible one too) expect the reference's interleaved pairs (previous end, start) and (end, stop) for every range, caused by a misplaced if. Expression copies the visible pattern; it leaves out the reference's conditional state update, which no test exercises."
+ },
+ {
+  "task_id": "MbppX/136",
+  "class": "needs_hidden_info",
+  "expression": "",
+  "passes": false,
+  "note": "The tariff slabs (2.60/3.25/5.26/8.45 per unit) and surcharges (25/35/45/75) appear only in the reference code; nothing in the description or the visible example fixes them."
+ },
+ {
+  "task_id": "MbppX/158",
+  "class": "oneliner",
+  "expression": "sum(max(a0) - x for x in a0) // a2 if all_same_1([x % a2 for x in a0]) else -1",
+  "passes": true,
+  "note": "Description is garbled; the intent comes from the reference: raise every element to the maximum in steps of k, -1 if impossible. Possible exactly when all elements leave the same remainder mod k."
+ },
+ {
+  "task_id": "MbppX/178",
+  "class": "oneliner",
+  "expression": "'Matched!' if any(p in a1 for p in a0) else 'Not Matched!'",
+  "passes": true,
+  "note": "complement: 'Not Matched!' is the opposite of the visible 'Matched!'. Substring test for the literal strings; the reference only looks at the first pattern, and every test has one."
+ },
+ {
+  "task_id": "MbppX/186",
+  "class": "oneliner",
+  "expression": "'Matched!' if any(p in a0 for p in a1) else 'Not Matched!'",
+  "passes": true,
+  "note": "complement: 'Not Matched!' is the opposite of the visible 'Matched!'. Same as MbppX/178 with the arguments swapped."
+ },
+ {
+  "task_id": "MbppX/198",
+  "class": "unclear_task",
+  "expression": "3 * math.sqrt(3) * a0 ** 2 / (4 * a1)",
+  "passes": true,
+  "note": "Tests use the reference formula 3*sqrt(3)*a^2/(4b), which is not the largest inscribed triangle: the true maximum 3*sqrt(3)*a*b/4 passes the visible example but fails (5, 7). The visible example cannot tell the two apart. Expression is the reference formula and passes."
+ },
+ {
+  "task_id": "MbppX/220",
+  "class": "oneliner",
+  "expression": "''.join(':' if c in (' ', ',', '.') and sum(map(a0[:i].count, (' ', ',', '.'))) < a1 else c for i, c in enumerate(a0))",
+  "passes": true,
+  "note": "Replace a space, comma or dot only while fewer than n of them come before it; avoids the unreadable regex '[ ,.]'. Differs from re.sub(..., n) only at n = 0, where re.sub replaces everything."
+ },
+ {
+  "task_id": "MbppX/241",
+  "class": "oneliner",
+  "expression": "[[['*'] * a0 for _ in range(a1)] for _ in range(a2)]",
+  "passes": true,
+  "note": "o blocks of n rows of m '*' each, built by comprehension so the rows are not aliased."
+ },
+ {
+  "task_id": "MbppX/288",
+  "class": "oneliner",
+  "expression": "sum(x * x % a2 == 1 for x in a0)",
+  "passes": true,
+  "note": "x is its own inverse mod p exactly when x*x % p == 1. Not seq_count_self_inverse_2: that operator's guard requires a prime p, and one test uses p = 6."
+ },
+ {
+  "task_id": "MbppX/307",
+  "class": "oneliner",
+  "expression": "tuple(x + [a2] if i == a1 else x for i, x in enumerate(a0))",
+  "passes": true,
+  "note": "New tuple whose list at index m has n appended; the input is not mutated, so it behaves like the reference's deepcopy."
+ },
+ {
+  "task_id": "MbppX/318",
+  "class": "oneliner",
+  "expression": "(a0 // 3) ** (3 - a0 % 3) * (a0 // 3 + 1) ** (a0 % 3)",
+  "passes": true,
+  "note": "Integer sides as equal as possible (q = s // 3, r = s % 3, volume q^(3-r) * (q+1)^r); agrees with the reference brute force."
+ },
+ {
+  "task_id": "MbppX/324",
+  "class": "oneliner",
+  "expression": "(sum(odd_index_1(a0)), sum(even_index_1(a0)))",
+  "passes": true,
+  "note": "Sum of the odd-index elements, then the even-index ones; the order is read from the visible example."
+ },
+ {
+  "task_id": "MbppX/337",
+  "class": "oneliner",
+  "expression": "txt_match_message_1(any(c.isalnum() for c in a0.split(' ')[-1]))",
+  "passes": true,
+  "note": "The last space-separated token contains a word character (a word at the end, possibly followed by punctuation). Same as the reference regex \\w+\\S*$ except for underscores and non-space whitespace."
+ },
+ {
+  "task_id": "MbppX/344",
+  "class": "oneliner",
+  "expression": "math.isqrt(a1) - math.isqrt(a0 - 1)",
+  "passes": true,
+  "note": "Numbers with an odd number of factors are the perfect squares; count the squares in [n, m]."
+ },
+ {
+  "task_id": "MbppX/351",
+  "class": "oneliner",
+  "expression": "([x for x in a0 if a0.count(x) == a2] + [-1])[0]",
+  "passes": true,
+  "note": "First element that occurs exactly k times, else -1."
+ },
+ {
+  "task_id": "MbppX/376",
+  "class": "oneliner",
+  "expression": "tuple('MSP' if x in a0[:i] else x for i, x in enumerate(a0))",
+  "passes": true,
+  "note": "Every repeat of an earlier element becomes 'MSP', the custom value read from the visible example."
+ },
+ {
+  "task_id": "MbppX/408",
+  "class": "oneliner",
+  "expression": "sorted([[x, y] for x in a0 for y in a1], key=sum)[:a2]",
+  "passes": true,
+  "note": "Sort all pairs by sum; the sort is stable, so ties keep index order. For sorted inputs this equals the reference heap order (checked on random inputs)."
+ },
+ {
+  "task_id": "MbppX/431",
+  "class": "unclear_task",
+  "expression": "any_common_2(a0, a1)",
+  "passes": false,
+  "note": "A test expects None, not False, when no element is shared, because the reference falls off the end of its loop; the description only says 'returns true'. any_common_2(a0, a1) or None would pass, but it copies the bug."
+ },
+ {
+  "task_id": "MbppX/44",
+  "class": "oneliner",
+  "expression": "txt_match_message_1(a0[:1].isalnum())",
+  "passes": true,
+  "note": "The string starts with a word character (isalnum stands in for \\w). complement: 'Found a match!' is the opposite of the visible 'Not matched!', produced by txt_match_message_1."
+ },
+ {
+  "task_id": "MbppX/469",
+  "class": "oneliner",
+  "expression": "max(sum(s[1::2]) - sum(s[::2]) for s in seq_powerset_by_size_1(a0) if len(s) % 2 == 0 and len(s) <= 2 * a1)",
+  "passes": true,
+  "note": "Exhaustive search: an even-size ordered subset of at most 2k prices is a buy/sell schedule, profit = sells - buys. Exponential, and the powerset operator accepts at most 8 items. Agrees with the reference DP on random inputs."
+ },
+ {
+  "task_id": "MbppX/483",
+  "class": "unclear_task",
+  "expression": "min(i for i in range(1, a0 + 1) if math.factorial(i) % a0 == 0)",
+  "passes": false,
+  "note": "A test expects 4 for x = 5: the reference loop stops at x - 1 without finding one. The correct first n with 5 dividing n! is 5. Expression is the correct search, so it fails that test."
+ },
+ {
+  "task_id": "MbppX/500",
+  "class": "oneliner",
+  "expression": "'  ' + join_space_1(a0)",
+  "passes": true,
+  "note": "Words joined by spaces after a two-space prefix; the prefix is read from the visible example."
+ },
+ {
+  "task_id": "MbppX/510",
+  "class": "oneliner",
+  "expression": "sum(math.prod(s) < a1 for s in seq_powerset_by_size_1(a0) if s)",
+  "passes": true,
+  "note": "Exhaustive over the non-empty subsequences (the powerset operator accepts at most 8 items). Uses '< k' as the description says; the reference DP actually counts <= k, which no test distinguishes."
+ },
+ {
+  "task_id": "MbppX/533",
+  "class": "oneliner",
+  "expression": "[x for x in a0 if not isinstance(x, a1)]",
+  "passes": false,
+  "note": "The checker cannot parse the visible assert (a type is passed as an argument), so passes is false. Run by hand, the expression satisfies all three asserts."
+ },
+ {
+  "task_id": "MbppX/547",
+  "class": "oneliner",
+  "expression": "sum(num_hamming_distance_2(i, i + 1) for i in range(a0))",
+  "passes": true,
+  "note": "Sum of the Hamming distances of (i, i+1) for i from 0 to n-1."
+ },
+ {
+  "task_id": "MbppX/552",
+  "class": "oneliner",
+  "expression": "'Linear Sequence' if all_same_1(adjacent_diff_1(a0)) else 'Non Linear Sequence'",
+  "passes": true,
+  "note": "Linear means constant differences. complement: 'Non Linear Sequence' is the opposite of the visible 'Linear Sequence' (exact wording guessed)."
+ },
+ {
+  "task_id": "MbppX/571",
+  "class": "oneliner",
+  "expression": "seq_max_sum_no_adjacent_1([(x + y) * (y - x < a2) for x, y in adjacent_pairs_1(sorted(a0))])",
+  "passes": true,
+  "note": "After sorting, adjacent pairs with difference < K are the candidates; disjoint pairs are non-adjacent pair indices, so the library max-sum-no-adjacent finishes the job. Agrees with the reference DP on random inputs."
+ },
+ {
+  "task_id": "MbppX/595",
+  "class": "needs_hidden_info",
+  "expression": "sum(x != y for x, y in zip(a0, a1)) // 2 if a0.count('1') == a1.count('1') else -1",
+  "passes": false,
+  "note": "The impossible case must return the string 'Not Possible', which appears only in other asserts (the visible answer is an int). Best attempt returns -1 when the counts of '1' differ."
+ },
+ {
+  "task_id": "MbppX/617",
+  "class": "unclear_task",
+  "expression": "(a2 + max(a0, a1) - 1) / max(a0, a1) if a2 >= max(a0, a1) else 0 if a2 == 0 else 1 if a2 == min(a0, a1) else 2",
+  "passes": true,
+  "note": "Visible answer is 3.5 jumps: the reference's ceiling formula (d + b - 1) / b uses true division. The 0/1/2 branches for d < b come from the reference. Expression reproduces it and passes."
+ },
+ {
+  "task_id": "MbppX/640",
+  "class": "oneliner",
+  "expression": "''.join(s.split(')')[-1] for s in a0[0].split('(')).strip()",
+  "passes": true,
+  "note": "Drop every '(...)' span from the single string in the list, then strip; no regex constant needed."
+ },
+ {
+  "task_id": "MbppX/656",
+  "class": "oneliner",
+  "expression": "sum(abs_each_1(each_sub_2(sorted(a0), sorted(a1))))",
+  "passes": true,
+  "note": "Sort both arrays and add up the absolute differences."
+ },
+ {
+  "task_id": "MbppX/664",
+  "class": "oneliner",
+  "expression": "(a0 + 2) // 2",
+  "passes": true,
+  "note": "The average of 2, 4, ..., n is (2 + n) / 2; integer result as in the reference. mean_1(num_evens_upto_1(a0)) also passes but that operator only accepts n <= 300."
+ },
+ {
+  "task_id": "MbppX/675",
+  "class": "oneliner",
+  "expression": "20 if a2 <= a0 + a1 < a3 else a0 + a1",
+  "passes": true,
+  "note": "20 comes from the description; 'between' is read as range(m, n), like the reference."
+ },
+ {
+  "task_id": "MbppX/702",
+  "class": "oneliner",
+  "expression": "a1 - max(seq_count_in_range_3(a0, x, x + a2) for x in a0)",
+  "passes": true,
+  "note": "Keep the largest group that fits in some [x, x + k]. This is the correct answer; the reference's binary search misses windows that end at the last element, which no test exercises."
+ },
+ {
+  "task_id": "MbppX/714",
+  "class": "oneliner",
+  "expression": "sum((math.isqrt(8 * num_prime_factorization_1(a0).count(p) + 1) - 1) // 2 for p in num_prime_factors_1(a0))",
+  "passes": true,
+  "note": "Terse description; the intent comes from the reference: for each prime with exponent e, the largest j with 1 + ... + j <= e, i.e. (isqrt(8e + 1) - 1) // 2. Agrees with the reference on random inputs."
+ },
+ {
+  "task_id": "MbppX/746",
+  "class": "needs_hidden_info",
+  "expression": "sector_area_2(a0, a1)",
+  "passes": false,
+  "note": "Tests use pi = 22/7 (the visible 6.2857...) and return None for angles >= 360; 22 and 360 are not readable. The library sector_area_2 uses math.pi, so it fails."
+ },
+ {
+  "task_id": "MbppX/776",
+  "class": "oneliner",
+  "expression": "sum(not is_vowel_1(c) and vowel_count_1(a0[max(i - 1, 0):i + 2]) > 0 for i, c in enumerate(a0))",
+  "passes": true,
+  "note": "Non-vowels with a vowel neighbour. The visible count of 7 (9 if vowels counted) shows that vowels themselves are excluded."
+ },
+ {
+  "task_id": "MbppX/810",
+  "class": "oneliner",
+  "expression": "['p'] * a0 + ['q'] * a1 + ['r'] * a2 + ['s'] * a3",
+  "passes": true,
+  "note": "Labels p and q come from the visible example, r and s by continuing the alphabet; negative counts give nothing, as with Counter.elements()."
+ },
+ {
+  "task_id": "MbppX/822",
+  "class": "needs_hidden_info",
+  "expression": "any(map(str.islower, a0)) and any(map(str.isupper, a0)) and any(map(str.isdigit, a0)) and not a0.isalnum()",
+  "passes": true,
+  "note": "Validity rules are not stated; the reference requires length 6-12, a lowercase letter, an uppercase letter, a digit, one of $#@ and no whitespace. Common rules (lower, upper, digit, non-alphanumeric) pass the three tests by luck."
+ },
+ {
+  "task_id": "MbppX/83",
+  "class": "oneliner",
+  "expression": "chr(sum(ord(c) - ord('a') + 1 for c in a0) + ord('a') - 1)",
+  "passes": true,
+  "note": "a=1 ... z=26, add them up, turn the sum back into a letter. No wrap past 'z', because 26 is not a readable constant; the tests stay within the alphabet."
+ },
+ {
+  "task_id": "MbppX/840",
+  "class": "oneliner",
+  "expression": "txt_yes_no_1(a1 == 0)",
+  "passes": true,
+  "note": "The roots are equal and opposite exactly when b == 0. complement: 'No' is the opposite of the visible 'Yes', produced by txt_yes_no_1."
+ },
+ {
+  "task_id": "MbppX/851",
+  "class": "needs_hidden_info",
+  "expression": "round(a1 / a0, 2)",
+  "passes": true,
+  "note": "The second argument is the divisor sum (12 for 6), so the answer is Sum / N; the rounding to two decimals shows only in another assert (1.44) and was taken from the reference."
+ },
+ {
+  "task_id": "MbppX/879",
+  "class": "oneliner",
+  "expression": "txt_match_message_1(a0.endswith('b') and 'a' in a0[:-1])",
+  "passes": true,
+  "note": "Same test as Mbpp/794, wrapped in the match messages. complement: 'Found a match!' is the opposite of the visible 'Not matched!'."
+ },
+ {
+  "task_id": "MbppX/900",
+  "class": "oneliner",
+  "expression": "a0.startswith('5')",
+  "passes": true,
+  "note": "The 'specific number' (5) is read from the visible example."
+ },
+ {
+  "task_id": "MbppX/917",
+  "class": "oneliner",
+  "expression": "txt_match_message_1(any(x.isupper() and y.islower() for x, y in zip(a0, a0[1:])))",
+  "passes": true,
+  "note": "An uppercase letter directly followed by a lowercase one, as described; the reference regex also anchors at the end, which no test distinguishes."
+ },
+ {
+  "task_id": "MbppX/947",
+  "class": "oneliner",
+  "expression": "min(len_each_1(a0))",
+  "passes": true,
+  "note": "Minimum of the word lengths."
+ },
+ {
+  "task_id": "MbppX/953",
+  "class": "oneliner",
+  "expression": "a0.count(most_common_1(a0))",
+  "passes": true,
+  "note": "The minimum number of subsets with distinct elements is the highest frequency. The reference only counts the run of the smallest value; it agrees on the tests."
+ },
+ {
+  "task_id": "MbppX/971",
+  "class": "oneliner",
+  "expression": "max((x + y + (a0 - x * a1 - y * a2) // a3 for x in range(a0 + 1) for y in range(a0 + 1) if a0 - x * a1 - y * a2 in range(0, a0 + 1, a3)), default=-1)",
+  "passes": true,
+  "note": "Enumerate the counts of a- and b-pieces; the remainder must be a non-negative multiple of c; -1 if no split exists. Agrees with the reference DP on random inputs."
+ }
+]
