@@ -14,6 +14,8 @@ teacher one-liner):
              (oracle), and where the first neighbour that reproduces the visible example, by the
              coder's score of the change, is correct (first)
   combined   the beam's first verified program, else the first verified repair (a method)
+  surprisal  where the teacher's program loses its probability: the share of its total surprisal in
+             its costliest one and three tokens, and how many of its tokens cost more than 3 nats
 
 A beam program that already reproduces the example is left as it is. Counts only: the second set
 belongs to the held-out development fifth.
@@ -24,6 +26,7 @@ import argparse
 import json
 import math
 from pathlib import Path
+import statistics
 import sys
 import time
 
@@ -72,6 +75,29 @@ def position_alternatives(net, vocabulary, base, prefix, program, task, k):
     return out
 
 
+@torch.no_grad()
+def gold_surprisal(net, vocabulary, prefix, task):
+    """-log P of each token of the teacher's program (postfix, with its own notes), or None."""
+    try:
+        postfix = post.to_postfix(list(task["gold"]))
+        tokens, side = coder4.encode(vocabulary, prefix, post.annotated(postfix, task["args"], task["literals"],
+                                                                         task["expected"], task["mode"]))
+    except (KeyError, ValueError):
+        return None
+    with torch.autocast("cpu", dtype=torch.bfloat16):
+        logits = net(torch.tensor([tokens]), notes=torch.tensor([side]))[0]
+    log_probs = torch.log_softmax(logits.float(), dim=-1)
+    return [-float(log_probs[i - 1, tokens[i]]) for i in range(len(prefix), len(tokens))]
+
+
+def concentration(costs):
+    """Share of the program's surprisal in its single and three costliest tokens; tokens above 3 nats."""
+    total = sum(costs)
+    ranked = sorted(costs, reverse=True)
+    return (ranked[0] / total if total > 0 else 1.0, sum(ranked[:3]) / total if total > 0 else 1.0,
+            sum(c > 3 for c in costs))
+
+
 def repairs(net, vocabulary, base, prefix, beam, task, k):
     """One-token changes of every beam program, best change first, as prefix pyx programs."""
     found = []
@@ -103,6 +129,7 @@ def measure(net, vocabulary, grammar, tasks, width, k):
     result = {"tasks": len(tasks), "distance": {b: 0 for b in BUCKETS}, "beam_first": 0, "beam_oracle": 0,
               "repair_first": 0, "repair_oracle": 0, "repair_new": 0, "combined_first": 0,
               "seconds": 0.0}
+    top1, top3, hard = [], [], []
     for task in tasks:
         started = time.monotonic()
         prefix = vocabulary.condition(language.words(task["description"]), task["literals"], task["args"],
@@ -110,6 +137,12 @@ def measure(net, vocabulary, grammar, tasks, width, k):
         beam = coder4.beam_search(net, vocabulary, grammar, prefix, task["args"], task["literals"], task["expected"],
                                   task["mode"], width)
         gold = list(task["gold"])
+        costs = gold_surprisal(net, vocabulary, prefix, task)
+        if costs:
+            one, three, many = concentration(costs)
+            top1.append(one)
+            top3.append(three)
+            hard.append(many)
         programs = [post.to_prefix(p) for p, _ in beam]
         if programs:
             result["distance"][bucket(min(edit_distance(gold, p) for p in programs))] += 1
@@ -134,6 +167,15 @@ def measure(net, vocabulary, grammar, tasks, width, k):
         result["combined_first"] += beam_ok[0] if beam_ok else bool(verdicts) and verdicts[0]
         result["seconds"] += time.monotonic() - started
     result["seconds"] = round(result["seconds"], 1)
+
+    def quartiles(values):
+        return [round(q, 2) for q in statistics.quantiles(values, n=4)] if len(values) >= 4 else []
+
+    # Where the teacher's program loses its probability: in one or a few tokens, or all along it.
+    result["gold_surprisal"] = {"scored": len(top1), "top1_share_quartiles": quartiles(top1),
+                                "top3_share_quartiles": quartiles(top3),
+                                "tokens_above_3_nats": {str(n): hard.count(n) for n in range(0, 4)} |
+                                {"4+": sum(n >= 4 for n in hard)}}
     return result
 
 
