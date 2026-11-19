@@ -1,0 +1,1562 @@
+[
+ {
+  "id": "variant-p2-001-1",
+  "seed": "Mbpp/392",
+  "category": "numbers",
+  "description": "Write a function to evaluate max(n//2 + n//3 + n//4 + n//5, n) for a given integer n, that is, the better of keeping n or breaking it once into those four parts.",
+  "entry_point": "max_split_once",
+  "inputs": [
+   "(60,)",
+   "(3,)",
+   "(10,)"
+  ],
+  "expression": "max(a0 // 2 + a0 // 3 + a0 // 4 + a0 // 5, a0)"
+ },
+ {
+  "id": "variant-p2-001-2",
+  "seed": "Mbpp/392",
+  "category": "numbers",
+  "description": "Write a python function that splits a number n into the parts n/2, n/3, n/4 and n/5, each rounded down, and returns their total if it is larger than n, otherwise n itself.",
+  "entry_point": "max_of_split_or_self",
+  "inputs": [
+   "(24,)",
+   "(2,)",
+   "(11,)"
+  ],
+  "expression": "max(sum(a0 // k for k in (2, 3, 4, 5)), a0)"
+ },
+ {
+  "id": "variant-p2-001-3",
+  "seed": "Mbpp/392",
+  "category": "numbers",
+  "description": "Write a function to compute the sum of the integer quotients of n divided by 2, 3, 4 and 5.",
+  "entry_point": "sum_of_quotients",
+  "inputs": [
+   "(60,)",
+   "(7,)",
+   "(1,)"
+  ],
+  "expression": "sum(a0 // k for k in range(2, 6))"
+ },
+ {
+  "id": "variant-p2-001-4",
+  "seed": "Mbpp/392",
+  "category": "numbers",
+  "description": "Write a function to check whether breaking n into the parts n//2, n//3, n//4 and n//5 gives a strictly larger total than n.",
+  "entry_point": "split_beats_number",
+  "inputs": [
+   "(12,)",
+   "(7,)",
+   "(100,)"
+  ],
+  "expression": "a0 // 2 + a0 // 3 + a0 // 4 + a0 // 5 > a0"
+ },
+ {
+  "id": "variant-p2-001-5",
+  "seed": "Mbpp/392",
+  "category": "numbers",
+  "description": "Write a function that returns the larger of n and the sum of n // d taken over every divisor d in the given list.",
+  "entry_point": "max_split_by_divisors",
+  "inputs": [
+   "(30, [2, 3, 4, 5])",
+   "(30, [2, 3])",
+   "(9, [2, 2, 2])"
+  ],
+  "expression": "max(sum(a0 // d for d in a1), a0)"
+ },
+ {
+  "id": "variant-p2-001-6",
+  "seed": "Mbpp/392",
+  "category": "numbers",
+  "description": "Write a function to find by how much the total n//2 + n//3 + n//4 + n//5 exceeds n, returning 0 when it does not exceed n.",
+  "entry_point": "split_gain",
+  "inputs": [
+   "(60,)",
+   "(4,)",
+   "(24,)"
+  ],
+  "expression": "max(a0 // 2 + a0 // 3 + a0 // 4 + a0 // 5 - a0, 0)"
+ },
+ {
+  "id": "variant-p2-001-7",
+  "seed": "Mbpp/392",
+  "category": "numbers",
+  "description": "Given a list of numbers, write a function that replaces each number n by the larger of n and n//2 + n//3 + n//4 + n//5.",
+  "entry_point": "best_split_each",
+  "inputs": [
+   "([12, 3, 30],)",
+   "([],)",
+   "([1, 24],)"
+  ],
+  "expression": "[max(sum(x // k for k in (2, 3, 4, 5)), x) for x in a0]"
+ },
+ {
+  "id": "variant-p2-001-8",
+  "seed": "Mbpp/392",
+  "category": "numbers",
+  "description": "Write a python function to count the integers k from 1 to n for which k//2 + k//3 + k//4 + k//5 is greater than k.",
+  "entry_point": "count_profitable_splits",
+  "inputs": [
+   "(12,)",
+   "(5,)",
+   "(7,)"
+  ],
+  "expression": "sum(sum(k // d for d in range(2, 6)) > k for k in range(1, a0 + 1))"
+ },
+ {
+  "id": "variant-p2-002-1",
+  "seed": "Mbpp/794",
+  "category": "unparsed",
+  "description": "Write a function to check whether a string contains an 'a' that is followed, possibly after some other characters, by a 'b' as the very last character.",
+  "entry_point": "has_a_then_final_b",
+  "inputs": [
+   "(\"cxaxb\",)",
+   "(\"abba\",)",
+   "(\"bb\",)"
+  ],
+  "expression": "'a' in a0[:-1] and a0.endswith('b')"
+ },
+ {
+  "id": "variant-p2-002-2",
+  "seed": "Mbpp/794",
+  "category": "unparsed",
+  "description": "Write a function that uses the regex 'a.*b$' to test whether a string has an 'a' followed by anything and ends in 'b'.",
+  "entry_point": "match_a_anything_b",
+  "inputs": [
+   "(\"crab\",)",
+   "(\"bat\",)",
+   "(\"ab\",)"
+  ],
+  "expression": "bool(re.search('a.*b$', a0))"
+ },
+ {
+  "id": "variant-p2-002-3",
+  "seed": "Mbpp/794",
+  "category": "unparsed",
+  "description": "Write a function to check whether a string begins with the letter 'a' and ends with the letter 'b'.",
+  "entry_point": "starts_a_ends_b",
+  "inputs": [
+   "(\"absorb\",)",
+   "(\"cab\",)",
+   "(\"a\",)"
+  ],
+  "expression": "a0.startswith('a') and a0.endswith('b')"
+ },
+ {
+  "id": "variant-p2-002-4",
+  "seed": "Mbpp/794",
+  "category": "unparsed",
+  "description": "Write a function that returns 'Found a match!' when a string has an 'a' followed by any characters and ending in 'b', and 'Not matched!' otherwise.",
+  "entry_point": "a_to_b_message",
+  "inputs": [
+   "(\"kebab\",)",
+   "(\"bake\",)",
+   "(\"bob\",)"
+  ],
+  "expression": "txt_match_message_1('a' in a0[:-1] and a0.endswith('b'))"
+ },
+ {
+  "id": "variant-p2-002-5",
+  "seed": "Mbpp/794",
+  "category": "unparsed",
+  "description": "Write a function to select the strings of a list that contain an 'a' followed by anything and end in 'b'.",
+  "entry_point": "filter_a_to_b",
+  "inputs": [
+   "([\"lab\", \"bal\", \"ab\", \"b\"],)",
+   "([],)",
+   "([\"crab\", \"grab\", \"bob\"],)"
+  ],
+  "expression": "[s for s in a0 if 'a' in s[:-1] and s.endswith('b')]"
+ },
+ {
+  "id": "variant-p2-002-6",
+  "seed": "Mbpp/794",
+  "category": "unparsed",
+  "description": "Write a function to check whether some word of a sentence has an 'a' somewhere before its final letter 'b'.",
+  "entry_point": "word_with_a_to_b",
+  "inputs": [
+   "(\"the crab sat\",)",
+   "(\"bob ate\",)",
+   "(\"a b\",)"
+  ],
+  "expression": "any('a' in w[:-1] and w.endswith('b') for w in a0.split())"
+ },
+ {
+  "id": "variant-p2-002-7",
+  "seed": "Mbpp/794",
+  "category": "unparsed",
+  "description": "Write a function to return the part of a string matched by the regex 'a.*b$', from the first 'a' up to a final 'b', or an empty string when there is no match.",
+  "entry_point": "extract_a_to_b",
+  "inputs": [
+   "(\"the slab\",)",
+   "(\"a cab\",)",
+   "(\"bad\",)"
+  ],
+  "expression": "''.join(re.findall('a.*b$', a0))"
+ },
+ {
+  "id": "variant-p2-002-8",
+  "seed": "Mbpp/794",
+  "category": "unparsed",
+  "description": "Write a function to check, ignoring letter case, whether a string has an 'a' followed by anything and ends in 'b'.",
+  "entry_point": "a_to_b_ignore_case",
+  "inputs": [
+   "(\"CRAB\",)",
+   "(\"Ab\",)",
+   "(\"BAT\",)"
+  ],
+  "expression": "'a' in a0.lower()[:-1] and a0.lower().endswith('b')"
+ },
+ {
+  "id": "variant-p2-003-1",
+  "seed": "MbppX/159",
+  "category": "strings",
+  "description": "Write a function to return the season ('winter', 'spring', 'summer' or 'autumn') for a month number and a day, where each season spans three months starting with winter in January, but the next season already begins on day 21 of March, June, September and December.",
+  "entry_point": "season_of_date",
+  "inputs": [
+   "(3, 25)",
+   "(12, 30)",
+   "(8, 2)"
+  ],
+  "expression": "['winter', 'spring', 'summer', 'autumn'][(a0 - 1 + (a0 % 3 == 0 and a1 >= 21)) // 3 % 4]"
+ },
+ {
+  "id": "variant-p2-003-2",
+  "seed": "MbppX/159",
+  "category": "strings",
+  "description": "Given a month number and a day, write a function that returns 'winter', 'spring', 'summer' or 'autumn', where the year starts in winter and the season changes on day 21 of March, June, September and December.",
+  "entry_point": "month_day_season",
+  "inputs": [
+   "(6, 21)",
+   "(10, 31)",
+   "(12, 22)"
+  ],
+  "expression": "['winter', 'spring', 'summer', 'autumn'][sum((a0, a1) >= (3 * k, 21) for k in range(1, 5)) % 4]"
+ },
+ {
+  "id": "variant-p2-003-3",
+  "seed": "MbppX/159",
+  "category": "strings",
+  "description": "Write a function that returns 'winter', 'spring', 'summer' or 'autumn' for a month number, taking each season as three consecutive months starting with winter in January.",
+  "entry_point": "season_of_month",
+  "inputs": [
+   "(5,)",
+   "(12,)",
+   "(1,)"
+  ],
+  "expression": "['winter', 'spring', 'summer', 'autumn'][(a0 - 1) // 3]"
+ },
+ {
+  "id": "variant-p2-003-4",
+  "seed": "MbppX/159",
+  "category": "strings",
+  "description": "Write a function to give the meteorological season of a month number: 'winter' for December to February, 'spring' for March to May, 'summer' for June to August and 'autumn' for September to November.",
+  "entry_point": "meteorological_season",
+  "inputs": [
+   "(12,)",
+   "(3,)",
+   "(11,)"
+  ],
+  "expression": "['winter', 'spring', 'summer', 'autumn'][a0 // 3 % 4]"
+ },
+ {
+  "id": "variant-p2-003-5",
+  "seed": "MbppX/159",
+  "category": "strings",
+  "description": "Write a python function to find which quarter of the year, numbered 1 to 4, a month number from 1 to 12 belongs to.",
+  "entry_point": "quarter_of_month",
+  "inputs": [
+   "(7,)",
+   "(3,)",
+   "(12,)"
+  ],
+  "expression": "(a0 - 1) // 3 + 1"
+ },
+ {
+  "id": "variant-p2-003-6",
+  "seed": "MbppX/159",
+  "category": "strings",
+  "description": "Write a function to check whether a date given as a month number and a day falls in summer, which lasts from June 21 up to and including September 20.",
+  "entry_point": "is_summer_date",
+  "inputs": [
+   "(7, 4)",
+   "(6, 20)",
+   "(9, 20)"
+  ],
+  "expression": "(6, 21) <= (a0, a1) <= (9, 20)"
+ },
+ {
+  "id": "variant-p2-003-7",
+  "seed": "MbppX/159",
+  "category": "strings",
+  "description": "Write a function that, given one of the seasons 'winter', 'spring', 'summer' or 'autumn', returns the list of its month numbers, where winter covers the first three months of the year, spring the next three, and so on.",
+  "entry_point": "months_of_season",
+  "inputs": [
+   "('summer',)",
+   "('winter',)",
+   "('autumn',)"
+  ],
+  "expression": "[3 * ['winter', 'spring', 'summer', 'autumn'].index(a0) + k for k in (1, 2, 3)]"
+ },
+ {
+  "id": "variant-p2-003-8",
+  "seed": "MbppX/159",
+  "category": "strings",
+  "description": "Write a function to check whether two month numbers fall in the same season, the seasons being the quarters January to March, April to June, July to September and October to December.",
+  "entry_point": "same_season_months",
+  "inputs": [
+   "(4, 6)",
+   "(3, 4)",
+   "(12, 10)"
+  ],
+  "expression": "(a0 - 1) // 3 == (a1 - 1) // 3"
+ },
+ {
+  "id": "variant-p2-004-1",
+  "seed": "MbppX/229",
+  "category": "sequences",
+  "description": "Write a function to rearrange a list so that all negative numbers come before the non-negative ones, keeping the original order within each group.",
+  "entry_point": "negatives_first",
+  "inputs": [
+   "([5, -2, 7, -8, 0, -1],)",
+   "([3, 1],)",
+   "([-4, 6, -9],)"
+  ],
+  "expression": "[x for x in a0 if x < 0] + [x for x in a0 if x >= 0]"
+ },
+ {
+  "id": "variant-p2-004-2",
+  "seed": "MbppX/229",
+  "category": "sequences",
+  "description": "Write a python function that moves every negative element of an array to the front, keeping the negatives, and likewise the other elements, in their original relative order.",
+  "entry_point": "move_negatives_front",
+  "inputs": [
+   "([10, -3, 4, -6, 2],)",
+   "([-1, -2],)",
+   "([],)"
+  ],
+  "expression": "sorted(a0, key=lambda x: x >= 0)"
+ },
+ {
+  "id": "variant-p2-004-3",
+  "seed": "MbppX/229",
+  "category": "sequences",
+  "description": "Write a function to move all negative numbers of a list to the end, keeping both the negatives and the other numbers in their original order.",
+  "entry_point": "negatives_last",
+  "inputs": [
+   "([-1, 2, -3, 4],)",
+   "([0, -5, 5],)",
+   "([7],)"
+  ],
+  "expression": "sorted(a0, key=lambda x: x < 0)"
+ },
+ {
+  "id": "variant-p2-004-4",
+  "seed": "MbppX/229",
+  "category": "sequences",
+  "description": "Write a function to move the multiples of k to the front of a list, keeping the original order within both groups.",
+  "entry_point": "multiples_first",
+  "inputs": [
+   "([5, 6, 7, 9, 12], 3)",
+   "([1, 2], 5)",
+   "([10, 3, 20], 10)"
+  ],
+  "expression": "sorted(a0, key=lambda x: x % a1 != 0)"
+ },
+ {
+  "id": "variant-p2-004-5",
+  "seed": "MbppX/229",
+  "category": "sequences",
+  "description": "Write a function to check whether all negative numbers in a list already appear before every non-negative number.",
+  "entry_point": "negatives_already_first",
+  "inputs": [
+   "([-3, -1, 4, 0, 2],)",
+   "([-2, 5, -7],)",
+   "([],)"
+  ],
+  "expression": "a0 == sorted(a0, key=lambda x: x >= 0)"
+ },
+ {
+  "id": "variant-p2-004-6",
+  "seed": "MbppX/229",
+  "category": "sequences",
+  "description": "Write a function to split a list into a pair of lists, the first holding the negative numbers and the second the remaining numbers, both in their original order.",
+  "entry_point": "split_by_sign",
+  "inputs": [
+   "([4, -1, 0, -6, 3],)",
+   "([1, 2],)",
+   "([-5],)"
+  ],
+  "expression": "([x for x in a0 if x < 0], [x for x in a0 if x >= 0])"
+ },
+ {
+  "id": "variant-p2-004-7",
+  "seed": "MbppX/229",
+  "category": "sequences",
+  "description": "Write a function to rearrange a list of words so that the words starting with a capital letter come first, keeping the original order within both groups.",
+  "entry_point": "capitalized_first",
+  "inputs": [
+   "([\"apple\", \"Berlin\", \"cat\", \"Dover\"],)",
+   "([\"x\", \"y\"],)",
+   "([\"Zed\", \"ant\", \"Bob\"],)"
+  ],
+  "expression": "sorted(a0, key=lambda w: not w[0].isupper())"
+ },
+ {
+  "id": "variant-p2-004-8",
+  "seed": "MbppX/229",
+  "category": "sequences",
+  "description": "Write a function to rearrange a list so that negative numbers come first, then zeros, then positive numbers, keeping the original order inside each group.",
+  "entry_point": "group_by_sign",
+  "inputs": [
+   "([3, 0, -2, 5, 0, -7],)",
+   "([1, -1],)",
+   "([0, 9, 0, 2],)"
+  ],
+  "expression": "sorted(a0, key=lambda x: (x > 0) - (x < 0))"
+ },
+ {
+  "id": "variant-p2-005-1",
+  "seed": "MbppX/318",
+  "category": "numbers",
+  "description": "Write a python function to find the largest volume of a cuboid whose three whole-number side lengths add up to s.",
+  "entry_point": "largest_cuboid_volume",
+  "inputs": [
+   "(9,)",
+   "(5,)",
+   "(2,)"
+  ],
+  "expression": "max(i * j * (a0 - i - j) for i in range(a0) for j in range(a0))"
+ },
+ {
+  "id": "variant-p2-005-2",
+  "seed": "MbppX/318",
+  "category": "numbers",
+  "description": "Given the sum s of the length, width and height of a box with integer sides, write a function that returns the greatest volume the box can have.",
+  "entry_point": "max_box_volume",
+  "inputs": [
+   "(10,)",
+   "(3,)",
+   "(1,)"
+  ],
+  "expression": "a0 // 3 * ((a0 + 1) // 3) * ((a0 + 2) // 3)"
+ },
+ {
+  "id": "variant-p2-005-3",
+  "seed": "MbppX/318",
+  "category": "numbers",
+  "description": "Write a python function to find the maximum area of a rectangle whose whole-number length and width add up to s.",
+  "entry_point": "max_rectangle_area",
+  "inputs": [
+   "(7,)",
+   "(10,)",
+   "(1,)"
+  ],
+  "expression": "a0 // 2 * ((a0 + 1) // 2)"
+ },
+ {
+  "id": "variant-p2-005-4",
+  "seed": "MbppX/318",
+  "category": "numbers",
+  "description": "Write a function to find, in increasing order, the three whole-number side lengths of the largest-volume cuboid whose sides add up to s.",
+  "entry_point": "best_cuboid_sides",
+  "inputs": [
+   "(8,)",
+   "(12,)",
+   "(4,)"
+  ],
+  "expression": "[a0 // 3, (a0 + 1) // 3, (a0 + 2) // 3]"
+ },
+ {
+  "id": "variant-p2-005-5",
+  "seed": "MbppX/318",
+  "category": "numbers",
+  "description": "Write a function to split a positive integer s into k whole-number parts so that the product of the parts is as large as possible, and return that product.",
+  "entry_point": "max_product_split",
+  "inputs": [
+   "(10, 3)",
+   "(7, 2)",
+   "(6, 4)"
+  ],
+  "expression": "(a0 // a1) ** (a1 - a0 % a1) * (a0 // a1 + 1) ** (a0 % a1)"
+ },
+ {
+  "id": "variant-p2-005-6",
+  "seed": "MbppX/318",
+  "category": "numbers",
+  "description": "Write a function to check whether a cuboid with whole-number sides adding up to s can have a volume of at least v.",
+  "entry_point": "volume_reachable",
+  "inputs": [
+   "(8, 18)",
+   "(8, 19)",
+   "(12, 50)"
+  ],
+  "expression": "a0 // 3 * ((a0 + 1) // 3) * ((a0 + 2) // 3) >= a1"
+ },
+ {
+  "id": "variant-p2-005-7",
+  "seed": "MbppX/318",
+  "category": "numbers",
+  "description": "Write a function to find the smallest total of three whole-number side lengths that lets a cuboid reach a volume of at least v.",
+  "entry_point": "min_side_sum_for_volume",
+  "inputs": [
+   "(18,)",
+   "(1,)",
+   "(28,)"
+  ],
+  "expression": "min(s for s in range(a0 + 3) if s // 3 * ((s + 1) // 3) * ((s + 2) // 3) >= a0)"
+ },
+ {
+  "id": "variant-p2-005-8",
+  "seed": "MbppX/318",
+  "category": "numbers",
+  "description": "Write a python function to find the maximum volume of a cuboid with whole-number sides whose 12 edges have a total length of p, where p is a multiple of 4.",
+  "entry_point": "max_volume_from_edges",
+  "inputs": [
+   "(36,)",
+   "(40,)",
+   "(12,)"
+  ],
+  "expression": "a0 // 4 // 3 * ((a0 // 4 + 1) // 3) * ((a0 // 4 + 2) // 3)"
+ },
+ {
+  "id": "variant-p2-006-1",
+  "seed": "MbppX/337",
+  "category": "strings",
+  "description": "Write a function that returns 'Found a match!' if a string ends with a word, possibly followed by punctuation, and 'Not matched!' otherwise.",
+  "entry_point": "ends_with_word",
+  "inputs": [
+   "(\"hello world!\",)",
+   "(\"end .\",)",
+   "(\"trailing \",)"
+  ],
+  "expression": "txt_match_message_1(any(c.isalnum() for c in a0.split(' ')[-1]))"
+ },
+ {
+  "id": "variant-p2-006-2",
+  "seed": "MbppX/337",
+  "category": "strings",
+  "description": "Write a function to test a string against the regex '\\w+\\S*$', which finds a word at the end with optional punctuation, and return 'Found a match!' or 'Not matched!'.",
+  "entry_point": "match_final_word",
+  "inputs": [
+   "(\"go team!!\",)",
+   "(\"wait ?\",)",
+   "(\"x\",)"
+  ],
+  "expression": "'Found a match!' if re.search('\\\\w+\\\\S*$', a0) else 'Not matched!'"
+ },
+ {
+  "id": "variant-p2-006-3",
+  "seed": "MbppX/337",
+  "category": "strings",
+  "description": "Write a function that returns 'Found a match!' if a string begins with a word, possibly preceded by punctuation such as a quotation mark, and 'Not matched!' otherwise.",
+  "entry_point": "starts_with_word",
+  "inputs": [
+   "('\"Hello there',)",
+   "(' leading space',)",
+   "('... wait',)"
+  ],
+  "expression": "txt_match_message_1(any(c.isalnum() for c in a0.split(' ')[0]))"
+ },
+ {
+  "id": "variant-p2-006-4",
+  "seed": "MbppX/337",
+  "category": "strings",
+  "description": "Write a function that returns 'Found a match!' if a string ends with one of the punctuation marks '.', '!' or '?', and 'Not matched!' otherwise.",
+  "entry_point": "ends_with_mark",
+  "inputs": [
+   "(\"Is it done?\",)",
+   "(\"a!b\",)",
+   "(\"Stop.\",)"
+  ],
+  "expression": "txt_match_message_1(a0.endswith(('.', '!', '?')))"
+ },
+ {
+  "id": "variant-p2-006-5",
+  "seed": "MbppX/337",
+  "category": "strings",
+  "description": "Write a function that returns 'Found a match!' if a string ends with a letter or digit, with no punctuation or space after its last word, and 'Not matched!' otherwise.",
+  "entry_point": "ends_with_bare_word",
+  "inputs": [
+   "(\"python\",)",
+   "(\"python.\",)",
+   "(\"\",)"
+  ],
+  "expression": "txt_match_message_1(a0[-1:].isalnum())"
+ },
+ {
+  "id": "variant-p2-006-6",
+  "seed": "MbppX/337",
+  "category": "strings",
+  "description": "Write a function to return the last word of a sentence with any punctuation removed from it.",
+  "entry_point": "last_word_clean",
+  "inputs": [
+   "(\"See you soon!\",)",
+   "(\"Done\",)",
+   "(\"Is it 'true'?\",)"
+  ],
+  "expression": "''.join(c for c in a0.split()[-1] if c.isalnum())"
+ },
+ {
+  "id": "variant-p2-006-7",
+  "seed": "MbppX/337",
+  "category": "strings",
+  "description": "Write a function to count the words of a string that are immediately followed by a punctuation mark.",
+  "entry_point": "count_punctuated_words",
+  "inputs": [
+   "(\"Hi, Bob. How are you?\",)",
+   "(\"plain text here\",)",
+   "(\"wait...\",)"
+  ],
+  "expression": "sum(not w[-1].isalnum() for w in a0.split())"
+ },
+ {
+  "id": "variant-p2-006-8",
+  "seed": "MbppX/337",
+  "category": "strings",
+  "description": "Write a function to check whether the last word of a string, ignoring any punctuation attached to it, is equal to the given word.",
+  "entry_point": "last_word_is",
+  "inputs": [
+   "(\"I love python.\", \"python\")",
+   "(\"python is fun\", \"python\")",
+   "(\"Ready!\", \"Ready\")"
+  ],
+  "expression": "''.join(c for c in a0.split()[-1] if c.isalnum()) == a1"
+ },
+ {
+  "id": "variant-p2-007-1",
+  "seed": "MbppX/408",
+  "category": "sequences",
+  "description": "Write a function to find the k pairs [x, y], with x taken from the first list and y from the second, that have the smallest sums, listed in order of increasing sum.",
+  "entry_point": "smallest_sum_pairs",
+  "inputs": [
+   "([1, 5, 9], [2, 3], 3)",
+   "([4, 6], [1, 7], 1)",
+   "([0, 2], [0, 2], 4)"
+  ],
+  "expression": "sorted([[x, y] for x in a0 for y in a1], key=sum)[:a2]"
+ },
+ {
+  "id": "variant-p2-007-2",
+  "seed": "MbppX/408",
+  "category": "sequences",
+  "description": "Given two sorted lists and a number k, write a function that returns the k pairs with the lowest sums, each pair made of one number from each list.",
+  "entry_point": "k_lowest_pairs",
+  "inputs": [
+   "([2, 4, 6], [1, 5], 2)",
+   "([1, 1], [3], 2)",
+   "([1, 2, 3], [10, 20, 30], 3)"
+  ],
+  "expression": "sorted([[x, y] for x in a0 for y in a1], key=lambda p: p[0] + p[1])[:a2]"
+ },
+ {
+  "id": "variant-p2-007-3",
+  "seed": "MbppX/408",
+  "category": "sequences",
+  "description": "Write a function to find the k pairs, one number from each of two lists, with the largest sums, starting from the largest.",
+  "entry_point": "largest_sum_pairs",
+  "inputs": [
+   "([1, 4], [2, 6], 2)",
+   "([5], [1, 2, 3], 2)",
+   "([3, 9], [0, 10], 3)"
+  ],
+  "expression": "sorted([[x, y] for x in a0 for y in a1], key=lambda p: -p[0] - p[1])[:a2]"
+ },
+ {
+  "id": "variant-p2-007-4",
+  "seed": "MbppX/408",
+  "category": "sequences",
+  "description": "Write a function to return, in increasing order, the k smallest values of x + y where x comes from the first list and y from the second.",
+  "entry_point": "smallest_pair_sums",
+  "inputs": [
+   "([1, 5], [2, 3, 8], 4)",
+   "([10], [1], 1)",
+   "([2, 2], [1, 4], 3)"
+  ],
+  "expression": "sorted(x + y for x in a0 for y in a1)[:a2]"
+ },
+ {
+  "id": "variant-p2-007-5",
+  "seed": "MbppX/408",
+  "category": "sequences",
+  "description": "Write a function to count the pairs, with one number from each of two lists, whose sum is less than a given limit.",
+  "entry_point": "count_pairs_below",
+  "inputs": [
+   "([1, 3, 7], [2, 6], 9)",
+   "([5, 6], [5], 10)",
+   "([0, 1], [0, 1], 3)"
+  ],
+  "expression": "sum(x + y < a2 for x in a0 for y in a1)"
+ },
+ {
+  "id": "variant-p2-007-6",
+  "seed": "MbppX/408",
+  "category": "sequences",
+  "description": "Write a function to list every pair [x, y], with x from the first list and y from the second, whose sum equals a given target.",
+  "entry_point": "pairs_with_sum",
+  "inputs": [
+   "([1, 2, 3], [4, 5, 6], 7)",
+   "([1], [1], 5)",
+   "([0, 4], [4, 0], 4)"
+  ],
+  "expression": "[[x, y] for x in a0 for y in a1 if x + y == a2]"
+ },
+ {
+  "id": "variant-p2-007-7",
+  "seed": "MbppX/408",
+  "category": "sequences",
+  "description": "Write a function to find the k pairs, one number from each list, whose products are the smallest, in increasing order of product.",
+  "entry_point": "smallest_product_pairs",
+  "inputs": [
+   "([2, 3], [1, 4], 2)",
+   "([-1, 2], [3, 5], 1)",
+   "([1, 2], [1, 2], 3)"
+  ],
+  "expression": "sorted([[x, y] for x in a0 for y in a1], key=lambda p: p[0] * p[1])[:a2]"
+ },
+ {
+  "id": "variant-p2-007-8",
+  "seed": "MbppX/408",
+  "category": "sequences",
+  "description": "Write a function to find the pair (x, y), with x from the first list and y from the second, whose values are closest to each other.",
+  "entry_point": "closest_cross_pair",
+  "inputs": [
+   "([1, 9, 15], [4, 11, 20])",
+   "([5], [5, 7])",
+   "([-3, 10], [0, 30])"
+  ],
+  "expression": "min([(x, y) for x in a0 for y in a1], key=lambda p: abs(p[0] - p[1]))"
+ },
+ {
+  "id": "variant-p2-008-1",
+  "seed": "MbppX/469",
+  "category": "sequences",
+  "description": "Write a function to find the maximum profit from a single stock transaction, buying on one day and selling on a later day, given the list of daily prices; return 0 if no profit is possible.",
+  "entry_point": "best_single_trade",
+  "inputs": [
+   "([4, 2, 9, 1, 6],)",
+   "([10, 8, 7],)",
+   "([3, 3, 5],)"
+  ],
+  "expression": "max(x - min(a0[:i + 1]) for i, x in enumerate(a0))"
+ },
+ {
+  "id": "variant-p2-008-2",
+  "seed": "MbppX/469",
+  "category": "sequences",
+  "description": "Given the prices of a share on consecutive days, write a python function to compute the largest gain from one purchase followed by one later sale, or 0 if prices never rise.",
+  "entry_point": "max_gain_one_trade",
+  "inputs": [
+   "([7, 3, 8, 2, 4],)",
+   "([5, 4, 3, 2],)",
+   "([1, 2],)"
+  ],
+  "expression": "max([0] + [b - a for i, a in enumerate(a0) for b in a0[i + 1:]])"
+ },
+ {
+  "id": "variant-p2-008-3",
+  "seed": "MbppX/469",
+  "category": "sequences",
+  "description": "Write a function to find the largest fall in price from one day to any later day in a list of daily prices, or 0 if the price never falls.",
+  "entry_point": "largest_price_drop",
+  "inputs": [
+   "([3, 8, 2, 6, 1],)",
+   "([1, 2, 3],)",
+   "([5, 4],)"
+  ],
+  "expression": "max(max(a0[:i + 1]) - x for i, x in enumerate(a0))"
+ },
+ {
+  "id": "variant-p2-008-4",
+  "seed": "MbppX/469",
+  "category": "sequences",
+  "description": "Write a function to find the largest one-day price increase in a list of daily prices, computed as a day's price minus the previous day's price.",
+  "entry_point": "biggest_daily_rise",
+  "inputs": [
+   "([4, 7, 5, 11, 10],)",
+   "([9, 2, 4],)",
+   "([8, 5, 9],)"
+  ],
+  "expression": "max(b - a for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "variant-p2-008-5",
+  "seed": "MbppX/469",
+  "category": "sequences",
+  "description": "Write a function to check whether any profit can be made by buying on one day and selling on a later day, given the list of daily prices.",
+  "entry_point": "profit_possible",
+  "inputs": [
+   "([9, 7, 7, 8],)",
+   "([6, 5, 5, 1],)",
+   "([3],)"
+  ],
+  "expression": "any(a < b for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "variant-p2-008-6",
+  "seed": "MbppX/469",
+  "category": "sequences",
+  "description": "Write a function to compute the profit from buying a stock on the first day and selling it on the most expensive later day; the result may be negative.",
+  "entry_point": "profit_from_first_day",
+  "inputs": [
+   "([5, 3, 9, 7],)",
+   "([8, 6, 2],)",
+   "([1, 1],)"
+  ],
+  "expression": "max(a0[1:]) - a0[0]"
+ },
+ {
+  "id": "variant-p2-008-7",
+  "seed": "MbppX/469",
+  "category": "sequences",
+  "description": "Write a function to find the maximum profit from one buy and one later sell when the transaction costs a fixed fee, returning 0 if trading does not pay off.",
+  "entry_point": "profit_after_fee",
+  "inputs": [
+   "([2, 8, 4], 1)",
+   "([5, 6], 3)",
+   "([10, 4, 9], 2)"
+  ],
+  "expression": "max(max(x - min(a0[:i + 1]) for i, x in enumerate(a0)) - a1, 0)"
+ },
+ {
+  "id": "variant-p2-008-8",
+  "seed": "MbppX/469",
+  "category": "sequences",
+  "description": "Write a function to compute the profit from buying at the lowest price before the last day and selling on the last day of a list of prices.",
+  "entry_point": "sell_on_last_day",
+  "inputs": [
+   "([6, 2, 8, 5],)",
+   "([3, 9, 1],)",
+   "([4, 10],)"
+  ],
+  "expression": "a0[-1] - min(a0[:-1])"
+ },
+ {
+  "id": "variant-p2-009-1",
+  "seed": "MbppX/53",
+  "category": "strings",
+  "description": "Write a python function that returns 'Equal' if a string starts and ends with the same character and 'Not Equal' otherwise.",
+  "entry_point": "ends_match",
+  "inputs": [
+   "('level',)",
+   "('xy',)",
+   "('q',)"
+  ],
+  "expression": "'Equal' if a0[0] == a0[-1] else 'Not Equal'"
+ },
+ {
+  "id": "variant-p2-009-2",
+  "seed": "MbppX/53",
+  "category": "strings",
+  "description": "Write a function to compare the first and the last character of a given word, giving 'Equal' when they are the same and 'Not Equal' when they differ.",
+  "entry_point": "compare_end_chars",
+  "inputs": [
+   "('noon',)",
+   "('Anna',)",
+   "('stars',)"
+  ],
+  "expression": "'Equal' if same_first_last_1(a0) else 'Not Equal'"
+ },
+ {
+  "id": "variant-p2-009-3",
+  "seed": "MbppX/53",
+  "category": "strings",
+  "description": "Write a python function that returns 'Equal' when the first and last letters of a string are the same letter regardless of case, and 'Not Equal' otherwise.",
+  "entry_point": "ends_match_ignore_case",
+  "inputs": [
+   "('Anna',)",
+   "('Bob',)",
+   "('Cat',)"
+  ],
+  "expression": "'Equal' if a0[0].lower() == a0[-1].lower() else 'Not Equal'"
+ },
+ {
+  "id": "variant-p2-009-4",
+  "seed": "MbppX/53",
+  "category": "strings",
+  "description": "Write a python function to check whether the first two characters of a string are the same as its last two characters.",
+  "entry_point": "same_two_ends",
+  "inputs": [
+   "('abxab',)",
+   "('abba',)",
+   "('xyxy',)"
+  ],
+  "expression": "a0[:2] == a0[-2:]"
+ },
+ {
+  "id": "variant-p2-009-5",
+  "seed": "MbppX/53",
+  "category": "strings",
+  "description": "Write a function to count the words in a sentence that begin and end with the same letter.",
+  "entry_point": "count_same_end_words",
+  "inputs": [
+   "('did you see that',)",
+   "('hello world',)",
+   "('a',)"
+  ],
+  "expression": "sum(w[0] == w[-1] for w in a0.split())"
+ },
+ {
+  "id": "variant-p2-009-6",
+  "seed": "MbppX/53",
+  "category": "strings",
+  "description": "Write a python function to check whether the first and last digits of a positive integer are equal.",
+  "entry_point": "same_end_digits",
+  "inputs": [
+   "(12321,)",
+   "(120,)",
+   "(7,)"
+  ],
+  "expression": "str(a0)[0] == str(a0)[-1]"
+ },
+ {
+  "id": "variant-p2-009-7",
+  "seed": "MbppX/53",
+  "category": "strings",
+  "description": "Write a function to check whether the first character of a string occurs again somewhere later in the string.",
+  "entry_point": "first_char_repeats",
+  "inputs": [
+   "('abcab',)",
+   "('banana',)",
+   "('zz',)"
+  ],
+  "expression": "a0[0] in a0[1:]"
+ },
+ {
+  "id": "variant-p2-009-8",
+  "seed": "MbppX/53",
+  "category": "strings",
+  "description": "Write a function to check whether every string in a list starts and ends with the same character.",
+  "entry_point": "all_same_ends",
+  "inputs": [
+   "(['wow', 'eye', 'gig'],)",
+   "(['pop', 'top'],)",
+   "([],)"
+  ],
+  "expression": "all(s[0] == s[-1] for s in a0)"
+ },
+ {
+  "id": "variant-p2-010-1",
+  "seed": "MbppX/575",
+  "category": "numbers",
+  "description": "Write a python function that takes a, n, l and r and returns the n-th number from l to r (inclusive) that is not a multiple of a.",
+  "entry_point": "nth_non_multiple",
+  "inputs": [
+   "(4, 5, 2, 30)",
+   "(7, 1, 7, 20)",
+   "(2, 3, 10, 30)"
+  ],
+  "expression": "[i for i in range(a2, a3 + 1) if i % a0][a1 - 1]"
+ },
+ {
+  "id": "variant-p2-010-2",
+  "seed": "MbppX/575",
+  "category": "numbers",
+  "description": "Given a divisor a, a count n and bounds l and r, write a function to find the n-th integer between l and r, both included, that leaves a nonzero remainder when divided by a.",
+  "entry_point": "nth_with_remainder",
+  "inputs": [
+   "(3, 4, 1, 15)",
+   "(5, 6, 5, 25)",
+   "(10, 2, 9, 40)"
+  ],
+  "expression": "[x for x in range(a2, a3 + 1) if x % a0 != 0][a1 - 1]"
+ },
+ {
+  "id": "variant-p2-010-3",
+  "seed": "MbppX/575",
+  "category": "numbers",
+  "description": "Write a python function that takes a, n, l and r and finds the n-th number between l and r (inclusive) that is a multiple of a.",
+  "entry_point": "nth_multiple_in_range",
+  "inputs": [
+   "(3, 2, 1, 20)",
+   "(7, 1, 8, 30)",
+   "(4, 3, 4, 40)"
+  ],
+  "expression": "[i for i in range(a2, a3 + 1) if i % a0 == 0][a1 - 1]"
+ },
+ {
+  "id": "variant-p2-010-4",
+  "seed": "MbppX/575",
+  "category": "numbers",
+  "description": "Write a python function to count the numbers from l to r (inclusive) that are not divisible by a, taking the arguments in the order a, l, r.",
+  "entry_point": "count_non_multiples",
+  "inputs": [
+   "(3, 1, 10)",
+   "(2, 4, 4)",
+   "(5, 1, 12)"
+  ],
+  "expression": "sum(i % a0 != 0 for i in range(a1, a2 + 1))"
+ },
+ {
+  "id": "variant-p2-010-5",
+  "seed": "MbppX/575",
+  "category": "numbers",
+  "description": "Write a function to find the largest number between l and r (inclusive) that is not a multiple of a, with the arguments given as a, l, r.",
+  "entry_point": "last_non_multiple",
+  "inputs": [
+   "(5, 1, 20)",
+   "(4, 3, 9)",
+   "(3, 1, 9)"
+  ],
+  "expression": "max(i for i in range(a1, a2 + 1) if i % a0)"
+ },
+ {
+  "id": "variant-p2-010-6",
+  "seed": "MbppX/575",
+  "category": "numbers",
+  "description": "Write a function to list the numbers from l to r (inclusive) that are not multiples of a, given a, l and r.",
+  "entry_point": "list_non_multiples",
+  "inputs": [
+   "(3, 1, 10)",
+   "(2, 6, 6)",
+   "(4, 5, 9)"
+  ],
+  "expression": "[i for i in range(a1, a2 + 1) if i % a0]"
+ },
+ {
+  "id": "variant-p2-010-7",
+  "seed": "MbppX/575",
+  "category": "numbers",
+  "description": "Write a python function to find the sum of the integers from l to r (inclusive) that are not divisible by a, given a, l and r.",
+  "entry_point": "sum_non_multiples",
+  "inputs": [
+   "(3, 1, 10)",
+   "(2, 1, 1)",
+   "(5, 5, 5)"
+  ],
+  "expression": "sum(i for i in range(a1, a2 + 1) if i % a0)"
+ },
+ {
+  "id": "variant-p2-010-8",
+  "seed": "MbppX/575",
+  "category": "numbers",
+  "description": "Write a function to find the smallest number from l to r (inclusive) that is not divisible by any number in the given list of divisors, taking the list, l and r as arguments.",
+  "entry_point": "first_free_of_divisors",
+  "inputs": [
+   "([2, 3], 8, 20)",
+   "([4], 4, 9)",
+   "([2, 5, 7], 14, 30)"
+  ],
+  "expression": "min(i for i in range(a1, a2 + 1) if all(i % d for d in a0))"
+ },
+ {
+  "id": "variant-p2-011-1",
+  "seed": "MbppX/652",
+  "category": "nested",
+  "description": "Write a function to read the tuples of a tuple matrix row by row and regroup their values by position, returning the resulting list of tuples as a string.",
+  "entry_point": "tuple_matrix_columns",
+  "inputs": [
+   "([[(1, 2), (3, 4)], [(5, 6), (7, 8)]],)",
+   "([[(9, 0)]],)",
+   "([[(1, 2, 3)], [(4, 5, 6)]],)"
+  ],
+  "expression": "str(unzip_1(flatten_1(a0)))"
+ },
+ {
+  "id": "variant-p2-011-2",
+  "seed": "MbppX/652",
+  "category": "nested",
+  "description": "Write a function that flattens a matrix of pairs into a single list of pairs and returns, as a string, the list of its columns with each column as a tuple.",
+  "entry_point": "flatten_pairs_to_columns",
+  "inputs": [
+   "([[(2, 5), (6, 1), (0, 3)]],)",
+   "([[(1, 1)], [(2, 2)], [(3, 3)]],)",
+   "([[(7, 8), (9, 10)], [(11, 12), (13, 14)]],)"
+  ],
+  "expression": "str(unzip_1([t for row in a0 for t in row]))"
+ },
+ {
+  "id": "variant-p2-011-3",
+  "seed": "MbppX/652",
+  "category": "nested",
+  "description": "Write a function to flatten a matrix of tuples row by row and return the list of tuples holding the first elements, the second elements, and so on.",
+  "entry_point": "tuple_matrix_to_columns",
+  "inputs": [
+   "([[(1, 5), (2, 6)], [(3, 7), (4, 8)]],)",
+   "([[(0, 9)]],)",
+   "([[(1, 2, 3), (4, 5, 6)]],)"
+  ],
+  "expression": "unzip_1(flatten_1(a0))"
+ },
+ {
+  "id": "variant-p2-011-4",
+  "seed": "MbppX/652",
+  "category": "nested",
+  "description": "Write a function to add up, over all the tuples of a tuple matrix, the values found at each tuple position.",
+  "entry_point": "position_sums",
+  "inputs": [
+   "([[(1, 2), (3, 4)], [(5, 6), (7, 8)]],)",
+   "([[(10, 0, 1)]],)",
+   "([[(2, 3)], [(4, -3)]],)"
+  ],
+  "expression": "[sum(c) for c in unzip_1(flatten_1(a0))]"
+ },
+ {
+  "id": "variant-p2-011-5",
+  "seed": "MbppX/652",
+  "category": "nested",
+  "description": "Write a function to collect the first element of every tuple in a tuple matrix, reading the rows from top to bottom.",
+  "entry_point": "first_items_of_matrix",
+  "inputs": [
+   "([[(3, 1), (6, 2)], [(9, 4)]],)",
+   "([[(0, 0)]],)",
+   "([[], [(5, 5), (8, 1)]],)"
+  ],
+  "expression": "[t[0] for row in a0 for t in row]"
+ },
+ {
+  "id": "variant-p2-011-6",
+  "seed": "MbppX/652",
+  "category": "nested",
+  "description": "Write a function to regroup each row of a tuple matrix separately, turning every row into the list of tuples formed by its values at each position.",
+  "entry_point": "transpose_each_row",
+  "inputs": [
+   "([[(1, 2), (3, 4)], [(5, 6), (7, 8)]],)",
+   "([[(1, 2, 3)]],)",
+   "([[(0, 1), (2, 3), (4, 5)]],)"
+  ],
+  "expression": "[unzip_1(row) for row in a0]"
+ },
+ {
+  "id": "variant-p2-011-7",
+  "seed": "MbppX/652",
+  "category": "nested",
+  "description": "Write a function to rebuild a list of pairs from two tuples, the first holding all the first elements and the second all the second elements.",
+  "entry_point": "columns_to_pairs",
+  "inputs": [
+   "((1, 3, 5), (2, 4, 6))",
+   "((7,), (8,))",
+   "((), ())"
+  ],
+  "expression": "list(zip(a0, a1))"
+ },
+ {
+  "id": "variant-p2-011-8",
+  "seed": "MbppX/652",
+  "category": "nested",
+  "description": "Write a function to convert a list of tuples into the list of its columns, each column a tuple, and return the result as a string.",
+  "entry_point": "tuple_list_columns_str",
+  "inputs": [
+   "([(1, 'a'), (2, 'b')],)",
+   "([(5, 6, 7)],)",
+   "([(0, 0), (1, 1), (2, 2)],)"
+  ],
+  "expression": "str(unzip_1(a0))"
+ },
+ {
+  "id": "variant-p2-012-1",
+  "seed": "MbppX/699",
+  "category": "strings",
+  "description": "Write a python function that counts the positions where two binary strings of equal length differ and returns half of that count as the number of swaps needed, or 'Not Possible' if the count is odd.",
+  "entry_point": "swaps_between_binaries",
+  "inputs": [
+   "('1010', '0101')",
+   "('111', '000')",
+   "('1001', '1001')"
+  ],
+  "expression": "sum(x != y for x, y in zip(a0, a1)) // 2 if sum(x != y for x, y in zip(a0, a1)) % 2 == 0 else 'Not Possible'"
+ },
+ {
+  "id": "variant-p2-012-2",
+  "seed": "MbppX/699",
+  "category": "strings",
+  "description": "Write a function to find the minimum number of swaps that turns one binary string into another of the same length, where each swap fixes two mismatched positions; return 'Not Possible' when the mismatches cannot be paired up.",
+  "entry_point": "min_swaps_binary",
+  "inputs": [
+   "('11100', '00111')",
+   "('10', '00')",
+   "('01', '10')"
+  ],
+  "expression": "'Not Possible' if popcount_1(int(a0, 2) ^ int(a1, 2)) % 2 else popcount_1(int(a0, 2) ^ int(a1, 2)) // 2"
+ },
+ {
+  "id": "variant-p2-012-3",
+  "seed": "MbppX/699",
+  "category": "strings",
+  "description": "Write a python function to find the minimum number of single-character flips needed to turn one binary string into another of the same length.",
+  "entry_point": "min_bit_flips",
+  "inputs": [
+   "('1101', '1000')",
+   "('0', '0')",
+   "('1111', '0000')"
+  ],
+  "expression": "sum(x != y for x, y in zip(a0, a1))"
+ },
+ {
+  "id": "variant-p2-012-4",
+  "seed": "MbppX/699",
+  "category": "strings",
+  "description": "Write a python function to find the minimum number of two-character swaps that turns one binary string into another, returning 'Not Possible' if the two strings contain different numbers of ones.",
+  "entry_point": "swaps_if_same_ones",
+  "inputs": [
+   "('1100', '0011')",
+   "('1110', '0100')",
+   "('1010', '1010')"
+  ],
+  "expression": "'Not Possible' if a0.count('1') != a1.count('1') else sum(x > y for x, y in zip(a0, a1))"
+ },
+ {
+  "id": "variant-p2-012-5",
+  "seed": "MbppX/699",
+  "category": "strings",
+  "description": "Write a function to check whether one binary string can be turned into another by swapping its characters, that is, whether both have the same numbers of zeros and ones.",
+  "entry_point": "rearrangeable_binary",
+  "inputs": [
+   "('1010', '0011')",
+   "('100', '110')",
+   "('', '')"
+  ],
+  "expression": "sorted(a0) == sorted(a1)"
+ },
+ {
+  "id": "variant-p2-012-6",
+  "seed": "MbppX/699",
+  "category": "strings",
+  "description": "Write a function to list the indices at which two binary strings of equal length have different characters.",
+  "entry_point": "mismatch_positions",
+  "inputs": [
+   "('10110', '00111')",
+   "('111', '111')",
+   "('01', '10')"
+  ],
+  "expression": "[i for i in range(len(a0)) if a0[i] != a1[i]]"
+ },
+ {
+  "id": "variant-p2-012-7",
+  "seed": "MbppX/699",
+  "category": "strings",
+  "description": "Write a python function to find how many bits must be flipped to turn the integer a into the integer b.",
+  "entry_point": "bit_flips_between_ints",
+  "inputs": [
+   "(10, 4)",
+   "(7, 7)",
+   "(0, 255)"
+  ],
+  "expression": "popcount_1(a0 ^ a1)"
+ },
+ {
+  "id": "variant-p2-012-8",
+  "seed": "MbppX/699",
+  "category": "strings",
+  "description": "Write a function to find the first index at which two binary strings of equal length differ, or -1 if they are identical.",
+  "entry_point": "first_mismatch_index",
+  "inputs": [
+   "('10110', '10011')",
+   "('111', '111')",
+   "('0', '1')"
+  ],
+  "expression": "([i for i in range(len(a0)) if a0[i] != a1[i]] + [-1])[0]"
+ },
+ {
+  "id": "variant-p2-013-1",
+  "seed": "MbppX/774",
+  "category": "strings",
+  "description": "Write a function to check whether a string is a valid email address using the regex '^\\w+@\\w+\\.\\w{2,3}$', returning 'Valid Email' or 'Invalid Email'.",
+  "entry_point": "is_valid_email",
+  "inputs": [
+   "('sam_lee7@example.com',)",
+   "('sam@example',)",
+   "('ann@site.info',)"
+  ],
+  "expression": "'Valid Email' if re.search('^\\\\w+@\\\\w+\\\\.\\\\w{2,3}$', a0) else 'Invalid Email'"
+ },
+ {
+  "id": "variant-p2-013-2",
+  "seed": "MbppX/774",
+  "category": "strings",
+  "description": "Write a function that validates an email address with re.match and the pattern '\\w+[.]?\\w+@\\w+\\.\\w+$', returning 'Valid Email' on a match and 'Invalid Email' otherwise.",
+  "entry_point": "validate_email",
+  "inputs": [
+   "('john.doe@mail.org',)",
+   "('john..doe@mail.org',)",
+   "('jo@mail',)"
+  ],
+  "expression": "'Valid Email' if re.match('\\\\w+[.]?\\\\w+@\\\\w+\\\\.\\\\w+$', a0) else 'Invalid Email'"
+ },
+ {
+  "id": "variant-p2-013-3",
+  "seed": "MbppX/774",
+  "category": "strings",
+  "description": "Write a function to extract the domain of an email address, that is, the part after the '@' sign.",
+  "entry_point": "email_domain",
+  "inputs": [
+   "('kim@post.example.org',)",
+   "('x@y.io',)",
+   "('team.lead@corp.net',)"
+  ],
+  "expression": "a0.split('@')[1]"
+ },
+ {
+  "id": "variant-p2-013-4",
+  "seed": "MbppX/774",
+  "category": "strings",
+  "description": "Write a function to return the user name of an email address, meaning everything before the '@'.",
+  "entry_point": "email_user",
+  "inputs": [
+   "('kim.lee@post.org',)",
+   "('@host.com',)",
+   "('a1@b.cd',)"
+  ],
+  "expression": "a0.split('@')[0]"
+ },
+ {
+  "id": "variant-p2-013-5",
+  "seed": "MbppX/774",
+  "category": "strings",
+  "description": "Write a function that returns 'Valid Email' if a string contains exactly one '@' with a '.' somewhere after it, and 'Invalid Email' otherwise.",
+  "entry_point": "rough_email_check",
+  "inputs": [
+   "('me@site.org',)",
+   "('me.site@org',)",
+   "('a@b@c.d',)"
+  ],
+  "expression": "'Valid Email' if a0.count('@') == 1 and '.' in a0.split('@')[1] else 'Invalid Email'"
+ },
+ {
+  "id": "variant-p2-013-6",
+  "seed": "MbppX/774",
+  "category": "strings",
+  "description": "Write a function to count how many email addresses in a list belong to the given domain.",
+  "entry_point": "count_domain_emails",
+  "inputs": [
+   "(['ann@abc.com', 'bo@xyz.org', 'cy@abc.com'], 'abc.com')",
+   "(['ann@abc.com'], 'bc.com')",
+   "(['dan@a.io', 'eve@a.io', 'fay@a.io'], 'a.io')"
+  ],
+  "expression": "sum(e.split('@')[1] == a1 for e in a0)"
+ },
+ {
+  "id": "variant-p2-013-7",
+  "seed": "MbppX/774",
+  "category": "strings",
+  "description": "Write a function to check whether a whole string is a phone number matching the regex '\\d{3}-\\d{3}-\\d{4}', returning 'Valid' or 'Invalid'.",
+  "entry_point": "is_phone_number",
+  "inputs": [
+   "('555-123-4567',)",
+   "('5551234567',)",
+   "('555-123-45678',)"
+  ],
+  "expression": "'Valid' if re.fullmatch('\\\\d{3}-\\\\d{3}-\\\\d{4}', a0) else 'Invalid'"
+ },
+ {
+  "id": "variant-p2-013-8",
+  "seed": "MbppX/774",
+  "category": "strings",
+  "description": "Write a function to extract all email addresses from a text, using the regex '\\S+@\\S+' to find them.",
+  "entry_point": "find_emails",
+  "inputs": [
+   "('mail ann@x.com or bo@y.org today',)",
+   "('no address here',)",
+   "('write to kim@site.net',)"
+  ],
+  "expression": "re.findall('\\\\S+@\\\\S+', a0)"
+ },
+ {
+  "id": "variant-p2-014-1",
+  "seed": "MbppX/83",
+  "category": "strings",
+  "description": "Write a python function that adds up the alphabet positions of the letters of a lowercase string (a = 1, ..., z = 26), wraps the total around the 26 letters, and returns the letter at that position.",
+  "entry_point": "letter_from_sum",
+  "inputs": [
+   "('bad',)",
+   "('zz',)",
+   "('xyz',)"
+  ],
+  "expression": "chr(ord('a') + (sum(ord(c) - ord('a') + 1 for c in a0) - 1) % 26)"
+ },
+ {
+  "id": "variant-p2-014-2",
+  "seed": "MbppX/83",
+  "category": "strings",
+  "description": "Write a function to find the character made by adding up the letters of a lowercase word, where a counts as 1, b as 2 and so on, and the total wraps around after 26 back to a.",
+  "entry_point": "sum_to_letter",
+  "inputs": [
+   "('code',)",
+   "('m',)",
+   "('yy',)"
+  ],
+  "expression": "chr((sum(ord(c) - ord('a') + 1 for c in a0) - 1) % 26 + ord('a'))"
+ },
+ {
+  "id": "variant-p2-014-3",
+  "seed": "MbppX/83",
+  "category": "strings",
+  "description": "Write a python function to compute the total of the alphabet positions (a = 1, ..., z = 26) of the letters in a lowercase string.",
+  "entry_point": "alphabet_score",
+  "inputs": [
+   "('dog',)",
+   "('',)",
+   "('zz',)"
+  ],
+  "expression": "sum(ord(c) - ord('a') + 1 for c in a0)"
+ },
+ {
+  "id": "variant-p2-014-4",
+  "seed": "MbppX/83",
+  "category": "strings",
+  "description": "Write a python function to find the capital letter made by adding the alphabet positions of the characters of an uppercase string (A = 1, ..., Z = 26), wrapping around after Z.",
+  "entry_point": "upper_letter_from_sum",
+  "inputs": [
+   "('ABC',)",
+   "('ZZ',)",
+   "('HI',)"
+  ],
+  "expression": "chr(ord('A') + (sum(ord(c) - ord('A') + 1 for c in a0) - 1) % 26)"
+ },
+ {
+  "id": "variant-p2-014-5",
+  "seed": "MbppX/83",
+  "category": "strings",
+  "description": "Write a function that returns 'Even' if the sum of the alphabet positions of the letters of a lowercase word (a = 1, ..., z = 26) is even and 'Odd' otherwise.",
+  "entry_point": "score_parity",
+  "inputs": [
+   "('bad',)",
+   "('dog',)",
+   "('a',)"
+  ],
+  "expression": "'Even' if sum(ord(c) - ord('a') + 1 for c in a0) % 2 == 0 else 'Odd'"
+ },
+ {
+  "id": "variant-p2-014-6",
+  "seed": "MbppX/83",
+  "category": "strings",
+  "description": "Write a function to return the lowercase letter at position n of the alphabet (a = 1, ..., z = 26), starting again from a when n goes past 26.",
+  "entry_point": "letter_at_position",
+  "inputs": [
+   "(3,)",
+   "(26,)",
+   "(30,)"
+  ],
+  "expression": "chr(ord('a') + (a0 - 1) % 26)"
+ },
+ {
+  "id": "variant-p2-014-7",
+  "seed": "MbppX/83",
+  "category": "strings",
+  "description": "Write a python function to find the letter made by adding the alphabet positions (a = 1, ..., z = 26) of the lowercase letters in a string, ignoring all other characters and wrapping around after z.",
+  "entry_point": "letter_sum_skip_others",
+  "inputs": [
+   "('a-b c!',)",
+   "('x1y2',)",
+   "('z?',)"
+  ],
+  "expression": "chr(ord('a') + (sum(ord(c) - ord('a') + 1 for c in a0 if c.islower()) - 1) % 26)"
+ },
+ {
+  "id": "variant-p2-014-8",
+  "seed": "MbppX/83",
+  "category": "strings",
+  "description": "Write a python function to find the digit character obtained by adding all the digits of a numeric string and keeping only the last digit of the total.",
+  "entry_point": "digit_from_sum",
+  "inputs": [
+   "('4721',)",
+   "('0',)",
+   "('999',)"
+  ],
+  "expression": "str(sum(int(c) for c in a0) % 10)"
+ },
+ {
+  "id": "variant-p2-015-1",
+  "seed": "MbppX/915",
+  "category": "sequences",
+  "description": "Write a function to sort a list of nonzero integers so that the positive numbers come first in ascending order, followed by the negative numbers in ascending order.",
+  "entry_point": "positives_then_negatives",
+  "inputs": [
+   "([3, -2, 1, -5, 4],)",
+   "([-1, -3],)",
+   "([],)"
+  ],
+  "expression": "sorted(a0, key=lambda x: (x < 0, x))"
+ },
+ {
+  "id": "variant-p2-015-2",
+  "seed": "MbppX/915",
+  "category": "sequences",
+  "description": "Write a function that rearranges a list of numbers with a lambda sort key so that the positive numbers appear first in increasing order, then any zeros, then the negative numbers in increasing order.",
+  "entry_point": "rearrange_with_lambda",
+  "inputs": [
+   "([4, -1, 0, 2, -6],)",
+   "([-3, 0, 5],)",
+   "([1, 1, -1],)"
+  ],
+  "expression": "sorted(a0, key=lambda x: 0 if x == 0 else -1 / x)"
+ },
+ {
+  "id": "variant-p2-015-3",
+  "seed": "MbppX/915",
+  "category": "sequences",
+  "description": "Write a function to sort a list so that the positive numbers come first and the negative numbers after them, each group ordered by absolute value.",
+  "entry_point": "sign_groups_by_size",
+  "inputs": [
+   "([5, -1, 3, -4, -2],)",
+   "([-7, -3],)",
+   "([2, 9],)"
+  ],
+  "expression": "sorted(a0, key=lambda x: (x < 0, abs(x)))"
+ },
+ {
+  "id": "variant-p2-015-4",
+  "seed": "MbppX/915",
+  "category": "sequences",
+  "description": "Write a function to sort a list of integers by their absolute values, using a lambda function as the key.",
+  "entry_point": "sort_by_magnitude",
+  "inputs": [
+   "([-7, 2, -1, 5],)",
+   "([3, -3, 0],)",
+   "([],)"
+  ],
+  "expression": "sorted(a0, key=lambda x: abs(x))"
+ },
+ {
+  "id": "variant-p2-015-5",
+  "seed": "MbppX/915",
+  "category": "sequences",
+  "description": "Write a function to sort a list of non-negative integers by their last digit, keeping the original order for numbers with equal last digits.",
+  "entry_point": "sort_by_last_digit",
+  "inputs": [
+   "([25, 13, 40, 7],)",
+   "([11, 21, 1],)",
+   "([9, 18],)"
+  ],
+  "expression": "sorted(a0, key=lambda x: x % 10)"
+ },
+ {
+  "id": "variant-p2-015-6",
+  "seed": "MbppX/915",
+  "category": "sequences",
+  "description": "Write a function to sort a list of words so that the words starting with a lowercase letter come first and the capitalized words after them, each group in alphabetical order.",
+  "entry_point": "lowercase_words_first",
+  "inputs": [
+   "(['pear', 'Kiwi', 'apple', 'Fig'],)",
+   "(['b', 'a'],)",
+   "(['Zoo', 'Ant'],)"
+  ],
+  "expression": "sorted(a0, key=lambda w: (w[0].isupper(), w))"
+ },
+ {
+  "id": "variant-p2-015-7",
+  "seed": "MbppX/915",
+  "category": "sequences",
+  "description": "Write a function to check whether a list is already arranged with its positive numbers first in ascending order, followed by its negative numbers in ascending order.",
+  "entry_point": "is_positive_first_sorted",
+  "inputs": [
+   "([1, 4, -6, -2],)",
+   "([-2, 1, 4],)",
+   "([5],)"
+  ],
+  "expression": "a0 == sorted(a0, key=lambda x: (x < 0, x))"
+ },
+ {
+  "id": "variant-p2-015-8",
+  "seed": "MbppX/915",
+  "category": "sequences",
+  "description": "Write a function to sort a list of words by their last letter, keeping the original order of words that end in the same letter.",
+  "entry_point": "sort_by_last_letter",
+  "inputs": [
+   "(['cat', 'dog', 'bee', 'ant'],)",
+   "(['ab', 'ba'],)",
+   "(['x'],)"
+  ],
+  "expression": "sorted(a0, key=lambda w: w[-1])"
+ }
+]

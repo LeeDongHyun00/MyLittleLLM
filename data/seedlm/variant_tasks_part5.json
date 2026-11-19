@@ -120,7 +120,7 @@
   "id": "variant-p5-002-2",
   "seed": "MbppX/136",
   "category": "numbers",
-  "description": "Write a python function to work out the bill for the given units of electricity, charging 2 per unit for the first 100 units, 5 per unit for units 101 to 200 and 8 per unit above 200, plus a fixed surcharge of 50.",
+  "description": "Write a python function to work out an electricity bill that has a fixed surcharge of 50 and charges 2 per unit for the first 100 units, 5 per unit for units 101 to 200 and 8 per unit above 200.",
   "entry_point": "tiered_bill",
   "inputs": [
    "(150,)",
