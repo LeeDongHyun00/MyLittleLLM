@@ -1,0 +1,1802 @@
+[
+ {
+  "id": "sequences-001",
+  "category": "sequences",
+  "description": "Write a function that computes how much each temperature reading in a list rose or fell compared with the reading before it.",
+  "entry_point": "reading_changes",
+  "inputs": [
+   "([12, 15, 11, 11],)",
+   "([3, 8],)",
+   "([20, 18, 25, 30, 29],)"
+  ],
+  "expression": "adjacent_diff_1(a0)"
+ },
+ {
+  "id": "sequences-002",
+  "category": "sequences",
+  "description": "Write a python function that, given a tuple of hourly visitor counts, returns a tuple with the number of visitors in each window of two consecutive hours.",
+  "entry_point": "neighbour_sums",
+  "inputs": [
+   "((1, 2, 3, 4),)",
+   "((10, -10, 5),)",
+   "((7, 7),)"
+  ],
+  "expression": "adjacent_sum_1(a0)"
+ },
+ {
+  "id": "sequences-003",
+  "category": "sequences",
+  "description": "Write a function to list the legs of a journey as (from, to) tuples, given the list of stops visited in order.",
+  "entry_point": "consecutive_pairs",
+  "inputs": [
+   "(['home', 'shop', 'park'],)",
+   "([3, 1, 3, 2],)",
+   "(['x', 'y'],)"
+  ],
+  "expression": "adjacent_pairs_1(a0)"
+ },
+ {
+  "id": "sequences-004",
+  "category": "sequences",
+  "description": "Given a list of scores, return the position of the highest score, taking the earliest position when the highest score is repeated.",
+  "entry_point": "top_score_position",
+  "inputs": [
+   "([40, 75, 62, 75],)",
+   "([8, 2, 1],)",
+   "([-5, -9, -2],)"
+  ],
+  "expression": "argmax_1(a0)"
+ },
+ {
+  "id": "sequences-005",
+  "category": "sequences",
+  "description": "Write a function that drops repeated values from a list, keeping each value at the place where it first appeared.",
+  "entry_point": "first_appearances",
+  "inputs": [
+   "([3, 1, 3, 2, 1],)",
+   "(['x', 'y', 'x'],)",
+   "([5, 5, 5, 4],)"
+  ],
+  "expression": "dedupe_1(a0)"
+ },
+ {
+  "id": "sequences-006",
+  "category": "sequences",
+  "description": "Create a function which keeps only the values that occur exactly once in a list, in their original order.",
+  "entry_point": "single_occurrences",
+  "inputs": [
+   "([1, 2, 2, 3, 4, 4],)",
+   "(['a', 'b', 'a'],)",
+   "([6, 7, 8],)"
+  ],
+  "expression": "once_only_1(a0)"
+ },
+ {
+  "id": "sequences-007",
+  "category": "sequences",
+  "description": "Write a python function to list, in order of first appearance, the values that appear more than once in a list.",
+  "entry_point": "repeated_values",
+  "inputs": [
+   "([5, 3, 5, 1, 3, 3],)",
+   "([1, 2, 3],)",
+   "([9, 9],)"
+  ],
+  "expression": "repeated_1(a0)"
+ },
+ {
+  "id": "sequences-008",
+  "category": "sequences",
+  "description": "Write a function to find the most requested song in a list of song requests, preferring the song requested first when there is a tie.",
+  "entry_point": "most_frequent_value",
+  "inputs": [
+   "(['hey', 'jude', 'jude', 'hey', 'jude'],)",
+   "(['a', 'b'],)",
+   "(['x', 'y', 'y'],)"
+  ],
+  "expression": "most_common_1(a0)"
+ },
+ {
+  "id": "sequences-009",
+  "category": "sequences",
+  "description": "Write a function that builds a dictionary mapping each fruit in a basket list to the number of times it occurs.",
+  "entry_point": "tally_items",
+  "inputs": [
+   "(['apple', 'pear', 'apple'],)",
+   "(['fig'],)",
+   "(['kiwi', 'kiwi', 'lime', 'kiwi'],)"
+  ],
+  "expression": "counter_1(a0)"
+ },
+ {
+  "id": "sequences-010",
+  "category": "sequences",
+  "description": "Given a list of parcel weights in which 0 marks an empty slot, return the list with the empty slots moved to the end and the parcels kept in their order.",
+  "entry_point": "zeros_to_back",
+  "inputs": [
+   "([0, 4, 0, 2],)",
+   "([5, 0, 1],)",
+   "([0, 0, 3],)"
+  ],
+  "expression": "move_zeros_1(a0)"
+ },
+ {
+  "id": "sequences-011",
+  "category": "sequences",
+  "description": "Write a function to turn a list of hourly weather states into the list of weather changes, collapsing each run of the same state into one entry.",
+  "entry_point": "collapse_runs",
+  "inputs": [
+   "(['sun', 'sun', 'rain', 'rain', 'sun'],)",
+   "(['fog', 'fog'],)",
+   "(['sun', 'rain', 'snow'],)"
+  ],
+  "expression": "drop_consecutive_1(a0)"
+ },
+ {
+  "id": "sequences-012",
+  "category": "sequences",
+  "description": "Write a function to encode a list as a list of [count, value] pairs, one pair for each run of equal adjacent items.",
+  "entry_point": "encode_runs",
+  "inputs": [
+   "([7, 7, 7, 2, 7],)",
+   "(['z', 'z'],)",
+   "([1, 2, 2],)"
+  ],
+  "expression": "run_lengths_1(a0)"
+ },
+ {
+  "id": "sequences-013",
+  "category": "sequences",
+  "description": "Given a list of deposits made into an empty account, return the balance after each deposit.",
+  "entry_point": "running_balance",
+  "inputs": [
+   "([5, 10, 20],)",
+   "([3, -3, 3],)",
+   "([100],)"
+  ],
+  "expression": "prefix_sums_1(a0)"
+ },
+ {
+  "id": "sequences-014",
+  "category": "sequences",
+  "description": "Write a python function to find the spread between the highest and the lowest reading in a list.",
+  "entry_point": "reading_spread",
+  "inputs": [
+   "([12, 4, 9],)",
+   "([5],)",
+   "([-3, 7, 0, 2],)"
+  ],
+  "expression": "range_width_1(a0)"
+ },
+ {
+  "id": "sequences-015",
+  "category": "sequences",
+  "description": "Write a function to find the second highest distinct mark in a list of marks.",
+  "entry_point": "runner_up_mark",
+  "inputs": [
+   "([70, 85, 85, 60],)",
+   "([1, 2],)",
+   "([9, 3, 9, 7, 3],)"
+  ],
+  "expression": "second_largest_1(a0)"
+ },
+ {
+  "id": "sequences-016",
+  "category": "sequences",
+  "description": "Write a function to arrange a list of scores from highest to lowest.",
+  "entry_point": "scores_high_to_low",
+  "inputs": [
+   "([3, 9, 4],)",
+   "([1, 1, 2],)",
+   "([50, 75, 60, 90],)"
+  ],
+  "expression": "sorted_desc_1(a0)"
+ },
+ {
+  "id": "sequences-017",
+  "category": "sequences",
+  "description": "Write a python function to return every second element of a tuple, starting from the second one.",
+  "entry_point": "every_other_from_second",
+  "inputs": [
+   "((1, 2, 3, 4, 5),)",
+   "(('u', 'v', 'w'),)",
+   "((9, 8, 7, 6, 5, 4),)"
+  ],
+  "expression": "odd_index_1(a0)"
+ },
+ {
+  "id": "sequences-018",
+  "category": "sequences",
+  "description": "Write a function to keep only the even house numbers from a tuple of house numbers.",
+  "entry_point": "drop_odd_numbers",
+  "inputs": [
+   "((1, 2, 3, 4),)",
+   "((7, 9),)",
+   "((0, -2, 5),)"
+  ],
+  "expression": "evens_1(a0)"
+ },
+ {
+  "id": "sequences-019",
+  "category": "sequences",
+  "description": "Create a function which picks out the overdrawn balances, the negative values, from a list or tuple of balances, keeping the container type.",
+  "entry_point": "negative_entries",
+  "inputs": [
+   "([4, -2, -7, 0],)",
+   "([3, 5],)",
+   "((-1, 2, -3),)"
+  ],
+  "expression": "negatives_1(a0)"
+ },
+ {
+  "id": "sequences-020",
+  "category": "sequences",
+  "description": "Write a function to return the numbers of a list that exceed a given threshold.",
+  "entry_point": "above_threshold",
+  "inputs": [
+   "([5, 12, 8, 20], 8)",
+   "([1, 2, 3], 5)",
+   "([-4, 0, 4], -1)"
+  ],
+  "expression": "gt_2(a0, a1)"
+ },
+ {
+  "id": "sequences-021",
+  "category": "sequences",
+  "description": "Given a list of temperatures, return those that are below 15.",
+  "entry_point": "cold_readings",
+  "inputs": [
+   "([10, 20, 14, 15],)",
+   "([16, 30],)",
+   "([-2, 15, 3],)"
+  ],
+  "expression": "lt_2(a0, 15)"
+ },
+ {
+  "id": "sequences-022",
+  "category": "sequences",
+  "description": "Write a function to delete every -1 from a list of sensor readings, where -1 marks a missing reading.",
+  "entry_point": "drop_missing_readings",
+  "inputs": [
+   "([3, -1, 4, -1],)",
+   "([-1, -1],)",
+   "([7, 8],)"
+  ],
+  "expression": "ne_2(a0, -1)"
+ },
+ {
+  "id": "sequences-023",
+  "category": "sequences",
+  "description": "Given a list of words and a word, return how many times that word appears in the list.",
+  "entry_point": "word_occurrences",
+  "inputs": [
+   "(['red', 'blue', 'red'], 'red')",
+   "(['a', 'b'], 'c')",
+   "(['x', 'x', 'x', 'y'], 'x')"
+  ],
+  "expression": "count_2(a0, a1)"
+ },
+ {
+  "id": "sequences-024",
+  "category": "sequences",
+  "description": "Create a function which shifts the items of a list k places to the left, wrapping the items that fall off the front around to the back.",
+  "entry_point": "rotate_left_by",
+  "inputs": [
+   "([1, 2, 3, 4, 5], 2)",
+   "(['a', 'b', 'c'], 1)",
+   "([9, 8, 7, 6], 3)"
+  ],
+  "expression": "rotate_left_2(a0, a1)"
+ },
+ {
+  "id": "sequences-025",
+  "category": "sequences",
+  "description": "Write a python function to move the last k items of a list to its front, keeping their order.",
+  "entry_point": "last_k_to_front",
+  "inputs": [
+   "([1, 2, 3, 4, 5], 2)",
+   "([10, 20, 30], 1)",
+   "(['x', 'y', 'z', 'w'], 3)"
+  ],
+  "expression": "rotate_right_2(a0, a1)"
+ },
+ {
+  "id": "sequences-026",
+  "category": "sequences",
+  "description": "Write a function to seat a list of guests at tables of k, filling the tables in order, where the last table may have fewer guests.",
+  "entry_point": "groups_of_k",
+  "inputs": [
+   "([1, 2, 3, 4, 5], 2)",
+   "(['a', 'b', 'c', 'd'], 3)",
+   "([6, 7, 8, 9], 2)"
+  ],
+  "expression": "chunks_2(a0, a1)"
+ },
+ {
+  "id": "sequences-027",
+  "category": "sequences",
+  "description": "Write a function that splits a list of runners in finishing order into the top k and the rest, returned as a tuple of two lists.",
+  "entry_point": "split_before_index",
+  "inputs": [
+   "([1, 2, 3, 4], 1)",
+   "(['a', 'b', 'c'], 2)",
+   "([5, 6, 7, 8, 9], 3)"
+  ],
+  "expression": "split_at_2(a0, a1)"
+ },
+ {
+  "id": "sequences-028",
+  "category": "sequences",
+  "description": "Create a function which merges two equally long lists by taking one item from each in turn, starting with the first list.",
+  "entry_point": "alternate_merge",
+  "inputs": [
+   "([1, 2, 3], ['a', 'b', 'c'])",
+   "([0], [9])",
+   "([5, 6], [7, 8])"
+  ],
+  "expression": "interleave_2(a0, a1)"
+ },
+ {
+  "id": "sequences-029",
+  "category": "sequences",
+  "description": "Write a function to keep the elements of a first list that also occur in a second list, in their original order and with repeats.",
+  "entry_point": "keep_if_in_other",
+  "inputs": [
+   "([4, 1, 7, 1], [1, 4])",
+   "(['a', 'b'], ['c'])",
+   "([5, 6, 7], [7, 6, 5])"
+  ],
+  "expression": "keep_common_2(a0, a1)"
+ },
+ {
+  "id": "sequences-030",
+  "category": "sequences",
+  "description": "Given two lists, return in increasing order the values that belong to exactly one of them.",
+  "entry_point": "values_in_one_only",
+  "inputs": [
+   "([1, 2, 3], [2, 3, 4])",
+   "([5, 6], [5, 6])",
+   "([7, 1], [8])"
+  ],
+  "expression": "set_xor_2(a0, a1)"
+ },
+ {
+  "id": "sequences-031",
+  "category": "sequences",
+  "description": "Write a function to take, at each position, the larger of the two values found at that position in two lists of equal length.",
+  "entry_point": "positionwise_max",
+  "inputs": [
+   "([1, 5, 3], [4, 2, 3])",
+   "([-1, -2], [-3, 0])",
+   "([9], [8])"
+  ],
+  "expression": "each_max_2(a0, a1)"
+ },
+ {
+  "id": "sequences-032",
+  "category": "sequences",
+  "description": "Write a function to count the guests whose ages, given as a list, lie between a lower and an upper age, both included.",
+  "entry_point": "count_between_bounds",
+  "inputs": [
+   "([1, 5, 10, 15], 5, 10)",
+   "([2, 3], 4, 9)",
+   "([-3, 0, 3, 6], -3, 3)"
+  ],
+  "expression": "seq_count_in_range_3(a0, a1, a2)"
+ },
+ {
+  "id": "sequences-033",
+  "category": "sequences",
+  "description": "Write a function to list every day index on which a list of daily sales reaches its highest value.",
+  "entry_point": "all_max_positions",
+  "inputs": [
+   "([3, 8, 1, 8],)",
+   "([5, 4],)",
+   "([2, 2, 2],)"
+  ],
+  "expression": "seq_argmax_all_1(a0)"
+ },
+ {
+  "id": "sequences-034",
+  "category": "sequences",
+  "description": "Write a function to swap dancers standing in a line in pairs, the first with the second, the third with the fourth and so on, leaving a final unpaired dancer in place.",
+  "entry_point": "swap_in_pairs",
+  "inputs": [
+   "([1, 2, 3, 4],)",
+   "(['a', 'b', 'c'],)",
+   "([9, 8],)"
+  ],
+  "expression": "seq_swap_adjacent_1(a0)"
+ },
+ {
+  "id": "sequences-035",
+  "category": "sequences",
+  "description": "Write a function to place a given marker value after every element of a list.",
+  "entry_point": "mark_after_each",
+  "inputs": [
+   "([1, 2, 3], 0)",
+   "(['a', 'b'], '-')",
+   "([7], 7)"
+  ],
+  "expression": "seq_insert_after_each_2(a0, a1)"
+ },
+ {
+  "id": "sequences-036",
+  "category": "sequences",
+  "description": "Write a python function to take every k-th element of a list, starting with the first element.",
+  "entry_point": "every_kth",
+  "inputs": [
+   "([1, 2, 3, 4, 5, 6, 7], 3)",
+   "(['a', 'b', 'c', 'd'], 2)",
+   "([10, 20, 30], 3)"
+  ],
+  "expression": "seq_stride_2(a0, a1)"
+ },
+ {
+  "id": "sequences-037",
+  "category": "sequences",
+  "description": "Given a list of items and a list of positions, return the items at those positions in the order the positions are listed.",
+  "entry_point": "pick_positions",
+  "inputs": [
+   "(['a', 'b', 'c', 'd'], [3, 0])",
+   "([10, 20, 30], [1, 1])",
+   "([5, 6, 7, 8], [0, 2, 3])"
+  ],
+  "expression": "seq_take_indices_2(a0, a1)"
+ },
+ {
+  "id": "sequences-038",
+  "category": "sequences",
+  "description": "Create a function which finds the middle value of a list of house prices once sorted, averaging the two middle prices when the list has an even length.",
+  "entry_point": "median_price",
+  "inputs": [
+   "([300, 100, 200],)",
+   "([4, 1, 3, 2],)",
+   "([7],)"
+  ],
+  "expression": "seq_median_1(a0)"
+ },
+ {
+  "id": "sequences-039",
+  "category": "sequences",
+  "description": "Create a function which keeps the words of a list that read the same backwards as forwards.",
+  "entry_point": "mirror_words",
+  "inputs": [
+   "(['level', 'tree', 'noon'],)",
+   "(['ab', 'cd'],)",
+   "(['a', 'bb', 'abc'],)"
+  ],
+  "expression": "seq_palindromes_1(a0)"
+ },
+ {
+  "id": "sequences-040",
+  "category": "sequences",
+  "description": "Write a function to join a list of words into one string using a given separator.",
+  "entry_point": "join_with_separator",
+  "inputs": [
+   "(['a', 'b', 'c'], '-')",
+   "(['hello', 'world'], ', ')",
+   "(['x'], '+')"
+  ],
+  "expression": "join_with_2(a0, a1)"
+ },
+ {
+  "id": "sequences-041",
+  "category": "sequences",
+  "description": "Write a function to pair each item of a list with labels taken in turn from a shorter list of labels, starting again from the first label when they run out.",
+  "entry_point": "cycle_labels",
+  "inputs": [
+   "([1, 2, 3, 4], ['a', 'b'])",
+   "(['x', 'y', 'z'], [0])",
+   "([5, 6, 7], [1, 2])"
+  ],
+  "expression": "seq_zip_cycle_2(a0, a1)"
+ },
+ {
+  "id": "sequences-042",
+  "category": "sequences",
+  "description": "Write a python function to check whether a list of race times never goes up from one entry to the next.",
+  "entry_point": "never_slower",
+  "inputs": [
+   "([9, 7, 7, 2],)",
+   "([3, 4],)",
+   "([5, 5],)"
+  ],
+  "expression": "is_sorted_descending_1(a0)"
+ },
+ {
+  "id": "sequences-043",
+  "category": "sequences",
+  "description": "Write a function to check whether all the readings in a list are under 100.",
+  "entry_point": "all_under_limit",
+  "inputs": [
+   "([20, 99],)",
+   "([100, 5],)",
+   "([150],)"
+  ],
+  "expression": "all_below_2(a0, 100)"
+ },
+ {
+  "id": "sequences-044",
+  "category": "sequences",
+  "description": "Write a function to check whether every item on a shopping list can be found in a list of items in stock.",
+  "entry_point": "can_buy_all",
+  "inputs": [
+   "(['milk', 'eggs'], ['eggs', 'milk', 'tea'])",
+   "(['jam'], ['tea'])",
+   "(['tea', 'tea'], ['tea', 'cake'])"
+  ],
+  "expression": "only_from_2(a0, a1)"
+ },
+ {
+  "id": "sequences-045",
+  "category": "sequences",
+  "description": "Write a function that checks whether two teams, given as lists of player names, have no player in common.",
+  "entry_point": "no_shared_players",
+  "inputs": [
+   "(['ann', 'bob'], ['cy', 'dan'])",
+   "(['ann', 'bob'], ['bob'])",
+   "(['x'], ['y', 'z'])"
+  ],
+  "expression": "are_disjoint_2(a0, a1)"
+ },
+ {
+  "id": "sequences-046",
+  "category": "sequences",
+  "description": "Write a function to add 5 bonus points to every score in a list.",
+  "entry_point": "add_bonus",
+  "inputs": [
+   "([10, 20],)",
+   "([0],)",
+   "([-5, 95, 3],)"
+  ],
+  "expression": "shift_2(a0, 5)"
+ },
+ {
+  "id": "sequences-047",
+  "category": "sequences",
+  "description": "Given a list of integers, return the ones that are multiples of 7.",
+  "entry_point": "multiples_of_seven",
+  "inputs": [
+   "([7, 10, 14, 21],)",
+   "([1, 2],)",
+   "([0, -7, 8],)"
+  ],
+  "expression": "seq_divisible_by_2(a0, 7)"
+ },
+ {
+  "id": "sequences-048",
+  "category": "sequences",
+  "description": "Write a python function to sort a list of words by length, shortest first, keeping the original order of words of equal length.",
+  "entry_point": "sort_words_by_length",
+  "inputs": [
+   "(['ccc', 'a', 'bb'],)",
+   "(['dd', 'aa', 'b'],)",
+   "(['xyz', 'w'],)"
+  ],
+  "expression": "sort_by_len_1(a0)"
+ },
+ {
+  "id": "sequences-049",
+  "category": "sequences",
+  "description": "Write a python function to return the total of the 3 largest numbers in a list.",
+  "entry_point": "top_three_total",
+  "inputs": [
+   "([5, 1, 9, 7, 3],)",
+   "([4, 4, 4],)",
+   "([10, -2, 0, 8],)"
+  ],
+  "expression": "sum(nlargest_2(a0, 3))"
+ },
+ {
+  "id": "sequences-050",
+  "category": "sequences",
+  "description": "Write a python function to average the scores of a list after discarding one lowest and one highest score.",
+  "entry_point": "trimmed_average",
+  "inputs": [
+   "([5, 1, 9, 7],)",
+   "([3, 3, 3],)",
+   "([10, 0, 4, 6, 2],)"
+  ],
+  "expression": "mean_1(sorted(a0)[1:-1])"
+ },
+ {
+  "id": "sequences-051",
+  "category": "sequences",
+  "description": "Write a function that returns the largest and the smallest value of a list as a tuple, largest first.",
+  "entry_point": "max_and_min",
+  "inputs": [
+   "([3, 8, 1],)",
+   "([5],)",
+   "([-2, -9, 0],)"
+  ],
+  "expression": "(max(a0), min(a0))"
+ },
+ {
+  "id": "sequences-052",
+  "category": "sequences",
+  "description": "Write a function to return a pair holding the sum of the even numbers and the sum of the odd numbers of a list.",
+  "entry_point": "even_odd_sums",
+  "inputs": [
+   "([1, 2, 3, 4],)",
+   "([7, 9],)",
+   "([10, -1, 2],)"
+  ],
+  "expression": "(sum(evens_1(a0)), sum(odds_1(a0)))"
+ },
+ {
+  "id": "sequences-053",
+  "category": "sequences",
+  "description": "Create a function which counts how many numbers in a list are strictly greater than the average of the list.",
+  "entry_point": "count_above_average",
+  "inputs": [
+   "([1, 2, 3, 10],)",
+   "([5, 5],)",
+   "([2, 4, 6, 8],)"
+  ],
+  "expression": "len(gt_2(a0, mean_1(a0)))"
+ },
+ {
+  "id": "sequences-054",
+  "category": "sequences",
+  "description": "Write a python function to check whether the largest value of a list occurs only once.",
+  "entry_point": "unique_maximum",
+  "inputs": [
+   "([3, 9, 2],)",
+   "([9, 9, 1],)",
+   "([4],)"
+  ],
+  "expression": "seq_count_max_1(a0) == 1"
+ },
+ {
+  "id": "sequences-055",
+  "category": "sequences",
+  "description": "Write a function to return 'Even' when a list has an even number of items and 'Odd' otherwise.",
+  "entry_point": "length_parity",
+  "inputs": [
+   "([1, 2],)",
+   "([1],)",
+   "([4, 5, 6, 7],)"
+  ],
+  "expression": "'Even' if len(a0) % 2 == 0 else 'Odd'"
+ },
+ {
+  "id": "sequences-056",
+  "category": "sequences",
+  "description": "Write a function to subtract the sum of the elements at odd positions from the sum of the elements at even positions of a list, counting positions from 0.",
+  "entry_point": "alternating_difference",
+  "inputs": [
+   "([1, 2, 3, 4, 5],)",
+   "([10, 3],)",
+   "([0, 5, 0, 5],)"
+  ],
+  "expression": "sum(even_index_1(a0)) - sum(odd_index_1(a0))"
+ },
+ {
+  "id": "sequences-057",
+  "category": "sequences",
+  "description": "Write a function to return the second element of a list after sorting it from largest to smallest, counting repeated values separately.",
+  "entry_point": "second_after_sorting",
+  "inputs": [
+   "([4, 9, 9, 1],)",
+   "([3, 7],)",
+   "([5, 2, 8, 6],)"
+  ],
+  "expression": "sorted_desc_1(a0)[1]"
+ },
+ {
+  "id": "sequences-058",
+  "category": "sequences",
+  "description": "Write a function that returns the last k items of a list in reverse order.",
+  "entry_point": "last_k_reversed",
+  "inputs": [
+   "([1, 2, 3, 4, 5], 2)",
+   "(['a', 'b', 'c'], 3)",
+   "([9, 8, 7], 1)"
+  ],
+  "expression": "a0[::-1][:a1]"
+ },
+ {
+  "id": "sequences-059",
+  "category": "sequences",
+  "description": "Write a python function to count how many different colours appear in a list of colour names.",
+  "entry_point": "count_colours",
+  "inputs": [
+   "(['red', 'blue', 'red'],)",
+   "(['green'],)",
+   "(['a', 'b', 'c', 'a', 'd'],)"
+  ],
+  "expression": "len(set(a0))"
+ },
+ {
+  "id": "sequences-060",
+  "category": "sequences",
+  "description": "Write a function to add up the values that occur more than once in a list, counting each such value a single time.",
+  "entry_point": "sum_of_repeated",
+  "inputs": [
+   "([1, 2, 2, 3, 3, 3],)",
+   "([4, 5],)",
+   "([6, 6, -2, -2],)"
+  ],
+  "expression": "sum(repeated_1(a0))"
+ },
+ {
+  "id": "sequences-061",
+  "category": "sequences",
+  "description": "Write a function to add each element of a list to the element after it, treating the first element as the one that follows the last.",
+  "entry_point": "circular_neighbour_sums",
+  "inputs": [
+   "([1, 2, 3],)",
+   "([10, 20],)",
+   "([1, 0, 4, 2],)"
+  ],
+  "expression": "each_add_2(a0, rotate_left_2(a0, 1))"
+ },
+ {
+  "id": "sequences-062",
+  "category": "sequences",
+  "description": "Write a function to return a tuple with the number of positive values and the number of negative values in a list.",
+  "entry_point": "sign_counts",
+  "inputs": [
+   "([3, -1, 0, 5],)",
+   "([-2, -3],)",
+   "([0],)"
+  ],
+  "expression": "(len(positives_1(a0)), len(negatives_1(a0)))"
+ },
+ {
+  "id": "sequences-063",
+  "category": "sequences",
+  "description": "Create a function which returns the middle element of a list that has an odd number of elements.",
+  "entry_point": "middle_item",
+  "inputs": [
+   "([3, 7, 1],)",
+   "(['a'],)",
+   "([5, 4, 3, 2, 1],)"
+  ],
+  "expression": "a0[len(a0) // 2]"
+ },
+ {
+  "id": "sequences-064",
+  "category": "sequences",
+  "description": "Write a function to remove k elements from each end of a list.",
+  "entry_point": "trim_both_ends",
+  "inputs": [
+   "([1, 2, 3, 4, 5], 1)",
+   "([1, 2, 3, 4, 5, 6], 2)",
+   "(['a', 'b', 'c', 'd'], 1)"
+  ],
+  "expression": "a0[a1:-a1]"
+ },
+ {
+  "id": "sequences-065",
+  "category": "sequences",
+  "description": "Write a python function to return the sum of the first k elements of a list minus the sum of the remaining elements.",
+  "entry_point": "head_minus_tail",
+  "inputs": [
+   "([5, 1, 2, 1], 1)",
+   "([3, 3, 10], 2)",
+   "([7, 8], 2)"
+  ],
+  "expression": "sum(a0[:a1]) - sum(a0[a1:])"
+ },
+ {
+  "id": "sequences-066",
+  "category": "sequences",
+  "description": "Write a function to double every number of a list and keep only the doubled values that are greater than 10.",
+  "entry_point": "doubled_above_ten",
+  "inputs": [
+   "([3, 6, 9],)",
+   "([1, 5],)",
+   "([-8, 20, 5.5],)"
+  ],
+  "expression": "gt_2(scale_2(a0, 2), 10)"
+ },
+ {
+  "id": "sequences-067",
+  "category": "sequences",
+  "description": "Write a function to return the largest value of a list that is smaller than a given number, or -1 if there is no such value.",
+  "entry_point": "largest_below",
+  "inputs": [
+   "([3, 8, 5, 10], 8)",
+   "([9, 12], 4)",
+   "([1, 2, 3], 100)"
+  ],
+  "expression": "max(lt_2(a0, a1), default=-1)"
+ },
+ {
+  "id": "sequences-068",
+  "category": "sequences",
+  "description": "Write a function that removes only the first occurrence of a given value from a list.",
+  "entry_point": "remove_first_occurrence",
+  "inputs": [
+   "([1, 2, 1, 3], 1)",
+   "(['x', 'y'], 'y')",
+   "([5, 6, 5], 5)"
+  ],
+  "expression": "remove_kth_2(a0, a0.index(a1) + 1)"
+ },
+ {
+  "id": "sequences-069",
+  "category": "sequences",
+  "description": "Write a function that inserts a value at the front of a list and returns the new list.",
+  "entry_point": "push_front",
+  "inputs": [
+   "([2, 3], 1)",
+   "(['b'], 'a')",
+   "([], 9)"
+  ],
+  "expression": "[a1] + a0"
+ },
+ {
+  "id": "sequences-070",
+  "category": "sequences",
+  "description": "Write a function to return the total and the average of a list of expenses as a tuple.",
+  "entry_point": "total_and_average",
+  "inputs": [
+   "([10, 20, 30],)",
+   "([5],)",
+   "([1, 2],)"
+  ],
+  "expression": "(sum(a0), mean_1(a0))"
+ },
+ {
+  "id": "sequences-071",
+  "category": "sequences",
+  "description": "Create a function which finds the largest absolute value among the numbers of a list.",
+  "entry_point": "largest_magnitude",
+  "inputs": [
+   "([3, -8, 5],)",
+   "([-1, 0],)",
+   "([4, 4, -4],)"
+  ],
+  "expression": "max(abs_each_1(a0))"
+ },
+ {
+  "id": "sequences-072",
+  "category": "sequences",
+  "description": "Write a function to return the number of a list that is farthest from zero, keeping its sign and taking the first one on ties.",
+  "entry_point": "farthest_from_zero",
+  "inputs": [
+   "([3, -8, 5],)",
+   "([-1, 2],)",
+   "([0, -4, 4],)"
+  ],
+  "expression": "max(a0, key=abs)"
+ },
+ {
+  "id": "sequences-073",
+  "category": "sequences",
+  "description": "Create a function which sorts a list of words by their last letter.",
+  "entry_point": "sort_by_last_letter",
+  "inputs": [
+   "(['ace', 'bad', 'cab'],)",
+   "(['zz', 'ya'],)",
+   "(['tom', 'ann', 'bob'],)"
+  ],
+  "expression": "sorted(a0, key=lambda w: w[-1])"
+ },
+ {
+  "id": "sequences-074",
+  "category": "sequences",
+  "description": "Given a list of numbers and a value, return the numbers sorted by their distance from the value, nearest first and keeping the original order on ties.",
+  "entry_point": "sort_by_closeness",
+  "inputs": [
+   "([1, 9, 5, 4], 5)",
+   "([10, 0], 6)",
+   "([3, 7, 6], 0)"
+  ],
+  "expression": "sorted(a0, key=lambda v: abs(v - a1))"
+ },
+ {
+  "id": "sequences-075",
+  "category": "sequences",
+  "description": "Given a list of numbers and a target, return the number closest to the target, taking the earliest one on ties.",
+  "entry_point": "closest_value",
+  "inputs": [
+   "([1, 5, 9], 6)",
+   "([10, 20], 15)",
+   "([-3, 4, 2], 0)"
+  ],
+  "expression": "min(a0, key=lambda v: abs(v - a1))"
+ },
+ {
+  "id": "sequences-076",
+  "category": "sequences",
+  "description": "Given a list of numbers and a count k, return the list sorted in ascending order without its k smallest values.",
+  "entry_point": "drop_k_smallest",
+  "inputs": [
+   "([5, 3, 9, 1], 2)",
+   "([2, 2, 1], 1)",
+   "([10, 7, 8, 6, 9], 3)"
+  ],
+  "expression": "sorted(a0)[a1:]"
+ },
+ {
+  "id": "sequences-077",
+  "category": "sequences",
+  "description": "Write a python function to multiply the two smallest values of a list.",
+  "entry_point": "smallest_pair_product",
+  "inputs": [
+   "([5, 2, 7, 3],)",
+   "([-4, 1, -3],)",
+   "([9, 9],)"
+  ],
+  "expression": "prod_1(nsmallest_2(a0, 2))"
+ },
+ {
+  "id": "sequences-078",
+  "category": "sequences",
+  "description": "Write a function to find what fraction of the items in a list are equal to the first item.",
+  "entry_point": "share_like_first",
+  "inputs": [
+   "([1, 2, 1, 3],)",
+   "(['a', 'a'],)",
+   "([4, 5, 6, 7, 8],)"
+  ],
+  "expression": "a0.count(a0[0]) / len(a0)"
+ },
+ {
+  "id": "sequences-079",
+  "category": "sequences",
+  "description": "Write a python function to check whether the sum of a list of integers is divisible by the number of elements in the list.",
+  "entry_point": "even_split_possible",
+  "inputs": [
+   "([1, 2, 3],)",
+   "([1, 2],)",
+   "([4, 4, 1],)"
+  ],
+  "expression": "sum(a0) % len(a0) == 0"
+ },
+ {
+  "id": "sequences-080",
+  "category": "sequences",
+  "description": "Write a function to merge two lists of numbers and return the k smallest values of the merged list in increasing order.",
+  "entry_point": "k_smallest_of_both",
+  "inputs": [
+   "([5, 1, 8], [3, 2], 3)",
+   "([10], [20, 5], 1)",
+   "([4, 4], [4, 0], 2)"
+  ],
+  "expression": "nsmallest_2(a0 + a1, a2)"
+ },
+ {
+  "id": "sequences-081",
+  "category": "sequences",
+  "description": "Write a function to concatenate two lists and remove repeated values, keeping the order in which values first appear.",
+  "entry_point": "merged_without_repeats",
+  "inputs": [
+   "([1, 2], [2, 3])",
+   "(['b', 'a'], ['a', 'c', 'b'])",
+   "([5, 5], [6])"
+  ],
+  "expression": "dedupe_1(a0 + a1)"
+ },
+ {
+  "id": "sequences-082",
+  "category": "sequences",
+  "description": "Write a function to return a list in reverse order, leaving out the element that was originally first.",
+  "entry_point": "reverse_without_first",
+  "inputs": [
+   "([1, 2, 3, 4],)",
+   "(['a', 'b'],)",
+   "([9, 8, 7],)"
+  ],
+  "expression": "a0[:0:-1]"
+ },
+ {
+  "id": "sequences-083",
+  "category": "sequences",
+  "description": "Write a function to return 'Yes' if a list contains a given value and 'No' otherwise.",
+  "entry_point": "has_value_answer",
+  "inputs": [
+   "([3, 5, 7], 5)",
+   "([1, 2], 9)",
+   "(['a', 'b'], 'b')"
+  ],
+  "expression": "'Yes' if a1 in a0 else 'No'"
+ },
+ {
+  "id": "sequences-084",
+  "category": "sequences",
+  "description": "Write a function to return how many items a list has beyond its first 5 items, or 0 when it has at most 5 items.",
+  "entry_point": "overflow_count",
+  "inputs": [
+   "([1, 2, 3, 4, 5, 6, 7],)",
+   "([1, 2],)",
+   "(['a', 'b', 'c', 'd', 'e', 'f'],)"
+  ],
+  "expression": "max(len(a0) - 5, 0)"
+ },
+ {
+  "id": "sequences-085",
+  "category": "sequences",
+  "description": "Write a function to return a tuple holding the position of the first largest value of a list and that value.",
+  "entry_point": "peak_and_position",
+  "inputs": [
+   "([3, 9, 2],)",
+   "([5, 5],)",
+   "([-7, -1],)"
+  ],
+  "expression": "(argmax_1(a0), max(a0))"
+ },
+ {
+  "id": "sequences-086",
+  "category": "sequences",
+  "description": "Write a function to find the smallest sum of two neighbouring numbers in a list.",
+  "entry_point": "smallest_neighbour_sum",
+  "inputs": [
+   "([4, 1, 3, 9],)",
+   "([-2, -3, 5],)",
+   "([6, 6],)"
+  ],
+  "expression": "min(adjacent_sum_1(a0))"
+ },
+ {
+  "id": "sequences-087",
+  "category": "sequences",
+  "description": "Write a function that returns the average length of the words in a list.",
+  "entry_point": "average_word_length",
+  "inputs": [
+   "(['ab', 'abcd'],)",
+   "(['x'],)",
+   "(['one', 'two', 'three'],)"
+  ],
+  "expression": "mean_1(len_each_1(a0))"
+ },
+ {
+  "id": "sequences-088",
+  "category": "sequences",
+  "description": "Write a function to return the largest element of a list together with the number of times it occurs, as a tuple.",
+  "entry_point": "max_with_count",
+  "inputs": [
+   "([3, 7, 7, 1],)",
+   "([5],)",
+   "([-1, -1, -1],)"
+  ],
+  "expression": "(max(a0), seq_count_max_1(a0))"
+ },
+ {
+  "id": "sequences-089",
+  "category": "sequences",
+  "description": "Write a python function to return the position of the cheapest price in a list of prices, counting positions from 1.",
+  "entry_point": "cheapest_rank_position",
+  "inputs": [
+   "([4.5, 2.0, 3.25],)",
+   "([7, 7, 3, 3],)",
+   "([1, 5, 9],)"
+  ],
+  "expression": "argmin_1(a0) + 1"
+ },
+ {
+  "id": "sequences-090",
+  "category": "sequences",
+  "description": "Given a list of lap times, return how much slower the second fastest distinct time is than the fastest time.",
+  "entry_point": "gap_to_second",
+  "inputs": [
+   "([62, 58, 58, 70],)",
+   "([10, 20, 30],)",
+   "([45, 44],)"
+  ],
+  "expression": "second_smallest_1(a0) - min(a0)"
+ },
+ {
+  "id": "sequences-091",
+  "category": "sequences",
+  "description": "Given a list of numbers, return its distinct values from largest to smallest.",
+  "entry_point": "distinct_descending",
+  "inputs": [
+   "([4, 2, 4, 9, 2],)",
+   "([7, -1, 7],)",
+   "([3, 2, 1],)"
+  ],
+  "expression": "sorted_set_1(a0)[::-1]"
+ },
+ {
+  "id": "sequences-092",
+  "category": "sequences",
+  "description": "Write a function to add up only the balances above zero in a list of account balances.",
+  "entry_point": "total_credit",
+  "inputs": [
+   "([-5, 3, 0, 8],)",
+   "([1.5, -2.0],)",
+   "([-1, -1],)"
+  ],
+  "expression": "sum(positives_1(a0))"
+ },
+ {
+  "id": "sequences-093",
+  "category": "sequences",
+  "description": "Write a function to find the index of the last occurrence of a given value in a list.",
+  "entry_point": "last_position_of",
+  "inputs": [
+   "([4, 8, 15, 8], 8)",
+   "(['p', 'q', 'r'], 'p')",
+   "([0, 0, 0], 0)"
+  ],
+  "expression": "len(a0) - 1 - a0[::-1].index(a1)"
+ },
+ {
+  "id": "sequences-094",
+  "category": "sequences",
+  "description": "Write a function to find which item of a circular list is at the front after rotating it k places to the left, where k may be larger than the length of the list.",
+  "entry_point": "front_after_rotation",
+  "inputs": [
+   "([1, 2, 3, 4], 6)",
+   "(['a', 'b', 'c'], 1)",
+   "([7, 8], 5)"
+  ],
+  "expression": "a0[a1 % len(a0)]"
+ },
+ {
+  "id": "sequences-095",
+  "category": "sequences",
+  "description": "Write a function to return the k-th item of a list counted from the end, so that k equal to 1 gives the last item.",
+  "entry_point": "kth_from_end",
+  "inputs": [
+   "([10, 20, 30], 1)",
+   "(['a', 'b', 'c'], 3)",
+   "([5, 6, 7, 8], 2)"
+  ],
+  "expression": "a0[-a1]"
+ },
+ {
+  "id": "sequences-096",
+  "category": "sequences",
+  "description": "Write a function to return a tuple with the number of items before and the number of items after the first occurrence of a given value in a list.",
+  "entry_point": "items_around",
+  "inputs": [
+   "([4, 8, 15, 16], 8)",
+   "(['a', 'b'], 'a')",
+   "([0, 1, 2], 2)"
+  ],
+  "expression": "(a0.index(a1), len(a0) - a0.index(a1) - 1)"
+ },
+ {
+  "id": "sequences-097",
+  "category": "sequences",
+  "description": "Write a function to return 'Equal' if two lists of numbers have the same sum and 'Not Equal' otherwise.",
+  "entry_point": "compare_totals",
+  "inputs": [
+   "([1, 2, 3], [6])",
+   "([5, 5], [4, 5])",
+   "([0], [-1, 1])"
+  ],
+  "expression": "'Equal' if sum(a0) == sum(a1) else 'Not Equal'"
+ },
+ {
+  "id": "sequences-098",
+  "category": "sequences",
+  "description": "Write a function to return, in increasing order, the elements of a list that are larger than the first element of the list.",
+  "entry_point": "sorted_above_first",
+  "inputs": [
+   "([5, 9, 1, 7, 6],)",
+   "([3, 2, 1],)",
+   "([0, 4, -1, 2],)"
+  ],
+  "expression": "sorted(gt_2(a0, a0[0]))"
+ },
+ {
+  "id": "sequences-099",
+  "category": "sequences",
+  "description": "Write a function to count how many elements of a list differ from its most common element.",
+  "entry_point": "count_non_majority",
+  "inputs": [
+   "([2, 7, 7, 2, 7],)",
+   "(['b', 'b'],)",
+   "([4, 1, 1, 5, 6],)"
+  ],
+  "expression": "len(a0) - a0.count(most_common_1(a0))"
+ },
+ {
+  "id": "sequences-100",
+  "category": "sequences",
+  "description": "Write a function to count how many times a value in a list is immediately followed by a larger value.",
+  "entry_point": "count_rises",
+  "inputs": [
+   "([1, 3, 2, 5],)",
+   "([5, 4, 3],)",
+   "([1, 2, 3, 4],)"
+  ],
+  "expression": "sum(b > a for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "sequences-101",
+  "category": "sequences",
+  "description": "Write a python function to find the largest jump, up or down, between two neighbouring values of a list.",
+  "entry_point": "biggest_jump",
+  "inputs": [
+   "([1, 5, 2, 2],)",
+   "([10, 0],)",
+   "([3, 4, 5, 7],)"
+  ],
+  "expression": "max(abs(b - a) for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "sequences-102",
+  "category": "sequences",
+  "description": "Write a python function to return every index at which a given value occurs in a list.",
+  "entry_point": "positions_of",
+  "inputs": [
+   "([1, 2, 1, 3, 1], 1)",
+   "(['a', 'b'], 'c')",
+   "([7, 8, 7], 8)"
+  ],
+  "expression": "[i for i, v in enumerate(a0) if v == a1]"
+ },
+ {
+  "id": "sequences-103",
+  "category": "sequences",
+  "description": "Write a python function to return the sum of the squares of the odd numbers in a list of integers.",
+  "entry_point": "odd_square_sum",
+  "inputs": [
+   "([1, 2, 3],)",
+   "([2, 4],)",
+   "([-3, 5],)"
+  ],
+  "expression": "sum(v * v for v in a0 if v % 2)"
+ },
+ {
+  "id": "sequences-104",
+  "category": "sequences",
+  "description": "Write a function to keep the values of a list that are equal to their own index.",
+  "entry_point": "self_indexed_values",
+  "inputs": [
+   "([0, 5, 2, 1],)",
+   "([3, 3, 3, 3],)",
+   "([1, 2],)"
+  ],
+  "expression": "[v for i, v in enumerate(a0) if v == i]"
+ },
+ {
+  "id": "sequences-105",
+  "category": "sequences",
+  "description": "Write a function to return the positions of the even numbers in a list.",
+  "entry_point": "even_positions",
+  "inputs": [
+   "([3, 4, 6, 7],)",
+   "([1, 3],)",
+   "([0, 2],)"
+  ],
+  "expression": "[i for i, v in enumerate(a0) if v % 2 == 0]"
+ },
+ {
+  "id": "sequences-106",
+  "category": "sequences",
+  "description": "Write a function to replace every negative number in a list with 0.",
+  "entry_point": "floor_at_zero",
+  "inputs": [
+   "([3, -1, 2, -5],)",
+   "([-2],)",
+   "([4, 5],)"
+  ],
+  "expression": "[max(v, 0) for v in a0]"
+ },
+ {
+  "id": "sequences-107",
+  "category": "sequences",
+  "description": "Write a function to clamp every value of a list into the range from 0 to 100, raising smaller values to 0 and lowering larger values to 100.",
+  "entry_point": "clamp_percentages",
+  "inputs": [
+   "([-5, 50, 120],)",
+   "([100, 0],)",
+   "([7],)"
+  ],
+  "expression": "[min(max(v, 0), 100) for v in a0]"
+ },
+ {
+  "id": "sequences-108",
+  "category": "sequences",
+  "description": "Create a function which labels each number of a list 'big' when it is greater than 10 and 'small' otherwise.",
+  "entry_point": "size_labels",
+  "inputs": [
+   "([5, 15, 10],)",
+   "([11],)",
+   "([1, 2],)"
+  ],
+  "expression": "['big' if v > 10 else 'small' for v in a0]"
+ },
+ {
+  "id": "sequences-109",
+  "category": "sequences",
+  "description": "Write a function to count how many words in a list start with a given letter.",
+  "entry_point": "count_starting_with",
+  "inputs": [
+   "(['apple', 'avocado', 'banana'], 'a')",
+   "(['kiwi'], 'b')",
+   "(['bee', 'bat', 'bun'], 'b')"
+  ],
+  "expression": "sum(w[0] == a1 for w in a0)"
+ },
+ {
+  "id": "sequences-110",
+  "category": "sequences",
+  "description": "Create a function which computes the total bill from a list of quantities and a matching list of unit prices.",
+  "entry_point": "total_bill",
+  "inputs": [
+   "([2, 1, 3], [5, 10, 1])",
+   "([0, 4], [9, 2])",
+   "([1], [7])"
+  ],
+  "expression": "sum(a * b for a, b in zip(a0, a1))"
+ },
+ {
+  "id": "sequences-111",
+  "category": "sequences",
+  "description": "Write a python function to count the positions at which two lists of the same length hold different values.",
+  "entry_point": "count_mismatches",
+  "inputs": [
+   "([1, 2, 3], [1, 5, 3])",
+   "(['a', 'b'], ['b', 'a'])",
+   "([4, 4, 4], [4, 4, 4])"
+  ],
+  "expression": "sum(a != b for a, b in zip(a0, a1))"
+ },
+ {
+  "id": "sequences-112",
+  "category": "sequences",
+  "description": "Write a function to return the indices at which two equally long lists hold the same value.",
+  "entry_point": "matching_indices",
+  "inputs": [
+   "([1, 2, 3], [1, 0, 3])",
+   "(['x'], ['y'])",
+   "([5, 6, 7, 8], [0, 6, 7, 1])"
+  ],
+  "expression": "[i for i in range(len(a0)) if a0[i] == a1[i]]"
+ },
+ {
+  "id": "sequences-113",
+  "category": "sequences",
+  "description": "Write a function that returns the running maximum of a list, that is, the largest value seen so far at each position.",
+  "entry_point": "running_max",
+  "inputs": [
+   "([3, 1, 4, 1, 5],)",
+   "([9, 2],)",
+   "([-2, -1, -3],)"
+  ],
+  "expression": "[max(a0[:i + 1]) for i in range(len(a0))]"
+ },
+ {
+  "id": "sequences-114",
+  "category": "sequences",
+  "description": "Write a function to count the values of a list that are larger than every value before them, with the first value always counting.",
+  "entry_point": "count_new_records",
+  "inputs": [
+   "([3, 1, 4, 1, 5],)",
+   "([5, 4, 3],)",
+   "([1, 2, 3, 4],)"
+  ],
+  "expression": "sum(all(v > u for u in a0[:i]) for i, v in enumerate(a0))"
+ },
+ {
+  "id": "sequences-115",
+  "category": "sequences",
+  "description": "Write a function that counts the strings of a list that contain the letter 'e'.",
+  "entry_point": "count_with_e",
+  "inputs": [
+   "(['tree', 'sky', 'bee'],)",
+   "(['a'],)",
+   "(['eel', 'he', 'me', 'we'],)"
+  ],
+  "expression": "sum('e' in w for w in a0)"
+ },
+ {
+  "id": "sequences-116",
+  "category": "sequences",
+  "description": "Write a function to keep the numbers of a list that are perfect squares.",
+  "entry_point": "square_numbers_only",
+  "inputs": [
+   "([1, 2, 4, 10, 16],)",
+   "([3, 5],)",
+   "([0, 9, -4],)"
+  ],
+  "expression": "[v for v in a0 if is_perfect_square_1(v)]"
+ },
+ {
+  "id": "sequences-117",
+  "category": "sequences",
+  "description": "Write a function to keep only the prime numbers from a list of ticket numbers.",
+  "entry_point": "prime_tickets",
+  "inputs": [
+   "([2, 4, 7, 9, 11],)",
+   "([1, 0, 6],)",
+   "([13, 15, 17],)"
+  ],
+  "expression": "[v for v in a0 if is_prime_1(v)]"
+ },
+ {
+  "id": "sequences-118",
+  "category": "sequences",
+  "description": "Write a function that multiplies each number of a list by its index.",
+  "entry_point": "index_weighted",
+  "inputs": [
+   "([5, 5, 5],)",
+   "([2, -1, 3, 4],)",
+   "([9],)"
+  ],
+  "expression": "[i * v for i, v in enumerate(a0)]"
+ },
+ {
+  "id": "sequences-119",
+  "category": "sequences",
+  "description": "Write a python function to count the values of a list that are strictly greater than both of their neighbours.",
+  "entry_point": "count_peaks",
+  "inputs": [
+   "([1, 3, 2, 5, 4],)",
+   "([1, 2, 3],)",
+   "([2, 8, 1],)"
+  ],
+  "expression": "sum(b > a and b > c for a, b, c in zip(a0, a0[1:], a0[2:]))"
+ },
+ {
+  "id": "sequences-120",
+  "category": "sequences",
+  "description": "Given a list of numbers, return how far each element is above or below the first element.",
+  "entry_point": "offsets_from_first",
+  "inputs": [
+   "([5, 7, 4],)",
+   "([10],)",
+   "([1, 1, 3, 6],)"
+  ],
+  "expression": "[v - a0[0] for v in a0]"
+ },
+ {
+  "id": "sequences-121",
+  "category": "sequences",
+  "description": "Write a function to build a dictionary that maps each word of a list to its length.",
+  "entry_point": "word_length_map",
+  "inputs": [
+   "(['sun', 'moon'],)",
+   "(['a'],)",
+   "(['hi', 'hi', 'bye'],)"
+  ],
+  "expression": "{w: len(w) for w in a0}"
+ },
+ {
+  "id": "sequences-122",
+  "category": "sequences",
+  "description": "Create a function which builds a dictionary mapping each value of a list to the index of its last occurrence.",
+  "entry_point": "last_index_map",
+  "inputs": [
+   "(['a', 'b', 'a'],)",
+   "([7],)",
+   "([1, 2, 3],)"
+  ],
+  "expression": "{v: i for i, v in enumerate(a0)}"
+ },
+ {
+  "id": "sequences-123",
+  "category": "sequences",
+  "description": "Write a function that returns the elements of a list that are larger than the element just before them.",
+  "entry_point": "rising_elements",
+  "inputs": [
+   "([1, 3, 2, 5],)",
+   "([5, 4],)",
+   "([0, 1, 2],)"
+  ],
+  "expression": "[b for a, b in zip(a0, a0[1:]) if b > a]"
+ },
+ {
+  "id": "sequences-124",
+  "category": "sequences",
+  "description": "Write a python function to count how many numbers in a list are divisible by a given number.",
+  "entry_point": "count_multiples",
+  "inputs": [
+   "([3, 6, 7, 9], 3)",
+   "([1, 2], 5)",
+   "([10, 20, 25], 10)"
+  ],
+  "expression": "sum(v % a1 == 0 for v in a0)"
+ },
+ {
+  "id": "sequences-125",
+  "category": "sequences",
+  "description": "Given a list of numbers, return the sum of the values that are smaller than the first value.",
+  "entry_point": "sum_below_first",
+  "inputs": [
+   "([5, 3, 8, 1],)",
+   "([1, 2, 3],)",
+   "([10, 9, 10, -1],)"
+  ],
+  "expression": "sum(v for v in a0 if v < a0[0])"
+ },
+ {
+  "id": "sequences-126",
+  "category": "sequences",
+  "description": "Write a function to count all the vowels in a list of words, ignoring case.",
+  "entry_point": "vowels_in_words",
+  "inputs": [
+   "(['tree', 'sky'],)",
+   "(['AEIOU'],)",
+   "(['bcd', 'a', 'io'],)"
+  ],
+  "expression": "sum(vowel_count_1(w) for w in a0)"
+ },
+ {
+  "id": "sequences-127",
+  "category": "sequences",
+  "description": "Create a function which returns the words of a list that begin and end with the same letter.",
+  "entry_point": "same_letter_ends",
+  "inputs": [
+   "(['level', 'tree', 'aha', 'go'],)",
+   "(['ab'],)",
+   "(['x', 'yy', 'yz'],)"
+  ],
+  "expression": "[w for w in a0 if w[0] == w[-1]]"
+ },
+ {
+  "id": "sequences-128",
+  "category": "sequences",
+  "description": "Write a function to list the non-zero values of a list as (index, value) tuples.",
+  "entry_point": "nonzero_entries",
+  "inputs": [
+   "([0, 5, 0, 7],)",
+   "([0],)",
+   "([2, 0, -1],)"
+  ],
+  "expression": "[(i, v) for i, v in enumerate(a0) if v]"
+ },
+ {
+  "id": "sequences-129",
+  "category": "sequences",
+  "description": "Write a function to return the elements of a first list that are greater than the element at the same position of a second list.",
+  "entry_point": "winners_by_position",
+  "inputs": [
+   "([5, 1, 7], [3, 4, 7])",
+   "([9, 9], [1, 2])",
+   "([0], [1])"
+  ],
+  "expression": "[a for a, b in zip(a0, a1) if a > b]"
+ },
+ {
+  "id": "sequences-130",
+  "category": "sequences",
+  "description": "Given a list of numbers and a value, return how many of the numbers lie at a distance of at most 2 from the value.",
+  "entry_point": "count_near",
+  "inputs": [
+   "([1, 4, 6, 9], 5)",
+   "([0, 10], 5)",
+   "([3, 5, 7, 8], 5)"
+  ],
+  "expression": "sum(abs(v - a1) <= 2 for v in a0)"
+ },
+ {
+  "id": "sequences-131",
+  "category": "sequences",
+  "description": "Write a function to return the shortest word of a list that contains a given letter, taking the first one on ties.",
+  "entry_point": "shortest_with_letter",
+  "inputs": [
+   "(['tree', 'apple', 'pea'], 'e')",
+   "(['abc', 'ab', 'bca'], 'a')",
+   "(['xyz', 'zz'], 'z')"
+  ],
+  "expression": "min([w for w in a0 if a1 in w], key=len)"
+ },
+ {
+  "id": "sequences-132",
+  "category": "sequences",
+  "description": "Write a function to multiply together the non-zero values of a list.",
+  "entry_point": "nonzero_product",
+  "inputs": [
+   "([2, 0, 3],)",
+   "([0, -4],)",
+   "([1, 5, 5],)"
+  ],
+  "expression": "prod_1([v for v in a0 if v])"
+ },
+ {
+  "id": "sequences-133",
+  "category": "sequences",
+  "description": "Write a function to count the strings of a list that are written entirely in capital letters.",
+  "entry_point": "count_shouted",
+  "inputs": [
+   "(['ABC', 'Abc', 'XY'],)",
+   "(['no'],)",
+   "(['A', 'B', 'C1'],)"
+  ],
+  "expression": "sum(w.isupper() for w in a0)"
+ },
+ {
+  "id": "sequences-134",
+  "category": "sequences",
+  "description": "Write a function to list, once each and in order of first appearance, the values of a list that occur at least k times.",
+  "entry_point": "frequent_values",
+  "inputs": [
+   "([1, 2, 1, 3, 1, 2], 2)",
+   "(['a', 'b'], 2)",
+   "([4, 4, 4, 5], 3)"
+  ],
+  "expression": "[v for v in dedupe_1(a0) if a0.count(v) >= a1]"
+ },
+ {
+  "id": "sequences-135",
+  "category": "sequences",
+  "description": "Write a function to return the running product of a list, the product of all values up to and including each position.",
+  "entry_point": "running_product",
+  "inputs": [
+   "([1, 2, 3, 4],)",
+   "([5],)",
+   "([2, -1, 0, 7],)"
+  ],
+  "expression": "[prod_1(a0[:i + 1]) for i in range(len(a0))]"
+ },
+ {
+  "id": "sequences-136",
+  "category": "sequences",
+  "description": "Create a function which returns, for each element of a list, how many times that element has appeared so far, counting itself.",
+  "entry_point": "occurrence_numbers",
+  "inputs": [
+   "(['a', 'b', 'a', 'a'],)",
+   "([5, 6],)",
+   "([7, 7, 7],)"
+  ],
+  "expression": "[a0[:i + 1].count(v) for i, v in enumerate(a0)]"
+ },
+ {
+  "id": "sequences-137",
+  "category": "sequences",
+  "description": "Write a function to add up the absolute differences between the elements at the same positions of two lists.",
+  "entry_point": "total_position_gap",
+  "inputs": [
+   "([1, 5, 3], [4, 5, 1])",
+   "([0], [7])",
+   "([-2, 2], [2, -2])"
+  ],
+  "expression": "sum(abs(a - b) for a, b in zip(a0, a1))"
+ },
+ {
+  "id": "sequences-138",
+  "category": "sequences",
+  "description": "Write a function to return a list of booleans telling, for each element of a list except the last, whether it is greater than the next element.",
+  "entry_point": "drop_flags",
+  "inputs": [
+   "([3, 1, 2],)",
+   "([5, 5],)",
+   "([9, 8, 7, 10],)"
+  ],
+  "expression": "[a > b for a, b in zip(a0, a0[1:])]"
+ },
+ {
+  "id": "sequences-139",
+  "category": "sequences",
+  "description": "Write a python function to find the length of the longest run of equal adjacent values in a list.",
+  "entry_point": "longest_run",
+  "inputs": [
+   "([1, 1, 2, 2, 2, 1],)",
+   "([4, 5],)",
+   "(['a', 'a'],)"
+  ],
+  "expression": "max(c for c, v in run_lengths_1(a0))"
+ },
+ {
+  "id": "sequences-140",
+  "category": "sequences",
+  "description": "Write a function to keep the strings of a list that consist only of digits and convert them to integers.",
+  "entry_point": "numeric_strings",
+  "inputs": [
+   "(['12', 'ab', '7'],)",
+   "(['x'],)",
+   "(['003', '4a', '50'],)"
+  ],
+  "expression": "[int(w) for w in a0 if w.isdigit()]"
+ },
+ {
+  "id": "sequences-141",
+  "category": "sequences",
+  "description": "Write a function to count the elements of a list that equal the sum of the two elements right before them.",
+  "entry_point": "count_sum_of_previous_two",
+  "inputs": [
+   "([1, 1, 2, 3, 5],)",
+   "([1, 2, 4],)",
+   "([2, 3, 5, 9],)"
+  ],
+  "expression": "sum(c == a + b for a, b, c in zip(a0, a0[1:], a0[2:]))"
+ },
+ {
+  "id": "sequences-142",
+  "category": "sequences",
+  "description": "Write a function to return the strings of a list in which the letter 'a' occurs at least twice.",
+  "entry_point": "double_a_words",
+  "inputs": [
+   "(['banana', 'apple', 'aha'],)",
+   "(['xyz'],)",
+   "(['aa', 'a', 'aaa'],)"
+  ],
+  "expression": "[w for w in a0 if w.count('a') >= 2]"
+ },
+ {
+  "id": "sequences-143",
+  "category": "sequences",
+  "description": "Write a function to count the words of a list that have more vowels than other letters.",
+  "entry_point": "count_vowel_heavy",
+  "inputs": [
+   "(['idea', 'tree', 'aura'],)",
+   "(['sky'],)",
+   "(['a', 'oboe', 'eau'],)"
+  ],
+  "expression": "sum(2 * vowel_count_1(w) > len(w) for w in a0)"
+ },
+ {
+  "id": "sequences-144",
+  "category": "sequences",
+  "description": "Write a function to group the words of a list into a dictionary keyed by their first letter, keeping the words in their original order.",
+  "entry_point": "group_by_initial",
+  "inputs": [
+   "(['ant', 'bee', 'ape'],)",
+   "(['cat'],)",
+   "(['dog', 'dot', 'eel', 'elk'],)"
+  ],
+  "expression": "{w[0]: [x for x in a0 if x[0] == w[0]] for w in a0}"
+ },
+ {
+  "id": "sequences-145",
+  "category": "sequences",
+  "description": "Write a function that splits a list into consecutive groups of k numbers and returns the sum of each group, the last group possibly being shorter.",
+  "entry_point": "group_sums",
+  "inputs": [
+   "([1, 2, 3, 4, 5], 2)",
+   "([6, 6, 6], 2)",
+   "([1, 1, 1, 1, 1, 1], 3)"
+  ],
+  "expression": "[sum(c) for c in chunks_2(a0, a1)]"
+ },
+ {
+  "id": "sequences-146",
+  "category": "sequences",
+  "description": "Given a list of positive numbers, return each value divided by the largest value of the list.",
+  "entry_point": "scale_to_max",
+  "inputs": [
+   "([2, 4, 8],)",
+   "([5],)",
+   "([1, 4],)"
+  ],
+  "expression": "[v / max(a0) for v in a0]"
+ },
+ {
+  "id": "sequences-147",
+  "category": "sequences",
+  "description": "Write a function to add the first element of a list to the last, the second to the second last and so on, ignoring a middle element if there is one.",
+  "entry_point": "mirror_sums",
+  "inputs": [
+   "([1, 2, 3, 4],)",
+   "([5, 0, 5],)",
+   "([1, 2, 3, 4, 5, 6],)"
+  ],
+  "expression": "[a0[i] + a0[-1 - i] for i in range(len(a0) // 2)]"
+ },
+ {
+  "id": "sequences-148",
+  "category": "sequences",
+  "description": "Write a function to count the distinct values of a list that are greater than a given number.",
+  "entry_point": "count_distinct_above",
+  "inputs": [
+   "([5, 7, 7, 1, 9], 4)",
+   "([1, 1], 1)",
+   "([3, 4, 4, 5], 3)"
+  ],
+  "expression": "len({v for v in a0 if v > a1})"
+ },
+ {
+  "id": "sequences-149",
+  "category": "sequences",
+  "description": "Write a function to capitalise every word of a list, making its first letter upper case and the rest lower case.",
+  "entry_point": "capitalise_all",
+  "inputs": [
+   "(['ann', 'BOB'],)",
+   "(['x'],)",
+   "(['hello', 'wORLD', 'ok'],)"
+  ],
+  "expression": "[w.capitalize() for w in a0]"
+ },
+ {
+  "id": "sequences-150",
+  "category": "sequences",
+  "description": "Given a list of integers, return a list in which every even value is doubled and every odd value is left unchanged.",
+  "entry_point": "double_evens",
+  "inputs": [
+   "([1, 2, 3, 4],)",
+   "([7],)",
+   "([0, -2, 5],)"
+  ],
+  "expression": "[v * 2 if v % 2 == 0 else v for v in a0]"
+ }
+]
