@@ -18,7 +18,11 @@ Sets: held-out teacher tasks, variants of held-out seeds, and the held-out devel
 fails that a teacher solved in one line (counts only: that set belongs to the held-out development
 fifth).
 
-  python scripts/seedlm5_fragments.py
+With --model, the coder is also run (beam width 32) on the held-out teacher tasks and the beyond set,
+and its first verified program is judged, by the level at which each teacher program is new: does
+the coder find programs made of known pieces, and fail on programs with new ones?
+
+  python scripts/seedlm5_fragments.py [--model s5-var]
 """
 import argparse
 import json
@@ -99,8 +103,46 @@ def evaluation_sets():
             "beyond": [e["tokens"] for e in oneliner_items() if e["part"] == "holdout"]}
 
 
+def first_unknown(found, known):
+    for name in ("tokens", "edges", "twigs", "whole"):
+        if not found[name] <= known[name]:
+            return name
+    return "nothing (seen whole)"
+
+
+def coder_by_level(model, known, width=32):
+    """{set: {level: {"programs", "first_correct"}}} for the coder's first verified program."""
+    import torch
+    from mylittlellm.seedlm import coder4, language, post
+    from seedlm3_discovery import beyond_cases, teacher_cases
+    from seedlm3_train import named_in
+    torch.set_num_threads(4)
+    net, vocabulary = coder4.load(ROOT / "outputs/seedlm" / f"{model}.pt")
+    grammar = coder4.Grammar(vocabulary)
+    out = {}
+    for set_name, tasks in (("teacher_holdout", teacher_cases()), ("beyond", beyond_cases())):
+        table = {}
+        for task in tasks:
+            try:
+                level = first_unknown(pieces(task["gold"]), known)
+            except (ValueError, IndexError, KeyError):
+                continue
+            prefix = vocabulary.condition(language.words(task["description"]), task["literals"], task["args"],
+                                          task["expected"], named_in(task["description"]))
+            beam = coder4.beam_search(net, vocabulary, grammar, prefix, task["args"], task["literals"],
+                                      task["expected"], task["mode"], width)
+            verified = [post.to_prefix(p) for p, _ in beam
+                        if coder4.reproduces(p, task["args"], task["literals"], task["expected"], task["mode"])]
+            row = table.setdefault(level, {"programs": 0, "first_correct": 0})
+            row["programs"] += 1
+            row["first_correct"] += bool(verified) and task["judge"](verified[0])
+        out[set_name] = table
+    return out
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--model")
     parser.add_argument("--output", default="reports/seedlm/fragments_holdout.json")
     args = parser.parse_args()
     known = {"tokens": set(), "edges": set(), "twigs": set(), "whole": set()}
@@ -120,16 +162,14 @@ def main():
             except (ValueError, IndexError, KeyError):
                 continue
             entry["programs"] += 1
-            first = None
             for name in ("tokens", "edges", "twigs", "whole"):
-                complete = found[name] <= known[name]
-                entry["all_known"][name] += complete
-                if not complete and first is None:
-                    first = name
+                entry["all_known"][name] += found[name] <= known[name]
             # The coarsest level at which the program is new: a new token, else a new edge, else ...
-            label = first or "nothing (seen whole)"
+            label = first_unknown(found, known)
             entry["first_unknown"][label] = entry["first_unknown"].get(label, 0) + 1
         report[set_name] = entry
+    if args.model:
+        report["coder"] = {"model": args.model, "width": 32, "by_first_unknown": coder_by_level(args.model, known)}
     (ROOT / args.output).write_text(json.dumps(report, indent=1) + "\n")
     print(json.dumps(report))
 
