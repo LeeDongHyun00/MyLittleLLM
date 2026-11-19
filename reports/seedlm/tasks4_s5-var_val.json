@@ -1,0 +1,41 @@
+{
+ "model": "s5-var",
+ "settings": {
+  "command": "splits",
+  "model": "s5-var",
+  "splits": [
+   "val"
+  ],
+  "width": 32,
+  "keep": 40,
+  "suffix": "",
+  "verdicts": false
+ },
+ "val": {
+  "tasks": 45,
+  "alone": {
+   "engine": 19,
+   "pyx_model": 19,
+   "pyx_fill": 19,
+   "pyx_tie": 19,
+   "pyx_tie_fill": 19,
+   "pyx_override": 19,
+   "pyx_rerank": 20,
+   "pyx_margin": 20
+  },
+  "pipelines": {
+   "s15-branch-dev-r3": {
+    "stored": 31,
+    "engine": 31,
+    "pyx_model": 31,
+    "pyx_fill": 31,
+    "pyx_tie": 31,
+    "pyx_tie_fill": 31,
+    "pyx_override": 31,
+    "pyx_rerank": 31,
+    "pyx_margin": 31
+   }
+  },
+  "seconds": 195
+ }
+}
