@@ -110,9 +110,9 @@ def first_unknown(found, known):
     return "nothing (seen whole)"
 
 
-def incoming_edges(tokens):
-    """The edge into each prefix position (None for the root)."""
-    edges = [None] * len(tokens)
+def outgoing_edges(tokens):
+    """The edges from each prefix position to its children (empty for a leaf)."""
+    edges = [[] for _ in tokens]
     position = 0
 
     def read():
@@ -120,9 +120,8 @@ def incoming_edges(tokens):
         index, token = position, tokens[position]
         position += 1
         for slot in range(pyx.arity(token)):
-            edges[position] = (kind(token), slot, kind(tokens[position]))
+            edges[index].append((kind(token), slot, kind(tokens[position])))
             read()
-        return index
 
     read()
     return edges
@@ -174,7 +173,9 @@ def postfix_order(tokens):
 
 def coder_by_level(model, known, width=32):
     """{set: {level: {"programs", "first_correct"}}} for the coder's first verified program, and the
-    teacher program's per-token surprisal split by whether the token's incoming edge is known."""
+    teacher program's per-token surprisal by kind of decision. The coder writes postfix: an operator
+    comes after its operands, so writing it decides its links to its children (its outgoing edges).
+    Its token is a known composition if all those links occur in training, a new one otherwise."""
     import torch
     from mylittlellm.seedlm import coder4, language, post
     from seedlm3_discovery import beyond_cases, teacher_cases
@@ -185,7 +186,7 @@ def coder_by_level(model, known, width=32):
     out, surprisal = {}, {}
     for set_name, tasks in (("teacher_holdout", teacher_cases()), ("beyond", beyond_cases())):
         table = {}
-        split = {"known_edge": [0, 0.0, 0], "new_edge": [0, 0.0, 0]}      # tokens, nats, ranked first
+        split = {"leaf": [0, 0.0, 0], "known_edges": [0, 0.0, 0], "new_edge": [0, 0.0, 0]}  # tokens, nats, first
         for task in tasks:
             try:
                 level = first_unknown(pieces(task["gold"]), known)
@@ -202,7 +203,7 @@ def coder_by_level(model, known, width=32):
             row["first_correct"] += bool(verified) and task["judge"](verified[0])
             try:
                 gold = list(task["gold"])
-                order, edges = postfix_order(gold), incoming_edges(gold)
+                order, edges = postfix_order(gold), outgoing_edges(gold)
                 tokens, side = coder4.encode(vocabulary, prefix, post.annotated(
                     post.to_postfix(gold), task["args"], task["literals"], task["expected"], task["mode"]))
             except (KeyError, ValueError):
@@ -211,10 +212,12 @@ def coder_by_level(model, known, width=32):
                 logits = net(torch.tensor([tokens]), notes=torch.tensor([side]))[0]
             log_probs = torch.log_softmax(logits.float(), dim=-1)
             for j, index in enumerate(order):
-                if index is None or edges[index] is None:
+                if index is None:
                     continue
                 at = len(prefix) + j
-                entry = split["known_edge" if edges[index] in known["edges"] else "new_edge"]
+                links = edges[index]
+                entry = split["leaf" if not links else "known_edges" if all(e in known["edges"] for e in links)
+                              else "new_edge"]
                 entry[0] += 1
                 entry[1] += -float(log_probs[at - 1, tokens[at]])
                 entry[2] += int(log_probs[at - 1].argmax()) == tokens[at]
