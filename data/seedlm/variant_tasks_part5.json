@@ -111,7 +111,7 @@
   "entry_point": "electricity_bill",
   "inputs": [
    "(40,)",
-   "(75,)",
+   "(80,)",
    "(50,)"
   ],
   "expression": "a0 * 3 + 25 if a0 < 50 else 50 * 3 + (a0 - 50) * 4 + 35"
@@ -124,8 +124,8 @@
   "entry_point": "tiered_bill",
   "inputs": [
    "(150,)",
-   "(75,)",
-   "(265,)"
+   "(60,)",
+   "(230,)"
   ],
   "expression": "min(a0, 100) * 2 + max(min(a0, 200) - 100, 0) * 5 + max(a0 - 200, 0) * 8 + 50"
  },
@@ -162,7 +162,7 @@
   "description": "Write a function that returns the tariff slab for the given units: slab 1 for fewer than 50 units, slab 2 for up to 100 units, slab 3 for up to 200 units and slab 4 above 200.",
   "entry_point": "tariff_slab",
   "inputs": [
-   "(75,)",
+   "(80,)",
    "(30,)",
    "(200,)"
   ],
@@ -553,7 +553,7 @@
   "entry_point": "count_arrangements",
   "inputs": [
    "('book',)",
-   "('abc',)",
+   "('tea',)",
    "('aaa',)"
   ],
   "expression": "math.factorial(len(a0)) // math.prod(math.factorial(a0.count(c)) for c in set(a0))"
@@ -578,7 +578,7 @@
   "description": "Write a function to list all rotations of a string, starting with the string itself and each time moving the first character to the end.",
   "entry_point": "all_rotations",
   "inputs": [
-   "('abc',)",
+   "('dog',)",
    "('tool',)",
    "('x',)"
   ],
@@ -617,8 +617,8 @@
   "description": "Write a function to swap the first character of a string with each of the other characters in turn, returning the list of strings produced.",
   "entry_point": "swap_first_with_each",
   "inputs": [
-   "('abc',)",
-   "('abcd',)",
+   "('cat',)",
+   "('wxyz',)",
    "('xy',)"
   ],
   "expression": "[a0[i] + a0[1:i] + a0[0] + a0[i + 1:] for i in range(1, len(a0))]"
