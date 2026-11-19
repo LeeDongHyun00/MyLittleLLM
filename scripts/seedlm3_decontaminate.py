@@ -1,15 +1,18 @@
 """Drop teacher-authored tasks that resemble an evaluation task (counts only are reported).
 
 Teachers were told to invent tasks and never saw benchmark data, but they have read the internet: a
-task they "invent" can be one they remember. A teacher task is dropped when its description shares
-a run of six words with, or has a content-word Jaccard similarity of at least 0.6 to, the
-description of any task used for evaluation: MBPP+ validation and test, HumanEval+, and the extra
-pool's held-out fifth (the development check). Nothing about the evaluation tasks is printed.
+task they "invent" can be one they remember. A teacher task is dropped when its description, without
+the opening boilerplate ("Write a python function to"), shares a run of six words with, or has a
+content-word Jaccard similarity of at least 0.6 to, the description of any task used for
+evaluation: MBPP+ validation and test, HumanEval+, and the extra pool's held-out fifth (the
+development check). Nothing about the evaluation tasks is printed. (A first run that kept the
+boilerplate dropped a third of the teacher tasks for sharing "write a python function to count the".)
 
   python scripts/seedlm3_decontaminate.py   writes data/seedlm/teacher_tasks_dropped.json
 """
 import json
 from pathlib import Path
+import re
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -22,6 +25,15 @@ from seedlm2_real import held_out
 STOP = set("a an the of to in for and or is are be given write function python that which with from by on "
            "return returns list number numbers string strings check whether if".split())
 DATA = ROOT / "data/seedlm"
+
+
+OPENER = re.compile(r"^(?:(?:write|create|implement|define|make)\s+(?:a\s+|an\s+)?(?:python\s+)?"
+                    r"(?:function|program|method)(?:\s+(?:to|that|which|for))?|given)\b")
+
+
+def body(text):
+    """The description without its opening boilerplate ("Write a python function to ..."), as words."""
+    return language.words(OPENER.sub("", text.strip().lower(), count=1))
 
 
 def shingles(words, n=6):
@@ -44,7 +56,7 @@ def evaluation_descriptions():
 
 
 def main():
-    references = [language.words(t) for t in evaluation_descriptions()]
+    references = [body(t) for t in evaluation_descriptions()]
     reference_shingles = set().union(*(shingles(w) for w in references))
     reference_content = [content(w) for w in references]
     dropped, total = [], 0
@@ -53,7 +65,7 @@ def main():
             continue
         for task in json.loads(path.read_text()):
             total += 1
-            words = language.words(task["description"])
+            words = body(task["description"])
             mine = content(words)
             overlap = bool(shingles(words) & reference_shingles)
             similar = any(mine and len(mine & other) / len(mine | other) >= 0.6 for other in reference_content)
