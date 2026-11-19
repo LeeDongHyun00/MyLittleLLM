@@ -222,7 +222,7 @@ def coder_by_level(model, known, width=32, added=None):
         table = {}
         records[set_name] = []
         split = {"leaf": [0, 0.0, 0], "known_edges": [0, 0.0, 0], "new_edge": [0, 0.0, 0]}  # tokens, nats, first
-        for task in tasks:
+        for index, task in enumerate(tasks):
             try:
                 level = first_unknown(pieces(task["gold"]), known)
             except (ValueError, IndexError, KeyError):
@@ -237,7 +237,7 @@ def coder_by_level(model, known, width=32, added=None):
             row["programs"] += 1
             correct = bool(verified) and task["judge"](verified[0])
             row["first_correct"] += correct
-            records[set_name].append({"level": level, "correct": bool(correct)})
+            records[set_name].append({"index": index, "level": level, "correct": bool(correct)})
             if added is not None and level in ("tokens", "edges", "twigs"):
                 # Are this program's new pieces among what the arm added (coverage), or not?
                 piece = pieces(task["gold"])
