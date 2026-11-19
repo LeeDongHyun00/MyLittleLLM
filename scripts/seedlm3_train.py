@@ -61,20 +61,48 @@ def teacher_held(task_id):
     return int(hashlib.sha256(task_id.encode()).hexdigest(), 16) % 10 == 0
 
 
-def teacher_rows(vocabulary, items, held):
+def view_program(expression, n_args, literals, args, expected):
+    """The expression's tokens when this example is the visible one (o and o! follow the visible verdict),
+    or None if they do not reproduce it."""
+    try:
+        tokens = pyx.serialize(expression, n_args, literals, expected if isinstance(expected, str) else None)
+    except pyx.Unsupported:
+        return None
+    if len(tokens) > coder3.MAX_PROGRAM or not coder3.reproduces(tokens, args, literals, expected):
+        return None
+    return tokens
+
+
+def teacher_rows(vocabulary, items, held, views=1):
+    """With views > 1, each of a task's inputs is shown as the example in turn (training rows only)."""
     rows = []
     for task in items:
         if teacher_held(task["id"]) != held:
             continue
-        args = list(ast.literal_eval(task["inputs"][0]))
-        expected = ast.literal_eval(task["outputs"][0])
         literals = bi.description_literals(task["description"])
-        tokens, start = vocabulary.encode(language.words(task["description"]), literals, args, expected,
-                                          named_in(task["description"]), task["tokens"])
-        if len(tokens) <= coder3.MAX_LENGTH:
-            rows.append((tokens, start, {"args": args, "literals": literals, "expected": expected,
-                                         "program": task["tokens"], "mode": "eq", "task_id": task["id"]}))
+        for view in range(min(views, len(task["inputs"]))):
+            try:
+                args = list(ast.literal_eval(task["inputs"][view]))
+                expected = ast.literal_eval(task["outputs"][view])
+            except (ValueError, SyntaxError):
+                continue
+            program = task["tokens"] if view == 0 else view_program(task["expression"], len(args), literals, args,
+                                                                   expected)
+            if program is None:
+                continue
+            tokens, start = vocabulary.encode(language.words(task["description"]), literals, args, expected,
+                                              named_in(task["description"]), program)
+            if len(tokens) <= coder3.MAX_LENGTH:
+                rows.append((tokens, start, {"args": args, "literals": literals, "expected": expected,
+                                             "program": program, "mode": "eq", "task_id": task["id"]}))
     return rows
+
+
+def assert_examples(item):
+    """Every parsed assert of an extra-pool task (the visible one first); the visible one otherwise."""
+    lines = item.get("asserts") or [item["visible_assert"]] if item["source"] == "extra" else [item["visible_assert"]]
+    examples = [bi.parse_example(line, item["entry_point"]) for line in lines]
+    return [e for e in examples if e is not None and e["args"]]
 
 
 def oneliner_items():
@@ -98,36 +126,54 @@ def oneliner_items():
                 continue
             part = "holdout" if item["source"] == "extra" and held_out(item["task_id"]) else "train"
             items.append({"task_id": item["task_id"], "part": part, "item": item, "example": example,
-                          "literals": literals, "tokens": tokens})
+                          "literals": literals, "tokens": tokens, "expression": row["expression"]})
     return items
 
 
-def oneliner_rows(vocabulary, items, part):
+def oneliner_rows(vocabulary, items, part, views=1):
     rows = []
     for entry in items:
         if entry["part"] != part:
             continue
-        item, example = entry["item"], entry["example"]
-        tokens, start = vocabulary.encode(language.words(item["description"]), entry["literals"], example["args"],
-                                          example["expected"], named_in(item["description"]), entry["tokens"])
-        if len(tokens) <= coder3.MAX_LENGTH:
-            rows.append((tokens, start, {"args": example["args"], "literals": entry["literals"],
-                                         "expected": example["expected"], "program": entry["tokens"],
-                                         "mode": example["mode"], "task_id": entry["task_id"]}))
+        item = entry["item"]
+        examples = [entry["example"]] + ([e for e in assert_examples(item)[1:views]] if views > 1 else [])
+        for view, example in enumerate(examples):
+            program = entry["tokens"] if view == 0 else view_program(entry["expression"], len(example["args"]),
+                                                                     entry["literals"], example["args"],
+                                                                     example["expected"])
+            if program is None:
+                continue
+            tokens, start = vocabulary.encode(language.words(item["description"]), entry["literals"], example["args"],
+                                              example["expected"], named_in(item["description"]), program)
+            if len(tokens) <= coder3.MAX_LENGTH:
+                rows.append((tokens, start, {"args": example["args"], "literals": entry["literals"],
+                                             "expected": example["expected"], "program": program,
+                                             "mode": example["mode"], "task_id": entry["task_id"]}))
     return rows
 
 
-def real_rows(vocabulary, part, rng=None, named_drop=0.5):
+def real_rows(vocabulary, part, rng=None, named_drop=0.5, views=1):
+    """Real development rows; with views > 1, an extra-pool task's other asserts become examples too
+    when its program reproduces them."""
+    bank = dev_tasks() if views > 1 else {}
     rows = []
     for item in json.loads((V2 / "real_dev.json").read_text()):
         if item["part"] != part:
             continue
         literals, args, expected = (ast.literal_eval(item[k]) for k in ("literals", "args", "expected"))
-        named = item["named"] if rng is None or rng.random() >= named_drop else []
-        tokens, start = vocabulary.encode(item["words"], literals, args, expected, named, item["program"])
-        if len(tokens) <= coder3.MAX_LENGTH:
-            rows.append((tokens, start, {"args": args, "literals": literals, "expected": expected,
-                                         "program": item["program"], "mode": item["mode"], "task_id": item["task_id"]}))
+        examples = [{"args": args, "expected": expected, "mode": item["mode"]}]
+        if views > 1 and item["task_id"] in bank:
+            for example in assert_examples(bank[item["task_id"]])[1:views]:
+                if coder3.reproduces(item["program"], example["args"], literals, example["expected"], example["mode"]):
+                    examples.append(example)
+        for example in examples:
+            named = item["named"] if rng is None or rng.random() >= named_drop else []
+            tokens, start = vocabulary.encode(item["words"], literals, example["args"], example["expected"], named,
+                                              item["program"])
+            if len(tokens) <= coder3.MAX_LENGTH:
+                rows.append((tokens, start, {"args": example["args"], "literals": literals,
+                                             "expected": example["expected"], "program": item["program"],
+                                             "mode": example["mode"], "task_id": item["task_id"]}))
     return rows
 
 
@@ -195,6 +241,8 @@ def main():
     parser.add_argument("--real-share", type=float, default=0.1)
     parser.add_argument("--teacher-share", type=float, default=0.15)
     parser.add_argument("--oneliner-share", type=float, default=0.03)
+    parser.add_argument("--views", type=int, default=1,
+                        help="examples per training task: each of a task's inputs or asserts shown in turn (up to 3)")
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--muon-lr", type=float, default=0.02)
     parser.add_argument("--seed", type=int, default=0)
@@ -219,9 +267,9 @@ def main():
     synthetic = data2.build_synthetic(args.train_size, args.seed + 1, vocabulary, describer, list(bi.OPERATORS.values()),
                                       clean=True, bank=bank, bank_rate=args.bank_rate)
     held_synthetic = data2.build_synthetic(1000, 99991, vocabulary, describer, list(bi.OPERATORS.values()))
-    real = real_rows(vocabulary, "train", random.Random(args.seed + 2))
-    tasks_train = teacher_rows(vocabulary, teacher, held=False)
-    lines_train = oneliner_rows(vocabulary, oneliners, "train")
+    real = real_rows(vocabulary, "train", random.Random(args.seed + 2), views=args.views)
+    tasks_train = teacher_rows(vocabulary, teacher, held=False, views=args.views)
+    lines_train = oneliner_rows(vocabulary, oneliners, "train", views=args.views)
     n = len(synthetic)
     other = 1 - args.real_share - args.teacher_share - args.oneliner_share
 

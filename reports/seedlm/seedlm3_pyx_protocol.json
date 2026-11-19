@@ -13,5 +13,16 @@
  "choice": "the method with the most solved tasks on the extra pool's held-out fifth (94 tasks, judged by each task's three asserts); ties go to pyx_tie_fill, then pyx_fill, then pyx_tie, then pyx_override, then pyx_model",
  "gate": "validation split: alone, the chosen method solves no fewer than the engine (19 of 45) and in the 1.5B branch-and-select pipeline no fewer than with the engine (31 of 45)",
  "test": "only after the gate: MBPP+ locked split once (alone and both stored pipelines) and HumanEval+ once (alone and in the pipeline)",
- "not_tuned_on": ["validation", "test", "HumanEval+"]
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ],
+ "addendum_1": {
+  "written": "2026-11-19, after s3-pyx's held-out, validation, test and HumanEval+ runs, while the second round of teacher tasks was being written and before any second coder was trained",
+  "s3-pyx_outcome": "held-out 68 (pyx_tie_fill), validation gate passed without a gain (19, 31), test alone 68 = engine, pipelines 98 and 80 unchanged, HumanEval+ alone 24 vs engine 22, pipeline 110 = 110",
+  "second_coder": "s3b-pyx: scripts/seedlm3_train.py --views 3 (each training task shown with each of its inputs or asserts), teacher tasks of rounds 1 and 2 (data/seedlm/teacher_tasks_*.json, same decontamination rule), width 320, 8 layers, 10 heads, 120 minutes, other settings as s3-pyx",
+  "choice": "s3b-pyx replaces s3-pyx only if its best method solves more held-out tasks than s3-pyx's 68 (ties keep s3-pyx); method order for ties as in the original protocol",
+  "then": "a chosen s3b-pyx gets its own validation gate (the same conditions), one MBPP+ test run and one HumanEval+ run"
+ }
 }
