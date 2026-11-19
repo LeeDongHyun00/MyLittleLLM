@@ -1,0 +1,150 @@
+{
+ "synthetic_programs": 100000,
+ "training_programs_skipped": 0,
+ "known": {
+  "tokens": 972,
+  "edges": 37090,
+  "twigs": 36895,
+  "whole": 34101
+ },
+ "teacher_holdout": {
+  "programs": 139,
+  "all_known": {
+   "tokens": 138,
+   "edges": 74,
+   "twigs": 62,
+   "whole": 37
+  },
+  "first_unknown": {
+   "edges": 64,
+   "nothing (seen whole)": 37,
+   "whole": 25,
+   "twigs": 12,
+   "tokens": 1
+  }
+ },
+ "variant_holdout": {
+  "programs": 16,
+  "all_known": {
+   "tokens": 14,
+   "edges": 13,
+   "twigs": 5,
+   "whole": 0
+  },
+  "first_unknown": {
+   "whole": 5,
+   "tokens": 2,
+   "twigs": 8,
+   "edges": 1
+  }
+ },
+ "beyond": {
+  "programs": 15,
+  "all_known": {
+   "tokens": 15,
+   "edges": 8,
+   "twigs": 6,
+   "whole": 2
+  },
+  "first_unknown": {
+   "twigs": 2,
+   "edges": 7,
+   "whole": 4,
+   "nothing (seen whole)": 2
+  }
+ },
+ "coder": {
+  "model": "s6-graft",
+  "width": 32,
+  "by_first_unknown": {
+   "teacher_holdout": {
+    "edges": {
+     "programs": 64,
+     "first_correct": 21
+    },
+    "new_uncovered": {
+     "programs": 70,
+     "first_correct": 22
+    },
+    "nothing (seen whole)": {
+     "programs": 37,
+     "first_correct": 30
+    },
+    "whole": {
+     "programs": 25,
+     "first_correct": 7
+    },
+    "twigs": {
+     "programs": 12,
+     "first_correct": 3
+    },
+    "new_covered": {
+     "programs": 7,
+     "first_correct": 2
+    },
+    "tokens": {
+     "programs": 1,
+     "first_correct": 0
+    }
+   },
+   "beyond": {
+    "twigs": {
+     "programs": 2,
+     "first_correct": 0
+    },
+    "new_uncovered": {
+     "programs": 9,
+     "first_correct": 0
+    },
+    "edges": {
+     "programs": 7,
+     "first_correct": 0
+    },
+    "whole": {
+     "programs": 4,
+     "first_correct": 1
+    },
+    "nothing (seen whole)": {
+     "programs": 2,
+     "first_correct": 2
+    }
+   }
+  },
+  "teacher_program_tokens": {
+   "teacher_holdout": {
+    "leaf": {
+     "tokens": 481,
+     "mean_nats": 2.24,
+     "ranked_first": 0.628
+    },
+    "known_edges": {
+     "tokens": 375,
+     "mean_nats": 2.29,
+     "ranked_first": 0.549
+    },
+    "new_edge": {
+     "tokens": 86,
+     "mean_nats": 4.06,
+     "ranked_first": 0.372
+    }
+   },
+   "beyond": {
+    "leaf": {
+     "tokens": 62,
+     "mean_nats": 4.22,
+     "ranked_first": 0.371
+    },
+    "known_edges": {
+     "tokens": 55,
+     "mean_nats": 4.27,
+     "ranked_first": 0.345
+    },
+    "new_edge": {
+     "tokens": 24,
+     "mean_nats": 6.73,
+     "ranked_first": 0.125
+    }
+   }
+  }
+ }
+}
