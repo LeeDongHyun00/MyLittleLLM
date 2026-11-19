@@ -111,5 +111,38 @@ class Coder3Tests(unittest.TestCase):
         self.assertEqual(coder3.child_depths("len/1", 2), [2])
 
 
+
+@unittest.skipUnless(TORCH, "torch not installed")
+class CacheTests(unittest.TestCase):
+    def test_cached_decoding_matches_full_recomputation(self):
+        import torch
+        from mylittlellm.seedlm import model as seedmodel
+        torch.manual_seed(0)
+        net = seedmodel.SeedLM(seedmodel.Config(50, 32, 2, 4, 64)).eval()
+        # Zero-initialised residual projections would make every position identical; perturb them.
+        with torch.no_grad():
+            for p in net.parameters():
+                p.add_(0.05 * torch.randn_like(p))
+        tokens = torch.randint(0, 50, (3, 12))
+        with torch.no_grad():
+            full = net(tokens)
+            logits, cache = net.prefill(tokens[:, :8])
+            torch.testing.assert_close(logits, full[:, 7], rtol=1e-4, atol=1e-4)
+            for position in range(8, 12):
+                logits, cache = net.step(tokens[:, position], cache)
+                torch.testing.assert_close(logits, full[:, position], rtol=1e-4, atol=1e-4)
+
+
+class GuardTests(unittest.TestCase):
+    def test_exploding_operations_fail_fast_instead_of_hanging(self):
+        import time
+        from mylittlellm.seedlm import pyx
+        started = time.monotonic()
+        for source in ("a0 ** a0 ** a0", "'ab' * 10 ** 8", "1 << 10 ** 9", "math.factorial(10 ** 6)"):
+            with self.assertRaises(OverflowError):
+                pyx.execute(pyx.serialize(source, 1), [99])
+        self.assertLess(time.monotonic() - started, 1.0)
+        self.assertEqual(pyx.execute(pyx.serialize("a0 ** 3 * 'ab'.count('a')", 1), [4]), 64)
+
 if __name__ == "__main__":
     unittest.main()

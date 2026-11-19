@@ -247,9 +247,12 @@ def main():
     base_rates = [[g["lr"] for g in opt.param_groups] for opt in optimizers]
     budget, log, step, seen, smooth = args.minutes * 60, [], 0, 0, None
     begin, next_eval, done = time.time(), args.minutes * 60 / 4, False
+    # The budget counts training only: beam-search evaluation of pyx programs (up to 32 tokens) is
+    # slow enough that counting it would shorten training by a quarter.
+    evaluating = 0.0
     while not done:
         for batch in batches(train, args.batch, rng):
-            elapsed = time.time() - begin
+            elapsed = time.time() - begin - evaluating
             if elapsed >= budget:
                 done = True
                 break
@@ -272,10 +275,12 @@ def main():
                 print(f"step {step} elapsed {elapsed:.0f}s seen {seen} loss {smooth:.3f}", flush=True)
             if elapsed >= next_eval:
                 next_eval += budget / 4
+                pause = time.time()
                 entry = {"step": step, "seconds": round(elapsed), "train_loss": round(smooth, 4),
                          "synthetic": evaluate(net, vocabulary, grammar, held_synthetic, 60),
                          "real_holdout": evaluate(net, vocabulary, grammar, held_real, 60),
                          "teacher_holdout": evaluate(net, vocabulary, grammar, held_teacher, 60)}
+                evaluating += time.time() - pause
                 log.append(entry)
                 print(json.dumps(entry), flush=True)
     final = {"synthetic": evaluate(net, vocabulary, grammar, held_synthetic, 300),
@@ -286,7 +291,8 @@ def main():
               "vocabulary": {"size": len(vocabulary), "words": len(vocabulary.words), "program_tokens": len(vocabulary.operators)},
               "rows": {"synthetic": n, "real": len(real), "teacher_tasks": len(tasks_train), "dev_oneliners": len(lines_train),
                        "teacher_tasks_total": len(teacher)},
-              "steps": step, "sequences_seen": seen, "train_seconds": round(time.time() - begin), "curve": log,
+              "steps": step, "sequences_seen": seen, "train_seconds": round(time.time() - begin - evaluating),
+              "curve": log,
               "final": final, "torch": torch.__version__}
     torch.save({"state": net.state_dict(), "config": config.to_dict(), "vocabulary": vocabulary.to_dict(),
                 "kind": "pyx-coder"}, ROOT / "outputs/seedlm" / f"{args.name}.pt")

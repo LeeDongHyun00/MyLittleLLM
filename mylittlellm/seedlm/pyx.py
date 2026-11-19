@@ -473,11 +473,68 @@ def _leaf(token):
 
 
 # ---------------------------------------------------------------- running and emitting code
+# A beam proposes thousands of programs, some absurd: 99 ** 99 ** 99 or 'ab' * 10 ** 9 runs in C,
+# where a timer signal cannot stop it. Execution routes the few operators that can explode through
+# guards; emitted code does not need them (the sandbox that runs it has its own limits).
+MAX_BITS = 1 << 14
+MAX_ITEMS = 1 << 16
+
+
+def _guard_pow(base, exponent):
+    if isinstance(base, int) and isinstance(exponent, int) and exponent > 0 and abs(base) > 1 \
+            and exponent * max(1, abs(base).bit_length()) > MAX_BITS:
+        raise OverflowError("power too large")
+    return base ** exponent
+
+
+def _guard_mul(left, right):
+    for sequence, count in ((left, right), (right, left)):
+        if isinstance(sequence, (str, list, tuple, bytes)) and isinstance(count, int) \
+                and len(sequence) * max(count, 0) > MAX_ITEMS:
+            raise OverflowError("repetition too long")
+    if isinstance(left, int) and isinstance(right, int) and left.bit_length() + right.bit_length() > MAX_BITS:
+        raise OverflowError("product too large")
+    return left * right
+
+
+def _guard_lshift(value, shift):
+    if isinstance(shift, int) and shift > MAX_BITS:
+        raise OverflowError("shift too large")
+    return value << shift
+
+
+class _SafeMath:
+    """math, with the functions whose cost grows with their argument bounded."""
+
+    def __getattr__(self, name):
+        function = getattr(math, name)
+        if name in ("factorial", "comb", "perm", "prod", "pow", "lcm", "gcd"):
+            def bounded(*args):
+                if any(isinstance(a, int) and a > 5000 for a in args if name in ("factorial", "comb", "perm")):
+                    raise OverflowError("argument too large")
+                return function(*args)
+            return bounded
+        return function
+
+
+GUARDS = {ast.Pow: "_guard_pow", ast.Mult: "_guard_mul", ast.LShift: "_guard_lshift"}
+
+
+class _Guarded(ast.NodeTransformer):
+    def visit_BinOp(self, node):
+        self.generic_visit(node)
+        if type(node.op) in GUARDS:
+            return ast.copy_location(ast.Call(func=_name(GUARDS[type(node.op)]), args=[node.left, node.right],
+                                              keywords=[]), node)
+        return node
+
+
 def environment():
     import builtins
     env = {name: getattr(builtins, name) for name in BUILTINS + ["map", "filter"]}
     env.update({callable_name(key): op.fn for key, op in bi.OPERATORS.items()})
     env.update(MODULES)
+    env.update(math=_SafeMath(), _guard_pow=_guard_pow, _guard_mul=_guard_mul, _guard_lshift=_guard_lshift)
     return {"__builtins__": {}, **env}
 
 
@@ -489,7 +546,7 @@ def execute(tokens, args, literals=(), output=None):
     global _ENV
     if _ENV is None:
         _ENV = environment()
-    node = ast.fix_missing_locations(ast.Expression(deserialize(tokens)))
+    node = ast.fix_missing_locations(ast.Expression(_Guarded().visit(deserialize(tokens))))
     scope = dict(_ENV)
     scope.update({f"a{i}": value for i, value in enumerate(args)})
     scope.update({f"c{i}": value for i, value in enumerate(literals)})

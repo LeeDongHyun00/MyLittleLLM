@@ -1,0 +1,90 @@
+{
+ "name": "r3-review",
+ "kind": "reviewer",
+ "arguments": {
+  "name": "r3-review",
+  "minutes": 60.0,
+  "d_model": 256,
+  "layers": 6,
+  "heads": 8,
+  "batch": 64,
+  "train_size": 300000,
+  "real_share": 0.1,
+  "natural_share": 0.1,
+  "clean": false,
+  "bank_rate": 0.0,
+  "lr": 0.002,
+  "muon_lr": 0.02,
+  "coder": "s2-main",
+  "seed": 0
+ },
+ "parameters": 6091824,
+ "vocabulary": {
+  "size": 2682,
+  "words": 1626,
+  "operators": 780
+ },
+ "real_train_rows": 525,
+ "real_copies": 63,
+ "natural_train_rows": 1125,
+ "natural_copies": 27,
+ "steps": 5570,
+ "sequences_seen": 356480,
+ "train_seconds": 3604,
+ "curve": [
+  {
+   "step": 1431,
+   "seconds": 900,
+   "train_loss": 0.8811,
+   "real_holdout_loss": 2.4697,
+   "ranking": {
+    "tasks": 81,
+    "review": 59,
+    "engine": 65,
+    "coder": 49,
+    "oracle": 72,
+    "coder_plus_review": 66
+   }
+  },
+  {
+   "step": 2808,
+   "seconds": 1800,
+   "train_loss": 0.6869,
+   "real_holdout_loss": 2.5865,
+   "ranking": {
+    "tasks": 81,
+    "review": 59,
+    "engine": 65,
+    "coder": 49,
+    "oracle": 72,
+    "coder_plus_review": 65
+   }
+  },
+  {
+   "step": 4225,
+   "seconds": 2701,
+   "train_loss": 0.6116,
+   "real_holdout_loss": 2.7228,
+   "ranking": {
+    "tasks": 81,
+    "review": 58,
+    "engine": 65,
+    "coder": 49,
+    "oracle": 72,
+    "coder_plus_review": 65
+   }
+  }
+ ],
+ "final": {
+  "real_holdout_loss": 2.8641,
+  "ranking": {
+   "tasks": 81,
+   "review": 59,
+   "engine": 65,
+   "coder": 49,
+   "oracle": 72,
+   "coder_plus_review": 67
+  }
+ },
+ "torch": "2.15.0+cpu"
+}

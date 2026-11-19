@@ -52,6 +52,20 @@ class Attention(nn.Module):
         out = F.scaled_dot_product_attention(q, k, v, is_causal=True, scale=1.0)
         return self.proj(out.transpose(1, 2).reshape(batch, length, width))
 
+    def attend(self, x, cos, sin, past=None):
+        """forward() that also returns this layer's (rotated) keys and values. With `past`, x holds one
+        new position per row, which attends to everything cached: decoding without recomputing the prefix."""
+        batch, length, width = x.shape
+        q, k, v = self.qkv(x).view(batch, length, 3, self.n_head, self.head_dim).permute(2, 0, 3, 1, 4)
+        q, k = rotary(rms_norm(q), cos, sin), rotary(rms_norm(k), cos, sin)
+        q = q * (self.scale.exp() / math.sqrt(self.head_dim))
+        if past is None:
+            out = F.scaled_dot_product_attention(q, k, v, is_causal=True, scale=1.0)
+        else:
+            k, v = torch.cat([past[0], k], dim=2), torch.cat([past[1], v], dim=2)
+            out = F.scaled_dot_product_attention(q, k, v, scale=1.0)
+        return self.proj(out.transpose(1, 2).reshape(batch, length, width)), (k, v)
+
 
 class Block(nn.Module):
     def __init__(self, config):
@@ -63,6 +77,11 @@ class Block(nn.Module):
     def forward(self, x, cos, sin):
         x = x + self.attention(rms_norm(x), cos, sin)
         return x + self.project(F.relu(self.expand(rms_norm(x))).square())
+
+    def attend(self, x, cos, sin, past=None):
+        h, kv = self.attention.attend(rms_norm(x), cos, sin, past)
+        x = x + h
+        return x + self.project(F.relu(self.expand(rms_norm(x))).square()), kv
 
 
 class SeedLM(nn.Module):
@@ -107,6 +126,27 @@ class SeedLM(nn.Module):
         if labels is None:
             return logits
         return F.cross_entropy(logits.view(-1, logits.size(-1)), labels.view(-1), ignore_index=-100)
+
+    def prefill(self, tokens):
+        """Logits after the last position and the per-layer key/value cache."""
+        length = tokens.size(1)
+        x = self.embed(tokens)
+        cache = []
+        for block in self.blocks:
+            x, kv = block.attend(x, self.cos[:length], self.sin[:length])
+            cache.append(kv)
+        return self.head(rms_norm(x))[:, -1], cache
+
+    def step(self, tokens, cache):
+        """Logits after one more token per row (tokens: shape (rows,)), and the extended cache."""
+        position = cache[0][0].size(2)
+        cos, sin = self.cos[position:position + 1], self.sin[position:position + 1]
+        x = self.embed(tokens[:, None])
+        extended = []
+        for block, past in zip(self.blocks, cache):
+            x, kv = block.attend(x, cos, sin, past)
+            extended.append(kv)
+        return self.head(rms_norm(x))[:, -1], extended
 
     def parameter_count(self):
         return sum(p.numel() for p in self.parameters())

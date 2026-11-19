@@ -18,7 +18,7 @@ MAX_PROGRAM = 32
 MAX_LENGTH = data2.MAX_LENGTH - data2.MAX_PROGRAM + MAX_PROGRAM
 LEAVES = ([f"v{i}" for i in range(pyx.MAX_VARS)] + [f"#{i}" for i in pyx.SMALL_INTS] + ["#0.5", "#0.0", "#1.0", "#2.0"]
           + ["o", "o!", "None", "True", "False"] + sorted(pyx.MODULE_CONSTANTS) + [f"T:{t}" for t in pyx.TYPES])
-EXECUTION_SECONDS = 1.0
+EXECUTION_SECONDS = 0.25
 
 
 class Vocabulary(data2.Vocabulary):
@@ -104,15 +104,13 @@ def beam_search(net, vocabulary, grammar, prefix, n_args, n_literals, string_out
     """Well-formed pyx programs with log-probabilities, best first."""
     base = grammar.base_mask(n_args, n_literals, string_output)
     beams, finished = [(0.0, [], [0])], []      # (score, tokens, stack of open-slot depths; top is last)
+    # The prefix is encoded once; each step feeds one token per hypothesis through the key/value cache.
+    with torch.autocast("cpu", dtype=torch.bfloat16):
+        logits, cache = net.prefill(torch.tensor([prefix]))
+    log_probs = torch.log_softmax(logits.float(), dim=-1)
     for _ in range(max_tokens):
-        if not beams:
-            break
-        batch = torch.tensor([prefix + tokens for _, tokens, _ in beams])
-        with torch.autocast("cpu", dtype=torch.bfloat16):
-            logits = net(batch)[:, -1]
-        log_probs = torch.log_softmax(logits.float(), dim=-1)
         candidates = []
-        for (score, tokens, stack), row in zip(beams, log_probs):
+        for parent, ((score, tokens, stack), row) in enumerate(zip(beams, log_probs)):
             depth = stack[-1]
             room = max_tokens - len(tokens) - 1
             allowed = base & (len(stack) - 1 + grammar.arity <= room)
@@ -123,11 +121,19 @@ def beam_search(net, vocabulary, grammar, prefix, n_args, n_literals, string_out
             for value, index in zip(values.tolist(), indices.tolist()):
                 symbol = vocabulary.symbol(index)
                 rest = stack[:-1] + list(reversed(child_depths(symbol, depth)))
-                entry = (score + value, tokens + [index], rest)
+                entry = (score + value, tokens + [index], rest, parent)
                 (finished if not rest else candidates).append(entry)
-        beams = sorted(candidates, key=lambda e: -e[0])[:width]
+        chosen = sorted(candidates, key=lambda e: -e[0])[:width]
+        if not chosen:
+            break
+        parents = torch.tensor([e[3] for e in chosen])
+        cache = [(k[parents], v[parents]) for k, v in cache]
+        with torch.autocast("cpu", dtype=torch.bfloat16):
+            logits, cache = net.step(torch.tensor([e[1][-1] for e in chosen]), cache)
+        log_probs = torch.log_softmax(logits.float(), dim=-1)
+        beams = [(score, tokens, rest) for score, tokens, rest, _ in chosen]
     finished.sort(key=lambda e: -e[0])
-    return [([vocabulary.symbol(t) for t in tokens], score) for score, tokens, _ in finished[:width]]
+    return [([vocabulary.symbol(t) for t in tokens], score) for score, tokens, _, _ in finished[:width]]
 
 
 def reproduces(program, args, literals, expected, mode="eq"):
