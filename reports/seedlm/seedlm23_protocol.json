@@ -1,0 +1,22 @@
+{
+ "written": "2026-11-21, after SeedLM-22, before any SeedLM-23 pair was mined for the full run",
+ "theory": "With one visible example, the coder answers with the most probable program in its beam that reproduces the example. Its errors on held-out tasks are wrong programs that fit the example by accident and come first (SeedLM-21's beam statistics: 5 to 7 per task). Maximum likelihood only ever raises the right program; it never tells the coder which programs that fit an example are wrong, so data that broadens the coder (grafts, generated programs) raises those neighbours too",
+ "hypothesis": "Pushing down, at the point where they branch off, the wrong programs that fit the example in the coder's own beam on training tasks teaches it to rank right programs first on held-out tasks, without changing what its beam reaches",
+ "pairs": "scripts/seedlm23_mine.py --model <base> --sources composed pysynth --limit 1200 400: each base coder's beam (width 16) on the training part of SeedLM-6's composed tasks (written descriptions; the base coders never trained on them) and on 400 generated programs (pysynth, seed 23), the first case visible; wrong programs that fit it and come before the first right one (up to 3 per task), each paired with the coder's first right program or else the task's own. A 200-task check on training teacher tasks found none (the coder has them by heart), so they are not a source",
+ "arms": "for each base coder s12-a1, s12-a2, s12-a3: two fine-tunes from its checkpoint, 400 steps over the same batches (the base run's data mix with a fresh synthetic draw of 60,000, plus every pair's right program as rows at a tenth of the mix), learning rates 0.3 of the base run's with a 20-step warm-up and linear decay: s23-m<k> without, s23-u<k> with an unlikelihood term at each pair's branch point (weight 1, 16 pairs a step): scripts/seedlm23_finetune.py. Nothing else runs while they train",
+ "primary_measure": "held-out teacher tasks (139), the first program at beam width 32 that reproduces the visible example is right on every case (SeedLM-15's cache), mean over the three bases of s23-u<k> minus s23-m<k>. Supported if at least +3; not supported if at most 0; inconclusive otherwise",
+ "secondary_measures": [
+  "wrong programs that fit the example per task, and tasks where some verified program is right, at beam width 32 on the held-out teacher tasks (scripts/seedlm3_discovery.py --widths 32 --sets teacher): the theory predicts fewer wrong ones and the same reach",
+  "development fifth (94), each coder alone, the same difference",
+  "SeedLM-21's new-combination (77) and pieces-seen (62) parts of the held-out teacher tasks"
+ ],
+ "analysis": "scripts/seedlm23_compare.py --pairs s23-u1:s23-m1 s23-u2:s23-m2 s23-u3:s23-m3 (reports/seedlm/contrast_compare.json)",
+ "choice": "diagnostic; the system's adoption rule is unchanged",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "held-out teacher tasks",
+  "the development fifth"
+ ]
+}
