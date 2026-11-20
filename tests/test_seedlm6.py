@@ -101,5 +101,28 @@ class MbrTests(unittest.TestCase):
         self.assertEqual(select.mbr_pick(programs, [-1.0, -9.0, -9.5], [[1, 5, 3]]), 0)
 
 
+
+@unittest.skipUnless(TORCH and (Path(__file__).resolve().parents[1] / "outputs/seedlm/s12-a3.pt").exists(),
+                     "needs torch and the trained coders (outputs/ is not committed)")
+class SolveTests(unittest.TestCase):
+    def test_the_ensemble_returns_a_function_that_reproduces_the_example(self):
+        import torch
+        from mylittlellm.rulecoder.tasks import ROOT
+        from mylittlellm.seedlm import coder4
+        from seedlm_solve import solve
+        torch.set_num_threads(1)
+        coders = []
+        for name in ("s12-a3", "s12-b2"):
+            net, vocabulary = coder4.load(ROOT / "outputs/seedlm" / f"{name}.pt")
+            coders.append((name, net, vocabulary, coder4.Grammar(vocabulary)))
+        code, details = solve("Write a function to find the sum of the squares of the odd numbers in a list.",
+                              "assert odd_square_sum([2, 7, 4, 9]) == 130", coders)
+        self.assertIsNotNone(code, details)
+        scope = {}
+        exec(code, scope)
+        self.assertEqual(scope["odd_square_sum"]([2, 7, 4, 9]), 130)
+        self.assertEqual(details["entry_point"], "odd_square_sum")
+
+
 if __name__ == "__main__":
     unittest.main()
