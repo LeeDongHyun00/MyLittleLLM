@@ -1,0 +1,18 @@
+{
+ "tasks": 94,
+ "engine_fails": 29,
+ "visible_match": {
+  "engine_fails": 9,
+  "engine_solves": 29
+ },
+ "all_asserts": {
+  "engine_fails": 0,
+  "engine_solves": 16
+ },
+ "all_asserts_and_retrieved_top10": {
+  "engine_fails": 0,
+  "engine_solves": 8
+ },
+ "matching_references_per_task_median": 0,
+ "references": 616
+}
