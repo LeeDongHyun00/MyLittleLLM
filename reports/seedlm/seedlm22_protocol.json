@@ -1,0 +1,17 @@
+{
+ "written": "2026-11-20, after SeedLM-21, before any retrieval distance was computed",
+ "question": "Is a held-out program near a training program that a search by its description finds?",
+ "motivation": [
+  "SeedLM-12 (grafts) and SeedLM-21 (generated Python-node programs): data with new compositions made the teacher's programs more probable without the coder writing more of them correctly; more compositions raise the wrong neighbours as well",
+  "MBPP-style tasks come in families; a relative found by the description could make the right composition salient instead of making every composition likelier"
+ ],
+ "measure": "scripts/seedlm22_retrieval.py: for each held-out teacher program (and the 77 with a new combination) and each held-out development one-liner (15), the smallest token edit distance to a training program among the top 1, 5 and 20 ranked by content words shared with the description (ties: same number of arguments), and to any training program; how often a top-k program has the same shape (leaves reduced to kinds). Training programs: training parts of the teacher tasks, variants, composed tasks, development one-liners, and the engine's programs on training development tasks",
+ "baseline": "the coder's own first verified program at beam width 32 (s5-var; reports/seedlm/nearmiss_s5-var.json): within 2 tokens for 68 of 139 held-out teacher programs and 4 of 15 beyond",
+ "decision": "A coder that reads a retrieved program is built (as SeedLM-23) only if a top-5 program is within 2 tokens of the held-out program for at least 24 (30%) of the 77 held-out teacher programs with a new combination, or for at least 5 of the 15 beyond programs; otherwise retrieval by description is set aside",
+ "choice": "diagnostic",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
