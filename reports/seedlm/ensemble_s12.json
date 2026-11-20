@@ -1,0 +1,62 @@
+{
+ "coders": [
+  "s12-a1",
+  "s12-a2",
+  "s12-a3",
+  "s12-b1",
+  "s12-b2",
+  "s12-b3"
+ ],
+ "teacher": {
+  "tasks": 139,
+  "single": {
+   "s12-a1": 59,
+   "s12-a2": 59,
+   "s12-a3": 62,
+   "s12-b1": 60,
+   "s12-b2": 60,
+   "s12-b3": 54
+  },
+  "vote": 71,
+  "oracle": 87,
+  "vote_changed": 19
+ },
+ "beyond": {
+  "tasks": 15,
+  "single": {
+   "s12-a1": 4,
+   "s12-a2": 2,
+   "s12-a3": 3,
+   "s12-b1": 3,
+   "s12-b2": 3,
+   "s12-b3": 3
+  },
+  "vote": 3,
+  "oracle": 6,
+  "vote_changed": 3
+ },
+ "development": {
+  "tasks": 94,
+  "engine": 65,
+  "single": {
+   "s12-a1": 56,
+   "s12-a2": 53,
+   "s12-a3": 58,
+   "s12-b1": 59,
+   "s12-b2": 55,
+   "s12-b3": 56
+  },
+  "vote": 61,
+  "oracle": 69,
+  "engine_override_vote": 63,
+  "engine_override_first": 65,
+  "vote_versus_engine": [
+   3,
+   7
+  ],
+  "override_vote_versus_engine": [
+   0,
+   2
+  ]
+ }
+}
