@@ -17,6 +17,10 @@ SeedLM-6 adds two sources of new compositions (reports/seedlm/seedlm6_protocol.j
   --compose-share   teacher-written tasks that join two training tasks (data/seedlm/compose_tasks_*.json);
                     a tenth of them (by id) is held out
 
+SeedLM-21 (reports/seedlm/seedlm21_protocol.json): --pysynth-share adds generated programs that mix
+Python's nodes with the library (mylittlellm/seedlm/pysynth.py, cached by scripts/seedlm21_pysynth.py),
+described like the grafts.
+
 SeedLM-9 (reports/seedlm/seedlm9_protocol.json): with --internal-val, a twentieth of the training tasks
 (real rows, teacher tasks, composed tasks; by a hash of the task id, up to 200 rows each) is kept out of training, and with
 --checkpoint-minutes the coder is scored on them every so many minutes of training. The best-scoring
@@ -162,6 +166,9 @@ def main():
     parser.add_argument("--graft-share", type=float, default=0.0, help="share of grafted programs (SeedLM-6)")
     parser.add_argument("--graft-count", type=int, default=20000)
     parser.add_argument("--compose-share", type=float, default=0.0, help="share of composed tasks (SeedLM-6)")
+    parser.add_argument("--pysynth-share", type=float, default=0.0, help="share of generated Python-node programs (SeedLM-21)")
+    parser.add_argument("--pysynth-count", type=int, default=30000)
+    parser.add_argument("--pysynth-library", default="all", choices=["all", "training", "sqrt"])
     parser.add_argument("--internal-val", action="store_true",
                         help="keep a twentieth of the training tasks out of training, to choose a checkpoint")
     parser.add_argument("--checkpoint-minutes", type=float, default=0.0,
@@ -190,6 +197,11 @@ def main():
         grafts = load_or_make(args.graft_count)
     else:
         grafts = []
+    if args.pysynth_share:
+        from seedlm21_pysynth import load_or_make as load_pysynth
+        generated = load_pysynth(args.pysynth_count, 0, args.pysynth_library)
+    else:
+        generated = []
     oneliners = oneliner_items()
     phrases = language.load_phrases()
     real_train_texts = [" ".join(r["words"]) for r in json.loads((V2 / "real_dev.json").read_text()) if r["part"] == "train"]
@@ -198,9 +210,9 @@ def main():
         + [e["item"]["description"] for e in oneliners if e["part"] == "train"] \
         + [t["description"] for t in variants if not variant_held(t)] \
         + [t["description"] for t in composed if not teacher_held(t["id"])] \
-        + ([" ".join(pyx_words.all_words())] if grafts else [])
+        + ([" ".join(pyx_words.all_words())] if grafts or generated else [])
     extra_tokens = {s for t in teacher + variants + composed for s in t["tokens"]} | \
-        {s for e in oneliners for s in e["tokens"]} | {s for g in grafts for s in g["tokens"]}
+        {s for e in oneliners for s in e["tokens"]} | {s for g in grafts + generated for s in g["tokens"]}
     vocabulary = coder4.Vocabulary(language.build_vocabulary(texts, phrases), coder4.program_tokens(extra_tokens))
     grammar = coder4.Grammar(vocabulary)
     describer = language.Describer(bi.OPERATORS, phrases)
@@ -218,6 +230,8 @@ def main():
     composed_train = convert(vocabulary, teacher_rows(vocabulary, composed, held=False, views=args.views), args.blind)
     graft_train = convert(vocabulary, graft_rows(vocabulary, describer, grafts, random.Random(args.seed + 6),
                                                  args.views), args.blind)
+    pysynth_train = convert(vocabulary, graft_rows(vocabulary, describer, generated, random.Random(args.seed + 21),
+                                                   args.views), args.blind)
     internal = {}
     if args.internal_val:
         def split(rows):
@@ -229,7 +243,7 @@ def main():
         internal = {k: v[:200] for k, v in internal.items() if v}     # every internal row (about 440)
     n = len(synthetic)
     other = (1 - args.real_share - args.teacher_share - args.oneliner_share - args.variant_share
-             - args.graft_share - args.compose_share)
+             - args.graft_share - args.compose_share - args.pysynth_share)
 
     def copies(share, rows):
         return max(1, round(share * n / (other * max(1, len(rows))))) if rows else 0
@@ -238,7 +252,8 @@ def main():
              + lines_train * copies(args.oneliner_share, lines_train)
              + variants_train * copies(args.variant_share, variants_train)
              + composed_train * copies(args.compose_share, composed_train)
-             + graft_train * copies(args.graft_share, graft_train))
+             + graft_train * copies(args.graft_share, graft_train)
+             + pysynth_train * copies(args.pysynth_share, pysynth_train))
     held_real = convert(vocabulary, real_rows(vocabulary, "holdout"), args.blind)
     held_teacher = convert(vocabulary, teacher_rows(vocabulary, teacher, held=True), args.blind)
     held_variants = convert(vocabulary, teacher_rows(vocabulary, variants, held=True, held_out=variant_held),
@@ -250,7 +265,8 @@ def main():
           f"{len(lines_train)} x{copies(args.oneliner_share, lines_train)}, variants {len(variants_train)} "
           f"x{copies(args.variant_share, variants_train)}, composed {len(composed_train)} "
           f"x{copies(args.compose_share, composed_train)}, grafts {len(graft_train)} "
-          f"x{copies(args.graft_share, graft_train)}; held-out real {len(held_real)}, variants {len(held_variants)}, "
+          f"x{copies(args.graft_share, graft_train)}, generated {len(pysynth_train)} "
+          f"x{copies(args.pysynth_share, pysynth_train)}; held-out real {len(held_real)}, variants {len(held_variants)}, "
           f"composed {len(held_composed)}, internal validation {({k: len(v) for k, v in internal.items()})}, "
           f"teacher {len(held_teacher)}, dev one-liner tasks {sum(e['part'] == 'holdout' for e in oneliners)}; "
           f"mean length {sum(len(r[0]) for r in synthetic[:5000]) / max(1, min(5000, n)):.0f}; "
