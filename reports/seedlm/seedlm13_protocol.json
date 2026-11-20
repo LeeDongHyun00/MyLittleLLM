@@ -1,0 +1,13 @@
+{
+ "written": "2026-11-20, after SeedLM-12, before the ensemble tie-break ran on any set",
+ "motivation": "On the development fifth a coder adds to the engine in two places: choosing among the engine's equally scored programs (pyx_tie: 2 fixes, 0 breaks for s5-var) and answering where the engine has none (pyx_fill). Replacing the engine's unconfident programs with the coders' vote lost twice (SeedLM-10: 63 vs 67; SeedLM-12: 63 vs 65). Averaging separately trained coders reduces one coder's variance, which SeedLM-12 measured at up to 8 tasks between seeds of one recipe",
+ "hypothesis": "Breaking the engine's ties by the mean log-probability of an ensemble of separately trained coders, and filling the engine's gaps with their vote, solves more of the development fifth than the same method with one coder",
+ "method": "scripts/seedlm13_ensemble_tie.py with the six SeedLM-12 coders (s12-a1, s12-a2, s12-a3, s12-b1, s12-b2, s12-b3): ens_tie_fill = among the engine's tied best programs, the one with the highest mean log-probability over the six coders; where the engine has no program, the coders' vote (SeedLM-10's rule). ens_override (ens_tie_fill, but the vote where the engine marks its program not confident) is reported and cannot be chosen",
+ "primary_measure": "held-out development fifth (94): ens_tie_fill against s5-var's pyx_tie_fill (68). Supported if it solves more than 69 (s5-var's best method); not supported if it solves fewer than 68; inconclusive otherwise",
+ "choice": "if ens_tie_fill solves more than 69, it gets the validation gate (alone no fewer than the engine's 19 of 45; in the 1.5B pipeline no fewer than 31), one MBPP+ test run and one HumanEval+ run, after the ensemble method is added to those evaluations unchanged",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
