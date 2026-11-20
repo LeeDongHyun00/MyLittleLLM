@@ -1,0 +1,66 @@
+{
+ "coders": [
+  "s5-var",
+  "s8-all",
+  "s6-graft",
+  "s6-comp",
+  "s9-early",
+  "s9-early-last",
+  "s4-post"
+ ],
+ "teacher": {
+  "tasks": 139,
+  "single": {
+   "s5-var": 52,
+   "s8-all": 62,
+   "s6-graft": 61,
+   "s6-comp": 59,
+   "s9-early": 57,
+   "s9-early-last": 53,
+   "s4-post": 51
+  },
+  "vote": 70,
+  "oracle": 90,
+  "vote_changed": 27
+ },
+ "beyond": {
+  "tasks": 15,
+  "single": {
+   "s5-var": 5,
+   "s8-all": 3,
+   "s6-graft": 3,
+   "s6-comp": 4,
+   "s9-early": 4,
+   "s9-early-last": 4,
+   "s4-post": 3
+  },
+  "vote": 3,
+  "oracle": 6,
+  "vote_changed": 5
+ },
+ "development": {
+  "tasks": 94,
+  "engine": 65,
+  "single": {
+   "s5-var": 57,
+   "s8-all": 53,
+   "s6-graft": 55,
+   "s6-comp": 56,
+   "s9-early": 53,
+   "s9-early-last": 54,
+   "s4-post": 57
+  },
+  "vote": 62,
+  "oracle": 67,
+  "engine_override_vote": 63,
+  "engine_override_first": 67,
+  "vote_versus_engine": [
+   4,
+   7
+  ],
+  "override_vote_versus_engine": [
+   0,
+   2
+  ]
+ }
+}

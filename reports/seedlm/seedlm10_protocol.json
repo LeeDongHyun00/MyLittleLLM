@@ -13,5 +13,15 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-20, after the pre-registered measures",
+  "primary": "held-out teacher tasks: the vote solves 70 of 139; the best single coder (s8-all) 62, s5-var 52, the others 51 to 61; some coder's proposal is correct for 90. +8 over the best single coder: supported (reports/seedlm/ensemble_holdout.json)",
+  "secondary": {
+   "beyond": "vote 3 of 15; single coders 3 to 5 (s5-var 5); oracle 6",
+   "held_out_development": "vote alone 62 of 94 (single coders 53 to 57, engine 65; against the engine 4 fixes and 7 breaks); engine-backed vote 63 against 67 for the same rule with s5-var's first program (it fixes none and breaks 2)"
+  },
+  "choice": "engine-backed vote 63, not more than 69: no new method",
+  "reading": "Agreement between separately trained coders is evidence where agreement inside one coder's beam was not (SeedLM-7: 52 -> 48): the condition of independence decides. On the real development tasks the vote beats every coder alone, but replacing the engine's unconfident programs with it loses: there the coders, all trained on the engine's programs and the same synthetic library data, share the engine's blind spots"
+ }
 }
