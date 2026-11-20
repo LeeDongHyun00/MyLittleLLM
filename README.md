@@ -24,6 +24,7 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 - [SeedLM-9: 가장 좋은 시점을 고르기, 그리고 한 번의 실행이 말해 주지 않는 것](docs/seed_lm9.md)
 - [SeedLM-10/11: 따로 학습한 코더들의 합의는 증거다](docs/seed_lm10.md)
 - [SeedLM-12: 반복하면 사라지는 효과](docs/seed_lm12.md)
+- [SeedLM-13~19: 코더 앙상블을 어디까지 밀 수 있나](docs/seed_lm13.md)
 - [처음부터 만든 코더에 관해 지금까지 확인한 것 (SeedLM-4~12 요약)](docs/seedlm_findings.md)
 
 ## 2026-11-18 규칙 증류 실험 (별도 트랙)
@@ -102,6 +103,8 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 python scripts/seedlm_solve.py --description "Write a function to find the sum of the squares of the odd numbers in a list." \
     --assert "assert odd_square_sum([2, 7, 4, 9]) == 130" --engine
 ```
+
+**SeedLM-13~19.** 코더 합의를 더 밀었다. 열셋의 합의는 동점을 가장 짧은 프로그램으로 깨면 교사 보류 과제에서 72.9개를 풀고, 구조가 다른 전위 코더를 섞은 열여덟의 합의는 실제 개발 과제에서 64.6개로 엔진 혼자(65)에 근접했다. 엔진과 합치는 규칙은 같은 무게의 두 전문가 방식(69, 고침 1·깨뜨림 0)까지 해 봤지만 지금까지의 최고(69)를 넘지 못했다. 자세한 내용은 [SeedLM-13~19 문서](docs/seed_lm13.md)에 있다.
 
 ```bash
 python -m venv .venv && . .venv/bin/activate
