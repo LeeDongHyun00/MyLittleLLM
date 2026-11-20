@@ -14,5 +14,17 @@
   "test",
   "HumanEval+"
  ],
- "note_1": "s20-p5's first run was stopped by a container restart at about 30 of its 40 minutes, before any measurement of it; it was rerun from the start with the same arguments. s20-p4 had finished and been cached before the restart (alone: teacher 49, development 54)"
+ "note_1": "s20-p5's first run was stopped by a container restart at about 30 of its 40 minutes, before any measurement of it; it was rerun from the start with the same arguments. s20-p4 had finished and been cached before the restart (alone: teacher 49, development 54)",
+ "note_2": "The rerun of s20-p5 went slower than s20-p4 in the fresh container (1,713 steps in 40 minutes against 1,808; s20-p6 1,749); nothing else ran during training apart from a few seconds of light scripts",
+ "outcome": {
+  "written": "2026-11-20, after the measure",
+  "primary": "development fifth, the vote of all twenty-one coders: 64.63 (sd 0.51 over 200 orders, 63 to 65; eighteen coders 64.57). Between 64.6 and 65.5: inconclusive, in effect unchanged (reports/seedlm/ensemble_occam_21.json)",
+  "secondary": [
+   "held-out teacher tasks, the same vote: 71.23 (eighteen coders 72.25)",
+   "alone, s20-p4/p5/p6: development 54, 54, 50 (s18-p1..p3: 55, 60, 56); teacher 49, 55, 54 (45, 42, 45)"
+  ],
+  "reported": "tasks some coder solves (counts only): development 71 with or without the three new coders, which solve no development task no other coder solves (the three alone reach 61, s18-p1..p3 64); teacher 97 -> 100",
+  "reading": "The later data made the prefix coders better on generated tasks and no better on real ones: alone they lost about 4 development tasks against the SeedLM-3-data prefix coders, and in the vote they added nothing on the development fifth and cost one task on the teacher tasks. What the first five prefix coders added on real tasks did not come from their architecture alone; with three seeds a side the data and seed effects are not separated",
+  "choice": "no new method"
+ }
 }
