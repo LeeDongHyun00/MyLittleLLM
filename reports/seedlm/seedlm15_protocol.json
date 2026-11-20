@@ -13,5 +13,13 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-20, after the measure",
+  "primary": "held-out teacher tasks: 13 coders 71.03 (mean over 200 random orders; ties follow the order) against 7 coders 69.42 (200 random subsets): +1.6, inconclusive",
+  "curve_teacher": "1: 57.8, 2: 61.9, 3: 65.3, 4: 67.2, 5: 68.3, 6: 69.1, 7: 69.4, 9: 70.1, 13: 71.0; oracle 96",
+  "curve_development_coders_alone": "1: 55.5, 2: 58.1, 3: 60.4, 5: 61.6, 7: 62.0, 13: 62.2; oracle 70; the engine alone 65",
+  "note": "the first scoring run evaluated a single order at 13 coders (72); the protocol asks for the mean over orders, so the script was changed to draw 200 orders at every size and rerun",
+  "reading": "Most of the gain comes from the first five coders (+10.5 on held-out teacher tasks); past seven it grows by about 0.3 per coder. On the development fifth the vote stops near 62, three below the engine, while the oracle reaches 70: the coders together hold more correct programs than the vote can pick"
+ }
 }

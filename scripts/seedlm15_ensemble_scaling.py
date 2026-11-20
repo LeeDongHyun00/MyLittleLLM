@@ -110,7 +110,7 @@ def score(subsets, seed=0):
         by_size = {}
         for k in range(1, len(coders) + 1):
             totals = []
-            for _ in range(subsets if k < len(coders) else 1):
+            for _ in range(subsets):      # the full set too: only the order (ties) varies
                 members = rng.sample(coders, k)
                 totals.append(sum(vote_correct([data[c][set_name][t] for c in members]) for t in range(n_tasks)))
             by_size[k] = {"mean": round(statistics.mean(totals), 2),
