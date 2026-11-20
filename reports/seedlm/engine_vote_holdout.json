@@ -1,0 +1,25 @@
+{
+ "coders": [
+  "s5-var",
+  "s8-all",
+  "s6-graft",
+  "s6-comp",
+  "s9-early",
+  "s9-early-last",
+  "s4-post"
+ ],
+ "majority": 4,
+ "development": {
+  "tasks": 94,
+  "engine": 65,
+  "base": 68,
+  "override": 68,
+  "with": 67,
+  "fill": 65,
+  "override_changed": 3,
+  "override_versus_base": [
+   1,
+   1
+  ]
+ }
+}

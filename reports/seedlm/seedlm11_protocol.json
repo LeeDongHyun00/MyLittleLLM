@@ -9,5 +9,12 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-20, after the pre-registered measure",
+  "primary": "override 68 against base 68: a majority of at least 4 coders contradicted the base on 3 tasks, fixing 1 and breaking 1. It does not solve more than 69: not supported (reports/seedlm/engine_vote_holdout.json)",
+  "reported": "the engine as an eighth voter 67; the vote filling tasks where the engine has no program 65; the engine alone 65",
+  "choice": "no new method",
+  "reading": "On real tasks a strong coder majority against the engine is rare (3 of 94) and right as often as wrong: where the engine is wrong, the coders mostly are too"
+ }
 }
