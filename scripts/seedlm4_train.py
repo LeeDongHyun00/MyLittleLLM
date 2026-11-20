@@ -18,7 +18,7 @@ SeedLM-6 adds two sources of new compositions (reports/seedlm/seedlm6_protocol.j
                     a tenth of them (by id) is held out
 
 SeedLM-9 (reports/seedlm/seedlm9_protocol.json): with --internal-val, a twentieth of the training tasks
-(real rows, teacher tasks, composed tasks; by a hash of the task id) is kept out of training, and with
+(real rows, teacher tasks, composed tasks; by a hash of the task id, up to 200 rows each) is kept out of training, and with
 --checkpoint-minutes the coder is scored on them every so many minutes of training. The best-scoring
 checkpoint is saved as <name>.pt and the last one as <name>-last.pt, each with its own report. The
 measurement sets are never used to choose.
@@ -226,7 +226,7 @@ def main():
         real, internal["real"] = split(real)
         tasks_train, internal["teacher"] = split(tasks_train)
         composed_train, internal["composed"] = split(composed_train)
-        internal = {k: v[:100] for k, v in internal.items() if v}
+        internal = {k: v[:200] for k, v in internal.items() if v}     # every internal row (about 440)
     n = len(synthetic)
     other = (1 - args.real_share - args.teacher_share - args.oneliner_share - args.variant_share
              - args.graft_share - args.compose_share)
