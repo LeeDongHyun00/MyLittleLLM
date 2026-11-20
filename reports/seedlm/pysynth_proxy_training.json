@@ -1,0 +1,148 @@
+{
+ "count": 30000,
+ "seed": 0,
+ "library": "training",
+ "families": {
+  "library": 5,
+  "arithmetic": 3,
+  "compare": 2,
+  "logic": 1,
+  "conditional": 1,
+  "index": 2,
+  "slice": 1,
+  "builtin": 3,
+  "method": 2,
+  "comprehension": 3
+ },
+ "generated_edges": 8930,
+ "generated_edges_new_to_training": 7211,
+ "proxy": {
+  "programs": 970,
+  "programs_all_new_edges_covered": 253,
+  "new_edges": 1696,
+  "new_edges_covered": 487,
+  "by_class": {
+   "python->library": {
+    "edges": 195,
+    "covered": 45
+   },
+   "python->builtin": {
+    "edges": 176,
+    "covered": 71
+   },
+   "python->python": {
+    "edges": 176,
+    "covered": 92
+   },
+   "builtin->python": {
+    "edges": 105,
+    "covered": 30
+   },
+   "comprehension->python": {
+    "edges": 92,
+    "covered": 36
+   },
+   "library->library": {
+    "edges": 89,
+    "covered": 0
+   },
+   "builtin->leaf": {
+    "edges": 83,
+    "covered": 6
+   },
+   "python->leaf": {
+    "edges": 82,
+    "covered": 16
+   },
+   "python->method": {
+    "edges": 64,
+    "covered": 25
+   },
+   "comprehension->builtin": {
+    "edges": 62,
+    "covered": 10
+   },
+   "comprehension->library": {
+    "edges": 61,
+    "covered": 13
+   },
+   "builtin->builtin": {
+    "edges": 59,
+    "covered": 24
+   },
+   "method->leaf": {
+    "edges": 55,
+    "covered": 13
+   },
+   "comprehension->method": {
+    "edges": 51,
+    "covered": 26
+   },
+   "builtin->library": {
+    "edges": 50,
+    "covered": 11
+   },
+   "library->leaf": {
+    "edges": 48,
+    "covered": 13
+   },
+   "library->python": {
+    "edges": 41,
+    "covered": 11
+   },
+   "builtin->comprehension": {
+    "edges": 36,
+    "covered": 7
+   },
+   "comprehension->leaf": {
+    "edges": 28,
+    "covered": 0
+   },
+   "builtin->method": {
+    "edges": 27,
+    "covered": 6
+   },
+   "method->python": {
+    "edges": 22,
+    "covered": 10
+   },
+   "library->method": {
+    "edges": 21,
+    "covered": 0
+   },
+   "python->comprehension": {
+    "edges": 15,
+    "covered": 4
+   },
+   "method->method": {
+    "edges": 14,
+    "covered": 6
+   },
+   "library->builtin": {
+    "edges": 11,
+    "covered": 0
+   },
+   "method->library": {
+    "edges": 10,
+    "covered": 2
+   },
+   "method->builtin": {
+    "edges": 10,
+    "covered": 6
+   },
+   "library->comprehension": {
+    "edges": 8,
+    "covered": 2
+   },
+   "comprehension->comprehension": {
+    "edges": 3,
+    "covered": 0
+   },
+   "method->comprehension": {
+    "edges": 2,
+    "covered": 2
+   }
+  }
+ },
+ "seconds": 54.5
+}

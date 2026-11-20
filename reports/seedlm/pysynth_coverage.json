@@ -1,0 +1,343 @@
+{
+ "count": 30000,
+ "seed": 0,
+ "library": "sqrt",
+ "families": {
+  "library": 5,
+  "arithmetic": 3,
+  "compare": 2,
+  "logic": 1,
+  "conditional": 1,
+  "index": 2,
+  "slice": 1,
+  "builtin": 3,
+  "method": 2,
+  "comprehension": 3
+ },
+ "generated_edges": 8792,
+ "generated_edges_new_to_training": 7006,
+ "proxy": {
+  "programs": 970,
+  "programs_all_new_edges_covered": 283,
+  "new_edges": 1696,
+  "new_edges_covered": 550,
+  "by_class": {
+   "python->library": {
+    "edges": 195,
+    "covered": 64
+   },
+   "python->builtin": {
+    "edges": 176,
+    "covered": 73
+   },
+   "python->python": {
+    "edges": 176,
+    "covered": 98
+   },
+   "builtin->python": {
+    "edges": 105,
+    "covered": 29
+   },
+   "comprehension->python": {
+    "edges": 92,
+    "covered": 35
+   },
+   "library->library": {
+    "edges": 89,
+    "covered": 0
+   },
+   "builtin->leaf": {
+    "edges": 83,
+    "covered": 5
+   },
+   "python->leaf": {
+    "edges": 82,
+    "covered": 16
+   },
+   "python->method": {
+    "edges": 64,
+    "covered": 29
+   },
+   "comprehension->builtin": {
+    "edges": 62,
+    "covered": 9
+   },
+   "comprehension->library": {
+    "edges": 61,
+    "covered": 23
+   },
+   "builtin->builtin": {
+    "edges": 59,
+    "covered": 24
+   },
+   "method->leaf": {
+    "edges": 55,
+    "covered": 12
+   },
+   "comprehension->method": {
+    "edges": 51,
+    "covered": 25
+   },
+   "builtin->library": {
+    "edges": 50,
+    "covered": 16
+   },
+   "library->leaf": {
+    "edges": 48,
+    "covered": 28
+   },
+   "library->python": {
+    "edges": 41,
+    "covered": 14
+   },
+   "builtin->comprehension": {
+    "edges": 36,
+    "covered": 7
+   },
+   "comprehension->leaf": {
+    "edges": 28,
+    "covered": 0
+   },
+   "builtin->method": {
+    "edges": 27,
+    "covered": 8
+   },
+   "method->python": {
+    "edges": 22,
+    "covered": 9
+   },
+   "library->method": {
+    "edges": 21,
+    "covered": 2
+   },
+   "python->comprehension": {
+    "edges": 15,
+    "covered": 5
+   },
+   "method->method": {
+    "edges": 14,
+    "covered": 1
+   },
+   "library->builtin": {
+    "edges": 11,
+    "covered": 6
+   },
+   "method->library": {
+    "edges": 10,
+    "covered": 1
+   },
+   "method->builtin": {
+    "edges": 10,
+    "covered": 6
+   },
+   "library->comprehension": {
+    "edges": 8,
+    "covered": 3
+   },
+   "comprehension->comprehension": {
+    "edges": 3,
+    "covered": 0
+   },
+   "method->comprehension": {
+    "edges": 2,
+    "covered": 2
+   }
+  }
+ },
+ "teacher_holdout": {
+  "programs": 65,
+  "programs_all_new_edges_covered": 15,
+  "new_edges": 98,
+  "new_edges_covered": 31,
+  "by_class": {
+   "python->library": {
+    "edges": 26,
+    "covered": 10
+   },
+   "library->library": {
+    "edges": 9,
+    "covered": 0
+   },
+   "library->python": {
+    "edges": 6,
+    "covered": 2
+   },
+   "python->leaf": {
+    "edges": 5,
+    "covered": 1
+   },
+   "builtin->library": {
+    "edges": 5,
+    "covered": 0
+   },
+   "python->builtin": {
+    "edges": 4,
+    "covered": 2
+   },
+   "method->leaf": {
+    "edges": 4,
+    "covered": 1
+   },
+   "python->python": {
+    "edges": 4,
+    "covered": 3
+   },
+   "library->leaf": {
+    "edges": 4,
+    "covered": 1
+   },
+   "library->method": {
+    "edges": 4,
+    "covered": 0
+   },
+   "builtin->python": {
+    "edges": 3,
+    "covered": 0
+   },
+   "python->method": {
+    "edges": 3,
+    "covered": 2
+   },
+   "comprehension->library": {
+    "edges": 3,
+    "covered": 2
+   },
+   "library->builtin": {
+    "edges": 3,
+    "covered": 1
+   },
+   "comprehension->python": {
+    "edges": 2,
+    "covered": 1
+   },
+   "builtin->method": {
+    "edges": 2,
+    "covered": 2
+   },
+   "builtin->comprehension": {
+    "edges": 2,
+    "covered": 1
+   },
+   "comprehension->builtin": {
+    "edges": 2,
+    "covered": 0
+   },
+   "method->builtin": {
+    "edges": 1,
+    "covered": 0
+   },
+   "method->method": {
+    "edges": 1,
+    "covered": 0
+   },
+   "builtin->builtin": {
+    "edges": 1,
+    "covered": 0
+   },
+   "comprehension->method": {
+    "edges": 1,
+    "covered": 0
+   },
+   "method->python": {
+    "edges": 1,
+    "covered": 1
+   },
+   "builtin->leaf": {
+    "edges": 1,
+    "covered": 1
+   },
+   "method->library": {
+    "edges": 1,
+    "covered": 0
+   }
+  },
+  "programs_in_set": 139
+ },
+ "variant_holdout": {
+  "programs": 3,
+  "programs_all_new_edges_covered": 0,
+  "new_edges": 12,
+  "new_edges_covered": 1,
+  "by_class": {
+   "python->leaf": {
+    "edges": 8,
+    "covered": 0
+   },
+   "comprehension->python": {
+    "edges": 2,
+    "covered": 0
+   },
+   "builtin->leaf": {
+    "edges": 1,
+    "covered": 1
+   },
+   "method->builtin": {
+    "edges": 1,
+    "covered": 0
+   }
+  },
+  "programs_in_set": 16
+ },
+ "beyond": {
+  "programs": 7,
+  "programs_all_new_edges_covered": 1,
+  "new_edges": 23,
+  "new_edges_covered": 9,
+  "by_class": {
+   "python->python": {
+    "edges": 5,
+    "covered": 2
+   },
+   "comprehension->library": {
+    "edges": 3,
+    "covered": 1
+   },
+   "builtin->python": {
+    "edges": 2,
+    "covered": 1
+   },
+   "library->leaf": {
+    "edges": 2,
+    "covered": 0
+   },
+   "python->leaf": {
+    "edges": 2,
+    "covered": 0
+   },
+   "comprehension->python": {
+    "edges": 2,
+    "covered": 1
+   },
+   "library->comprehension": {
+    "edges": 1,
+    "covered": 0
+   },
+   "library->builtin": {
+    "edges": 1,
+    "covered": 1
+   },
+   "python->builtin": {
+    "edges": 1,
+    "covered": 1
+   },
+   "library->python": {
+    "edges": 1,
+    "covered": 1
+   },
+   "builtin->comprehension": {
+    "edges": 1,
+    "covered": 0
+   },
+   "method->library": {
+    "edges": 1,
+    "covered": 0
+   },
+   "comprehension->builtin": {
+    "edges": 1,
+    "covered": 1
+   }
+  },
+  "programs_in_set": 15
+ },
+ "seconds": 59.0
+}

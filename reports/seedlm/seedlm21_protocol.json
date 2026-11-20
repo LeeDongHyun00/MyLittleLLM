@@ -1,0 +1,29 @@
+{
+ "written": "2026-11-20, after SeedLM-20, before any SeedLM-21 coder was trained",
+ "motivation": [
+  "Of the parent -> child links (edges) in held-out teacher programs that neither the 100,000 synthetic library programs nor any training program has, 9 of 98 join two library operators; the rest touch a Python node (26 are a Python node over a library operator). In the held-out development one-liners beyond the engine none of the 23 joins two operators (reports/seedlm/pysynth_coverage.json)",
+  "The coder's synthetic rows (300,000) hold library operators only; Python nodes reach it only through a few thousand teacher-written programs",
+  "SeedLM-6's grafts covered the new pieces of 7 of 77 held-out new-combination programs and, repeated over three seeds (SeedLM-12), lowered the surprisal of new-edge tokens without writing more of those programs correctly"
+ ],
+ "hypothesis": "Programs that mix Python nodes with library operators at scale teach the coder to build the Python-node junctions held-out programs need, so it writes more held-out programs that hold a new combination",
+ "data": "mylittlellm/seedlm/pysynth.py over the input cases of the training teacher tasks and variants: 30,000 programs (seed 0), library operators drawn in proportion to the square root of their use in training programs. The draw ('sqrt') was chosen among three ('all', 'training', 'sqrt') on a proxy built from training programs only (five parts of the training teacher tasks and variants, each part's new edges against the synthetic programs and the other training programs: covered programs 232, 253, 283 of 970; reports/seedlm/pysynth_proxy_*.json). Rows are described like the grafts (mylittlellm/seedlm/pyx_words.py), three cases per program",
+ "coverage_before_training": "measured once for the chosen settings: held-out teacher programs with a new edge 65, all new edges covered 15; new edges 98, covered 31. Beyond: 7 programs, 1 fully covered; 23 edges, 9 covered (reports/seedlm/pysynth_coverage.json)",
+ "arm": "three post-coders s21-y1, s21-y2, s21-y3: scripts/seedlm4_train.py --name s21-y<seed> --minutes 40 --d-model 320 --layers 8 --heads 10 --views 3 --seed <seed> --variant-share 0.1 --pysynth-share 0.15 --pysynth-count 30000 --pysynth-library sqrt, seeds 1, 2, 3; nothing else runs while they train",
+ "control": "s12-a1, s12-a2, s12-a3 (SeedLM-12: the same arguments without --pysynth-share)",
+ "primary_measure": "held-out teacher tasks whose own program holds a token, edge or twig that neither the synthetic library programs nor any training program has (77 of 139; scripts/seedlm21_compare.py): the first program at beam width 32 that reproduces the visible example is correct on every case (SeedLM-15's cache). Mean of the three arm coders against the controls' (20, 21, 23: 21.33). Supported if the arm's mean is at least 25.33 (+4); not supported if at most 22.33 (+1); inconclusive otherwise",
+ "protection": "held-out teacher tasks whose pieces are all seen (62; controls 39, 38, 39): the arm's mean may not be more than 3 below the controls' 38.67, or the result is reported as a trade, not a gain",
+ "secondary_measures": [
+  "held-out teacher tasks, all 139 (controls 59, 59, 62)",
+  "development fifth, each coder alone (controls 56, 53, 58)",
+  "teacher-program tokens at new edges: mean nats and share ranked first (scripts/seedlm5_fragments.py --model; controls 4.31, 4.51, 3.63 nats on held-out teacher programs, 8.65, 8.81, 7.30 on beyond)",
+  "the vote of all twenty-four cached coders on the development fifth and the teacher tasks (scripts/seedlm16_occam.py; twenty-one coders 64.63 and 71.23)"
+ ],
+ "choice": "diagnostic; the system's adoption rule is unchanged",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "held-out teacher tasks",
+  "the development fifth"
+ ]
+}
