@@ -39,5 +39,6 @@
   "note": "The arm coders took fewer steps in the same 40 minutes (1,667, 1,820, 1,812 against 2,087, 1,959, 1,943), in a different container from the controls'; SeedLM-20's prefix coders also ran about 11% fewer steps here than SeedLM-18's",
   "reading": "As with SeedLM-6's grafts (SeedLM-12), training on new compositions made the teacher's own programs more probable, at new edges and everywhere else, while the coder wrote fewer of them correctly: the first program that reproduces the example is more often a wrong one. Spreading probability over many compositions raises the right program and its wrong neighbours together, and with one visible example the neighbours win the ranking",
   "choice": "no new method"
- }
+ },
+ "correction": "The motivation's first count, recounted from reports/seedlm/pysynth_coverage.json: of the 98 new edges, 85 touch a Python node (35 a Python node, builtin, method or comprehension over a library operator), 9 join two library operators and 4 join a library operator to a leaf. 'The rest touch a Python node' overstated it by 4"
 }
