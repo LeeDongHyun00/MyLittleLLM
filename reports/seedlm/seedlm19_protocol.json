@@ -1,0 +1,13 @@
+{
+ "written": "2026-11-20, after SeedLM-18, before the equal-weight combination ran",
+ "motivation": "Eighteen coders of two architectures solve 64.6 development tasks by their vote, the engine alone 65 (SeedLM-18): two systems of nearly equal accuracy. Earlier combinations used seven or thirteen coders of one architecture, which share the engine's blind spots (SeedLM-10, 11, 13); the prefix coders vote more independently on real tasks (SeedLM-17)",
+ "hypothesis": "Weighing the engine side and the coder ensemble equally, the engine side is right where it is overturned less often than the ensemble majority that overturns it",
+ "method": "scripts/seedlm19_engine_ensemble.py over SeedLM-15's cached proposals of the eighteen coders: the engine side (s5-var's pyx_tie_fill) gets n/2 votes plus the coders agreeing with it on the 24 probes; another behaviour gets the coders agreeing with it, plus n/2 if the engine side agrees; the engine side keeps the task unless another behaviour has strictly more votes; ties among behaviours to the shortest program. The coders' vote wherever the engine is not confident is reported and cannot be chosen",
+ "primary_measure": "development fifth (94): the equal-weight rule against its base, pyx_tie_fill (68). Supported if it solves more than 69 (s5-var's best method); not supported if fewer than 68; inconclusive otherwise",
+ "choice": "if supported, the rule gets the validation gate (alone no fewer than the engine's 19 of 45; in the 1.5B pipeline no fewer than 31), one MBPP+ test run and one HumanEval+ run, with the same eighteen coders",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
