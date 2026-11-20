@@ -1,0 +1,17 @@
+{
+ "written": "2026-11-20, before any proposal was cached for this study",
+ "motivation": "The vote of separately trained coders beat the best single coder by 8 to 9 held-out teacher tasks in two independent groups (SeedLM-10: seven coders, 70; SeedLM-12: six other coders, 71). How the gain grows with the number of coders decides whether more coders are worth training",
+ "hypothesis": "The vote keeps improving past seven coders, with diminishing returns",
+ "method": "scripts/seedlm15_ensemble_scaling.py: the thirteen post-coders (s4-post, s5-var, s6-graft, s6-comp, s8-all, s9-early, s9-early-last, s12-a1..a3, s12-b1..b3); each coder's first verified program at width 32 and its behaviour on the 24 consensus probes, cached; the vote of SeedLM-10 on 200 random subsets of each size, ties to the earlier coder in the subset's random order",
+ "primary_measure": "held-out teacher tasks: the mean vote over random 13-coder orders against the mean over random 7-coder subsets. Supported if at least 2 higher; not supported if lower; inconclusive otherwise",
+ "secondary_measures": [
+  "the whole curve from 1 to 13 coders on held-out teacher tasks and on the development fifth (coders alone, no engine)",
+  "the oracle (some coder correct) for comparison"
+ ],
+ "choice": "diagnostic only; no method is adopted from it",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
