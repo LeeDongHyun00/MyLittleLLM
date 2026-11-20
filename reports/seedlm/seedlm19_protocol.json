@@ -9,5 +9,12 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-20, after the measure",
+  "primary": "equal-weight rule 69 against base 68: it overturned the engine side on 8 tasks, fixing 1 and breaking none. Not above 69: inconclusive (reports/seedlm/engine_ensemble_holdout.json)",
+  "reported": "the coders' vote where the engine is not confident: 66; the engine alone 65; the engine side or some coder correct: 73",
+  "choice": "no new method",
+  "reading": "Where more than half of eighteen coders agree against the engine side, both are usually wrong (7 of the 8 tasks); the rule is safe (no breaks) but finds little. The components' combined reach on the development fifth is 73, and every rule tried so far stops at 66 to 69"
+ }
 }
