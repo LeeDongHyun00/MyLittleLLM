@@ -13,5 +13,12 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-20, after the measure",
+  "single": "s18-p1: 45 held-out teacher tasks, 55 development tasks; s18-p2: 42 and 60 (the best single coder on the development fifth so far); s18-p3: 45 and 56",
+  "primary": "development fifth, coders alone, eighteen coders: 64.57 (sd 0.53, 63 to 65 over 200 orders) against fifteen coders' 63.6: inconclusive (supported needed above 65.5) (reports/seedlm/ensemble_occam_18.json)",
+  "secondary": "held-out teacher tasks: 72.25 (fifteen: 72.82)",
+  "reading": "The coder-only vote on real tasks rose again with the other architecture (61.4 with thirteen post-coders, 63.6 with two prefix coders added, 64.6 with five) and now sits within half a task of the engine; on generated tasks the weaker prefix coders slightly lower the vote"
+ }
 }
