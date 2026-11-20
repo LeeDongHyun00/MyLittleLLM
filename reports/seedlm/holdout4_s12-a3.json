@@ -1,0 +1,48 @@
+{
+ "model": "s12-a3",
+ "tasks": 94,
+ "solved": {
+  "engine": 65,
+  "pyx_model": 58,
+  "pyx_fill": 65,
+  "pyx_tie": 68,
+  "pyx_tie_fill": 68,
+  "pyx_override": 66,
+  "pyx_rerank": 64,
+  "pyx_margin": 65
+ },
+ "versus_engine": {
+  "engine": [
+   0,
+   0
+  ],
+  "pyx_model": [
+   4,
+   11
+  ],
+  "pyx_fill": [
+   0,
+   0
+  ],
+  "pyx_tie": [
+   3,
+   0
+  ],
+  "pyx_tie_fill": [
+   3,
+   0
+  ],
+  "pyx_override": [
+   3,
+   2
+  ],
+  "pyx_rerank": [
+   4,
+   5
+  ],
+  "pyx_margin": [
+   4,
+   4
+  ]
+ }
+}
