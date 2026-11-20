@@ -1,0 +1,17 @@
+{
+ "written": "2026-11-20, after SeedLM-15, before any tie rule other than the order was scored",
+ "motivation": "With the same thirteen coders, only the order in which tied behaviours are compared moved the vote between 68 and 76 held-out teacher tasks (SeedLM-15): ties are frequent and decide several tasks",
+ "hypothesis": "Breaking ties by simplicity (the tied behaviour whose shortest program has the fewest tokens) beats breaking them by a random order",
+ "method": "scripts/seedlm16_occam.py over SeedLM-15's cached proposals: SeedLM-10's vote; among proposals with the highest support, the one with the fewest pyx tokens; remaining ties by the subset's random order. 200 random subsets per size, the same seeds as SeedLM-15's scoring",
+ "primary_measure": "held-out teacher tasks, 13 coders: the mean over 200 orders with the simplicity tie-break against SeedLM-15's 71.03. Supported if at least 1.5 higher; not supported if lower; inconclusive otherwise",
+ "secondary_measures": [
+  "the whole curve on held-out teacher tasks and the development fifth",
+  "the spread over orders at 13 coders (SeedLM-15: sd 1.48 on teacher tasks)"
+ ],
+ "choice": "diagnostic only; no method is adopted from it",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
