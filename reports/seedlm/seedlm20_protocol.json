@@ -1,0 +1,17 @@
+{
+ "written": "2026-11-20, after SeedLM-19, before any SeedLM-20 coder was trained",
+ "motivation": "Prefix coders lifted the coder-only vote on the development fifth from 61.4 to 64.6 (SeedLM-17, 18), within half a task of the engine (65). The five prefix coders so far were trained on SeedLM-3's data only; the post-coders gained most on held-out teacher tasks from the later data (variants, composed tasks) and from short training",
+ "hypothesis": "Prefix coders trained on the later data add more to the coder-only vote on real tasks, enough to pass the engine",
+ "coders": "three prefix coders, s3b-pyx's architecture, 40 minutes, seeds 4, 5 and 6, with the seeded variants and the composed tasks at a tenth of the rows each: scripts/seedlm3_train.py --name s20-p<seed> --minutes 40 --d-model 320 --layers 8 --heads 10 --views 3 --seed <seed> --variant-share 0.1 --compose-share 0.1; nothing else runs while they train",
+ "primary_measure": "development fifth, coders alone: the vote of all twenty-one cached coders (ties to the shortest program, mean over 200 orders; scripts/seedlm16_occam.py). Supported if above 65.5 (more than the engine's 65); not supported if below 64.6 (eighteen coders); inconclusive otherwise",
+ "secondary_measures": [
+  "held-out teacher tasks, the same vote (eighteen coders: 72.25)",
+  "each new prefix coder alone, against s18-p1..p3 (development 55, 60, 56; teacher 45, 42, 45)"
+ ],
+ "choice": "diagnostic; the system's adoption rule is unchanged",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}

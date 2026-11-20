@@ -248,6 +248,9 @@ def main():
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--muon-lr", type=float, default=0.02)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--variant-share", type=float, default=0.0,
+                        help="share of SeedLM-5's seeded variants (SeedLM-20: the later data for this coder too)")
+    parser.add_argument("--compose-share", type=float, default=0.0, help="share of SeedLM-6's composed tasks")
     args = parser.parse_args()
     torch.set_num_threads(4)
     torch.manual_seed(args.seed)
@@ -256,12 +259,18 @@ def main():
     started = time.time()
     teacher = teacher_task_items()
     oneliners = oneliner_items()
+    from seedlm4_train import variant_held      # here: seedlm4_train imports this module
+    variants = teacher_task_items("variant_tasks") if args.variant_share else []
+    composed = teacher_task_items("compose_tasks") if args.compose_share else []
     phrases = language.load_phrases()
     real_train_texts = [" ".join(r["words"]) for r in json.loads((V2 / "real_dev.json").read_text()) if r["part"] == "train"]
     keyword_texts = [" ".join(language.keyword_phrases(op)) for op in bi.OPERATORS.values()]
     texts = real_train_texts + keyword_texts + [t["description"] for t in teacher if not teacher_held(t["id"])] \
-        + [e["item"]["description"] for e in oneliners if e["part"] == "train"]
-    extra_tokens = {s for t in teacher for s in t["tokens"]} | {s for e in oneliners for s in e["tokens"]}
+        + [e["item"]["description"] for e in oneliners if e["part"] == "train"] \
+        + [t["description"] for t in variants if not variant_held(t)] \
+        + [t["description"] for t in composed if not teacher_held(t["id"])]
+    extra_tokens = {s for t in teacher + variants + composed for s in t["tokens"]} | \
+        {s for e in oneliners for s in e["tokens"]}
     vocabulary = coder3.Vocabulary(language.build_vocabulary(texts, phrases), coder3.program_tokens(extra_tokens))
     grammar = coder3.Grammar(vocabulary)
     describer = language.Describer(bi.OPERATORS, phrases)
@@ -272,20 +281,27 @@ def main():
     real = real_rows(vocabulary, "train", random.Random(args.seed + 2), views=args.views)
     tasks_train = teacher_rows(vocabulary, teacher, held=False, views=args.views)
     lines_train = oneliner_rows(vocabulary, oneliners, "train", views=args.views)
+    variants_train = teacher_rows(vocabulary, variants, held=False, views=args.views, held_out=variant_held)
+    composed_train = teacher_rows(vocabulary, composed, held=False, views=args.views)
     n = len(synthetic)
-    other = 1 - args.real_share - args.teacher_share - args.oneliner_share
+    other = (1 - args.real_share - args.teacher_share - args.oneliner_share - args.variant_share
+             - args.compose_share)
 
     def copies(share, rows):
         return max(1, round(share * n / (other * max(1, len(rows))))) if rows else 0
 
     train = (synthetic + real * copies(args.real_share, real) + tasks_train * copies(args.teacher_share, tasks_train)
-             + lines_train * copies(args.oneliner_share, lines_train))
+             + lines_train * copies(args.oneliner_share, lines_train)
+             + variants_train * copies(args.variant_share, variants_train)
+             + composed_train * copies(args.compose_share, composed_train))
     held_real = real_rows(vocabulary, "holdout")
     held_teacher = teacher_rows(vocabulary, teacher, held=True)
     print(f"vocabulary {len(vocabulary)} (words {len(vocabulary.words)}, program tokens {len(vocabulary.operators)}); "
           f"synthetic {n}, real {len(real)} x{copies(args.real_share, real)}, teacher tasks {len(tasks_train)} "
           f"x{copies(args.teacher_share, tasks_train)}, dev one-liners {len(lines_train)} "
-          f"x{copies(args.oneliner_share, lines_train)}; held-out real {len(held_real)}, teacher {len(held_teacher)}, "
+          f"x{copies(args.oneliner_share, lines_train)}, variants {len(variants_train)} "
+          f"x{copies(args.variant_share, variants_train)}, composed {len(composed_train)} "
+          f"x{copies(args.compose_share, composed_train)}; held-out real {len(held_real)}, teacher {len(held_teacher)}, "
           f"dev one-liner tasks {sum(e['part'] == 'holdout' for e in oneliners)}; data in {time.time() - started:.0f}s",
           flush=True)
 
