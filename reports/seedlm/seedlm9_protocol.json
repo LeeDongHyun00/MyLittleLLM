@@ -15,5 +15,6 @@
   "test",
   "HumanEval+",
   "the held-out teacher tasks and development fifth"
- ]
+ ],
+ "note_1": "The first s9-early run stopped after 60 training minutes: the data-segment cap that training then set (12 GB) refused an ordinary 208 MB allocation. No measurement had run; its four internal-validation scores were 0.643, 0.642, 0.665 and 0.675 at 15, 30, 45 and 60 minutes. The cap was removed from training (commit 08edf8f) and the run was started again with the same arguments"
 }
