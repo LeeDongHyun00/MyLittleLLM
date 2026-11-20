@@ -1,0 +1,17 @@
+{
+ "written": "2026-11-20, after SeedLM-17, before any SeedLM-18 coder was trained",
+ "motivation": "Adding two prefix coders (another architecture: no value notes, top-down order) lifted the coder-only vote on the development fifth from 61.4 to 63.6, while more post-coders had stopped near 62 (SeedLM-15, 17). On real tasks the post-coders share their mistakes; a coder that reads and writes differently is a more independent voter. The engine alone solves 65",
+ "hypothesis": "More coders of the other architecture raise the coder-only vote on real tasks to the engine's level",
+ "coders": "three prefix coders trained with s3b-pyx's recipe for 40 minutes, seeds 1, 2 and 3: scripts/seedlm3_train.py --name s18-p<seed> --minutes 40 --d-model 320 --layers 8 --heads 10 --views 3 --seed <seed>; nothing else runs while they train",
+ "primary_measure": "development fifth, coders alone: the vote of all eighteen cached coders (ties to the shortest program, mean over 200 orders; scripts/seedlm16_occam.py). Supported if above 65.5 (more than the engine's 65); not supported if below 63.6 (the fifteen-coder vote); inconclusive otherwise",
+ "secondary_measures": [
+  "held-out teacher tasks, the same vote (fifteen coders: 72.8)",
+  "each new prefix coder alone on both sets"
+ ],
+ "choice": "diagnostic; the system's adoption rule (best method above 69 on the development fifth) is unchanged",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
