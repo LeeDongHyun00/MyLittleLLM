@@ -36,7 +36,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import torch
 
 from mylittlellm.rulecoder import backinfer as bi
-from mylittlellm.rulecoder.limits import cap_memory
 from mylittlellm.rulecoder.tasks import ROOT
 from mylittlellm.seedlm import argbank, coder3, coder4, data2, language, model as seedmodel, post
 from mylittlellm.seedlm.muon import Muon
@@ -178,7 +177,6 @@ def main():
     args = parser.parse_args()
     torch.set_num_threads(args.threads)
     torch.manual_seed(args.seed)
-    cap_memory(12)       # an evaluated program's runaway allocation fails instead of killing training
     rng = random.Random(args.seed)
     if args.smoke:
         args.train_size, args.minutes = 2000, 1.0
