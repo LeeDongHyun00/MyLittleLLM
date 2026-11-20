@@ -54,7 +54,7 @@ def development_cases():
 
 def cache(coders):
     import torch
-    from mylittlellm.seedlm import coder4
+    from mylittlellm.seedlm import coder3, coder4
     from seedlm10_ensemble import first_verified
     from seedlm3_discovery import teacher_cases
     torch.set_num_threads(4)
@@ -65,8 +65,14 @@ def cache(coders):
         path = CACHE / f"{name}.json"
         if path.exists():
             continue
-        net, vocabulary = coder4.load(ROOT / "outputs/seedlm" / f"{name}.pt")
-        grammar = coder4.Grammar(vocabulary)
+        if torch.load(ROOT / "outputs/seedlm" / f"{name}.pt", weights_only=False).get("kind") == "post-coder":
+            net, vocabulary = coder4.load(ROOT / "outputs/seedlm" / f"{name}.pt")
+            grammar = coder4.Grammar(vocabulary)
+            propose = first_verified
+        else:                       # SeedLM-3's prefix coders (SeedLM-17: a different architecture)
+            net, vocabulary = coder3.load(ROOT / "outputs/seedlm" / f"{name}.pt")
+            grammar = coder3.Grammar(vocabulary)
+            propose = first_verified_prefix
         record = {}
         for set_name, tasks in sets.items():
             rows = []
@@ -74,8 +80,8 @@ def cache(coders):
                 if task is None:
                     rows.append(None)
                     continue
-                program = first_verified(net, vocabulary, grammar, task["description"], task["literals"],
-                                         task["args"], task["expected"], task["mode"])
+                program = propose(net, vocabulary, grammar, task["description"], task["literals"],
+                                  task["args"], task["expected"], task["mode"])
                 if program is None:
                     rows.append(None)
                     continue
@@ -86,6 +92,18 @@ def cache(coders):
             record[set_name] = rows
         path.write_text(json.dumps(record) + "\n")
         print(name, {k: sum(bool(r and r["correct"]) for r in v) for k, v in record.items()}, flush=True)
+
+
+def first_verified_prefix(net, vocabulary, grammar, description, literals, args, expected, mode, width=32):
+    """SeedLM-3's prefix coder: its first program at beam width 32 that reproduces the example."""
+    from mylittlellm.seedlm import coder3, language
+    from seedlm3_train import named_in
+    prefix = vocabulary.condition(language.words(description), literals, args, expected, named_in(description))
+    for program, _ in coder3.wide_beam_search(net, vocabulary, grammar, prefix, len(args), len(literals),
+                                              isinstance(expected, str), width):
+        if coder3.reproduces(program, args, literals, expected, mode):
+            return list(program)
+    return None
 
 
 def vote_correct(rows):

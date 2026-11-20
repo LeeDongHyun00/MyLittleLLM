@@ -1,0 +1,17 @@
+{
+ "written": "2026-11-20, after SeedLM-16, before the two prefix coders' proposals were cached",
+ "motivation": "The vote of the thirteen post-coders saturates: past seven coders each adds about 0.3 held-out teacher tasks (SeedLM-15). All thirteen share one architecture (annotated postfix, coder4) and most of their data, so their errors are alike. SeedLM-3's two prefix coders (s3-pyx, s3b-pyx; no value notes, a different decoding order) are weaker alone (46 first-correct at width 32 for s3b-pyx) but make different mistakes",
+ "hypothesis": "Coders of a different architecture add more to the vote than more coders of the same one",
+ "method": "cache s3-pyx and s3b-pyx with scripts/seedlm15_ensemble_scaling.py (first verified prefix program at width 32, its behaviour on the 24 probes), then scripts/seedlm16_occam.py over all fifteen cached coders (vote, ties to the shortest program, 200 random orders)",
+ "primary_measure": "held-out teacher tasks: the fifteen-coder vote (mean over 200 orders) against the thirteen post-coders' 72.86 (SeedLM-16). Supported if at least 1.0 higher (three times the per-coder gain past seven coders); not supported if lower; inconclusive otherwise",
+ "secondary_measures": [
+  "the same on the development fifth (thirteen post-coders: 61.4)",
+  "each prefix coder alone on both sets"
+ ],
+ "choice": "diagnostic only",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}

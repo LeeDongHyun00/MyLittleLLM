@@ -36,8 +36,10 @@ def occam_correct(rows):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--subsets", type=int, default=200)
+    parser.add_argument("--coders", nargs="+", help="cached coders to use (default: every cached coder)")
+    parser.add_argument("--output", default="reports/seedlm/ensemble_occam.json")
     args = parser.parse_args()
-    coders = sorted(p.stem for p in CACHE.glob("*.json"))
+    coders = sorted(args.coders or (p.stem for p in CACHE.glob("*.json")))
     data = {c: json.loads((CACHE / f"{c}.json").read_text()) for c in coders}
     rng = random.Random(0)          # the seed SeedLM-15's scoring used
     report = {"coders": coders, "subsets_per_size": args.subsets}
@@ -54,7 +56,7 @@ def main():
         report[set_name] = {"tasks": n_tasks, "vote_by_size": by_size}
         print(set_name, json.dumps({k: v["mean"] for k, v in by_size.items()}), "13:", by_size[len(coders)],
               flush=True)
-    (ROOT / "reports/seedlm/ensemble_occam.json").write_text(json.dumps(report, indent=1) + "\n")
+    (ROOT / args.output).write_text(json.dumps(report, indent=1) + "\n")
 
 
 if __name__ == "__main__":
