@@ -1,0 +1,13 @@
+{
+ "written": "2026-11-20, after SeedLM-10, before the engine-backed majority ran",
+ "motivation": "SeedLM-10's vote of seven coders beats every coder on held-out teacher tasks (70 vs 62) and every coder alone on the development fifth (62 vs 57), but on real tasks the engine is still the strongest single source (65 of 94), and replacing all its unconfident programs with the vote lost (63 vs 67). By the consensus round's asymmetry, a lone disagreement does not say who is wrong; a majority of separately trained coders agreeing with each other and not with the engine is the strongest disagreement available",
+ "hypothesis": "Overriding the engine only where at least 4 of 7 separately trained coders agree on a behaviour that conflicts with the engine's program fixes more than it breaks",
+ "method": "scripts/seedlm11_engine_vote.py: base = s5-var's pyx_tie_fill (the engine's program with s5-var's tie-break, s5-var's program where the engine has none); the coders' vote as in SeedLM-10; the base is replaced by the vote's program only if at least 4 coders agree with it and it conflicts with the base on the 24 probes. Two further methods are reported but cannot be chosen: the engine as an eighth voter, and the vote filling only tasks where the engine has no program",
+ "primary_measure": "held-out development fifth (94): the override method against the base (s5-var's pyx_tie_fill, 68). Supported if it fixes more tasks than it breaks against the base and solves more than 69 (s5-var's best method); not supported if it solves fewer than the base",
+ "choice": "if the override solves more than 69, it becomes a candidate method: the validation gate (alone no fewer than the engine's 19 of 45; in the 1.5B pipeline no fewer than 31), one MBPP+ test run and one HumanEval+ run",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
