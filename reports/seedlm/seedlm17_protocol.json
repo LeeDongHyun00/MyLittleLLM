@@ -13,5 +13,12 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-20, after the measure",
+  "single": "s3-pyx: 32 held-out teacher tasks, 51 development tasks; s3b-pyx: 46 and 55",
+  "primary": "held-out teacher tasks, fifteen coders: 72.82 (sd 0.38) against thirteen post-coders' 72.86: lower, not supported (reports/seedlm/ensemble_occam_15.json)",
+  "secondary": "development fifth: fifteen coders 63.6 (sd 0.51) against thirteen post-coders' 61.4 (+2.2); the curve rises steadily to 15 coders instead of flattening near 62",
+  "reading": "On generated tasks the two weaker prefix coders add nothing; on real development tasks they add more than any further post-coder did. The post-coders share their mistakes on real tasks most, so a coder that reads and writes differently is the more independent voter there. The coder-only vote (63.6) comes within 1.4 of the engine (65)"
+ }
 }
