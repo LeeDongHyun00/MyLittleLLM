@@ -1,0 +1,17 @@
+{
+ "written": "2026-11-20, after SeedLM-9, before the cross-coder ensemble ran on any evaluation set",
+ "motivation": "Agreement inside one coder's beam picked worse programs than the beam's first (SeedLM-7): the beam's wrong programs are variants of one mistake. The consensus round found agreement useful between sources that fail differently. Seven post-coders now exist that differ in data mix and run (s4-post, s5-var, s6-graft, s6-comp, s8-all, s9-early, s9-early-last); two runs of the same mix differed by 9 on held-out teacher tasks, so their mistakes are at least partly independent",
+ "hypothesis": "Among the first verified programs of separately trained coders, the behaviour on probe inputs that the most coders share is correct more often than any single coder's program",
+ "method": "scripts/seedlm10_ensemble.py, coders in the order s5-var, s8-all, s6-graft, s6-comp, s9-early, s9-early-last, s4-post: each coder's first verified program at beam width 32; 24 probe inputs from the consensus probe grammar; two proposals agree when at least 3 probes give both a value and none differ; the proposal with the most agreeing coders (itself included) wins, ties to the earliest in the order. Nothing here is tuned on any evaluation set",
+ "primary_measure": "held-out teacher tasks (139): the vote's program is correct on all three cases. Supported if the vote solves at least 3 more than the best single coder in the ensemble; not supported if it solves fewer than the best single coder; inconclusive otherwise",
+ "secondary_measures": [
+  "beyond (15), counts only",
+  "held-out development fifth (94): the vote alone against each coder alone, and the engine-backed method (the engine's program unless the engine marks it not confident, then the vote's) against the same rule with s5-var's first verified program"
+ ],
+ "choice": "if the engine-backed vote solves more of the held-out development fifth than 69 (s5-var's best method), it becomes a candidate method and gets the validation gate (alone no fewer than the engine's 19 of 45; in the 1.5B pipeline no fewer than 31), one MBPP+ test run and one HumanEval+ run",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
