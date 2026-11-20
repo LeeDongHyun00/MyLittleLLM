@@ -17,5 +17,17 @@
   "the held-out teacher tasks and development fifth"
  ],
  "note_1": "The first s9-early run stopped after 60 training minutes: the data-segment cap that training then set (12 GB) refused an ordinary 208 MB allocation. No measurement had run; its four internal-validation scores were 0.643, 0.642, 0.665 and 0.675 at 15, 30, 45 and 60 minutes. The cap was removed from training (commit 08edf8f) and the run was started again with the same arguments",
- "note_2": "The second run was stopped at 52 training minutes by a restart of the machine; no measurement had run. Its internal scores at 15, 30 and 45 minutes were 0.673, 0.758 and 0.630, against the first run's 0.643, 0.642 and 0.665 with the same arguments: on 256 rows the score moves by up to 0.1 between runs. The third run scores every internal row (up to 200 per source, about 440 rows) instead of 100 per source, to make the choice less noisy; nothing else changes"
+ "note_2": "The second run was stopped at 52 training minutes by a restart of the machine; no measurement had run. Its internal scores at 15, 30 and 45 minutes were 0.673, 0.758 and 0.630, against the first run's 0.643, 0.642 and 0.665 with the same arguments: on 256 rows the score moves by up to 0.1 between runs. The third run scores every internal row (up to 200 per source, about 440 rows) instead of 100 per source, to make the choice less noisy; nothing else changes",
+ "outcome": {
+  "written": "2026-11-20, after the pre-registered measures of the third run",
+  "selection": "internal scores at 15, 30, 45, 60, 75, 90 and 105 minutes: 0.710, 0.734, 0.614, 0.649, 0.692, 0.683, 0.654; the 30-minute checkpoint (step 1,490 of 5,901) was chosen",
+  "primary": "held-out teacher tasks, first verified at width 32: s9-early 57, s9-early-last 53 (+4): inconclusive by the pre-registered rule (supported needed +5). New compositions 20 vs 18, all pieces seen 37 vs 35",
+  "secondary": {
+   "against_earlier": "s5-var 52, s8-all 62: the same mix as s8-all ended at 53 in this run (5,901 steps on a faster machine, a twentieth of the tasks held out), so run-to-run differences of this measure reach 9",
+   "end_of_training": "the chosen checkpoint is better on every held-out set by the coder's own top-1: real held-out programs 74.7% vs 60.0%, held-out teacher tasks 54.0% vs 46.0%, held-out composed tasks 45.5% vs 36.6%, with lower losses; synthetic 85.7% vs 93.0%; beyond 4 and 4",
+   "held_out_development": "s9-early: pyx_model 53, best 68 (pyx_tie_fill); s9-early-last: pyx_model 54, best 68 (pyx_tie, pyx_tie_fill); engine failures solved by pyx_model 4 and 4"
+  },
+  "choice": "best method 68, not more than 69: not adopted",
+  "reading": "Choosing the checkpoint removes most of the overfitting the coder's own metrics show, but those metrics count programs that reproduce the visible example, and the gain shrinks to +4 when correctness on all cases is counted and to nothing on the development fifth. The two s8-all-mix runs (62 and 53) show that a single run cannot resolve differences of this size"
+ }
 }

@@ -1,0 +1,48 @@
+{
+ "model": "s9-early",
+ "tasks": 94,
+ "solved": {
+  "engine": 65,
+  "pyx_model": 53,
+  "pyx_fill": 66,
+  "pyx_tie": 67,
+  "pyx_tie_fill": 68,
+  "pyx_override": 65,
+  "pyx_rerank": 59,
+  "pyx_margin": 62
+ },
+ "versus_engine": {
+  "engine": [
+   0,
+   0
+  ],
+  "pyx_model": [
+   4,
+   16
+  ],
+  "pyx_fill": [
+   1,
+   0
+  ],
+  "pyx_tie": [
+   3,
+   1
+  ],
+  "pyx_tie_fill": [
+   4,
+   1
+  ],
+  "pyx_override": [
+   4,
+   4
+  ],
+  "pyx_rerank": [
+   4,
+   10
+  ],
+  "pyx_margin": [
+   4,
+   7
+  ]
+ }
+}
