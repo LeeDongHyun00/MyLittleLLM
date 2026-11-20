@@ -9,5 +9,12 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-20, after the pre-registered measure",
+  "primary": "ens_tie_fill 67 against s5-var's pyx_tie_fill 68 (fixes and breaks against the engine 2/0 and 3/0): not supported (reports/seedlm/ensemble_tie_holdout.json)",
+  "reported": "ens_override 65 (2 fixes, 2 breaks); s5-var's pyx_override 69, reproduced",
+  "choice": "no new method",
+  "reading": "On real tasks the ensemble helps the engine in no role tried: overriding (SeedLM-10, 11, 12), voting with it (SeedLM-11), breaking its ties or filling its gaps (here). The coders' gains are on generated tasks"
+ }
 }

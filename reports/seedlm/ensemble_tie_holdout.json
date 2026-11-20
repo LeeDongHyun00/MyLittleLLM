@@ -1,0 +1,40 @@
+{
+ "coders": [
+  "s12-a1",
+  "s12-a2",
+  "s12-a3",
+  "s12-b1",
+  "s12-b2",
+  "s12-b3"
+ ],
+ "tasks": 94,
+ "solved": {
+  "engine": 65,
+  "pyx_tie_fill": 68,
+  "pyx_override": 69,
+  "ens_tie_fill": 67,
+  "ens_override": 65
+ },
+ "versus_engine": {
+  "engine": [
+   0,
+   0
+  ],
+  "pyx_tie_fill": [
+   3,
+   0
+  ],
+  "pyx_override": [
+   4,
+   0
+  ],
+  "ens_tie_fill": [
+   2,
+   0
+  ],
+  "ens_override": [
+   2,
+   2
+  ]
+ }
+}
