@@ -13,5 +13,6 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "note_1": "s20-p5's first run was stopped by a container restart at about 30 of its 40 minutes, before any measurement of it; it was rerun from the start with the same arguments. s20-p4 had finished and been cached before the restart (alone: teacher 49, development 54)"
 }
