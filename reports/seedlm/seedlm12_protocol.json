@@ -19,5 +19,18 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-20, after the six runs' measures",
+  "primary": "held-out teacher tasks, B - A by seed: +1 (60 vs 59), +1 (60 vs 59), -8 (54 vs 62); mean -2.7: not supported",
+  "secondary": {
+   "new_compositions": "A 20, 21, 23; B 22, 23, 19 (means 21.3 and 21.3)",
+   "all_pieces_seen": "A 39, 38, 39; B 38, 37, 35",
+   "spread": "within A 59 to 62, within B 54 to 60",
+   "held_out_development": "pyx_model A 56, 53, 58 and B 59, 55, 56; best method A 68, 68, 68 and B 67, 69, 67",
+   "steps": "A 2,087, 1,959, 1,943; B 1,981, 1,851, 1,757 in 40 minutes"
+  },
+  "choice": "no coder solves more than 69 of the development fifth: none adopted",
+  "reading": "SeedLM-6's graft gain (52 -> 61 on held-out teacher tasks, one 120-minute run each) does not replicate across seeds and is withdrawn. The 40-minute coders (54 to 62) score above the 120-minute s5-var (52), in line with SeedLM-8 and 9"
+ }
 }
