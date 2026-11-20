@@ -13,5 +13,12 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-20, after the measure",
+  "primary": "held-out teacher tasks, 13 coders: 72.86 with the simplicity tie-break (sd 0.35 over 200 orders, 72 to 73) against 71.03 (sd 1.48): +1.8, supported (reports/seedlm/ensemble_occam.json)",
+  "curve_teacher": "1: 57.8, 2: 63.7, 3: 66.5, 5: 69.4, 7: 70.2, 9: 71.0, 13: 72.9 (order tie-break: 57.8, 61.9, 65.3, 68.3, 69.4, 70.1, 71.0)",
+  "curve_development": "1: 55.5, 3: 60.5, 5: 61.5, 7: 61.8, 9: 62.0, 13: 61.4 (order tie-break: 55.5, 60.4, 61.6, 62.0, 62.2, 62.2)",
+  "reading": "On generated tasks the simplest of the equally supported behaviours is right more often, and the vote no longer depends on the order of the coders. On real development tasks simplicity does not help: there the shorter program is often the engine-like coincidence"
+ }
 }
