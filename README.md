@@ -96,6 +96,13 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 
 **SeedLM-12.** 접붙이기 유무를 시드 셋씩 40분 학습으로 반복하니 차이가 +1, +1, −8로 SeedLM-6의 이득이 재현되지 않아 그 결론을 철회했다. 반복해도 살아남은 것은 두 가지다. 짧게 학습한 코더가 보류 과제에서 낫고(평균 59 대 120분 학습 52), 따로 학습한 코더들의 합의가 가장 좋은 단일 코더보다 낫다(다른 코더 여섯에서 62 → 71로 재현). 자세한 내용은 [SeedLM-12 문서](docs/seed_lm12.md)에 있다.
 
+코더 열셋의 합의로 과제 하나를 푸는 명령(동점은 가장 짧은 프로그램, 교사 보류 과제 139개 중 72.9개):
+
+```bash
+python scripts/seedlm_solve.py --description "Write a function to find the sum of the squares of the odd numbers in a list." \
+    --assert "assert odd_square_sum([2, 7, 4, 9]) == 130" --engine
+```
+
 ```bash
 python -m venv .venv && . .venv/bin/activate
 pip install --no-deps evalplus==0.3.1 && pip install -r requirements-rule-pilot.txt
