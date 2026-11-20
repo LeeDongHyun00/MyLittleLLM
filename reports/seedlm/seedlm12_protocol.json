@@ -1,0 +1,23 @@
+{
+ "written": "2026-11-20, after SeedLM-11, before any of its coders was trained",
+ "motivation": [
+  "Two runs of the same data mix ended 9 apart on the held-out teacher tasks (s8-all 62, s9-early-last 53; reports/seedlm/seedlm9_protocol.json): every earlier comparison between coders rested on one run each, and its differences (+4 to +10) are of the size of that spread",
+  "Held-out sets peak around 30 minutes of training in every coder (SeedLM-8), so shorter runs lose little and allow replication",
+  "The claim most worth checking is SeedLM-6's: grafted programs teach composition (s6-graft 61 vs s5-var 52 on held-out teacher tasks, 24 vs 17 on new compositions)"
+ ],
+ "hypothesis": "Across seeds, adding grafts raises the held-out teacher tasks solved by the first verified program",
+ "design": "Two mixes, three seeds each, all trained for 40 minutes (the learning rate decays over the 40 minutes as it did over 120), nothing else running: A = s5-var's mix (scripts/seedlm4_train.py --variant-share 0.1), B = A plus grafts (--graft-share 0.1, the same 15,402 grafts). Seeds 1, 2 and 3 (torch initialisation, data order, synthetic rows, graft descriptions). Runs alternate A1, B1, A2, B2, A3, B3 so an interruption leaves balanced pairs. Names s12-a1 ... s12-b3",
+ "primary_measure": "held-out teacher tasks (139), first verified program at width 32 correct on all three cases (scripts/seedlm5_fragments.py): supported if B exceeds A by at least 4 on average over the seeds and B exceeds A within every seed pair; not supported if the average difference is 0 or below; inconclusive otherwise",
+ "secondary_measures": [
+  "the same on new compositions (77) and on programs with all pieces seen (62)",
+  "the spread between seeds within each mix",
+  "held-out development fifth: pyx_model and the best method (scripts/seedlm4_tasks.py holdout)",
+  "the vote of the six coders (scripts/seedlm10_ensemble.py) on held-out teacher tasks, against the seven-coder vote of SeedLM-10 (70)"
+ ],
+ "choice": "a coder replaces s5-var only if its best method solves more of the held-out development fifth than 69; then the validation gate, one MBPP+ test run and one HumanEval+ run",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
