@@ -1,0 +1,29 @@
+{
+ "model": "s21-y3",
+ "widths": [
+  32
+ ],
+ "teacher": {
+  "tasks": 139,
+  "by_width": {
+   "32": {
+    "verified": 109,
+    "first": 52,
+    "oracle": 80,
+    "spurious": 6.68,
+    "gold_in_beam": 49,
+    "seconds": 154.2
+   }
+  },
+  "gold_gap_nats": {
+   "scored": 139,
+   "quartiles": [
+    0.77,
+    6.85,
+    18.46
+   ],
+   "within_5": 60,
+   "within_10": 80
+  }
+ }
+}

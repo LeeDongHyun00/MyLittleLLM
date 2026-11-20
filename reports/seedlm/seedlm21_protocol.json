@@ -40,5 +40,11 @@
   "reading": "As with SeedLM-6's grafts (SeedLM-12), training on new compositions made the teacher's own programs more probable, at new edges and everywhere else, while the coder wrote fewer of them correctly: the first program that reproduces the example is more often a wrong one. Spreading probability over many compositions raises the right program and its wrong neighbours together, and with one visible example the neighbours win the ranking",
   "choice": "no new method"
  },
- "correction": "The motivation's first count, recounted from reports/seedlm/pysynth_coverage.json: of the 98 new edges, 85 touch a Python node (35 a Python node, builtin, method or comprehension over a library operator), 9 join two library operators and 4 join a library operator to a leaf. 'The rest touch a Python node' overstated it by 4"
+ "correction": "The motivation's first count, recounted from reports/seedlm/pysynth_coverage.json: of the 98 new edges, 85 touch a Python node (35 a Python node, builtin, method or comprehension over a library operator), 9 join two library operators and 4 join a library operator to a leaf. 'The rest touch a Python node' overstated it by 4",
+ "exploratory": {
+  "written": "2026-11-20, after the outcome; not registered before",
+  "what": "beam statistics at width 32 on the held-out teacher tasks (scripts/seedlm3_discovery.py --widths 32 --sets teacher; reports/seedlm/discovery3_<coder>.json)",
+  "result": "arm against controls (means): some verified program correct 76.3 against 77.3; teacher's program in the beam 51.3 against 52.3; wrong programs that reproduce the visible example, per task 6.74 against 5.05; first verified correct 55.3 against 60.0; the teacher program's gap to the best beam program, median 6.7 against 8.3 nats",
+  "reading": "the generated data did not change what the beam can reach; it put more wrong programs that fit the one example into it, and they come first more often"
+ }
 }

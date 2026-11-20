@@ -13,5 +13,11 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-20, after the measure",
+  "result": "a top-5 program within 2 tokens: 15 of the 77 held-out teacher programs with a new combination (19%; top 20: 26) and 3 of the 15 beyond programs (top 20: 3). Below both bars (24 and 5): retrieval by description is set aside (reports/seedlm/retrieval_distance.json)",
+  "reported": "the nearest training program of all is within 2 tokens for 36 of the 77 and 8 of the 15 (all 139 held-out teacher programs: 85; top 5: 49): near relatives exist for about half of the programs the coder misses, but the description's words do not lead to them; a top-5 program has the same shape for 1 of the 77 and none of the 15",
+  "choice": "no retrieval-augmented coder"
+ }
 }
