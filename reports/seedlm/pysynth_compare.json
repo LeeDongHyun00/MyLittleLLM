@@ -1,0 +1,67 @@
+{
+ "tasks": 139,
+ "new_combination_tasks": 77,
+ "pieces_seen_tasks": 62,
+ "arm": {
+  "coders": {
+   "s21-y1": {
+    "new_combination": 19,
+    "pieces_seen": 37,
+    "teacher": 56,
+    "development": 56
+   },
+   "s21-y2": {
+    "new_combination": 22,
+    "pieces_seen": 36,
+    "teacher": 58,
+    "development": 58
+   },
+   "s21-y3": {
+    "new_combination": 20,
+    "pieces_seen": 32,
+    "teacher": 52,
+    "development": 51
+   }
+  },
+  "mean": {
+   "new_combination": 20.33,
+   "pieces_seen": 35,
+   "teacher": 55.33,
+   "development": 55
+  }
+ },
+ "control": {
+  "coders": {
+   "s12-a1": {
+    "new_combination": 20,
+    "pieces_seen": 39,
+    "teacher": 59,
+    "development": 56
+   },
+   "s12-a2": {
+    "new_combination": 21,
+    "pieces_seen": 38,
+    "teacher": 59,
+    "development": 53
+   },
+   "s12-a3": {
+    "new_combination": 23,
+    "pieces_seen": 39,
+    "teacher": 62,
+    "development": 58
+   }
+  },
+  "mean": {
+   "new_combination": 21.33,
+   "pieces_seen": 38.67,
+   "teacher": 60,
+   "development": 55.67
+  }
+ },
+ "difference_of_means": {
+  "new_combination": -1.0,
+  "pieces_seen": -3.67,
+  "teacher": -4.67,
+  "development": -0.67
+ }
+}

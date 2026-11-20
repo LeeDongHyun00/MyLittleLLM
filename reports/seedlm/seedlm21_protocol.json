@@ -25,5 +25,19 @@
   "HumanEval+",
   "held-out teacher tasks",
   "the development fifth"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-20, after the measure",
+  "primary": "held-out teacher tasks with a new piece (77): the arm coders 19, 22, 20 (mean 20.33) against the controls' 20, 21, 23 (21.33): -1.0, at most +1: not supported (reports/seedlm/pysynth_compare.json)",
+  "protection": "tasks whose pieces are all seen (62): 37, 36, 32 (mean 35.0) against 38.67: -3.67, more than 3 below; the arm lost on the tasks it did not target",
+  "secondary": [
+   "held-out teacher tasks, all 139: 56, 58, 52 (mean 55.33) against 60",
+   "development fifth, alone: 56, 58, 51 (mean 55.0) against 55.67; beyond 15: 3, 2, 3 against 4, 2, 3",
+   "teacher-program tokens at new edges, mean nats: 3.45, 3.80, 3.32 (mean 3.52) against 4.31, 4.51, 3.63 (4.15); ranked first 36% against 32%. Beyond: 7.50, 7.18, 7.73 (7.47) against 8.65, 8.81, 7.30 (8.25). Tokens at seen edges and leaves are also less surprising (teacher seen edges 2.08 against 2.24 nats)",
+   "the vote of all twenty-four cached coders: development 64.72 (twenty-one: 64.63), teacher tasks 72.17 (71.23) (reports/seedlm/ensemble_occam_24.json)"
+  ],
+  "note": "The arm coders took fewer steps in the same 40 minutes (1,667, 1,820, 1,812 against 2,087, 1,959, 1,943), in a different container from the controls'; SeedLM-20's prefix coders also ran about 11% fewer steps here than SeedLM-18's",
+  "reading": "As with SeedLM-6's grafts (SeedLM-12), training on new compositions made the teacher's own programs more probable, at new edges and everywhere else, while the coder wrote fewer of them correctly: the first program that reproduces the example is more often a wrong one. Spreading probability over many compositions raises the right program and its wrong neighbours together, and with one visible example the neighbours win the ranking",
+  "choice": "no new method"
+ }
 }
