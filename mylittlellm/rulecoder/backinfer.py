@@ -958,6 +958,22 @@ def search(example, description="", budget_seconds=2.0, weights=None, extra_name
     specific = {id(op): max((sum(map(len, alt)) for alt in op.alternatives if all(part in text for part in alt)),
                             default=0) for op in U + B + T} if "tie_break" in ENGINE else {}
     argument_names = [re.compile(rf"\ba{i}\b") for i in range(len(example["args"]))]
+    # MBPP tasks translated from C pass a sequence together with its length; a program that takes the
+    # length from the sequence leaves that argument out for a good reason, and the tie-break used to
+    # punish it. With "length_argument", an integer argument equal to the length of a sequence
+    # argument counts as used whenever that sequence is used.
+    stands_for = {}
+    if "length_argument" in ENGINE:
+        for i, value in enumerate(example["args"]):
+            if type(value) is int:
+                sources = [j for j, other in enumerate(example["args"])
+                           if j != i and isinstance(other, (list, tuple, str)) and len(other) == value]
+                if sources:
+                    stands_for[i] = sources
+
+    def uses_all(expr):
+        return all(name.search(expr) or (i in stands_for and any(argument_names[j].search(expr) for j in stands_for[i]))
+                   for i, name in enumerate(argument_names))
     unary_ops = [op for op in U if named[id(op)] or not op.gated]
     binary_ops = [op for op in B if named[id(op)] or not op.gated]
     ternary_ops = [op for op in T if named[id(op)] or not op.gated]
@@ -1003,7 +1019,7 @@ def search(example, description="", budget_seconds=2.0, weights=None, extra_name
                           "size": sum(op.cost for op in ops), "support": support, "learned": learned,
                           "knowledge": any(op.kind == "knowledge" for op in ops),
                           "specific": sum(specific.get(id(op), 0) for op in ops),
-                          "all_args": all(name.search(expr) for name in argument_names),
+                          "all_args": uses_all(expr),
                           "program": list(programs.get(expr, ())),
                           "helpers": [op.helper for op in ops if op.helper]})
 

@@ -44,7 +44,8 @@ def main():
         # RULE_RETIRE_EXTRA: operators the round-4 selection has already retired (or teachers flagged).
         extra = [k for k in os.environ.get("RULE_RETIRE_EXTRA", "").split(",") if k]
         os.environ["RULE_RETIRE"] = ",".join(list(manifest.get("retired", {})) + extra)
-        os.environ["RULE_ENGINE"] = ",".join(manifest.get("engine", []))
+        os.environ["RULE_ENGINE"] = ",".join(manifest.get("engine", []) +
+                                             [k for k in os.environ.get("RULE_ENGINE_EXTRA", "").split(",") if k])
     elif args.pack != "manifest":
         os.environ["RULE_PACKS"] = args.pack    # must be set before the rule engine is imported
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
