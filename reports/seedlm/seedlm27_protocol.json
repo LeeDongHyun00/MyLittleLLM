@@ -1,0 +1,20 @@
+{
+ "written": "2026-11-21, after SeedLM-26, before either SeedLM-27 coder was trained",
+ "theory": "Every coder's held-out teacher and real-task scores peak about 30 minutes into training while synthetic scores keep rising (SeedLM-8): the few thousand written descriptions are repeated dozens of times and memorized. In SeedLM-26, 400 more steps on repeated original wordings cost about 3 held-out teacher tasks and the same steps on paraphrases cost none. If memorizing the wording is what stops learning, reading each repeated task in other words should let held-out scores keep rising after 30 minutes",
+ "arms": "two post-coders from scratch, s12-a1's arguments with 80 minutes instead of 40, seed 1, a checkpoint every 20 minutes (--save-every 20): s27-c, and s27-p with --paraphrases (the 1,200 paraphrased training tasks also appear in their two other wordings inside the real and teacher shares; data/seedlm/paraphrase/). Nothing else runs while they train",
+ "measure": "at 20, 40, 60 and 80 minutes, the first program at beam width 32 that reproduces the visible example is right on every case (SeedLM-15's cache), on the held-out teacher tasks (139) and the development fifth (94)",
+ "primary_measure": "held-out teacher tasks: the mean over the 60- and 80-minute checkpoints minus the mean over the 20- and 40-minute checkpoints, s27-p minus s27-c. Supported if at least +4; not supported if at most 0; inconclusive otherwise",
+ "secondary_measures": [
+  "the same contrast on the development fifth",
+  "each arm's best checkpoint on each set (reported, not chosen)"
+ ],
+ "caveat": "one seed per arm: 40-minute seeds of one setting differ by 3 to 6 held-out teacher tasks (SeedLM-12)",
+ "choice": "diagnostic; the system's adoption rule is unchanged",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "held-out teacher tasks",
+  "the development fifth"
+ ]
+}

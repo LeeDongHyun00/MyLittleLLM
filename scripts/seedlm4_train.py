@@ -17,6 +17,11 @@ SeedLM-6 adds two sources of new compositions (reports/seedlm/seedlm6_protocol.j
   --compose-share   teacher-written tasks that join two training tasks (data/seedlm/compose_tasks_*.json);
                     a tenth of them (by id) is held out
 
+SeedLM-27 (reports/seedlm/seedlm27_protocol.json): with --paraphrases, the 1,200 paraphrased training tasks
+(data/seedlm/paraphrase/) also appear in their two other wordings, inside the real and teacher shares, so a
+repeated task is not always read in the same words; --save-every M keeps a checkpoint every M minutes
+(<name>-m<M>.pt) for a learning curve.
+
 SeedLM-21 (reports/seedlm/seedlm21_protocol.json): --pysynth-share adds generated programs that mix
 Python's nodes with the library (mylittlellm/seedlm/pysynth.py, cached by scripts/seedlm21_pysynth.py),
 described like the grafts.
@@ -169,6 +174,8 @@ def main():
     parser.add_argument("--pysynth-share", type=float, default=0.0, help="share of generated Python-node programs (SeedLM-21)")
     parser.add_argument("--pysynth-count", type=int, default=30000)
     parser.add_argument("--pysynth-library", default="all", choices=["all", "training", "sqrt"])
+    parser.add_argument("--paraphrases", action="store_true", help="also read paraphrased tasks in their other wordings")
+    parser.add_argument("--save-every", type=float, default=0.0, help="keep a checkpoint every so many minutes")
     parser.add_argument("--internal-val", action="store_true",
                         help="keep a twentieth of the training tasks out of training, to choose a checkpoint")
     parser.add_argument("--checkpoint-minutes", type=float, default=0.0,
@@ -206,7 +213,13 @@ def main():
     phrases = language.load_phrases()
     real_train_texts = [" ".join(r["words"]) for r in json.loads((V2 / "real_dev.json").read_text()) if r["part"] == "train"]
     keyword_texts = [" ".join(language.keyword_phrases(op)) for op in bi.OPERATORS.values()]
-    texts = real_train_texts + keyword_texts + [t["description"] for t in teacher if not teacher_held(t["id"])] \
+    if args.paraphrases:
+        from seedlm26_finetune import paraphrases, real_task_rows      # here: it imports this module
+        rewritten = paraphrases()
+    else:
+        rewritten = {}
+    texts = [p for _, pair in rewritten.values() for p in pair] + \
+        real_train_texts + keyword_texts + [t["description"] for t in teacher if not teacher_held(t["id"])] \
         + [e["item"]["description"] for e in oneliners if e["part"] == "train"] \
         + [t["description"] for t in variants if not variant_held(t)] \
         + [t["description"] for t in composed if not teacher_held(t["id"])] \
@@ -224,6 +237,21 @@ def main():
                                                                list(bi.OPERATORS.values())), args.blind)
     real = convert(vocabulary, real_rows(vocabulary, "train", random.Random(args.seed + 2), views=args.views), args.blind)
     tasks_train = convert(vocabulary, teacher_rows(vocabulary, teacher, held=False, views=args.views), args.blind)
+    if rewritten:
+        real_items = {r["task_id"]: r for r in json.loads((V2 / "real_dev.json").read_text()) if r["part"] == "train"}
+        from seedlm3_train import dev_tasks
+        bank_items = dev_tasks() if args.views > 1 else {}
+        by_id = {t["id"]: t for t in teacher}
+        extra_real, extra_teacher = [], []
+        for task_id, (_, pair) in sorted(rewritten.items()):
+            for text in pair:
+                if task_id in real_items:
+                    extra_real += real_task_rows(vocabulary, real_items[task_id], bank_items.get(task_id), text, args.views)
+                elif task_id in by_id and not teacher_held(task_id):
+                    extra_teacher += teacher_rows(vocabulary, [dict(by_id[task_id], description=text)], held=False,
+                                                  views=args.views)
+        real += convert(vocabulary, extra_real, args.blind)
+        tasks_train += convert(vocabulary, extra_teacher, args.blind)
     lines_train = convert(vocabulary, oneliner_rows(vocabulary, oneliners, "train", views=args.views), args.blind)
     variants_train = convert(vocabulary, teacher_rows(vocabulary, variants, held=False, views=args.views,
                                                       held_out=variant_held), args.blind)
@@ -282,6 +310,7 @@ def main():
     optimizers = [Muon(matrices, lr=args.muon_lr, weight_decay=0.01), torch.optim.AdamW(others, lr=args.lr, weight_decay=0.0)]
     base_rates = [[g["lr"] for g in opt.param_groups] for opt in optimizers]
     budget, log, step, seen, smooth = args.minutes * 60, [], 0, 0, None
+    next_save = args.save_every * 60 if args.save_every else None
     checkpoints, best_state, best_score = [], None, None
     next_checkpoint = args.checkpoint_minutes * 60 if args.checkpoint_minutes and internal else None
     begin, next_eval, done = time.time(), args.minutes * 60 / 4, False
@@ -324,6 +353,13 @@ def main():
                 evaluating += time.time() - pause
                 log.append(entry)
                 print(json.dumps(entry), flush=True)
+            if next_save is not None and elapsed >= next_save and elapsed < budget:
+                minutes = round(next_save / 60)
+                next_save += args.save_every * 60
+                torch.save({"state": net.state_dict(), "config": config.to_dict(), "vocabulary": vocabulary.to_dict(),
+                            "kind": "post-coder", "blind": args.blind, "step": step, "minutes": minutes},
+                           ROOT / "outputs/seedlm" / f"{args.name}-m{minutes}.pt")
+                print(f"SAVED {args.name}-m{minutes} at step {step}", flush=True)
             if next_checkpoint is not None and elapsed >= next_checkpoint:
                 next_checkpoint += args.checkpoint_minutes * 60
                 pause = time.time()
