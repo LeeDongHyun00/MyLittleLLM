@@ -1,0 +1,14 @@
+{
+ "tasks": 94,
+ "coders": 27,
+ "engine": 65,
+ "base": 68,
+ "equal_weight": 68,
+ "unconfident_vote": 65,
+ "equal_weight_changed": 10,
+ "equal_weight_versus_base": [
+  1,
+  1
+ ],
+ "oracle_base_or_coders": 73
+}

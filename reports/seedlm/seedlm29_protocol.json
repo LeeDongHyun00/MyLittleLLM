@@ -97,5 +97,15 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-21, after the measure",
+  "primary": "development fifth, coders alone: paraphrase set 64.76, control set 63.72 (24 coders: 64.72). The paraphrase set beats the control set by 1.04 but not the engine's 65: inconclusive (reports/seedlm/ensemble_occam_27p.json, _27c.json)",
+  "secondary": [
+   "held-out teacher tasks: paraphrase set 70.62, control set 73.22 (24 coders: 72.17)",
+   "engine and ensemble at equal weight: 68 for both sets (1 fixed, 1 broken against the engine side's 68), against 69 (reports/seedlm/engine_ensemble_27p.json, _27c.json)"
+  ],
+  "reading": "Against the 24 coders, the paraphrase coders add nothing on the development tasks and cost 1.6 on the teacher tasks; the 80-minute controls cost 1.0 on the development tasks and add 1.1 on the teacher tasks. Neither set is a more independent voter in the sense that matters: the vote and its combination with the engine stay where they were",
+  "choice": "no new method"
+ }
 }

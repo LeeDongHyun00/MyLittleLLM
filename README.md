@@ -26,7 +26,7 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 - [SeedLM-12: 반복하면 사라지는 효과](docs/seed_lm12.md)
 - [SeedLM-13~20: 코더 앙상블을 어디까지 밀 수 있나](docs/seed_lm13.md)
 - [SeedLM-21~25: 예시 하나로는 고를 수 없다 — 새 조합 데이터, 검색, 순위 학습, 검증기, 자기 설명](docs/seed_lm21.md)
-- [SeedLM-26~: 같은 과제를 다른 말로 읽히기](docs/seed_lm26.md)
+- [SeedLM-26~29: 같은 과제를 다른 말로 읽히기](docs/seed_lm26.md)
 - [4차 교사 라운드: 남은 엔진 실패는 긴 꼬리다](docs/rule_round4.md)
 - [처음부터 만든 코더에 관해 지금까지 확인한 것 (SeedLM-4~25 요약)](docs/seedlm_findings.md)
 
