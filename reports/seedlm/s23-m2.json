@@ -1,0 +1,25 @@
+{
+ "name": "s23-m2",
+ "kind": "post-coder",
+ "base": "s12-a2",
+ "arguments": {
+  "base": "s12-a2",
+  "name": "s23-m2",
+  "contrast": 0.0,
+  "steps": 400,
+  "batch": 64,
+  "pair_batch": 16,
+  "positive_share": 0.1,
+  "synthetic": 60000,
+  "lr_scale": 0.3,
+  "seed": 0
+ },
+ "rows": 114098,
+ "positives": 1072,
+ "pairs": 1072,
+ "steps": 400,
+ "train_seconds": 489,
+ "p_wrong_token_after": 0.0253,
+ "p_log": [],
+ "final_loss": 0.1019
+}

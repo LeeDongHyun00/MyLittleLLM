@@ -1,0 +1,25 @@
+{
+ "name": "s23-m3",
+ "kind": "post-coder",
+ "base": "s12-a3",
+ "arguments": {
+  "base": "s12-a3",
+  "name": "s23-m3",
+  "contrast": 0.0,
+  "steps": 400,
+  "batch": 64,
+  "pair_batch": 16,
+  "positive_share": 0.1,
+  "synthetic": 60000,
+  "lr_scale": 0.3,
+  "seed": 0
+ },
+ "rows": 114373,
+ "positives": 1097,
+ "pairs": 1097,
+ "steps": 400,
+ "train_seconds": 486,
+ "p_wrong_token_after": 0.0194,
+ "p_log": [],
+ "final_loss": 0.1008
+}
