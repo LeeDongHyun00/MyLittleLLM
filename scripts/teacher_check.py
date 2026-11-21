@@ -41,7 +41,9 @@ def main():
         # Round 4 packs go on top of the shipped library: its active packs, retirements and search features.
         manifest = json.loads((Path(__file__).resolve().parents[1] / "data/rule_pilot/operator_packs.json").read_text())
         os.environ["RULE_PACKS"] = ",".join(manifest.get("active", []) + args.pack.split(","))
-        os.environ["RULE_RETIRE"] = ",".join(manifest.get("retired", {}))
+        # RULE_RETIRE_EXTRA: operators the round-4 selection has already retired (or teachers flagged).
+        extra = [k for k in os.environ.get("RULE_RETIRE_EXTRA", "").split(",") if k]
+        os.environ["RULE_RETIRE"] = ",".join(list(manifest.get("retired", {})) + extra)
         os.environ["RULE_ENGINE"] = ",".join(manifest.get("engine", []))
     elif args.pack != "manifest":
         os.environ["RULE_PACKS"] = args.pack    # must be set before the rule engine is imported
