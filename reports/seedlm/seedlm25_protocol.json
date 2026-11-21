@@ -1,0 +1,17 @@
+{
+ "written": "2026-11-21, after SeedLM-24, before the measure was run",
+ "theory": "A right program is what the coder would write for the description on any example of the task. A wrong program that fits the visible example by accident is the coder's answer only for that example; asked to explain its own outputs on other inputs, it should look less like the description's program. Scoring a candidate as the coder's answer to several examples (the visible one and pseudo-examples made from the candidate's own outputs) turns one example into several without any hidden information",
+ "rule": "for each verified program in a coder's width-32 beam (up to 8; SeedLM-24's held-out candidate files), the sum of the coder's log-probabilities of that program for the visible example and for three pseudo-examples (the first three probe inputs on which it runs, with its own output); the highest sum is chosen, ties to beam order. Tasks whose candidates use the visible output string (o, o!) keep the coder's first program (scripts/seedlm25_cycle.py)",
+ "primary_measure": "held-out teacher tasks (139): tasks right with the rule's choice minus with the coder's first verified program, mean over s12-a1, s12-a2, s12-a3. Supported if at least +4; not supported if at most +1; inconclusive otherwise",
+ "secondary_measures": [
+  "development fifth (94), the same difference",
+  "fixed and broken tasks; the ceiling (some verified program right)",
+  "the pseudo-examples alone, without the visible example (reported, not chosen)"
+ ],
+ "choice": "diagnostic; if supported, the rule is next tried inside the coder ensemble and with the engine, each pre-registered",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
