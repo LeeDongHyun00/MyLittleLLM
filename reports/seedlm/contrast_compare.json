@@ -1,0 +1,100 @@
+{
+ "pairs": {
+  "s23-u1:s23-m1": {
+   "treated": {
+    "new_combination": 19,
+    "pieces_seen": 44,
+    "teacher": 63,
+    "development": 58,
+    "wrong_fitting_per_task": 6.4,
+    "some_verified_right": 79,
+    "first_verified_right": 63
+   },
+   "control": {
+    "new_combination": 18,
+    "pieces_seen": 41,
+    "teacher": 59,
+    "development": 55,
+    "wrong_fitting_per_task": 6.18,
+    "some_verified_right": 79,
+    "first_verified_right": 59
+   },
+   "difference": {
+    "new_combination": 1,
+    "pieces_seen": 3,
+    "teacher": 4,
+    "development": 3,
+    "wrong_fitting_per_task": 0.22,
+    "some_verified_right": 0,
+    "first_verified_right": 4
+   }
+  },
+  "s23-u2:s23-m2": {
+   "treated": {
+    "new_combination": 25,
+    "pieces_seen": 37,
+    "teacher": 62,
+    "development": 52,
+    "wrong_fitting_per_task": 5.91,
+    "some_verified_right": 79,
+    "first_verified_right": 62
+   },
+   "control": {
+    "new_combination": 23,
+    "pieces_seen": 39,
+    "teacher": 62,
+    "development": 50,
+    "wrong_fitting_per_task": 6.23,
+    "some_verified_right": 78,
+    "first_verified_right": 62
+   },
+   "difference": {
+    "new_combination": 2,
+    "pieces_seen": -2,
+    "teacher": 0,
+    "development": 2,
+    "wrong_fitting_per_task": -0.32,
+    "some_verified_right": 1,
+    "first_verified_right": 0
+   }
+  },
+  "s23-u3:s23-m3": {
+   "treated": {
+    "new_combination": 25,
+    "pieces_seen": 37,
+    "teacher": 62,
+    "development": 53,
+    "wrong_fitting_per_task": 5.24,
+    "some_verified_right": 74,
+    "first_verified_right": 62
+   },
+   "control": {
+    "new_combination": 24,
+    "pieces_seen": 35,
+    "teacher": 59,
+    "development": 59,
+    "wrong_fitting_per_task": 5.6,
+    "some_verified_right": 79,
+    "first_verified_right": 59
+   },
+   "difference": {
+    "new_combination": 1,
+    "pieces_seen": 2,
+    "teacher": 3,
+    "development": -6,
+    "wrong_fitting_per_task": -0.36,
+    "some_verified_right": -5,
+    "first_verified_right": 3
+   }
+  }
+ },
+ "mean_difference": {
+  "new_combination": 1.33,
+  "pieces_seen": 1,
+  "teacher": 2.33,
+  "development": -0.33,
+  "wrong_fitting_per_task": -0.15,
+  "some_verified_right": -1.33,
+  "first_verified_right": 2.33
+ }
+}

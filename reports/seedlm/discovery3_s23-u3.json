@@ -1,0 +1,29 @@
+{
+ "model": "s23-u3",
+ "widths": [
+  32
+ ],
+ "teacher": {
+  "tasks": 139,
+  "by_width": {
+   "32": {
+    "verified": 117,
+    "first": 62,
+    "oracle": 74,
+    "spurious": 5.24,
+    "gold_in_beam": 54,
+    "seconds": 140.2
+   }
+  },
+  "gold_gap_nats": {
+   "scored": 139,
+   "quartiles": [
+    0.0,
+    5.05,
+    18.48
+   ],
+   "within_5": 69,
+   "within_10": 81
+  }
+ }
+}

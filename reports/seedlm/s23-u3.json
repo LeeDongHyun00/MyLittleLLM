@@ -1,0 +1,58 @@
+{
+ "name": "s23-u3",
+ "kind": "post-coder",
+ "base": "s12-a3",
+ "arguments": {
+  "base": "s12-a3",
+  "name": "s23-u3",
+  "contrast": 1.0,
+  "steps": 400,
+  "batch": 64,
+  "pair_batch": 16,
+  "positive_share": 0.1,
+  "synthetic": 60000,
+  "lr_scale": 0.3,
+  "seed": 0
+ },
+ "rows": 114373,
+ "positives": 1097,
+ "pairs": 1097,
+ "steps": 400,
+ "train_seconds": 752,
+ "p_wrong_token_after": 0.0007,
+ "p_log": [
+  {
+   "step": 0,
+   "p_wrong_token": 0.3417
+  },
+  {
+   "step": 50,
+   "p_wrong_token": 0.045
+  },
+  {
+   "step": 100,
+   "p_wrong_token": 0.0686
+  },
+  {
+   "step": 150,
+   "p_wrong_token": 0.0084
+  },
+  {
+   "step": 200,
+   "p_wrong_token": 0.0021
+  },
+  {
+   "step": 250,
+   "p_wrong_token": 0.0016
+  },
+  {
+   "step": 300,
+   "p_wrong_token": 0.0008
+  },
+  {
+   "step": 350,
+   "p_wrong_token": 0.0008
+  }
+ ],
+ "final_loss": 0.1313
+}

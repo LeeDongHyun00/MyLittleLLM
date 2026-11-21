@@ -1,5 +1,5 @@
 {
- "written": "2026-11-21, after SeedLM-22, before any SeedLM-23 pair was mined for the full run",
+ "written": "2026-11-20 (23:36 UTC), after SeedLM-22, before any SeedLM-23 pair was mined for the full run",
  "theory": "With one visible example, the coder answers with the most probable program in its beam that reproduces the example. Its errors on held-out tasks are wrong programs that fit the example by accident and come first (SeedLM-21's beam statistics: 5 to 7 per task). Maximum likelihood only ever raises the right program; it never tells the coder which programs that fit an example are wrong, so data that broadens the coder (grafts, generated programs) raises those neighbours too",
  "hypothesis": "Pushing down, at the point where they branch off, the wrong programs that fit the example in the coder's own beam on training tasks teaches it to rank right programs first on held-out tasks, without changing what its beam reaches",
  "pairs": "scripts/seedlm23_mine.py --model <base> --sources composed pysynth --limit 1200 400: each base coder's beam (width 16) on the training part of SeedLM-6's composed tasks (written descriptions; the base coders never trained on them) and on 400 generated programs (pysynth, seed 23), the first case visible; wrong programs that fit it and come before the first right one (up to 3 per task), each paired with the coder's first right program or else the task's own. A 200-task check on training teacher tasks found none (the coder has them by heart), so they are not a source",
@@ -18,5 +18,18 @@
   "HumanEval+",
   "held-out teacher tasks",
   "the development fifth"
- ]
+ ],
+ "note_1": "the 'written' date first read 2026-11-21; the protocol was committed on 2026-11-20 at 23:36 UTC (commit 7e45bb6), before the full mining began",
+ "outcome": {
+  "written": "2026-11-21, after the measure",
+  "primary": "held-out teacher tasks, s23-u<k> minus s23-m<k>: +4 (63 vs 59), 0 (62 vs 62), +3 (62 vs 59); mean +2.33, between 0 and +3: inconclusive (reports/seedlm/contrast_compare.json)",
+  "secondary": [
+   "wrong programs that fit the example per task: +0.22, -0.32, -0.36 (mean -0.15); some verified program right: 0, +1, -5 (mean -1.33)",
+   "development fifth, alone: +3, +2, -6 (mean -0.33)",
+   "new-combination part (77): +1, +2, +1; pieces-seen part (62): +3, -2, +2"
+  ],
+  "reported": "mined pairs per base: 1,102, 1,079, 1,102 from 1,071 composed and 400 generated tasks (a third of the tasks had a wrong program first). On the mined pairs, the wrong token's probability at the branch point ended at 0.02 to 0.03 without the term and 0.001 to 0.003 with it. Against the base coders (teacher 59, 59, 62), the treated coders reached 63, 62, 62 and the controls 59, 62, 59",
+  "reading": "Being told which programs that fit an example are wrong pushed the mined wrong programs far down, and helped a little on held-out teacher tasks in two bases of three, but hardly changed how many wrong programs fit the example in held-out beams: what it learned stays mostly with the pairs it saw. It did nothing for the development tasks",
+  "choice": "no new method"
+ }
 }
