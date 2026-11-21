@@ -1,0 +1,48 @@
+{
+ "model": "s28-p2",
+ "tasks": 94,
+ "solved": {
+  "engine": 65,
+  "pyx_model": 55,
+  "pyx_fill": 65,
+  "pyx_tie": 67,
+  "pyx_tie_fill": 67,
+  "pyx_override": 67,
+  "pyx_rerank": 63,
+  "pyx_margin": 65
+ },
+ "versus_engine": {
+  "engine": [
+   0,
+   0
+  ],
+  "pyx_model": [
+   4,
+   14
+  ],
+  "pyx_fill": [
+   0,
+   0
+  ],
+  "pyx_tie": [
+   2,
+   0
+  ],
+  "pyx_tie_fill": [
+   2,
+   0
+  ],
+  "pyx_override": [
+   3,
+   1
+  ],
+  "pyx_rerank": [
+   4,
+   6
+  ],
+  "pyx_margin": [
+   4,
+   4
+  ]
+ }
+}

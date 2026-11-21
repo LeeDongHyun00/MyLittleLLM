@@ -1,0 +1,196 @@
+{
+ "name": "s28-p3",
+ "kind": "post-coder",
+ "arguments": {
+  "name": "s28-p3",
+  "minutes": 80.0,
+  "d_model": 320,
+  "layers": 8,
+  "heads": 10,
+  "batch": 64,
+  "train_size": 300000,
+  "bank_rate": 0.3,
+  "real_share": 0.1,
+  "teacher_share": 0.15,
+  "oneliner_share": 0.03,
+  "variant_share": 0.1,
+  "graft_share": 0.0,
+  "graft_count": 20000,
+  "compose_share": 0.0,
+  "pysynth_share": 0.0,
+  "pysynth_count": 30000,
+  "pysynth_library": "all",
+  "paraphrases": true,
+  "save_every": 0.0,
+  "internal_val": false,
+  "checkpoint_minutes": 0.0,
+  "views": 3,
+  "lr": 0.002,
+  "muon_lr": 0.02,
+  "seed": 3,
+  "smoke": false,
+  "blind": false,
+  "threads": 4
+ },
+ "parameters": 12647120,
+ "vocabulary": {
+  "size": 4342,
+  "words": 3029,
+  "program_tokens": 1037
+ },
+ "rows": {
+  "synthetic": 300000,
+  "real": 3648,
+  "teacher_tasks": 7974,
+  "dev_oneliners": 226,
+  "teacher_tasks_total": 1447,
+  "variants": 2046,
+  "variant_tasks_total": 698,
+  "composed": 0,
+  "composed_tasks_total": 0,
+  "grafts": 0,
+  "graft_programs": 0,
+  "internal_validation": {}
+ },
+ "steps": 3411,
+ "sequences_seen": 218304,
+ "train_seconds": 5201,
+ "curve": [
+  {
+   "step": 937,
+   "seconds": 1201,
+   "train_loss": 0.4573,
+   "synthetic": {
+    "loss": 0.8339,
+    "top1_exact": 0.65,
+    "top1_reproduces": 0.817,
+    "beam8_reproduces": 0.9,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.2898,
+    "top1_exact": 0.517,
+    "top1_reproduces": 0.767,
+    "beam8_reproduces": 0.867,
+    "examples": 60
+   },
+   "teacher_holdout": {
+    "loss": 1.8602,
+    "top1_exact": 0.167,
+    "top1_reproduces": 0.4,
+    "beam8_reproduces": 0.533,
+    "examples": 60
+   },
+   "variant_holdout": {
+    "loss": 2.4769,
+    "top1_exact": 0.062,
+    "top1_reproduces": 0.562,
+    "beam8_reproduces": 0.625,
+    "examples": 16
+   }
+  },
+  {
+   "step": 1777,
+   "seconds": 2401,
+   "train_loss": 0.1827,
+   "synthetic": {
+    "loss": 0.4557,
+    "top1_exact": 0.717,
+    "top1_reproduces": 0.833,
+    "beam8_reproduces": 0.9,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.2923,
+    "top1_exact": 0.65,
+    "top1_reproduces": 0.783,
+    "beam8_reproduces": 0.867,
+    "examples": 60
+   },
+   "teacher_holdout": {
+    "loss": 1.9747,
+    "top1_exact": 0.15,
+    "top1_reproduces": 0.533,
+    "beam8_reproduces": 0.617,
+    "examples": 60
+   },
+   "variant_holdout": {
+    "loss": 2.8381,
+    "top1_exact": 0.0,
+    "top1_reproduces": 0.562,
+    "beam8_reproduces": 0.562,
+    "examples": 16
+   }
+  },
+  {
+   "step": 2600,
+   "seconds": 3601,
+   "train_loss": 0.1003,
+   "synthetic": {
+    "loss": 0.3074,
+    "top1_exact": 0.75,
+    "top1_reproduces": 0.883,
+    "beam8_reproduces": 0.95,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.2578,
+    "top1_exact": 0.617,
+    "top1_reproduces": 0.717,
+    "beam8_reproduces": 0.867,
+    "examples": 60
+   },
+   "teacher_holdout": {
+    "loss": 2.0596,
+    "top1_exact": 0.183,
+    "top1_reproduces": 0.517,
+    "beam8_reproduces": 0.617,
+    "examples": 60
+   },
+   "variant_holdout": {
+    "loss": 3.1315,
+    "top1_exact": 0.0,
+    "top1_reproduces": 0.312,
+    "beam8_reproduces": 0.562,
+    "examples": 16
+   }
+  }
+ ],
+ "checkpoints": [],
+ "selected": null,
+ "final": {
+  "synthetic": {
+   "loss": 0.241,
+   "top1_exact": 0.807,
+   "top1_reproduces": 0.923,
+   "beam8_reproduces": 0.98,
+   "examples": 300
+  },
+  "real_holdout": {
+   "loss": 1.256,
+   "top1_exact": 0.6,
+   "top1_reproduces": 0.707,
+   "beam8_reproduces": 0.84,
+   "examples": 75
+  },
+  "teacher_holdout": {
+   "loss": 2.2892,
+   "top1_exact": 0.245,
+   "top1_reproduces": 0.597,
+   "beam8_reproduces": 0.655,
+   "examples": 139
+  },
+  "beyond_holdout": {
+   "tasks": 15,
+   "solved": 4
+  },
+  "variant_holdout": {
+   "loss": 3.4396,
+   "top1_exact": 0.0,
+   "top1_reproduces": 0.438,
+   "beam8_reproduces": 0.562,
+   "examples": 16
+  }
+ },
+ "torch": "2.15.0+cpu"
+}

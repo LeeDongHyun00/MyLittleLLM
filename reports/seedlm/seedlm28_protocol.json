@@ -12,5 +12,16 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-21, after the measure",
+  "primary": "development fifth at 80 minutes, paraphrase minus control: seed 1 +3 (61 vs 58), seed 2 -2 (55 vs 57), seed 3 +7 (61 vs 54); mean +2.67, between 0 and +3: inconclusive",
+  "secondary": [
+   "held-out teacher tasks at 80 minutes: +2 (53 vs 51), +2 (61 vs 59), -2 (56 vs 58); mean +0.67",
+   "the system on the development fifth: best method 68 (s27-p), 67 (s28-p2), 67 (s28-p3), against 69 with s5-var"
+  ],
+  "reported": "the paraphrase coders alone average 59.0 development tasks against 56.3 for the controls; two of three reach 61, the most any post-coder has solved alone",
+  "reading": "Reading the real training tasks in three wordings may help a coder read real development tasks, by about two to three tasks out of 94 on average, with seed-to-seed swings as large as the effect. It does not reach the system: the extra tasks it solves are ones the engine already solves",
+  "choice": "no new method; next: whether these coders are more independent voters in the ensemble (SeedLM-29)"
+ }
 }
