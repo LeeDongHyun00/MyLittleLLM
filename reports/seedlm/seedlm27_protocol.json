@@ -16,5 +16,53 @@
   "HumanEval+",
   "held-out teacher tasks",
   "the development fifth"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-21, after the measure",
+  "curves": {
+   "s27-c": {
+    "teacher": [
+     51,
+     47,
+     53,
+     51
+    ],
+    "development": [
+     57,
+     61,
+     54,
+     58
+    ]
+   },
+   "s27-p": {
+    "teacher": [
+     49,
+     51,
+     52,
+     53
+    ],
+    "development": [
+     52,
+     59,
+     59,
+     61
+    ]
+   },
+   "minutes": [
+    20,
+    40,
+    60,
+    80
+   ]
+  },
+  "primary": "held-out teacher tasks, late minus early checkpoints (means of 60 and 80 minutes against 20 and 40): s27-c +3.0, s27-p +2.5; s27-p minus s27-c -0.5, at most 0: not supported",
+  "secondary": [
+   "development fifth, the same contrast: s27-c -3.0, s27-p +4.5; difference +7.5 (one seed per arm)",
+   "best checkpoints: teacher 53 for both; development 61 (s27-p at 80 minutes) against 61 (s27-c at 40)"
+  ],
+  "reported": "the system with each 80-minute coder on the development fifth (scripts/seedlm4_tasks.py holdout): best 68 for both (s27-p: pyx_tie 68, pyx_override 67; s27-c: pyx_tie_fill 68, pyx_override 67), against 69 with s5-var. s27-p alone 61, its answers mostly the engine's own (against the engine it fixes 3 and breaks 7)",
+  "note": "the checkpoints at 20 to 60 minutes are taken mid-schedule (the learning rate decays over the whole 80 minutes), so they are lower than finished 40-minute runs (s12-a1: teacher 59) and are compared only between the two arms",
+  "reading": "Paraphrases did not keep the held-out teacher score rising: both 80-minute coders end near 52, below every finished 40-minute coder. On the real development tasks the paraphrase coder rose steadily to 61 while the control wandered, which fits its 525 paraphrased real tasks, but with one seed this is a lead, not a finding, and in the system it changed nothing",
+  "choice": "no new method"
+ }
 }

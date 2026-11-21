@@ -1,0 +1,48 @@
+{
+ "model": "s27-p",
+ "tasks": 94,
+ "solved": {
+  "engine": 65,
+  "pyx_model": 61,
+  "pyx_fill": 65,
+  "pyx_tie": 68,
+  "pyx_tie_fill": 68,
+  "pyx_override": 67,
+  "pyx_rerank": 66,
+  "pyx_margin": 66
+ },
+ "versus_engine": {
+  "engine": [
+   0,
+   0
+  ],
+  "pyx_model": [
+   3,
+   7
+  ],
+  "pyx_fill": [
+   0,
+   0
+  ],
+  "pyx_tie": [
+   3,
+   0
+  ],
+  "pyx_tie_fill": [
+   3,
+   0
+  ],
+  "pyx_override": [
+   3,
+   1
+  ],
+  "pyx_rerank": [
+   3,
+   2
+  ],
+  "pyx_margin": [
+   3,
+   2
+  ]
+ }
+}
