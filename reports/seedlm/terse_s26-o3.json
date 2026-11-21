@@ -1,0 +1,30 @@
+{
+ "model": "s26-o3",
+ "width": 32,
+ "tasks": 139,
+ "first_correct": {
+  "original": 58,
+  "terse": 62,
+  "both": 50,
+  "only_original": 8,
+  "only_terse": 12
+ },
+ "words_median": {
+  "original": 21,
+  "terse": 16
+ },
+ "gold_log_prob_quartiles": {
+  "original": [
+   -28.22,
+   -11.46,
+   -3.27
+  ],
+  "terse": [
+   -27.23,
+   -12.07,
+   -2.54
+  ]
+ },
+ "gold_paired_mean_drop_nats": 0.68,
+ "gold_scored": 138
+}

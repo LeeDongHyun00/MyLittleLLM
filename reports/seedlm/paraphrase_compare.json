@@ -1,0 +1,70 @@
+{
+ "pairs": {
+  "s26-p1:s26-o1": {
+   "treated": {
+    "new_combination": 21,
+    "pieces_seen": 41,
+    "teacher": 62,
+    "development": 59
+   },
+   "control": {
+    "new_combination": 19,
+    "pieces_seen": 39,
+    "teacher": 58,
+    "development": 59
+   },
+   "difference": {
+    "new_combination": 2,
+    "pieces_seen": 2,
+    "teacher": 4,
+    "development": 0
+   }
+  },
+  "s26-p2:s26-o2": {
+   "treated": {
+    "new_combination": 22,
+    "pieces_seen": 39,
+    "teacher": 61,
+    "development": 54
+   },
+   "control": {
+    "new_combination": 18,
+    "pieces_seen": 37,
+    "teacher": 55,
+    "development": 51
+   },
+   "difference": {
+    "new_combination": 4,
+    "pieces_seen": 2,
+    "teacher": 6,
+    "development": 3
+   }
+  },
+  "s26-p3:s26-o3": {
+   "treated": {
+    "new_combination": 21,
+    "pieces_seen": 35,
+    "teacher": 56,
+    "development": 57
+   },
+   "control": {
+    "new_combination": 23,
+    "pieces_seen": 35,
+    "teacher": 58,
+    "development": 56
+   },
+   "difference": {
+    "new_combination": -2,
+    "pieces_seen": 0,
+    "teacher": -2,
+    "development": 1
+   }
+  }
+ },
+ "mean_difference": {
+  "new_combination": 1.33,
+  "pieces_seen": 1.33,
+  "teacher": 2.67,
+  "development": 1.33
+ }
+}

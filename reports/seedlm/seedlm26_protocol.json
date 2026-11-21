@@ -15,5 +15,17 @@
   "HumanEval+",
   "held-out teacher tasks",
   "the development fifth"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-21, after the measure",
+  "primary": "held-out teacher tasks, s26-p<k> minus s26-o<k>: +4 (62 vs 58), +6 (61 vs 55), -2 (56 vs 58); mean +2.67, between 0 and +3: inconclusive (reports/seedlm/paraphrase_compare.json)",
+  "secondary": [
+   "development fifth, alone: 0 (59 vs 59), +3 (54 vs 51), +1 (57 vs 56); mean +1.33",
+   "terse held-out teacher descriptions: +3 (60 vs 57), -3 (54 vs 57), 0 (62 vs 62); mean 0 (reports/seedlm/terse_s26-*.json)",
+   "new-combination part: +2, +4, -2; pieces-seen part: +2, +2, 0"
+  ],
+  "reported": "against the base coders (teacher 59, 59, 62; development 56, 53, 58): the original-words arm fell to 58, 55, 58 and 59, 51, 56; the paraphrase arm held at 62, 61, 56 and 59, 54, 57",
+  "reading": "Repeating 1,200 training tasks in their own words for 400 steps cost the coders about 3 held-out teacher tasks; repeating them in two other wordings did not. The gain over the control is mostly the harm it avoided: paraphrases worked as a guard against memorizing the wording, not as a new skill, and they did not make terse descriptions easier",
+  "choice": "no new method; next: whether paraphrases delay the coder's 30-minute overfitting (SeedLM-27)"
+ }
 }

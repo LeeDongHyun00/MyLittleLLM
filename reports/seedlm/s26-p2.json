@@ -1,0 +1,22 @@
+{
+ "name": "s26-p2",
+ "kind": "post-coder",
+ "base": "s12-a2",
+ "arguments": {
+  "base": "s12-a2",
+  "name": "s26-p2",
+  "words": "paraphrase",
+  "steps": 400,
+  "batch": 64,
+  "extra_share": 0.1,
+  "synthetic": 60000,
+  "lr_scale": 0.3,
+  "seed": 0
+ },
+ "rows": 115270,
+ "extra_rows": 6482,
+ "tasks_with_words": 1200,
+ "steps": 400,
+ "train_seconds": 514,
+ "final_loss": 0.1055
+}
