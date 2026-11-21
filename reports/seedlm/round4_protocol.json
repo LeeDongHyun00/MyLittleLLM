@@ -17,5 +17,14 @@
   "test",
   "HumanEval+",
   "the development fifth"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-21, after the measure",
+  "teachers": "r4_numbers 15 operators (15 of 37 bank tasks newly solved), r4_sequences 35 (31 of 38; two flagged as written from memory of benchmark-style wordings), r4_strings 26 (18 of 35); every operator gated; no regression task broken in any pack (teacher reports: reports/seedlm/round4_report_r4_*.json)",
+  "selection": "the two memory-flagged operators retired first; no other operator met a retirement rule (74 kept). On the 434 training tasks: 320 -> 384 solved, 0 broken (reports/seedlm/round4_attribution.json)",
+  "primary": "development fifth, the system with the round-4 library: engine 65, pyx_override 69, every method exactly as before (reports/seedlm/holdout4_s5-var_r4.json). Not above 69: not adopted; the shipped library is unchanged",
+  "reported": "no final program on any of the 94 development tasks uses a round-4 operator (counts only)",
+  "reading": "Round 3 turned the common needs of 489 failures into operators that carried over to held-out tasks (locked test 57 -> 68). The 114 failures left are a long tail: the operators that fix 64 of them are, in effect, one per task, and none of the needs recurs among the 94 held-out development tasks. More operators of this kind add coverage only where the tasks were seen",
+  "choice": "not adopted; the round-4 packs stay in the repository, inactive"
+ }
 }

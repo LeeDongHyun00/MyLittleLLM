@@ -1,0 +1,476 @@
+{
+ "packs": [
+  "r4_numbers",
+  "r4_sequences",
+  "r4_strings"
+ ],
+ "operators": 74,
+ "retired": {
+  "min_between_r4q/3": "a teacher flagged it as written from memory of benchmark tasks",
+  "longest_length_r4q/1": "a teacher flagged it as written from memory of benchmark tasks"
+ },
+ "kept": [
+  "a_anything_b_end_r4s/1",
+  "a_then_any_bs_r4s/1",
+  "a_then_some_bs_r4s/1",
+  "abbreviate_r4s/3",
+  "alpha_position_sum_r4s/1",
+  "alphabet_letter_r4s/1",
+  "alternate_neg_pos_r4q/1",
+  "alternate_pos_neg_r4q/1",
+  "alternate_sums_odd_first_r4q/1",
+  "alternate_sums_r4q/1",
+  "any_literal_in_r4q/2",
+  "chinese_zodiac_r4n/1",
+  "closest_triple_r4q/3",
+  "coin_split_value_r4n/1",
+  "consecutive_hamming_total_r4n/1",
+  "count_lists_r4q/1",
+  "count_squares_between_r4n/2",
+  "cubes_in_cube_r4n/2",
+  "digit_place_products_equal_r4s/1",
+  "drop_parenthesized_r4q/1",
+  "drop_words_containing_r4q/2",
+  "ends_with_word_punct_r4s/1",
+  "equal_words_r4s/1",
+  "equilateral_triangles_in_r4n/2",
+  "filled_grid_r4n/3",
+  "first_with_count_r4q/2",
+  "flatten_columns_r4q/1",
+  "frequency_spread_r4q/1",
+  "group_first_with_count_r4q/1",
+  "increment_numeric_strings_r4q/2",
+  "index_product_grid_r4n/2",
+  "k_smallest_pairs_r4q/3",
+  "longest_close_subsequence_r4q/1",
+  "longest_one_apart_subsequence_r4q/1",
+  "lower_underscore_lower_r4s/1",
+  "matched_text_r4q/1",
+  "max_between_r4q/3",
+  "max_cuboid_volume_r4n/1",
+  "max_profit_k_trades_r4q/2",
+  "max_split_digit_sum_r4n/1",
+  "min_abs_diff_sum_r4q/2",
+  "min_increments_to_equal_r4q/2",
+  "min_platforms_r4q/2",
+  "min_removals_within_r4q/2",
+  "most_frequent_divisor_r4n/2",
+  "negatives_first_swap_r4q/1",
+  "nth_non_multiple_from_r4n/3",
+  "odd_then_even_upto_r4n/1",
+  "only_local_inversions_r4s/1",
+  "parts_to_float_r4q/1",
+  "positives_then_negatives_r4q/1",
+  "quadratic_root_double_r4n/3",
+  "quadratic_roots_reciprocal_r4n/3",
+  "replace_space_comma_dot_n_r4s/3",
+  "replace_space_comma_dot_r4s/2",
+  "rotation_count_upto_r4q/2",
+  "run_values_and_counts_r4q/1",
+  "same_relative_order_r4s/2",
+  "season_r4s/2",
+  "shortest_length_r4q/1",
+  "sort_by_digit_count_r4q/1",
+  "starts_with_word_r4s/1",
+  "subsequences_product_below_r4q/2",
+  "top_k_frequent_r4q/2",
+  "upper_then_lower_r4s/1",
+  "words_of_10_chars_r4s/1",
+  "words_of_2_chars_r4s/1",
+  "words_of_3_chars_r4s/1",
+  "words_of_4_chars_r4s/1",
+  "words_of_5_chars_r4s/1",
+  "words_of_6_chars_r4s/1",
+  "words_of_7_chars_r4s/1",
+  "words_of_8_chars_r4s/1",
+  "words_of_9_chars_r4s/1"
+ ],
+ "all_candidates": {
+  "tasks": 434,
+  "solved": 384,
+  "newly_solved": 64,
+  "broken": 0,
+  "wrong_program": 20,
+  "nothing_found": 30
+ },
+ "selected": {
+  "tasks": 434,
+  "solved": 384,
+  "newly_solved": 64,
+  "broken": 0,
+  "wrong_program": 20,
+  "nothing_found": 30
+ },
+ "per_operator": {
+  "a_anything_b_end_r4s/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "a_then_any_bs_r4s/1": {
+   "gated": true,
+   "right": 2,
+   "wrong": 0
+  },
+  "a_then_some_bs_r4s/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "abbreviate_r4s/3": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "alpha_position_sum_r4s/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "alphabet_letter_r4s/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "alternate_neg_pos_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "alternate_pos_neg_r4q/1": {
+   "gated": true,
+   "right": 0,
+   "wrong": 0
+  },
+  "alternate_sums_odd_first_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "alternate_sums_r4q/1": {
+   "gated": true,
+   "right": 0,
+   "wrong": 0
+  },
+  "any_literal_in_r4q/2": {
+   "gated": true,
+   "right": 2,
+   "wrong": 0
+  },
+  "chinese_zodiac_r4n/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "closest_triple_r4q/3": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "coin_split_value_r4n/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "consecutive_hamming_total_r4n/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "count_lists_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "count_squares_between_r4n/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "cubes_in_cube_r4n/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "digit_place_products_equal_r4s/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "drop_parenthesized_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "drop_words_containing_r4q/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "ends_with_word_punct_r4s/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "equal_words_r4s/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "equilateral_triangles_in_r4n/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "filled_grid_r4n/3": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "first_with_count_r4q/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "flatten_columns_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "frequency_spread_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "group_first_with_count_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "increment_numeric_strings_r4q/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "index_product_grid_r4n/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "k_smallest_pairs_r4q/3": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "longest_close_subsequence_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "longest_one_apart_subsequence_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "lower_underscore_lower_r4s/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "matched_text_r4q/1": {
+   "gated": true,
+   "right": 2,
+   "wrong": 0
+  },
+  "max_between_r4q/3": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "max_cuboid_volume_r4n/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "max_profit_k_trades_r4q/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "max_split_digit_sum_r4n/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "min_abs_diff_sum_r4q/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "min_increments_to_equal_r4q/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "min_platforms_r4q/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "min_removals_within_r4q/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "most_frequent_divisor_r4n/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "negatives_first_swap_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "nth_non_multiple_from_r4n/3": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "odd_then_even_upto_r4n/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "only_local_inversions_r4s/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "parts_to_float_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "positives_then_negatives_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "quadratic_root_double_r4n/3": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "quadratic_roots_reciprocal_r4n/3": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "replace_space_comma_dot_n_r4s/3": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "replace_space_comma_dot_r4s/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "rotation_count_upto_r4q/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "run_values_and_counts_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "same_relative_order_r4s/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "season_r4s/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "shortest_length_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "sort_by_digit_count_r4q/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "starts_with_word_r4s/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "subsequences_product_below_r4q/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "top_k_frequent_r4q/2": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "upper_then_lower_r4s/1": {
+   "gated": true,
+   "right": 2,
+   "wrong": 0
+  },
+  "words_of_10_chars_r4s/1": {
+   "gated": true,
+   "right": 0,
+   "wrong": 0
+  },
+  "words_of_2_chars_r4s/1": {
+   "gated": true,
+   "right": 0,
+   "wrong": 0
+  },
+  "words_of_3_chars_r4s/1": {
+   "gated": true,
+   "right": 0,
+   "wrong": 0
+  },
+  "words_of_4_chars_r4s/1": {
+   "gated": true,
+   "right": 0,
+   "wrong": 0
+  },
+  "words_of_5_chars_r4s/1": {
+   "gated": true,
+   "right": 1,
+   "wrong": 0
+  },
+  "words_of_6_chars_r4s/1": {
+   "gated": true,
+   "right": 0,
+   "wrong": 0
+  },
+  "words_of_7_chars_r4s/1": {
+   "gated": true,
+   "right": 0,
+   "wrong": 0
+  },
+  "words_of_8_chars_r4s/1": {
+   "gated": true,
+   "right": 0,
+   "wrong": 0
+  },
+  "words_of_9_chars_r4s/1": {
+   "gated": true,
+   "right": 0,
+   "wrong": 0
+  }
+ }
+}
