@@ -1,0 +1,16 @@
+{
+ "written": "2026-11-21, after SeedLM-27, before any SeedLM-28 coder was trained",
+ "question": "Is SeedLM-27's development lead real? At 80 minutes the paraphrase coder solved 61 development tasks alone and the control 58, with one seed per arm",
+ "arms": "the same two arms with seeds 2 and 3: s28-c2, s28-p2, s28-c3, s28-p3 (scripts/seedlm4_train.py --minutes 80 --d-model 320 --layers 8 --heads 10 --views 3 --seed <seed> --variant-share 0.1, with --paraphrases for the p arm). Nothing else runs while they train",
+ "primary_measure": "development fifth (94), the coder alone at 80 minutes (first verified program at beam width 32, SeedLM-15's cache): paraphrase minus control, mean over seeds 1, 2, 3 (seed 1 is SeedLM-27's pair, +3). Supported if at least +3; not supported if at most 0; inconclusive otherwise",
+ "secondary_measures": [
+  "held-out teacher tasks at 80 minutes, the same difference (seed 1: +2)",
+  "the system on the development fifth with each paraphrase coder (scripts/seedlm4_tasks.py holdout; best method against 69)"
+ ],
+ "choice": "diagnostic; the system's adoption rule is unchanged",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+"
+ ]
+}
