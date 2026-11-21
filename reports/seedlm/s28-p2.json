@@ -1,0 +1,196 @@
+{
+ "name": "s28-p2",
+ "kind": "post-coder",
+ "arguments": {
+  "name": "s28-p2",
+  "minutes": 80.0,
+  "d_model": 320,
+  "layers": 8,
+  "heads": 10,
+  "batch": 64,
+  "train_size": 300000,
+  "bank_rate": 0.3,
+  "real_share": 0.1,
+  "teacher_share": 0.15,
+  "oneliner_share": 0.03,
+  "variant_share": 0.1,
+  "graft_share": 0.0,
+  "graft_count": 20000,
+  "compose_share": 0.0,
+  "pysynth_share": 0.0,
+  "pysynth_count": 30000,
+  "pysynth_library": "all",
+  "paraphrases": true,
+  "save_every": 0.0,
+  "internal_val": false,
+  "checkpoint_minutes": 0.0,
+  "views": 3,
+  "lr": 0.002,
+  "muon_lr": 0.02,
+  "seed": 2,
+  "smoke": false,
+  "blind": false,
+  "threads": 4
+ },
+ "parameters": 12647120,
+ "vocabulary": {
+  "size": 4342,
+  "words": 3029,
+  "program_tokens": 1037
+ },
+ "rows": {
+  "synthetic": 300000,
+  "real": 3648,
+  "teacher_tasks": 7974,
+  "dev_oneliners": 226,
+  "teacher_tasks_total": 1447,
+  "variants": 2046,
+  "variant_tasks_total": 698,
+  "composed": 0,
+  "composed_tasks_total": 0,
+  "grafts": 0,
+  "graft_programs": 0,
+  "internal_validation": {}
+ },
+ "steps": 3150,
+ "sequences_seen": 201600,
+ "train_seconds": 5190,
+ "curve": [
+  {
+   "step": 868,
+   "seconds": 1201,
+   "train_loss": 0.5159,
+   "synthetic": {
+    "loss": 0.8634,
+    "top1_exact": 0.567,
+    "top1_reproduces": 0.833,
+    "beam8_reproduces": 0.867,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.4814,
+    "top1_exact": 0.467,
+    "top1_reproduces": 0.617,
+    "beam8_reproduces": 0.767,
+    "examples": 60
+   },
+   "teacher_holdout": {
+    "loss": 1.7592,
+    "top1_exact": 0.2,
+    "top1_reproduces": 0.517,
+    "beam8_reproduces": 0.55,
+    "examples": 60
+   },
+   "variant_holdout": {
+    "loss": 2.4721,
+    "top1_exact": 0.0,
+    "top1_reproduces": 0.438,
+    "beam8_reproduces": 0.5,
+    "examples": 16
+   }
+  },
+  {
+   "step": 1632,
+   "seconds": 2401,
+   "train_loss": 0.2133,
+   "synthetic": {
+    "loss": 0.5209,
+    "top1_exact": 0.667,
+    "top1_reproduces": 0.833,
+    "beam8_reproduces": 0.967,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.4242,
+    "top1_exact": 0.6,
+    "top1_reproduces": 0.683,
+    "beam8_reproduces": 0.833,
+    "examples": 60
+   },
+   "teacher_holdout": {
+    "loss": 1.8888,
+    "top1_exact": 0.25,
+    "top1_reproduces": 0.417,
+    "beam8_reproduces": 0.583,
+    "examples": 60
+   },
+   "variant_holdout": {
+    "loss": 2.3767,
+    "top1_exact": 0.0,
+    "top1_reproduces": 0.438,
+    "beam8_reproduces": 0.562,
+    "examples": 16
+   }
+  },
+  {
+   "step": 2386,
+   "seconds": 3600,
+   "train_loss": 0.1151,
+   "synthetic": {
+    "loss": 0.3725,
+    "top1_exact": 0.783,
+    "top1_reproduces": 0.867,
+    "beam8_reproduces": 0.983,
+    "examples": 60
+   },
+   "real_holdout": {
+    "loss": 1.4247,
+    "top1_exact": 0.617,
+    "top1_reproduces": 0.717,
+    "beam8_reproduces": 0.833,
+    "examples": 60
+   },
+   "teacher_holdout": {
+    "loss": 1.9587,
+    "top1_exact": 0.233,
+    "top1_reproduces": 0.4,
+    "beam8_reproduces": 0.567,
+    "examples": 60
+   },
+   "variant_holdout": {
+    "loss": 2.7794,
+    "top1_exact": 0.0,
+    "top1_reproduces": 0.438,
+    "beam8_reproduces": 0.625,
+    "examples": 16
+   }
+  }
+ ],
+ "checkpoints": [],
+ "selected": null,
+ "final": {
+  "synthetic": {
+   "loss": 0.2566,
+   "top1_exact": 0.783,
+   "top1_reproduces": 0.907,
+   "beam8_reproduces": 0.963,
+   "examples": 300
+  },
+  "real_holdout": {
+   "loss": 1.3933,
+   "top1_exact": 0.533,
+   "top1_reproduces": 0.613,
+   "beam8_reproduces": 0.787,
+   "examples": 75
+  },
+  "teacher_holdout": {
+   "loss": 2.0658,
+   "top1_exact": 0.223,
+   "top1_reproduces": 0.525,
+   "beam8_reproduces": 0.705,
+   "examples": 139
+  },
+  "beyond_holdout": {
+   "tasks": 15,
+   "solved": 4
+  },
+  "variant_holdout": {
+   "loss": 3.0399,
+   "top1_exact": 0.0,
+   "top1_reproduces": 0.5,
+   "beam8_reproduces": 0.688,
+   "examples": 16
+  }
+ },
+ "torch": "2.15.0+cpu"
+}
