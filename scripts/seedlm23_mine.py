@@ -75,11 +75,11 @@ def teacher_tasks(source="teacher"):
     return out
 
 
-def pysynth_tasks(count, describer):
+def pysynth_tasks(count, describer, seed=23):
     from seedlm6_grafts import programs
-    rng = random.Random(23)
+    rng = random.Random(seed)
     out = []
-    for row in pysynth.generate(programs(), count, seed=23):
+    for row in pysynth.generate(programs(), count, seed=seed):
         cases = [(list(ast.literal_eval(c)), ast.literal_eval(o)) for c, o in zip(row["cases"], row["outputs"])]
         words = pyx_words.describe(rng, row["tokens"], row["literals"], cases[0][0], describer=describer)
         out.append({"source": "pysynth", "id": f"p{len(out)}", "words": words, "named": named_in(" ".join(words)),

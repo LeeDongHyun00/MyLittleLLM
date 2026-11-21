@@ -1,0 +1,27 @@
+{
+ "written": "2026-11-21, after SeedLM-23, before any SeedLM-24 candidate was mined for the full run",
+ "motivation": [
+  "At beam width 32 on the held-out teacher tasks, some verified program is right for 74 to 80 tasks but the first one for 59 to 62 (SeedLM-21's beam statistics): the coder's beam reaches more than its ranking picks",
+  "Ranking by the coder's own probability lets wrong programs that fit the one example come first; pushing them down inside the coder hardly carried over to held-out beams (SeedLM-23). Agreement inside one beam was harmful (SeedLM-7); agreement across coders helped (SeedLM-10 to 16)",
+  "Execution-based verifiers rerank language-to-code candidates by reading what a candidate does (LEVER, Ni et al. 2023)"
+ ],
+ "hypothesis": "A small verifier trained from scratch to judge (task, candidate, the candidate's outputs on probe inputs) chooses right programs among a coder's verified ones more often than the coder's own first choice",
+ "verifier": "mylittlellm/seedlm/verifier.py: a 6-layer, width-256 transformer from scratch reading the coder's conditioning, the candidate program, and its outputs on 5 probe inputs (type-preserving mutations of the example's arguments), predicting right or wrong at a verdict token; balanced batches, 25 minutes (scripts/seedlm24_verifier_train.py)",
+ "training_data": "scripts/seedlm24_verifier_data.py train: training tasks with three known cases (the training parts of the teacher tasks and variants, of SeedLM-6's composed tasks, and 3,000 generated programs, pysynth seed 24), split in two by a hash of the task id; s12-a1's beam (width 16) mines one part and s12-a2's the other; every verified program (up to 8 per task), right if right on every case. A tenth of the tasks (by id) is kept out to monitor the verifier",
+ "measure_data": "scripts/seedlm24_verifier_data.py heldout for s12-a1, s12-a2, s12-a3: every verified program at width 32 (up to 8) on the held-out teacher tasks and the development fifth; per-task data local",
+ "primary_measure": "held-out teacher tasks (139): tasks right with the verifier's choice (highest probability of right; ties to beam order) minus tasks right with the coder's first verified program, mean over s12-a1, s12-a2 and s12-a3 (scripts/seedlm24_rerank.py). Supported if at least +4; not supported if at most +1; inconclusive otherwise",
+ "secondary_measures": [
+  "development fifth (94), the same difference",
+  "fixed and broken tasks; the ceiling (some verified program right)",
+  "s12-a3 alone: a coder whose beams the verifier never trained on",
+  "the verifier's score plus the coder's log-probability (reported, not chosen)"
+ ],
+ "choice": "diagnostic; if supported, the verifier is next tried inside the coder ensemble and with the engine, each pre-registered",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "held-out teacher tasks",
+  "the development fifth"
+ ]
+}
