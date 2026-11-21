@@ -1,0 +1,31 @@
+{
+ "name": "verifier-1",
+ "arguments": {
+  "name": "verifier-1",
+  "data": [
+   "train_s12-a1_part0",
+   "train_s12-a2_part1"
+  ],
+  "vocabulary": "s12-a1",
+  "minutes": 25.0,
+  "d_model": 256,
+  "layers": 6,
+  "heads": 8,
+  "batch": 64,
+  "lr": 0.002,
+  "muon_lr": 0.02,
+  "seed": 0
+ },
+ "parameters": 6781488,
+ "steps": 619,
+ "train_rows": 16129,
+ "train_right": 6763,
+ "validation_rows": 1913,
+ "curve": [],
+ "final": {
+  "accuracy": 0.7094,
+  "mixed_tasks": 203,
+  "verifier_top_right": 112,
+  "coder_first_right": 176
+ }
+}

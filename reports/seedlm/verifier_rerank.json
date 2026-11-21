@@ -1,0 +1,75 @@
+{
+ "verifier": "verifier-1",
+ "coders": {
+  "s12-a1": {
+   "teacher": {
+    "tasks": 139,
+    "first": 59,
+    "verifier": 53,
+    "verifier_plus_coder": 59,
+    "some_right": 75,
+    "changed": 70,
+    "fixed": 6,
+    "broken": 12
+   },
+   "development": {
+    "tasks": 94,
+    "first": 56,
+    "verifier": 38,
+    "verifier_plus_coder": 57,
+    "some_right": 61,
+    "changed": 44,
+    "fixed": 2,
+    "broken": 20
+   }
+  },
+  "s12-a2": {
+   "teacher": {
+    "tasks": 139,
+    "first": 59,
+    "verifier": 51,
+    "verifier_plus_coder": 61,
+    "some_right": 72,
+    "changed": 69,
+    "fixed": 4,
+    "broken": 12
+   },
+   "development": {
+    "tasks": 94,
+    "first": 53,
+    "verifier": 46,
+    "verifier_plus_coder": 52,
+    "some_right": 58,
+    "changed": 39,
+    "fixed": 1,
+    "broken": 8
+   }
+  },
+  "s12-a3": {
+   "teacher": {
+    "tasks": 139,
+    "first": 62,
+    "verifier": 54,
+    "verifier_plus_coder": 65,
+    "some_right": 78,
+    "changed": 71,
+    "fixed": 6,
+    "broken": 14
+   },
+   "development": {
+    "tasks": 94,
+    "first": 58,
+    "verifier": 43,
+    "verifier_plus_coder": 60,
+    "some_right": 63,
+    "changed": 52,
+    "fixed": 2,
+    "broken": 17
+   }
+  }
+ },
+ "mean_gain": {
+  "teacher": -7.33,
+  "development": -13.33
+ }
+}
