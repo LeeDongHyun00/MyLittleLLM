@@ -1,0 +1,19 @@
+{
+ "written": "2026-11-21, before any paraphrase was written",
+ "theory": "The coder's wrong first choices are its reading of the description: re-read with other examples it picks the same wrong program (SeedLM-25). Each training task is read in one wording only, so the coder learns which words go with which program for that wording. Reading every training task in several wordings should teach the meaning instead of the wording",
+ "data": "1,200 training tasks (the 525 real training tasks with engine programs, outputs/seedlm/v2/real_dev.json, and 675 training teacher tasks drawn at random), two paraphrases each written by three teacher subagents; a paraphrase is kept only if it differs from the original and from the other paraphrase and the literals the coder reads (numbers and quoted strings) are the same values in the same order (scripts/seedlm26_paraphrase_check.py). Teachers see only these descriptions and one visible example each",
+ "arms": "for each base coder s12-a1, s12-a2, s12-a3: two fine-tunes from its checkpoint, 400 steps, the base run's data mix (a fresh synthetic draw of 60,000) plus rows of the same 1,200 tasks at a tenth of the mix: s26-o<k> with the original descriptions (each task twice, to match the count), s26-p<k> with the two paraphrases instead. Learning rates 0.3 of the base run's, 20-step warm-up, linear decay (scripts/seedlm26_finetune.py). Nothing else runs while they train",
+ "primary_measure": "held-out teacher tasks (139): the first program at beam width 32 that reproduces the visible example is right on every case (SeedLM-15's cache), mean over the three bases of s26-p<k> minus s26-o<k>. Supported if at least +3; not supported if at most 0; inconclusive otherwise",
+ "secondary_measures": [
+  "development fifth (94), each coder alone, the same difference",
+  "the held-out teacher tasks with terse, MBPP-like descriptions (SeedLM-8, data/seedlm/teacher_holdout_terse.json), the same difference"
+ ],
+ "choice": "diagnostic; the system's adoption rule is unchanged",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "held-out teacher tasks",
+  "the development fifth"
+ ]
+}
