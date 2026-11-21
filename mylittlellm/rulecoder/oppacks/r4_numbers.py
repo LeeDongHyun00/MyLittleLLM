@@ -101,11 +101,12 @@ def register(lib):
     # factors" and "perfect squares" between a and b are the same count.
     formula(2, "count_squares_between_r4n", "math.isqrt({1}) - math.isqrt({0} - 1)",
             "with odd factors|odd number of factors|odd number of divisors|number of perfect squares|"
-            "count&perfect squares|perfect squares&between|perfect squares&range|perfect squares&interval",
+            "count&perfect squares|perfect squares&between|perfect squares&range|perfect squares&interval|"
+            "square numbers&between|square numbers&range",
             ordered(1, 10 ** 15))
     # A cube of side k can start at n - k + 1 places along each edge of a cube of side n.
     formula(2, "cubes_in_cube_r4n", "({0} - {1} + 1) ** 3",
-            "cubes of size|cubes&in a cube|cubes&inside a cube|cubes&within a cube|subcube|sub-cube",
+            "cubes of size|cubes of side|cubes&in a cube|cubes&inside a cube|cubes&within a cube|subcube|sub-cube",
             lambda n, k: need(is_int(n) and is_int(k) and 1 <= k <= n <= 10 ** 6))
     formula(2, "equilateral_triangles_in_r4n", "_triangles_in_triangle_r4n({0}, {1})",
             "number of equilateral triangles|count&equilateral triangles|equilateral triangles&within|"
@@ -168,8 +169,16 @@ def register(lib):
             "two dimensional|filled with|each element as", fill, kind="generic")
 
     # ------------------------------------------------------------ more words for existing operators
+    def also_named(key, keywords):
+        # The operator may belong to another pack; when that pack is not loaded the words name nothing,
+        # and a missing operator must not stop the whole library from loading.
+        try:
+            lib.also_named(key, keywords)
+        except KeyError:
+            pass
+
     # A 3-D array is whole copies of one 2-D layer; the core `repeat` would concatenate the layers instead.
-    lib.also_named("seq_repeat_whole/2", "3d array|3-d array|three-dimensional|three dimensional")
+    also_named("seq_repeat_whole/2", "3d array|3-d array|three-dimensional|three dimensional")
     # "The kth element" names the 1-based lookup outright; without the phrase a coincidental .index() of
     # the same list wins the tie on the longer keyword ("find").
-    lib.also_named("kth/2", "kth element|k'th element|k-th element")
+    also_named("kth/2", "kth element|k'th element|k-th element")

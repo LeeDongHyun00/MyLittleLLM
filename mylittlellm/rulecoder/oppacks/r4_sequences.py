@@ -313,7 +313,8 @@ def register(lib):
         "sorted({0}, key=lambda row: sum(len(str(v)) for v in row))", "sort&digit")
 
     # ------------------------------------------------------------ more words for existing operators
-    # "count ... under given prime number" also names the prime-counting rule, by a longer phrase.
+    # "Count elements having modular inverse under given prime number" names the prime-counting rule by a
+    # longer phrase ("count", "prime number", "under") than "modular inverse", and that rule won the tie.
     try:
         lib.also_named("seq_count_self_inverse/2", "modular inverse&prime number|modular inverse&equal to itself")
     except KeyError:
