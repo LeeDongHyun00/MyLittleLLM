@@ -7,6 +7,9 @@ Train tasks are judged by the hidden tests, extra-pool tasks by their own assert
   python scripts/teacher_check.py --pack r3_strings --bank strings            # the failures of one category
   python scripts/teacher_check.py --pack r3_strings --bank strings --regress  # plus tasks that were solved before
   python scripts/teacher_check.py --pack r3_strings --bank strings --only Mbpp/104 MbppX/321 --show
+
+Round 4 (--round 4) reads outputs/rule_round4/, built by round4_bank.py from the extra pool's training part,
+and also refuses any task of the held-out development fifth the SeedLM experiments measure on.
 """
 import argparse
 import json
@@ -17,6 +20,7 @@ import sys
 import time
 
 BANK = Path(__file__).resolve().parents[1] / "outputs/rule_pilot/teacher/round3"
+BANK4 = Path(__file__).resolve().parents[1] / "outputs/rule_round4"
 
 
 def main():
@@ -29,9 +33,17 @@ def main():
     parser.add_argument("--only", nargs="*", help="restrict to these task ids")
     parser.add_argument("--show", action="store_true", help="print the generated code of every found program")
     parser.add_argument("--output", help="write per-task results as JSON")
+    parser.add_argument("--round", type=int, default=3, choices=[3, 4])
     args = parser.parse_args()
+    bank_dir = BANK4 if args.round == 4 else BANK
 
-    if args.pack != "manifest":
+    if args.round == 4 and args.pack != "manifest":
+        # Round 4 packs go on top of the shipped library: its active packs, retirements and search features.
+        manifest = json.loads((Path(__file__).resolve().parents[1] / "data/rule_pilot/operator_packs.json").read_text())
+        os.environ["RULE_PACKS"] = ",".join(manifest.get("active", []) + args.pack.split(","))
+        os.environ["RULE_RETIRE"] = ",".join(manifest.get("retired", {}))
+        os.environ["RULE_ENGINE"] = ",".join(manifest.get("engine", []))
+    elif args.pack != "manifest":
         os.environ["RULE_PACKS"] = args.pack    # must be set before the rule engine is imported
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from mylittlellm.rulecoder import backinfer as bi, scoring
@@ -40,14 +52,18 @@ def main():
 
     split = load_split()
     held_out = set(split["val"]) | set(split["test"])
-    path = Path(args.bank) if args.bank.endswith(".json") else BANK / f"bank_{args.bank}.json"
+    path = Path(args.bank) if args.bank.endswith(".json") else bank_dir / f"bank_{args.bank}.json"
     items = json.loads(path.read_text())
     if args.regress:
-        items = items + json.loads((BANK / "regression.json").read_text())
+        items = items + json.loads((bank_dir / "regression.json").read_text())
     if args.only:
         items = [item for item in items if item["task_id"] in set(args.only)]
     if any(item["task_id"] in held_out for item in items):
         raise SystemExit("Refusing to run: the bank contains validation or test tasks")
+    if args.round == 4:
+        from seedlm2_real import held_out as development_fifth
+        if any(item["source"] == "extra" and development_fifth(item["task_id"]) for item in items):
+            raise SystemExit("Refusing to run: the bank contains tasks of the held-out development fifth")
 
     def judge(item, found):
         if item["source"] == "extra":

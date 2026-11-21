@@ -1,0 +1,26 @@
+{
+ "tasks": 434,
+ "by_status": {
+  "solved": 320,
+  "none": 70,
+  "wrong": 44
+ },
+ "by_category": {
+  "nested/none": 5,
+  "nested/solved": 56,
+  "nested/wrong": 1,
+  "numbers/none": 16,
+  "numbers/solved": 74,
+  "numbers/wrong": 21,
+  "predicates/none": 6,
+  "predicates/solved": 51,
+  "predicates/wrong": 1,
+  "sequences/none": 16,
+  "sequences/solved": 101,
+  "sequences/wrong": 16,
+  "strings/none": 23,
+  "strings/solved": 38,
+  "strings/wrong": 5,
+  "unparsed/none": 4
+ }
+}

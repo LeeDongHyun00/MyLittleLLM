@@ -1,0 +1,21 @@
+{
+ "written": "2026-11-21, before any round-4 operator was written",
+ "motivation": [
+  "Since SeedLM-5 no coder-side method has moved the system (engine + s5-var pyx_override: development fifth 69, locked test 72). On the development fifth the engine fails 29 tasks: 14 with no program at all, 15 with a wrong program that fits the visible example (8 of them confident). Ranking among fitting programs did not improve with any method tried (SeedLM-21 to 25)",
+  "Round 3 (docs/rule_round3.md) turned 489 engine failures into operators and raised the engine on the locked test from 57 to 68"
+ ],
+ "bank": "scripts/round4_bank.py: the extra pool's training part (434 tasks; the held-out development fifth and the MBPP+ train tasks are left out), with the current engine: 320 solved (kept as a regression set), 70 with no program, 44 with a wrong one (reports/seedlm/round4_bank_summary.json)",
+ "teachers": "three subagents following docs/round4_teacher_guide.md, one per pack: r4_numbers (bank numbers, 37 failures), r4_sequences (sequences and nested, 38), r4_strings (strings and predicates, 35); 4 unparsed tasks are left out. They see only their bank files, the regression set, the engine source and the check tool (scripts/teacher_check.py --round 4)",
+ "selection": "round 3's rules, fixed before any pack was written (scripts/round3_select.py), measured on the 434 training tasks only: a gated operator is retired if it is in two or more wrong final programs and in more wrong than right ones; an ungated operator stays only if it is in at least one right final program and in at least as many right as wrong ones; operators a teacher flags as written from memory of benchmark tasks are retired first. Search features stay as shipped",
+ "primary_measure": "development fifth (94): the system (engine + s5-var's pyx_override, scripts/seedlm4_tasks.py) with the round-4 library against 69. Adopted if above 69, then the validation gate (engine alone at least 19 of 45; the 1.5B pipeline at least 31), then the locked test split once and HumanEval+ once",
+ "secondary_measures": [
+  "the engine alone on the development fifth (65 before)",
+  "fixed and broken tasks against the current library"
+ ],
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "the development fifth"
+ ]
+}
