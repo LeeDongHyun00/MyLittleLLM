@@ -40,10 +40,11 @@ BANK = ROOT / "outputs/rule_pilot/teacher/round3/all_tasks.json"
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", default="reports/seedlm/engine_ensemble_holdout.json")
+    parser.add_argument("--coders", nargs="+", help="cached coders to use (default: every cached coder)")
     args = parser.parse_args()
     torch.set_num_threads(4)
     cap_memory()      # a program's runaway allocation fails instead of killing the run
-    coders = sorted(p.stem for p in CACHE.glob("*.json"))
+    coders = sorted(args.coders or (p.stem for p in CACHE.glob("*.json")))
     cached = {c: json.loads((CACHE / f"{c}.json").read_text())["development"] for c in coders}
     n = len(coders)
     s5_net, s5_vocabulary = coder4.load(ROOT / "outputs/seedlm/s5-var.pt")
