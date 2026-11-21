@@ -1,0 +1,80 @@
+{
+ "coders": {
+  "s12-a1": {
+   "teacher": {
+    "tasks": 139,
+    "first": 59,
+    "cycle": 59,
+    "pseudo_only": 59,
+    "some_right": 75,
+    "kept_first_for_output_string": 23,
+    "changed": 5,
+    "fixed": 1,
+    "broken": 1
+   },
+   "development": {
+    "tasks": 94,
+    "first": 56,
+    "cycle": 56,
+    "pseudo_only": 56,
+    "some_right": 61,
+    "kept_first_for_output_string": 5,
+    "changed": 5,
+    "fixed": 1,
+    "broken": 1
+   }
+  },
+  "s12-a2": {
+   "teacher": {
+    "tasks": 139,
+    "first": 59,
+    "cycle": 59,
+    "pseudo_only": 60,
+    "some_right": 72,
+    "kept_first_for_output_string": 23,
+    "changed": 11,
+    "fixed": 1,
+    "broken": 1
+   },
+   "development": {
+    "tasks": 94,
+    "first": 53,
+    "cycle": 52,
+    "pseudo_only": 51,
+    "some_right": 58,
+    "kept_first_for_output_string": 3,
+    "changed": 6,
+    "fixed": 1,
+    "broken": 2
+   }
+  },
+  "s12-a3": {
+   "teacher": {
+    "tasks": 139,
+    "first": 62,
+    "cycle": 63,
+    "pseudo_only": 64,
+    "some_right": 78,
+    "kept_first_for_output_string": 20,
+    "changed": 10,
+    "fixed": 1,
+    "broken": 0
+   },
+   "development": {
+    "tasks": 94,
+    "first": 58,
+    "cycle": 57,
+    "pseudo_only": 57,
+    "some_right": 63,
+    "kept_first_for_output_string": 7,
+    "changed": 5,
+    "fixed": 1,
+    "broken": 2
+   }
+  }
+ },
+ "mean_gain": {
+  "teacher": 0.33,
+  "development": -0.67
+ }
+}

@@ -13,5 +13,16 @@
   "validation",
   "test",
   "HumanEval+"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-21, after the measure",
+  "primary": "held-out teacher tasks, the rule's choice minus the coder's first: s12-a1 59 vs 59, s12-a2 59 vs 59, s12-a3 63 vs 62; mean +0.33: not supported (reports/seedlm/cycle_rerank.json)",
+  "secondary": [
+   "development fifth: 56 vs 56, 52 vs 53, 57 vs 58; mean -0.67",
+   "the rule changed the choice on 5, 11, 10 teacher tasks (fixing 1, 1, 1; breaking 1, 1, 0); 20 to 23 teacher tasks kept the first program because their candidates use the output string",
+   "pseudo-examples alone: teacher 59, 60, 64; development 56, 51, 57"
+  ],
+  "reading": "The coder's first program is almost always also the program it finds most likely for its own outputs on other inputs. Its wrong first choices are not accidents of the one example; they are its reading of the description, stable when it re-reads with other examples. Only a reader that reads differently (another coder) disagrees with them",
+  "choice": "no new method"
+ }
 }
