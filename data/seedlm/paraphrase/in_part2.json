@@ -1,0 +1,2649 @@
+[
+ {
+  "id": "MbppX/907",
+  "description": "Write a function to print the first n lucky numbers.",
+  "example": "assert lucky_num(10)==[1, 3, 7, 9, 13, 15, 21, 25, 31, 33]",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/563",
+  "description": "Write a function to extract values between quotation marks from a string.",
+  "example": "assert extract_values('\"Python\", \"PHP\", \"Java\"')==['Python', 'PHP', 'Java']",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-078",
+  "description": "Write a function to find what fraction of the items in a list are equal to the first item.",
+  "example": "share_like_first(([1, 2, 1, 3],)) == 0.5",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-125",
+  "description": "Write a function to find the indices at which the value of a given list changes from the previous element.",
+  "example": "change_indices(([5, 5, 7, 7, 7, 2],)) == [2, 5]",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-074",
+  "description": "Given the coordinates x and y of a point and a radius r, return True when the point lies strictly inside the circle of radius r centered at the origin.",
+  "example": "inside_circle((1, 2, 3)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-043",
+  "description": "Write a function to measure the length of every city name in a list.",
+  "example": "city_name_lengths((['Paris', 'Rome', 'New York'],)) == [5, 4, 8]",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-135",
+  "description": "Write a function to find the sum of the even whole numbers written in a text.",
+  "example": "even_number_total(('3 cats, 4 dogs and 10 fish',)) == 14",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-133",
+  "description": "Write a function to count how many of the 12 months of year y have a day numbered d, given d and y.",
+  "example": "months_with_day((31, 2023)) == 7",
+  "keep_in_order": [
+   "12"
+  ]
+ },
+ {
+  "id": "nested2-127",
+  "description": "Given a list of person dictionaries with keys 'name' and 'age', return the names ordered from the youngest person to the oldest, keeping the original order on equal ages.",
+  "example": "names_by_age(([{'name': 'ann', 'age': 41}, {'name': 'bob', 'age': 23}, {'name': 'cy', 'age': 35}],)) == ['bob', 'cy', 'ann']",
+  "keep_in_order": [
+   "'name'",
+   "'age'"
+  ]
+ },
+ {
+  "id": "strings2-103",
+  "description": "Write a function that lists every string obtained by swapping two neighbouring characters of a word, in order of position.",
+  "example": "swap_typos(('abc',)) == ['bac', 'acb']",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-019",
+  "description": "A tent is a triangular prism whose triangular end has base b and height h, and whose length is l; given b, h and l, write a function to find the volume of air inside.",
+  "example": "tent_volume((2, 3, 4)) == 12.0",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/372",
+  "description": "Write a function to sort a given list of elements in ascending order using heap queue algorithm.",
+  "example": "assert heap_assending([18, 14, 10, 9, 8, 7, 9, 3, 2, 4, 1])==[1, 2, 3, 4, 7, 8, 9, 9, 10, 14, 18]",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-098",
+  "description": "Write a function to return, in increasing order, the elements of a list that are larger than the first element of the list.",
+  "example": "sorted_above_first(([5, 9, 1, 7, 6],)) == [6, 7, 9]",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-095",
+  "description": "Create a function which sorts every column of a matrix in ascending order independently, returning the result as a list of rows.",
+  "example": "sort_columns(([[3, 1], [1, 2], [2, 0]],)) == [[1, 0], [2, 1], [3, 2]]",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-044",
+  "description": "Write a function to return 'Yes' if the total of a list of expenses stays within a given budget and 'No' otherwise.",
+  "example": "within_budget(([20, 35, 10], 70)) == 'Yes'",
+  "keep_in_order": [
+   "'Yes'",
+   "'No'"
+  ]
+ },
+ {
+  "id": "strings-138",
+  "description": "Given a domain name, return it with its dot-separated labels in the opposite order.",
+  "example": "reverse_domain(('www.example.com',)) == 'com.example.www'",
+  "keep_in_order": [
+   "'.'"
+  ]
+ },
+ {
+  "id": "MbppX/313",
+  "description": "Write a python function to print positive numbers in a list.",
+  "example": "assert pos_nos([-1,-2,1,2]) == 1,2",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-128",
+  "description": "Create a function which keeps the words of a list in which no letter appears twice.",
+  "example": "no_repeated_letters((['apple', 'tiger', 'moon'],)) == ['tiger']",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-054",
+  "description": "A cinema charges 6 for a child under 12, 7 for a visitor aged 65 or over and 10 for everyone else; write a function that returns the ticket price for a given age.",
+  "example": "ticket_price((30,)) == 10",
+  "keep_in_order": [
+   "6",
+   "12",
+   "7",
+   "65",
+   "10"
+  ]
+ },
+ {
+  "id": "predicates-034",
+  "description": "Write a function to check whether the text has a word with the letter 'z' somewhere in its middle, not at its start or end.",
+  "example": "inner_z(('The pizza is hot',)) == True",
+  "keep_in_order": [
+   "'z'"
+  ]
+ },
+ {
+  "id": "nested-012",
+  "description": "Create a function which keeps only the entries of a dictionary whose keys appear in the given list of keys.",
+  "example": "pick_keys(({'a': 1, 'b': 2, 'c': 3}, ['c', 'a'])) == {'a': 1, 'c': 3}",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-089",
+  "description": "Given a list, return a tuple telling whether it is sorted in ascending order and whether it is sorted in descending order.",
+  "example": "sort_direction_flags(([1, 2, 2, 5],)) == (True, False)",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-042",
+  "description": "Write a function to check whether the absolute difference between any two adjacent elements of a given list is at most k.",
+  "example": "small_steps_only(([3, 5, 4, 6], 2)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-135",
+  "description": "Given the round scores of two players as two lists, return True if the first player won more rounds than the second player.",
+  "example": "won_more_rounds(([10, 7, 9, 4], [8, 9, 6, 4])) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/489",
+  "description": "Write a python function to find the frequency of the largest value in a given array.",
+  "example": "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/536",
+  "description": "Write a function to select the nth items of a list.",
+  "example": "assert nth_items([1, 2, 3, 4, 5, 6, 7, 8, 9],2)==[1, 3, 5, 7, 9]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/954",
+  "description": "Write a function that gives profit amount if the given amount has profit else return none.",
+  "example": "assert profit_amount(1500,1200)==300",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/863",
+  "description": "Write a function to find the length of the longest sub-sequence such that elements in the subsequences are consecutive integers.",
+  "example": "assert find_longest_conseq_subseq([1, 2, 2, 3], 4) == 3",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-095",
+  "description": "Write a function to turn a phrase into a hashtag by writing each word with an uppercase first letter and a lowercase rest, removing the spaces and putting '#' in front.",
+  "example": "make_hashtag(('happy new year',)) == '#HappyNewYear'",
+  "keep_in_order": [
+   "'#'",
+   "' '"
+  ]
+ },
+ {
+  "id": "MbppX/32",
+  "description": "Write a python function to find the largest prime factor of a given number.",
+  "example": "assert max_Prime_Factors(15) == 5",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/76",
+  "description": "Write a python function to count the number of squares in a rectangle.",
+  "example": "assert count_Squares(4,3) == 20",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-101",
+  "description": "Write a python function to find the largest jump, up or down, between two neighbouring values of a list.",
+  "example": "biggest_jump(([1, 5, 2, 2],)) == 4",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/256",
+  "description": "Write a python function that takes in a non-negative number and returns the number of prime numbers less than the given non-negative number.",
+  "example": "assert count_Primes_nums(5) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-099",
+  "description": "Write a function to check whether every row of the matrix has the same sum.",
+  "example": "equal_row_sums(([[1, 2], [3, 0]],)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-097",
+  "description": "Write a python function to count the integers from 1 to n whose proper divisors, the divisors other than the integer itself, add up to less than the integer.",
+  "example": "count_deficient_upto((12,)) == 10",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "Mbpp/808",
+  "description": "Write a function to check if the given tuples contain the k or not.",
+  "example": "assert check_K((10, 4, 5, 6, 8), 6) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-084",
+  "description": "Create a function which alphabetizes the items of a comma-separated list, trimming the spaces around each item and joining them back with ', '.",
+  "example": "sorted_comma_list(('pear,apple, fig',)) == 'apple, fig, pear'",
+  "keep_in_order": [
+   "', '",
+   "' '",
+   "','"
+  ]
+ },
+ {
+  "id": "Mbpp/424",
+  "description": "Write a function to extract only the rear index element of each string in the given tuple.",
+  "example": "assert extract_rear(('Mers', 'for', 'Vers') ) == ['s', 'r', 's']",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-112",
+  "description": "Write a function that deals a list of cards into k hands in round-robin order, returning the list of hands.",
+  "example": "deal_hands(([1, 2, 3, 4, 5, 6, 7], 3)) == [[1, 4, 7], [2, 5], [3, 6]]",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-080",
+  "description": "Given a list of (name, score) tuples, return the names ordered from the lowest score to the highest score.",
+  "example": "names_by_score(([('ann', 7), ('bob', 3), ('cy', 9)],)) == ['bob', 'ann', 'cy']",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/152",
+  "description": "Write a function to sort the given array by using merge sort.",
+  "example": "assert merge_sort([3, 4, 2, 6, 5, 7, 1, 9]) == [1, 2, 3, 4, 5, 6, 7, 9]",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-023",
+  "description": "Write a function that counts how many times each value appears across all the inner lists and returns a dictionary from value to count.",
+  "example": "value_counts(([[1, 2], [2, 3], [2]],)) == {1: 1, 2: 3, 3: 1}",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-065",
+  "description": "Given two positive integers, return True when their sum is a prime number.",
+  "example": "sum_is_prime((5, 7)) == False",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/429",
+  "description": "Write a function to extract the elementwise and tuples from the given two tuples.",
+  "example": "assert and_tuples((10, 4, 6, 9), (5, 2, 3, 3)) == (0, 0, 2, 1)",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/710",
+  "description": "Write a function to access the initial and last data of the given tuple record.",
+  "example": "assert front_and_rear((10, 4, 5, 6, 7)) == (10, 7)",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/203",
+  "description": "Write a python function to find the hamming distance between given two integers.",
+  "example": "assert hamming_Distance(4,8) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-016",
+  "description": "Write a function to find the last letter of each word in a list.",
+  "example": "last_letters((['sun', 'moon', 'star'],)) == ['n', 'n', 'r']",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-119",
+  "description": "Given a list of words to look for and a text given as a list of words, return how many times each word to look for appears in the text.",
+  "example": "word_hits((['the', 'cat', 'dog'], ['the', 'cat', 'saw', 'the', 'rat'])) == [2, 1, 0]",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-022",
+  "description": "The spaces of a car park row are the bits of a positive integer written without leading zeros, 1 for taken and 0 for free, with bit 0 nearest the gate; write a function to fill the free space nearest the gate and return the new value, leaving a full row unchanged.",
+  "example": "fill_nearest_space((11,)) == 15",
+  "keep_in_order": [
+   "1",
+   "0",
+   "' '"
+  ]
+ },
+ {
+  "id": "MbppX/369",
+  "description": "Write a function to find the lateral surface area of cuboid",
+  "example": "assert lateralsurface_cuboid(8,5,6)==156",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/490",
+  "description": "Write a function to extract all the pairs which are symmetric in the given tuple list.",
+  "example": "assert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-066",
+  "description": "Write a function to double every number of a list and keep only the doubled values that are greater than 10.",
+  "example": "doubled_above_ten(([3, 6, 9],)) == [12, 18]",
+  "keep_in_order": [
+   "10"
+  ]
+ },
+ {
+  "id": "MbppX/33",
+  "description": "Write a python function to convert a decimal number to binary number.",
+  "example": "assert decimal_To_Binary(10) == 1010",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/569",
+  "description": "Write a function to sort each sublist of strings in a given list of lists.",
+  "example": "assert sort_sublists([['green', 'orange'], ['black', 'white'], ['white', 'black', 'orange']])==[['green', 'orange'], ['black', 'white'], ['black', 'orange', 'white']]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/370",
+  "description": "Write a function to sort a tuple by its float element.",
+  "example": "assert float_sort([('item1', '12.20'), ('item2', '15.10'), ('item3', '24.5')])==[('item3', '24.5'), ('item2', '15.10'), ('item1', '12.20')]",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-022",
+  "description": "Given a list of shopping baskets, each a list of items, and an item, write a python function to count how many baskets contain that item at least once.",
+  "example": "rows_containing(([['egg', 'tea', 'egg'], ['jam'], ['tea', 'egg']], 'egg')) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/753",
+  "description": "Write a function to find minimum k records from tuple list.  - in this case a verbatim copy of test cases",
+  "example": "assert min_k([('Manjeet', 10), ('Akshat', 4), ('Akash', 2), ('Nikhil', 8)], 2) == [('Akash', 2), ('Akshat', 4)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/84",
+  "description": "Write a function to find the nth number in the newman conway sequence.",
+  "example": "assert sequence(10) == 6",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-126",
+  "description": "Write a function to express each value of a list as a percentage of the list total, multiplying by 100 and rounding to the nearest whole number.",
+  "example": "percent_shares(([1, 1, 2],)) == [25, 25, 50]",
+  "keep_in_order": [
+   "100"
+  ]
+ },
+ {
+  "id": "numbers-050",
+  "description": "Create a function which counts the prime factors of an integer greater than 1, counting a repeated prime once for each time it divides.",
+  "example": "prime_factor_count((12,)) == 3",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "MbppX/197",
+  "description": "Write a function to perform the exponentiation of the given two tuples.",
+  "example": "assert find_exponentio((10, 4, 5, 6), (5, 6, 7, 5)) == (100000, 4096, 78125, 7776)",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-032",
+  "description": "Write a function to count the guests whose ages, given as a list, lie between a lower and an upper age, both included.",
+  "example": "count_between_bounds(([1, 5, 10, 15], 5, 10)) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-095",
+  "description": "Write a function that returns 'Zigzag' if the differences between consecutive elements of the list alternate in sign and 'Not Zigzag' otherwise.",
+  "example": "zigzag_label(([1, 5, 2, 8, 3],)) == 'Zigzag'",
+  "keep_in_order": [
+   "'Zigzag'",
+   "'Not Zigzag'"
+  ]
+ },
+ {
+  "id": "strings2-023",
+  "description": "Write a function to count the digit characters in an address line.",
+  "example": "address_digit_count(('221B Baker Street, NW1 6XE',)) == 5",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/117",
+  "description": "Write a function to convert all possible convertible elements in the list to float.",
+  "example": "assert list_to_float( [(\"3\", \"4\"), (\"1\", \"26.45\"), (\"7.32\", \"8\"), (\"4\", \"8\")] ) == '[(3.0, 4.0), (1.0, 26.45), (7.32, 8.0), (4.0, 8.0)]'",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-071",
+  "description": "Write a python function to check whether the inner lists of a list are arranged in non-decreasing order of their totals.",
+  "example": "rows_in_total_order(([[1, 2], [4], [2, 2, 1]],)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-137",
+  "description": "Given a list of tuples that each hold a name followed by one or more scores, return a list of (name, total score) tuples.",
+  "example": "name_totals(([('ann', 3, 4, 5), ('bob', 10, 0)],)) == [('ann', 12), ('bob', 10)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/702",
+  "description": "Write a function to find the minimum number of elements that should be removed such that amax-amin<=k.",
+  "example": "assert removals([1, 3, 4, 9, 10,11, 12, 17, 20], 9, 4) == 5",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-135",
+  "description": "Write a function to add up the digit sums of all the integers from a to b inclusive.",
+  "example": "digit_sums_total((1, 10)) == 46",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/111",
+  "description": "Write a function to find the common elements in given nested lists.",
+  "example": "assert set(common_in_nested_lists([[12, 18, 23, 25, 45], [7, 12, 18, 24, 28], [1, 5, 8, 12, 15, 16, 18]]))==set([18, 12])",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/48",
+  "description": "Write a python function to set all odd bits of a given number.",
+  "example": "assert odd_bit_set_number(10) == 15",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/821",
+  "description": "Write a function to merge two dictionaries into a single expression.",
+  "example": "assert merge_dictionaries({ \"R\": \"Red\", \"B\": \"Black\", \"P\": \"Pink\" }, { \"G\": \"Green\", \"W\": \"White\" })=={'B': 'Black', 'R': 'Red', 'P': 'Pink', 'G': 'Green', 'W': 'White'}",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-098",
+  "description": "Write a function to check whether some character of the string appears again exactly two positions later, as in 'aba'.",
+  "example": "has_sandwich_pattern(('xyxy',)) == True",
+  "keep_in_order": [
+   "'aba'"
+  ]
+ },
+ {
+  "id": "Mbpp/451",
+  "description": "Write a function to remove all whitespaces from the given string.",
+  "example": "assert remove_whitespaces(' Google    Flutter ') == 'GoogleFlutter'",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-003",
+  "description": "Given a list of dictionary words and a rack of letter tiles, return the words that use exactly the letters on the rack, each as often as it appears there.",
+  "example": "rack_words((['stop', 'tops', 'spot', 'post', 'stoop'], 'opts')) == ['stop', 'tops', 'spot', 'post']",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-046",
+  "description": "Write a python function to find the k-th smallest distinct element of a given list.",
+  "example": "kth_smallest_distinct(([5, 1, 5, 1, 3], 2)) == 3",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-062",
+  "description": "Write a function to reshape a list of lists into rows of k values each, reading the values row by row and letting the last row be shorter.",
+  "example": "reshape_rows(([[1, 2, 3], [4, 5, 6]], 2)) == [[1, 2], [3, 4], [5, 6]]",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-098",
+  "description": "Create a function which censors a sentence by replacing every word found in a list of banned words with as many '*' characters as the word has.",
+  "example": "censor_banned_words(('you silly goose', ['silly'])) == 'you ***** goose'",
+  "keep_in_order": [
+   "'*'"
+  ]
+ },
+ {
+  "id": "nested-108",
+  "description": "Given a list of dictionaries with keys 'id' and 'name', return a dictionary mapping each id to the matching name.",
+  "example": "names_by_id(([{'id': 3, 'name': 'ann'}, {'id': 8, 'name': 'bob'}],)) == {3: 'ann', 8: 'bob'}",
+  "keep_in_order": [
+   "'id'",
+   "'name'"
+  ]
+ },
+ {
+  "id": "nested-149",
+  "description": "Given a list of employee dictionaries in which some have a 'bonus' key, return the total of all bonuses, counting a missing bonus as 0.",
+  "example": "total_bonus(([{'n': 'a', 'bonus': 5}, {'n': 'b'}, {'n': 'c', 'bonus': 7}],)) == 12",
+  "keep_in_order": [
+   "'bonus'",
+   "0"
+  ]
+ },
+ {
+  "id": "MbppX/768",
+  "description": "Write a python function to check for odd parity of a given number.",
+  "example": "assert check_Odd_Parity(13) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/539",
+  "description": "Write a function to create a list containing the power of said number in bases raised to the corresponding number in the index using map function.",
+  "example": "assert basesnum_coresspondingnum([10, 20, 30, 40, 50, 60, 70, 80, 90, 100],[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[10, 400, 27000, 2560000, 312500000, 46656000000, 8235430000000, 1677721600000000, 387420489000000000, 100000000000000000000]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/434",
+  "description": "Write a function that matches a string that has an a followed by one or more b's.",
+  "example": "assert text_match_one(\"ac\")==('Not matched!')",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/651",
+  "description": "Write a function to check if one tuple is a subset of another tuple.",
+  "example": "assert check_subset((10, 4, 5, 6), (5, 10)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/957",
+  "description": "Write a python function to get the position of rightmost set bit.",
+  "example": "assert get_First_Set_Bit_Pos(12) == 3",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-098",
+  "description": "Write a function to compute how many whitespace-separated words of a lowercase sentence are exactly 'the'.",
+  "example": "count_word_the(('the cat ate the other mouse',)) == 2",
+  "keep_in_order": [
+   "'the'"
+  ]
+ },
+ {
+  "id": "MbppX/163",
+  "description": "Write a function to calculate the area of a regular polygon.",
+  "example": "assert area_polygon(4,20)==400.00000000000006",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/233",
+  "description": "Write a function to find the lateral surface area of a cylinder.",
+  "example": "assert math.isclose(lateralsuface_cylinder(10,5), 314.15000000000003, rel_tol=0.001)",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-012",
+  "description": "Write a function to encode a list as a list of [count, value] pairs, one pair for each run of equal adjacent items.",
+  "example": "encode_runs(([7, 7, 7, 2, 7],)) == [[3, 7], [1, 2], [1, 7]]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/461",
+  "description": "Write a python function to count the upper case characters in a given string.",
+  "example": "assert upper_ctr('PYthon') == 1",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-052",
+  "description": "Write a python function that returns 'Yes' if no two keys of a dictionary share the same value and 'No' otherwise.",
+  "example": "values_distinct(({'a': 1, 'b': 2, 'c': 3},)) == 'Yes'",
+  "keep_in_order": [
+   "'Yes'",
+   "'No'"
+  ]
+ },
+ {
+  "id": "sequences2-120",
+  "description": "Write a function to find the position of the value of a list that is closest to the average of the list, taking the first one on ties.",
+  "example": "nearest_to_average(([1, 5, 9, 4],)) == 1",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/665",
+  "description": "Write a python function to shift first element to the end of given list.",
+  "example": "assert move_last([1,2,3,4]) == [2,3,4,1]",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-053",
+  "description": "Write a function to find the distinct customers of a list of (customer, item) orders, in the order of their first order.",
+  "example": "customers_in_order(([('zoe', 'tea'), ('adam', 'jam'), ('zoe', 'oat')],)) == ['zoe', 'adam']",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-008",
+  "description": "Write a function to turn a matrix given as a list of lists a quarter turn counterclockwise.",
+  "example": "rotate_left(([[1, 2], [3, 4]],)) == [[2, 4], [1, 3]]",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-106",
+  "description": "Eggs in a basket leave r over when taken out m at a time and s over when taken out n at a time, where m and n share no common factor greater than 1; given r, m, s and n, write a function to find the smallest possible number of eggs.",
+  "example": "fewest_eggs((2, 3, 3, 5)) == 8",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "MbppX/945",
+  "description": "Write a function to convert the given tuples into set.",
+  "example": "assert tuple_to_set(('x', 'y', 'z') ) == {'y', 'x', 'z'}",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-032",
+  "description": "Write a function to count the paths from (0, 0) to (m, n) that use only unit steps east, north or diagonally north-east.",
+  "example": "king_paths((2, 2)) == 13",
+  "keep_in_order": [
+   "0"
+  ]
+ },
+ {
+  "id": "MbppX/344",
+  "description": "Write a python function to find number of elements with odd factors in a given range.",
+  "example": "assert count_Odd_Squares(5,100) == 8",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-073",
+  "description": "Write a function to find each interior angle, in degrees, of a regular polygon with n sides, given that a full turn is 360 degrees and a straight angle 180 degrees.",
+  "example": "regular_interior_angle((6,)) == 120.0",
+  "keep_in_order": [
+   "360",
+   "180"
+  ]
+ },
+ {
+  "id": "Mbpp/454",
+  "description": "Write a function that matches a word containing 'z'.",
+  "example": "assert text_match_wordz(\"pythonz.\")==True",
+  "keep_in_order": [
+   "'z'"
+  ]
+ },
+ {
+  "id": "Mbpp/762",
+  "description": "Write a function to check whether the given month number contains 30 days or not. Months are given as number from 1 to 12.",
+  "example": "assert check_monthnumber_number(6)==True",
+  "keep_in_order": [
+   "30",
+   "1",
+   "12"
+  ]
+ },
+ {
+  "id": "sequences2-150",
+  "description": "Create a function which combines a list of first names and a list of surnames into full names with a space between the two parts.",
+  "example": "full_names((['Ada', 'Alan'], ['Lovelace', 'Turing'])) == ['Ada Lovelace', 'Alan Turing']",
+  "keep_in_order": [
+   "' '"
+  ]
+ },
+ {
+  "id": "nested2-095",
+  "description": "Write a function that returns the employees of a dictionary of salaries who earn more than the average salary, in dictionary order.",
+  "example": "above_average_pay(({'ann': 50, 'bob': 30, 'cy': 70},)) == ['cy']",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-014",
+  "description": "Write a function that strips the leading zeros from a number written as text, giving '0' when nothing else is left.",
+  "example": "strip_leading_zeros(('000123',)) == '123'",
+  "keep_in_order": [
+   "'0'",
+   "0"
+  ]
+ },
+ {
+  "id": "sequences2-043",
+  "description": "Write a python function to find how many positions apart the first largest value and the first smallest value of a list are.",
+  "example": "extremes_distance(([4, 9, 2, 7, 1],)) == 3",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-124",
+  "description": "Write a function to cut a product serial key into consecutive groups of 4 characters, where the final group may be shorter.",
+  "example": "group_serial_key(('ABCD1234EFGH',)) == ['ABCD', '1234', 'EFGH']",
+  "keep_in_order": [
+   "4"
+  ]
+ },
+ {
+  "id": "numbers-039",
+  "description": "Write a function to count the coins in a hexagonal pattern made of one centre coin surrounded by n - 1 complete hexagonal rings.",
+  "example": "hexagon_coins((4,)) == 37",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "sequences2-013",
+  "description": "Write a function that glues each prefix of a tuple of prefixes to the suffix at the same position of a tuple of suffixes.",
+  "example": "glue_word_parts((('un', 're', 'pre'), ('do', 'run', 'view'))) == ('undo', 'rerun', 'preview')",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/718",
+  "description": "Write a function to create a list taking alternate elements from another given list.",
+  "example": "assert alternate_elements([\"red\", \"black\", \"white\", \"green\", \"orange\"])==['red', 'white', 'orange']",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-079",
+  "description": "Create a function which reports the zero-based index where a substring occurs for the last time in a text that contains it.",
+  "example": "last_match_index(('abcabcabc', 'bc')) == 7",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/910",
+  "description": "Write a function to validate a gregorian date.",
+  "example": "assert check_date(11,11,2002)==True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/514",
+  "description": "Write a function to find the summation of tuple elements in the given tuple list.",
+  "example": "assert sum_elements((7, 8, 9, 1, 10, 7)) == 42",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/508",
+  "description": "Write a function to check if the common elements between two given lists are in the same order or not.",
+  "example": "assert same_order([\"red\",\"green\",\"black\",\"orange\"],[\"red\",\"pink\",\"green\",\"white\",\"black\"])==True",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-021",
+  "description": "Write a function that tests if the first number is an exact power of the second number.",
+  "example": "is_exact_power((81, 3)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-116",
+  "description": "Write a function to keep the numbers of a list that are perfect squares.",
+  "example": "square_numbers_only(([1, 2, 4, 10, 16],)) == [1, 4, 16]",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-137",
+  "description": "Given a list of usernames, return True if no two of them are the same when letter case is ignored.",
+  "example": "usernames_distinct((['Ann', 'bob', 'Cy'],)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/562",
+  "description": "Write a python function to find the length of the longest sublists.",
+  "example": "assert Find_Max_Length([[1],[1,4],[5,6,7,8]]) == 4",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/804",
+  "description": "Write a function to check whether the product of numbers in a list is even or not.",
+  "example": "assert is_product_even([1,2,3])",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/297",
+  "description": "Write a function to flatten a given nested list structure.",
+  "example": "assert flatten_list([0, 10, [20, 30], 40, 50, [60, 70, 80], [90, 100, 110, 120]])==[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-084",
+  "description": "Create a function which returns 'YES' if the number has exactly 3 divisors and 'NO' otherwise.",
+  "example": "three_divisors((49,)) == 'YES'",
+  "keep_in_order": [
+   "'YES'",
+   "'NO'",
+   "3"
+  ]
+ },
+ {
+  "id": "Mbpp/65",
+  "description": "Write a function to flatten a list and sum all of its elements.",
+  "example": "assert recursive_list_sum(([1, 2, [3,4],[5,6]]))==21",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/30",
+  "description": "Write a python function to count all the substrings starting and ending with same characters.",
+  "example": "assert count_Substring_With_Equal_Ends(\"abc\") == 3",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/584",
+  "description": "Write a function to find all adverbs and their positions in a given sentence by using regex.",
+  "example": "assert find_adverbs(\"Clearly, he has no excuse for such behavior.\") == '0-7: Clearly'",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/332",
+  "description": "Write a function to count character frequency of a given string.",
+  "example": "assert char_frequency('python')=={'p': 1, 'y': 1, 't': 1, 'h': 1, 'o': 1, 'n': 1}",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-035",
+  "description": "Write a function to place a given marker value after every element of a list.",
+  "example": "mark_after_each(([1, 2, 3], 0)) == [1, 0, 2, 0, 3, 0]",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-101",
+  "description": "Write a function that returns 'Yes' if every number in the list is a multiple of 5 and 'No' otherwise.",
+  "example": "all_fives(([10, 22],)) == 'No'",
+  "keep_in_order": [
+   "'Yes'",
+   "'No'",
+   "5"
+  ]
+ },
+ {
+  "id": "strings2-088",
+  "description": "Write a function to find the length of every word of a sentence once its punctuation marks are removed.",
+  "example": "clean_word_lengths(('Wait, what?! Really.',)) == [4, 4, 6]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/903",
+  "description": "Write a python function to count the total unset bits from 1 to n.",
+  "example": "assert count_Unset_Bits(2) == 1",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "Mbpp/71",
+  "description": "Write a function to sort a list of elements.",
+  "example": "assert comb_sort([5, 15, 37, 25, 79]) == [5, 15, 25, 37, 79]",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-150",
+  "description": "Write a function to list the positions of the 1 bits of a positive integer, where position 0 is the least significant bit.",
+  "example": "set_bit_positions((13,)) == [0, 2, 3]",
+  "keep_in_order": [
+   "1",
+   "0"
+  ]
+ },
+ {
+  "id": "Mbpp/133",
+  "description": "Write a function to calculate the sum of the negative numbers of a given list of numbers.",
+  "example": "assert sum_negativenum([2, 4, -6, -9, 11, -12, 14, -5, 17])==-32",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/540",
+  "description": "Write a python function to find the difference between highest and least frequencies in a given array.",
+  "example": "assert find_Diff([1,1,2,2,7,8,4,5,1,4],10) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/615",
+  "description": "Write a function which takes a tuple of tuples and returns the average value for each tuple as a list.",
+  "example": "assert average_tuple(((10, 10, 10, 12), (30, 45, 56, 45), (81, 80, 39, 32), (1, 2, 3, 4)))==[30.5, 34.25, 27.0, 23.25]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/703",
+  "description": "Write a function to check whether the given key is present in the dictionary or not.",
+  "example": "assert is_key_present({1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60},5)==True",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-020",
+  "description": "Write a function to return the numbers of a list that exceed a given threshold.",
+  "example": "above_threshold(([5, 12, 8, 20], 8)) == [12, 20]",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-059",
+  "description": "Write a function that moves the first word of a sentence to its end, joining the words with single spaces.",
+  "example": "first_word_to_end(('ready you are',)) == 'you are ready'",
+  "keep_in_order": [
+   "' '"
+  ]
+ },
+ {
+  "id": "sequences-001",
+  "description": "Write a function that computes how much each temperature reading in a list rose or fell compared with the reading before it.",
+  "example": "reading_changes(([12, 15, 11, 11],)) == [3, -4, 0]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/867",
+  "description": "Write a python function to add a minimum number such that the sum of array becomes even.",
+  "example": "assert min_Num([1,2,3,4,5,6,7,8,9],9) == 1",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-109",
+  "description": "Write a function to split a list of (name, age) pairs into two tuples, one of names and one of ages, returned together in a list.",
+  "example": "split_pairs(([('ann', 30), ('bob', 25), ('cy', 41)],)) == [('ann', 'bob', 'cy'), (30, 25, 41)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/894",
+  "description": "Write a function to convert the given string of float type into tuple.",
+  "example": "assert float_to_tuple(\"1.2, 1.3, 2.3, 2.4, 6.5\") == (1.2, 1.3, 2.3, 2.4, 6.5)",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/357",
+  "description": "Write a function to find the maximum element of all the given tuple records.",
+  "example": "assert find_max([(2, 4), (6, 7), (5, 1), (6, 10), (8, 7)]) == 10",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/37",
+  "description": "Write a function to sort a given mixed list of integers and strings.",
+  "example": "assert sort_mixed_list([19,'red',12,'green','blue', 10,'white','green',1])==[1, 10, 12, 19, 'blue', 'green', 'green', 'red', 'white']",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/779",
+  "description": "Write a function to count the number of unique lists within a list.",
+  "example": "assert unique_sublists([[1, 3], [5, 7], [1, 3], [13, 15, 17], [5, 7], [9, 11]])=={(1, 3): 2, (5, 7): 2, (13, 15, 17): 1, (9, 11): 1}",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-129",
+  "description": "Given a list of (start, end) intervals, write a function to return the shortest interval, the first one on ties.",
+  "example": "shortest_interval(([(1, 5), (6, 7), (2, 4)],)) == (6, 7)",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/638",
+  "description": "Write a function to calculate the wind chill index rounded to the next integer given the wind velocity in km/h and a temperature in celsius.",
+  "example": "assert wind_chill(120,35)==40",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-121",
+  "description": "Given a dictionary of vote counts and the name of a candidate, return 'Winner' if that candidate received the most votes and 'Not Winner' otherwise.",
+  "example": "winner_label(({'ana': 12, 'ben': 15, 'cal': 9}, 'ben')) == 'Winner'",
+  "keep_in_order": [
+   "'Winner'",
+   "'Not Winner'"
+  ]
+ },
+ {
+  "id": "nested2-004",
+  "description": "Given a table as a list of rows and a list of row positions, return the rows at those positions, in the order the positions are listed.",
+  "example": "rows_at(([[1, 2], [3, 4], [5, 6]], [2, 0])) == [[5, 6], [1, 2]]",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-018",
+  "description": "Write a function to keep only the even house numbers from a tuple of house numbers.",
+  "example": "drop_odd_numbers(((1, 2, 3, 4),)) == (2, 4)",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/455",
+  "description": "Write a function to check whether the given month number contains 31 days or not.",
+  "example": "assert check_monthnumb_number(5)==True",
+  "keep_in_order": [
+   "31"
+  ]
+ },
+ {
+  "id": "Mbpp/459",
+  "description": "Write a function to remove uppercase substrings from a given string.",
+  "example": "assert remove_uppercase('cAstyoUrFavoRitETVshoWs') == 'cstyoravoitshos'",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/501",
+  "description": "Write a python function to find common divisor between two numbers in a given pair.",
+  "example": "assert num_comm_div(2,4) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/245",
+  "description": "Write a function that takes an array and finds the maximum sum of a bitonic subsequence for the given array, where a sequence is bitonic if it is first increasing and then decreasing.",
+  "example": "assert max_sum([1, 15, 51, 45, 33, 100, 12, 18, 9]) == 194",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/944",
+  "description": "Write a function to separate and print the numbers and their position of a given string.",
+  "example": "assert num_position(\"there are 70 flats in this apartment\")==10",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/909",
+  "description": "Write a function to find the previous palindrome of a specified number.",
+  "example": "assert previous_palindrome(99)==88",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-022",
+  "description": "Given a list of prices offered by different stalls, return how many stalls offer the lowest price.",
+  "example": "stalls_at_lowest(([3, 2, 5, 2, 2],)) == 3",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/737",
+  "description": "Write a function to check whether the given string is starting with a vowel or not using regex.",
+  "example": "assert check_str(\"annie\")",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/445",
+  "description": "Write a function to perform index wise multiplication of tuple elements in the given two tuples.",
+  "example": "assert index_multiplication(((1, 3), (4, 5), (2, 9), (1, 10)),((6, 7), (3, 9), (1, 1), (7, 3)) ) == ((6, 21), (12, 45), (2, 9), (7, 30))",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/522",
+  "description": "Write a function to find the longest bitonic subsequence for the given array.",
+  "example": "assert lbs([0 , 8 , 4, 12, 2, 10 , 6 , 14 , 1 , 9 , 5 , 13, 3, 11 , 7 , 15]) == 7",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-144",
+  "description": "Given a list of (category, item) pairs and a category, return the list of items in that category in their original order.",
+  "example": "items_in(([('fruit', 'fig'), ('veg', 'leek'), ('fruit', 'kiwi')], 'fruit')) == ['fig', 'kiwi']",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/872",
+  "description": "Write a function to check if a nested list is a subset of another nested list.",
+  "example": "assert check_subset([[1, 3], [5, 7], [9, 11], [13, 15, 17]] ,[[1, 3],[13,15,17]])==True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/399",
+  "description": "Write a function to perform the mathematical bitwise xor operation across the given tuples.",
+  "example": "assert bitwise_xor((10, 4, 6, 9), (5, 2, 3, 3)) == (15, 6, 5, 10)",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/252",
+  "description": "Write a python function to convert complex numbers to polar coordinates.",
+  "example": "assert convert(1) == (1.0, 0.0)",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/818",
+  "description": "Write a python function to count lower case letters in a given string.",
+  "example": "assert lower_ctr('abc') == 3",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/974",
+  "description": "Write a function to find the minimum total path sum in the given triangle.",
+  "example": "assert min_sum_path([[ 2 ], [3, 9 ], [1, 6, 7 ]]) == 6",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-128",
+  "description": "Given a first term a, a ratio r and a count n, return the list of the first n terms of the geometric sequence.",
+  "example": "geometric_terms((3, 2, 5)) == [3, 6, 12, 24, 48]",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-051",
+  "description": "Write a function to find the longest common ending of two words.",
+  "example": "common_ending(('walking', 'talking')) == 'alking'",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-108",
+  "description": "Given daily closing prices and a number k, return True if the price rose from one day to the next on at least k occasions.",
+  "example": "enough_up_days(([10, 12, 11, 13, 15], 3)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/916",
+  "description": "Write a function to find if there is a triplet in the array whose sum is equal to a given value.",
+  "example": "assert find_triplet_array([1, 4, 45, 6, 10, 8], 6, 22) == (4, 10, 8)",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/649",
+  "description": "Write a python function to calculate the sum of the numbers in a list between the indices of a specified range.",
+  "example": "assert sum_Range_list([2, 1, 5, 6, 8, 3, 4, 9, 10, 11, 8, 12],8,10) == 29",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/426",
+  "description": "Write a function to filter odd numbers.",
+  "example": "assert filter_oddnumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[1,3,5,7,9]",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-149",
+  "description": "Write a function to return 'Valid' if every value of a list of percentages lies between 0 and 100, both included, and 'Invalid' otherwise.",
+  "example": "valid_percentages(([50, 0, 100],)) == 'Valid'",
+  "keep_in_order": [
+   "'Valid'",
+   "'Invalid'",
+   "0",
+   "100"
+  ]
+ },
+ {
+  "id": "MbppX/551",
+  "description": "Write a function to extract a specified column from a given nested list.",
+  "example": "assert extract_column([[1, 2, 3], [2, 4, 5], [1, 1, 1]],0)==[1, 2, 1]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/1",
+  "description": "Write a function to find the minimum cost path to reach (m, n) from (0, 0) for the given cost matrix cost[][] and a position (m, n) in cost[][].",
+  "example": "assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8",
+  "keep_in_order": [
+   "0"
+  ]
+ },
+ {
+  "id": "numbers2-144",
+  "description": "Create a function which counts the points (x, y) with whole-number coordinates from 1 to n whose coordinates share no common factor greater than 1.",
+  "example": "visible_points((3,)) == 7",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "strings2-099",
+  "description": "Given a paragraph whose sentences are separated by '. ', return the number of words in each sentence.",
+  "example": "words_per_sentence(('It rained. We stayed in and read',)) == [2, 5]",
+  "keep_in_order": [
+   "'. '"
+  ]
+ },
+ {
+  "id": "nested2-143",
+  "description": "Write a function to keep, for each inner list of a list, its k largest values from largest to smallest.",
+  "example": "top_k_each(([[3, 9, 1, 7], [5, 2, 8]], 2)) == [[9, 7], [8, 5]]",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-088",
+  "description": "Write a python function to count the regions inside a circle when n points on it are all joined to each other by chords, with no three chords meeting at one inner point.",
+  "example": "circle_regions((4,)) == 8",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-049",
+  "description": "Savings grow by r percent, that is r out of 100, at the end of every year; write a function to find the fewest whole years after which they have at least doubled.",
+  "example": "years_to_double((7,)) == 11",
+  "keep_in_order": [
+   "100"
+  ]
+ },
+ {
+  "id": "MbppX/854",
+  "description": "Write a function which accepts an arbitrary list and converts it to a heap using heap queue algorithm.",
+  "example": "assert raw_heap([25, 44, 68, 21, 39, 23, 89])==[21, 25, 23, 44, 39, 68, 89]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/491",
+  "description": "Write a function to find the sum of geometric progression series.",
+  "example": "assert sum_gp(1,5,2)==31",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/955",
+  "description": "Write a function to find out, if the given number is abundant.",
+  "example": "assert is_abundant(12)==True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/650",
+  "description": "Write a python function to check whether the given two arrays are equal or not.",
+  "example": "assert are_Equal([1,2,3],[3,2,1],3,3) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/745",
+  "description": "Write a function to find numbers within a given range from startnum ti endnum where every number is divisible by every digit it contains.",
+  "example": "assert divisible_by_digits(1,22)==[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-091",
+  "description": "Write a function that returns the first position at which two equally long lists differ, or -1 if they are identical.",
+  "example": "first_mismatch(([1, 2, 3, 4], [1, 2, 5, 4])) == 2",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "MbppX/366",
+  "description": "Write a python function to find the largest product of the pair of adjacent elements from a given list of integers.",
+  "example": "assert adjacent_num_product([1,2,3,4,5,6]) == 30",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/149",
+  "description": "Write a function to find the longest subsequence such that the difference between adjacents is one for the given array.",
+  "example": "assert longest_subseq_with_diff_one([1, 2, 3, 4, 5, 3, 2], 7) == 6",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/932",
+  "description": "Write a function to remove duplicate words from a given list of strings.",
+  "example": "assert remove_duplic_list([\"Python\", \"Exercises\", \"Practice\", \"Solution\", \"Exercises\"])==['Python', 'Exercises', 'Practice', 'Solution']",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/95",
+  "description": "Write a python function to find the length of the smallest list in a list of lists.",
+  "example": "assert Find_Min_Length([[1],[1,2]]) == 1",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/443",
+  "description": "Write a python function to find the largest negative number from the given list.",
+  "example": "assert largest_neg([1,2,3,-4,-6]) == -6",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-107",
+  "description": "Write a function to check whether each element of the list is larger than the sum of all the elements before it.",
+  "example": "superincreasing(([1, 2, 4, 8],)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-138",
+  "description": "Write a function to normalize a list of undirected edges by writing each edge as a sorted tuple and then sorting the whole list.",
+  "example": "normalize_edges(([(3, 1), (2, 5), (1, 2)],)) == [(1, 2), (1, 3), (2, 5)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/219",
+  "description": "Write a function to extract maximum and minimum k elements in the given tuple.",
+  "example": "assert extract_min_max((5, 20, 3, 7, 6, 8), 2) == (3, 5, 8, 20)",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-089",
+  "description": "Write a function that reads the cell at row r and column c of a grid given as a list of rows, with r and c counted from 0, returning 0 when the position lies outside the grid.",
+  "example": "cell_or_zero(([[1, 2], [3, 4]], 1, 0)) == 3",
+  "keep_in_order": [
+   "0"
+  ]
+ },
+ {
+  "id": "predicates2-017",
+  "description": "Write a function to check whether any seat number appears more than once in the list of seat assignments.",
+  "example": "seat_double_booked(([12, 4, 7, 4, 19],)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/258",
+  "description": "Write a function to find number of odd elements in the given list using lambda function.",
+  "example": "assert count_odd([1, 2, 3, 5, 7, 8, 10])==4",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-061",
+  "description": "Write a function that returns 'Yes' if both n and n + 2 are prime numbers and 'No' otherwise.",
+  "example": "twin_prime_check((11,)) == 'Yes'",
+  "keep_in_order": [
+   "'Yes'",
+   "'No'",
+   "2"
+  ]
+ },
+ {
+  "id": "MbppX/832",
+  "description": "Write a function to extract the maximum numeric value from a string by using regex.",
+  "example": "assert extract_max('100klh564abc365bg') == 564",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/921",
+  "description": "Write a function to perform chunking of tuples each of size n.",
+  "example": "assert chunk_tuples((10, 4, 5, 6, 7, 6, 8, 3, 4), 3) == [(10, 4, 5), (6, 7, 6), (8, 3, 4)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-075",
+  "description": "Write a python function to spell backwards every word of a sentence that is longer than 4 characters, leaving shorter words as they are.",
+  "example": "reverse_long_words(('jumps over the lazy dog',)) == 'spmuj over the lazy dog'",
+  "keep_in_order": [
+   "4"
+  ]
+ },
+ {
+  "id": "numbers-069",
+  "description": "Write a function to perform one step of Kaprekar's routine on a positive integer: arrange its digits in descending and in ascending order and subtract the smaller number from the larger.",
+  "example": "kaprekar_step((3524,)) == 3087",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/857",
+  "description": "Write a function to list out the list of given strings individually using map function.",
+  "example": "assert listify_list(['Red', 'Blue', 'Black', 'White', 'Pink'])==[['R', 'e', 'd'], ['B', 'l', 'u', 'e'], ['B', 'l', 'a', 'c', 'k'], ['W', 'h', 'i', 't', 'e'], ['P', 'i', 'n', 'k']]",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/460",
+  "description": "Write a python function to get the first element of each sublist.",
+  "example": "assert Extract([[1, 2], [3, 4, 5], [6, 7, 8, 9]]) == [1, 3, 6]",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-115",
+  "description": "Write a python function to pick out the words of a sentence that contain no vowels.",
+  "example": "vowelless_words(('my rhythm is fly',)) == ['my', 'rhythm', 'fly']",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-133",
+  "description": "Given a list of (day, task) pairs, return a dictionary mapping each day to the list of tasks planned for it, in their original order.",
+  "example": "tasks_by_day(([('mon', 'gym'), ('tue', 'shop'), ('mon', 'cook')],)) == {'mon': ['gym', 'cook'], 'tue': ['shop']}",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-141",
+  "description": "Given a list of numbers and a target, return the number in the list closest to the target, taking the earliest one when two are equally close.",
+  "example": "closest_to_target(([4, 9, 15], 11)) == 9",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/685",
+  "description": "Write a python function to find sum of prime numbers between 1 to n.",
+  "example": "assert sum_Of_Primes(10) == 17",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "nested2-072",
+  "description": "Write a function that checks whether the timestamps stored at index 1 of each log record strictly increase from one record to the next.",
+  "example": "timestamps_ordered(([('boot', 3), ('load', 8), ('run', 15)],)) == True",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "sequences-119",
+  "description": "Write a python function to count the values of a list that are strictly greater than both of their neighbours.",
+  "example": "count_peaks(([1, 3, 2, 5, 4],)) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/655",
+  "description": "Write a python function to find the sum of fifth power of n natural numbers.",
+  "example": "assert fifth_Power_Sum(2) == 33",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-105",
+  "description": "Write a function to find the indices of the inner lists of a list that contain the given value.",
+  "example": "rows_holding(([[1, 2], [3], [2, 2, 4]], 2)) == [0, 2]",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-086",
+  "description": "Write a function to find the divisors of an integer greater than 1 other than 1 and the integer itself, in increasing order.",
+  "example": "inner_divisors((12,)) == [2, 3, 4, 6]",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "sequences-027",
+  "description": "Write a function that splits a list of runners in finishing order into the top k and the rest, returned as a tuple of two lists.",
+  "example": "split_before_index(([1, 2, 3, 4], 1)) == ([1], [2, 3, 4])",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-030",
+  "description": "Write a function to find the maximum absolute difference between elements at the same index of two given lists.",
+  "example": "max_position_gap(([3, 8, 1], [5, 2, 1])) == 6",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-140",
+  "description": "Write a function to remove repeated undirected edges from a list, treating (a, b) and (b, a) as the same edge and returning each kept edge as a sorted tuple in order of first appearance.",
+  "example": "unique_edges(([(2, 1), (1, 2), (3, 4), (4, 3), (1, 3)],)) == [(1, 2), (3, 4), (1, 3)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/973",
+  "description": "Write a python function to left rotate the string.",
+  "example": "assert left_rotate(\"python\",2) == \"thonpy\"",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-120",
+  "description": "Write a function to list the integers from a to b inclusive whose binary form, without leading zeros, has as many 0 bits as 1 bits.",
+  "example": "balanced_binary((1, 20)) == [2, 9, 10, 12]",
+  "keep_in_order": [
+   "0",
+   "1"
+  ]
+ },
+ {
+  "id": "numbers-004",
+  "description": "A simple checksum of an ID number is the sum of its decimal digits; write a function to compute it for a non-negative integer.",
+  "example": "id_checksum((4096,)) == 19",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/187",
+  "description": "Write a function to find the longest common subsequence for the given two sequences.",
+  "example": "assert longest_common_subsequence(\"AGGTAB\" , \"GXTXAYB\", 6, 7) == 4",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-098",
+  "description": "Write a function that returns 'Prime' if n * n + 1 is a prime number and 'Not Prime' otherwise.",
+  "example": "square_plus_one_prime((4,)) == 'Prime'",
+  "keep_in_order": [
+   "'Prime'",
+   "'Not Prime'",
+   "1"
+  ]
+ },
+ {
+  "id": "numbers2-130",
+  "description": "Write a function to find the geometric mean of a list of positive numbers, rounded to 2 decimal places.",
+  "example": "geometric_mean(([2, 8],)) == 4.0",
+  "keep_in_order": [
+   "2"
+  ]
+ },
+ {
+  "id": "nested2-148",
+  "description": "Write a function that returns the keys of the old version of a dictionary whose value changed or that are missing from the new version, in old order.",
+  "example": "changed_keys(({'a': 1, 'b': 2, 'c': 3}, {'a': 1, 'b': 5})) == ['b', 'c']",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/118",
+  "description": "Write a function to convert a string to a list of strings split on the space character.",
+  "example": "assert string_to_list(\"python programming\")==['python','programming']",
+  "keep_in_order": [
+   "' '"
+  ]
+ },
+ {
+  "id": "numbers2-064",
+  "description": "Given an integer n greater than 1 and a prime p, return the largest k for which p ** k divides n.",
+  "example": "prime_exponent((360, 2)) == 3",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "MbppX/697",
+  "description": "Write a function to find number of even elements in the given list using lambda function.",
+  "example": "assert count_even([1, 2, 3, 5, 7, 8, 9, 10])==3",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-133",
+  "description": "Write a function to check whether every word of the sentence contains at least one vowel.",
+  "example": "words_have_vowels(('the cat sat',)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-108",
+  "description": "Given a list of lists of positive numbers, return each value divided by the total of its own list, rounded to 2 decimal places.",
+  "example": "row_shares(([[1, 3], [2, 2]],)) == [[0.25, 0.75], [0.5, 0.5]]",
+  "keep_in_order": [
+   "2"
+  ]
+ },
+ {
+  "id": "predicates2-093",
+  "description": "Given a list of words, return True if each word starts with the last letter of the word before it.",
+  "example": "valid_word_chain((['apple', 'egg', 'giraffe', 'elk'],)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/141",
+  "description": "Write a function to sort a list of elements.",
+  "example": "assert pancake_sort([15, 79, 25, 38, 69]) == [15, 25, 38, 69, 79]",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-102",
+  "description": "Write a python function to check whether each letter of the word comes right after the previous letter in the alphabet.",
+  "example": "alphabet_run(('defg',)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-004",
+  "description": "Given a list of scores, return the position of the highest score, taking the earliest position when the highest score is repeated.",
+  "example": "top_score_position(([40, 75, 62, 75],)) == 1",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/689",
+  "description": "## write a function to find the minimum number of jumps to reach the end of the array for the given array of integers where each element represents the max number of steps that can be made forward from that element. > indented block > indented block",
+  "example": "assert min_jumps([1, 3, 6, 1, 0, 9], 6) == 3",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-029",
+  "description": "Write a python function to count the elements of the first list that are greater than every element of the second list.",
+  "example": "beat_every_value(([5, 9, 12, 3], [4, 8])) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-105",
+  "description": "Write a function to select the dictionaries in a list whose value under the given key equals the given value.",
+  "example": "where_equals(([{'c': 'red', 'n': 1}, {'c': 'blue', 'n': 2}, {'c': 'red', 'n': 3}], 'c', 'red')) == [{'c': 'red', 'n': 1}, {'c': 'red', 'n': 3}]",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-079",
+  "description": "Write a function to find the tuples in a list that include the given element anywhere.",
+  "example": "tuples_with(([(1, 2), (3, 4), (2, 5)], 2)) == [(1, 2), (2, 5)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-128",
+  "description": "Create a function which selects, from a list of dictionaries, those that agree with every field of a dictionary of required field values.",
+  "example": "match_all_fields(([{'c': 'red', 's': 2}, {'c': 'blue', 's': 2}, {'c': 'red', 's': 3}], {'c': 'red'})) == [{'c': 'red', 's': 2}, {'c': 'red', 's': 3}]",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/281",
+  "description": "Write a python function to check if the elements of a given list are unique or not.",
+  "example": "assert all_unique([1,2,3]) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-008",
+  "description": "Write a function that finds how long a ladder must be to reach a window at height h when its foot stands d away from the wall, given h and d.",
+  "example": "ladder_length((8, 6)) == 10.0",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-024",
+  "description": "Write a python function to count how many times a list of signal readings switches from one value to a different value.",
+  "example": "count_switches(([0, 0, 1, 1, 0],)) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-044",
+  "description": "Write a function to check whether a knight can jump from square (x1, y1) to square (x2, y2) in a single move.",
+  "example": "knight_can_jump((1, 1, 2, 3)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/237",
+  "description": "Write a function that takes in a list of tuples and returns a dictionary mapping each unique tuple to the number of times it occurs in the list.",
+  "example": "assert check_occurences([(3, 1), (1, 3), (2, 5), (5, 2), (6, 3)] ) == {(1, 3): 2, (2, 5): 2, (3, 6): 1}",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/146",
+  "description": "Write a function to find the ascii value of total characters in a string.",
+  "example": "assert ascii_value_string(\"python\")==112",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-133",
+  "description": "Given a list of (customer, order number) pairs and a number k, return the customers with at least k orders, in order of first appearance.",
+  "example": "frequent_customers(([('ann', 1), ('bob', 2), ('ann', 3), ('cy', 4), ('ann', 5)], 2)) == ['ann']",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/605",
+  "description": "Write a function to check if the given integer is a prime number.",
+  "example": "assert prime_num(13)==True",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-028",
+  "description": "Write a python function to find the check digit of a parcel code, which is the sum of all the digits in the code modulo 10.",
+  "example": "parcel_check_digit(('PX-4471-29',)) == 7",
+  "keep_in_order": [
+   "10"
+  ]
+ },
+ {
+  "id": "nested-074",
+  "description": "Create a function which checks whether a square matrix given as a list of lists is equal to its own transpose.",
+  "example": "is_symmetric(([[1, 2], [2, 1]],)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-040",
+  "description": "Write a function to join a list of words into one string using a given separator.",
+  "example": "join_with_separator((['a', 'b', 'c'], '-')) == 'a-b-c'",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-138",
+  "description": "Write a function to add up the remainders of n divided by each of 1, 2, ..., n.",
+  "example": "remainder_total((5,)) == 4",
+  "keep_in_order": [
+   "1",
+   "2"
+  ]
+ },
+ {
+  "id": "MbppX/936",
+  "description": "Write a function to re-arrange the given tuples based on the given ordered list.",
+  "example": "assert re_arrange_tuples([(4, 3), (1, 9), (2, 10), (3, 2)],  [1, 4, 2, 3]) == [(1, 9), (4, 3), (2, 10), (3, 2)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-148",
+  "description": "Write a function to count the different words of a list, treating upper and lower case letters as the same.",
+  "example": "distinct_ignoring_case((['Tea', 'tea', 'Jam'],)) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/440",
+  "description": "Write a function to find the first adverb and their positions in a given sentence.",
+  "example": "assert find_adverb_position(\"clearly!! we can see the sky\")==(0, 7, 'clearly')",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-050",
+  "description": "Write a function to mask an email address by keeping the first character of the user name, replacing the rest of the user name with '*' characters and keeping everything from the '@' sign on.",
+  "example": "mask_email(('john.doe@mail.com',)) == 'j*******@mail.com'",
+  "keep_in_order": [
+   "'*'",
+   "'@'"
+  ]
+ },
+ {
+  "id": "numbers2-016",
+  "description": "A punched tape stores a positive integer in binary, written without leading zeros, with a hole for each 1 and a blank for each 0; write a function to count the blanks.",
+  "example": "tape_blanks((100,)) == 4",
+  "keep_in_order": [
+   "1",
+   "0"
+  ]
+ },
+ {
+  "id": "MbppX/179",
+  "description": "Write a function to find if the given number is a keith number or not.",
+  "example": "assert is_num_keith(14) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-114",
+  "description": "Write a python function to check whether the given value appears in any of the inner lists of a list.",
+  "example": "in_any_row(([[1, 2], [3, 4]], 3)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-048",
+  "description": "Create a function which checks whether n bowling pins can be set out as a complete triangle with rows of 1, 2, 3 and so on pins.",
+  "example": "pins_form_triangle((10,)) == True",
+  "keep_in_order": [
+   "1",
+   "2",
+   "3"
+  ]
+ },
+ {
+  "id": "MbppX/231",
+  "description": "Write a function to find the maximum sum in the given right triangle of numbers.",
+  "example": "assert max_sum([[1], [2,1], [3,3,2]], 3) == 6",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-066",
+  "description": "Write a function to find the 8-bit binary string of a number from 0 to 255, padded with leading zeros.",
+  "example": "eight_bit_binary((5,)) == '00000101'",
+  "keep_in_order": [
+   "8",
+   "0",
+   "255"
+  ]
+ },
+ {
+  "id": "strings-105",
+  "description": "Write a function to report, for each character of a second string, how many times it occurs in a first string, as a list.",
+  "example": "letter_counts_for(('hello world', 'lo')) == [3, 2]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/191",
+  "description": "Write a function to check whether the given month name contains 30 days or not.",
+  "example": "assert check_monthnumber(\"February\")==False",
+  "keep_in_order": [
+   "30"
+  ]
+ },
+ {
+  "id": "nested2-066",
+  "description": "Create a function which counts each (from, to) move in the sequence of rooms a visitor walked through, returning a dictionary.",
+  "example": "move_counts((['hall', 'cafe', 'hall', 'cafe'],)) == {('hall', 'cafe'): 2, ('cafe', 'hall'): 1}",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/862",
+  "description": "Write a function to find the occurrences of n most common words in a given text.",
+  "example": "assert n_common_words(\"python is a programming language\",1)==[('python', 1)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/362",
+  "description": "Write a python function to find the item with maximum occurrences in a given list.",
+  "example": "assert max_occurrences([1,2,3,1,2,3,12,4,2]) ==  2",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/248",
+  "description": "Write a function to calculate the harmonic sum of n-1.",
+  "example": "assert harmonic_sum(7) == 2.5928571428571425",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "numbers2-124",
+  "description": "Write a function to count the days in a list of daily temperatures that were warmer than the day before.",
+  "example": "warmer_days(([3, 5, 4, 6, 7],)) == 3",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/317",
+  "description": "Write a function to reflect the modified run-length encoding from a list.",
+  "example": "assert modified_encode([1,1,2,3,4,4,5,1])==[[2, 1], 2, 3, [2, 4], 5, 1]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/893",
+  "description": "Write a python function to get the last element of each sublist.",
+  "example": "assert Extract([[1, 2, 3], [4, 5], [6, 7, 8, 9]]) == [3, 5, 9]",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-070",
+  "description": "Write a function to return the total and the average of a list of expenses as a tuple.",
+  "example": "total_and_average(([10, 20, 30],)) == (60, 20.0)",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/169",
+  "description": "Write a function to calculate the nth pell number.",
+  "example": "assert get_pell(4) == 12",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/870",
+  "description": "Write a function to calculate the sum of the positive numbers of a given list of numbers using lambda function.",
+  "example": "assert sum_positivenum([2, 4, -6, -9, 11, -12, 14, -5, 17])==48",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/415",
+  "description": "Write a python function to find a pair with highest product from a given array of integers.",
+  "example": "assert max_Product([1,2,3,4,7,0,8,4]) == (7,8)",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/452",
+  "description": "Write a function that gives loss amount if the given amount has loss else return none.",
+  "example": "assert loss_amount(1500,1200)==None",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/484",
+  "description": "Write a function to remove the matching tuples from the given two tuples.",
+  "example": "assert remove_matching_tuple([('Hello', 'dude'), ('How', 'are'), ('you', '?')], [('Hello', 'dude'), ('How', 'are')]) == [('you', '?')]",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-030",
+  "description": "A fountain pours w litres in minute 0 and in every later minute half as much as in the minute before; given w and n, write a function to find the total poured in minutes 0 to n.",
+  "example": "fountain_total((8, 3)) == 15.0",
+  "keep_in_order": [
+   "0"
+  ]
+ },
+ {
+  "id": "Mbpp/20",
+  "description": "Write a function to check if the given number is woodball or not.",
+  "example": "assert is_woodall(383) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-064",
+  "description": "Given a list of votes, each naming a candidate, check whether one candidate received more than half of the votes.",
+  "example": "clear_winner((['ann', 'bob', 'ann', 'ann'],)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/464",
+  "description": "Write a function to check if all values are same in a dictionary.",
+  "example": "assert check_value({'Cierra Vega': 12, 'Alden Cantrell': 12, 'Kierra Gentry': 12, 'Pierre Cox': 12},10)==False",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/295",
+  "description": "Write a function to return the sum of all divisors of a number.",
+  "example": "assert sum_div(8)==7",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-018",
+  "description": "Given a list of yearly growth factors and a number of years k, return what each factor amounts to over k years, that is the factor raised to the power k.",
+  "example": "growth_over_years(([2, 3, 1], 3)) == [8, 27, 1]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/842",
+  "description": "Write a function to find the number which occurs for odd number of times in the given array.",
+  "example": "assert get_odd_occurence([2, 3, 5, 4, 5, 2, 4, 3, 5, 2, 4, 4, 2], 13) == 5",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-122",
+  "description": "Write a function to read an inventory line such as 'apples:3,pears:5' into a dictionary from item name to quantity as an integer.",
+  "example": "inventory_dict(('pens:12,ink:3',)) == {'pens': 12, 'ink': 3}",
+  "keep_in_order": [
+   "'apples:3,pears:5'",
+   "3",
+   "5"
+  ]
+ },
+ {
+  "id": "Mbpp/94",
+  "description": "Given a list of tuples, write a function that returns the first value of the tuple with the smallest second value.",
+  "example": "assert index_minimum([('Rash', 143), ('Manjeet', 200), ('Varsha', 100)]) == 'Varsha'",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/807",
+  "description": "Write a python function to find the first odd number in a given list of numbers.",
+  "example": "assert first_odd([1,3,5]) == 1",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-021",
+  "description": "Given a list of dictionaries with keys 'name' and 'age', return the names of the people whose age is at least 18.",
+  "example": "adult_names(([{'name': 'ann', 'age': 17}, {'name': 'bob', 'age': 18}, {'name': 'cy', 'age': 40}],)) == ['bob', 'cy']",
+  "keep_in_order": [
+   "'name'",
+   "'age'",
+   "18"
+  ]
+ },
+ {
+  "id": "predicates-137",
+  "description": "Write a function that tests if every element of the tuple is an integer.",
+  "example": "all_integers(((1, 2.5),)) == False",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-105",
+  "description": "Create a function which lists in increasing order the distinct remainders left when the squares of 1, 2, ..., p - 1 are divided by p.",
+  "example": "square_remainders((7,)) == [1, 2, 4]",
+  "keep_in_order": [
+   "1",
+   "2"
+  ]
+ },
+ {
+  "id": "Mbpp/132",
+  "description": "Write a function to convert a tuple to a string.",
+  "example": "assert tup_string(('e', 'x', 'e', 'r', 'c', 'i', 's', 'e', 's'))==(\"exercises\")",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/130",
+  "description": "Write a function to find the item with maximum frequency in a given list.",
+  "example": "assert max_occurrences([2,3,8,4,7,9,8,2,6,5,1,6,1,2,3,2,4,6,9,1,2])==2",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/276",
+  "description": "Write a function that takes in the radius and height of a cylinder and returns the the volume.",
+  "example": "assert math.isclose(volume_cylinder(10,5), 1570.7500000000002, rel_tol=0.001)",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/354",
+  "description": "Write a function to find t-nth term of arithemetic progression.",
+  "example": "assert tn_ap(1,5,2)==9",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-039",
+  "description": "Write a function to find the change in weight from each record to the next in a list of (date, weight) records kept in date order.",
+  "example": "weight_changes(([('mon', 70), ('tue', 71), ('wed', 69)],)) == [1, -2]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/613",
+  "description": "Write a function to find the maximum value in record list as tuple attribute in the given tuple list.",
+  "example": "assert maximum_value([('key1', [3, 4, 5]), ('key2', [1, 4, 2]), ('key3', [9, 3])]) == [('key1', 5), ('key2', 4), ('key3', 9)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-068",
+  "description": "Given a piece of text, add up the whole numbers written in it and return the total.",
+  "example": "total_of_numbers(('room 12 has 3 beds',)) == 15",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-098",
+  "description": "Write a function to keep only the first k columns of every row of a list of lists.",
+  "example": "first_columns(([[1, 2, 3], [4, 5, 6]], 2)) == [[1, 2], [4, 5]]",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-082",
+  "description": "Write a function to check whether the given number of identical small cubes can be stacked into one solid larger cube with none left over.",
+  "example": "forms_a_cube((64,)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/629",
+  "description": "Write a python function to find even numbers from a list of numbers.",
+  "example": "assert Split([1,2,3,4,5]) == [2,4]",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-037",
+  "description": "Write a python function to replace only the last occurrence of a substring in a text with a new substring.",
+  "example": "replace_last_occurrence(('1-2-3-4', '-', '+')) == '1-2-3+4'",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-044",
+  "description": "Create a function which labels a single letter 'Vowel' if it is a vowel in either case and 'Not Vowel' otherwise.",
+  "example": "vowel_verdict(('E',)) == 'Vowel'",
+  "keep_in_order": [
+   "'Vowel'",
+   "'Not Vowel'"
+  ]
+ },
+ {
+  "id": "MbppX/711",
+  "description": "Write a python function to check whether the product of digits of a number at even and odd places is equal or not.",
+  "example": "assert product_Equal(2841) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-046",
+  "description": "Write a function to find the keys that appear in exactly one of two dictionaries, in sorted order.",
+  "example": "unmatched_keys(({'a': 1, 'b': 2}, {'b': 3, 'c': 4})) == ['a', 'c']",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-014",
+  "description": "Write a python function to find the largest number anywhere in a list of non-empty lists.",
+  "example": "grid_max(([[3, 8], [1, 9, 2], [7]],)) == 9",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-130",
+  "description": "Write a function to build a dictionary from a list of keys and a list of values of the same length, pairing them by position.",
+  "example": "keys_to_values((['a', 'b', 'c'], [1, 2, 3])) == {'a': 1, 'b': 2, 'c': 3}",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-054",
+  "description": "Write a function to check whether a sentence starts with an uppercase letter and ends with a period.",
+  "example": "proper_sentence(('The sun is out.',)) == True",
+  "keep_in_order": [
+   "'.'"
+  ]
+ },
+ {
+  "id": "Mbpp/624",
+  "description": "Write a python function to convert a given string to uppercase.",
+  "example": "assert is_upper(\"person\") ==\"PERSON\"",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/636",
+  "description": "Write a python function to check if roots of a quadratic equation are reciprocal of each other or not.",
+  "example": "assert Check_Solution(2,0,2) == \"Yes\"",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/958",
+  "description": "Write a function to convert an integer into a roman numeral.",
+  "example": "assert int_to_roman(1)==(\"I\")",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-145",
+  "description": "Given a list of (name, age) tuples and two bounds, return the tuples whose age lies between the bounds, inclusive.",
+  "example": "ages_between(([('ann', 15), ('bob', 30), ('cy', 22), ('dee', 41)], 20, 30)) == [('bob', 30), ('cy', 22)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-062",
+  "description": "Write a function to determine whether the given number of seconds is an exact multiple of 3600.",
+  "example": "whole_hours((7200,)) == True",
+  "keep_in_order": [
+   "3600"
+  ]
+ },
+ {
+  "id": "Mbpp/742",
+  "description": "Write a function to caluclate the area of a tetrahedron.",
+  "example": "assert area_tetrahedron(3)==15.588457268119894",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-143",
+  "description": "Write a python function to list the primes p up to n for which 2 * p + 1 is also prime.",
+  "example": "safe_prime_partners((30,)) == [2, 3, 5, 11, 23, 29]",
+  "keep_in_order": [
+   "2",
+   "1"
+  ]
+ },
+ {
+  "id": "predicates-119",
+  "description": "Write a python function to check whether each element of the list is divisible by the element just before it.",
+  "example": "divisible_chain(([2, 6, 9],)) == False",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-132",
+  "description": "Write a function that takes match results as score pairs and returns True if at least one match ended in a draw.",
+  "example": "any_draw(([(1, 2), (3, 3), (0, 1)],)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-139",
+  "description": "Write a function to find the differences between the character codes of neighbouring characters of a string, as a list.",
+  "example": "code_steps(('abd',)) == [1, 2]",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers2-076",
+  "description": "Write a function to find how many cans of paint are needed to coat a spherical tank of radius r when one can covers c square metres, given r and c.",
+  "example": "paint_cans_for_tank((3, 10)) == 12",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/567",
+  "description": "Write a function to check whether a specified list is sorted or not.",
+  "example": "assert issort_list([1,2,4,6,8,10,12,14,16,17])==True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/155",
+  "description": "Write a python function to toggle all even bits of a given number.",
+  "example": "assert even_bit_toggle_number(10) == 0",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/744",
+  "description": "Write a function to check if the given tuple has any none value or not.",
+  "example": "assert check_none((10, 4, 5, 6, None)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-010",
+  "description": "Write a function that extracts the field at index k from every record in a list of tuples.",
+  "example": "pluck_field(([('ann', 31, 'nyc'), ('bob', 25, 'la')], 1)) == [31, 25]",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-110",
+  "description": "Create a function which keeps only the inner lists of a list that contain no repeated value.",
+  "example": "rows_without_repeats(([[1, 2, 3], [4, 4], [5, 6, 5], [7]],)) == [[1, 2, 3], [7]]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/363",
+  "description": "Write a function to add the k elements to each element in the tuple.",
+  "example": "assert add_K_element([(1, 3, 4), (2, 4, 6), (3, 8, 1)], 4) == [(5, 7, 8), (6, 8, 10), (7, 12, 5)]",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested-035",
+  "description": "Write a function to compute the total of each inner list and return those totals from largest to smallest.",
+  "example": "totals_desc(([[1, 2], [10], [3, 3, 3]],)) == [10, 9, 3]",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/139",
+  "description": "Write a function to find the circumference of a circle.",
+  "example": "assert math.isclose(circle_circumference(10), 62.830000000000005, rel_tol=0.001)",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/383",
+  "description": "Write a python function to toggle all odd bits of a given number.",
+  "example": "assert even_bit_toggle_number(10) == 15",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-048",
+  "description": "Write a function to check whether each score in the list is strictly higher than the one before it.",
+  "example": "scores_keep_rising(([1, 4, 9, 16],)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/52",
+  "description": "Write a function to caluclate area of a parallelogram.",
+  "example": "assert parallelogram_area(10,20)==200",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-136",
+  "description": "Write a function to return, for each item of a first list, whether it can also be found in a second list.",
+  "example": "found_in_other(([1, 2, 3], [3, 1])) == [True, False, True]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/144",
+  "description": "Write a python function to find the sum of absolute differences in all pairs of the given array.",
+  "example": "assert sum_Pairs([1,8,9,15,16],5) == 74",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/114",
+  "description": "Write a function to assign frequency to each tuple in the given tuple list.",
+  "example": "assert assign_freq([(6, 5, 8), (2, 7), (6, 5, 8), (6, 5, 8), (9, ), (2, 7)] ) == '[(6, 5, 8, 3), (2, 7, 2), (9, 1)]'",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/961",
+  "description": "Write a function to convert a roman numeral to an integer.",
+  "example": "assert roman_to_int('MMMCMLXXXVI')==3986",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-053",
+  "description": "Write a python function to answer 'Even' if a word contains an even number of vowels, ignoring case, and 'Odd' otherwise.",
+  "example": "vowel_parity(('Book',)) == 'Even'",
+  "keep_in_order": [
+   "'Even'",
+   "'Odd'"
+  ]
+ },
+ {
+  "id": "strings-142",
+  "description": "Write a function that grades a password as 'Valid' when it has at least 8 characters and contains both a letter and a digit, and as 'Invalid' otherwise.",
+  "example": "password_verdict(('hunter2024',)) == 'Valid'",
+  "keep_in_order": [
+   "'Valid'",
+   "'Invalid'",
+   "8"
+  ]
+ },
+ {
+  "id": "nested-150",
+  "description": "Write a function that removes the given key from every dictionary in a list, returning new dictionaries.",
+  "example": "drop_field(([{'a': 1, 'b': 2}, {'a': 3, 'c': 4}], 'a')) == [{'b': 2}, {'c': 4}]",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-038",
+  "description": "Write a function that tidies a sentence by making its first character uppercase and all others lowercase, and by adding a final '.' unless it already ends with one.",
+  "example": "tidy_sentence(('hello World',)) == 'Hello world.'",
+  "keep_in_order": [
+   "'.'"
+  ]
+ },
+ {
+  "id": "Mbpp/253",
+  "description": "Write a python function that returns the number of integer elements in a given list.",
+  "example": "assert count_integer([1,2,'abc',1.2]) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-082",
+  "description": "Given a list of (salesperson, list of daily sales) pairs, return the salesperson with the highest total sales, the first one on ties.",
+  "example": "top_seller(([('ann', [3, 4, 5]), ('bob', [10, 1]), ('cy', [2, 2])],)) == 'ann'",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/291",
+  "description": "Write a function to find out the number of ways of painting the fence such that at most 2 adjacent posts have the same color for the given fence with n posts and k colors.",
+  "example": "assert count_no_of_ways(2, 4) == 16",
+  "keep_in_order": [
+   "2"
+  ]
+ },
+ {
+  "id": "Mbpp/799",
+  "description": "Write a function to that rotate left bits by d bits a given number. We assume that the number is 32 bit.",
+  "example": "assert left_rotate(16,2) == 64",
+  "keep_in_order": [
+   "32"
+  ]
+ },
+ {
+  "id": "strings-149",
+  "description": "Write a function to abbreviate every word of a sentence that is longer than n characters to its first n characters followed by '.', leaving the other words unchanged.",
+  "example": "abbreviate_long_words(('international business machines', 5)) == 'inter. busin. machi.'",
+  "keep_in_order": [
+   "'.'"
+  ]
+ },
+ {
+  "id": "Mbpp/447",
+  "description": "Write a function to find cubes of individual elements in a list.",
+  "example": "assert cube_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/407",
+  "description": "Write a function to create the next bigger number by rearranging the digits of a given number.",
+  "example": "assert rearrange_bigger(12)==21",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/154",
+  "description": "Write a function to extract every specified element from a given two dimensional list.",
+  "example": "assert specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],0)==[1, 4, 7]",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences-043",
+  "description": "Write a function to check whether all the readings in a list are under 100.",
+  "example": "all_under_limit(([20, 99],)) == True",
+  "keep_in_order": [
+   "100"
+  ]
+ },
+ {
+  "id": "numbers-144",
+  "description": "Write a function to list the integers from a to b inclusive whose squares read the same forwards and backwards.",
+  "example": "palindromic_squares((1, 30)) == [1, 2, 3, 11, 22, 26]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/861",
+  "description": "Write a function to find all anagrams of a string in a given list of strings using lambda function.",
+  "example": "assert anagram_lambda([\"bcda\", \"abce\", \"cbda\", \"cbea\", \"adcb\"],\"abcd\")==['bcda', 'cbda', 'adcb']",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-060",
+  "description": "Write a function to get the value at position k, counted from 0, when a list of lists is read row by row.",
+  "example": "kth_in_reading_order(([[4, 5, 6], [7, 8]], 3)) == 7",
+  "keep_in_order": [
+   "0"
+  ]
+ },
+ {
+  "id": "Mbpp/432",
+  "description": "Write a function to find the median length of a trapezium.",
+  "example": "assert median_trapezium(15,25,35)==20",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/250",
+  "description": "Write a python function that takes in a tuple and an element and counts the occcurences of the element in the tuple.",
+  "example": "assert count_X((10, 8, 5, 2, 10, 15, 10, 8, 5, 8, 8, 2),4) == 0",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-016",
+  "description": "Write a function to repair text typed on a sticky keyboard by collapsing each run of identical neighbouring characters into a single character.",
+  "example": "fix_sticky_keys(('heeelllo  thhere',)) == 'helo there'",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/959",
+  "description": "Write a python function to find the average of a list.",
+  "example": "assert Average([15, 9, 55, 41, 35, 20, 62, 49]) == 35.75",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/654",
+  "description": "Write a function to find the perimeter of a rectangle.",
+  "example": "assert rectangle_perimeter(10,20)==60",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-109",
+  "description": "Write a function to find the integer from 1 to n with the most divisors, taking the smallest one when several tie.",
+  "example": "most_divisors_upto((10,)) == 6",
+  "keep_in_order": [
+   "1"
+  ]
+ },
+ {
+  "id": "MbppX/194",
+  "description": "Write a python function to convert octal number to decimal number.",
+  "example": "assert octal_To_Decimal(25) == 21",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-114",
+  "description": "Create a function which lists the first n triangular numbers, which begin 1, 3, 6, 10.",
+  "example": "triangular_numbers((5,)) == [1, 3, 6, 10, 15]",
+  "keep_in_order": [
+   "1",
+   "3",
+   "6",
+   "10"
+  ]
+ },
+ {
+  "id": "predicates-142",
+  "description": "Write a function to check whether the tuple contains a value greater than 100.",
+  "example": "has_over_hundred(((100, 99),)) == False",
+  "keep_in_order": [
+   "100"
+  ]
+ },
+ {
+  "id": "MbppX/483",
+  "description": "Write a python function to find the first natural number whose factorial is divisible by x.",
+  "example": "assert first_Factorial_Divisible_Number(10) == 5",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-049",
+  "description": "Write a function to check whether two teams have no player in common.",
+  "example": "teams_disjoint((['ann', 'bob'], ['bob', 'eve'])) == False",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/176",
+  "description": "Write a function to find the perimeter of a triangle.",
+  "example": "assert perimeter_triangle(10,20,30)==60",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-036",
+  "description": "Write a function to find the difference between the tallest and the shortest height in a list of (name, height) tuples.",
+  "example": "height_gap(([('ann', 160), ('bob', 182), ('cy', 175)],)) == 22",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/242",
+  "description": "Write a function to count the total number of characters in a string.",
+  "example": "assert count_charac(\"python programming\")==18",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/418",
+  "description": "Write a python function to find the element of a list having maximum length.",
+  "example": "assert Find_Max([['A'],['A','B'],['A','B','C']]) == ['A','B','C']",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/582",
+  "description": "Write a function to check if a dictionary is empty or not.",
+  "example": "assert my_dict({10})==False",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/309",
+  "description": "Write a python function to find the maximum of two numbers.",
+  "example": "assert maximum(5,10) == 10",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/104",
+  "description": "Write a function to sort each sublist of strings in a given list of lists.",
+  "example": "assert sort_sublists(([\"green\", \"orange\"], [\"black\", \"white\"], [\"white\", \"black\", \"orange\"]))==[['green', 'orange'], ['black', 'white'], ['black', 'orange', 'white']]",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-072",
+  "description": "Write a function that tests if the hour falls within working hours, from 9 to 17 inclusive.",
+  "example": "in_working_hours((18,)) == False",
+  "keep_in_order": [
+   "9",
+   "17"
+  ]
+ },
+ {
+  "id": "nested-090",
+  "description": "Write a python function to add up all the even numbers in a list of lists.",
+  "example": "even_total(([[1, 2, 3], [4, 5], [6]],)) == 12",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-108",
+  "description": "Write a python function to check whether every string in the list contains the letter 'e'.",
+  "example": "all_have_e((['tree', 'bee'],)) == True",
+  "keep_in_order": [
+   "'e'"
+  ]
+ },
+ {
+  "id": "MbppX/717",
+  "description": "Write a function to calculate the standard deviation.",
+  "example": "assert sd_calc([4, 2, 5, 8, 6])== 2.23606797749979",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-075",
+  "description": "Write a function to find the area of a round pizza from its diameter, rounded to 2 decimal places.",
+  "example": "pizza_area((12,)) == 113.1",
+  "keep_in_order": [
+   "2"
+  ]
+ },
+ {
+  "id": "nested-098",
+  "description": "Write a function that rotates a grid given as a list of lists by 180 degrees.",
+  "example": "rotate_half_turn(([[1, 2], [3, 4]],)) == [[4, 3], [2, 1]]",
+  "keep_in_order": [
+   "180"
+  ]
+ },
+ {
+  "id": "nested2-097",
+  "description": "Create a function which turns a list of dictionaries and a list of keys into one row per dictionary holding its values for those keys, in the order the keys are listed.",
+  "example": "records_to_rows(([{'a': 1, 'b': 2, 'c': 3}, {'a': 4, 'b': 5, 'c': 6}], ['c', 'a'])) == [[3, 1], [6, 4]]",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/887",
+  "description": "Write a python function to check whether the given number is odd or not using bitwise operator.",
+  "example": "assert is_odd(5) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/19",
+  "description": "Write a function to find whether a given array of integers contains any duplicate element.",
+  "example": "assert test_duplicate(([1,2,3,4,5]))==False",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/517",
+  "description": "Write a python function to find the largest postive number from the given list.",
+  "example": "assert largest_pos([1,2,3,4,-1]) == 4",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-082",
+  "description": "Write a function to rewrite every product code in a list in uppercase letters.",
+  "example": "normalize_codes((['ab12', 'cd-3'],)) == ['AB12', 'CD-3']",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/397",
+  "description": "Write a function to find the median of three numbers.",
+  "example": "assert median_numbers(25,55,65)==55.0",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-035",
+  "description": "Write a function to check whether the differences between consecutive elements of a given list are all equal.",
+  "example": "equal_steps(([3, 7, 11, 15],)) == True",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/173",
+  "description": "Write a function to remove everything except alphanumeric characters from a string.",
+  "example": "assert remove_splchar('python  @#&^%$*program123')==('pythonprogram123')",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/22",
+  "description": "Write a function to find the first duplicate element in a given array of integers.",
+  "example": "assert find_first_duplicate(([1, 2, 3, 4, 4, 5]))==4",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates2-066",
+  "description": "Write a function to check whether a list of n numbers contains every integer from 0 to n - 1.",
+  "example": "covers_zero_to_n(([2, 0, 3, 1],)) == True",
+  "keep_in_order": [
+   "0",
+   "1"
+  ]
+ },
+ {
+  "id": "nested-037",
+  "description": "Write a function to add two matrices stored as tuples of tuples, element by element.",
+  "example": "add_matrices((((1, 2), (3, 4)), ((10, 20), (30, 40)))) == ((11, 22), (33, 44))",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/428",
+  "description": "Write a function to sort the given array by using shell sort.",
+  "example": "assert shell_sort([12, 23, 4, 5, 3, 2, 12, 81, 56, 95]) == [2, 3, 4, 5, 12, 12, 23, 56, 81, 95]",
+  "keep_in_order": []
+ },
+ {
+  "id": "sequences2-073",
+  "description": "Write a function to write a list of numbers as an addition, joining the numbers with '+' and appending '=' and their total.",
+  "example": "sum_as_text(([1, 2, 3],)) == '1+2+3=6'",
+  "keep_in_order": [
+   "'+'",
+   "'='"
+  ]
+ },
+ {
+  "id": "MbppX/659",
+  "description": "Write a python function to print duplicants from a list of integers.",
+  "example": "assert Repeat([10, 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]) == [20, 30, -20, 60]",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-065",
+  "description": "Given a circular route as a list of stops, return the (from, to) legs of the route, including the leg from the last stop back to the first.",
+  "example": "circular_legs((['home', 'shop', 'gym'],)) == [('home', 'shop'), ('shop', 'gym'), ('gym', 'home')]",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-137",
+  "description": "Write a function that scores a password from 0 to 3, giving one point each for containing a lowercase letter, an uppercase letter and a digit.",
+  "example": "password_score(('Secret123',)) == 3",
+  "keep_in_order": [
+   "0",
+   "3"
+  ]
+ },
+ {
+  "id": "strings2-062",
+  "description": "Write a python function to rearrange a product code so that its non-digit characters come first and its digits last, each group keeping its order.",
+  "example": "digits_last(('A1B2-C3',)) == 'AB-C123'",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-043",
+  "description": "Several lighthouses all flash at time 0 and then each flashes again every p seconds, with the values of p given as a list; write a function to find the next time they all flash together.",
+  "example": "lighthouses_together(([2, 3, 4],)) == 12",
+  "keep_in_order": [
+   "0"
+  ]
+ },
+ {
+  "id": "MbppX/883",
+  "description": "Write a function to find numbers divisible by m and n from a list of numbers using lambda function.",
+  "example": "assert div_of_nums([19, 65, 57, 39, 152, 639, 121, 44, 90, 190],2,4)==[ 152,44]",
+  "keep_in_order": []
+ },
+ {
+  "id": "numbers-015",
+  "description": "Write a function to count the ways to cut a convex polygon with n + 2 sides into triangles using diagonals that do not cross.",
+  "example": "polygon_triangulations((3,)) == 5",
+  "keep_in_order": [
+   "2"
+  ]
+ },
+ {
+  "id": "MbppX/856",
+  "description": "Write a python function to find minimum adjacent swaps required to sort binary array.",
+  "example": "assert find_Min_Swaps([1,0,1,0],4) == 3",
+  "keep_in_order": []
+ },
+ {
+  "id": "predicates-043",
+  "description": "Create a function which returns 'Possible' if some selection of the coins, each used at most once, adds up to exactly the amount, and 'Not Possible' otherwise.",
+  "example": "coins_reach_amount(([7, 3, 11, 5], 6)) == 'Not Possible'",
+  "keep_in_order": [
+   "'Possible'",
+   "'Not Possible'"
+  ]
+ },
+ {
+  "id": "Mbpp/14",
+  "description": "Write a python function to find the volume of a triangular prism.",
+  "example": "assert find_Volume(10,8,6) == 240",
+  "keep_in_order": []
+ },
+ {
+  "id": "Mbpp/274",
+  "description": "Write a python function that takes in a positive integer n and finds the sum of even index binomial coefficients.",
+  "example": "assert even_binomial_Coeff_Sum(4) == 8",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/143",
+  "description": "Write a function to find number of lists present in the given tuple.",
+  "example": "assert find_lists(([1, 2, 3, 4], [5, 6, 7, 8])) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings-011",
+  "description": "Given a file path, return the file name, which is the text after the last '/' character.",
+  "example": "file_name_from_path(('/home/user/notes.txt',)) == 'notes.txt'",
+  "keep_in_order": [
+   "'/'"
+  ]
+ },
+ {
+  "id": "predicates-125",
+  "description": "Write a function that returns 'Yes' if every number in the list is prime and 'No' otherwise.",
+  "example": "all_prime_label(([2, 9],)) == 'No'",
+  "keep_in_order": [
+   "'Yes'",
+   "'No'"
+  ]
+ },
+ {
+  "id": "MbppX/45",
+  "description": "Write a function to find the gcd of the given array elements.",
+  "example": "assert get_gcd([2, 4, 6, 8, 16]) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "nested2-018",
+  "description": "Write a python function to count the different routes in a list of routes, where each route is a list of stops.",
+  "example": "count_distinct_routes(([[1, 2, 3], [3, 2, 1], [1, 2, 3]],)) == 2",
+  "keep_in_order": []
+ },
+ {
+  "id": "MbppX/209",
+  "description": "Write a function to delete the smallest element from the given heap and then insert a new item.",
+  "example": "assert heap_replace( [25, 44, 68, 21, 39, 23, 89],21)==[21, 25, 23, 44, 39, 68, 89]",
+  "keep_in_order": []
+ },
+ {
+  "id": "strings2-039",
+  "description": "Create a function which formats a menu line of width n from a dish name and a price, filling the gap between them with '.' characters so that the price ends in the last column.",
+  "example": "menu_line(('Soup', '4.50', 12)) == 'Soup....4.50'",
+  "keep_in_order": [
+   "'.'"
+  ]
+ }
+]

@@ -17,7 +17,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from mylittlellm.rulecoder import backinfer as bi
 
-DIR = Path(__file__).resolve().parents[1] / "outputs/paraphrase"
+DIR = Path(__file__).resolve().parents[1] / "data/seedlm/paraphrase"     # teachers wrote into outputs/paraphrase; the checked copy lives here
 
 
 def problems(task, paraphrases):

@@ -1,0 +1,2802 @@
+[
+ {
+  "id": "MbppX/512",
+  "paraphrases": [
+   "Write a function that works out how often each element occurs in a given mixed, nested tuple.",
+   "Write a function to tally element frequencies in a mixed nested tuple."
+  ]
+ },
+ {
+  "id": "Mbpp/101",
+  "paraphrases": [
+   "Write a function that returns the element at position k of the given array, where positions follow 1-based indexing.",
+   "Write a function to get the kth item of an array, indexing from 1."
+  ]
+ },
+ {
+  "id": "numbers-086",
+  "paraphrases": [
+   "Write a function that, given two positive integers, returns a tuple holding their greatest common divisor and their least common multiple.",
+   "Write a function to compute the GCD and the LCM of two positive integers, returned together as a tuple."
+  ]
+ },
+ {
+  "id": "strings2-107",
+  "paraphrases": [
+   "Write a function that builds the acrostic of a poem by taking the first character of each of its lines, the lines being split by newline characters.",
+   "Write a function to return a poem's acrostic, i.e. the opening character of every line, where newline characters separate the lines."
+  ]
+ },
+ {
+  "id": "predicates2-012",
+  "paraphrases": [
+   "Write a python function that determines whether a given name consists solely of letters.",
+   "Write a function to test if a name contains nothing but letters."
+  ]
+ },
+ {
+  "id": "predicates-132",
+  "paraphrases": [
+   "Write a function that gives 'Found' when at least one number of the tuple is divisible by 7, and gives 'Not Found' if none is.",
+   "Write a function returning 'Found' if any number in a tuple is a multiple of 7, else 'Not Found'."
+  ]
+ },
+ {
+  "id": "predicates-079",
+  "paraphrases": [
+   "Write a function that takes a dictionary and a key and checks that the key exists in the dictionary and that the value associated with it is positive.",
+   "Write a function to test whether a given key is in a given dictionary and maps to a positive value."
+  ]
+ },
+ {
+  "id": "Mbpp/405",
+  "paraphrases": [
+   "Write a function that determines if a given element is contained in a tuple.",
+   "Write a function to test an element for membership in a tuple."
+  ]
+ },
+ {
+  "id": "strings-146",
+  "paraphrases": [
+   "Write a function that pluralizes a regular noun, appending 'es' if the noun ends with 's', 'x' or 'h' and appending 's' in every other case.",
+   "Write a function to make a regular noun plural: add 'es' after a final 's', 'x' or 'h', otherwise add 's'."
+  ]
+ },
+ {
+  "id": "numbers-054",
+  "paraphrases": [
+   "Write a function that turns a Celsius temperature into Fahrenheit using F = C * 9 / 5 + 32 and rounds the result to 1 decimal place.",
+   "Write a function for Celsius-to-Fahrenheit conversion via F = C * 9 / 5 + 32, rounded to 1 place after the decimal point."
+  ]
+ },
+ {
+  "id": "strings-045",
+  "paraphrases": [
+   "Write a function that builds a mapping from every character in a string to the final index where that character appears.",
+   "Write a function to map the characters of a string to the indices of their last occurrences."
+  ]
+ },
+ {
+  "id": "numbers-146",
+  "paraphrases": [
+   "Write a function that filters a list of non-negative integers down to its perfect squares, preserving their original order.",
+   "Write a function returning, order unchanged, the perfect-square members of a non-negative integer list."
+  ]
+ },
+ {
+  "id": "nested2-059",
+  "paraphrases": [
+   "Write a function that adds up every cell lying in row k or column k of a square grid, with the cell at their intersection counted a single time.",
+   "Write a function to total row k and column k of a square grid without counting their shared cell twice."
+  ]
+ },
+ {
+  "id": "predicates2-122",
+  "paraphrases": [
+   "Write a function that determines whether, for each word in a given list, the word spelled backwards also appears in that list.",
+   "Write a function to test if a word list contains the reverse of each of its words."
+  ]
+ },
+ {
+  "id": "strings2-120",
+  "paraphrases": [
+   "Write a function that suggests up to 3 completions of a typed prefix, choosing, in alphabetical order, words from a list that begin with that prefix.",
+   "Write a function to offer as completions at most 3 words of a list that start with a typed prefix, taken in alphabetical order."
+  ]
+ },
+ {
+  "id": "numbers2-080",
+  "paraphrases": [
+   "Write a function that concatenates the binary representations of two positive integers, with the first one on the left, and returns the value of the combined binary number.",
+   "Write a function to place the binary forms of two positive integers side by side, first then second, and return the value of the binary number formed."
+  ]
+ },
+ {
+  "id": "MbppX/298",
+  "paraphrases": [
+   "Write a function that identifies which elements of a nested list also appear in a different list.",
+   "Write a function to get the elements of a nested list that are found in another list."
+  ]
+ },
+ {
+  "id": "MbppX/885",
+  "paraphrases": [
+   "Write a python function that determines if two given strings are isomorphic.",
+   "Write a function to test two strings for isomorphism."
+  ]
+ },
+ {
+  "id": "MbppX/833",
+  "paraphrases": [
+   "Write a function that, given a dictionary, returns a list containing its keys.",
+   "Write a function returning a list made of the keys of a dictionary."
+  ]
+ },
+ {
+  "id": "predicates-031",
+  "paraphrases": [
+   "Write a python function that gives 'Valid' when a price string represents a non-negative number having no more than two digits after the decimal point, and 'Invalid' in any other case.",
+   "Write a function to validate a price string, answering 'Valid' for a non-negative number with no more than two decimal places and 'Invalid' for anything else."
+  ]
+ },
+ {
+  "id": "numbers2-083",
+  "paraphrases": [
+   "Write a function that computes how far a non-negative integer is from the closest perfect square.",
+   "Write a function to measure the gap between a non-negative integer and its nearest perfect square."
+  ]
+ },
+ {
+  "id": "Mbpp/3",
+  "paraphrases": [
+   "Write a python function that recognizes numbers which are not prime.",
+   "Write a function to single out non-prime numbers."
+  ]
+ },
+ {
+  "id": "nested-135",
+  "paraphrases": [
+   "Write a function that, from a list of (player, score) tuples, returns the names of all players whose score equals the highest one, keeping their original order.",
+   "Write a function to find, in original order, the names of all top-scoring players in a list of (player, score) tuples."
+  ]
+ },
+ {
+  "id": "Mbpp/611",
+  "paraphrases": [
+   "Write a function that takes a matrix stored as a list of lists and returns the largest value in its nth column.",
+   "Write a function to find the maximum of column n of a matrix given as a list of lists."
+  ]
+ },
+ {
+  "id": "MbppX/960",
+  "paraphrases": [
+   "Write a function that gives the answer to the tiling problem.",
+   "Write a function to work out the tiling problem."
+  ]
+ },
+ {
+  "id": "numbers2-002",
+  "paraphrases": [
+   "Write a python function that gives the n-th term, with indices starting at 0, of the sequence 3, 0, 2, 3, 2, 5, 5, 7, ... in which every term equals the sum of the terms located two and three positions earlier.",
+   "Write a function to compute term n (0-indexed) of the sequence 3, 0, 2, 3, 2, 5, 5, 7, ..., where each term is the sum of the ones two and three steps back."
+  ]
+ },
+ {
+  "id": "strings-108",
+  "paraphrases": [
+   "Write a function that rewrites a sentence so that each word has an uppercase first character and lowercase remaining characters, with the words joined by single spaces.",
+   "Write a function to give each word of a sentence an uppercase first character and a lowercase rest, joining the words with single spaces."
+  ]
+ },
+ {
+  "id": "MbppX/51",
+  "paraphrases": [
+   "Write a function that checks and reports whether the triangle is equilateral or not.",
+   "Write a function to report whether a given triangle is equilateral."
+  ]
+ },
+ {
+  "id": "strings-107",
+  "paraphrases": [
+   "Write a function that removes the leading 'un' from a word beginning with it, leaving words that do not begin with it as they are.",
+   "Write a function to delete a leading 'un' from a word when present; other words come back unchanged."
+  ]
+ },
+ {
+  "id": "numbers2-056",
+  "paraphrases": [
+   "Write a function that takes the total time of a run in seconds and its distance in whole kilometres and returns the average pace per kilometre as a (minutes, seconds) tuple, first rounding the seconds per kilometre to the nearest whole number and counting 60 seconds to a minute.",
+   "Write a function to compute the average pace per kilometre, as a tuple of minutes and seconds, from a run's total seconds and its whole-kilometre distance, rounding seconds per kilometre to the nearest integer before splitting with 60 seconds per minute."
+  ]
+ },
+ {
+  "id": "strings2-027",
+  "paraphrases": [
+   "Write a function that converts a snake_case column name to a heading, swapping each underscore for a space and capitalizing each word.",
+   "Write a function to make a heading from a snake_case column name: underscores become spaces and every word is capitalized."
+  ]
+ },
+ {
+  "id": "Mbpp/760",
+  "paraphrases": [
+   "Write a python function that tells whether a list of numbers is made up of just one distinct element.",
+   "Write a function to test if a number list holds a single distinct value."
+  ]
+ },
+ {
+  "id": "strings-018",
+  "paraphrases": [
+   "Write a function that takes a sentence and returns the mean count of characters per word.",
+   "Write a function to compute the average word length of a sentence."
+  ]
+ },
+ {
+  "id": "MbppX/343",
+  "paraphrases": [
+   "Write a function that counts how many digits and how many letters a string contains.",
+   "Write a function giving the digit count and the letter count of a string."
+  ]
+ },
+ {
+  "id": "sequences2-146",
+  "paraphrases": [
+   "Write a function that takes two lists with the points scored by a home team and by an away team across several games and returns, game by game, 'W' when the home team won, 'L' when it lost and 'D' when the game was drawn.",
+   "Write a function to label each game 'W' for a home win, 'L' for a home loss and 'D' for a draw, given home and away points as two lists."
+  ]
+ },
+ {
+  "id": "sequences-042",
+  "paraphrases": [
+   "Write a python function that determines whether a list of race times never increases between consecutive entries.",
+   "Write a function to test if the race times in a list are non-increasing."
+  ]
+ },
+ {
+  "id": "sequences2-027",
+  "paraphrases": [
+   "Write a python function that returns the index at which the greatest even value of a given list is found.",
+   "Write a function returning the index of the maximum even element of a list."
+  ]
+ },
+ {
+  "id": "predicates-100",
+  "paraphrases": [
+   "Write a function that determines if the second of two strings equals the first one reversed.",
+   "Write a function to test whether the second string reads as the first one backwards."
+  ]
+ },
+ {
+  "id": "numbers-070",
+  "paraphrases": [
+   "Write a function that determines whether a non-negative integer begins and ends with the same digit.",
+   "Write a function to test if a non-negative integer has equal first and last digits."
+  ]
+ },
+ {
+  "id": "MbppX/849",
+  "paraphrases": [
+   "Write a python function that adds up all the prime divisors of a given number.",
+   "Write a function to compute the total of the prime divisors of a number."
+  ]
+ },
+ {
+  "id": "numbers2-085",
+  "paraphrases": [
+   "Write a function that, given P, r and n for a loan P repaid in n equal monthly payments at r percent per year (a monthly rate of r / 1200), returns the payment P * rate / (1 - (1 + rate) ** -n) rounded to 2 decimal places.",
+   "Write a function to find the monthly payment on a loan P paid back in n equal monthly instalments at r percent a year: with rate = r / 1200, the payment is P * rate / (1 - (1 + rate) ** -n), rounded to 2 decimal places, given P, r and n."
+  ]
+ },
+ {
+  "id": "strings2-080",
+  "paraphrases": [
+   "Write a function that returns the positions, counted from 0, of every word of maximum length in a sentence.",
+   "Write a function to get the positions of all the longest words of a sentence, numbering from 0."
+  ]
+ },
+ {
+  "id": "nested-051",
+  "paraphrases": [
+   "Write a function that takes a list of lists of measurements and returns, for every inner list, the difference between its maximum and its minimum.",
+   "Write a function to compute the range (largest minus smallest value) of each inner list in a list of measurement lists."
+  ]
+ },
+ {
+  "id": "strings-033",
+  "paraphrases": [
+   "Write a function that computes the GC content of a DNA strand in percent, namely 100 times the fraction of its characters equal to 'G' or 'C', rounded to 1 decimal place.",
+   "Write a function to return the GC percentage of a DNA strand: 100 times the proportion of 'G' or 'C' characters, rounded to 1 decimal place."
+  ]
+ },
+ {
+  "id": "sequences-008",
+  "paraphrases": [
+   "Write a function that returns the song appearing most often in a list of song requests, breaking ties in favour of the song that was requested earliest.",
+   "Write a function to pick the most frequently requested song from a list of requests, choosing the one requested first on a tie."
+  ]
+ },
+ {
+  "id": "predicates2-021",
+  "paraphrases": [
+   "Write a function that, for a given number of students and team size, returns True when the students divide into teams of exactly that size with no one left over.",
+   "Write a function to return True if a number of students splits evenly into teams of a given size."
+  ]
+ },
+ {
+  "id": "strings2-101",
+  "paraphrases": [
+   "Write a function that scores a word, counting each rare letter from 'jqxz' as 8 points and any other letter as 1 point.",
+   "Write a function to compute the score of a word where the letters in 'jqxz' earn 8 points each and all other letters earn 1 point."
+  ]
+ },
+ {
+  "id": "MbppX/902",
+  "paraphrases": [
+   "Write a function that merges two dictionaries, summing the values of the keys they share.",
+   "Write a function to merge two dicts, adding together the values whose keys appear in both."
+  ]
+ },
+ {
+  "id": "sequences2-116",
+  "paraphrases": [
+   "Write a function that takes a list of expenses and an initial budget and returns the remaining money after every expense.",
+   "Write a function to compute the balance left from a starting budget after each expense in a list."
+  ]
+ },
+ {
+  "id": "sequences2-058",
+  "paraphrases": [
+   "Write a function that divides every element of a given list by the one preceding it.",
+   "Write a function to compute the ratio of each list element to its predecessor."
+  ]
+ },
+ {
+  "id": "Mbpp/135",
+  "paraphrases": [
+   "Write a function that, given n, calculates the n-th number in the sequence of hexagonal numbers.",
+   "Write a function to compute hexagonal number n."
+  ]
+ },
+ {
+  "id": "numbers2-138",
+  "paraphrases": [
+   "Write a function that expresses every vote count of a list as a percentage of the total, i.e. its share times 100, rounded to the nearest whole number.",
+   "Write a function to give, for each vote count in a list, its fraction of the total multiplied by 100 and rounded to the nearest whole number."
+  ]
+ },
+ {
+  "id": "numbers2-044",
+  "paraphrases": [
+   "Write a function that, given n, r and b, counts the distinct rows that can be formed from n beads where r beads are identical and red, b beads are identical and blue, and each of the remaining beads has its own colour.",
+   "Write a function to count the arrangements in a row of n beads made of r identical red ones, b identical blue ones and other beads all of distinct colours, given n, r and b."
+  ]
+ },
+ {
+  "id": "predicates-037",
+  "paraphrases": [
+   "Write a python function that determines whether the second string results from taking some characters off the start of the first string and putting them at its end.",
+   "Write a function to test whether shifting some characters from the front of the first string to its back yields the second string."
+  ]
+ },
+ {
+  "id": "MbppX/920",
+  "paraphrases": [
+   "Write a function that deletes from the given list of tuples every tuple whose values are all None.",
+   "Write a function to drop the tuples consisting only of None values from a list of tuples."
+  ]
+ },
+ {
+  "id": "sequences2-007",
+  "paraphrases": [
+   "Write a function that merges two lists of ticket numbers into a single list in increasing order, containing each ticket number only once.",
+   "Write a function to combine two ticket-number lists into one ascending list without duplicates."
+  ]
+ },
+ {
+  "id": "sequences2-137",
+  "paraphrases": [
+   "Write a function that returns the values of a list that appear an even number of times, each given once and ordered by where they first appear.",
+   "Write a function to find the values occurring an even number of times in a list, without repeats, in first-appearance order."
+  ]
+ },
+ {
+  "id": "MbppX/210",
+  "paraphrases": [
+   "Write a function that uses a regex to verify that the given string is made up solely of characters from a specific set (here a-z, a-z and 0-9).",
+   "Write a function to confirm, by regex, that a string has only characters from the set a-z, a-z and 0-9."
+  ]
+ },
+ {
+  "id": "Mbpp/767",
+  "paraphrases": [
+   "Write a python function that takes a list of numbers and a sum and counts how many pairs of numbers add up to that sum.",
+   "Write a function to count the pairs in a list of numbers whose sum equals a given sum."
+  ]
+ },
+ {
+  "id": "sequences-030",
+  "paraphrases": [
+   "Write a function that takes two lists and returns, sorted in increasing order, the values found in only one of the two.",
+   "Write a function to return, in increasing order, the values that appear in one of two lists but not in both."
+  ]
+ },
+ {
+  "id": "MbppX/334",
+  "paraphrases": [
+   "Write a python function that, given the sides of a triangle, determines whether the triangle is valid.",
+   "Write a function to test whether given side lengths make a valid triangle."
+  ]
+ },
+ {
+  "id": "predicates-029",
+  "paraphrases": [
+   "Write a function that gives 'Balanced' when all brackets in the expression are closed in the correct order, and 'Not Balanced' when they are not.",
+   "Write a function returning 'Balanced' for an expression whose brackets all close in proper order, else 'Not Balanced'."
+  ]
+ },
+ {
+  "id": "strings2-094",
+  "paraphrases": [
+   "Write a function that returns the index where every word begins in a sentence in which single spaces separate the words.",
+   "Write a function to locate the start index of each word in a sentence with words split by single spaces."
+  ]
+ },
+ {
+  "id": "strings-046",
+  "paraphrases": [
+   "Write a function that rewrites a movie name such that each word begins with a capital letter followed by lowercase letters.",
+   "Write a function to format a movie title with every word capitalized and the rest of each word in lowercase."
+  ]
+ },
+ {
+  "id": "predicates-005",
+  "paraphrases": [
+   "Write a function that gives 'Happy' for a happy number, one where repeatedly summing the squares of its digits finally reaches 1, and gives 'Not Happy' for any other number.",
+   "Write a function returning 'Happy' if repeatedly replacing the number by the sum of its squared digits eventually yields 1, else 'Not Happy'."
+  ]
+ },
+ {
+  "id": "predicates2-030",
+  "paraphrases": [
+   "Write a function that determines whether the proper divisors of n add up to exactly n - 1.",
+   "Write a function to test if n has a proper-divisor sum equal to n - 1."
+  ]
+ },
+ {
+  "id": "numbers-016",
+  "paraphrases": [
+   "Write a function that gives the n-th term, with indices starting at 0, of the sequence 2, 1, 3, 4, 7, 11, ... where every term equals the sum of the previous two.",
+   "Write a function to compute term n (0-indexed) of 2, 1, 3, 4, 7, 11, ..., each term being the sum of the two preceding ones."
+  ]
+ },
+ {
+  "id": "nested-016",
+  "paraphrases": [
+   "Write a function that takes a list of integer tuples of the form (product code, quantity, price) and returns the total quantity, i.e. the sum of the entries at index 1.",
+   "Write a function to add up the values at index 1, the quantities, across a list of (product code, quantity, price) integer tuples."
+  ]
+ },
+ {
+  "id": "MbppX/627",
+  "paraphrases": [
+   "Write a python function that determines the least number absent from the given array.",
+   "Write a function to get the smallest number missing from an array."
+  ]
+ },
+ {
+  "id": "numbers2-055",
+  "paraphrases": [
+   "Write a function that converts a height given as f feet and i inches to centimetres, rounded to 1 decimal place, taking 12 inches to a foot and 254 centimetres to 100 inches.",
+   "Write a function giving the centimetre equivalent, to 1 decimal place, of a height of f feet plus i inches, where a foot is 12 inches and 254 centimetres make 100 inches."
+  ]
+ },
+ {
+  "id": "strings2-106",
+  "paraphrases": [
+   "Write a function that determines whether a list of words is a word chain, meaning each word begins with the final letter of its predecessor.",
+   "Write a function to test if every word in a list starts with the last letter of the previous word."
+  ]
+ },
+ {
+  "id": "MbppX/716",
+  "paraphrases": [
+   "Write a function that computes the perimeter of a rhombus.",
+   "Write a function to calculate the total length of the sides of a rhombus."
+  ]
+ },
+ {
+  "id": "sequences2-061",
+  "paraphrases": [
+   "Write a function that leaves the first element of a list where it is and arranges all the other elements in ascending order.",
+   "Write a function to sort everything after the first item of a list in increasing order, keeping the first item first."
+  ]
+ },
+ {
+  "id": "numbers-059",
+  "paraphrases": [
+   "Write a function that, with the Fibonacci numbers defined by F(0) = 0 and F(1) = 1, returns the last digit of the n-th one.",
+   "Write a function to compute the units digit of Fibonacci number n, with F(0) = 0 and F(1) = 1."
+  ]
+ },
+ {
+  "id": "numbers-130",
+  "paraphrases": [
+   "Write a function that, for one die with faces 1 to m and another with faces 1 to n, counts the outcomes of rolling both that give an even total.",
+   "Write a function to count the rolls of a die numbered 1 to m together with a die numbered 1 to n whose sum is even."
+  ]
+ },
+ {
+  "id": "MbppX/401",
+  "paraphrases": [
+   "Write a function that adds the elements of two given nested tuples position by position.",
+   "Write a function to add two nested tuples element-wise by index."
+  ]
+ },
+ {
+  "id": "MbppX/901",
+  "paraphrases": [
+   "Write a function that computes the least number that is a multiple of each of the first n numbers.",
+   "Write a function for the LCM of the first n numbers."
+  ]
+ },
+ {
+  "id": "numbers-149",
+  "paraphrases": [
+   "Write a function that estimates e as the sum of 1/k! over k from 0 to n, rounded to 6 decimal places.",
+   "Write a function to compute the partial sum of 1/k! from k = 0 to n as an approximation of e, rounded to 6 decimal places."
+  ]
+ },
+ {
+  "id": "strings2-081",
+  "paraphrases": [
+   "Write a python function that counts the runs of identical adjacent characters in a string.",
+   "Write a function to find how many groups of consecutive equal characters a string has."
+  ]
+ },
+ {
+  "id": "strings2-130",
+  "paraphrases": [
+   "Write a function that counts how many different substrings of length k occur in a string.",
+   "Write a function to find the number of unique length-k substrings in a string."
+  ]
+ },
+ {
+  "id": "numbers-021",
+  "paraphrases": [
+   "Write a function that counts the ways of dividing n distinct books into exactly k non-empty, unlabelled piles.",
+   "Write a function to find the number of ways to group n different books into exactly k non-empty piles, where the piles are not distinguished from one another."
+  ]
+ },
+ {
+  "id": "MbppX/41",
+  "paraphrases": [
+   "Write a function that uses a lambda function to pick out the even numbers.",
+   "Write a function to keep only even numbers, filtering with a lambda."
+  ]
+ },
+ {
+  "id": "nested2-023",
+  "paraphrases": [
+   "Write a function that totals the best roll from every round, given a list of rounds that are each a list of dice rolls.",
+   "Write a function to sum the best dice roll of each round over a list of rounds of rolls."
+  ]
+ },
+ {
+  "id": "MbppX/653",
+  "paraphrases": [
+   "Write a function that uses the collections module to gather a sequence of key-value pairs into a dictionary whose values are lists.",
+   "Write a function to build a dictionary of lists from key-value pairs with the help of the collections module."
+  ]
+ },
+ {
+  "id": "nested-082",
+  "paraphrases": [
+   "Write a function that changes a list of (length, width) measurements in metres into centimetres, multiplying each number by 100.",
+   "Write a function to multiply every number in a list of (length, width) metre measurements by 100 to get centimetres."
+  ]
+ },
+ {
+  "id": "sequences-087",
+  "paraphrases": [
+   "Write a function that computes the mean number of characters of the words in a list.",
+   "Write a function to find the average word length for a list of words."
+  ]
+ },
+ {
+  "id": "MbppX/25",
+  "paraphrases": [
+   "Write a python function that multiplies together the non-repeated elements of a given array.",
+   "Write a function to compute the product of the elements that are not repeated in an array."
+  ]
+ },
+ {
+  "id": "MbppX/674",
+  "paraphrases": [
+   "Write a function that uses the collections module to delete repeated words from a given string.",
+   "Write a function to strip duplicate words out of a string with the collections module."
+  ]
+ },
+ {
+  "id": "strings-144",
+  "paraphrases": [
+   "Write a function that determines, case-insensitively, whether a word contains more vowels than consonants.",
+   "Write a function to test if vowels outnumber consonants in a word, regardless of case."
+  ]
+ },
+ {
+  "id": "strings-055",
+  "paraphrases": [
+   "Write a function that determines whether a forum post counts as shouting, i.e. it contains cased letters and every one of them is uppercase.",
+   "Write a function to check if a forum post is shouting: it has cased letters, all in uppercase."
+  ]
+ },
+ {
+  "id": "nested2-131",
+  "paraphrases": [
+   "Write a function that converts a dictionary mapping each field to a list, all lists of the same length, into a list holding one dictionary per position.",
+   "Write a function to transform a dict of equal-length per-field lists into a list of per-position dicts."
+  ]
+ },
+ {
+  "id": "numbers2-024",
+  "paraphrases": [
+   "Write a python function that counts the tilings of a 2 by n strip using 1 by 2 dominoes, placed in either orientation, together with 2 by 2 squares.",
+   "Write a function to find how many ways a 2 by n strip can be covered by 1 by 2 dominoes (in either orientation) and 2 by 2 squares."
+  ]
+ },
+ {
+  "id": "MbppX/673",
+  "paraphrases": [
+   "Write a python function that turns a list of several integers into one integer.",
+   "Write a function to convert multiple integers in a list to a single integer."
+  ]
+ },
+ {
+  "id": "predicates2-060",
+  "paraphrases": [
+   "Write a function that, for a list with an even number of elements, returns True when the sum of its first half equals the sum of its second half.",
+   "Write a function to return True if both halves of an even-length list sum to the same value."
+  ]
+ },
+ {
+  "id": "strings2-076",
+  "paraphrases": [
+   "Write a function that determines, without regard to case, whether each of the vowels 'aeiou' appears in a word at least once.",
+   "Write a function to test if a word uses every vowel in 'aeiou', case-insensitively."
+  ]
+ },
+ {
+  "id": "sequences2-108",
+  "paraphrases": [
+   "Write a function that maps each number of a list to 1 if it is at least k and to 0 if not, giving a list of ones and zeros.",
+   "Write a function to flag the numbers of a list with 1 when they are k or more and 0 otherwise."
+  ]
+ },
+ {
+  "id": "nested2-125",
+  "paraphrases": [
+   "Write a python function that determines whether every inner list of a list sums to the same value.",
+   "Write a function to test if all sublists of a list have equal sums."
+  ]
+ },
+ {
+  "id": "MbppX/364",
+  "paraphrases": [
+   "Write a function that determines how many flips are required to turn the given binary string into a sequence of alternating characters.",
+   "Write a function to count the flips needed to make a binary string alternate."
+  ]
+ },
+ {
+  "id": "sequences-100",
+  "paraphrases": [
+   "Write a function that counts the positions in a list where the next value is greater than the current one.",
+   "Write a function to count the rises in a list, where a value is directly followed by a bigger one."
+  ]
+ },
+ {
+  "id": "MbppX/672",
+  "paraphrases": [
+   "Write a function that returns the largest of three numbers.",
+   "Write a function to get the maximum among three given numbers."
+  ]
+ },
+ {
+  "id": "sequences2-005",
+  "paraphrases": [
+   "Write a function that returns the k elements at the end of a given list.",
+   "Write a function to take the trailing k items of a list."
+  ]
+ },
+ {
+  "id": "MbppX/646",
+  "paraphrases": [
+   "Write a python function that determines how many cubes of size k there are inside a cube of size n.",
+   "Write a function to count size-k cubes within a size-n cube."
+  ]
+ },
+ {
+  "id": "sequences-148",
+  "paraphrases": [
+   "Write a function that counts how many different values in a list exceed a given number.",
+   "Write a function to find the number of unique list values above a given number."
+  ]
+ },
+ {
+  "id": "MbppX/524",
+  "paraphrases": [
+   "Write a function that, for the given array, computes the sum of its maximum increasing subsequence.",
+   "Write a function to total the maximum increasing subsequence of an array."
+  ]
+ },
+ {
+  "id": "Mbpp/301",
+  "paraphrases": [
+   "Write a function that determines how deeply a dictionary is nested.",
+   "Write a function to calculate a dictionary's depth."
+  ]
+ },
+ {
+  "id": "predicates-024",
+  "paraphrases": [
+   "Write a function that gives 'YES' when three positive angles, measured in degrees, could together be the angles of a single triangle, and 'NO' when they could not.",
+   "Write a function returning 'YES' if three positive angles in degrees can form a triangle, else 'NO'."
+  ]
+ },
+ {
+  "id": "Mbpp/6",
+  "paraphrases": [
+   "Write a python function that determines whether two numbers differ in exactly one bit position.",
+   "Write a function to test if two numbers differ by a single bit."
+  ]
+ },
+ {
+  "id": "MbppX/351",
+  "paraphrases": [
+   "Write a python function that returns the first element of a given array that occurs k times.",
+   "Write a function to find the earliest array element that appears k times."
+  ]
+ },
+ {
+  "id": "sequences-010",
+  "paraphrases": [
+   "Write a function that takes a list of parcel weights, where 0 stands for an empty slot, and returns it with every empty slot shifted to the end while the parcels keep their order.",
+   "Write a function to move the empty slots, marked 0, of a list of parcel weights to the back, preserving the order of the parcels."
+  ]
+ },
+ {
+  "id": "MbppX/46",
+  "paraphrases": [
+   "Write a python function that checks whether the numbers are all distinct from one another.",
+   "Write a function to test if all the numbers are unique."
+  ]
+ },
+ {
+  "id": "Mbpp/630",
+  "paraphrases": [
+   "Write a function that returns every coordinate adjacent to the given coordinate tuple.",
+   "Write a function to list all neighbouring coordinates of a coordinate tuple."
+  ]
+ },
+ {
+  "id": "sequences-074",
+  "paraphrases": [
+   "Write a function that orders a list of numbers by how far each is from a given value, closest first, with ties left in their original order.",
+   "Write a function to sort a list of numbers by closeness to a given value, nearest first, preserving original order among equal distances."
+  ]
+ },
+ {
+  "id": "sequences-142",
+  "paraphrases": [
+   "Write a function that selects the strings from a list that contain the letter 'a' two or more times.",
+   "Write a function to keep the strings of a list having at least two occurrences of 'a'."
+  ]
+ },
+ {
+  "id": "nested2-134",
+  "paraphrases": [
+   "Write a function that takes a list of (row, seat) bookings and returns a dictionary mapping each seat booked more than once to how many times it was booked.",
+   "Write a function to build a dictionary from each seat booked multiple times in a list of (row, seat) bookings to its number of bookings."
+  ]
+ },
+ {
+  "id": "MbppX/828",
+  "paraphrases": [
+   "Write a function that counts the letters, the digits and the special characters of a given string.",
+   "Write a function to tally alphabetic characters, digits and special characters in a string."
+  ]
+ },
+ {
+  "id": "predicates2-046",
+  "paraphrases": [
+   "Write a function that takes a string and two characters and gives 'Equal' when the two characters appear equally often in the string, or 'Not Equal' when they do not.",
+   "Write a function returning 'Equal' if two given characters have the same count in a string, else 'Not Equal'."
+  ]
+ },
+ {
+  "id": "Mbpp/226",
+  "paraphrases": [
+   "Write a python function that deletes the characters at odd indices from a given string.",
+   "Write a function to drop every odd-indexed character of a string."
+  ]
+ },
+ {
+  "id": "Mbpp/284",
+  "paraphrases": [
+   "Write a function that, given a list and an element, determines whether every item of the list equals that element.",
+   "Write a function to test if all items of a list match a given element."
+  ]
+ },
+ {
+  "id": "MbppX/911",
+  "paraphrases": [
+   "Write a function that uses the heap queue algorithm to find the largest product of three numbers from a given array of integers.",
+   "Write a function to get the maximum product of three integers in an array via the heap queue algorithm."
+  ]
+ },
+ {
+  "id": "predicates2-107",
+  "paraphrases": [
+   "Write a function that determines whether the list holds a number greater than 1 as well as the square of that number.",
+   "Write a function to test if a list includes some number above 1 and also its square."
+  ]
+ },
+ {
+  "id": "nested-007",
+  "paraphrases": [
+   "Write a python function that takes a list of (morning, noon, evening) temperature readings and returns a list of the minimum reading at each time of day.",
+   "Write a function to find, for each time of day, the lowest reading in a list of (morning, noon, evening) temperature readings, returned as a list."
+  ]
+ },
+ {
+  "id": "nested2-146",
+  "paraphrases": [
+   "Write a function that takes a list of (home goals, away goals) match results and returns a tuple with the number of home wins, of draws and of away wins.",
+   "Write a function to count home wins, draws and away wins, as a tuple, in a list of (home goals, away goals) results."
+  ]
+ },
+ {
+  "id": "strings-118",
+  "paraphrases": [
+   "Write a function that collects all the words of a list of text lines into a single flat list, keeping the order in which they are read.",
+   "Write a function to flatten a list of text lines into one list of their words, in reading order."
+  ]
+ },
+ {
+  "id": "strings2-056",
+  "paraphrases": [
+   "Write a function that merges two words into a single word consisting of the first half of the first word followed by the second half of the second word, taking the first half of a length-n word to be its first n // 2 characters.",
+   "Write a function to form a blend of two words from the first half of the first word plus the second half of the second, where a word of length n has a first half of n // 2 characters."
+  ]
+ },
+ {
+  "id": "MbppX/200",
+  "paraphrases": [
+   "Write a function that returns every index at which the maximum value of a given list occurs.",
+   "Write a function to get all indices where a list reaches its maximum value."
+  ]
+ },
+ {
+  "id": "Mbpp/439",
+  "paraphrases": [
+   "Write a function that combines a list of several integers into one integer by joining them.",
+   "Write a function to join multiple integers from a list into one integer."
+  ]
+ },
+ {
+  "id": "MbppX/183",
+  "paraphrases": [
+   "Write a function that counts every distinct pair in an array whose two elements differ by k.",
+   "Write a function to find the number of distinct pairs with difference k in an array."
+  ]
+ },
+ {
+  "id": "MbppX/625",
+  "paraphrases": [
+   "Write a python function that swaps the first element of a given list with its last element.",
+   "Write a function to exchange the first and last items of a list."
+  ]
+ },
+ {
+  "id": "Mbpp/565",
+  "paraphrases": [
+   "Write a python function that breaks a string up into its individual characters.",
+   "Write a function to split up a string character by character."
+  ]
+ },
+ {
+  "id": "predicates2-031",
+  "paraphrases": [
+   "Write a function that gives 'Automorphic' when the square of the number finishes with the same digits as the number, and 'Not Automorphic' when it does not.",
+   "Write a function returning 'Automorphic' if squaring the number gives a result ending in its own digits, else 'Not Automorphic'."
+  ]
+ },
+ {
+  "id": "MbppX/115",
+  "paraphrases": [
+   "Write a function that determines whether every dictionary in a list is empty.",
+   "Write a function to test whether the dictionaries in a list are all empty."
+  ]
+ },
+ {
+  "id": "MbppX/507",
+  "paraphrases": [
+   "Write a function that deletes certain specified words from a given list.",
+   "Write a function to filter chosen words out of a list."
+  ]
+ },
+ {
+  "id": "sequences-044",
+  "paraphrases": [
+   "Write a function that determines whether all items of a shopping list appear in a list of stocked items.",
+   "Write a function to test if a list of items in stock covers every item on a shopping list."
+  ]
+ },
+ {
+  "id": "MbppX/546",
+  "paraphrases": [
+   "Write a function that locates where a character last occurs in a string.",
+   "Write a function to find the position of the final appearance of a character within a string."
+  ]
+ },
+ {
+  "id": "MbppX/874",
+  "paraphrases": [
+   "Write a python function that determines whether the string is formed by concatenating another string.",
+   "Write a function to test whether one string is built by concatenating another."
+  ]
+ },
+ {
+  "id": "Mbpp/465",
+  "paraphrases": [
+   "Write a function that returns the given dictionary without its empty items.",
+   "Write a function to filter out the empty entries of a dictionary."
+  ]
+ },
+ {
+  "id": "MbppX/60",
+  "paraphrases": [
+   "Write a function that, for the given array, determines the greatest length of a subsequence with difference between adjacent elements.",
+   "Write a function to compute the longest subsequence length with difference between adjacent elements in an array."
+  ]
+ },
+ {
+  "id": "predicates-120",
+  "paraphrases": [
+   "Write a function that takes a list containing both numbers and strings and determines whether at least 2 of its items are strings.",
+   "Write a function to test if a mixed list of numbers and strings has 2 or more strings."
+  ]
+ },
+ {
+  "id": "sequences-034",
+  "paraphrases": [
+   "Write a function that swaps adjacent pairs of dancers in a line, first with second, third with fourth, and so forth, leaving any last dancer without a partner where they are.",
+   "Write a function to exchange the dancers in a line pairwise (first and second, third and fourth, and onward), keeping a leftover final dancer in place."
+  ]
+ },
+ {
+  "id": "MbppX/497",
+  "paraphrases": [
+   "Write a function that calculates how much surface area a cone has.",
+   "Write a function to calculate a cone's surface area."
+  ]
+ },
+ {
+  "id": "sequences2-016",
+  "paraphrases": [
+   "Write a function that collects every word from a list of sentences into a single list in their original order.",
+   "Write a function to flatten a list of sentences into one ordered list of words."
+  ]
+ },
+ {
+  "id": "MbppX/866",
+  "paraphrases": [
+   "Write a function that determines whether the month with the given name has 31 days.",
+   "Write a function to test if a named month is 31 days long."
+  ]
+ },
+ {
+  "id": "MbppX/506",
+  "paraphrases": [
+   "Write a function that computes the permutation coefficient p(n, k) for given n and k.",
+   "Write a function to evaluate p(n, k), the permutation coefficient."
+  ]
+ },
+ {
+  "id": "MbppX/531",
+  "paraphrases": [
+   "Write a function that determines the fewest coins needed to make up a given value.",
+   "Write a function to compute the minimum coin count summing to a given value."
+  ]
+ },
+ {
+  "id": "Mbpp/743",
+  "paraphrases": [
+   "Write a function that rotates a given list to the right by a specified number of items.",
+   "Write a function to shift a list rightward cyclically by a given number of positions."
+  ]
+ },
+ {
+  "id": "numbers-053",
+  "paraphrases": [
+   "Write a function that converts a duration of h hours, m minutes and s seconds into a total count of seconds, with 3600 seconds in an hour and 60 in a minute.",
+   "Write a function to compute the seconds in h hours, m minutes and s seconds, taking 3600 per hour and 60 per minute."
+  ]
+ },
+ {
+  "id": "MbppX/884",
+  "paraphrases": [
+   "Write a python function that determines whether all the bits lie within a given range.",
+   "Write a function to test if every bit is inside a given range."
+  ]
+ },
+ {
+  "id": "strings2-126",
+  "paraphrases": [
+   "Write a function that emphasizes selected letters of a text by converting to uppercase each character found in a given string of letters.",
+   "Write a function to uppercase every character of a text that occurs in a given string of letters."
+  ]
+ },
+ {
+  "id": "Mbpp/277",
+  "paraphrases": [
+   "Write a function that, given a dictionary and an integer n, keeps only the dictionary entries whose values are at least n.",
+   "Write a function to filter a dictionary down to the entries with value n or more."
+  ]
+ },
+ {
+  "id": "strings-023",
+  "paraphrases": [
+   "Write a function that builds a lowercase login name from a full name by taking the first letter of the first name and appending the last name.",
+   "Write a function to turn a full name into a login name: first initial plus last name, all lowercase."
+  ]
+ },
+ {
+  "id": "MbppX/929",
+  "paraphrases": [
+   "Write a function that performs a count of the repeated items within a tuple.",
+   "Write a function for counting repeated tuple items."
+  ]
+ },
+ {
+  "id": "predicates2-049",
+  "paraphrases": [
+   "Write a function that determines whether each word of the heading begins with an uppercase letter and has nothing but lowercase letters after it.",
+   "Write a function to test if all words of a heading are a capital letter followed solely by lowercase letters."
+  ]
+ },
+ {
+  "id": "MbppX/153",
+  "paraphrases": [
+   "Write a function that determines where a parabola has its vertex.",
+   "Write a function returning a parabola's vertex."
+  ]
+ },
+ {
+  "id": "Mbpp/282",
+  "paraphrases": [
+   "Write a function that performs element-by-element subtraction of two lists.",
+   "Write a function to compute the elementwise difference of two lists."
+  ]
+ },
+ {
+  "id": "Mbpp/168",
+  "paraphrases": [
+   "Write a function that counts how many times a number appears in a given list.",
+   "Write a function to find the frequency of a number within a list."
+  ]
+ },
+ {
+  "id": "sequences2-097",
+  "paraphrases": [
+   "Write a function that computes the mean of every pair of neighbouring elements in a given list.",
+   "Write a function to average each adjacent pair in a list."
+  ]
+ },
+ {
+  "id": "sequences2-133",
+  "paraphrases": [
+   "Write a python function that, for every value of a list having a value k positions before it, subtracts that earlier value from it.",
+   "Write a function to compute each list value minus the value k places earlier, wherever such an earlier value exists."
+  ]
+ },
+ {
+  "id": "Mbpp/780",
+  "paraphrases": [
+   "Write a function that finds the sum combinations formed with the tuples of the given list of tuples.",
+   "Write a function producing combinations of sums from the tuples in a list of tuples."
+  ]
+ },
+ {
+  "id": "predicates2-067",
+  "paraphrases": [
+   "Write a function that gives 'Complete' when a list of collected card numbers contains all numbers from 1 to k, and 'Not Complete' when it does not.",
+   "Write a function returning 'Complete' if the collected card numbers cover each number from 1 to k, else 'Not Complete'."
+  ]
+ },
+ {
+  "id": "numbers-107",
+  "paraphrases": [
+   "Write a function that, given a, b and n, counts how many integers from 1 to n are divisible by a or by b but not by both.",
+   "Write a function to find how many of the integers 1 to n have exactly one of a and b as a divisor, given a, b and n."
+  ]
+ },
+ {
+  "id": "MbppX/23",
+  "paraphrases": [
+   "Write a python function that, among the lists inside a list of lists, returns the greatest element sum.",
+   "Write a function to find the biggest total among the inner lists of a list of lists."
+  ]
+ },
+ {
+  "id": "MbppX/676",
+  "paraphrases": [
+   "Write a function that uses a regex to strip all non-alphanumeric characters from the given string.",
+   "Write a function to keep only the alphanumeric characters of a string, using regex."
+  ]
+ },
+ {
+  "id": "strings2-085",
+  "paraphrases": [
+   "Write a function that gives 'Even' when the sum of the digits of a ticket code is even, and 'Odd' when it is not.",
+   "Write a function returning 'Even' for a ticket code whose digit sum is even, else 'Odd'."
+  ]
+ },
+ {
+  "id": "predicates2-039",
+  "paraphrases": [
+   "Write a function that, for an inclusive range from a to b and a number k, returns True when there are k or more primes in that range.",
+   "Write a function to return True if at least k primes lie between a and b, both included."
+  ]
+ },
+ {
+  "id": "MbppX/892",
+  "paraphrases": [
+   "Write a function that gets rid of multiple spaces within a string.",
+   "Write a function to eliminate repeated spaces from a string."
+  ]
+ },
+ {
+  "id": "Mbpp/450",
+  "paraphrases": [
+   "Write a function that picks out the strings of a specified size from a given list of strings.",
+   "Write a function to select strings of a given length from a list of strings."
+  ]
+ },
+ {
+  "id": "nested2-106",
+  "paraphrases": [
+   "Write a function that purges a given value from all the inner lists of a list of lists, wherever it occurs.",
+   "Write a function to strip a given value out of each sublist of a list of lists."
+  ]
+ },
+ {
+  "id": "Mbpp/763",
+  "paraphrases": [
+   "Write a python function that determines the smallest difference between any pair of elements in a given array.",
+   "Write a function to get the least difference between any two elements of an array."
+  ]
+ },
+ {
+  "id": "strings-096",
+  "paraphrases": [
+   "Write a function that counts how many words of a sentence begin with a vowel, uppercase or lowercase.",
+   "Write a function to count the vowel-initial words of a sentence, ignoring case."
+  ]
+ },
+ {
+  "id": "strings-019",
+  "paraphrases": [
+   "Write a function that replaces each run of two or more consecutive copies of a chosen character in a string with a single copy.",
+   "Write a function to squeeze every run of repeated copies of a given character in a string down to one occurrence."
+  ]
+ },
+ {
+  "id": "nested2-025",
+  "paraphrases": [
+   "Write a function that computes the median over every value contained in a list of lists of numbers.",
+   "Write a function to get the median of all numbers across a list of number lists."
+  ]
+ },
+ {
+  "id": "MbppX/677",
+  "paraphrases": [
+   "Write a function that determines whether the triangle is valid.",
+   "Write a function to test the validity of a triangle."
+  ]
+ },
+ {
+  "id": "MbppX/81",
+  "paraphrases": [
+   "Write a function that pairs up the two given tuples by zipping them.",
+   "Write a function to combine two tuples with a zip."
+  ]
+ },
+ {
+  "id": "predicates2-106",
+  "paraphrases": [
+   "Write a function that determines whether dividing the numbers of the list by k produces each remainder from 0 to k - 1.",
+   "Write a function to test if the remainders of the list numbers modulo k include all values from 0 to k - 1."
+  ]
+ },
+ {
+  "id": "nested2-091",
+  "paraphrases": [
+   "Write a function that takes a list of (category, amount) expenses and returns a dictionary with the total spent per category, the categories ordered by first appearance.",
+   "Write a function to sum (category, amount) expenses by category into a dictionary ordered by first appearance."
+  ]
+ },
+ {
+  "id": "numbers2-068",
+  "paraphrases": [
+   "Write a function that, for a and m sharing no common factor greater than 1, finds the number x between 1 and m - 1 such that a * x divided by m gives remainder 1.",
+   "Write a function to compute the x in 1 to m - 1 with a * x leaving remainder 1 modulo m, where a and m have no common factor above 1."
+  ]
+ },
+ {
+  "id": "sequences2-134",
+  "paraphrases": [
+   "Write a function that counts the positions in a list where the item is equal to the item k positions further on.",
+   "Write a function to count the list positions whose item matches the one k places ahead."
+  ]
+ },
+ {
+  "id": "sequences2-102",
+  "paraphrases": [
+   "Write a function that determines the minimum absolute difference between any element of one list and any element of a second list.",
+   "Write a function to compute the least absolute gap between an element of the first list and an element of the second."
+  ]
+ },
+ {
+  "id": "MbppX/532",
+  "paraphrases": [
+   "Write a function that determines whether one of the two given strings is a rearrangement of the other.",
+   "Write a function to test if two strings are permutations of one another."
+  ]
+ },
+ {
+  "id": "predicates2-014",
+  "paraphrases": [
+   "Write a function that determines whether a radio call sign is fully uppercase.",
+   "Write a function to test if a call sign is written in all capitals."
+  ]
+ },
+ {
+  "id": "predicates2-041",
+  "paraphrases": [
+   "Write a function that gives 'Yes' when the three lengths make a valid triangle having two or more equal sides, and 'No' when they do not.",
+   "Write a function returning 'Yes' if three lengths give a valid triangle with at least two sides equal, else 'No'."
+  ]
+ },
+ {
+  "id": "MbppX/844",
+  "paraphrases": [
+   "Write a python function that returns the kth element of an array that holds the odd elements first, followed by the even elements.",
+   "Write a function to get the kth item of an array arranged with odd elements before even elements."
+  ]
+ },
+ {
+  "id": "predicates-097",
+  "paraphrases": [
+   "Write a function that takes two lists of numbers and returns True when all numbers of the first list are less than all numbers of the second.",
+   "Write a function to return True if each number of the first list is below each number of the second list."
+  ]
+ },
+ {
+  "id": "predicates-018",
+  "paraphrases": [
+   "Write a function that determines whether two numbers have binary representations that differ in a single position only.",
+   "Write a function to test if the binary forms of two numbers differ at exactly one place."
+  ]
+ },
+ {
+  "id": "sequences2-050",
+  "paraphrases": [
+   "Write a function that takes a given list and returns the difference between its average value and its median value.",
+   "Write a function for the mean-median difference of a list."
+  ]
+ },
+ {
+  "id": "nested2-006",
+  "paraphrases": [
+   "Write a function that takes a flat list where the values go x, y, x, y and so on, and returns a list of [x, y] points.",
+   "Write a function to pair up the alternating x and y values of a flat list into [x, y] points."
+  ]
+ },
+ {
+  "id": "Mbpp/68",
+  "paraphrases": [
+   "Write a python function that determines if a given array is monotonic.",
+   "Write a function to test an array for monotonicity."
+  ]
+ },
+ {
+  "id": "MbppX/544",
+  "paraphrases": [
+   "Write a function that flattens a list of tuples into a single string.",
+   "Write a function to turn a tuple list into one flat string."
+  ]
+ },
+ {
+  "id": "predicates-077",
+  "paraphrases": [
+   "Write a function that determines whether the sum of the elements at even indices equals the sum of those at odd indices.",
+   "Write a function to test if even-indexed and odd-indexed elements have equal sums."
+  ]
+ },
+ {
+  "id": "MbppX/346",
+  "paraphrases": [
+   "Write a function that computes the Entringer number e(n, k).",
+   "Write a function returning the Entringer number e(n, k) for given n and k."
+  ]
+ },
+ {
+  "id": "Mbpp/770",
+  "paraphrases": [
+   "Write a python function that adds up the fourth powers of the first n odd natural numbers.",
+   "Write a function to sum each of the first n odd natural numbers raised to the fourth power."
+  ]
+ },
+ {
+  "id": "nested-033",
+  "paraphrases": [
+   "Write a function that orders a list of (song, plays) tuples by play count in descending order, with songs of equal play count left in their original order.",
+   "Write a function to sort (song, plays) tuples from most to least plays, preserving the original order when play counts tie."
+  ]
+ },
+ {
+  "id": "Mbpp/235",
+  "paraphrases": [
+   "Write a python function that returns a given number with each of its even bits turned on.",
+   "Write a function to set each even bit in a number."
+  ]
+ },
+ {
+  "id": "predicates2-123",
+  "paraphrases": [
+   "Write a function that, given a list of words and a target word, returns True when the target equals the concatenation of two words from the list, a word being allowed to appear twice.",
+   "Write a function to return True if a target word is the join of two list words, possibly the same word used twice."
+  ]
+ },
+ {
+  "id": "numbers2-111",
+  "paraphrases": [
+   "Write a function that returns the integers between 1 and n whose squares end in their own digits.",
+   "Write a function returning every integer between 1 and n whose square has that integer as its final digits."
+  ]
+ },
+ {
+  "id": "MbppX/356",
+  "paraphrases": [
+   "Write a function that computes the remaining angle of a triangle from two of its angles.",
+   "Write a function to get the third angle of a triangle given the other two."
+  ]
+ },
+ {
+  "id": "MbppX/715",
+  "paraphrases": [
+   "Write a function that takes the given string of integers and returns them as a tuple.",
+   "Write a function to turn a string listing integers into a tuple of them."
+  ]
+ },
+ {
+  "id": "Mbpp/643",
+  "paraphrases": [
+   "Write a function that determines whether a string contains 'z' somewhere other than at the start and end of the word.",
+   "Write a function to test if 'z' occurs in a string away from the beginning and end of the word."
+  ]
+ },
+ {
+  "id": "strings2-092",
+  "paraphrases": [
+   "Write a function that returns the non-empty path segments of a web address starting with a scheme like 'https://'.",
+   "Write a function to extract the path segments, ignoring empty ones, from a web address that opens with a scheme such as 'https://'."
+  ]
+ },
+ {
+  "id": "nested2-061",
+  "paraphrases": [
+   "Write a function that takes a rectangular grid given as a list of rows and a position k, counted from 0 row by row, and returns the (row, column) of that cell as a tuple.",
+   "Write a function to convert a row-by-row position k, starting at 0, in a rectangular grid of rows into a (row, column) tuple."
+  ]
+ },
+ {
+  "id": "MbppX/668",
+  "paraphrases": [
+   "Write a python function that replaces multiple occurrences of a character with a single occurrence.",
+   "Write a function to reduce repeated occurrences of a character to just one."
+  ]
+ },
+ {
+  "id": "predicates2-130",
+  "paraphrases": [
+   "Write a function that determines whether, in each row of the square matrix, the absolute value of the diagonal entry is greater than or equal to the sum of the absolute values of the remaining entries of that row.",
+   "Write a function to test if every row of a square matrix has a diagonal entry whose absolute value is no less than the sum of the absolute values of the other entries in the row."
+  ]
+ },
+ {
+  "id": "strings-034",
+  "paraphrases": [
+   "Write a function that removes all punctuation marks from a chat message, keeping its letters, digits and spaces.",
+   "Write a function to strip punctuation from a chat message, leaving letters, digits and spaces intact."
+  ]
+ },
+ {
+  "id": "numbers-056",
+  "paraphrases": [
+   "Write a function that, from n identical square tiles, builds the biggest solid square possible and counts how many tiles remain.",
+   "Write a function to find how many of n identical square tiles are unused once the largest possible solid square is made."
+  ]
+ },
+ {
+  "id": "sequences-131",
+  "paraphrases": [
+   "Write a function that, among the words of a list containing a given letter, returns the shortest, choosing the earliest one if several tie.",
+   "Write a function to find the shortest list word that includes a given letter, preferring the first on ties."
+  ]
+ },
+ {
+  "id": "MbppX/671",
+  "paraphrases": [
+   "Write a python function that sets the rightmost bit that is not yet set.",
+   "Write a function to turn on the rightmost unset bit of a number."
+  ]
+ },
+ {
+  "id": "nested-042",
+  "paraphrases": [
+   "Write a function that gathers every positive number from a list of lists into a single list, going through the rows in order.",
+   "Write a function to flatten the positive numbers of a list of lists into one list, row by row."
+  ]
+ },
+ {
+  "id": "numbers2-015",
+  "paraphrases": [
+   "Write a function that, for a ball whose height after t seconds is a * t * t + b * t + c with negative a, takes a, b and c and returns a tuple of the time when the ball is highest and that maximum height.",
+   "Write a function to find, given a, b and c where a is negative, the peak time and the peak height of a ball whose height at t seconds is a * t * t + b * t + c, returned as a tuple."
+  ]
+ },
+ {
+  "id": "Mbpp/788",
+  "paraphrases": [
+   "Write a function that combines the given string and list into a newly created tuple.",
+   "Write a function to make a fresh tuple from a given string and a given list."
+  ]
+ },
+ {
+  "id": "sequences2-076",
+  "paraphrases": [
+   "Write a function that counts the values of a list that are less than a given value and those that are greater than it, returning both counts as a tuple.",
+   "Write a function to return a tuple of the number of list values under a given value and the number over it."
+  ]
+ },
+ {
+  "id": "Mbpp/70",
+  "paraphrases": [
+   "Write a function that determines whether the given tuples all have the same length.",
+   "Write a function to test if every given tuple is equally long."
+  ]
+ },
+ {
+  "id": "nested2-123",
+  "paraphrases": [
+   "Write a python function that, for a grid stored as a list of rows and a list of (row, column) positions, returns the grid value at each of those positions.",
+   "Write a function returning, for each (row, column) position in a list, the value stored there in a grid given as a list of rows."
+  ]
+ },
+ {
+  "id": "numbers-062",
+  "paraphrases": [
+   "Write a function that performs a single step of the rule mapping an even number to its half and an odd number n to 3n + 1.",
+   "Write a function to apply the rule once: halve an even number, and replace an odd number n with 3n + 1."
+  ]
+ },
+ {
+  "id": "MbppX/444",
+  "paraphrases": [
+   "Write a function that trims every tuple in the given list of tuples by k.",
+   "Write a function to trim the tuples of a tuple list by k each."
+  ]
+ },
+ {
+  "id": "Mbpp/8",
+  "paraphrases": [
+   "Write a function that squares each element of a list.",
+   "Write a function to compute the square of every element in a list."
+  ]
+ },
+ {
+  "id": "Mbpp/433",
+  "paraphrases": [
+   "Write a function that compares the entered number with the elements of the given array to see whether it is greater than them.",
+   "Write a function to test if a given number is larger than the elements of an array."
+  ]
+ },
+ {
+  "id": "MbppX/352",
+  "paraphrases": [
+   "Write a python function that determines whether no character of a given string appears more than once.",
+   "Write a function to test if the characters of a string are all distinct."
+  ]
+ },
+ {
+  "id": "nested-006",
+  "paraphrases": [
+   "Write a function that converts a dictionary whose values are lists of numbers into a dictionary mapping the same keys to the sums of those lists.",
+   "Write a function to map each key of a dictionary of number lists to the sum of its list."
+  ]
+ },
+ {
+  "id": "MbppX/908",
+  "paraphrases": [
+   "Write a function that locates the fixed point of the given array.",
+   "Write a function returning an array's fixed point."
+  ]
+ },
+ {
+  "id": "MbppX/213",
+  "paraphrases": [
+   "Write a function that concatenates two tuples of strings.",
+   "Write a function to join two string tuples by concatenation."
+  ]
+ },
+ {
+  "id": "strings-110",
+  "paraphrases": [
+   "Write a function that converts a clock time in the form 'hh:mm' into the count of minutes since midnight, taking 60 minutes per hour.",
+   "Write a function to give the minutes past midnight for a time written 'hh:mm', using 60 minutes to the hour."
+  ]
+ },
+ {
+  "id": "predicates2-061",
+  "paraphrases": [
+   "Write a function that gives 'Unique' when the maximum of the list appears exactly once, and 'Not Unique' when it does not.",
+   "Write a function returning 'Unique' if the largest value of a list is not repeated, else 'Not Unique'."
+  ]
+ },
+ {
+  "id": "nested2-074",
+  "paraphrases": [
+   "Write a function that, for two tables having the same number of columns, each a list of rows of numbers, computes the total of each column over both tables combined.",
+   "Write a function to sum each column across two tables together, where both tables are lists of rows of numbers with equal column counts."
+  ]
+ },
+ {
+  "id": "strings-004",
+  "paraphrases": [
+   "Write a python function that verifies a coupon code is not empty and is made up solely of letters and digits.",
+   "Write a function to check that a coupon code is a non-empty string of letters and digits only."
+  ]
+ },
+ {
+  "id": "predicates-054",
+  "paraphrases": [
+   "Write a function that determines whether the number of uppercase letters in the string equals the number of lowercase letters.",
+   "Write a function to test if the uppercase and lowercase letter counts of a string are equal."
+  ]
+ },
+ {
+  "id": "nested-092",
+  "paraphrases": [
+   "Write a function that takes a list of (deposit, withdrawal) tuples and returns the net balance, i.e. the sum of the deposits minus the sum of the withdrawals.",
+   "Write a function to compute the net balance of a list of (deposit, withdrawal) tuples as total deposits less total withdrawals."
+  ]
+ },
+ {
+  "id": "predicates2-084",
+  "paraphrases": [
+   "Write a function that gives 'Equal' when two fractions, both given as (numerator, denominator) pairs, are equal in value, and 'Not Equal' when they are not.",
+   "Write a function returning 'Equal' if two (numerator, denominator) fractions have equal value, else 'Not Equal'."
+  ]
+ },
+ {
+  "id": "MbppX/542",
+  "paraphrases": [
+   "Write a function that uses a regex to change every space, comma or dot in the given string into a colon.",
+   "Write a function to substitute a colon for each of the spaces, commas and dots of a string, using regex."
+  ]
+ },
+ {
+  "id": "predicates-118",
+  "paraphrases": [
+   "Write a function that determines whether the list has an element equal to the total of the remaining elements.",
+   "Write a function to test if any list element is the sum of all the others."
+  ]
+ },
+ {
+  "id": "Mbpp/172",
+  "paraphrases": [
+   "Write a function that counts how many times the string 'std' appears in a given string.",
+   "Write a function to find the number of occurrences of 'std' within a string."
+  ]
+ },
+ {
+  "id": "numbers2-069",
+  "paraphrases": [
+   "Write a function that, given a, b and k, returns the number made of the final k digits of a ** b.",
+   "Write a function to compute the last k digits of a ** b as a number, given a, b and k."
+  ]
+ },
+ {
+  "id": "predicates2-099",
+  "paraphrases": [
+   "Write a function that determines whether each word in a sentence begins and ends with an identical letter.",
+   "Write a function to test if all words of a sentence have matching first and last letters."
+  ]
+ },
+ {
+  "id": "MbppX/847",
+  "paraphrases": [
+   "Write a python function that produces a copy of the list held in a singleton tuple.",
+   "Write a function to duplicate a list out of a one-element tuple."
+  ]
+ },
+ {
+  "id": "predicates-007",
+  "paraphrases": [
+   "Write a function that gives 'Yes' when the buffer size is precisely a power of two, and 'No' in every other case.",
+   "Write a function returning 'Yes' for a buffer size that is a power of two, else 'No'."
+  ]
+ },
+ {
+  "id": "sequences2-100",
+  "paraphrases": [
+   "Write a function that creates a dictionary associating every value in a list with the list of positions where it appears.",
+   "Write a function to map the values of a list to the positions of their occurrences, as a dictionary of lists."
+  ]
+ },
+ {
+  "id": "MbppX/249",
+  "paraphrases": [
+   "Write a function that uses a lambda function to compute the intersection of two arrays.",
+   "Write a function to intersect two arrays with the help of a lambda."
+  ]
+ },
+ {
+  "id": "Mbpp/796",
+  "paraphrases": [
+   "Write a function that adds up all the items of the given dictionary.",
+   "Write a function to total every item in a dictionary."
+  ]
+ },
+ {
+  "id": "MbppX/386",
+  "paraphrases": [
+   "Write a function that determines the fewest swaps needed to balance the brackets in the given string.",
+   "Write a function to compute the minimum number of swaps required to make the brackets of a string balanced."
+  ]
+ },
+ {
+  "id": "nested2-042",
+  "paraphrases": [
+   "Write a function that takes a table as a list of rows plus a list of column names and returns a dictionary mapping every column name to the list of the values in that column.",
+   "Write a function to convert a list-of-rows table and its column names into a dictionary from column name to column values."
+  ]
+ },
+ {
+  "id": "sequences2-118",
+  "paraphrases": [
+   "Write a function that deletes each k-th element of a given list.",
+   "Write a function to filter out every k-th item of a list."
+  ]
+ },
+ {
+  "id": "nested2-041",
+  "paraphrases": [
+   "Write a function that takes a table given as a list of rows of numbers, along with a list of column names, and returns a dictionary from each column name to the sum of that column.",
+   "Write a function to total each column of a list-of-rows number table into a dictionary keyed by the given column names."
+  ]
+ },
+ {
+  "id": "numbers-124",
+  "paraphrases": [
+   "Write a function that counts the integers between a and b inclusive that are divisible by their last digit, ignoring numbers ending in 0.",
+   "Write a function to find how many integers in the inclusive range a to b are divisible by their final digit, leaving out those whose final digit is 0."
+  ]
+ },
+ {
+  "id": "strings2-112",
+  "paraphrases": [
+   "Write a function that returns, from the words following the first word of a sentence, those that begin with a capital letter.",
+   "Write a function to get the words starting with an uppercase letter in a sentence, skipping its first word."
+  ]
+ },
+ {
+  "id": "MbppX/403",
+  "paraphrases": [
+   "Write a function that uses regex to determine whether a url is valid.",
+   "Write a function to validate a url with a regular expression."
+  ]
+ },
+ {
+  "id": "Mbpp/773",
+  "paraphrases": [
+   "Write a function that finds where the substrings occur within a string, reporting the occurrence and its position, and returns None if nothing matches.",
+   "Write a function to get the occurrence and position of a substring in a string, or None when there is no match."
+  ]
+ },
+ {
+  "id": "numbers-038",
+  "paraphrases": [
+   "Write a function that counts the cannonballs in an n-layer pyramid with a triangular base, in which the k-th layer down from the top forms a triangle having k balls per side.",
+   "Write a function to find how many cannonballs make up a triangular-based pyramid of n layers whose k-th layer from the top is a triangle of side k."
+  ]
+ },
+ {
+  "id": "nested2-130",
+  "paraphrases": [
+   "Write a function that converts a list of dictionaries with identical keys into a single dictionary that maps every key to the list of its values in the order of the records.",
+   "Write a function to merge records with common keys into a dictionary of value lists, preserving record order."
+  ]
+ },
+ {
+  "id": "Mbpp/782",
+  "paraphrases": [
+   "Write a python function that adds up all subarrays of odd length.",
+   "Write a function to total every subarray that has an odd length."
+  ]
+ },
+ {
+  "id": "MbppX/550",
+  "paraphrases": [
+   "Write a python function that returns the largest element of an array that has been sorted and then rotated.",
+   "Write a function to get the maximum of a sorted, rotated array."
+  ]
+ },
+ {
+  "id": "numbers-091",
+  "paraphrases": [
+   "Write a function that turns a speed in kilometres per hour into metres per second, with 1000 metres to a kilometre and 3600 seconds to an hour, rounding to 2 decimal places.",
+   "Write a function for km/h to m/s speed conversion taking 1000 metres per kilometre and 3600 seconds per hour, rounded to 2 decimal places."
+  ]
+ },
+ {
+  "id": "numbers2-115",
+  "paraphrases": [
+   "Write a function that adds up every cyclic rotation of the digits of a positive integer, including the integer itself.",
+   "Write a function to total all cyclic digit rotations of a positive integer, the original number among them."
+  ]
+ },
+ {
+  "id": "predicates-148",
+  "paraphrases": [
+   "Write a function that takes a list of names and gives 'Yes' when all of the names begin with the same letter, and 'No' if they do not.",
+   "Write a function returning 'Yes' if the names in a list share a first letter, else 'No'."
+  ]
+ },
+ {
+  "id": "MbppX/225",
+  "paraphrases": [
+   "Write a python function that returns the smallest element of an array that was sorted and then rotated.",
+   "Write a function to get the minimum of a sorted, rotated array."
+  ]
+ },
+ {
+  "id": "MbppX/228",
+  "paraphrases": [
+   "Write a python function that determines whether every bit within the given range is unset.",
+   "Write a function to test if all bits in a given range are unset."
+  ]
+ },
+ {
+  "id": "sequences-039",
+  "paraphrases": [
+   "Write a function that filters a list of words down to those that are the same when read in reverse.",
+   "Write a function to select the palindromic words of a list."
+  ]
+ },
+ {
+  "id": "Mbpp/586",
+  "paraphrases": [
+   "Write a python function that splits a list at its nth element and moves the first part to the end.",
+   "Write a function to cut a list at the nth element and append the leading part after the rest."
+  ]
+ },
+ {
+  "id": "MbppX/400",
+  "paraphrases": [
+   "Write a function that finds the frequency of unique tuples in the given list, irrespective of order.",
+   "Write a function to get the frequency of distinct tuples in a list, ignoring order."
+  ]
+ },
+ {
+  "id": "MbppX/42",
+  "paraphrases": [
+   "Write a python function that adds up the repeated elements of a given array.",
+   "Write a function to total the elements that repeat in an array."
+  ]
+ },
+ {
+  "id": "predicates-140",
+  "paraphrases": [
+   "Write a function that determines whether the list contains a string whose length exceeds the given length.",
+   "Write a function to test if some string of a list is longer than a given length."
+  ]
+ },
+ {
+  "id": "predicates-032",
+  "paraphrases": [
+   "Write a function that determines whether the text is a whole number, possibly with a leading plus or minus sign.",
+   "Write a function to check if a text represents a whole number that may start with a plus or minus sign."
+  ]
+ },
+ {
+  "id": "predicates-051",
+  "paraphrases": [
+   "Write a function that determines whether a number is prime and the number obtained by reversing its digits is prime as well.",
+   "Write a function to test if a number and its digit reversal are both prime."
+  ]
+ },
+ {
+  "id": "sequences-060",
+  "paraphrases": [
+   "Write a function that returns the sum of the values that appear multiple times in a list, with each such value counted only once.",
+   "Write a function to total the distinct repeated values of a list."
+  ]
+ },
+ {
+  "id": "numbers2-058",
+  "paraphrases": [
+   "Write a function that returns, as an integer, the n-th code word of the reflected binary Gray code, with counting starting at 0.",
+   "Write a function to give the reflected binary Gray code word number n, indexed from 0, as an integer."
+  ]
+ },
+ {
+  "id": "MbppX/107",
+  "paraphrases": [
+   "Write a python function that counts the hexadecimal numbers within a given range.",
+   "Write a function to find how many hexadecimal numbers a given range contains."
+  ]
+ },
+ {
+  "id": "nested-120",
+  "paraphrases": [
+   "Write a function that turns a dictionary of number lists into a dictionary from each key to the mean of its list, rounded to 1 decimal place.",
+   "Write a function to build a dictionary from the keys of a dictionary of number lists to their list averages, rounded to 1 decimal place."
+  ]
+ },
+ {
+  "id": "MbppX/543",
+  "paraphrases": [
+   "Write a function that adds two numbers and reports how many digits their sum has.",
+   "Write a function to sum two numbers and output the digit count of the result."
+  ]
+ },
+ {
+  "id": "numbers-083",
+  "paraphrases": [
+   "Write a function that forms a palindromic number from a positive integer by writing its digits and then those digits reversed.",
+   "Write a function to make a palindrome number by appending the reversed digits of a positive integer to its digits."
+  ]
+ },
+ {
+  "id": "sequences2-065",
+  "paraphrases": [
+   "Write a function that turns a list into a palindrome by adding its items in reverse order to the end, leaving out a second copy of the last item.",
+   "Write a function to make a list palindromic by appending its reversed items, without duplicating its last item."
+  ]
+ },
+ {
+  "id": "MbppX/288",
+  "paraphrases": [
+   "Write a function that counts the elements of an array whose modular inverse modulo a given prime p equals the element itself.",
+   "Write a function to find how many array elements are their own modular inverse under a given prime p."
+  ]
+ },
+ {
+  "id": "strings-141",
+  "paraphrases": [
+   "Write a function that counts the characters of a string that appear in it only once.",
+   "Write a function to count the non-repeated characters of a string."
+  ]
+ },
+ {
+  "id": "Mbpp/410",
+  "paraphrases": [
+   "Write a function that returns the smallest value of a given heterogeneous list.",
+   "Write a function to get the minimum of a mixed-type list."
+  ]
+ },
+ {
+  "id": "MbppX/679",
+  "paraphrases": [
+   "Write a function that accesses the element of a dictionary key by index.",
+   "Write a function to get a dictionary key element by its index."
+  ]
+ },
+ {
+  "id": "predicates-020",
+  "paraphrases": [
+   "Write a function that determines whether two integers have equally many digits, disregarding a minus sign.",
+   "Write a function to test if two integers have the same digit count, not counting any minus sign."
+  ]
+ },
+ {
+  "id": "numbers-041",
+  "paraphrases": [
+   "Write a function that returns the smallest power-of-two buffer size able to hold n bytes.",
+   "Write a function to find the least power of two that is large enough for a buffer holding n bytes."
+  ]
+ },
+ {
+  "id": "sequences2-070",
+  "paraphrases": [
+   "Write a function that takes a route as a list of stops plus two stops on that route and returns the stops lying strictly between the first given stop and the second.",
+   "Write a function to list the stops of a route strictly between two given stops on it, going from the first to the second."
+  ]
+ },
+ {
+  "id": "MbppX/147",
+  "paraphrases": [
+   "Write a function that determines the largest path sum through the given triangle.",
+   "Write a function to compute the maximum total along a path in a triangle."
+  ]
+ },
+ {
+  "id": "MbppX/904",
+  "paraphrases": [
+   "Write a function that gives true when the given number is even and false when it is not.",
+   "Write a function returning true for an even given number and false for any other."
+  ]
+ },
+ {
+  "id": "strings2-095",
+  "paraphrases": [
+   "Write a function that returns the earliest index in a text where some character of a given string of characters appears, assuming that at least one of them does appear.",
+   "Write a function to get the lowest index of a text at which a character from a given string of characters occurs; at least one of them is guaranteed to occur."
+  ]
+ },
+ {
+  "id": "predicates2-058",
+  "paraphrases": [
+   "Write a function that determines whether the letters of a string outnumber its digits.",
+   "Write a function to test if a string contains more letters than digits."
+  ]
+ },
+ {
+  "id": "Mbpp/592",
+  "paraphrases": [
+   "Write a python function that adds up the products of consecutive binomial coefficients.",
+   "Write a function to compute the sum of products of adjacent binomial coefficients."
+  ]
+ },
+ {
+  "id": "nested-052",
+  "paraphrases": [
+   "Write a function that inverts a dictionary with all-distinct values, making its values the keys and its keys the values.",
+   "Write a function to swap keys with values in a dictionary whose values are unique."
+  ]
+ },
+ {
+  "id": "strings2-017",
+  "paraphrases": [
+   "Write a function that returns the k characters occurring most often in a string as a list of (character, count) pairs, with ties in count ordered by first appearance.",
+   "Write a function to list the top k characters of a string by frequency as (character, count) pairs, breaking count ties by order of first appearance."
+  ]
+ },
+ {
+  "id": "MbppX/815",
+  "paraphrases": [
+   "Write a function that sorts the given array, which contains only 0, 1, and 2, without using any sorting algorithm.",
+   "Write a function to order an array made up solely of 0, 1, and 2 without any sorting algorithm."
+  ]
+ },
+ {
+  "id": "MbppX/214",
+  "paraphrases": [
+   "Write a function that turns an angle in radians into degrees.",
+   "Write a function for radian-to-degree conversion."
+  ]
+ },
+ {
+  "id": "predicates2-007",
+  "paraphrases": [
+   "Write a function that determines whether the leaderboard scores appear in order from highest to lowest, allowing equal scores to be adjacent.",
+   "Write a function to test if leaderboard scores are in non-increasing order."
+  ]
+ },
+ {
+  "id": "MbppX/738",
+  "paraphrases": [
+   "Write a function that, given n, works out the geometric sum of n-1.",
+   "Write a function computing the geometric sum for n-1."
+  ]
+ },
+ {
+  "id": "nested2-086",
+  "paraphrases": [
+   "Write a function that computes the mean count of items per basket for a list of shopping baskets, where each basket is a list of items.",
+   "Write a function to get the average basket size of a list of shopping baskets given as lists of items."
+  ]
+ },
+ {
+  "id": "sequences-118",
+  "paraphrases": [
+   "Write a function that returns each number of a list multiplied by the index at which it stands.",
+   "Write a function to scale every list number by its own index."
+  ]
+ },
+ {
+  "id": "sequences2-032",
+  "paraphrases": [
+   "Write a function that gives 'Equal' when two lists have precisely the same set of distinct values, regardless of order and repetition, and 'Not Equal' when they do not.",
+   "Write a function returning 'Equal' if two lists hold the same distinct values, disregarding order and duplicates, else 'Not Equal'."
+  ]
+ },
+ {
+  "id": "nested-099",
+  "paraphrases": [
+   "Write a function that computes the product of a matrix, represented as a list of rows, and a vector, represented as a list, and returns the result as a list.",
+   "Write a function to multiply a list-of-rows matrix by a list vector, giving the resulting list."
+  ]
+ },
+ {
+  "id": "nested2-050",
+  "paraphrases": [
+   "Write a function that takes a dictionary mapping students to grade letters and returns a dictionary giving the number of students who got each grade.",
+   "Write a function to count students per grade from a student-to-grade-letter dictionary, as a dictionary."
+  ]
+ },
+ {
+  "id": "MbppX/338",
+  "paraphrases": [
+   "Write a python function that counts the substrings whose first and last characters are equal.",
+   "Write a function to find how many substrings begin and end with the same character."
+  ]
+ },
+ {
+  "id": "MbppX/185",
+  "paraphrases": [
+   "Write a function that determines where the focus of a parabola lies.",
+   "Write a function returning a parabola's focus."
+  ]
+ },
+ {
+  "id": "strings-006",
+  "paraphrases": [
+   "Write a function that determines whether each character of a second string appears in a word.",
+   "Write a function to check if a word includes all characters of another string."
+  ]
+ },
+ {
+  "id": "strings2-129",
+  "paraphrases": [
+   "Write a function that returns the longest stretch of consecutive letters in a string, with every non-letter character ending a stretch and the earliest stretch chosen on ties.",
+   "Write a function to get the longest run of letters in a string, runs being split by non-letter characters, preferring the first on ties."
+  ]
+ },
+ {
+  "id": "MbppX/521",
+  "paraphrases": [
+   "Write a function that checks and reports whether the triangle is scalene or not.",
+   "Write a function to report whether a given triangle is scalene."
+  ]
+ },
+ {
+  "id": "Mbpp/77",
+  "paraphrases": [
+   "Write a python function that determines if a number is a multiple of 11.",
+   "Write a function to test divisibility of a number by 11."
+  ]
+ },
+ {
+  "id": "MbppX/663",
+  "paraphrases": [
+   "Write a function that determines the greatest possible k for which k modulo x equals y.",
+   "Write a function to get the maximum k with k mod x equal to y."
+  ]
+ },
+ {
+  "id": "Mbpp/257",
+  "paraphrases": [
+   "Write a function that, given two numbers, returns a tuple whose first entry is the second number and whose second entry is the first number.",
+   "Write a function to return two numbers swapped, as a tuple."
+  ]
+ },
+ {
+  "id": "predicates2-139",
+  "paraphrases": [
+   "Write a function that takes a list of (start, end) work sessions in minutes and a daily limit and gives 'yes' when the total working time stays within the limit, and 'no' when it does not.",
+   "Write a function returning 'yes' if the summed length of (start, end) work sessions, in minutes, is at most a daily limit, else 'no'."
+  ]
+ },
+ {
+  "id": "strings2-022",
+  "paraphrases": [
+   "Write a python function that converts a snake_case database table name into a PascalCase class name.",
+   "Write a function to make a PascalCase class name from a database table name in snake_case."
+  ]
+ },
+ {
+  "id": "predicates2-133",
+  "paraphrases": [
+   "Write a function that gives 'Valid' when each (a, b, c) triple of side lengths in the list could make a triangle, and 'Invalid' if any could not.",
+   "Write a function returning 'Valid' if all (a, b, c) side-length triples of a list are possible triangles, else 'Invalid'."
+  ]
+ },
+ {
+  "id": "sequences-117",
+  "paraphrases": [
+   "Write a function that filters a list of ticket numbers down to the primes.",
+   "Write a function to select the prime ticket numbers of a list."
+  ]
+ },
+ {
+  "id": "predicates-115",
+  "paraphrases": [
+   "Write a function that determines whether the string has any digit in it.",
+   "Write a function to check a string for the presence of a digit."
+  ]
+ },
+ {
+  "id": "MbppX/302",
+  "paraphrases": [
+   "Write a python function that finds the most significant bit number that is also set.",
+   "Write a function to get the most significant set bit number."
+  ]
+ },
+ {
+  "id": "predicates2-113",
+  "paraphrases": [
+   "Write a function that, for a tic-tac-toe board given as a list of rows containing 'X', 'O' or '.', returns True when a row or column consists entirely of the mark of a single player.",
+   "Write a function to return True if any row or column of a tic-tac-toe board, a list of rows of 'X', 'O' or '.', is completely filled with one player's mark."
+  ]
+ },
+ {
+  "id": "MbppX/339",
+  "paraphrases": [
+   "Write a python function that returns the divisor occurring most often within an interval.",
+   "Write a function to find the most frequent divisor over an interval."
+  ]
+ },
+ {
+  "id": "nested2-112",
+  "paraphrases": [
+   "Write a function that takes a list of recipes, each a list of ingredients, and a list of pantry ingredients and returns the recipes whose ingredients are all in the pantry.",
+   "Write a function to select the recipes, given as ingredient lists, that can be made from pantry ingredients alone."
+  ]
+ },
+ {
+  "id": "Mbpp/462",
+  "paraphrases": [
+   "Write a function that generates every possible combination of the elements of a given list.",
+   "Write a function to enumerate each combination of the items in a list."
+  ]
+ },
+ {
+  "id": "predicates-123",
+  "paraphrases": [
+   "Write a function that determines whether all numbers of the list are in the range 1 to 100, both ends included.",
+   "Write a function to test if each list number is at least 1 and at most 100."
+  ]
+ },
+ {
+  "id": "strings2-001",
+  "paraphrases": [
+   "Write a python function that counts how many lowercase letters a password contains.",
+   "Write a function to find the number of lowercase letters of a password."
+  ]
+ },
+ {
+  "id": "predicates-127",
+  "paraphrases": [
+   "Write a function that determines whether all strings of the list read the same backwards and forwards.",
+   "Write a function to test if a list contains only palindromes."
+  ]
+ },
+ {
+  "id": "nested2-010",
+  "paraphrases": [
+   "Write a function that, for a log given as a list of (time, event) tuples, returns a tuple holding its first record and its last record.",
+   "Write a function to get the first and last records of a (time, event) tuple log as a tuple."
+  ]
+ },
+ {
+  "id": "predicates2-142",
+  "paraphrases": [
+   "Write a function that takes a vector as a list of integers and a length L and returns True when the Euclidean length of the vector equals L exactly.",
+   "Write a function to return True if an integer list vector has Euclidean norm exactly L."
+  ]
+ },
+ {
+  "id": "numbers2-026",
+  "paraphrases": [
+   "Write a function that counts how many letters the Roman numeral of a number between 1 and 3999 has.",
+   "Write a function to find the length in letters of the Roman numeral for a number in the range 1 to 3999."
+  ]
+ },
+ {
+  "id": "MbppX/829",
+  "paraphrases": [
+   "Write a function that determines which string in the given sequence is the second most repeated, that is, second most frequent.",
+   "Write a function to get the string with the second highest frequency in a sequence."
+  ]
+ },
+ {
+  "id": "sequences-149",
+  "paraphrases": [
+   "Write a function that capitalises each word in a list by putting its first letter in upper case and its remaining letters in lower case.",
+   "Write a function to give every word of a list an upper-case first letter and a lower-case rest."
+  ]
+ },
+ {
+  "id": "sequences2-019",
+  "paraphrases": [
+   "Write a python function that determines whether a given shorter list of notes appears as a contiguous block inside a list of notes.",
+   "Write a function to test if a list of notes contains a given shorter list of notes consecutively."
+  ]
+ },
+ {
+  "id": "Mbpp/790",
+  "paraphrases": [
+   "Write a python function that determines whether all the even indices of a given list hold even numbers.",
+   "Write a function to test if a list has an even number at every even index."
+  ]
+ },
+ {
+  "id": "sequences-037",
+  "paraphrases": [
+   "Write a function that takes a list of items and a list of positions and returns the items found at those positions, following the order of the positions list.",
+   "Write a function to pick out the items of a list at given positions, in the order the positions appear."
+  ]
+ },
+ {
+  "id": "predicates-036",
+  "paraphrases": [
+   "Write a function that determines whether the second word can be obtained from the first by a one-to-one substitution of letters.",
+   "Write a function to decide whether the first word maps onto the second under a one-to-one letter substitution."
+  ]
+ },
+ {
+  "id": "numbers2-123",
+  "paraphrases": [
+   "Write a function that, for a lift stopping at the floors of a list in the order given, computes how many floors it travels in total.",
+   "Write a function to total the floors a lift covers when it stops at a list of floors in order."
+  ]
+ },
+ {
+  "id": "MbppX/678",
+  "paraphrases": [
+   "Write a python function that deletes the spaces in a given string.",
+   "Write a function to strip the spaces out of a string."
+  ]
+ },
+ {
+  "id": "Mbpp/593",
+  "paraphrases": [
+   "Write a function that strips the leading zeroes out of an ip address.",
+   "Write a function to drop leading zeros in an IP address."
+  ]
+ },
+ {
+  "id": "predicates-058",
+  "paraphrases": [
+   "Write a function that determines whether the combined weight of the parcels in the list is more than 50.",
+   "Write a function to test if the parcel weights in a list sum to over 50."
+  ]
+ },
+ {
+  "id": "numbers-014",
+  "paraphrases": [
+   "Write a function that takes two bounds and returns a list of all primes between them, the bounds included.",
+   "Write a function to list the primes in the inclusive range between two given bounds."
+  ]
+ },
+ {
+  "id": "Mbpp/580",
+  "paraphrases": [
+   "Write a function that strips out the uneven elements of a nested mixed tuple.",
+   "Write a function to drop the odd elements of a mixed, nested tuple."
+  ]
+ },
+ {
+  "id": "MbppX/658",
+  "paraphrases": [
+   "Write a function that returns the item of a given list that occurs most often.",
+   "Write a function to get the most frequent item in a list."
+  ]
+ },
+ {
+  "id": "sequences-033",
+  "paraphrases": [
+   "Write a function that returns all the day indices at which a list of daily sales hits its maximum.",
+   "Write a function to find each index of a daily sales list where the top value occurs."
+  ]
+ },
+ {
+  "id": "sequences-095",
+  "paraphrases": [
+   "Write a function that returns the item k positions from the end of a list, where k of 1 means the last item.",
+   "Write a function to get the k-th last item of a list, with k = 1 being the final item."
+  ]
+ },
+ {
+  "id": "MbppX/5",
+  "paraphrases": [
+   "Write a function that counts the ways of filling the given board with 2 x 1 dominoes when the board is 3 x n.",
+   "Write a function to count the 2 x 1 domino tilings of a 3 x n board."
+  ]
+ },
+ {
+  "id": "numbers-064",
+  "paraphrases": [
+   "Write a function that, for m horizontal lines crossing n vertical lines, counts the rectangles having all four sides on those lines.",
+   "Write a function to count the rectangles formed by m horizontal lines and n vertical lines crossing them, with every side on one of the lines."
+  ]
+ },
+ {
+  "id": "predicates2-069",
+  "paraphrases": [
+   "Write a function that, given the blinking periods of several lights in seconds and a time t, gives 'Yes' when the lights, having started together, all blink at the same moment again within t seconds, and 'No' when they do not.",
+   "Write a function returning 'Yes' if lights with given blinking periods in seconds, started together, blink together again no later than t seconds in, else 'No'."
+  ]
+ },
+ {
+  "id": "strings2-073",
+  "paraphrases": [
+   "Write a function that sorts a list of words by their vowel count in ascending order, leaving words with the same count in their original order.",
+   "Write a function to arrange a list of words from fewest to most vowels, preserving the original order of ties."
+  ]
+ },
+ {
+  "id": "Mbpp/123",
+  "paraphrases": [
+   "Write a function that adds up every amicable number between 1 and a specified number.",
+   "Write a function to total the amicable numbers from 1 up to a given limit."
+  ]
+ },
+ {
+  "id": "nested-061",
+  "paraphrases": [
+   "Write a function that, from a list of (city, temperature) tuples, returns the tuple having the greatest temperature.",
+   "Write a function to find the hottest (city, temperature) tuple in a list."
+  ]
+ },
+ {
+  "id": "strings2-124",
+  "paraphrases": [
+   "Write a function that counts the characters of a text that are sentence-ending marks, i.e. that appear in '.!?'.",
+   "Write a function to count how many characters of a text belong to '.!?', the sentence-ending marks."
+  ]
+ },
+ {
+  "id": "predicates2-115",
+  "paraphrases": [
+   "Write a function that takes a seating plan given as a list of tables, each a list of names, plus two names, and gives 'Yes' when the two people share a table and 'No' when they do not.",
+   "Write a function returning 'Yes' if two named people are seated at the same table of a seating plan made of name lists, else 'No'."
+  ]
+ },
+ {
+  "id": "sequences-080",
+  "paraphrases": [
+   "Write a function that combines two lists of numbers and returns the k least values of the combined list, sorted in increasing order.",
+   "Write a function to get, in ascending order, the k smallest numbers of two lists merged together."
+  ]
+ },
+ {
+  "id": "nested2-002",
+  "paraphrases": [
+   "Write a function that returns the fastest lap of every runner from a list of lists of lap times, where each inner list belongs to one runner.",
+   "Write a function to pick the fastest lap for each runner in a list of per-runner lap time lists."
+  ]
+ },
+ {
+  "id": "predicates2-020",
+  "paraphrases": [
+   "Write a function that returns True when a number of eggs fills cartons of 12 completely with no eggs remaining.",
+   "Write a function to return True if a count of eggs divides exactly into full cartons of 12."
+  ]
+ },
+ {
+  "id": "Mbpp/633",
+  "paraphrases": [
+   "Write a python function that adds up the xor of every pair of numbers in the given list.",
+   "Write a function to compute the total of pairwise xor values over a list of numbers."
+  ]
+ },
+ {
+  "id": "numbers-007",
+  "paraphrases": [
+   "Write a function that, for two buses leaving a depot at the same time, one every a minutes and the other every b minutes, finds how many minutes pass before they next leave together.",
+   "Write a function to compute the number of minutes until two buses, leaving together and then every a and every b minutes respectively, next leave at the same time."
+  ]
+ },
+ {
+  "id": "sequences-055",
+  "paraphrases": [
+   "Write a function that gives 'Even' if the length of a list is even and 'Odd' if it is not.",
+   "Write a function returning 'Even' for a list with an even item count, else 'Odd'."
+  ]
+ },
+ {
+  "id": "strings2-093",
+  "paraphrases": [
+   "Write a function that counts how many lines of a script begin with '#', the lines being split by newline characters.",
+   "Write a function to find the number of script lines starting with '#', given that newline characters separate the lines."
+  ]
+ },
+ {
+  "id": "MbppX/378",
+  "paraphrases": [
+   "Write a python function that moves the final element of the given list to the front.",
+   "Write a function to bring the last item of a list to the first position."
+  ]
+ },
+ {
+  "id": "MbppX/865",
+  "paraphrases": [
+   "Write a function that uses the map function to print a list n-times.",
+   "Write a function to display a list n-times by applying map."
+  ]
+ },
+ {
+  "id": "MbppX/811",
+  "paraphrases": [
+   "Write a function that determines whether two lists of tuples are exactly the same.",
+   "Write a function to test whether two tuple lists are identical."
+  ]
+ },
+ {
+  "id": "MbppX/174",
+  "paraphrases": [
+   "Write a function that gathers a sequence of key-value pairs into a dictionary whose values are lists.",
+   "Write a function to collect key-value pairs into a dictionary of lists, grouped by key."
+  ]
+ },
+ {
+  "id": "strings2-087",
+  "paraphrases": [
+   "Write a function that rewrites a name given in the format 'Last, First' as 'First Last'.",
+   "Write a function to convert a 'Last, First' name into 'First Last' order."
+  ]
+ },
+ {
+  "id": "strings2-070",
+  "paraphrases": [
+   "Write a python function that returns the name of a list of names that is k-th when they are sorted alphabetically, with counting starting at 1.",
+   "Write a function to get the k-th name, counted from 1, of a list of names in alphabetical order."
+  ]
+ },
+ {
+  "id": "nested-116",
+  "paraphrases": [
+   "Write a python function that takes the minimum of each inner list of a list and returns the biggest of those minimums.",
+   "Write a function to find the maximum of the inner-list minimums of a list."
+  ]
+ },
+ {
+  "id": "strings2-110",
+  "paraphrases": [
+   "Write a function that converts a postal code into its format mask, replacing each digit with '9' and each letter with 'A' and leaving all other characters as they are.",
+   "Write a function to build the format mask of a postal code: '9' stands in for every digit, 'A' for every letter, and other characters stay."
+  ]
+ },
+ {
+  "id": "MbppX/515",
+  "paraphrases": [
+   "Write a function that determines whether some subset has a sum divisible by m.",
+   "Write a function to test for the existence of a subset whose sum is a multiple of m."
+  ]
+ },
+ {
+  "id": "MbppX/513",
+  "paraphrases": [
+   "Write a function that turns a tuple into a list, inserting the given string after each of its elements.",
+   "Write a function to make a list from a tuple with the given string placed after every element."
+  ]
+ },
+ {
+  "id": "sequences2-028",
+  "paraphrases": [
+   "Write a function that determines whether a list becomes sorted in increasing order after a left rotation by k places.",
+   "Write a function to test if left-rotating a list by k positions makes it ascending."
+  ]
+ },
+ {
+  "id": "sequences2-083",
+  "paraphrases": [
+   "Write a python function that counts how many different characters appear across a given list of strings.",
+   "Write a function to find the number of unique characters in a list of strings."
+  ]
+ },
+ {
+  "id": "Mbpp/227",
+  "paraphrases": [
+   "Write a function that returns the smallest of three numbers.",
+   "Write a function to get the minimum among three given numbers."
+  ]
+ },
+ {
+  "id": "Mbpp/90",
+  "paraphrases": [
+   "Write a python function that returns how long the longest word is.",
+   "Write a function to get the maximum word length."
+  ]
+ },
+ {
+  "id": "predicates-092",
+  "paraphrases": [
+   "Write a function that gives 'Found a match!' when some word of the text ends with 'ly', and 'Not matched!' when no word does.",
+   "Write a function returning 'Found a match!' for a text having a word that ends in 'ly', else 'Not matched!'."
+  ]
+ },
+ {
+  "id": "MbppX/541",
+  "paraphrases": [
+   "Write a function that determines whether the given number is abundant.",
+   "Write a function to check if a number is an abundant number."
+  ]
+ },
+ {
+  "id": "predicates-112",
+  "paraphrases": [
+   "Write a function that determines whether the dictionary has a key whose length exceeds 5 characters.",
+   "Write a function to test if some dictionary key has more than 5 characters."
+  ]
+ },
+ {
+  "id": "sequences-013",
+  "paraphrases": [
+   "Write a function that takes a list of deposits into an account that starts empty and returns the balance following every deposit.",
+   "Write a function to compute the running balance of an initially empty account over a list of deposits."
+  ]
+ },
+ {
+  "id": "predicates-046",
+  "paraphrases": [
+   "Write a function that determines whether the record tuple contains a missing field, indicated by None.",
+   "Write a function to test if a record tuple has a None field."
+  ]
+ },
+ {
+  "id": "MbppX/696",
+  "paraphrases": [
+   "Write a function that takes two lists of lists and zips them.",
+   "Write a function to combine two lists of lists by zipping them."
+  ]
+ },
+ {
+  "id": "Mbpp/618",
+  "paraphrases": [
+   "Write a function that performs element-by-element division of two lists.",
+   "Write a function to compute the elementwise quotient of two lists."
+  ]
+ },
+ {
+  "id": "sequences2-122",
+  "paraphrases": [
+   "Write a python function that repeats every element of a given list k consecutive times.",
+   "Write a function to make each element of a list appear k times consecutively."
+  ]
+ },
+ {
+  "id": "predicates-066",
+  "paraphrases": [
+   "Write a python function that determines whether the lcm of the two numbers is the same as their product.",
+   "Write a function to test if two numbers have a least common multiple equal to their product."
+  ]
+ },
+ {
+  "id": "nested2-100",
+  "paraphrases": [
+   "Write a function that traverses a grid in snake order, reading the first row left to right, the second right to left, and so forth, and returns a single flat list.",
+   "Write a function to flatten a grid in snake order, alternating left-to-right and right-to-left rows starting with left-to-right."
+  ]
+ },
+ {
+  "id": "numbers-137",
+  "paraphrases": [
+   "Write a function that, for a snail climbing 1 metre on day one, 2 metres on day two, 3 on day three and so on, finds the first day on which its total climb is at least n metres.",
+   "Write a function to find the earliest day by which a snail climbing 1, 2, 3, ... metres on successive days has climbed at least n metres in total."
+  ]
+ },
+ {
+  "id": "nested-031",
+  "paraphrases": [
+   "Write a function that deletes all keys mapped to None from a dictionary while keeping every other value, falsy ones included.",
+   "Write a function to drop the None-valued keys of a dictionary, retaining other values even if they are falsy."
+  ]
+ },
+ {
+  "id": "MbppX/868",
+  "paraphrases": [
+   "Write a python function that returns how many characters the final word of a given string has.",
+   "Write a function to measure how long the last word of a string is."
+  ]
+ },
+ {
+  "id": "MbppX/520",
+  "paraphrases": [
+   "Write a function that computes the least common multiple of the elements of the given array.",
+   "Write a function to get the lcm of all elements in an array."
+  ]
+ },
+ {
+  "id": "Mbpp/470",
+  "paraphrases": [
+   "Write a function that adds each pair of neighbouring elements of the given tuple.",
+   "Write a function to sum adjacent elements of a tuple pairwise."
+  ]
+ },
+ {
+  "id": "nested2-013",
+  "paraphrases": [
+   "Write a function that takes the lists of (row, column) squares held by two players and returns, in ascending order, the squares that both of them hold.",
+   "Write a function to find the (row, column) squares common to the square lists of two players, sorted ascending."
+  ]
+ },
+ {
+  "id": "strings-128",
+  "paraphrases": [
+   "Write a function that determines whether a file name has '.jpg' or '.png' at its end.",
+   "Write a function to check if a file name finishes in '.jpg' or '.png'."
+  ]
+ },
+ {
+  "id": "nested2-109",
+  "paraphrases": [
+   "Write a function that takes a list of lists of marks, an inner list for each diver, and returns every diver's total once a single highest and a single lowest mark are removed.",
+   "Write a function to total the marks of each diver, given one inner list per diver, after discarding one top mark and one bottom mark."
+  ]
+ },
+ {
+  "id": "sequences2-109",
+  "paraphrases": [
+   "Write a function that substitutes another given value for every occurrence of a given value in a list.",
+   "Write a function to change every occurrence of a value in a list into another given value."
+  ]
+ },
+ {
+  "id": "MbppX/528",
+  "paraphrases": [
+   "Write a function that finds which list in a list of lists has the minimum length.",
+   "Write a function to get the minimum-length list from a list of lists."
+  ]
+ },
+ {
+  "id": "MbppX/919",
+  "paraphrases": [
+   "Write a python function that returns the product of every item of the list.",
+   "Write a function to compute the product of the items in a list."
+  ]
+ },
+ {
+  "id": "nested-045",
+  "paraphrases": [
+   "Write a function that takes a list of (width, height) tuples for rectangles and returns the list of the rectangle areas.",
+   "Write a function to compute the area of each rectangle in a list of (width, height) tuples."
+  ]
+ },
+ {
+  "id": "predicates-122",
+  "paraphrases": [
+   "Write a function that determines whether the sentence has 2 or more words with more than 4 letters.",
+   "Write a function to test if a sentence contains at least 2 words exceeding 4 letters in length."
+  ]
+ },
+ {
+  "id": "numbers2-077",
+  "paraphrases": [
+   "Write a function that determines whether a triangle with sides a, b and c is obtuse, meaning it has an angle greater than 90 degrees.",
+   "Write a function to test if the triangle with side lengths a, b and c has an angle above 90 degrees."
+  ]
+ },
+ {
+  "id": "sequences2-053",
+  "paraphrases": [
+   "Write a function that, for a list containing a negative value, sums the values preceding its first negative value.",
+   "Write a function to total the list values that occur before the first negative one, given that the list has a negative value."
+  ]
+ },
+ {
+  "id": "MbppX/648",
+  "paraphrases": [
+   "Write a function that, in a given list, swaps the position of every n-th value with the (n+1)th value, so the (n+1)th value takes the place of the n-th.",
+   "Write a function to swap every n-th value of a list with the (n+1)th value, putting the (n+1)th value where the n-th was."
+  ]
+ },
+ {
+  "id": "nested2-047",
+  "paraphrases": [
+   "Write a function that takes an old and a new version of a price dictionary and returns the items missing from the new version, in the order they had in the old one.",
+   "Write a function to list the items of an old price dictionary that a new version no longer has, keeping their old order."
+  ]
+ },
+ {
+  "id": "predicates2-016",
+  "paraphrases": [
+   "Write a function that, for a proposed variable name, returns True when its first character is a digit, which would render it unusable.",
+   "Write a function to return True if a candidate variable name begins with a digit and is therefore unusable."
+  ]
+ },
+ {
+  "id": "strings-071",
+  "paraphrases": [
+   "Write a function that masks a card number on a receipt, turning every character other than the last 4 into '#'.",
+   "Write a function to conceal all but the last 4 characters of a receipt card number with '#'."
+  ]
+ },
+ {
+  "id": "sequences2-015",
+  "paraphrases": [
+   "Write a python function that, for a list of names, returns the final letter of every name.",
+   "Write a function to get the last letters of all names in a list."
+  ]
+ },
+ {
+  "id": "numbers2-113",
+  "paraphrases": [
+   "Write a function that counts the integers in the inclusive range a to b whose digits are non-decreasing when read from left to right.",
+   "Write a function to find how many integers between a and b, both included, have digits that never go down from left to right."
+  ]
+ },
+ {
+  "id": "MbppX/834",
+  "paraphrases": [
+   "Write a function that builds a square matrix holding the elements 1 to n raised to the power of 2, arranged in spiral order.",
+   "Write a function to create a square matrix filled in spiral order with the numbers from 1 up to n raised to the power of 2."
+  ]
+ },
+ {
+  "id": "sequences-029",
+  "paraphrases": [
+   "Write a function that filters a first list down to the elements that appear in a second list as well, preserving their original order and any repeats.",
+   "Write a function to select, in order and including duplicates, the items of the first list found in the second list."
+  ]
+ },
+ {
+  "id": "Mbpp/406",
+  "paraphrases": [
+   "Write a python function that determines whether a given number has odd parity.",
+   "Write a function to check for odd parity in a given number."
+  ]
+ },
+ {
+  "id": "MbppX/873",
+  "paraphrases": [
+   "Write a function that uses recursion to solve the fibonacci sequence.",
+   "Write a function to compute the fibonacci sequence recursively."
+  ]
+ },
+ {
+  "id": "Mbpp/105",
+  "paraphrases": [
+   "Write a python function that counts how many True values the given list contains.",
+   "Write a function to count the booleans equal to True in a list."
+  ]
+ },
+ {
+  "id": "Mbpp/311",
+  "paraphrases": [
+   "Write a python function that sets the leftmost bit that is not yet set.",
+   "Write a function to turn on the leftmost unset bit of a number."
+  ]
+ },
+ {
+  "id": "MbppX/813",
+  "paraphrases": [
+   "Write a function that returns how many characters the string has.",
+   "Write a function to compute the length of a given string."
+  ]
+ },
+ {
+  "id": "sequences-132",
+  "paraphrases": [
+   "Write a function that returns the product of the values of a list that are not zero.",
+   "Write a function to compute the product of all non-zero list values."
+  ]
+ },
+ {
+  "id": "MbppX/968",
+  "paraphrases": [
+   "Write a python function that determines the largest possible value of the given periodic function.",
+   "Write a function to get the maximum attainable value of a given periodic function."
+  ]
+ },
+ {
+  "id": "MbppX/341",
+  "paraphrases": [
+   "Write a function that takes the given set and returns it as ordered tuples.",
+   "Write a function to make ordered tuples out of a set."
+  ]
+ }
+]
