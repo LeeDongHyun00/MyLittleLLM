@@ -1,0 +1,277 @@
+{
+ "categories": [
+  "strings",
+  "predicates"
+ ],
+ "operators": [
+  {
+   "name": "equal_words_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/53"
+   ],
+   "why": "words a predicate's truth value as 'Equal'/'Not Equal', the answer of equality checks (like the r3 txt_* wrappers)"
+  },
+  {
+   "name": "lower_underscore_lower_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/43"
+   ],
+   "why": "regex test ^[a-z]+_[a-z]+$: lowercase letters joined by an underscore"
+  },
+  {
+   "name": "starts_with_word_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/44"
+   ],
+   "why": "regex test ^\\w: a word at the beginning of the string"
+  },
+  {
+   "name": "ends_with_word_punct_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/337"
+   ],
+   "why": "regex test \\w\\S*$: a word at the end, optionally followed by punctuation"
+  },
+  {
+   "name": "upper_then_lower_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/482",
+    "MbppX/917"
+   ],
+   "why": "regex test [A-Z]+[a-z]+$: upper case letter(s) followed by lower case letters, as both references read it"
+  },
+  {
+   "name": "a_then_any_bs_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/719",
+    "MbppX/930"
+   ],
+   "why": "regex quantifier exercise ab*: an a followed by zero or more b's"
+  },
+  {
+   "name": "a_then_some_bs_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/434"
+   ],
+   "why": "regex quantifier exercise ab+: an a followed by one or more b's"
+  },
+  {
+   "name": "a_anything_b_end_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/879"
+   ],
+   "why": "regex exercise a.*b$: an a followed by anything, ending in b (the plain ends_with/2 is retired)"
+  },
+  {
+   "name": "words_of_2_chars_r4s/1",
+   "gated": true,
+   "targets": [],
+   "why": "words of exactly 2 characters (\\b\\w{2}\\b) when the length is a number word, which the engine does not read as a constant; the family generalises the bank's 'five'"
+  },
+  {
+   "name": "words_of_3_chars_r4s/1",
+   "gated": true,
+   "targets": [],
+   "why": "words of exactly 3 characters (\\b\\w{3}\\b) when the length is a number word, which the engine does not read as a constant; the family generalises the bank's 'five'"
+  },
+  {
+   "name": "words_of_4_chars_r4s/1",
+   "gated": true,
+   "targets": [],
+   "why": "words of exactly 4 characters (\\b\\w{4}\\b) when the length is a number word, which the engine does not read as a constant; the family generalises the bank's 'five'"
+  },
+  {
+   "name": "words_of_5_chars_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/319"
+   ],
+   "why": "words of exactly 5 characters (\\b\\w{5}\\b) when the length is a number word, which the engine does not read as a constant; the family generalises the bank's 'five'"
+  },
+  {
+   "name": "words_of_6_chars_r4s/1",
+   "gated": true,
+   "targets": [],
+   "why": "words of exactly 6 characters (\\b\\w{6}\\b) when the length is a number word, which the engine does not read as a constant; the family generalises the bank's 'five'"
+  },
+  {
+   "name": "words_of_7_chars_r4s/1",
+   "gated": true,
+   "targets": [],
+   "why": "words of exactly 7 characters (\\b\\w{7}\\b) when the length is a number word, which the engine does not read as a constant; the family generalises the bank's 'five'"
+  },
+  {
+   "name": "words_of_8_chars_r4s/1",
+   "gated": true,
+   "targets": [],
+   "why": "words of exactly 8 characters (\\b\\w{8}\\b) when the length is a number word, which the engine does not read as a constant; the family generalises the bank's 'five'"
+  },
+  {
+   "name": "words_of_9_chars_r4s/1",
+   "gated": true,
+   "targets": [],
+   "why": "words of exactly 9 characters (\\b\\w{9}\\b) when the length is a number word, which the engine does not read as a constant; the family generalises the bank's 'five'"
+  },
+  {
+   "name": "words_of_10_chars_r4s/1",
+   "gated": true,
+   "targets": [],
+   "why": "words of exactly 10 characters (\\b\\w{10}\\b) when the length is a number word, which the engine does not read as a constant; the family generalises the bank's 'five'"
+  },
+  {
+   "name": "alpha_position_sum_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/83"
+   ],
+   "why": "sum of alphabet positions of a word (a=1 ... z=26)"
+  },
+  {
+   "name": "alphabet_letter_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/83"
+   ],
+   "why": "letter at an alphabet position, wrapping after z; with the sum it is 'the character made by adding the characters'"
+  },
+  {
+   "name": "season_r4s/2",
+   "gated": true,
+   "targets": [
+    "MbppX/159"
+   ],
+   "why": "season of a month (name or number) and day, changing on 20 Mar, 21 Jun, 22 Sep, 21 Dec"
+  },
+  {
+   "name": "only_local_inversions_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/303"
+   ],
+   "why": "global inversion count equals local (adjacent) count, as a linear running-max scan"
+  },
+  {
+   "name": "same_relative_order_r4s/2",
+   "gated": true,
+   "targets": [
+    "MbppX/508"
+   ],
+   "why": "the elements common to two sequences appear in the same order in both"
+  },
+  {
+   "name": "digit_place_products_equal_r4s/1",
+   "gated": true,
+   "targets": [
+    "MbppX/711"
+   ],
+   "why": "product of digits at odd places equals product at even places (False for one digit, as the reference)"
+  },
+  {
+   "name": "abbreviate_r4s/3",
+   "gated": true,
+   "targets": [
+    "MbppX/812"
+   ],
+   "why": "whole-word, case-insensitive replacement of a quoted word by its quoted abbreviation, keeping the capital"
+  },
+  {
+   "name": "replace_space_comma_dot_r4s/2",
+   "gated": true,
+   "targets": [],
+   "why": "replace every space, comma and dot with a given character; no-count form of the next rule (now also the program of regression MbppX/542, still solved and equal to its reference)"
+  },
+  {
+   "name": "replace_space_comma_dot_n_r4s/3",
+   "gated": true,
+   "targets": [
+    "MbppX/220"
+   ],
+   "why": "replace at most n of the spaces, commas and dots the description names with a given character"
+  }
+ ],
+ "keyword_extensions": [],
+ "not_addressed": [
+  {
+   "task_id": "MbppX/73",
+   "reason": "the delimiter set ('; ', ', ', '*', newline) appears only in the reference; the description says only 'multiple delimiters'"
+  },
+  {
+   "task_id": "MbppX/315",
+   "reason": "needs the string '-1' for 'no even-length word', a sentinel that appears only in the reference and tests"
+  },
+  {
+   "task_id": "MbppX/330",
+   "reason": "the length range 3-5 is written as number words ('three, four, five'); a rule per range would be ad hoc"
+  },
+  {
+   "task_id": "MbppX/374",
+   "reason": "the expected order is the reference's insertion order; a two-letter example cannot choose an order (r3 txt_permutations excludes two letters on purpose)"
+  },
+  {
+   "task_id": "MbppX/461",
+   "reason": "the reference returns inside its loop, so only the first character counts; the example contradicts the description"
+  },
+  {
+   "task_id": "MbppX/523",
+   "reason": "answers with task-specific message strings"
+  },
+  {
+   "task_id": "MbppX/595",
+   "reason": "the impossible case answers 'Not Possible', a constant that appears only in the reference and tests"
+  },
+  {
+   "task_id": "MbppX/699",
+   "reason": "same task as MbppX/595: 'Not Possible' appears only in the reference and tests"
+  },
+  {
+   "task_id": "MbppX/669",
+   "reason": "answers 'Valid IP address'/'Invalid IP address', messages that only this task uses"
+  },
+  {
+   "task_id": "MbppX/684",
+   "reason": "the repeated length 10 appears only in the reference"
+  },
+  {
+   "task_id": "MbppX/774",
+   "reason": "answers 'Valid Email'/'Invalid Email' and uses a reference-specific email regex"
+  },
+  {
+   "task_id": "MbppX/823",
+   "reason": "answers with three task-specific message strings"
+  },
+  {
+   "task_id": "MbppX/860",
+   "reason": "answers 'Accept'/'Discard', a word pair that only this task uses"
+  },
+  {
+   "task_id": "MbppX/431",
+   "reason": "the reference returns None, not False, when no element is shared"
+  },
+  {
+   "task_id": "MbppX/670",
+   "reason": "the description says decreasing but the reference and tests check non-decreasing order"
+  },
+  {
+   "task_id": "MbppX/822",
+   "reason": "the password rules (length 6-12, one of $#@, no whitespace) appear only in the reference"
+  },
+  {
+   "task_id": "MbppX/900",
+   "reason": "the specific number (5) appears only in the reference"
+  }
+ ],
+ "final_check": {
+  "newly_solved": 18,
+  "broken": 0
+ },
+ "memory": [],
+ "notes": "Bank: 18 of 35 newly solved (11 still none, 6 still wrong, all for the reasons listed); --regress: 355 tasks, BROKEN 0. No pack operator appears in a wrong final program. Robustness checks in scratch_r4_strings/: every solved task still solves when each of its other asserts is used as the visible example (35/35 variants), and 17/17 reworded descriptions solve. Risks: (1) The only solved regression task whose program changed is MbppX/542 (a0.replace(' ', ':') -> re.sub(r'[ ,.]', ':', a0)); it still passes and now matches its reference. (2) upper_then_lower_r4s follows the bank references' anchored [A-Z]+[a-z]+$, and lower_underscore_lower_r4s allows exactly one underscore. A held-out reference that searches anywhere, or allows several underscores, would differ on some strings. (3) words_of_k_chars_r4s (9 rules) are gated on a lead word before the number ('all five characters', 'of five letters', 'five-letter'), so lists like 'three, four, five characters' and 'at least four characters' do not name them; the scratch negative test confirms the list case. (4) The a/b regex rules have the letters a and b fixed, as the exercises do. I deliberately added no other quantifier variants (e.g. 'two to three b'), because none is in my bank. Engine observations: ends_with/2 is retired in the manifest, so 879 is solved by a fixed-letter rule. Equal bool values merge at level 1 and the first named predicate keeps the slot, whatever its keyword specificity, so pack load order decides when two packs' predicates are named by one description and agree on the example; letting specificity re-label the slot would make this order-independent. Most of the remaining failures answer with task-specific words ('Not Possible', 'Accept'/'Discard', 'Valid IP address'). The visible example shows only one of each pair, so no rule can supply the other. Reading number words followed by a unit ('five characters') as constants would let the core of_length replace my number-word family."
+}
