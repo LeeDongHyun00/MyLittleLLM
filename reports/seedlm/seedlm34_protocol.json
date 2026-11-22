@@ -1,0 +1,17 @@
+{
+ "written": "2026-11-22, before any SeedLM-34 task was written",
+ "motivation": "Sketch-held search reaches a right program for 11 of the 28 development engine failures (SeedLM-31), but no rule chose it: the right new structures are improbable under every coder (SeedLM-32, 33). Coders learn description -> structure only from the few thousand written tasks; templated descriptions for new structures backfired (SeedLM-21)",
+ "data": "four teacher subagents (Opus 5.5) write four natural tasks for each of the 272 sketches that the teacher-written training programs hold at least twice (docs/seedlm34_teacher_guide.md); each must pass SeedLM-3's teacher-task check, have exactly the assigned sketch and repeat no training task (scripts/seedlm34_task_check.py). Teachers see only their sketches and two training tasks per sketch",
+ "arms": "for each of s12-a1, s12-a2, s12-a3: two 400-step fine-tunes from its checkpoint over the base run's mix (scripts/seedlm26_finetune.py): s34-k<k> with the sketch tasks as rows (three views each) at a tenth of the mix, s34-o<k> with no extra rows. Nothing else runs while they train",
+ "primary_measure": "the SeedLM-32 system on the development fifth (the engine where confident, else the candidate with the highest mean log-probability under six coders), with the six coders s5-var, s34-k1..k3, s18-p1, s18-p2 against the same with s34-o1..o3; candidates are SeedLM-32's, unchanged. Supported if the k-system beats the o-system by at least 2; not supported if it does not beat it; inconclusive otherwise. Adoption needs, in addition, more than 69, then the validation gate and one locked test",
+ "secondary_measures": [
+  "held-out teacher tasks, the same rule, candidates alone (k against o)",
+  "each fine-tuned coder alone (first verified program at width 32, SeedLM-15's cache) on the held-out teacher tasks and the development fifth (k against o)"
+ ],
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "the development fifth"
+ ]
+}
