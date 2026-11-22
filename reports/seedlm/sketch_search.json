@@ -1,0 +1,36 @@
+{
+ "model": "s20-p5",
+ "sketches": 64,
+ "per_sketch": 6,
+ "library_sketches": 272,
+ "teacher": {
+  "tasks": 139,
+  "plain_some_right": 67,
+  "sketch_some_right": 78,
+  "union_some_right": 88,
+  "plain_first_right": 55,
+  "sketch_only": 21,
+  "plain_verified_per_task": 3.33,
+  "sketch_verified_per_task": 71.09,
+  "seconds_plain_per_task": 0.92,
+  "seconds_sketch_per_task": 4.57,
+  "gold_sketch_in_ranked": 52
+ },
+ "development": {
+  "tasks": 93,
+  "plain_some_right": 57,
+  "sketch_some_right": 46,
+  "union_some_right": 67,
+  "plain_first_right": 54,
+  "sketch_only": 10,
+  "plain_verified_per_task": 2.29,
+  "sketch_verified_per_task": 50.55,
+  "seconds_plain_per_task": 0.92,
+  "seconds_sketch_per_task": 4.23,
+  "on_engine_failures": {
+   "engine_failures": 28,
+   "plain_some_right": 3,
+   "union_some_right": 11
+  }
+ }
+}

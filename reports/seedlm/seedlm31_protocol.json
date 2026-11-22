@@ -16,5 +16,16 @@
   "held-out teacher tasks",
   "the development fifth"
  ],
- "note_1": "The first run stopped on the first held-out task: 64 sketches x 6 rows in one batch ran out of memory (the 8 GB cap of the evaluation scripts) while copying the key/value cache. Every sketch keeps its own beam, so the search now runs 16 sketches at a time with the same result (sketch.sketch_search, chunk=16); no held-out result was seen before the rerun"
+ "note_1": "The first run stopped on the first held-out task: 64 sketches x 6 rows in one batch ran out of memory (the 8 GB cap of the evaluation scripts) while copying the key/value cache. Every sketch keeps its own beam, so the search now runs 16 sketches at a time with the same result (sketch.sketch_search, chunk=16); no held-out result was seen before the rerun",
+ "outcome": {
+  "written": "2026-11-22, after the measure",
+  "primary": "held-out teacher tasks with some right verified program: plain beam 67, sketch search 78, both 88 (21 only through the sketch search); sketch search 4.6 seconds per task. 88 is above 80 and below 100: inconclusive (reports/seedlm/sketch_search.json)",
+  "secondary": [
+   "development fifth (93 tasks with a readable example): plain 57, both 67 (10 only through the sketch search); among its 28 engine failures, a right candidate exists for 3 with the plain beam and 11 with both",
+   "the held-out program's own sketch is among the 64 ranked for 52 teacher tasks; the library holds the sketch of 53 non-trivial held-out programs, so the ranker missed one",
+   "verified candidates per task: plain 3.3, sketch search 71.1 (teacher); 2.3 and 50.6 (development)"
+  ],
+  "reading": "Forcing known structures opens programs the coder's own beam never builds: +21 held-out teacher tasks and, on the real tasks the engine cannot solve, 3 -> 11 with a right program in hand. It falls short of 100 because the coder fills the holes of the right sketch correctly only part of the time (52 golds' sketches ranked, 78 tasks reached). The price is about 20 times more programs that fit the one example, so the open question is now entirely choosing",
+  "choice": "no system change; stage b (choosing among the candidates) is next and will be pre-registered"
+ }
 }
