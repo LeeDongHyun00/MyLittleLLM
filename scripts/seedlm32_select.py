@@ -29,40 +29,42 @@ from seedlm32_score import SCORERS
 RULES = ["plain_first", "generator", "ensemble", "vote", "vote_ensemble"]
 
 
-def ensemble(item):
-    values = [v for v in (item.get("scores") or {}).values() if v is not None]
+def ensemble(item, field="scores"):
+    values = [v for v in (item.get(field) or {}).values() if v is not None]
     return statistics.mean(values) if values else float("-inf")
 
 
-def key(rule, item):
+def key(rule, item, field="scores"):
     if rule == "generator":
         return item.get("score", float("-inf"))       # the engine's program has no generator score
     if rule == "ensemble":
-        return ensemble(item)
+        return ensemble(item, field)
     if rule == "vote":
-        return (item.get("voters", 0), ensemble(item))
+        return (item.get("voters", 0), ensemble(item, field))
     if rule == "vote_ensemble":
-        return ensemble(item) + 2.0 * item.get("voters", 0)
+        return ensemble(item, field) + 2.0 * item.get("voters", 0)
     raise ValueError(rule)
 
 
-def choose(rule, candidates):
+def choose(rule, candidates, field="scores"):
     if not candidates:
         return None
     if rule == "plain_first":
         plain = [c for c in candidates if c["source"] == "plain"]
         return plain[0] if plain else None
-    return max(candidates, key=lambda c: key(rule, c))
+    return max(candidates, key=lambda c: key(rule, c, field))
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--set", choices=["teacher", "development"], required=True)
     parser.add_argument("--rule", choices=RULES, help="report only this rule (the registered one)")
+    parser.add_argument("--field", default="scores", help="the candidates' score field (seedlm32_score.py --field)")
     parser.add_argument("--output")
     args = parser.parse_args()
     rows = [r for r in json.loads((OUT / f"candidates_{args.set}.json").read_text()) if r is not None]
-    report = {"set": args.set, "tasks": len(rows), "scorers": SCORERS,
+    scorers = sorted({name for r in rows for c in r["candidates"] for name in (c.get(args.field) or {})})
+    report = {"set": args.set, "tasks": len(rows), "field": args.field, "scorers": scorers or SCORERS,
               "engine": sum(bool(r["engine"] and r["engine"]["right"]) for r in rows),
               "engine_confident": sum(bool(r["engine"] and r["engine"]["confident"]) for r in rows),
               "some_candidate_right": sum(any(c["right"] for c in r["candidates"]) for r in rows),
@@ -72,14 +74,14 @@ def main():
     for rule in ([args.rule] if args.rule else RULES):
         alone = system = fixed = broken = 0
         for r in rows:
-            pick = choose(rule, r["candidates"])
+            pick = choose(rule, r["candidates"], args.field)
             alone += bool(pick and pick["right"])
             engine = r["engine"]
             if engine and engine["confident"]:
                 answer = engine["right"]
             else:
                 pool = r["candidates"] + ([engine] if engine and engine.get("program") and "behaviour" in engine else [])
-                choice = choose(rule, pool) if rule != "plain_first" else (pick or engine)
+                choice = choose(rule, pool, args.field) if rule != "plain_first" else (pick or engine)
                 answer = bool(choice["right"]) if choice else bool(engine and engine["right"])
             system += answer
             fixed += answer and not (engine and engine["right"])

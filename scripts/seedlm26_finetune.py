@@ -8,8 +8,15 @@ the same 1,200 training tasks at a tenth of the mix (reports/seedlm/seedlm26_pro
                pass scripts/seedlm26_paraphrase_check.py)
 Programs, examples and views are the task's own in both arms; only the words differ.
 
+SeedLM-34 reuses the same loop with two more sources of extra rows (reports/seedlm/seedlm34_protocol.json):
+  sketch     - the teacher-written tasks for recurring sketches (data/seedlm/sketch_tasks_*.json, checked and
+               decontaminated like every teacher task), every task with its three views
+  none       - no extra rows; the base run's shares exactly (the extra share is forced to 0)
+
   python scripts/seedlm26_finetune.py --base s12-a1 --name s26-p1 --words paraphrase [--steps 400]
   python scripts/seedlm26_finetune.py --base s12-a1 --name s26-o1 --words original
+  python scripts/seedlm26_finetune.py --base s12-a1 --name s34-k1 --words sketch
+  python scripts/seedlm26_finetune.py --base s12-a1 --name s34-o1 --words none
 """
 import argparse
 import ast
@@ -70,6 +77,14 @@ def real_task_rows(vocabulary, item, bank_item, text, views):
 
 
 def extra_rows(vocabulary, words, views):
+    if words == "none":
+        return [], 0
+    if words == "sketch":
+        # Every sketch task trains: none of them is an evaluation task, and a held-out tenth would only thin
+        # the rare sketches the rows are meant to teach.
+        items = teacher_task_items("sketch_tasks")
+        rows = teacher_rows(vocabulary, items, held=False, views=views, held_out=lambda task: False)
+        return convert(vocabulary, rows), len(items)
     found = paraphrases()
     real = {r["task_id"]: r for r in json.loads((V2 / "real_dev.json").read_text()) if r["part"] == "train"}
     bank = dev_tasks() if views > 1 else {}
@@ -89,7 +104,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base", required=True)
     parser.add_argument("--name", required=True)
-    parser.add_argument("--words", choices=["original", "paraphrase"], required=True)
+    parser.add_argument("--words", choices=["original", "paraphrase", "sketch", "none"], required=True)
     parser.add_argument("--steps", type=int, default=400)
     parser.add_argument("--batch", type=int, default=64)
     parser.add_argument("--extra-share", type=float, default=0.1)
@@ -97,6 +112,8 @@ def main():
     parser.add_argument("--lr-scale", type=float, default=0.3)
     parser.add_argument("--seed", type=int, default=0)
     args = parser.parse_args()
+    if args.words == "none":
+        args.extra_share = 0.0       # the control keeps the base run's shares, not a tenth of nothing
     torch.set_num_threads(4)
     torch.manual_seed(args.seed)
     started = time.time()

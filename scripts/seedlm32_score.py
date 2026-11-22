@@ -9,6 +9,10 @@ mix), and the number of cached coders (SeedLM-21's 24) whose first verified prog
 24 probes. A coder that cannot write a candidate's tokens gives it no score.
 
   python scripts/seedlm32_score.py --set teacher
+  python scripts/seedlm32_score.py --set teacher --scorers s5-var s34-k1 s34-k2 s34-k3 s18-p1 s18-p2 --field scores_k
+
+With --field, the scores go to that field of each candidate and the votes are left as they are (SeedLM-34);
+a scorer already in the "scores" field is copied, since the same coder gives the same log-probability.
 """
 import argparse
 import ast
@@ -59,6 +63,8 @@ def log_prob(kind, net, vocabulary, words, named, literals, args, expected, mode
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--set", choices=["teacher", "development"], required=True)
+    parser.add_argument("--scorers", nargs="+", default=SCORERS)
+    parser.add_argument("--field", default="scores")
     args = parser.parse_args()
     torch.set_num_threads(4)
     cap_memory()
@@ -67,18 +73,25 @@ def main():
     tasks = teacher_tasks() if args.set == "teacher" else development_tasks()
     cached = {v: json.loads((CACHE / f"{v}.json").read_text())[args.set] for v in VOTERS}
     started = time.time()
-    for name in SCORERS:
-        kind, net, vocabulary = load(name)
+    for name in args.scorers:
+        reuse = args.field != "scores" and all(
+            name in (item.get("scores") or {}) for row in rows if row is not None
+            for item in row["candidates"] + ([row["engine"]] if row["engine"] and row["engine"].get("program") else []))
+        kind, net, vocabulary = (None, None, None) if reuse else load(name)
         for index, (row, (case, description, _, _, _)) in enumerate(zip(rows, tasks)):
             if row is None:
                 continue
             words, named = language.words(description), named_in(description)
             items = row["candidates"] + ([row["engine"]] if row["engine"] and row["engine"].get("program") else [])
             for item in items:
-                item.setdefault("scores", {})[name] = log_prob(
+                item.setdefault(args.field, {})[name] = item["scores"][name] if reuse else log_prob(
                     kind, net, vocabulary, words, named, case["literals"], case["args"], case["expected"], case["mode"],
                     item["program"])
-        print(name, round(time.time() - started), flush=True)
+        print(name, "copied" if reuse else "scored", round(time.time() - started), flush=True)
+    if args.field != "scores":
+        path.write_text(json.dumps(rows) + "\n")
+        print("scored", len(rows), round(time.time() - started))
+        return
     for index, row in enumerate(rows):
         if row is None:
             continue
