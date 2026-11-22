@@ -13,5 +13,15 @@
   "test",
   "HumanEval+",
   "the development fifth"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-22, after the measure",
+  "primary": "development fifth, the registered rule: 65 (1 fixed, 1 broken against the engine's 65), against the current system's 69: not adopted (reports/seedlm/selection_development.json)",
+  "secondary": [
+   "candidates alone (no engine): six-coder mean log-probability 59, the coder's first verified program 54",
+   "some candidate or the engine right: 76 (the reach the choice works with)"
+  ],
+  "reading": "Choosing by other coders' probability picks the right program more often than the coder's own order, on generated tasks (+9) and on real tasks alone (+5). But on the 23 real tasks where the engine is not confident it chose right no more often than the engine itself: the right sketch programs on those tasks are ones the other coders also find unlikely. The reach the sketches opened (11 engine failures with a right program) is not yet a reach the system can use",
+  "choice": "no system change"
+ }
 }

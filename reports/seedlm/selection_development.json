@@ -1,0 +1,26 @@
+{
+ "set": "development",
+ "tasks": 93,
+ "scorers": [
+  "s5-var",
+  "s12-a1",
+  "s12-a2",
+  "s12-a3",
+  "s18-p1",
+  "s18-p2"
+ ],
+ "engine": 65,
+ "engine_confident": 70,
+ "some_candidate_right": 67,
+ "some_right_or_engine": 76,
+ "rules": {
+  "ensemble": {
+   "alone": 59,
+   "system": 65,
+   "system_versus_engine": [
+    1,
+    1
+   ]
+  }
+ }
+}
