@@ -1,0 +1,3512 @@
+[
+ {
+  "id": "s2-k085-1",
+  "sketch_id": "k085",
+  "category": "strings",
+  "description": "Write a function to split the letters of a lowercase word into a tuple of two lists, the vowels (the letters in 'aeiou') and the consonants, each kept in its original order.",
+  "entry_point": "vowels_and_consonants",
+  "inputs": [
+   "('banana',)",
+   "('sky',)",
+   "('audio',)"
+  ],
+  "expression": "([c for c in a0 if c in 'aeiou'], [c for c in a0 if c not in 'aeiou'])"
+ },
+ {
+  "id": "s2-k085-2",
+  "sketch_id": "k085",
+  "category": "nested",
+  "description": "Given a list of (name, score) tuples and a pass mark, write a function to return a tuple of two lists: the names of the people who scored at least the pass mark and the names of those who scored below it.",
+  "entry_point": "pass_fail_names",
+  "inputs": [
+   "([('ann', 72), ('bob', 48), ('cy', 90)], 50)",
+   "([('dan', 40)], 40)",
+   "([('eve', 10), ('fay', 20)], 60)"
+  ],
+  "expression": "([r[0] for r in a0 if r[1] >= a1], [r[0] for r in a0 if r[1] < a1])"
+ },
+ {
+  "id": "s2-k085-3",
+  "sketch_id": "k085",
+  "category": "sequences",
+  "description": "Write a function that returns a tuple of two lists holding the positions of the positive numbers and the positions of the negative numbers of a list, where zeros belong to neither list.",
+  "entry_point": "sign_positions",
+  "inputs": [
+   "([3, -1, 0, 5, -2],)",
+   "([0, 0],)",
+   "([-4, 7],)"
+  ],
+  "expression": "([i for i in range(len(a0)) if a0[i] > 0], [i for i in range(len(a0)) if a0[i] < 0])"
+ },
+ {
+  "id": "s2-k085-4",
+  "sketch_id": "k085",
+  "category": "strings",
+  "description": "Given a list of file names, write a function to return a tuple of two lists, the names that end with '.py' and the names that end with '.txt', leaving out all other files.",
+  "entry_point": "python_and_text_files",
+  "inputs": [
+   "(['main.py', 'notes.txt', 'img.png', 'test.py'],)",
+   "(['a.md'],)",
+   "(['b.txt', 'c.txt'],)"
+  ],
+  "expression": "([f for f in a0 if f.endswith('.py')], [f for f in a0 if f.endswith('.txt')])"
+ },
+ {
+  "id": "s2-k092-1",
+  "sketch_id": "k092",
+  "category": "numbers",
+  "description": "Given the price of one item in cents, the quantity bought and a delivery fee in cents, write a function to return the amount to pay as a tuple of whole dollars and remaining cents, with 100 cents in a dollar.",
+  "entry_point": "amount_to_pay",
+  "inputs": [
+   "(250, 3, 499)",
+   "(99, 1, 0)",
+   "(1000, 2, 0)"
+  ],
+  "expression": "divmod(a0 * a1 + a2, 100)"
+ },
+ {
+  "id": "s2-k092-2",
+  "sketch_id": "k092",
+  "category": "sequences",
+  "description": "Given a list of invited guests, the number of extra people who come without an invitation and the number of seats at each table, write a function to return a tuple of how many tables are completely filled and how many people sit at the last, partly filled table.",
+  "entry_point": "table_seating",
+  "inputs": [
+   "(['ann', 'bob', 'cy', 'dan', 'eve'], 2, 4)",
+   "(['fay'], 0, 6)",
+   "(['gus', 'hal'], 4, 3)"
+  ],
+  "expression": "divmod(len(a0) + a1, a2)"
+ },
+ {
+  "id": "s2-k092-3",
+  "sketch_id": "k092",
+  "category": "numbers",
+  "description": "A holiday lasts from day a to day b of the year, both days included; write a function to return its length as a tuple of whole weeks and extra days.",
+  "entry_point": "holiday_weeks",
+  "inputs": [
+   "(10, 25)",
+   "(3, 3)",
+   "(100, 113)"
+  ],
+  "expression": "divmod(a1 - a0 + 1, 7)"
+ },
+ {
+  "id": "s2-k092-4",
+  "sketch_id": "k092",
+  "category": "strings",
+  "description": "A display shows k characters on each line; write a function that takes a message and k and returns, as a tuple, how many lines the message fills completely and how many characters are left for the last line, once every space has been removed from the message.",
+  "entry_point": "display_lines",
+  "inputs": [
+   "('hello big world', 4)",
+   "('hi', 5)",
+   "('abc def', 3)"
+  ],
+  "expression": "divmod(len(a0.replace(' ', '')), a1)"
+ },
+ {
+  "id": "s2-k187-1",
+  "sketch_id": "k187",
+  "category": "sequences",
+  "description": "Write a python function to check whether the product of the first and the last element of a list of integers is greater than the sum of all its elements.",
+  "entry_point": "ends_product_beats_sum",
+  "inputs": [
+   "([3, 1, 4],)",
+   "([1, 5, 2],)",
+   "([-2, 3, -4],)"
+  ],
+  "expression": "a0[0] * a0[-1] > sum(a0)"
+ },
+ {
+  "id": "s2-k187-2",
+  "sketch_id": "k187",
+  "category": "nested",
+  "description": "Write a function to check whether a matrix, given as a non-empty list of equally long rows, has more than n entries.",
+  "entry_point": "has_more_entries",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6]], 5)",
+   "([[1, 2], [3, 4]], 4)",
+   "([[7]], 0)"
+  ],
+  "expression": "len(a0) * len(a0[0]) > a1"
+ },
+ {
+  "id": "s2-k187-3",
+  "sketch_id": "k187",
+  "category": "strings",
+  "description": "Write a function to check whether more than a third of the characters of a string are digits.",
+  "entry_point": "mostly_digits",
+  "inputs": [
+   "('ab12',)",
+   "('hello7',)",
+   "('x9z',)"
+  ],
+  "expression": "3 * sum(c.isdigit() for c in a0) > len(a0)"
+ },
+ {
+  "id": "s2-k187-4",
+  "sketch_id": "k187",
+  "category": "numbers",
+  "description": "Given a list of item prices, a discount rate as a fraction between 0 and 1, and a budget, write a function to check whether the total price after the discount is still more than the budget.",
+  "entry_point": "over_budget_after_discount",
+  "inputs": [
+   "([40, 60], 0.25, 70)",
+   "([10, 20], 0.5, 20)",
+   "([50], 0.1, 40)"
+  ],
+  "expression": "sum(a0) * (1 - a1) > a2"
+ },
+ {
+  "id": "s2-k204-1",
+  "sketch_id": "k204",
+  "category": "nested",
+  "description": "Write a function to return the sublists of a list of lists of numbers that contain some element greater than the element right after it.",
+  "entry_point": "rows_with_descent",
+  "inputs": [
+   "([[1, 2, 3], [4, 2, 5], [7, 7], [9, 1]],)",
+   "([[1], [2, 3]],)",
+   "([[3, 2, 1]],)"
+  ],
+  "expression": "[r for r in a0 if any(x > y for x, y in zip(r, r[1:]))]"
+ },
+ {
+  "id": "s2-k204-2",
+  "sketch_id": "k204",
+  "category": "strings",
+  "description": "Write a function to pick out the identifiers in a list that are written in camel case, meaning that they contain a lowercase letter immediately followed by an uppercase letter.",
+  "entry_point": "camel_case_names",
+  "inputs": [
+   "(['myVar', 'total', 'getHTTP', 'Name'],)",
+   "(['x', 'ABC'],)",
+   "(['aB'],)"
+  ],
+  "expression": "[w for w in a0 if any(a.islower() and b.isupper() for a, b in zip(w, w[1:]))]"
+ },
+ {
+  "id": "s2-k204-3",
+  "sketch_id": "k204",
+  "category": "strings",
+  "description": "Write a function to find the sentences in a list that contain the same word twice in a row, as in 'the the'.",
+  "entry_point": "stuttered_sentences",
+  "inputs": [
+   "(['I saw the the cat', 'all is well', 'go go now'],)",
+   "(['no repeats here'],)",
+   "(['a a'],)"
+  ],
+  "expression": "[s for s in a0 if any(a == b for a, b in zip(s.split(), s.split()[1:]))]"
+ },
+ {
+  "id": "s2-k204-4",
+  "sketch_id": "k204",
+  "category": "nested",
+  "description": "Given a list of pairs of equally long words, write a function to return the pairs in which the two words have the same letter at some position.",
+  "entry_point": "pairs_sharing_position",
+  "inputs": [
+   "([('cat', 'cut'), ('dog', 'pin'), ('sun', 'fan')],)",
+   "([('ab', 'ba')],)",
+   "([('red', 'rod'), ('top', 'cub')],)"
+  ],
+  "expression": "[p for p in a0 if any(a == b for a, b in zip(p[0], p[1]))]"
+ },
+ {
+  "id": "s2-k206-1",
+  "sketch_id": "k206",
+  "category": "strings",
+  "description": "Write a function to find the longest palindrome in a list of words, taking the first one in case of a tie, and to return an empty string if the list holds no palindrome.",
+  "entry_point": "longest_palindrome_word",
+  "inputs": [
+   "(['noon', 'abc', 'racecar', 'level'],)",
+   "(['ab', 'cd'],)",
+   "(['a', 'bb', 'cc'],)"
+  ],
+  "expression": "max([w for w in a0 if w == w[::-1]], key=len, default='')"
+ },
+ {
+  "id": "s2-k206-2",
+  "sketch_id": "k206",
+  "category": "nested",
+  "description": "Given a list of football results as (home team, away team, home goals, away goals) tuples, write a function to return the drawn match with the most goals, the first one in case of a tie, or an empty tuple if no match was drawn.",
+  "entry_point": "highest_scoring_draw",
+  "inputs": [
+   "([('ars', 'che', 1, 1), ('liv', 'mun', 2, 0), ('tot', 'new', 3, 3)],)",
+   "([('a', 'b', 1, 0)],)",
+   "([('x', 'y', 0, 0)],)"
+  ],
+  "expression": "max([r for r in a0 if r[2] == r[3]], key=lambda r: r[2], default=())"
+ },
+ {
+  "id": "s2-k206-3",
+  "sketch_id": "k206",
+  "category": "strings",
+  "description": "Given a dictionary from words to how often they occur, write a function to return the most frequent word that starts and ends with the same letter, the first one in case of a tie, or an empty string if there is no such word.",
+  "entry_point": "most_frequent_same_ends",
+  "inputs": [
+   "({'level': 3, 'apple': 9, 'eve': 5, 'tree': 2},)",
+   "({'cat': 2, 'dog': 4},)",
+   "({'aha': 1, 'did': 1},)"
+  ],
+  "expression": "max([w for w in a0 if w[0] == w[-1]], key=a0.get, default='')"
+ },
+ {
+  "id": "s2-k206-4",
+  "sketch_id": "k206",
+  "category": "nested",
+  "description": "Write a function to return the longest of the given lists that has no repeated values, the first one in case of a tie, or an empty list if every list has a repeated value.",
+  "entry_point": "longest_without_repeats",
+  "inputs": [
+   "([[1, 2, 2], [3, 1, 4], [5, 6]],)",
+   "([[1, 1]],)",
+   "([[7], [8, 9], [1, 2, 1]],)"
+  ],
+  "expression": "max([r for r in a0 if len(r) == len(set(r))], key=len, default=[])"
+ },
+ {
+  "id": "s2-k210-1",
+  "sketch_id": "k210",
+  "category": "strings",
+  "description": "Write a function that takes a line of comma-separated fields and a field number counting from 1, and returns that field without its trailing spaces.",
+  "entry_point": "csv_field",
+  "inputs": [
+   "('ann  ,42 ,oslo', 1)",
+   "('ann  ,42 ,oslo', 2)",
+   "('x,y   ', 2)"
+  ],
+  "expression": "a0.split(',')[a1 - 1].rstrip()"
+ },
+ {
+  "id": "s2-k210-2",
+  "sketch_id": "k210",
+  "category": "sequences",
+  "description": "Given a list with an odd number of lines of text, write a function to return the middle line with any trailing whitespace removed.",
+  "entry_point": "middle_line",
+  "inputs": [
+   "(['first', 'second  ', 'third'],)",
+   "(['only one   '],)",
+   "(['a', 'b', 'c ', 'd', 'e'],)"
+  ],
+  "expression": "a0[len(a0) // 2].rstrip()"
+ },
+ {
+  "id": "s2-k210-3",
+  "sketch_id": "k210",
+  "category": "nested",
+  "description": "Given a table as a list of rows of padded strings, a row number and a column number, both counting from 1, write a function to return the text of that cell without its trailing spaces.",
+  "entry_point": "table_cell",
+  "inputs": [
+   "([['ann  ', 'oslo '], ['bob  ', 'rome ']], 2, 1)",
+   "([['ann  ', 'oslo '], ['bob  ', 'rome ']], 1, 2)",
+   "([['x ']], 1, 1)"
+  ],
+  "expression": "a0[a1 - 1][a2 - 1].rstrip()"
+ },
+ {
+  "id": "s2-k210-4",
+  "sketch_id": "k210",
+  "category": "strings",
+  "description": "Write a function to remove the comment from a line of Python code, returning the part before the first '#' with its trailing spaces removed.",
+  "entry_point": "strip_comment",
+  "inputs": [
+   "('x = 1  # set x',)",
+   "('print(2)',)",
+   "('# only a comment',)"
+  ],
+  "expression": "a0.split('#', 1)[0].rstrip()"
+ },
+ {
+  "id": "s2-k044-1",
+  "sketch_id": "k044",
+  "category": "strings",
+  "description": "Given a list of words and a letter, write a function that returns 'Yes' if some word starts with that letter, ignoring case, and 'No' otherwise.",
+  "entry_point": "some_word_starts_with",
+  "inputs": [
+   "(['Apple', 'banana', 'Cherry'], 'c')",
+   "(['dog', 'emu'], 'z')",
+   "(['kiwi'], 'K')"
+  ],
+  "expression": "'Yes' if any(w.lower().startswith(a1.lower()) for w in a0) else 'No'"
+ },
+ {
+  "id": "s2-k044-2",
+  "sketch_id": "k044",
+  "category": "strings",
+  "description": "Write a function that returns 'Hard to read' if some word of a sentence has more than k letters and 'Easy to read' otherwise.",
+  "entry_point": "readability_label",
+  "inputs": [
+   "('a remarkably long word', 8)",
+   "('the cat sat', 3)",
+   "('tiny words only', 6)"
+  ],
+  "expression": "'Hard to read' if any(len(w) > a1 for w in a0.split()) else 'Easy to read'"
+ },
+ {
+  "id": "s2-k044-3",
+  "sketch_id": "k044",
+  "category": "numbers",
+  "description": "Given a dictionary of stock levels per item and a minimum level, write a function that returns 'Reorder' if the stock of any item is below the minimum and 'OK' otherwise.",
+  "entry_point": "reorder_check",
+  "inputs": [
+   "({'pens': 12, 'ink': 2, 'pads': 7}, 5)",
+   "({'pens': 12}, 5)",
+   "({}, 3)"
+  ],
+  "expression": "'Reorder' if any(v < a1 for v in a0.values()) else 'OK'"
+ },
+ {
+  "id": "s2-k044-4",
+  "sketch_id": "k044",
+  "category": "numbers",
+  "description": "Given a list of bank transactions, with deposits positive and withdrawals negative, and a limit, write a function that returns 'Flagged' if any single withdrawal is larger than the limit and 'Clear' otherwise.",
+  "entry_point": "flag_withdrawals",
+  "inputs": [
+   "([100, -40, -250, 30], 200)",
+   "([-50, 20], 100)",
+   "([500], 100)"
+  ],
+  "expression": "'Flagged' if any(-t > a1 for t in a0) else 'Clear'"
+ },
+ {
+  "id": "s2-k016-1",
+  "sketch_id": "k016",
+  "category": "strings",
+  "description": "Write a function that returns 'Valid' if a password is at least 8 characters long and made only of letters and digits, and 'Invalid' otherwise.",
+  "entry_point": "password_check",
+  "inputs": [
+   "('secret123',)",
+   "('abc',)",
+   "('pass word1',)"
+  ],
+  "expression": "'Valid' if len(a0) >= 8 and a0.isalnum() else 'Invalid'"
+ },
+ {
+  "id": "s2-k016-2",
+  "sketch_id": "k016",
+  "category": "nested",
+  "description": "Given a point as an (x, y) tuple, write a function that returns 'First quadrant' if both of its coordinates are positive and 'Elsewhere' otherwise.",
+  "entry_point": "quadrant_label",
+  "inputs": [
+   "((3, 4),)",
+   "((-1, 2),)",
+   "((5, 0),)"
+  ],
+  "expression": "'First quadrant' if a0[0] > 0 and a0[1] > 0 else 'Elsewhere'"
+ },
+ {
+  "id": "s2-k016-3",
+  "sketch_id": "k016",
+  "category": "predicates",
+  "description": "Given a dictionary from user names to whether their account is active, and a user name, write a function that returns 'Welcome' if the user exists and is active, and 'Access denied' otherwise.",
+  "entry_point": "login_message",
+  "inputs": [
+   "({'ann': True, 'bob': False}, 'ann')",
+   "({'ann': True, 'bob': False}, 'bob')",
+   "({'ann': True}, 'cy')"
+  ],
+  "expression": "'Welcome' if a1 in a0 and a0[a1] else 'Access denied'"
+ },
+ {
+  "id": "s2-k016-4",
+  "sketch_id": "k016",
+  "category": "sequences",
+  "description": "Given a list of sensor readings, a lower limit and an upper limit, write a function that returns 'In range' if every reading lies between the two limits, inclusive, and 'Out of range' otherwise.",
+  "entry_point": "readings_in_range",
+  "inputs": [
+   "([12, 15, 11], 10, 20)",
+   "([12, 25], 10, 20)",
+   "([9], 10, 20)"
+  ],
+  "expression": "'In range' if min(a0) >= a1 and max(a0) <= a2 else 'Out of range'"
+ },
+ {
+  "id": "s2-k203-1",
+  "sketch_id": "k203",
+  "category": "strings",
+  "description": "Given a list of dates written as 'yyyy-mm-dd', write a function to return the distinct years as integers, in order of first appearance.",
+  "entry_point": "distinct_years",
+  "inputs": [
+   "(['2021-05-01', '2019-12-31', '2021-01-15'],)",
+   "(['2000-01-01'],)",
+   "(['1999-07-04', '1999-08-09', '2001-02-03', '1998-01-01'],)"
+  ],
+  "expression": "dedupe_1([int(d[:4]) for d in a0])"
+ },
+ {
+  "id": "s2-k203-2",
+  "sketch_id": "k203",
+  "category": "numbers",
+  "description": "Write a function to list the distinct values of k * k % n for k from 0 to n - 1, in order of first appearance.",
+  "entry_point": "square_residues",
+  "inputs": [
+   "(7,)",
+   "(5,)",
+   "(10,)"
+  ],
+  "expression": "dedupe_1([k * k % a0 for k in range(a0)])"
+ },
+ {
+  "id": "s2-k203-3",
+  "sketch_id": "k203",
+  "category": "strings",
+  "description": "Write a function to return the distinct first letters of the words of a sentence, in lowercase and in order of first appearance.",
+  "entry_point": "distinct_initials",
+  "inputs": [
+   "('Peter picked a peck of Pickled peppers',)",
+   "('One',)",
+   "('big Bad bear and ant',)"
+  ],
+  "expression": "dedupe_1([w[0].lower() for w in a0.split()])"
+ },
+ {
+  "id": "s2-k203-4",
+  "sketch_id": "k203",
+  "category": "nested",
+  "description": "Write a function to return the distinct ranges (largest minus smallest element) of the inner lists of a list of lists, in order of first appearance.",
+  "entry_point": "distinct_row_ranges",
+  "inputs": [
+   "([[1, 5], [2, 6, 4], [3, 3]],)",
+   "([[7]],)",
+   "([[1, 2], [10, 20], [5, 6]],)"
+  ],
+  "expression": "dedupe_1([max(r) - min(r) for r in a0])"
+ },
+ {
+  "id": "s2-k237-1",
+  "sketch_id": "k237",
+  "category": "nested",
+  "description": "Given two airports as dictionaries with keys 'lat' and 'lon' holding their coordinates in radians, write a function to compute the flight distance between them in miles along the surface of the Earth, using an Earth radius of 3959 miles.",
+  "entry_point": "flight_miles",
+  "inputs": [
+   "({'lat': 0.71, 'lon': -1.29}, {'lat': 0.59, 'lon': -2.07})",
+   "({'lat': 0.9, 'lon': 0.0}, {'lat': 0.9, 'lon': 0.1})",
+   "({'lat': 0.0, 'lon': 0.0}, {'lat': 0.5, 'lon': 0.5})"
+  ],
+  "expression": "3959 * math.acos(math.sin(a0['lat']) * math.sin(a1['lat']) + math.cos(a0['lat']) * math.cos(a1['lat']) * math.cos(a0['lon'] - a1['lon']))"
+ },
+ {
+  "id": "s2-k237-2",
+  "sketch_id": "k237",
+  "category": "nested",
+  "description": "Write a function to find the great-circle distance between two points on a sphere of radius r, where each point is a (longitude, latitude) tuple in radians with the longitude first, as in GeoJSON, and r is the third argument.",
+  "entry_point": "geojson_distance",
+  "inputs": [
+   "((0.2, 0.1), (0.4, 0.3), 2)",
+   "((1.0, 0.5), (1.5, 0.5), 10)",
+   "((0.0, 0.0), (1.0, 0.0), 1)"
+  ],
+  "expression": "a2 * math.acos(math.sin(a0[1]) * math.sin(a1[1]) + math.cos(a0[1]) * math.cos(a1[1]) * math.cos(a0[0] - a1[0]))"
+ },
+ {
+  "id": "s2-k237-3",
+  "sketch_id": "k237",
+  "category": "numbers",
+  "description": "Given a tuple with the latitudes of two places and a tuple with their longitudes, all in radians, write a function to compute the distance between the places in kilometres along the surface of the Earth, taking its radius as 6371.",
+  "entry_point": "distance_from_coordinate_pairs",
+  "inputs": [
+   "((0.2, 0.6), (0.4, 1.3))",
+   "((0.0, 0.0), (0.0, 0.5))",
+   "((1.2, -0.4), (2.0, 2.5))"
+  ],
+  "expression": "6371 * math.acos(math.sin(a0[0]) * math.sin(a0[1]) + math.cos(a0[0]) * math.cos(a0[1]) * math.cos(a1[0] - a1[1]))"
+ },
+ {
+  "id": "s2-k237-4",
+  "sketch_id": "k237",
+  "category": "nested",
+  "description": "Given two ports as (name, latitude, longitude) tuples with the angles in radians, write a function to compute the sailing distance between them in nautical miles along a great circle, taking the radius of the Earth as 3440 nautical miles.",
+  "entry_point": "sailing_distance",
+  "inputs": [
+   "(('oslo', 1.04, 0.19), ('rome', 0.73, 0.22))",
+   "(('lima', -0.21, -1.35), ('suva', -0.32, 3.1))",
+   "(('a', 0.0, 0.0), ('b', 0.0, 1.0))"
+  ],
+  "expression": "3440 * math.acos(math.sin(a0[1]) * math.sin(a1[1]) + math.cos(a0[1]) * math.cos(a1[1]) * math.cos(a0[2] - a1[2]))"
+ },
+ {
+  "id": "s2-k124-1",
+  "sketch_id": "k124",
+  "category": "sequences",
+  "description": "Write a function to reverse the first k elements of a list and, separately, the remaining elements, and return the two reversed parts joined into one list.",
+  "entry_point": "reverse_both_parts",
+  "inputs": [
+   "([1, 2, 3, 4, 5], 2)",
+   "(['a', 'b', 'c'], 0)",
+   "([7, 8], 2)"
+  ],
+  "expression": "list(reversed(a0[:a1])) + list(reversed(a0[a1:]))"
+ },
+ {
+  "id": "s2-k124-2",
+  "sketch_id": "k124",
+  "category": "strings",
+  "description": "Given two strings of integers separated by spaces, write a function to return one list holding the numbers of the first string followed by the numbers of the second string, as integers.",
+  "entry_point": "numbers_from_two_lines",
+  "inputs": [
+   "('3 14 15', '9 2')",
+   "('', '7')",
+   "('-1 0', '')"
+  ],
+  "expression": "list(map(int, a0.split())) + list(map(int, a1.split()))"
+ },
+ {
+  "id": "s2-k124-3",
+  "sketch_id": "k124",
+  "category": "numbers",
+  "description": "Write a function to list all the integers from a to b, inclusive, followed by all the integers from c to d, inclusive.",
+  "entry_point": "two_ranges",
+  "inputs": [
+   "(1, 3, 7, 9)",
+   "(5, 4, 0, 1)",
+   "(-2, -1, 10, 10)"
+  ],
+  "expression": "list(range(a0, a1 + 1)) + list(range(a2, a3 + 1))"
+ },
+ {
+  "id": "s2-k124-4",
+  "sketch_id": "k124",
+  "category": "nested",
+  "description": "Given a dictionary of item prices and two shopping baskets as lists of item names, write a function to return one list with the prices of the items in the first basket followed by the prices of the items in the second basket.",
+  "entry_point": "basket_prices",
+  "inputs": [
+   "({'tea': 3, 'jam': 5, 'egg': 1}, ['tea', 'egg'], ['jam'])",
+   "({'tea': 3}, [], ['tea', 'tea'])",
+   "({'a': 2, 'b': 4}, ['b'], [])"
+  ],
+  "expression": "list(map(a0.get, a1)) + list(map(a0.get, a2))"
+ },
+ {
+  "id": "s2-k200-1",
+  "sketch_id": "k200",
+  "category": "strings",
+  "description": "Write a function that builds a new string from a word by repeating each of its characters as many times as its position in the word, counting from 1.",
+  "entry_point": "accumulate_letters",
+  "inputs": [
+   "('abc',)",
+   "('x',)",
+   "('hey',)"
+  ],
+  "expression": "''.join(c * i for i, c in enumerate(a0, 1))"
+ },
+ {
+  "id": "s2-k200-2",
+  "sketch_id": "k200",
+  "category": "nested",
+  "description": "Given a list of (first name, last name) tuples, write a function to return one string with every name written as 'last first' and the names separated by a semicolon and a space.",
+  "entry_point": "surname_first_list",
+  "inputs": [
+   "([('ada', 'lovelace'), ('alan', 'turing')],)",
+   "([('grace', 'hopper')],)",
+   "([],)"
+  ],
+  "expression": "'; '.join(l + ' ' + f for f, l in a0)"
+ },
+ {
+  "id": "s2-k200-3",
+  "sketch_id": "k200",
+  "category": "strings",
+  "description": "Given two equally long strings of digits, write a function to return the string made of the larger of the two digits at each position.",
+  "entry_point": "larger_digits",
+  "inputs": [
+   "('1593', '4281')",
+   "('00', '99')",
+   "('7', '3')"
+  ],
+  "expression": "''.join(max(a, b) for a, b in zip(a0, a1))"
+ },
+ {
+  "id": "s2-k200-4",
+  "sketch_id": "k200",
+  "category": "strings",
+  "description": "Given a string and an equally long list of booleans, write a function to return the string with every character whose flag is True replaced by '*'.",
+  "entry_point": "mask_flagged",
+  "inputs": [
+   "('secret', [False, True, True, False, True, False])",
+   "('ab', [False, False])",
+   "('pin', [True, True, True])"
+  ],
+  "expression": "''.join('*' if f else c for c, f in zip(a0, a1))"
+ },
+ {
+  "id": "s2-k005-1",
+  "sketch_id": "k005",
+  "category": "numbers",
+  "description": "Write a function to find the sum of all the multiples of k that are smaller than n, with k given first.",
+  "entry_point": "sum_of_multiples_below",
+  "inputs": [
+   "(3, 10)",
+   "(5, 5)",
+   "(4, 17)"
+  ],
+  "expression": "sum(x for x in range(a1) if x % a0 == 0)"
+ },
+ {
+  "id": "s2-k005-2",
+  "sketch_id": "k005",
+  "category": "numbers",
+  "description": "Given a dictionary of product prices and a limit, write a function to return the total of the prices that are above the limit.",
+  "entry_point": "total_above_limit",
+  "inputs": [
+   "({'tv': 400, 'cable': 15, 'radio': 60}, 50)",
+   "({'pen': 2}, 10)",
+   "({'a': 11, 'b': 12}, 10)"
+  ],
+  "expression": "sum(v for v in a0.values() if v > a1)"
+ },
+ {
+  "id": "s2-k005-3",
+  "sketch_id": "k005",
+  "category": "strings",
+  "description": "Write a function to add up all the digits that appear in a string.",
+  "entry_point": "sum_of_digit_characters",
+  "inputs": [
+   "('a1b2c3',)",
+   "('no digits',)",
+   "('room 404',)"
+  ],
+  "expression": "sum(int(c) for c in a0 if c.isdigit())"
+ },
+ {
+  "id": "s2-k005-4",
+  "sketch_id": "k005",
+  "category": "nested",
+  "description": "Given a list of bank transactions as (kind, amount) tuples, where the kind is 'in' or 'out', write a function to return the total amount of the 'out' transactions.",
+  "entry_point": "total_outgoing",
+  "inputs": [
+   "([('in', 50), ('out', 20), ('out', 5)],)",
+   "([('in', 10)],)",
+   "([('out', 7), ('in', 3), ('out', 1)],)"
+  ],
+  "expression": "sum(t[1] for t in a0 if t[0] == 'out')"
+ },
+ {
+  "id": "s2-k079-1",
+  "sketch_id": "k079",
+  "category": "sequences",
+  "description": "Write a function to check whether every two neighbouring numbers in a list differ by exactly 1, in either direction.",
+  "entry_point": "steps_of_one",
+  "inputs": [
+   "([3, 4, 3, 2],)",
+   "([1, 2, 4],)",
+   "([5],)"
+  ],
+  "expression": "all(abs(b - a) == 1 for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "s2-k079-2",
+  "sketch_id": "k079",
+  "category": "numbers",
+  "description": "Write a function to check whether the numbers of a list alternate between even and odd, that is, whether every two neighbours add up to an odd number.",
+  "entry_point": "alternating_parity",
+  "inputs": [
+   "([2, 5, 8, 1],)",
+   "([1, 3],)",
+   "([4, 7, 6, 6],)"
+  ],
+  "expression": "all((a + b) % 2 == 1 for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "s2-k079-3",
+  "sketch_id": "k079",
+  "category": "strings",
+  "description": "Write a function to check whether each word of a list is exactly one letter longer than the word before it.",
+  "entry_point": "word_staircase",
+  "inputs": [
+   "(['a', 'an', 'ant', 'ants'],)",
+   "(['cat', 'dog'],)",
+   "(['be', 'bee', 'beef', 'beefs'],)"
+  ],
+  "expression": "all(len(b) - len(a) == 1 for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "s2-k079-4",
+  "sketch_id": "k079",
+  "category": "strings",
+  "description": "Write a function to check whether every word of a sentence starts with the same letter as the word after it, ignoring letter case.",
+  "entry_point": "is_tautogram",
+  "inputs": [
+   "('Peter Piper picked peppers',)",
+   "('big blue sea',)",
+   "('Hello',)"
+  ],
+  "expression": "all(a[0].lower() == b[0].lower() for a, b in zip(a0.split(), a0.split()[1:]))"
+ },
+ {
+  "id": "s2-k173-1",
+  "sketch_id": "k173",
+  "category": "sequences",
+  "description": "Write a function to check whether a list ends with the given non-empty sublist.",
+  "entry_point": "ends_with_sublist",
+  "inputs": [
+   "([1, 2, 3, 4], [3, 4])",
+   "([1, 2, 3], [2])",
+   "(['a', 'b'], ['a', 'b'])"
+  ],
+  "expression": "a0[-len(a1):] == a1"
+ },
+ {
+  "id": "s2-k173-2",
+  "sketch_id": "k173",
+  "category": "strings",
+  "description": "Write a function to check whether a string begins and ends with the same k characters.",
+  "entry_point": "same_border",
+  "inputs": [
+   "('abcxyzabc', 3)",
+   "('hello', 2)",
+   "('onion', 2)"
+  ],
+  "expression": "a0[len(a0) - a1:] == a0[:a1]"
+ },
+ {
+  "id": "s2-k173-3",
+  "sketch_id": "k173",
+  "category": "numbers",
+  "description": "Write a function to check whether the decimal digits of a positive integer n end with the digits of a positive integer m.",
+  "entry_point": "ends_with_number",
+  "inputs": [
+   "(12345, 45)",
+   "(2024, 23)",
+   "(76, 76)"
+  ],
+  "expression": "str(a0)[-len(str(a1)):] == str(a1)"
+ },
+ {
+  "id": "s2-k173-4",
+  "sketch_id": "k173",
+  "category": "strings",
+  "description": "Given an email address and a domain, write a function to check whether the address belongs to that domain, meaning that the part after the '@' is exactly the domain.",
+  "entry_point": "in_domain",
+  "inputs": [
+   "('ann@example.com', 'example.com')",
+   "('bob@mail.org', 'example.com')",
+   "('cy@sub.example.com', 'example.com')"
+  ],
+  "expression": "a0[a0.index('@') + 1:] == a1"
+ },
+ {
+  "id": "s2-k015-1",
+  "sketch_id": "k015",
+  "category": "nested",
+  "description": "Given a list of (name, city) tuples and a city, write a function to return the names of the people who live in that city, comparing city names without regard to case.",
+  "entry_point": "residents_of",
+  "inputs": [
+   "([('ann', 'Oslo'), ('bob', 'Rome'), ('cy', 'oslo')], 'OSLO')",
+   "([('dan', 'Rome')], 'Paris')",
+   "([('eve', 'paris')], 'Paris')"
+  ],
+  "expression": "[p[0] for p in a0 if p[1].lower() == a1.lower()]"
+ },
+ {
+  "id": "s2-k015-2",
+  "sketch_id": "k015",
+  "category": "strings",
+  "description": "Write a function to find the words in a list that are anagrams of a given word, ignoring letter case.",
+  "entry_point": "anagrams_of",
+  "inputs": [
+   "(['Listen', 'enlist', 'google', 'Silent'], 'listen')",
+   "(['abc'], 'xyz')",
+   "(['Dusty', 'study'], 'STUDY')"
+  ],
+  "expression": "[w for w in a0 if sorted(w.lower()) == sorted(a1.lower())]"
+ },
+ {
+  "id": "s2-k015-3",
+  "sketch_id": "k015",
+  "category": "numbers",
+  "description": "Write a function to return the elements of a list of integers that are equal to the sum of all the other elements.",
+  "entry_point": "equal_to_rest",
+  "inputs": [
+   "([1, 2, 3],)",
+   "([4, 5],)",
+   "([-1, 2, -3, 0, -2],)"
+  ],
+  "expression": "[x for x in a0 if 2 * x == sum(a0)]"
+ },
+ {
+  "id": "s2-k015-4",
+  "sketch_id": "k015",
+  "category": "strings",
+  "description": "Write a function to return the positions in a string at which a character is the same as the character right after it.",
+  "entry_point": "doubled_positions",
+  "inputs": [
+   "('bookkeeper',)",
+   "('abc',)",
+   "('aaa',)"
+  ],
+  "expression": "[i for i in range(len(a0) - 1) if a0[i] == a0[i + 1]]"
+ },
+ {
+  "id": "s2-k071-1",
+  "sketch_id": "k071",
+  "category": "strings",
+  "description": "Write a function to count the vowels in a list of lowercase words, taking the letters in 'aeiou' as vowels.",
+  "entry_point": "count_vowels_in_words",
+  "inputs": [
+   "(['apple', 'sky', 'tree'],)",
+   "(['rhythm'],)",
+   "(['queue', 'io'],)"
+  ],
+  "expression": "sum(1 for w in a0 for c in w if c in 'aeiou')"
+ },
+ {
+  "id": "s2-k071-2",
+  "sketch_id": "k071",
+  "category": "numbers",
+  "description": "Write a function to count how many times the digit d, given as a one-character string, is written when all the numbers from 1 to n are written out.",
+  "entry_point": "digit_written_count",
+  "inputs": [
+   "(13, '1')",
+   "(5, '7')",
+   "(20, '2')"
+  ],
+  "expression": "sum(1 for k in range(1, a0 + 1) for c in str(k) if c == a1)"
+ },
+ {
+  "id": "s2-k071-3",
+  "sketch_id": "k071",
+  "category": "sequences",
+  "description": "Write a function to count the ways to pick one number from each of two lists so that the two numbers add up to a target.",
+  "entry_point": "count_target_pairs",
+  "inputs": [
+   "([1, 2, 3], [4, 5], 6)",
+   "([1], [1], 5)",
+   "([2, 2], [3, 3], 5)"
+  ],
+  "expression": "sum(1 for x in a0 for y in a1 if x + y == a2)"
+ },
+ {
+  "id": "s2-k071-4",
+  "sketch_id": "k071",
+  "category": "nested",
+  "description": "Write a function to count the negative numbers in a matrix given as a list of rows.",
+  "entry_point": "count_negatives_in_matrix",
+  "inputs": [
+   "([[1, -2], [-3, 4], [0, -1]],)",
+   "([[5]],)",
+   "([[-1, -1, -1]],)"
+  ],
+  "expression": "sum(1 for r in a0 for x in r if x < 0)"
+ },
+ {
+  "id": "s2-k243-1",
+  "sketch_id": "k243",
+  "category": "nested",
+  "description": "Given a tuple of non-empty tuples of numbers, write a function to return a tuple with the average of each inner tuple.",
+  "entry_point": "inner_averages",
+  "inputs": [
+   "(((1, 2, 3), (4, 6)),)",
+   "(((10,),),)",
+   "(((1, 2), (3, 3, 3), (0, 5)),)"
+  ],
+  "expression": "tuple(sum(t) / len(t) for t in a0)"
+ },
+ {
+  "id": "s2-k243-2",
+  "sketch_id": "k243",
+  "category": "strings",
+  "description": "Write a function to return a tuple of the words of a sentence, each one written backwards.",
+  "entry_point": "backwards_words",
+  "inputs": [
+   "('hello big world',)",
+   "('a',)",
+   "('stop pots',)"
+  ],
+  "expression": "tuple(w[::-1] for w in a0.split())"
+ },
+ {
+  "id": "s2-k243-3",
+  "sketch_id": "k243",
+  "category": "numbers",
+  "description": "Write a function to return a tuple of the squares of the integers from 1 to n.",
+  "entry_point": "square_tuple",
+  "inputs": [
+   "(4,)",
+   "(1,)",
+   "(0,)"
+  ],
+  "expression": "tuple(k * k for k in range(1, a0 + 1))"
+ },
+ {
+  "id": "s2-k243-4",
+  "sketch_id": "k243",
+  "category": "nested",
+  "description": "Given a dictionary and a tuple of keys, write a function to return a tuple of the values stored under those keys, using 0 for any key that is missing.",
+  "entry_point": "values_for_keys",
+  "inputs": [
+   "({'a': 5, 'b': 7}, ('b', 'c', 'a'))",
+   "({}, ('x',))",
+   "({'x': 1}, ())"
+  ],
+  "expression": "tuple(a0.get(k, 0) for k in a1)"
+ },
+ {
+  "id": "s2-k027-1",
+  "sketch_id": "k027",
+  "category": "numbers",
+  "description": "Write a function to check whether n is a positive multiple of k.",
+  "entry_point": "is_positive_multiple",
+  "inputs": [
+   "(12, 4)",
+   "(-8, 4)",
+   "(10, 3)"
+  ],
+  "expression": "a0 > 0 and a0 % a1 == 0"
+ },
+ {
+  "id": "s2-k027-2",
+  "sketch_id": "k027",
+  "category": "strings",
+  "description": "Write a function to check whether a string contains at least one digit and at least one letter.",
+  "entry_point": "has_digit_and_letter",
+  "inputs": [
+   "('abc123',)",
+   "('2024',)",
+   "('x',)"
+  ],
+  "expression": "any(c.isdigit() for c in a0) and any(c.isalpha() for c in a0)"
+ },
+ {
+  "id": "s2-k027-3",
+  "sketch_id": "k027",
+  "category": "sequences",
+  "description": "Write a function to check whether a list is non-empty and sorted in non-decreasing order.",
+  "entry_point": "nonempty_and_sorted",
+  "inputs": [
+   "([1, 2, 2, 5],)",
+   "([],)",
+   "([3, 1],)"
+  ],
+  "expression": "len(a0) > 0 and a0 == sorted(a0)"
+ },
+ {
+  "id": "s2-k027-4",
+  "sketch_id": "k027",
+  "category": "predicates",
+  "description": "Given a dictionary of contact details, write a function to check whether it has both an 'email' entry and a 'phone' entry.",
+  "entry_point": "has_email_and_phone",
+  "inputs": [
+   "({'email': 'a@b.org', 'phone': '555-01'},)",
+   "({'email': 'x@y.org'},)",
+   "({},)"
+  ],
+  "expression": "'email' in a0 and 'phone' in a0"
+ },
+ {
+  "id": "s2-k094-1",
+  "sketch_id": "k094",
+  "category": "strings",
+  "description": "Given a dictionary from student names to grades and a minimum grade, write a function to return the names of the students whose grade is at least the minimum, in alphabetical order.",
+  "entry_point": "students_meeting_minimum",
+  "inputs": [
+   "({'zoe': 81, 'adam': 92, 'max': 55}, 60)",
+   "({'kim': 40}, 50)",
+   "({'b': 70, 'a': 70}, 70)"
+  ],
+  "expression": "sorted(n for n, g in a0.items() if g >= a1)"
+ },
+ {
+  "id": "s2-k094-2",
+  "sketch_id": "k094",
+  "category": "nested",
+  "description": "Given a list of (city, temperature) readings and a city, write a function to return the temperatures recorded in that city, from lowest to highest.",
+  "entry_point": "city_temperatures",
+  "inputs": [
+   "([('oslo', 5), ('rome', 18), ('oslo', -2), ('oslo', 3)], 'oslo')",
+   "([('rome', 20)], 'oslo')",
+   "([('nice', 9), ('nice', 7)], 'nice')"
+  ],
+  "expression": "sorted(t for c, t in a0 if c == a1)"
+ },
+ {
+  "id": "s2-k094-3",
+  "sketch_id": "k094",
+  "category": "strings",
+  "description": "Write a function to return, in sorted order, the characters of a string that stand at even positions, counting positions from 0.",
+  "entry_point": "even_position_chars_sorted",
+  "inputs": [
+   "('python',)",
+   "('a',)",
+   "('dcba',)"
+  ],
+  "expression": "sorted(c for i, c in enumerate(a0) if i % 2 == 0)"
+ },
+ {
+  "id": "s2-k094-4",
+  "sketch_id": "k094",
+  "category": "sequences",
+  "description": "Given a list of words and an equally long list of booleans that mark some of them, write a function to return the marked words in alphabetical order.",
+  "entry_point": "marked_words_sorted",
+  "inputs": [
+   "(['pear', 'fig', 'apple'], [True, False, True])",
+   "(['kiwi'], [False])",
+   "(['b', 'a'], [True, True])"
+  ],
+  "expression": "sorted(w for w, m in zip(a0, a1) if m)"
+ },
+ {
+  "id": "s2-k123-1",
+  "sketch_id": "k123",
+  "category": "numbers",
+  "description": "Write a function to find the sum of the products x * y over all pairs of integers with 1 <= x < y <= n.",
+  "entry_point": "sum_of_pair_products",
+  "inputs": [
+   "(3,)",
+   "(1,)",
+   "(4,)"
+  ],
+  "expression": "sum(x * y for x in range(1, a0 + 1) for y in range(x + 1, a0 + 1))"
+ },
+ {
+  "id": "s2-k123-2",
+  "sketch_id": "k123",
+  "category": "sequences",
+  "description": "Write a function to find the total of the sums of all the contiguous sublists of a list of numbers.",
+  "entry_point": "total_of_sublist_sums",
+  "inputs": [
+   "([1, 2, 3],)",
+   "([5],)",
+   "([1, -1],)"
+  ],
+  "expression": "sum(sum(a0[i:j]) for i in range(len(a0)) for j in range(i + 1, len(a0) + 1))"
+ },
+ {
+  "id": "s2-k123-3",
+  "sketch_id": "k123",
+  "category": "strings",
+  "description": "Write a function to count the non-empty substrings of a string that consist only of digits.",
+  "entry_point": "count_digit_substrings",
+  "inputs": [
+   "('a12b3',)",
+   "('abc',)",
+   "('2024',)"
+  ],
+  "expression": "sum(a0[i:j].isdigit() for i in range(len(a0)) for j in range(i + 1, len(a0) + 1))"
+ },
+ {
+  "id": "s2-k123-4",
+  "sketch_id": "k123",
+  "category": "nested",
+  "description": "Write a function to find the sum of the elements above the main diagonal of a square matrix.",
+  "entry_point": "upper_triangle_sum",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6], [7, 8, 9]],)",
+   "([[5]],)",
+   "([[0, -1], [9, 0]],)"
+  ],
+  "expression": "sum(a0[i][j] for i in range(len(a0)) for j in range(i + 1, len(a0)))"
+ },
+ {
+  "id": "s2-k098-1",
+  "sketch_id": "k098",
+  "category": "numbers",
+  "description": "A taxi charges a base fare plus a fixed price for every started kilometre; given the base fare, the price per kilometre and the distance in metres, write a function to compute the fare, with 1000 metres in a kilometre.",
+  "entry_point": "taxi_fare",
+  "inputs": [
+   "(3, 2, 4500)",
+   "(5, 1, 1000)",
+   "(4, 3, 0)"
+  ],
+  "expression": "a0 + a1 * math.ceil(a2 / 1000)"
+ },
+ {
+  "id": "s2-k098-2",
+  "sketch_id": "k098",
+  "category": "sequences",
+  "description": "Write a function to find the length of the line formed by joining the words of a non-empty list with k spaces between neighbouring words.",
+  "entry_point": "joined_line_length",
+  "inputs": [
+   "(['the', 'cat', 'sat'], 2)",
+   "(['hello'], 3)",
+   "(['a', 'bc'], 1)"
+  ],
+  "expression": "sum(map(len, a0)) + a1 * (len(a0) - 1)"
+ },
+ {
+  "id": "s2-k098-3",
+  "sketch_id": "k098",
+  "category": "strings",
+  "description": "Write a function to find the length a text would have after every tab character in it is replaced by k spaces.",
+  "entry_point": "length_after_expanding_tabs",
+  "inputs": [
+   "('a\\tb\\tc', 4)",
+   "('no tabs', 8)",
+   "('\\t', 2)"
+  ],
+  "expression": "len(a0) + (a1 - 1) * a0.count('\\t')"
+ },
+ {
+  "id": "s2-k098-4",
+  "sketch_id": "k098",
+  "category": "numbers",
+  "description": "Write a function to compute the cost of fencing a rectangular garden of length l and width w at a price of p per metre of fence, plus a fixed fee f for the gate.",
+  "entry_point": "fencing_cost",
+  "inputs": [
+   "(10, 5, 3, 50)",
+   "(1, 1, 10, 0)",
+   "(4, 2, 0, 25)"
+  ],
+  "expression": "a3 + a2 * (2 * (a0 + a1))"
+ },
+ {
+  "id": "s2-k040-1",
+  "sketch_id": "k040",
+  "category": "strings",
+  "description": "Given a list of email addresses, write a function to build a dictionary that maps each user name, the part before the '@', to its domain, the part after it.",
+  "entry_point": "user_domains",
+  "inputs": [
+   "(['ann@mail.com', 'bob@uni.edu'],)",
+   "([],)",
+   "(['x@y.org'],)"
+  ],
+  "expression": "{e.split('@')[0]: e.split('@')[1] for e in a0}"
+ },
+ {
+  "id": "s2-k040-2",
+  "sketch_id": "k040",
+  "category": "numbers",
+  "description": "Write a function to build a dictionary that maps each integer from 1 to n to its square.",
+  "entry_point": "square_map",
+  "inputs": [
+   "(3,)",
+   "(1,)",
+   "(5,)"
+  ],
+  "expression": "{k: k * k for k in range(1, a0 + 1)}"
+ },
+ {
+  "id": "s2-k040-3",
+  "sketch_id": "k040",
+  "category": "nested",
+  "description": "Write a function to swap the keys and the values of a dictionary whose values are all different.",
+  "entry_point": "swap_keys_values",
+  "inputs": [
+   "({'a': 1, 'b': 2},)",
+   "({},)",
+   "({'x': 'y'},)"
+  ],
+  "expression": "{a0[k]: k for k in a0}"
+ },
+ {
+  "id": "s2-k040-4",
+  "sketch_id": "k040",
+  "category": "nested",
+  "description": "Given a list of (name, grades) pairs where each grades entry is a non-empty list, write a function to build a dictionary that maps each name to the best grade.",
+  "entry_point": "best_grade_map",
+  "inputs": [
+   "([('ann', [7, 9, 4]), ('bob', [5])],)",
+   "([],)",
+   "([('cy', [1, 2]), ('dee', [3, 0])],)"
+  ],
+  "expression": "{r[0]: max(r[1]) for r in a0}"
+ },
+ {
+  "id": "s2-k030-1",
+  "sketch_id": "k030",
+  "category": "strings",
+  "description": "Write a function to reorder the words of a sentence from shortest to longest, keeping words of equal length in their original order, and join them with single spaces.",
+  "entry_point": "words_by_length",
+  "inputs": [
+   "('the quick brown fox jumps',)",
+   "('a bb a',)",
+   "('hello',)"
+  ],
+  "expression": "' '.join(sorted(a0.split(), key=len))"
+ },
+ {
+  "id": "s2-k030-2",
+  "sketch_id": "k030",
+  "category": "numbers",
+  "description": "Write a function to turn a list of integers into a string with the numbers separated by commas.",
+  "entry_point": "comma_separated",
+  "inputs": [
+   "([1, 22, 333],)",
+   "([],)",
+   "([-5, 0],)"
+  ],
+  "expression": "','.join(map(str, a0))"
+ },
+ {
+  "id": "s2-k030-3",
+  "sketch_id": "k030",
+  "category": "strings",
+  "description": "Given a dictionary from runner names to their finishing times, write a function to return the names from fastest to slowest, separated by a comma and a space.",
+  "entry_point": "finishing_order",
+  "inputs": [
+   "({'ann': 31.5, 'bob': 29.0, 'cy': 35.2},)",
+   "({'dee': 40},)",
+   "({'x': 2, 'y': 1},)"
+  ],
+  "expression": "', '.join(sorted(a0, key=a0.get))"
+ },
+ {
+  "id": "s2-k030-4",
+  "sketch_id": "k030",
+  "category": "nested",
+  "description": "Given a grid of single characters as a list of rows, write a function to read it row by row into one string.",
+  "entry_point": "read_grid",
+  "inputs": [
+   "([['h', 'e'], ['l', 'l'], ['o']],)",
+   "([[]],)",
+   "([['a'], ['b', 'c']],)"
+  ],
+  "expression": "''.join(c for r in a0 for c in r)"
+ },
+ {
+  "id": "s2-k260-1",
+  "sketch_id": "k260",
+  "category": "strings",
+  "description": "Write a function to count the places in a lowercase word where a letter is directly followed by the next letter of the alphabet.",
+  "entry_point": "count_alphabet_steps",
+  "inputs": [
+   "('abcxyz',)",
+   "('hello',)",
+   "('defy',)"
+  ],
+  "expression": "sum(ord(b) - ord(a) == 1 for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "s2-k260-2",
+  "sketch_id": "k260",
+  "category": "strings",
+  "description": "Write a function to count the pairs of neighbouring words in a sentence that start with the same letter.",
+  "entry_point": "count_alliterations",
+  "inputs": [
+   "('big bad wolf went west',)",
+   "('no match here',)",
+   "('so so',)"
+  ],
+  "expression": "sum(a[0] == b[0] for a, b in zip(a0.split(), a0.split()[1:]))"
+ },
+ {
+  "id": "s2-k260-3",
+  "sketch_id": "k260",
+  "category": "nested",
+  "description": "Given a path as a list of (x, y) points, write a function to count its vertical segments, that is, the pairs of consecutive points that have the same x coordinate.",
+  "entry_point": "count_vertical_segments",
+  "inputs": [
+   "([(0, 0), (0, 3), (2, 3), (2, 1)],)",
+   "([(1, 1), (2, 2)],)",
+   "([(5, 0), (5, 1), (5, 2)],)"
+  ],
+  "expression": "sum(p[0] == q[0] for p, q in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "s2-k260-4",
+  "sketch_id": "k260",
+  "category": "sequences",
+  "description": "Write a function to count the pairs of neighbouring numbers in a list whose values differ by exactly k.",
+  "entry_point": "count_gaps_of_k",
+  "inputs": [
+   "([1, 3, 5, 4, 6], 2)",
+   "([1, 1], 1)",
+   "([10, 7, 10], 3)"
+  ],
+  "expression": "sum(abs(b - a) == a1 for a, b in zip(a0, a0[1:]))"
+ },
+ {
+  "id": "s2-k119-1",
+  "sketch_id": "k119",
+  "category": "strings",
+  "description": "Write a function to turn every word of a sentence into its plural, replacing a final 'y' with 'ies' and adding 's' to every other word.",
+  "entry_point": "pluralize_sentence",
+  "inputs": [
+   "('city dog berry',)",
+   "('cat',)",
+   "('baby fly',)"
+  ],
+  "expression": "' '.join(w[:-1] + 'ies' if w.endswith('y') else w + 's' for w in a0.split())"
+ },
+ {
+  "id": "s2-k119-2",
+  "sketch_id": "k119",
+  "category": "numbers",
+  "description": "Write a function to format a list of integers as one string with the numbers separated by commas, writing every negative number without its minus sign and inside parentheses, as accountants do.",
+  "entry_point": "accounting_format",
+  "inputs": [
+   "([120, -45, 7],)",
+   "([0],)",
+   "([-1, -2],)"
+  ],
+  "expression": "','.join('(' + str(-x) + ')' if x < 0 else str(x) for x in a0)"
+ },
+ {
+  "id": "s2-k119-3",
+  "sketch_id": "k119",
+  "category": "strings",
+  "description": "Write a function to make the first letter of every word of a sentence that is longer than three letters uppercase, leaving the shorter words unchanged.",
+  "entry_point": "capitalize_long_words",
+  "inputs": [
+   "('the lord of the rings',)",
+   "('a big cat',)",
+   "('gone with the wind',)"
+  ],
+  "expression": "' '.join(w[0].upper() + w[1:] if len(w) > 3 else w for w in a0.split())"
+ },
+ {
+  "id": "s2-k119-4",
+  "sketch_id": "k119",
+  "category": "strings",
+  "description": "Given a list of lowercase words, write a function to move the first letter of every word that starts with a consonant to the end of that word, leave the words that start with a vowel in 'aeiou' unchanged, and join the results with spaces.",
+  "entry_point": "rotate_consonant_words",
+  "inputs": [
+   "(['hello', 'apple', 'world'],)",
+   "(['egg'],)",
+   "(['pig', 'latin'],)"
+  ],
+  "expression": "' '.join(w[1:] + w[0] if w[0] not in 'aeiou' else w for w in a0)"
+ },
+ {
+  "id": "s2-k170-1",
+  "sketch_id": "k170",
+  "category": "strings",
+  "description": "Write a function that returns 'image' if a file name ends with '.png' or '.jpg', ignoring letter case, and 'other' otherwise.",
+  "entry_point": "file_kind",
+  "inputs": [
+   "('Photo.PNG',)",
+   "('notes.txt',)",
+   "('cat.jpg',)"
+  ],
+  "expression": "'image' if a0.lower().endswith(('.png', '.jpg')) else 'other'"
+ },
+ {
+  "id": "s2-k170-2",
+  "sketch_id": "k170",
+  "category": "strings",
+  "description": "Write a function that returns 'Complete' if a string, ignoring any spaces at its end, ends with a period, an exclamation mark or a question mark, and 'Incomplete' otherwise.",
+  "entry_point": "sentence_status",
+  "inputs": [
+   "('Is it done?  ',)",
+   "('almost there',)",
+   "('Stop!',)"
+  ],
+  "expression": "'Complete' if a0.rstrip().endswith(('.', '!', '?')) else 'Incomplete'"
+ },
+ {
+  "id": "s2-k170-3",
+  "sketch_id": "k170",
+  "category": "numbers",
+  "description": "Write a function that returns 'Match' if two non-negative integers end in the same digit and 'No match' otherwise.",
+  "entry_point": "same_last_digit",
+  "inputs": [
+   "(127, 57)",
+   "(40, 41)",
+   "(9, 99)"
+  ],
+  "expression": "'Match' if str(a0).endswith(str(a1)[-1]) else 'No match'"
+ },
+ {
+  "id": "s2-k170-4",
+  "sketch_id": "k170",
+  "category": "strings",
+  "description": "Write a function that returns 'Rhyme' if two words of at least three letters end with the same three letters and 'No rhyme' otherwise.",
+  "entry_point": "rhyme_check",
+  "inputs": [
+   "('fountain', 'mountain')",
+   "('cat', 'dog')",
+   "('nation', 'station')"
+  ],
+  "expression": "'Rhyme' if a0.endswith(a1[-3:]) else 'No rhyme'"
+ },
+ {
+  "id": "s2-k004-1",
+  "sketch_id": "k004",
+  "category": "sequences",
+  "description": "Given a list of predicted labels and an equally long list of true labels, write a function to return the true labels of the items that were predicted wrongly, in order.",
+  "entry_point": "missed_labels",
+  "inputs": [
+   "(['cat', 'dog', 'cat', 'fox'], ['cat', 'cat', 'cat', 'dog'])",
+   "(['a'], ['a'])",
+   "([1, 2], [2, 1])"
+  ],
+  "expression": "[t for p, t in zip(a0, a1) if p != t]"
+ },
+ {
+  "id": "s2-k004-2",
+  "sketch_id": "k004",
+  "category": "strings",
+  "description": "Given a dictionary from employees to their managers and a manager's name, write a function to return the employees who report to that manager, in the order of the dictionary.",
+  "entry_point": "direct_reports",
+  "inputs": [
+   "({'ann': 'zed', 'bob': 'yin', 'cy': 'zed'}, 'zed')",
+   "({'dee': 'ann'}, 'bob')",
+   "({'eve': 'max'}, 'max')"
+  ],
+  "expression": "[e for e, m in a0.items() if m == a1]"
+ },
+ {
+  "id": "s2-k004-3",
+  "sketch_id": "k004",
+  "category": "strings",
+  "description": "Write a function to find all the positions of a letter in a string, ignoring letter case.",
+  "entry_point": "letter_positions_nocase",
+  "inputs": [
+   "('Banana Bread', 'b')",
+   "('hello', 'z')",
+   "('AaA', 'A')"
+  ],
+  "expression": "[i for i, c in enumerate(a0) if c.lower() == a1.lower()]"
+ },
+ {
+  "id": "s2-k004-4",
+  "sketch_id": "k004",
+  "category": "nested",
+  "description": "Given a list of (title, year) pairs, write a function to return the titles released before a given year, in their original order.",
+  "entry_point": "titles_before",
+  "inputs": [
+   "([('jaws', 1975), ('heat', 1995), ('up', 2009)], 2000)",
+   "([('cars', 2006)], 1990)",
+   "([('big', 1988), ('ran', 1985)], 1989)"
+  ],
+  "expression": "[t for t, y in a0 if y < a1]"
+ },
+ {
+  "id": "s2-k048-1",
+  "sketch_id": "k048",
+  "category": "nested",
+  "description": "Write a function to check whether a dictionary maps every key to the square of that key.",
+  "entry_point": "maps_to_squares",
+  "inputs": [
+   "({1: 1, 2: 4, 3: 9},)",
+   "({2: 4, 3: 6},)",
+   "({0: 0, -2: 4},)"
+  ],
+  "expression": "all(a0[k] == k * k for k in a0)"
+ },
+ {
+  "id": "s2-k048-2",
+  "sketch_id": "k048",
+  "category": "numbers",
+  "description": "Write a function to check whether all the digits of a non-negative integer are the same.",
+  "entry_point": "is_repdigit",
+  "inputs": [
+   "(777,)",
+   "(7071,)",
+   "(5,)"
+  ],
+  "expression": "all(d == str(a0)[0] for d in str(a0))"
+ },
+ {
+  "id": "s2-k048-3",
+  "sketch_id": "k048",
+  "category": "sequences",
+  "description": "Write a function to check whether all the numbers in a non-empty list have the same parity as the first one.",
+  "entry_point": "same_parity_as_first",
+  "inputs": [
+   "([2, 8, 4],)",
+   "([3, 5, 6],)",
+   "([-1, 7],)"
+  ],
+  "expression": "all(x % 2 == a0[0] % 2 for x in a0)"
+ },
+ {
+  "id": "s2-k048-4",
+  "sketch_id": "k048",
+  "category": "nested",
+  "description": "Given a list of (x, y) points and a slope k, write a function to check whether all the points lie on the line y = k * x.",
+  "entry_point": "on_line_through_origin",
+  "inputs": [
+   "([(1, 2), (3, 6), (0, 0)], 2)",
+   "([(1, 1), (2, 3)], 1)",
+   "([(2, -6)], -3)"
+  ],
+  "expression": "all(p[1] == a1 * p[0] for p in a0)"
+ },
+ {
+  "id": "s2-k049-1",
+  "sketch_id": "k049",
+  "category": "sequences",
+  "description": "Write a function to return, in their original order, the elements of a list that differ from the element at the same position of the list sorted in ascending order.",
+  "entry_point": "out_of_place_elements",
+  "inputs": [
+   "([3, 1, 2, 4],)",
+   "([1, 2, 3],)",
+   "([2, 1],)"
+  ],
+  "expression": "[a0[i] for i in range(len(a0)) if a0[i] != sorted(a0)[i]]"
+ },
+ {
+  "id": "s2-k049-2",
+  "sketch_id": "k049",
+  "category": "strings",
+  "description": "Write a function to return the words of a list that are not palindromes, in their original order.",
+  "entry_point": "non_palindromes",
+  "inputs": [
+   "(['level', 'hello', 'noon', 'world'],)",
+   "(['aa'],)",
+   "(['ab', 'x', 'yz'],)"
+  ],
+  "expression": "[w for w in a0 if w != w[::-1]]"
+ },
+ {
+  "id": "s2-k049-3",
+  "sketch_id": "k049",
+  "category": "numbers",
+  "description": "Write a function to list the integers from 1 to n that are not perfect squares.",
+  "entry_point": "non_squares",
+  "inputs": [
+   "(10,)",
+   "(1,)",
+   "(5,)"
+  ],
+  "expression": "[k for k in range(1, a0 + 1) if math.isqrt(k) ** 2 != k]"
+ },
+ {
+  "id": "s2-k049-4",
+  "sketch_id": "k049",
+  "category": "nested",
+  "description": "Given a list of test results as (test name, expected value, actual value) tuples, write a function to return the names of the tests whose actual value differs from the expected one.",
+  "entry_point": "failing_tests",
+  "inputs": [
+   "([('add', 4, 4), ('mul', 6, 5), ('neg', -1, 1)],)",
+   "([('ok', 1, 1)],)",
+   "([('x', 'a', 'b')],)"
+  ],
+  "expression": "[r[0] for r in a0 if r[1] != r[2]]"
+ },
+ {
+  "id": "s2-k165-1",
+  "sketch_id": "k165",
+  "category": "numbers",
+  "description": "Write a function to find the overall discount, as a fraction rounded to 4 decimal places, of applying a list of discounts one after another, where each discount is a percentage and 100 would make the item free.",
+  "entry_point": "combined_discount",
+  "inputs": [
+   "([10, 20],)",
+   "([50],)",
+   "([25, 25, 25],)"
+  ],
+  "expression": "round(1 - prod_1([1 - d / 100 for d in a0]), 4)"
+ },
+ {
+  "id": "s2-k165-2",
+  "sketch_id": "k165",
+  "category": "nested",
+  "description": "Given a dictionary mapping the parts of a machine to the percentage chance, out of 100, that each part works, write a function to find the probability that at least one part fails, rounded to 3 decimal places.",
+  "entry_point": "chance_of_failure",
+  "inputs": [
+   "({'pump': 90, 'valve': 95},)",
+   "({'fan': 100},)",
+   "({'a': 50, 'b': 50, 'c': 50},)"
+  ],
+  "expression": "round(1 - prod_1([r / 100 for r in a0.values()]), 3)"
+ },
+ {
+  "id": "s2-k165-3",
+  "sketch_id": "k165",
+  "category": "sequences",
+  "description": "Given a list of dice, each given by its number of sides, write a function to find the probability that at least one die shows a 1 when all of them are rolled, rounded to 2 decimal places.",
+  "entry_point": "chance_of_a_one",
+  "inputs": [
+   "([6, 6],)",
+   "([4],)",
+   "([2, 20],)"
+  ],
+  "expression": "round(1 - prod_1([1 - 1 / s for s in a0]), 2)"
+ },
+ {
+  "id": "s2-k165-4",
+  "sketch_id": "k165",
+  "category": "numbers",
+  "description": "Write a function to find the probability that at least two of n keys land in the same bucket when each key is hashed independently and uniformly into one of m buckets, rounded to 4 decimal places.",
+  "entry_point": "collision_chance",
+  "inputs": [
+   "(3, 10)",
+   "(1, 5)",
+   "(4, 4)"
+  ],
+  "expression": "round(1 - prod_1([(a1 - k) / a1 for k in range(a0)]), 4)"
+ },
+ {
+  "id": "s2-k121-1",
+  "sketch_id": "k121",
+  "category": "strings",
+  "description": "Write a function to score a lowercase word in which every vowel (a letter in 'aeiou') is worth 1 point and every other letter is worth 2 points.",
+  "entry_point": "vowel_consonant_score",
+  "inputs": [
+   "('hello',)",
+   "('a',)",
+   "('rhythm',)"
+  ],
+  "expression": "sum(1 if c in 'aeiou' else 2 for c in a0)"
+ },
+ {
+  "id": "s2-k121-2",
+  "sketch_id": "k121",
+  "category": "nested",
+  "description": "Given a list of (name, score) exam results, write a function to return the total of the scores, where every score below 50 counts as 0.",
+  "entry_point": "total_passing_points",
+  "inputs": [
+   "([('ann', 72), ('bob', 45), ('cy', 50)],)",
+   "([('dan', 10)],)",
+   "([('eve', 99), ('fay', 51)],)"
+  ],
+  "expression": "sum(r[1] if r[1] >= 50 else 0 for r in a0)"
+ },
+ {
+  "id": "s2-k121-3",
+  "sketch_id": "k121",
+  "category": "sequences",
+  "description": "A toll road charges 5 for every car and 2 for every other vehicle; given the list of vehicle types that passed, with cars written as 'car', write a function to compute the total toll.",
+  "entry_point": "total_toll",
+  "inputs": [
+   "(['car', 'bike', 'car', 'truck'],)",
+   "([],)",
+   "(['bus'],)"
+  ],
+  "expression": "sum(5 if v == 'car' else 2 for v in a0)"
+ },
+ {
+  "id": "s2-k121-4",
+  "sketch_id": "k121",
+  "category": "numbers",
+  "description": "Write a function to transform every number of a list by halving the even numbers with integer division and tripling the odd numbers, and to return the sum of the results.",
+  "entry_point": "halve_or_triple_sum",
+  "inputs": [
+   "([4, 3, 10],)",
+   "([1],)",
+   "([2, 2],)"
+  ],
+  "expression": "sum(x // 2 if x % 2 == 0 else 3 * x for x in a0)"
+ },
+ {
+  "id": "s2-k118-1",
+  "sketch_id": "k118",
+  "category": "strings",
+  "description": "Given a list of two-digit strings, write a function to return the sum of the digits of all of them.",
+  "entry_point": "sum_of_pair_digits",
+  "inputs": [
+   "(['12', '34', '90'],)",
+   "(['00'],)",
+   "(['99', '55'],)"
+  ],
+  "expression": "sum(int(s[0]) + int(s[1]) for s in a0)"
+ },
+ {
+  "id": "s2-k118-2",
+  "sketch_id": "k118",
+  "category": "numbers",
+  "description": "Given a list of prices and a tax rate in percent, out of 100, write a function to compute the total price of all the items with the tax added to each one.",
+  "entry_point": "total_with_tax",
+  "inputs": [
+   "([100, 50], 20)",
+   "([10], 0)",
+   "([200, 300, 500], 10)"
+  ],
+  "expression": "sum(p + p * a1 / 100 for p in a0)"
+ },
+ {
+  "id": "s2-k118-3",
+  "sketch_id": "k118",
+  "category": "nested",
+  "description": "Given a list of rectangular plots as (width, length) tuples, write a function to compute the total length of fence needed to go around all of them.",
+  "entry_point": "total_fence_length",
+  "inputs": [
+   "([(3, 4), (1, 1)],)",
+   "([(10, 2)],)",
+   "([],)"
+  ],
+  "expression": "sum(2 * r[0] + 2 * r[1] for r in a0)"
+ },
+ {
+  "id": "s2-k118-4",
+  "sketch_id": "k118",
+  "category": "nested",
+  "description": "Given a dictionary from players to (goals, assists) tuples, write a function to compute the total number of points of the team, where every goal and every assist is worth one point.",
+  "entry_point": "team_points",
+  "inputs": [
+   "({'ann': (3, 1), 'bob': (0, 4)},)",
+   "({'cy': (0, 0)},)",
+   "({'dee': (2, 2), 'eve': (5, 0), 'fay': (1, 1)},)"
+  ],
+  "expression": "sum(v[0] + v[1] for v in a0.values())"
+ },
+ {
+  "id": "s2-k140-1",
+  "sketch_id": "k140",
+  "category": "strings",
+  "description": "Write a function to find the words of a sentence that come directly after the word 'the'.",
+  "entry_point": "words_after_the",
+  "inputs": [
+   "('the cat saw the dog',)",
+   "('a big day',)",
+   "('over the moon',)"
+  ],
+  "expression": "[b for a, b in zip(a0.split(), a0.split()[1:]) if a == 'the']"
+ },
+ {
+  "id": "s2-k140-2",
+  "sketch_id": "k140",
+  "category": "sequences",
+  "description": "Given a list of daily prices, write a function to return the day-to-day increases, that is, the positive differences between a price and the price of the day before.",
+  "entry_point": "price_increases",
+  "inputs": [
+   "([10, 12, 11, 15],)",
+   "([5, 4, 3],)",
+   "([1, 2, 3],)"
+  ],
+  "expression": "[b - a for a, b in zip(a0, a0[1:]) if b > a]"
+ },
+ {
+  "id": "s2-k140-3",
+  "sketch_id": "k140",
+  "category": "sequences",
+  "description": "Given a flat list in which names and scores alternate, each name followed by its score, and a pass mark, write a function to return the names whose score reaches the pass mark.",
+  "entry_point": "names_reaching_mark",
+  "inputs": [
+   "(['ann', 3, 'bob', 0, 'cy', 5], 3)",
+   "(['dan', 1], 2)",
+   "(['eve', 2], 2)"
+  ],
+  "expression": "[k for k, v in zip(a0[::2], a0[1::2]) if v >= a1]"
+ },
+ {
+  "id": "s2-k140-4",
+  "sketch_id": "k140",
+  "category": "numbers",
+  "description": "Write a function to return, as integers, the digits of a positive integer that are immediately followed by a larger digit.",
+  "entry_point": "digits_before_larger",
+  "inputs": [
+   "(15243,)",
+   "(9876,)",
+   "(2468,)"
+  ],
+  "expression": "[int(a) for a, b in zip(str(a0), str(a0)[1:]) if b > a]"
+ },
+ {
+  "id": "s2-k011-1",
+  "sketch_id": "k011",
+  "category": "strings",
+  "description": "Write a function that returns 'Palindrome' if a string reads the same backwards as forwards and 'Not palindrome' otherwise.",
+  "entry_point": "palindrome_label",
+  "inputs": [
+   "('racecar',)",
+   "('python',)",
+   "('abba',)"
+  ],
+  "expression": "'Palindrome' if a0 == a0[::-1] else 'Not palindrome'"
+ },
+ {
+  "id": "s2-k011-2",
+  "sketch_id": "k011",
+  "category": "numbers",
+  "description": "Write a function that returns 'Square' if a non-negative integer is a perfect square and 'Not square' otherwise.",
+  "entry_point": "square_label",
+  "inputs": [
+   "(49,)",
+   "(50,)",
+   "(0,)"
+  ],
+  "expression": "'Square' if math.isqrt(a0) ** 2 == a0 else 'Not square'"
+ },
+ {
+  "id": "s2-k011-3",
+  "sketch_id": "k011",
+  "category": "sequences",
+  "description": "Write a function that returns 'Unique' if no value occurs twice in a list and 'Duplicates' otherwise.",
+  "entry_point": "uniqueness_label",
+  "inputs": [
+   "([1, 2, 3],)",
+   "([1, 2, 1],)",
+   "([],)"
+  ],
+  "expression": "'Unique' if len(a0) == len(set(a0)) else 'Duplicates'"
+ },
+ {
+  "id": "s2-k011-4",
+  "sketch_id": "k011",
+  "category": "nested",
+  "description": "Given a point as an (x, y) tuple, write a function that returns 'Diagonal' if it lies on the line y = x and 'Off diagonal' otherwise.",
+  "entry_point": "diagonal_label",
+  "inputs": [
+   "((3, 3),)",
+   "((2, 5),)",
+   "((-1, -1),)"
+  ],
+  "expression": "'Diagonal' if a0[0] == a0[1] else 'Off diagonal'"
+ },
+ {
+  "id": "s2-k171-1",
+  "sketch_id": "k171",
+  "category": "sequences",
+  "description": "Write a function that returns 'Rising' if the last value of a list of prices is greater than the first value and 'Not rising' otherwise.",
+  "entry_point": "trend_label",
+  "inputs": [
+   "([10, 8, 12],)",
+   "([5, 9, 5],)",
+   "([3, 4],)"
+  ],
+  "expression": "'Rising' if a0[-1] > a0[0] else 'Not rising'"
+ },
+ {
+  "id": "s2-k171-2",
+  "sketch_id": "k171",
+  "category": "strings",
+  "description": "Write a function that returns 'Mostly upper' if a string has more uppercase letters than lowercase letters and 'Mostly lower' otherwise.",
+  "entry_point": "case_majority",
+  "inputs": [
+   "('WOW ok',)",
+   "('GOOD morning',)",
+   "('aB',)"
+  ],
+  "expression": "'Mostly upper' if sum(c.isupper() for c in a0) > sum(c.islower() for c in a0) else 'Mostly lower'"
+ },
+ {
+  "id": "s2-k171-3",
+  "sketch_id": "k171",
+  "category": "numbers",
+  "description": "Given the base and the height of a triangle and the side of a square, write a function that returns 'Triangle' if the triangle has the larger area and 'Square' otherwise.",
+  "entry_point": "larger_shape",
+  "inputs": [
+   "(10, 6, 5)",
+   "(4, 2, 3)",
+   "(6, 6, 4)"
+  ],
+  "expression": "'Triangle' if a0 * a1 / 2 > a2 * a2 else 'Square'"
+ },
+ {
+  "id": "s2-k171-4",
+  "sketch_id": "k171",
+  "category": "nested",
+  "description": "Given two points as (x, y) tuples, write a function to return the one that is farther from the origin, or the second point if both are equally far.",
+  "entry_point": "farther_point",
+  "inputs": [
+   "((3, 4), (1, 1))",
+   "((0, 1), (1, 0))",
+   "((-2, 0), (0, 5))"
+  ],
+  "expression": "a0 if math.dist(a0, (0, 0)) > math.dist(a1, (0, 0)) else a1"
+ },
+ {
+  "id": "s2-k072-1",
+  "sketch_id": "k072",
+  "category": "strings",
+  "description": "Write a function that returns 'Title Case' if every word of a sentence starts with an uppercase letter followed only by lowercase letters, and 'Not Title Case' otherwise.",
+  "entry_point": "title_case_label",
+  "inputs": [
+   "('The Old Man',)",
+   "('The old man',)",
+   "('Hello',)"
+  ],
+  "expression": "'Title Case' if all(w.istitle() for w in a0.split()) else 'Not Title Case'"
+ },
+ {
+  "id": "s2-k072-2",
+  "sketch_id": "k072",
+  "category": "numbers",
+  "description": "Write a function that returns 'All odd' if every number in a list is odd and 'Not all odd' otherwise.",
+  "entry_point": "all_odd_label",
+  "inputs": [
+   "([1, 3, 7],)",
+   "([1, 2, 3],)",
+   "([-5],)"
+  ],
+  "expression": "'All odd' if all(x % 2 for x in a0) else 'Not all odd'"
+ },
+ {
+  "id": "s2-k072-3",
+  "sketch_id": "k072",
+  "category": "nested",
+  "description": "Given a dictionary of settings and a list of required setting names, write a function that returns 'Complete' if every required name is a key of the dictionary and 'Missing settings' otherwise.",
+  "entry_point": "settings_check",
+  "inputs": [
+   "({'host': 'x', 'port': 80}, ['host', 'port'])",
+   "({'host': 'x'}, ['host', 'user'])",
+   "({}, [])"
+  ],
+  "expression": "'Complete' if all(k in a0 for k in a1) else 'Missing settings'"
+ },
+ {
+  "id": "s2-k072-4",
+  "sketch_id": "k072",
+  "category": "nested",
+  "description": "Given a list of (name, has_paid) tuples, write a function that returns 'Settled' if everyone has paid and 'Outstanding' otherwise.",
+  "entry_point": "payment_status",
+  "inputs": [
+   "([('ann', True), ('bob', True)],)",
+   "([('cy', False), ('dee', True)],)",
+   "([('eve', False)],)"
+  ],
+  "expression": "'Settled' if all(p[1] for p in a0) else 'Outstanding'"
+ },
+ {
+  "id": "s2-k006-1",
+  "sketch_id": "k006",
+  "category": "numbers",
+  "description": "Write a function to return the area and the perimeter of a rectangle with sides a and b as a tuple.",
+  "entry_point": "area_and_perimeter",
+  "inputs": [
+   "(3, 4)",
+   "(1, 1)",
+   "(10, 0)"
+  ],
+  "expression": "(a0 * a1, 2 * (a0 + a1))"
+ },
+ {
+  "id": "s2-k006-2",
+  "sketch_id": "k006",
+  "category": "strings",
+  "description": "Given a full name made of a first name and a last name separated by a space, write a function to return the tuple (last name, first name).",
+  "entry_point": "surname_first",
+  "inputs": [
+   "('Ada Lovelace',)",
+   "('Alan Turing',)",
+   "('x y',)"
+  ],
+  "expression": "(a0.split()[1], a0.split()[0])"
+ },
+ {
+  "id": "s2-k006-3",
+  "sketch_id": "k006",
+  "category": "nested",
+  "description": "Write a function to return the shape of a non-empty matrix given as a list of rows, as a tuple of the number of rows and the number of columns.",
+  "entry_point": "matrix_shape",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6]],)",
+   "([[7]],)",
+   "([[1], [2], [3], [4]],)"
+  ],
+  "expression": "(len(a0), len(a0[0]))"
+ },
+ {
+  "id": "s2-k006-4",
+  "sketch_id": "k006",
+  "category": "nested",
+  "description": "Given a non-empty dictionary of numbers, write a function to return a tuple of the key with the largest value, the first one in case of a tie, and that largest value.",
+  "entry_point": "top_entry",
+  "inputs": [
+   "({'a': 3, 'b': 7, 'c': 5},)",
+   "({'x': 1},)",
+   "({'p': 2, 'q': 2},)"
+  ],
+  "expression": "(max(a0, key=a0.get), max(a0.values()))"
+ },
+ {
+  "id": "s2-k045-1",
+  "sketch_id": "k045",
+  "category": "strings",
+  "description": "Given a dictionary from abbreviations to words, write a function to check whether every word starts with its abbreviation.",
+  "entry_point": "abbreviations_match",
+  "inputs": [
+   "({'mon': 'monday', 'tue': 'tuesday'},)",
+   "({'jan': 'january', 'fb': 'february'},)",
+   "({},)"
+  ],
+  "expression": "all(v.startswith(k) for k, v in a0.items())"
+ },
+ {
+  "id": "s2-k045-2",
+  "sketch_id": "k045",
+  "category": "sequences",
+  "description": "Write a function to check whether a list holds the numbers 1, 2, 3 and so on in order, that is, whether every element equals its position counting from 1.",
+  "entry_point": "counts_up_from_one",
+  "inputs": [
+   "([1, 2, 3, 4],)",
+   "([1, 3, 2],)",
+   "([],)"
+  ],
+  "expression": "all(x == i for i, x in enumerate(a0, 1))"
+ },
+ {
+  "id": "s2-k045-3",
+  "sketch_id": "k045",
+  "category": "nested",
+  "description": "Given a list of (number, divisor) pairs, write a function to check whether each number is divisible by its divisor.",
+  "entry_point": "all_pairs_divisible",
+  "inputs": [
+   "([(10, 5), (9, 3), (8, 4)],)",
+   "([(7, 2)],)",
+   "([(0, 7), (12, 12)],)"
+  ],
+  "expression": "all(a % b == 0 for a, b in a0)"
+ },
+ {
+  "id": "s2-k045-4",
+  "sketch_id": "k045",
+  "category": "strings",
+  "description": "Write a function to check whether two strings of the same length differ at every position.",
+  "entry_point": "differ_everywhere",
+  "inputs": [
+   "('abc', 'bca')",
+   "('abc', 'abd')",
+   "('xy', 'yx')"
+  ],
+  "expression": "all(a != b for a, b in zip(a0, a1))"
+ },
+ {
+  "id": "s2-k166-1",
+  "sketch_id": "k166",
+  "category": "numbers",
+  "description": "Write a function to convert a list of temperatures in degrees Fahrenheit to degrees Celsius, subtracting 32 and multiplying by 5/9, each rounded to the nearest whole degree.",
+  "entry_point": "fahrenheit_to_celsius",
+  "inputs": [
+   "([212, 32, 100],)",
+   "([-40],)",
+   "([50, 59],)"
+  ],
+  "expression": "[round((f - 32) * 5 / 9) for f in a0]"
+ },
+ {
+  "id": "s2-k166-2",
+  "sketch_id": "k166",
+  "category": "nested",
+  "description": "Given a list of (weight in kilograms, height in metres) pairs, write a function to return each person's body mass index, the weight divided by the square of the height, rounded to the nearest whole number.",
+  "entry_point": "rounded_bmis",
+  "inputs": [
+   "([(70, 1.75), (90, 1.8)],)",
+   "([(50, 1.6)],)",
+   "([(100, 2.0)],)"
+  ],
+  "expression": "[round(r[0] / r[1] ** 2) for r in a0]"
+ },
+ {
+  "id": "s2-k166-3",
+  "sketch_id": "k166",
+  "category": "nested",
+  "description": "Given a dictionary of the points scored by each team and a dictionary of the games each team has played, write a function to return the points per game of every team, rounded to the nearest whole number, in the order of the first dictionary.",
+  "entry_point": "points_per_game",
+  "inputs": [
+   "({'reds': 31, 'blues': 25}, {'reds': 4, 'blues': 5})",
+   "({'a': 10}, {'a': 3})",
+   "({'x': 0, 'y': 10}, {'x': 2, 'y': 3})"
+  ],
+  "expression": "[round(a0[k] / a1[k]) for k in a0]"
+ },
+ {
+  "id": "s2-k166-4",
+  "sketch_id": "k166",
+  "category": "strings",
+  "description": "Given a list of sentences, write a function to return the average word length of each sentence, the number of characters other than spaces divided by the number of words, rounded to the nearest whole number.",
+  "entry_point": "average_word_lengths",
+  "inputs": [
+   "(['the cat sat', 'elephants trumpet loudly'],)",
+   "(['a'],)",
+   "(['hello world', 'hi'],)"
+  ],
+  "expression": "[round(len(s.replace(' ', '')) / len(s.split())) for s in a0]"
+ },
+ {
+  "id": "s2-k208-1",
+  "sketch_id": "k208",
+  "category": "sequences",
+  "description": "Write a function to summarize a non-empty list of numbers as the list [smallest, largest, total, count].",
+  "entry_point": "list_summary",
+  "inputs": [
+   "([3, 9, 1, 4],)",
+   "([5],)",
+   "([-2, 2],)"
+  ],
+  "expression": "[min(a0), max(a0), sum(a0), len(a0)]"
+ },
+ {
+  "id": "s2-k208-2",
+  "sketch_id": "k208",
+  "category": "numbers",
+  "description": "Write a function to split a number of seconds into a list of days, hours, minutes and seconds, using 86400 seconds per day, 3600 per hour and 60 per minute.",
+  "entry_point": "split_duration",
+  "inputs": [
+   "(90061,)",
+   "(59,)",
+   "(200000,)"
+  ],
+  "expression": "[a0 // 86400, a0 % 86400 // 3600, a0 % 3600 // 60, a0 % 60]"
+ },
+ {
+  "id": "s2-k208-3",
+  "sketch_id": "k208",
+  "category": "nested",
+  "description": "Given a dictionary that counts the steps taken in the compass directions 'N', 'E', 'S' and 'W', write a function to return the four counts in that order as a list, using 0 for a direction that is missing.",
+  "entry_point": "direction_counts",
+  "inputs": [
+   "({'N': 3, 'S': 1},)",
+   "({},)",
+   "({'W': 2, 'E': 5, 'N': 1, 'S': 4},)"
+  ],
+  "expression": "[a0.get('N', 0), a0.get('E', 0), a0.get('S', 0), a0.get('W', 0)]"
+ },
+ {
+  "id": "s2-k208-4",
+  "sketch_id": "k208",
+  "category": "nested",
+  "description": "Given a 2 by 2 matrix as a list of two rows, write a function to return its four entries read column by column.",
+  "entry_point": "column_order",
+  "inputs": [
+   "([[1, 2], [3, 4]],)",
+   "([[0, 0], [0, 1]],)",
+   "([['a', 'b'], ['c', 'd']],)"
+  ],
+  "expression": "[a0[0][0], a0[1][0], a0[0][1], a0[1][1]]"
+ },
+ {
+  "id": "s2-k248-1",
+  "sketch_id": "k248",
+  "category": "numbers",
+  "description": "Write a function that describes an integer as 'positive even', 'positive odd' or 'not positive'.",
+  "entry_point": "describe_integer",
+  "inputs": [
+   "(8,)",
+   "(7,)",
+   "(-4,)"
+  ],
+  "expression": "('positive even' if a0 % 2 == 0 else 'positive odd') if a0 > 0 else 'not positive'"
+ },
+ {
+  "id": "s2-k248-2",
+  "sketch_id": "k248",
+  "category": "strings",
+  "description": "Write a function that returns 'Empty' for an empty string, 'Capitalized' for a string that starts with an uppercase letter, and 'Not capitalized' for any other string.",
+  "entry_point": "capitalization_label",
+  "inputs": [
+   "('Hello',)",
+   "('',)",
+   "('world',)"
+  ],
+  "expression": "('Capitalized' if a0[0].isupper() else 'Not capitalized') if a0 else 'Empty'"
+ },
+ {
+  "id": "s2-k248-3",
+  "sketch_id": "k248",
+  "category": "nested",
+  "description": "Given a dictionary of stock counts and an item, write a function that returns 'In stock' if the count of the item is positive, 'Sold out' if it is 0, and 'Unknown item' if the item is not in the dictionary.",
+  "entry_point": "stock_status",
+  "inputs": [
+   "({'pen': 4, 'ink': 0}, 'pen')",
+   "({'pen': 4, 'ink': 0}, 'ink')",
+   "({'pen': 4}, 'cup')"
+  ],
+  "expression": "('In stock' if a0[a1] > 0 else 'Sold out') if a1 in a0 else 'Unknown item'"
+ },
+ {
+  "id": "s2-k248-4",
+  "sketch_id": "k248",
+  "category": "sequences",
+  "description": "Write a function that returns 'Empty' for an empty list, 'Sorted' for a list in non-decreasing order, and 'Unsorted' for any other list.",
+  "entry_point": "order_status",
+  "inputs": [
+   "([1, 2, 2, 7],)",
+   "([3, 1],)",
+   "([],)"
+  ],
+  "expression": "('Sorted' if a0 == sorted(a0) else 'Unsorted') if a0 else 'Empty'"
+ },
+ {
+  "id": "s2-k198-1",
+  "sketch_id": "k198",
+  "category": "strings",
+  "description": "Write a function to map every word of a sentence of at least two words, except the last word, to the word that follows it, letting later occurrences of a word override earlier ones.",
+  "entry_point": "next_word_map",
+  "inputs": [
+   "('the cat saw the dog',)",
+   "('hello world',)",
+   "('to be or not to be',)"
+  ],
+  "expression": "zip_dict_2(a0.split()[:-1], a0.split()[1:])"
+ },
+ {
+  "id": "s2-k198-2",
+  "sketch_id": "k198",
+  "category": "sequences",
+  "description": "Given a list of names and an equally long list of phone numbers, write a function to build a phone book dictionary that maps each name, written in lowercase, to its number.",
+  "entry_point": "phone_book",
+  "inputs": [
+   "(['Ann', 'BOB'], ['555-1234', '555-9876'])",
+   "(['Cy'], ['123'])",
+   "(['dee', 'Eve', 'FAY'], ['1', '2', '3'])"
+  ],
+  "expression": "zip_dict_2([n.lower() for n in a0], a1)"
+ },
+ {
+  "id": "s2-k198-3",
+  "sketch_id": "k198",
+  "category": "numbers",
+  "description": "Write a function to build a dictionary that maps each number of a non-empty list to its square.",
+  "entry_point": "squares_by_number",
+  "inputs": [
+   "([1, 2, 3],)",
+   "([-2, 2],)",
+   "([10],)"
+  ],
+  "expression": "zip_dict_2(a0, [x * x for x in a0])"
+ },
+ {
+  "id": "s2-k198-4",
+  "sketch_id": "k198",
+  "category": "strings",
+  "description": "Given a non-empty string of names separated by spaces and a string with the same number of integer scores separated by spaces, write a function to build a dictionary that maps each name to its score as an integer.",
+  "entry_point": "scores_from_text",
+  "inputs": [
+   "('ann bob', '3 10')",
+   "('cy', '-1')",
+   "('dee eve fay', '0 7 7')"
+  ],
+  "expression": "zip_dict_2(a0.split(), [int(x) for x in a1.split()])"
+ },
+ {
+  "id": "s2-k265-1",
+  "sketch_id": "k265",
+  "category": "nested",
+  "description": "Given a pair of positive numbers as a tuple, write a function to return their arithmetic mean and their geometric mean, the square root of their product, as a tuple.",
+  "entry_point": "two_means",
+  "inputs": [
+   "((4, 9),)",
+   "((2, 2),)",
+   "((1, 16),)"
+  ],
+  "expression": "(sum(a0) / 2, math.sqrt(a0[0] * a0[1]))"
+ },
+ {
+  "id": "s2-k265-2",
+  "sketch_id": "k265",
+  "category": "numbers",
+  "description": "Given the size n of a sample and the proportion p of successes in it, write a function to return the expected number of successes, n * p, and the standard error of the proportion, the square root of p * (1 - p) / n, as a tuple.",
+  "entry_point": "proportion_summary",
+  "inputs": [
+   "(100, 0.5)",
+   "(25, 0.2)",
+   "(4, 0.0)"
+  ],
+  "expression": "(a0 * a1, math.sqrt(a1 / a0 * (1 - a1)))"
+ },
+ {
+  "id": "s2-k265-3",
+  "sketch_id": "k265",
+  "category": "numbers",
+  "description": "A sphere of radius r is cut by a plane at distance d from its centre, with d smaller than r; write a function to return the height of the smaller cap, r - d, and the radius of the circular cut, the square root of (r - d) * (r + d), as a tuple.",
+  "entry_point": "spherical_cap",
+  "inputs": [
+   "(5, 3)",
+   "(10, 0)",
+   "(13, 12)"
+  ],
+  "expression": "(a0 - a1, math.sqrt((a0 - a1) * (a0 + a1)))"
+ },
+ {
+  "id": "s2-k265-4",
+  "sketch_id": "k265",
+  "category": "numbers",
+  "description": "An observer stands h kilometres above the sea; using an Earth radius of 6371 kilometres, write a function to return the observer's distance from the centre of the Earth, 6371 + h, and the straight-line distance to the horizon, the square root of h * (2 * 6371 + h), as a tuple.",
+  "entry_point": "horizon_distance",
+  "inputs": [
+   "(1,)",
+   "(0,)",
+   "(10,)"
+  ],
+  "expression": "(6371 + a0, math.sqrt(a0 * (2 * 6371 + a0)))"
+ },
+ {
+  "id": "s2-k010-1",
+  "sketch_id": "k010",
+  "category": "sequences",
+  "description": "Given a list of at least two scores, write a function to find how far the highest score is ahead of the second highest, counting equal scores separately.",
+  "entry_point": "winning_margin",
+  "inputs": [
+   "([12, 30, 25],)",
+   "([7, 7],)",
+   "([1, 10, 2, 9],)"
+  ],
+  "expression": "max(a0) - sorted(a0)[-2]"
+ },
+ {
+  "id": "s2-k010-2",
+  "sketch_id": "k010",
+  "category": "strings",
+  "description": "Write a function to count the whitespace characters at the start and at the end of a string.",
+  "entry_point": "surrounding_whitespace",
+  "inputs": [
+   "('  hello world ',)",
+   "('tidy',)",
+   "('\\tx\\n',)"
+  ],
+  "expression": "len(a0) - len(a0.strip())"
+ },
+ {
+  "id": "s2-k010-3",
+  "sketch_id": "k010",
+  "category": "nested",
+  "description": "Given a list of (item, price) tuples and the amount of money you have, write a function to return how much money is left after buying every item once.",
+  "entry_point": "money_left",
+  "inputs": [
+   "([('tea', 3), ('jam', 5)], 20)",
+   "([], 7)",
+   "([('cake', 10)], 10)"
+  ],
+  "expression": "a1 - sum(p for n, p in a0)"
+ },
+ {
+  "id": "s2-k010-4",
+  "sketch_id": "k010",
+  "category": "numbers",
+  "description": "Given a dictionary of city temperatures, write a function to return the difference between the highest and the lowest temperature.",
+  "entry_point": "temperature_spread",
+  "inputs": [
+   "({'oslo': -3, 'rome': 18, 'cairo': 30},)",
+   "({'lima': 20},)",
+   "({'a': 5, 'b': 9},)"
+  ],
+  "expression": "max(a0.values()) - min(a0.values())"
+ },
+ {
+  "id": "s2-k127-1",
+  "sketch_id": "k127",
+  "category": "numbers",
+  "description": "Write a function to count the numbers from 1 to n that are divisible by 3 but not by 5.",
+  "entry_point": "count_three_not_five",
+  "inputs": [
+   "(15,)",
+   "(2,)",
+   "(30,)"
+  ],
+  "expression": "sum(1 for k in range(1, a0 + 1) if k % 3 == 0 and k % 5 != 0)"
+ },
+ {
+  "id": "s2-k127-2",
+  "sketch_id": "k127",
+  "category": "strings",
+  "description": "Write a function to count the consonants in a string, that is, the letters that are not vowels from 'aeiou', ignoring case.",
+  "entry_point": "count_consonants",
+  "inputs": [
+   "('Hello World!',)",
+   "('aei',)",
+   "('Rhythm',)"
+  ],
+  "expression": "sum(1 for c in a0 if c.isalpha() and c.lower() not in 'aeiou')"
+ },
+ {
+  "id": "s2-k127-3",
+  "sketch_id": "k127",
+  "category": "numbers",
+  "description": "Given a dictionary of product prices, a lower limit and an upper limit, write a function to return the total price of the products priced between the two limits, inclusive.",
+  "entry_point": "total_in_price_band",
+  "inputs": [
+   "({'pen': 2, 'book': 15, 'bag': 40}, 10, 40)",
+   "({'gum': 1}, 5, 9)",
+   "({'a': 5, 'b': 9}, 5, 9)"
+  ],
+  "expression": "sum(v for v in a0.values() if a1 <= v <= a2)"
+ },
+ {
+  "id": "s2-k127-4",
+  "sketch_id": "k127",
+  "category": "nested",
+  "description": "Given a list of (name, age, city) tuples and a city, write a function to count the people older than 18 who live in that city.",
+  "entry_point": "adults_in_city",
+  "inputs": [
+   "([('ann', 30, 'oslo'), ('bob', 12, 'oslo'), ('cy', 40, 'rome')], 'oslo')",
+   "([('dee', 19, 'rome')], 'oslo')",
+   "([('eve', 25, 'nice'), ('fay', 19, 'nice')], 'nice')"
+  ],
+  "expression": "sum(1 for p in a0 if p[1] > 18 and p[2] == a1)"
+ },
+ {
+  "id": "s2-k007-1",
+  "sketch_id": "k007",
+  "category": "strings",
+  "description": "Write a function to rotate a string to the right by k positions, moving its last k characters to the front, where k is at least 1 and at most the length of the string.",
+  "entry_point": "rotate_right",
+  "inputs": [
+   "('python', 2)",
+   "('abc', 3)",
+   "('hello', 1)"
+  ],
+  "expression": "a0[-a1:] + a0[:-a1]"
+ },
+ {
+  "id": "s2-k007-2",
+  "sketch_id": "k007",
+  "category": "sequences",
+  "description": "Write a function to turn a list into a palindrome by appending the elements of the list in reverse order to it.",
+  "entry_point": "mirror_list",
+  "inputs": [
+   "([1, 2, 3],)",
+   "(['a'],)",
+   "([],)"
+  ],
+  "expression": "a0 + a0[::-1]"
+ },
+ {
+  "id": "s2-k007-3",
+  "sketch_id": "k007",
+  "category": "numbers",
+  "description": "Write a function to find the sum of the first and the last digit of a positive integer.",
+  "entry_point": "first_plus_last_digit",
+  "inputs": [
+   "(1234,)",
+   "(7,)",
+   "(90,)"
+  ],
+  "expression": "int(str(a0)[0]) + a0 % 10"
+ },
+ {
+  "id": "s2-k007-4",
+  "sketch_id": "k007",
+  "category": "nested",
+  "description": "Given two dictionaries that count the items stored in two warehouses, write a function to return the total number of items in both warehouses.",
+  "entry_point": "total_items",
+  "inputs": [
+   "({'pens': 10, 'ink': 5}, {'pens': 2})",
+   "({}, {})",
+   "({'a': 1}, {'b': 2, 'c': 3})"
+  ],
+  "expression": "sum(a0.values()) + sum(a1.values())"
+ },
+ {
+  "id": "s2-k264-1",
+  "sketch_id": "k264",
+  "category": "nested",
+  "description": "Given a shopping list of (price, discount) pairs, where the discount is a percentage and 100 makes an item free, write a function to compute the total amount to pay after the discounts.",
+  "entry_point": "total_after_discounts",
+  "inputs": [
+   "([(50, 10), (20, 0)],)",
+   "([(30, 100)],)",
+   "([(80, 25), (12, 50)],)"
+  ],
+  "expression": "sum(p * (100 - d) / 100 for p, d in a0)"
+ },
+ {
+  "id": "s2-k264-2",
+  "sketch_id": "k264",
+  "category": "sequences",
+  "description": "Given the list of bits that follow the binary point of a binary fraction, write a function to return its value, where the first bit is worth one half, the next one quarter, and so on.",
+  "entry_point": "binary_fraction_value",
+  "inputs": [
+   "([1, 0, 1],)",
+   "([0, 1],)",
+   "([],)"
+  ],
+  "expression": "sum(b / 2 ** (i + 1) for i, b in enumerate(a0))"
+ },
+ {
+  "id": "s2-k264-3",
+  "sketch_id": "k264",
+  "category": "numbers",
+  "description": "Given a list of masses and an equally long list of speeds, write a function to compute the total kinetic energy of the bodies, where a body of mass m and speed v has energy m * v * v / 2.",
+  "entry_point": "total_kinetic_energy",
+  "inputs": [
+   "([2, 4], [3, 1])",
+   "([1], [0])",
+   "([10, 1, 1], [1, 2, 4])"
+  ],
+  "expression": "sum(m * v * v / 2 for m, v in zip(a0, a1))"
+ },
+ {
+  "id": "s2-k264-4",
+  "sketch_id": "k264",
+  "category": "nested",
+  "description": "Given a list of (minutes, seconds) durations, write a function to compute the total duration in hours, with 60 seconds in a minute and 3600 seconds in an hour.",
+  "entry_point": "total_hours",
+  "inputs": [
+   "([(30, 0), (15, 0)],)",
+   "([(0, 36)],)",
+   "([(60, 0), (90, 0)],)"
+  ],
+  "expression": "sum((m * 60 + s) / 3600 for m, s in a0)"
+ },
+ {
+  "id": "s2-k245-1",
+  "sketch_id": "k245",
+  "category": "strings",
+  "description": "Write a function that returns 'Valid name' if a string is exactly two words separated by a single space, each made only of letters and starting with an uppercase letter, and 'Invalid name' otherwise.",
+  "entry_point": "validate_full_name",
+  "inputs": [
+   "('Ada Lovelace',)",
+   "('ada lovelace',)",
+   "('Grace Brewster Hopper',)"
+  ],
+  "expression": "'Valid name' if len(a0.split(' ')) == 2 and all(w.isalpha() and w[0].isupper() for w in a0.split(' ')) else 'Invalid name'"
+ },
+ {
+  "id": "s2-k245-2",
+  "sketch_id": "k245",
+  "category": "strings",
+  "description": "Write a function that returns 'Accepted' if a text has exactly three lines separated by newline characters and every line is non-empty and at most 20 characters long, and 'Rejected' otherwise.",
+  "entry_point": "three_line_poem",
+  "inputs": [
+   "('old pond\\na frog jumps\\nsplash',)",
+   "('one line only',)",
+   "('a\\n\\nb',)"
+  ],
+  "expression": "'Accepted' if len(a0.split('\\n')) == 3 and all(l and len(l) <= 20 for l in a0.split('\\n')) else 'Rejected'"
+ },
+ {
+  "id": "s2-k245-3",
+  "sketch_id": "k245",
+  "category": "strings",
+  "description": "Write a function that returns 'Valid' if a string is two groups of exactly two digits separated by a colon, like '09:45', and 'Invalid' otherwise.",
+  "entry_point": "clock_format",
+  "inputs": [
+   "('07:30',)",
+   "('7:30',)",
+   "('12:3a',)"
+  ],
+  "expression": "'Valid' if len(a0.split(':')) == 2 and all(p.isdigit() and len(p) == 2 for p in a0.split(':')) else 'Invalid'"
+ },
+ {
+  "id": "s2-k245-4",
+  "sketch_id": "k245",
+  "category": "sequences",
+  "description": "Given a list of usernames, write a function that returns 'Valid' if no username appears twice and every username is written in lowercase and has at most 8 characters, and 'Invalid' otherwise.",
+  "entry_point": "validate_usernames",
+  "inputs": [
+   "(['ann', 'bob99', 'cy'],)",
+   "(['ann', 'ann'],)",
+   "(['Ann', 'verylongname'],)"
+  ],
+  "expression": "'Valid' if len(set(a0)) == len(a0) and all(u.islower() and len(u) <= 8 for u in a0) else 'Invalid'"
+ },
+ {
+  "id": "s2-k028-1",
+  "sketch_id": "k028",
+  "category": "strings",
+  "description": "Given a list of words, write a function to return a list in which every word longer than four letters is written in uppercase and every other word in lowercase.",
+  "entry_point": "case_by_length",
+  "inputs": [
+   "(['Hello', 'big', 'World', 'Of'],)",
+   "(['tiny'],)",
+   "(['Python'],)"
+  ],
+  "expression": "[w.upper() if len(w) > 4 else w.lower() for w in a0]"
+ },
+ {
+  "id": "s2-k028-2",
+  "sketch_id": "k028",
+  "category": "numbers",
+  "description": "Write a function to replace every negative number in a list by 0, keeping the other numbers as they are.",
+  "entry_point": "clip_negatives",
+  "inputs": [
+   "([3, -1, 0, -7, 2],)",
+   "([-5],)",
+   "([1, 2],)"
+  ],
+  "expression": "[x if x > 0 else 0 for x in a0]"
+ },
+ {
+  "id": "s2-k028-3",
+  "sketch_id": "k028",
+  "category": "nested",
+  "description": "Given a list of (name, score) pairs, write a function to return a list with 'pass' for every score of at least 50 and 'fail' for every lower score.",
+  "entry_point": "pass_fail_labels",
+  "inputs": [
+   "([('ann', 72), ('bob', 49), ('cy', 50)],)",
+   "([('dan', 10)],)",
+   "([],)"
+  ],
+  "expression": "['pass' if r[1] >= 50 else 'fail' for r in a0]"
+ },
+ {
+  "id": "s2-k028-4",
+  "sketch_id": "k028",
+  "category": "sequences",
+  "description": "Given a list in which some entries are None and a default value, write a function to return the list with every None replaced by the default value.",
+  "entry_point": "fill_missing",
+  "inputs": [
+   "([1, None, 3, None], 0)",
+   "([None], 'n/a')",
+   "(['a', 'b'], 'x')"
+  ],
+  "expression": "[a1 if x is None else x for x in a0]"
+ },
+ {
+  "id": "s2-k117-1",
+  "sketch_id": "k117",
+  "category": "numbers",
+  "description": "A phone plan charges a price for every started block of k minutes plus a fixed monthly fee; given the minutes used, k, the price per block and the monthly fee, write a function to compute the bill.",
+  "entry_point": "phone_bill",
+  "inputs": [
+   "(95, 30, 2, 10)",
+   "(0, 15, 5, 7)",
+   "(60, 30, 3, 0)"
+  ],
+  "expression": "math.ceil(a0 / a1) * a2 + a3"
+ },
+ {
+  "id": "s2-k117-2",
+  "sketch_id": "k117",
+  "category": "nested",
+  "description": "Given a grid as a non-empty list of equally long rows and a cell as a (row, column) tuple, write a function to return the position of that cell when the grid is read row by row, counting from 0.",
+  "entry_point": "reading_position",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6]], (1, 2))",
+   "([[0]], (0, 0))",
+   "([[1, 2], [3, 4], [5, 6]], (2, 0))"
+  ],
+  "expression": "a1[0] * len(a0[0]) + a1[1]"
+ },
+ {
+  "id": "s2-k117-3",
+  "sketch_id": "k117",
+  "category": "numbers",
+  "description": "A savings account pays r percent interest, out of 100, once a year; write a function to compute the balance at the end of the year from the starting balance, the rate r and a deposit made right after the interest is paid.",
+  "entry_point": "year_end_balance",
+  "inputs": [
+   "(1000, 5, 100)",
+   "(200, 0, 0)",
+   "(500, 10, 50)"
+  ],
+  "expression": "a0 * (1 + a1 / 100) + a2"
+ },
+ {
+  "id": "s2-k117-4",
+  "sketch_id": "k117",
+  "category": "strings",
+  "description": "Given a two-digit string written in base b, where b is from 2 to 10, and the base b, write a function to return the value of the string as an integer.",
+  "entry_point": "two_digit_base_value",
+  "inputs": [
+   "('21', 3)",
+   "('10', 2)",
+   "('77', 8)"
+  ],
+  "expression": "int(a0[0]) * a1 + int(a0[1])"
+ },
+ {
+  "id": "s2-k218-1",
+  "sketch_id": "k218",
+  "category": "numbers",
+  "description": "Write a function to find the factor by which an amount of money grows when it earns r1 percent interest a year for n1 years and then r2 percent a year for n2 years, with the rates out of 100 and the arguments given as r1, n1, r2, n2.",
+  "entry_point": "growth_factor",
+  "inputs": [
+   "(10, 2, 5, 1)",
+   "(0, 5, 0, 5)",
+   "(100, 1, 50, 2)"
+  ],
+  "expression": "(1 + a0 / 100) ** a1 * (1 + a2 / 100) ** a3"
+ },
+ {
+  "id": "s2-k218-2",
+  "sketch_id": "k218",
+  "category": "numbers",
+  "description": "A bag holds g green balls and r red balls; write a function to find the probability of drawing k green balls and then m red balls when every ball is put back before the next draw, with the arguments given as g, r, k, m.",
+  "entry_point": "draw_sequence_probability",
+  "inputs": [
+   "(3, 1, 2, 1)",
+   "(1, 1, 1, 1)",
+   "(2, 3, 0, 2)"
+  ],
+  "expression": "(a0 / (a0 + a1)) ** a2 * (a1 / (a0 + a1)) ** a3"
+ },
+ {
+  "id": "s2-k218-3",
+  "sketch_id": "k218",
+  "category": "nested",
+  "description": "Given the prime factorization of a number with exactly two distinct prime factors, as a list of two (prime, exponent) pairs, write a function to return the number.",
+  "entry_point": "from_factorization",
+  "inputs": [
+   "([(2, 3), (5, 1)],)",
+   "([(3, 2), (7, 2)],)",
+   "([(2, 1), (3, 1)],)"
+  ],
+  "expression": "a0[0][0] ** a0[0][1] * a0[1][0] ** a0[1][1]"
+ },
+ {
+  "id": "s2-k218-4",
+  "sketch_id": "k218",
+  "category": "strings",
+  "description": "Given a code pattern in which each 'd' stands for a digit and each 'l' for a letter, a string of the allowed digits and a string of the allowed letters, write a function to count how many different codes fit the pattern.",
+  "entry_point": "count_codes",
+  "inputs": [
+   "('ddl', '0123456789', 'ab')",
+   "('l', '01', 'xyz')",
+   "('dddd', '19', 'a')"
+  ],
+  "expression": "len(a1) ** a0.count('d') * len(a2) ** a0.count('l')"
+ },
+ {
+  "id": "s2-k039-1",
+  "sketch_id": "k039",
+  "category": "strings",
+  "description": "Write a function to sort a list of words from the longest to the shortest, ordering words of the same length alphabetically without regard to case.",
+  "entry_point": "longest_first",
+  "inputs": [
+   "(['pear', 'Fig', 'apple', 'kiwi'],)",
+   "(['b', 'A'],)",
+   "(['cc', 'a', 'bbb'],)"
+  ],
+  "expression": "sorted(a0, key=lambda w: (-len(w), w.lower()))"
+ },
+ {
+  "id": "s2-k039-2",
+  "sketch_id": "k039",
+  "category": "numbers",
+  "description": "Write a function to sort a list of integers so that the even numbers come before the odd numbers, each group from the largest to the smallest.",
+  "entry_point": "evens_first_descending",
+  "inputs": [
+   "([3, 8, 1, 4, 6],)",
+   "([5, 7],)",
+   "([2, -3, 0],)"
+  ],
+  "expression": "sorted(a0, key=lambda x: (x % 2, -x))"
+ },
+ {
+  "id": "s2-k039-3",
+  "sketch_id": "k039",
+  "category": "nested",
+  "description": "Write a function to return the (key, value) pairs of a dictionary sorted by value and, for equal values, by key.",
+  "entry_point": "items_by_value_then_key",
+  "inputs": [
+   "({'pear': 3, 'fig': 1, 'apple': 3},)",
+   "({'x': 0},)",
+   "({'b': 2, 'a': 2, 'c': 1},)"
+  ],
+  "expression": "sorted(a0.items(), key=lambda kv: (kv[1], kv[0]))"
+ },
+ {
+  "id": "s2-k039-4",
+  "sketch_id": "k039",
+  "category": "strings",
+  "description": "Given a list of full names of the form 'first last', write a function to sort them by last name and, for equal last names, by first name.",
+  "entry_point": "sort_by_surname",
+  "inputs": [
+   "(['ada lovelace', 'alan turing', 'ann lovelace'],)",
+   "(['x y'],)",
+   "(['bo zed', 'al zed', 'cy abe'],)"
+  ],
+  "expression": "sorted(a0, key=lambda n: (n.split()[1], n.split()[0]))"
+ },
+ {
+  "id": "s2-k247-1",
+  "sketch_id": "k247",
+  "category": "strings",
+  "description": "Given a tuple of text fields, write a function to return a tuple in which every field made only of digits is converted to an integer and every other field is left as it is.",
+  "entry_point": "parse_numeric_fields",
+  "inputs": [
+   "(('ann', '42', 'oslo', '7'),)",
+   "(('x',),)",
+   "(('12', '-3'),)"
+  ],
+  "expression": "tuple(int(s) if s.isdigit() else s for s in a0)"
+ },
+ {
+  "id": "s2-k247-2",
+  "sketch_id": "k247",
+  "category": "nested",
+  "description": "Given a tuple of (name, score) pairs and a score k, write a function to return a tuple of the names in which the name of everyone who scored more than k is followed by ' *'.",
+  "entry_point": "mark_top_scorers",
+  "inputs": [
+   "((('ann', 90), ('bob', 60)), 80)",
+   "((('cy', 10),), 50)",
+   "((('dee', 70), ('eve', 75)), 60)"
+  ],
+  "expression": "tuple(r[0] + ' *' if r[1] > a1 else r[0] for r in a0)"
+ },
+ {
+  "id": "s2-k247-3",
+  "sketch_id": "k247",
+  "category": "numbers",
+  "description": "Given a tuple of temperatures and a threshold, write a function to return a tuple that labels each temperature 'hot' if it is above the threshold and 'cold' otherwise.",
+  "entry_point": "hot_or_cold",
+  "inputs": [
+   "((25, 12, 30), 20)",
+   "((5,), 10)",
+   "((), 0)"
+  ],
+  "expression": "tuple('hot' if t > a1 else 'cold' for t in a0)"
+ },
+ {
+  "id": "s2-k247-4",
+  "sketch_id": "k247",
+  "category": "sequences",
+  "description": "Write a function to replace every empty string in a tuple of strings with 'N/A'.",
+  "entry_point": "fill_empty_fields",
+  "inputs": [
+   "(('ann', '', 'oslo'),)",
+   "(('',),)",
+   "(('x', 'y'),)"
+  ],
+  "expression": "tuple('N/A' if s == '' else s for s in a0)"
+ },
+ {
+  "id": "s2-k042-1",
+  "sketch_id": "k042",
+  "category": "numbers",
+  "description": "Write a function to check whether all the numbers in a list are greater than k.",
+  "entry_point": "all_greater_than",
+  "inputs": [
+   "([5, 8, 12], 4)",
+   "([5, 3], 4)",
+   "([], 0)"
+  ],
+  "expression": "all(x > a1 for x in a0)"
+ },
+ {
+  "id": "s2-k042-2",
+  "sketch_id": "k042",
+  "category": "sequences",
+  "description": "Write a function to check whether every element of a list is a string.",
+  "entry_point": "all_strings",
+  "inputs": [
+   "(['a', 'bc', ''],)",
+   "(['a', 1, 'b'],)",
+   "([],)"
+  ],
+  "expression": "all(isinstance(x, str) for x in a0)"
+ },
+ {
+  "id": "s2-k042-3",
+  "sketch_id": "k042",
+  "category": "predicates",
+  "description": "Given a dictionary of feature flags that maps feature names to True or False and a list of feature names, write a function to check whether all the listed features are switched on.",
+  "entry_point": "features_enabled",
+  "inputs": [
+   "({'dark': True, 'beta': False, 'sync': True}, ['dark', 'sync'])",
+   "({'dark': True, 'beta': False}, ['beta'])",
+   "({'x': False}, [])"
+  ],
+  "expression": "all(a0[k] for k in a1)"
+ },
+ {
+  "id": "s2-k042-4",
+  "sketch_id": "k042",
+  "category": "nested",
+  "description": "Write a function to check whether every row of a matrix contains the value k.",
+  "entry_point": "value_in_every_row",
+  "inputs": [
+   "([[1, 2], [2, 3], [4, 2]], 2)",
+   "([[1, 2], [3, 4]], 1)",
+   "([[0]], 0)"
+  ],
+  "expression": "all(a1 in r for r in a0)"
+ },
+ {
+  "id": "s2-k023-1",
+  "sketch_id": "k023",
+  "category": "nested",
+  "description": "Given a dictionary from items to (price, quantity) tuples, write a function to return the list of the cost of each item, its price times its quantity, in the order of the dictionary.",
+  "entry_point": "line_costs",
+  "inputs": [
+   "({'tea': (3, 2), 'jam': (5, 1)},)",
+   "({},)",
+   "({'egg': (1, 12)},)"
+  ],
+  "expression": "[p * q for p, q in a0.values()]"
+ },
+ {
+  "id": "s2-k023-2",
+  "sketch_id": "k023",
+  "category": "sequences",
+  "description": "Given two lists of numbers of the same length, write a function to return the list of the absolute differences between the elements at the same positions.",
+  "entry_point": "absolute_differences",
+  "inputs": [
+   "([1, 5, 3], [4, 5, 1])",
+   "([], [])",
+   "([-2], [2])"
+  ],
+  "expression": "[abs(x - y) for x, y in zip(a0, a1)]"
+ },
+ {
+  "id": "s2-k023-3",
+  "sketch_id": "k023",
+  "category": "numbers",
+  "description": "Write a function to multiply every element of a list of numbers by its position, counting positions from 0.",
+  "entry_point": "weight_by_position",
+  "inputs": [
+   "([4, 5, 6],)",
+   "([7],)",
+   "([1, 1, 1, 1],)"
+  ],
+  "expression": "[i * x for i, x in enumerate(a0)]"
+ },
+ {
+  "id": "s2-k023-4",
+  "sketch_id": "k023",
+  "category": "nested",
+  "description": "Given a list of (x, y) points, write a function to return the points reflected in the x-axis, that is, with the sign of every y coordinate changed.",
+  "entry_point": "reflect_in_x_axis",
+  "inputs": [
+   "([(1, 2), (3, -4)],)",
+   "([],)",
+   "([(0, 0)],)"
+  ],
+  "expression": "[(x, -y) for x, y in a0]"
+ },
+ {
+  "id": "s2-k115-1",
+  "sketch_id": "k115",
+  "category": "strings",
+  "description": "Write a function to count the characters of a string that are digits.",
+  "entry_point": "count_digit_characters",
+  "inputs": [
+   "('a1b22c333',)",
+   "('none',)",
+   "('2024',)"
+  ],
+  "expression": "len([c for c in a0 if c.isdigit()])"
+ },
+ {
+  "id": "s2-k115-2",
+  "sketch_id": "k115",
+  "category": "numbers",
+  "description": "Write a function to count the different absolute values among the numbers of a list.",
+  "entry_point": "count_distinct_magnitudes",
+  "inputs": [
+   "([3, -3, 2, -5, 5],)",
+   "([0],)",
+   "([-1, -2, 1, 2, 2],)"
+  ],
+  "expression": "len(set(map(abs, a0)))"
+ },
+ {
+  "id": "s2-k115-3",
+  "sketch_id": "k115",
+  "category": "nested",
+  "description": "Given a list of pairs, write a function to count the different unordered pairs, where (a, b) and (b, a) count as the same pair.",
+  "entry_point": "count_unordered_pairs",
+  "inputs": [
+   "([(1, 2), (2, 1), (3, 4)],)",
+   "([('a', 'b')],)",
+   "([(1, 2), (1, 3), (3, 1), (2, 1)],)"
+  ],
+  "expression": "len(set(frozenset(p) for p in a0))"
+ },
+ {
+  "id": "s2-k115-4",
+  "sketch_id": "k115",
+  "category": "nested",
+  "description": "Write a function to count the keys that two dictionaries have in common.",
+  "entry_point": "count_shared_keys",
+  "inputs": [
+   "({'a': 1, 'b': 2, 'c': 3}, {'b': 0, 'c': 9, 'd': 4})",
+   "({'x': 1}, {})",
+   "({'k': 1}, {'k': 2})"
+  ],
+  "expression": "len(a0.keys() & a1.keys())"
+ },
+ {
+  "id": "s2-k225-1",
+  "sketch_id": "k225",
+  "category": "numbers",
+  "description": "A cinema's front row has n seats and its back row has d seats fewer; write a function to count the ways to choose a block of at least k adjacent seats within one row, returning -1 when k is larger than n, with the arguments given as n, k, d.",
+  "entry_point": "seat_blocks",
+  "inputs": [
+   "(5, 2, 1)",
+   "(3, 4, 0)",
+   "(4, 3, 2)"
+  ],
+  "expression": "-1 if a1 > a0 else triangular_1(a0 - a1 + 1) + triangular_1(max(0, a0 - a2 - a1 + 1))"
+ },
+ {
+  "id": "s2-k225-2",
+  "sketch_id": "k225",
+  "category": "numbers",
+  "description": "A meeting room is open for h hours on weekdays and for half as many hours, rounded down, on Saturdays; write a function to count the ways to book a meeting of at least k whole hours, starting and ending on the hour, either on a weekday or on a Saturday, returning -1 when k is larger than h.",
+  "entry_point": "booking_options",
+  "inputs": [
+   "(8, 3)",
+   "(4, 5)",
+   "(5, 3)"
+  ],
+  "expression": "-1 if a1 > a0 else triangular_1(a0 - a1 + 1) + triangular_1(max(0, a0 // 2 - a1 + 1))"
+ },
+ {
+  "id": "s2-k091-1",
+  "sketch_id": "k091",
+  "category": "numbers",
+  "description": "Given a list of non-negative integers and a divisor d, write a function to return the list of (quotient, remainder) pairs obtained by dividing each number by d.",
+  "entry_point": "quotient_remainder_pairs",
+  "inputs": [
+   "([17, 4, 9], 4)",
+   "([0], 5)",
+   "([10, 11], 10)"
+  ],
+  "expression": "[(x // a1, x % a1) for x in a0]"
+ },
+ {
+  "id": "s2-k091-2",
+  "sketch_id": "k091",
+  "category": "nested",
+  "description": "Given a list of (x, y) points and a shift given as two numbers dx and dy, write a function to return the list of the points moved by that shift.",
+  "entry_point": "translate_points",
+  "inputs": [
+   "([(0, 0), (2, 3)], 1, -1)",
+   "([], 5, 5)",
+   "([(1, 1)], 0, 2)"
+  ],
+  "expression": "[(p[0] + a1, p[1] + a2) for p in a0]"
+ },
+ {
+  "id": "s2-k091-3",
+  "sketch_id": "k091",
+  "category": "nested",
+  "description": "Given a dictionary from names to ages and the current year, write a function to return a list of (name, birth year) pairs, taking each birth year as the current year minus the age.",
+  "entry_point": "birth_years",
+  "inputs": [
+   "({'ann': 30, 'bob': 5}, 2024)",
+   "({}, 2000)",
+   "({'cy': 0}, 1999)"
+  ],
+  "expression": "[(k, a1 - a0[k]) for k in a0]"
+ },
+ {
+  "id": "s2-k091-4",
+  "sketch_id": "k091",
+  "category": "strings",
+  "description": "Given a list of 'key=value' strings, write a function to return the list of (key, value) tuples.",
+  "entry_point": "parse_assignments",
+  "inputs": [
+   "(['a=1', 'mode=fast'],)",
+   "([],)",
+   "(['x=', '=y'],)"
+  ],
+  "expression": "[(s.split('=')[0], s.split('=')[1]) for s in a0]"
+ },
+ {
+  "id": "s2-k057-1",
+  "sketch_id": "k057",
+  "category": "numbers",
+  "description": "Write a function that returns 'Has negatives' if a list contains a negative number and 'No negatives' otherwise.",
+  "entry_point": "negatives_label",
+  "inputs": [
+   "([3, -2, 5],)",
+   "([0, 1],)",
+   "([],)"
+  ],
+  "expression": "'Has negatives' if any(x < 0 for x in a0) else 'No negatives'"
+ },
+ {
+  "id": "s2-k057-2",
+  "sketch_id": "k057",
+  "category": "strings",
+  "description": "Given a list of file names, write a function that returns 'Has images' if some file name ends with '.png' and 'No images' otherwise.",
+  "entry_point": "image_check",
+  "inputs": [
+   "(['notes.txt', 'cat.png', 'a.py'],)",
+   "(['report.pdf'],)",
+   "([],)"
+  ],
+  "expression": "'Has images' if any(f.endswith('.png') for f in a0) else 'No images'"
+ },
+ {
+  "id": "s2-k057-3",
+  "sketch_id": "k057",
+  "category": "strings",
+  "description": "Write a function that returns 'Shouting' if some word of a sentence is written entirely in uppercase letters and 'Calm' otherwise.",
+  "entry_point": "tone_check",
+  "inputs": [
+   "('please STOP that',)",
+   "('all is well',)",
+   "('OK then',)"
+  ],
+  "expression": "'Shouting' if any(w.isupper() for w in a0.split()) else 'Calm'"
+ },
+ {
+  "id": "s2-k057-4",
+  "sketch_id": "k057",
+  "category": "nested",
+  "description": "Given a list of (name, age) pairs, write a function that returns 'Minor present' if somebody is younger than 18 and 'Adults only' otherwise.",
+  "entry_point": "age_check",
+  "inputs": [
+   "([('ann', 34), ('tom', 12)],)",
+   "([('bob', 18)],)",
+   "([('cy', 17), ('dee', 40)],)"
+  ],
+  "expression": "'Minor present' if any(a < 18 for n, a in a0) else 'Adults only'"
+ },
+ {
+  "id": "s2-k229-1",
+  "sketch_id": "k229",
+  "category": "numbers",
+  "description": "Given an old price, a new price and a number k, write a function to check whether the price rose by more than k percent of the old price, with percentages out of 100.",
+  "entry_point": "rose_more_than",
+  "inputs": [
+   "(50, 60, 10)",
+   "(100, 105, 5)",
+   "(80, 70, 0)"
+  ],
+  "expression": "(a1 - a0) * 100 / a0 > a2"
+ },
+ {
+  "id": "s2-k229-2",
+  "sketch_id": "k229",
+  "category": "strings",
+  "description": "Write a function to check whether the share of uppercase letters among all the characters of a non-empty string is greater than a given fraction.",
+  "entry_point": "uppercase_share_above",
+  "inputs": [
+   "('HELLO world', 0.4)",
+   "('Hello', 0.5)",
+   "('ABC', 0.9)"
+  ],
+  "expression": "sum(c.isupper() for c in a0) / len(a0) > a1"
+ },
+ {
+  "id": "s2-k229-3",
+  "sketch_id": "k229",
+  "category": "nested",
+  "description": "Given a list of laps as (distance, time) pairs, write a function to check whether the average speed over all the laps, the total distance divided by the total time, is greater than k.",
+  "entry_point": "fast_enough",
+  "inputs": [
+   "([(400, 80), (400, 100)], 4)",
+   "([(100, 50)], 2)",
+   "([(300, 60), (200, 40)], 6)"
+  ],
+  "expression": "sum(d for d, t in a0) / sum(t for d, t in a0) > a1"
+ },
+ {
+  "id": "s2-k229-4",
+  "sketch_id": "k229",
+  "category": "numbers",
+  "description": "Given a weight in kilograms and a height in centimetres, write a function to check whether the body mass index, the weight divided by the square of the height in metres, is above 25, with 100 centimetres in a metre.",
+  "entry_point": "bmi_above_25",
+  "inputs": [
+   "(90, 180)",
+   "(60, 175)",
+   "(70, 160)"
+  ],
+  "expression": "a0 / (a1 / 100) ** 2 > 25"
+ },
+ {
+  "id": "s2-k136-1",
+  "sketch_id": "k136",
+  "category": "nested",
+  "description": "Write a function to return, for each row of a matrix, the sum of the elements at the even positions of that row, counting positions from 0.",
+  "entry_point": "even_position_row_sums",
+  "inputs": [
+   "([[1, 2, 3], [4, 5, 6, 7]],)",
+   "([[9]],)",
+   "([[1, 1], [2, 2, 2]],)"
+  ],
+  "expression": "[sum(r[::2]) for r in a0]"
+ },
+ {
+  "id": "s2-k136-2",
+  "sketch_id": "k136",
+  "category": "strings",
+  "description": "Given a list of lowercase words, write a function to return the number of vowels, the letters in 'aeiou', of each word.",
+  "entry_point": "vowels_per_word",
+  "inputs": [
+   "(['apple', 'sky', 'queue'],)",
+   "([],)",
+   "(['aeiou'],)"
+  ],
+  "expression": "[sum(c in 'aeiou' for c in w) for w in a0]"
+ },
+ {
+  "id": "s2-k136-3",
+  "sketch_id": "k136",
+  "category": "numbers",
+  "description": "Write a function to return the list of the digit sums of the integers from 1 to n.",
+  "entry_point": "digit_sums_up_to",
+  "inputs": [
+   "(12,)",
+   "(3,)",
+   "(1,)"
+  ],
+  "expression": "[sum(map(int, str(k))) for k in range(1, a0 + 1)]"
+ },
+ {
+  "id": "s2-k136-4",
+  "sketch_id": "k136",
+  "category": "nested",
+  "description": "Given a dictionary from students to lists of test scores and a pass mark, write a function to return, in the order of the dictionary, how many tests each student scored above the pass mark.",
+  "entry_point": "tests_passed",
+  "inputs": [
+   "({'ann': [70, 40, 90], 'bob': [30]}, 50)",
+   "({'cy': []}, 10)",
+   "({'dee': [51, 50]}, 50)"
+  ],
+  "expression": "[sum(s > a1 for s in v) for v in a0.values()]"
+ },
+ {
+  "id": "s2-k226-1",
+  "sketch_id": "k226",
+  "category": "nested",
+  "description": "Given a shopping cart as a dictionary from items to (price, quantity) tuples, write a function to return the total cost, taking 10 off when the total is more than 100.",
+  "entry_point": "cart_total",
+  "inputs": [
+   "({'tv': (90, 1), 'cable': (8, 3)},)",
+   "({'pen': (2, 5)},)",
+   "({'a': (50, 2)},)"
+  ],
+  "expression": "[t - 10 if t > 100 else t for t in [sum(p * q for p, q in a0.values())]][0]"
+ },
+ {
+  "id": "s2-k226-2",
+  "sketch_id": "k226",
+  "category": "sequences",
+  "description": "Given two vectors of the same length as lists, write a function to return their dot product, or 'Orthogonal' when the dot product is 0.",
+  "entry_point": "dot_or_orthogonal",
+  "inputs": [
+   "([1, 2, 3], [4, 5, 6])",
+   "([1, 0], [0, 7])",
+   "([2, -1], [1, 2])"
+  ],
+  "expression": "['Orthogonal' if d == 0 else d for d in [sum(x * y for x, y in zip(a0, a1))]][0]"
+ },
+ {
+  "id": "s2-k226-3",
+  "sketch_id": "k226",
+  "category": "strings",
+  "description": "Given a dictionary from words to the number of times each word occurs in a text, write a function to return the total number of letters in the text, or 'Empty text' when that total is 0.",
+  "entry_point": "letters_in_text",
+  "inputs": [
+   "({'the': 2, 'cat': 1},)",
+   "({},)",
+   "({'a': 3, 'is': 0},)"
+  ],
+  "expression": "['Empty text' if n == 0 else n for n in [sum(len(w) * c for w, c in a0.items())]][0]"
+ },
+ {
+  "id": "s2-k226-4",
+  "sketch_id": "k226",
+  "category": "nested",
+  "description": "A team earns 3 points for a win and 1 point for a draw; given a list of (wins, draws) tuples, one per season, write a function to return the team's total points, adding a bonus of 10 points when the total is at least 100.",
+  "entry_point": "league_points",
+  "inputs": [
+   "([(20, 5), (15, 10)],)",
+   "([(1, 1)],)",
+   "([(30, 10)],)"
+  ],
+  "expression": "[p + 10 if p >= 100 else p for p in [sum(3 * w + d for w, d in a0)]][0]"
+ },
+ {
+  "id": "s2-k108-1",
+  "sketch_id": "k108",
+  "category": "strings",
+  "description": "Write a function to check whether some word of a sentence that starts with an uppercase letter is longer than k letters.",
+  "entry_point": "long_capitalized_word",
+  "inputs": [
+   "('Visit Amsterdam in may', 6)",
+   "('the Big apple', 3)",
+   "('Hi there', 1)"
+  ],
+  "expression": "any(len(w) > a1 for w in a0.split() if w[0].isupper())"
+ },
+ {
+  "id": "s2-k108-2",
+  "sketch_id": "k108",
+  "category": "numbers",
+  "description": "Write a function to check whether a positive integer n has an odd divisor greater than 1.",
+  "entry_point": "has_odd_divisor",
+  "inputs": [
+   "(12,)",
+   "(16,)",
+   "(7,)"
+  ],
+  "expression": "any(a0 % d == 0 for d in range(3, a0 + 1) if d % 2)"
+ },
+ {
+  "id": "s2-k108-3",
+  "sketch_id": "k108",
+  "category": "nested",
+  "description": "Given a dictionary from items to (price, stock) tuples and a price k, write a function to check whether any item that costs more than k is out of stock.",
+  "entry_point": "expensive_item_sold_out",
+  "inputs": [
+   "({'tv': (500, 0), 'pen': (2, 0), 'cup': (8, 3)}, 100)",
+   "({'pen': (2, 0)}, 10)",
+   "({'a': (50, 1), 'b': (60, 2)}, 40)"
+  ],
+  "expression": "any(v[1] == 0 for v in a0.values() if v[0] > a1)"
+ },
+ {
+  "id": "s2-k108-4",
+  "sketch_id": "k108",
+  "category": "nested",
+  "description": "Given a list of exam results as (subject, score) pairs, write a function to check whether any 'maths' result is below 50.",
+  "entry_point": "weak_maths_result",
+  "inputs": [
+   "([('maths', 72), ('art', 30), ('maths', 45)],)",
+   "([('art', 20)],)",
+   "([('maths', 50)],)"
+  ],
+  "expression": "any(r[1] < 50 for r in a0 if r[0] == 'maths')"
+ },
+ {
+  "id": "s2-k214-1",
+  "sketch_id": "k214",
+  "category": "numbers",
+  "description": "Write a function to compute the Narayana number N(n, k), the number of Dyck paths of semilength n with exactly k peaks, using N(n, k) = C(n, k - 1) * C(n - 1, k - 1) / k for 1 <= k <= n.",
+  "entry_point": "narayana",
+  "inputs": [
+   "(4, 2)",
+   "(3, 1)",
+   "(5, 3)"
+  ],
+  "expression": "math.comb(a0, a1 - 1) * math.comb(a0 - 1, a1 - 1) // a1"
+ },
+ {
+  "id": "s2-k214-2",
+  "sketch_id": "k214",
+  "category": "numbers",
+  "description": "Candidate A receives a votes and candidate B receives b votes, with a > b; write a function to count the orders in which the votes can be counted so that A is strictly ahead of B throughout, using the formula (a - b) * C(a + b - 1, a - 1) / a.",
+  "entry_point": "ballot_orders",
+  "inputs": [
+   "(3, 1)",
+   "(2, 0)",
+   "(5, 2)"
+  ],
+  "expression": "(a0 - a1) * math.comb(a0 + a1 - 1, a0 - 1) // a0"
+ },
+ {
+  "id": "s2-k214-3",
+  "sketch_id": "k214",
+  "category": "numbers",
+  "description": "Write a function to compute the number of ways to choose a committee of k people out of n, for 1 <= k <= n, through the identity C(n, k) = n * C(n - 1, k - 1) / k.",
+  "entry_point": "committees",
+  "inputs": [
+   "(5, 2)",
+   "(6, 6)",
+   "(10, 3)"
+  ],
+  "expression": "a0 * math.comb(a0 - 1, a1 - 1) // a1"
+ },
+ {
+  "id": "s2-k214-4",
+  "sketch_id": "k214",
+  "category": "numbers",
+  "description": "Write a function to count the ways to cut a convex polygon with n sides, where n is at least 3, into triangles by non-crossing diagonals, using the formula 2 * C(2n - 5, n - 2) / (n - 1).",
+  "entry_point": "polygon_triangulations",
+  "inputs": [
+   "(5,)",
+   "(3,)",
+   "(6,)"
+  ],
+  "expression": "2 * math.comb(2 * a0 - 5, a0 - 2) // (a0 - 1)"
+ },
+ {
+  "id": "s2-k156-1",
+  "sketch_id": "k156",
+  "category": "strings",
+  "description": "Write a function to find the length of the longest word of a sentence among the words that start with a vowel from 'aeiou', assuming there is at least one such word.",
+  "entry_point": "longest_vowel_word_length",
+  "inputs": [
+   "('an elephant ate apples',)",
+   "('one dog',)",
+   "('i am up',)"
+  ],
+  "expression": "max(len(w) for w in a0.split() if w[0] in 'aeiou')"
+ },
+ {
+  "id": "s2-k156-2",
+  "sketch_id": "k156",
+  "category": "nested",
+  "description": "Given a list of (product, price) sales and a product that was sold at least once, write a function to return the highest price at which that product was sold.",
+  "entry_point": "best_sale_price",
+  "inputs": [
+   "([('tea', 3), ('jam', 5), ('tea', 4)], 'tea')",
+   "([('jam', 5)], 'jam')",
+   "([('pie', 7), ('pie', 2), ('tea', 9)], 'pie')"
+  ],
+  "expression": "max(r[1] for r in a0 if r[0] == a1)"
+ },
+ {
+  "id": "s2-k156-3",
+  "sketch_id": "k156",
+  "category": "numbers",
+  "description": "Given a dictionary of product prices and a budget, write a function to return the highest price that does not exceed the budget, assuming that at least one product is affordable.",
+  "entry_point": "best_affordable_price",
+  "inputs": [
+   "({'tv': 400, 'radio': 60, 'cable': 15}, 100)",
+   "({'pen': 2}, 2)",
+   "({'a': 10, 'b': 30, 'c': 20}, 25)"
+  ],
+  "expression": "max(v for v in a0.values() if v <= a1)"
+ },
+ {
+  "id": "s2-k156-4",
+  "sketch_id": "k156",
+  "category": "numbers",
+  "description": "Write a function to find the largest even digit of a positive integer that has at least one digit from '02468'.",
+  "entry_point": "largest_even_digit",
+  "inputs": [
+   "(35827,)",
+   "(1234,)",
+   "(701,)"
+  ],
+  "expression": "max(int(d) for d in str(a0) if d in '02468')"
+ },
+ {
+  "id": "s2-k113-1",
+  "sketch_id": "k113",
+  "category": "nested",
+  "description": "Write a function to invert a dictionary by mapping each of its values to the list of the keys that have that value, in the order of the dictionary.",
+  "entry_point": "invert_to_lists",
+  "inputs": [
+   "({'mon': 'gym', 'tue': 'swim', 'wed': 'gym'},)",
+   "({},)",
+   "({'x': 1},)"
+  ],
+  "expression": "{v: [k for k, w in a0.items() if w == v] for v in a0.values()}"
+ },
+ {
+  "id": "s2-k113-2",
+  "sketch_id": "k113",
+  "category": "strings",
+  "description": "Given a plain text and its encrypted version of the same length, write a function to map each character of the plain text to the list of the characters it was turned into, in order of appearance.",
+  "entry_point": "cipher_alignment",
+  "inputs": [
+   "('hello', 'ifmmp')",
+   "('ab', 'xy')",
+   "('aa', 'bc')"
+  ],
+  "expression": "{c: [b for a, b in zip(a0, a1) if a == c] for c in a0}"
+ },
+ {
+  "id": "s2-k113-3",
+  "sketch_id": "k113",
+  "category": "nested",
+  "description": "Given a list of (player, team) pairs and a list of team names, write a function to map each of those teams to the list of its players, in the order of the pairs.",
+  "entry_point": "team_rosters",
+  "inputs": [
+   "([('ann', 'red'), ('bob', 'blue'), ('cy', 'red')], ['red', 'blue'])",
+   "([], ['green'])",
+   "([('dee', 'red')], ['red', 'gold'])"
+  ],
+  "expression": "{t: [p for p, x in a0 if x == t] for t in a1}"
+ },
+ {
+  "id": "s2-k113-4",
+  "sketch_id": "k113",
+  "category": "numbers",
+  "description": "Given a list of integers and a number k, write a function to map each remainder from 0 to k - 1 to the list of positions, counting from 0, of the numbers that leave that remainder when divided by k.",
+  "entry_point": "positions_by_remainder",
+  "inputs": [
+   "([4, 7, 9, 12], 3)",
+   "([5], 2)",
+   "([2, 4], 1)"
+  ],
+  "expression": "{r: [i for i, x in enumerate(a0) if x % a1 == r] for r in range(a1)}"
+ },
+ {
+  "id": "s2-k231-1",
+  "sketch_id": "k231",
+  "category": "nested",
+  "description": "Write a function that returns 'Yes' if the average of all the entries of a matrix, given as a non-empty list of equally long rows, is exactly v, and 'No' otherwise.",
+  "entry_point": "matrix_average_is",
+  "inputs": [
+   "([[1, 2], [3, 2]], 2)",
+   "([[1, 2, 3]], 3)",
+   "([[5]], 5)"
+  ],
+  "expression": "'Yes' if sum(map(sum, a0)) == len(a0) * len(a0[0]) * a1 else 'No'"
+ },
+ {
+  "id": "s2-k231-2",
+  "sketch_id": "k231",
+  "category": "nested",
+  "description": "Given the dimensions of a box as a (length, width, height) tuple and a volume, write a function that returns 'Match' if the box has exactly that volume and 'No match' otherwise.",
+  "entry_point": "box_volume_check",
+  "inputs": [
+   "((2, 3, 4), 24)",
+   "((1, 1, 1), 2)",
+   "((5, 2, 10), 100)"
+  ],
+  "expression": "'Match' if a1 == a0[0] * a0[1] * a0[2] else 'No match'"
+ },
+ {
+  "id": "s2-k231-3",
+  "sketch_id": "k231",
+  "category": "numbers",
+  "description": "Write a function that returns 'Yes' if m equals the product of the three consecutive integers n, n + 1 and n + 2, and 'No' otherwise, with n given first.",
+  "entry_point": "is_three_consecutive_product",
+  "inputs": [
+   "(2, 24)",
+   "(3, 50)",
+   "(0, 0)"
+  ],
+  "expression": "'Yes' if a1 == (a0 + 2) * (a0 + 1) * a0 else 'No'"
+ },
+ {
+  "id": "s2-k231-4",
+  "sketch_id": "k231",
+  "category": "sequences",
+  "description": "Given a list of shirts, a list of trousers and a list of hats, each possibly with repeats, and a number n, write a function that returns 'Yes' if exactly n different outfits of one shirt, one pair of trousers and one hat can be made, and 'No' otherwise.",
+  "entry_point": "outfit_count_check",
+  "inputs": [
+   "(['red', 'blue', 'red'], ['jeans'], ['cap', 'hat'], 4)",
+   "(['a'], ['b'], ['c'], 2)",
+   "(['x', 'y'], ['p', 'q'], ['h'], 4)"
+  ],
+  "expression": "'Yes' if a3 == len(set(a0)) * len(set(a1)) * len(set(a2)) else 'No'"
+ }
+]
