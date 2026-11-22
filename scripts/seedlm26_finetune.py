@@ -82,9 +82,16 @@ def extra_rows(vocabulary, words, views):
     if words == "sketch":
         # Every sketch task trains: none of them is an evaluation task, and a held-out tenth would only thin
         # the rare sketches the rows are meant to teach.
-        items = teacher_task_items("sketch_tasks")
-        rows = teacher_rows(vocabulary, items, held=False, views=views, held_out=lambda task: False)
-        return convert(vocabulary, rows), len(items)
+        # A task whose program needs a symbol the base vocabulary lacks (a new separator such as '; ') is
+        # skipped whole: the fine-tune cannot add embeddings, and half a task's views would tilt its rows.
+        rows, used = [], 0
+        for task in teacher_task_items("sketch_tasks"):
+            try:
+                rows += teacher_rows(vocabulary, [task], held=False, views=views, held_out=lambda task: False)
+                used += 1
+            except KeyError:
+                continue
+        return convert(vocabulary, rows), used
     found = paraphrases()
     real = {r["task_id"]: r for r in json.loads((V2 / "real_dev.json").read_text()) if r["part"] == "train"}
     bank = dev_tasks() if views > 1 else {}
