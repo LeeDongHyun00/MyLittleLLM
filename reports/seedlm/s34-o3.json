@@ -1,0 +1,22 @@
+{
+ "name": "s34-o3",
+ "kind": "post-coder",
+ "base": "s12-a3",
+ "arguments": {
+  "base": "s12-a3",
+  "name": "s34-o3",
+  "words": "none",
+  "steps": 400,
+  "batch": 64,
+  "extra_share": 0.0,
+  "synthetic": 60000,
+  "lr_scale": 0.3,
+  "seed": 0
+ },
+ "rows": 98592,
+ "extra_rows": 0,
+ "tasks_with_words": 0,
+ "steps": 400,
+ "train_seconds": 526,
+ "final_loss": 0.0978
+}
