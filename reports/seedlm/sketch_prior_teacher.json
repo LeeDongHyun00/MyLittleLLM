@@ -1,0 +1,22 @@
+{
+ "set": "teacher",
+ "tasks": 139,
+ "rules": {
+  "factored": {
+   "alone": 54,
+   "system": 51,
+   "system_versus_engine": [
+    18,
+    3
+   ]
+  },
+  "factored_ensemble": {
+   "alone": 61,
+   "system": 56,
+   "system_versus_engine": [
+    22,
+    2
+   ]
+  }
+ }
+}

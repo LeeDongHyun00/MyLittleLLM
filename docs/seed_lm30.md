@@ -1,4 +1,4 @@
-# SeedLM-30~31: 뼈대는 되풀이되고, 구멍만 채우면 닿는다
+# SeedLM-30~33: 뼈대는 되풀이되고, 구멍만 채우면 닿는다 — 그러나 고르지 못한다
 
 작성일: 2026-11-22. [보강 설계](seedlm_design_next.md) 11절의 첫 단계다. 교사(Opus 5.5)에게 무엇을 주입할지 정하기 전에, 지금 가진 교사 프로그램만으로 처음 보는 프로그램이 어디까지 표현되는지 재고(SeedLM-30), 그 구조를 강제한 탐색이 실제로 얼마나 닿는지 쟀다(SeedLM-31). 교사 토큰은 쓰지 않았다.
 
@@ -52,13 +52,39 @@
 
 가장 눈에 띄는 것은 실제 과제다. 엔진이 못 푸는 개발 과제에서 맞는 프로그램이 손에 들어온 과제가 3개에서 11개가 됐다. 지금까지 시스템이 막혀 있던 "도달" 틈(엔진 너머)을 처음으로 크게 연 결과다. 그러나 맞는 것 하나가 틀린 후보 수십 개 사이에 섞여 있다. 시스템 점수로 바꾸려면 고르기가 필요하다.
 
-## 3. 다음
+## 3. 후보 70개에서 고르기 (SeedLM-32, 33)
 
-설계 11.3의 b단계다. 후보 70개 안팎에서 고르는 규칙을 교사 보류 과제에서 찾고, 개발 과제에서 확인하도록 등록한다. 후보로는 코더들의 합의(다른 코더들이 같은 행동의 프로그램을 쓰는가), 다른 코더의 확률, 뼈대의 순위 점수, 프로그램 길이, 엔진의 확신을 쓴다. 지금까지 순위를 바꾼 것이 독립적인 코더들의 합의뿐이었으므로 그것이 중심이다. 엔진을 깨뜨리지 않도록, 뼈대 후보는 엔진이 답을 못 내거나 확신하지 않는 과제에만 쓰는 안부터 본다.
+과제마다 엔진의 답, 코더 자신의 빔, 뼈대 탐색의 후보를 모두 모아(`scripts/seedlm32_candidates.py`) 다른 코더 여섯(s5-var, s12-a1~a3, s18-p1, s18-p2)의 확률과 코더 24개의 합의 수로 점수를 매겼다(`scripts/seedlm32_score.py`). 규칙은 교사 보류 과제에서만 비교했다(`reports/seedlm/selection_teacher.json`).
+
+| 고르는 규칙, 후보만 | 교사 보류 139 | 개발 과제 93 |
+|---|---|---|
+| 맞는 후보가 하나라도 있음 | 88 | 67 |
+| 코더 자신의 첫 후보 | 55 | 54 |
+| 생성 코더의 확률 | 60 | |
+| **다른 코더 여섯의 평균 확률** | **64** | **59** |
+| 코더 24개의 합의 수 | 57 | |
+| 합의 수 + 평균 확률 | 62 | |
+| 구조(뼈대 순위기) + 구멍 속 확률 (SeedLM-33) | 54 | |
+| 구조 + 구멍 + 여섯 코더 평균 | 61 | |
+| 행동이 같은 묶음의 확률 합 | 64 | |
+| 서로 다른 뼈대가 같은 행동에 이르는 수 | 43 | |
+
+여섯 코더 평균 확률을 골라, "엔진이 확신하면 엔진, 아니면 이 규칙"을 개발 과제에 등록했다(`reports/seedlm/seedlm32_protocol.json`). 결과는 65(고침 1, 깨뜨림 1)로 지금 시스템 69에 못 미쳐 채택하지 않았다. 후보만 놓고는 코더 자신의 첫 후보보다 +5(54 → 59)였다. 엔진이나 후보 중 누군가 맞히는 개발 과제는 76개로 지금까지 가장 많지만, 엔진이 확신하지 않는 23개에서 이 규칙은 엔진보다 더 맞히지 못했다. 엔진 너머에서 뼈대 탐색이 찾은 맞는 프로그램은, 다른 코더들에게도 그럴듯하지 않다. 강제로 깐 새 구조의 토큰을 모든 코더가 낮게 보기 때문이다. 구조를 따로 떼어 순위기로 매겨 봐도(SeedLM-33, 탐색만) 나아지지 않았다. 설명의 단어 몇 개로는 구조를 고를 수 없다.
+
+## 4. 다음
+
+고르기를 막는 것은 신호가 아니라 코더들의 믿음이다. 맞는 구조가 어떤 코더에게도 그럴듯하지 않다. 그래서 설계 11.3의 c단계로 간다. 교사(Opus 5.5)가 뼈대마다 자연스러운 과제를 써서, 코더들이 "이런 설명에는 이런 구조"를 배우게 한다. 틀로 찍은 설명으로 같은 일을 하려던 시도(SeedLM-21)는 틀린 이웃을 키웠으므로, 이번에는 교사가 쓴 자연스러운 설명이다.
 
 ## 재현
 
 ```bash
 python scripts/seedlm30_sketches.py --held-out --sizes 5 3 --min-count 2 1
 python scripts/seedlm31_sketch_search.py --model s20-p5 --sketches 64 --per-sketch 6
+for set in teacher development; do
+  python scripts/seedlm32_candidates.py --set $set
+  python scripts/seedlm32_score.py --set $set
+done
+python scripts/seedlm32_select.py --set teacher --output reports/seedlm/selection_teacher.json
+python scripts/seedlm32_select.py --set development --rule ensemble --output reports/seedlm/selection_development.json
+python scripts/seedlm33_sketch_prior.py --set teacher --output reports/seedlm/sketch_prior_teacher.json
 ```
