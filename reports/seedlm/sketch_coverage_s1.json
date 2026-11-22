@@ -1,0 +1,41 @@
+{
+ "training_programs": 3143,
+ "proxy": {
+  "S1_m2": {
+   "programs": 3143,
+   "covered": 66,
+   "of_which_whole_program_within_S": 0,
+   "library_sketches_mean": 153,
+   "covered_with_top_sketches": {
+    "50": 33,
+    "200": 66,
+    "1000": 66
+   },
+   "covered_with_library_programs": {
+    "500": 5,
+    "1000": 28,
+    "2000": 50
+   },
+   "holes_median": 3,
+   "holes_max": 6
+  },
+  "S1_m1": {
+   "programs": 3143,
+   "covered": 284,
+   "of_which_whole_program_within_S": 0,
+   "library_sketches_mean": 2316,
+   "covered_with_top_sketches": {
+    "50": 33,
+    "200": 69,
+    "1000": 170
+   },
+   "covered_with_library_programs": {
+    "500": 82,
+    "1000": 115,
+    "2000": 232
+   },
+   "holes_median": 3,
+   "holes_max": 11
+  }
+ }
+}
