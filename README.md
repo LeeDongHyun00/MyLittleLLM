@@ -30,6 +30,7 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 - [4차 교사 라운드: 남은 엔진 실패는 긴 꼬리다](docs/rule_round4.md)
 - [처음부터 만든 코더에 관해 지금까지 확인한 것 (SeedLM-4~29 요약)](docs/seedlm_findings.md)
 - [SeedLM 보강 설계: 데이터 엔진, 유도 탐색, 합의 위원회, 되묻기 (2026-11-22, 설계안)](docs/seedlm_design_next.md)
+- [SeedLM-30~31: 뼈대는 되풀이되고, 구멍만 채우면 닿는다](docs/seed_lm30.md)
 
 ## 2026-11-18 규칙 증류 실험 (별도 트랙)
 
