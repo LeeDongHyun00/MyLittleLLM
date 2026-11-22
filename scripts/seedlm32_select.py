@@ -36,7 +36,7 @@ def ensemble(item):
 
 def key(rule, item):
     if rule == "generator":
-        return item["score"]
+        return item.get("score", float("-inf"))       # the engine's program has no generator score
     if rule == "ensemble":
         return ensemble(item)
     if rule == "vote":

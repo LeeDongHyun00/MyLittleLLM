@@ -1,0 +1,17 @@
+{
+ "written": "2026-11-22, after exploring rules on the held-out teacher tasks only, before any rule was applied to the development fifth",
+ "candidates": "per task: the rule engine's program (and whether it is confident), the prefix coder s20-p5's own beam (width 32) and its sketch-held search (SeedLM-31: 64 ranked sketches, 6 hypotheses each), every program reproducing the visible example (scripts/seedlm32_candidates.py); each scored by its mean log-probability under six other coders (s5-var, s12-a1, s12-a2, s12-a3, s18-p1, s18-p2) and by how many of 24 cached coders' first programs behave the same (scripts/seedlm32_score.py)",
+ "exploration": "held-out teacher tasks (reports/seedlm/selection_teacher.json), the candidate alone: coder's first 55, generator log-probability 60, six-coder mean log-probability 64, 24-coder agreement 57, agreement plus log-probability 62. The six-coder mean is chosen. On these tasks the engine is confident on 70 and right on 36, so the system form is judged on the development fifth, where its confidence has held (62 of 70)",
+ "rule": "the engine's program where the engine is confident; elsewhere the candidate (the engine's program included when it reproduces the example) with the highest mean log-probability under the six coders; the engine's program when there is no candidate (scripts/seedlm32_select.py --set development --rule ensemble)",
+ "primary_measure": "development fifth (93 tasks with a readable example; the one without counts as the engine's): tasks solved by the rule, against the current system's 69. Adopted if above 69, then the validation gate (alone at least 19 of 45; the 1.5B pipeline at least 31), then the locked test split once and HumanEval+ once",
+ "secondary_measures": [
+  "the candidate alone (no engine), the same rule against the coder's first verified program",
+  "fixed and broken tasks against the engine"
+ ],
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "the development fifth"
+ ]
+}

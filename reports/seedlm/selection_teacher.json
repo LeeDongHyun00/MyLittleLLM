@@ -1,0 +1,58 @@
+{
+ "set": "teacher",
+ "tasks": 139,
+ "scorers": [
+  "s5-var",
+  "s12-a1",
+  "s12-a2",
+  "s12-a3",
+  "s18-p1",
+  "s18-p2"
+ ],
+ "engine": 36,
+ "engine_confident": 70,
+ "some_candidate_right": 88,
+ "some_right_or_engine": 95,
+ "rules": {
+  "plain_first": {
+   "alone": 55,
+   "system": 53,
+   "system_versus_engine": [
+    18,
+    1
+   ]
+  },
+  "generator": {
+   "alone": 60,
+   "system": 55,
+   "system_versus_engine": [
+    21,
+    2
+   ]
+  },
+  "ensemble": {
+   "alone": 64,
+   "system": 58,
+   "system_versus_engine": [
+    22,
+    0
+   ]
+  },
+  "vote": {
+   "alone": 57,
+   "system": 54,
+   "system_versus_engine": [
+    19,
+    1
+   ]
+  },
+  "vote_ensemble": {
+   "alone": 62,
+   "system": 56,
+   "system_versus_engine": [
+    20,
+    0
+   ]
+  }
+ }
+}
