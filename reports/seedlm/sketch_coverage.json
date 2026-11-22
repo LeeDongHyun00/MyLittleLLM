@@ -1,0 +1,135 @@
+{
+ "training_programs": 3143,
+ "proxy": {
+  "S5_m2": {
+   "programs": 3143,
+   "covered": 1938,
+   "of_which_whole_program_within_S": 817,
+   "library_sketches_mean": 223,
+   "covered_with_top_sketches": {
+    "50": 1648,
+    "200": 1914,
+    "1000": 1938
+   },
+   "covered_with_library_programs": {
+    "500": 1524,
+    "1000": 1718,
+    "2000": 1887
+   },
+   "holes_median": 3,
+   "holes_max": 6
+  },
+  "S5_m1": {
+   "programs": 3143,
+   "covered": 2167,
+   "of_which_whole_program_within_S": 817,
+   "library_sketches_mean": 924,
+   "covered_with_top_sketches": {
+    "50": 1648,
+    "200": 1914,
+    "1000": 2167
+   },
+   "covered_with_library_programs": {
+    "500": 1747,
+    "1000": 1947,
+    "2000": 2133
+   },
+   "holes_median": 3,
+   "holes_max": 7
+  },
+  "S3_m2": {
+   "programs": 3143,
+   "covered": 1208,
+   "of_which_whole_program_within_S": 401,
+   "library_sketches_mean": 273,
+   "covered_with_top_sketches": {
+    "50": 872,
+    "200": 1160,
+    "1000": 1208
+   },
+   "covered_with_library_programs": {
+    "500": 770,
+    "1000": 935,
+    "2000": 1134
+   },
+   "holes_median": 3,
+   "holes_max": 7
+  },
+  "S3_m1": {
+   "programs": 3143,
+   "covered": 1535,
+   "of_which_whole_program_within_S": 401,
+   "library_sketches_mean": 1455,
+   "covered_with_top_sketches": {
+    "50": 872,
+    "200": 1160,
+    "1000": 1429
+   },
+   "covered_with_library_programs": {
+    "500": 1070,
+    "1000": 1225,
+    "2000": 1460
+   },
+   "holes_median": 3,
+   "holes_max": 9
+  }
+ },
+ "held_out": {
+  "teacher_holdout_S5_m2": {
+   "programs": 139,
+   "covered": 118,
+   "of_which_whole_program_within_S": 65
+  },
+  "beyond_S5_m2": {
+   "programs": 15,
+   "covered": 9,
+   "of_which_whole_program_within_S": 7
+  },
+  "teacher_holdout_S5_m1": {
+   "programs": 139,
+   "covered": 123,
+   "of_which_whole_program_within_S": 65
+  },
+  "beyond_S5_m1": {
+   "programs": 15,
+   "covered": 9,
+   "of_which_whole_program_within_S": 7
+  },
+  "teacher_holdout_S3_m2": {
+   "programs": 139,
+   "covered": 80,
+   "of_which_whole_program_within_S": 35
+  },
+  "beyond_S3_m2": {
+   "programs": 15,
+   "covered": 6,
+   "of_which_whole_program_within_S": 3
+  },
+  "teacher_holdout_S3_m1": {
+   "programs": 139,
+   "covered": 88,
+   "of_which_whole_program_within_S": 35
+  },
+  "beyond_S3_m1": {
+   "programs": 15,
+   "covered": 6,
+   "of_which_whole_program_within_S": 3
+  },
+  "teacher_holdout_detail": {
+   "setting": "S5_m2",
+   "cached_coders": 48,
+   "new_combination": {
+    "programs": 77,
+    "covered": 61
+   },
+   "no_cached_coder_right": {
+    "programs": 32,
+    "covered": 18
+   },
+   "some_cached_coder_right": {
+    "programs": 107,
+    "covered": 100
+   }
+  }
+ }
+}
