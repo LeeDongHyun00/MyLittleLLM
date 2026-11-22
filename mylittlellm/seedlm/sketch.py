@@ -112,7 +112,20 @@ class Library:
 
 
 def sketch_search(net, vocabulary, grammar, prefix, n_args, n_literals, string_output, sketches, per_sketch=4,
-                  hole_size=5, max_tokens=None):
+                  hole_size=5, max_tokens=None, chunk=16):
+    """_sketch_search over groups of `chunk` sketches: every sketch keeps its own beam, so the result is the
+    same, and the key/value cache of one group stays small (64 sketches x 6 rows at once ran out of memory)."""
+    out = []
+    for start in range(0, len(sketches), chunk):
+        part = _sketch_search(net, vocabulary, grammar, prefix, n_args, n_literals, string_output,
+                              sketches[start:start + chunk], per_sketch, hole_size, max_tokens)
+        out += [(program, score, g + start) for program, score, g in part]
+    out.sort(key=lambda e: -e[1])
+    return out
+
+
+def _sketch_search(net, vocabulary, grammar, prefix, n_args, n_literals, string_output, sketches, per_sketch=4,
+                   hole_size=5, max_tokens=None):
     """Prefix-coder beam search held to each sketch: a sketch's fixed tokens are forced, each hole is filled
     by the coder with a subtree of at most `hole_size` tokens. All sketches decode in one batch, each keeping
     its own `per_sketch` best hypotheses. Returns (program symbols, log-probability, sketch index), best first.

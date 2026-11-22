@@ -15,5 +15,6 @@
   "HumanEval+",
   "held-out teacher tasks",
   "the development fifth"
- ]
+ ],
+ "note_1": "The first run stopped on the first held-out task: 64 sketches x 6 rows in one batch ran out of memory (the 8 GB cap of the evaluation scripts) while copying the key/value cache. Every sketch keeps its own beam, so the search now runs 16 sketches at a time with the same result (sketch.sketch_search, chunk=16); no held-out result was seen before the rerun"
 }
