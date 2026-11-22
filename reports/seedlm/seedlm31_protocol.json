@@ -1,0 +1,19 @@
+{
+ "written": "2026-11-22, after the sketch-coverage diagnostic (SeedLM-30), before the sketch search ran on any held-out task",
+ "motivation": "Sketches seen at least twice in the teacher-written training programs, with holes of up to 5 tokens, express 118 of the 139 held-out teacher programs and 9 of the 15 held-out development one-liners beyond the engine (reports/seedlm/sketch_coverage.json), while a coder's own beam reaches a right program for 74 to 80 of the 139. The coder gives new parent -> child links almost no probability (SeedLM-5), so it never builds a new structure by itself; forcing a known sketch's fixed tokens and letting it fill only the small holes may reach programs its beam does not",
+ "method": "mylittlellm/seedlm/sketch.py: a library of the sketches seen at least twice (holes up to 5 tokens) in the training programs; a naive Bayes ranker over description words, argument count and visible-output kind (on training folds its top 32 hold the program's own sketch 92% of the time, top 64 97%); a prefix-coder beam held to each ranked sketch, all sketches in one batch. Coder: s20-p5 (prefix). scripts/seedlm31_sketch_search.py --model s20-p5 --sketches 64 --per-sketch 6",
+ "primary_measure": "held-out teacher tasks (139): tasks where some verified program is right on every case, plain beam (width 32) or sketch search. Supported if at least 100 with the sketch search taking at most 10 seconds per task on average; not supported if not above the larger of the plain beam's count and 80 (the best single-coder beam so far, s12-a3's width-32 discovery count); inconclusive otherwise",
+ "secondary_measures": [
+  "the same on the development fifth (94), and among its 29 engine failures",
+  "how often the held-out program's own sketch is among the 64 ranked",
+  "verified candidates per task (the cost to the later choice)"
+ ],
+ "choice": "stage a of docs/seedlm_design_next.md section 11.3; if supported, stage b (choosing among the candidates) is pre-registered next; this measure alone changes no system",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "held-out teacher tasks",
+  "the development fifth"
+ ]
+}
