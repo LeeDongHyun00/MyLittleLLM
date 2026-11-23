@@ -63,7 +63,8 @@ def report_for(set_name, judge="agree"):
     tasks = teacher_tasks() if set_name == "teacher" else development_tasks()
     rows = json.loads((OUT / f"candidates_{set_name}.json").read_text())
     golds = gold_behaviours(set_name, tasks)
-    counts = {"tasks": 0, "gold_unavailable": 0, "some_right": 0, "some_truly_right": 0}
+    counts = {"tasks": 0, "gold_unavailable": 0, "some_right": 0, "some_truly_right": 0,
+              "some_right_or_engine": 0, "some_truly_right_or_engine": 0}
     for source in ("plain", "sketch", "engine"):
         counts[f"{source}_right"] = counts[f"{source}_truly_right"] = 0
     counts["right_only_by_sketch"] = counts["right_only_by_sketch_truly"] = 0
@@ -87,6 +88,8 @@ def report_for(set_name, judge="agree"):
         cands, engine = row["candidates"], row["engine"]
         counts["some_right"] += any(c["right"] for c in cands)
         counts["some_truly_right"] += any(truly(c) for c in cands)
+        counts["some_right_or_engine"] += any(c["right"] for c in cands) or bool(engine and engine.get("right"))
+        counts["some_truly_right_or_engine"] += any(truly(c) for c in cands) or truly(engine)
         for source in ("plain", "sketch"):
             counts[f"{source}_right"] += any(c["right"] for c in cands if c["source"] == source)
             counts[f"{source}_truly_right"] += any(truly(c) for c in cands if c["source"] == source)
