@@ -1076,8 +1076,16 @@ def search(example, description="", budget_seconds=2.0, weights=None, extra_name
             except Exception:
                 pass
     expand(base, base + constants, level1, both_orders=False)
+    level2 = []
     if time.monotonic() < deadline:
-        expand(level1, base + constants, [], both_orders=True)
+        expand(level1, base + constants, level2, both_orders=True)
+    if "depth3" in ENGINE and time.monotonic() < deadline:
+        # SeedLM-39: the failures left after four rounds are not a gating problem (opening every
+        # gate added no reach), so test whether they are three-step compositions of what exists.
+        # Values built from operators the description names go first: the deadline usually cuts
+        # this level, and named steps are the ones a coincidence is least likely to explain.
+        level2.sort(key=lambda item: -sum(named[id(op)] for op in item[2]))
+        expand(level2, base + constants, [], both_orders=True)
     if "named_pairs" in ENGINE and time.monotonic() < deadline:
         # Arithmetic on two derived numbers ("sum of the cubes minus the sum") is not reachable by
         # the levels above, which never combine two derived values. Only numbers produced by an
