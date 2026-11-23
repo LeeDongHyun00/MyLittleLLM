@@ -1,0 +1,27 @@
+{
+ "set": "teacher",
+ "tasks": 139,
+ "field": "scores_k",
+ "scorers": [
+  "s18-p1",
+  "s18-p2",
+  "s34-k1",
+  "s34-k2",
+  "s34-k3",
+  "s5-var"
+ ],
+ "engine": 36,
+ "engine_confident": 70,
+ "some_candidate_right": 88,
+ "some_right_or_engine": 95,
+ "rules": {
+  "ensemble": {
+   "alone": 64,
+   "system": 58,
+   "system_versus_engine": [
+    22,
+    0
+   ]
+  }
+ }
+}

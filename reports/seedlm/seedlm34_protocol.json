@@ -14,5 +14,14 @@
   "HumanEval+",
   "the development fifth"
  ],
- "note_1": "2026-11-23, before any SeedLM-34 measure was read: the teacher of part 1 (68 sketches) was stopped by the API's safety filter as it began reading the guide; the user chose to go on without part 1. Data: parts 2-4, 814 tasks written (sketch k225 has two), 26 dropped by decontamination, 788 left over 203 sketches; 16 of them need a symbol outside the base coders' vocabulary (a new separator such as '; ') and are skipped whole, so the s34-k<k> fine-tunes used 772 tasks (2,316 rows, three views each). The control arm, the candidates and the measures are as registered"
+ "note_1": "2026-11-23, before any SeedLM-34 measure was read: the teacher of part 1 (68 sketches) was stopped by the API's safety filter as it began reading the guide; the user chose to go on without part 1. Data: parts 2-4, 814 tasks written (sketch k225 has two), 26 dropped by decontamination, 788 left over 203 sketches; 16 of them need a symbol outside the base coders' vocabulary (a new separator such as '; ') and are skipped whole, so the s34-k<k> fine-tunes used 772 tasks (2,316 rows, three views each). The control arm, the candidates and the measures are as registered",
+ "outcome": {
+  "written": "2026-11-23, after the measures",
+  "primary": "development fifth, the SeedLM-32 system with the six-coder mean: 65 with s34-k1..k3 (fixed 1, broke 1 against the engine) and 65 with s34-o1..o3 (fixed 1, broke 1): k does not beat o, not supported; both below 69, nothing to adopt (reports/seedlm/selection34_development_{k,o}.json)",
+  "secondary": [
+   "held-out teacher tasks, the same rule: alone 64 and 64, system 58 and 58 (reports/seedlm/selection34_teacher_{k,o}.json)",
+   "each coder alone, held-out teacher tasks: k 57, 56, 64 against o 58, 58, 58 (mean +1); development fifth: k 59, 50, 55 against o 56, 51, 58 (mean -0.3)"
+  ],
+  "reading": "Four teacher-written tasks for each of 203 recurring sketches, at a tenth of 400 fine-tuning steps, changed neither which candidate the six coders prefer nor what each coder writes alone"
+ }
 }
