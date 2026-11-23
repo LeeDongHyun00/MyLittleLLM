@@ -1,0 +1,118 @@
+{
+ "taught_sketches": 203,
+ "teacher": {
+  "tasks": 139,
+  "tasks_with_a_right_candidate": 88,
+  "right_ranked_first": {
+   "k": 64,
+   "o": 64
+  },
+  "median_rank_of_best_right": {
+   "k": 1.0,
+   "o": 1.0
+  },
+  "k_ranks_right_higher_lower_same": [
+   8,
+   7,
+   73
+  ],
+  "tasks_right_only_by_sketch_search": 21,
+  "of_those_right_sketch_taught": 16,
+  "log_prob_shift_k_minus_o": {
+   "plain/right/taught": {
+    "candidates": 38,
+    "mean": 2.145
+   },
+   "plain/right/untaught": {
+    "candidates": 112,
+    "mean": 0.879
+   },
+   "plain/wrong/taught": {
+    "candidates": 150,
+    "mean": 4.568
+   },
+   "plain/wrong/untaught": {
+    "candidates": 163,
+    "mean": 2.52
+   },
+   "sketch/right/taught": {
+    "candidates": 359,
+    "mean": 9.028
+   },
+   "sketch/right/untaught": {
+    "candidates": 146,
+    "mean": 7.686
+   },
+   "sketch/wrong/taught": {
+    "candidates": 6904,
+    "mean": 11.71
+   },
+   "sketch/wrong/untaught": {
+    "candidates": 1544,
+    "mean": 10.903
+   }
+  }
+ },
+ "development": {
+  "tasks": 93,
+  "tasks_with_a_right_candidate": 67,
+  "right_ranked_first": {
+   "k": 58,
+   "o": 59
+  },
+  "median_rank_of_best_right": {
+   "k": 1,
+   "o": 1
+  },
+  "k_ranks_right_higher_lower_same": [
+   4,
+   2,
+   61
+  ],
+  "tasks_right_only_by_sketch_search": 10,
+  "of_those_right_sketch_taught": 8,
+  "log_prob_shift_k_minus_o": {
+   "plain/right/taught": {
+    "candidates": 10,
+    "mean": 4.778
+   },
+   "plain/right/untaught": {
+    "candidates": 86,
+    "mean": 0.323
+   },
+   "plain/wrong/taught": {
+    "candidates": 9,
+    "mean": 5.35
+   },
+   "plain/wrong/untaught": {
+    "candidates": 108,
+    "mean": 0.801
+   },
+   "sketch/right/taught": {
+    "candidates": 261,
+    "mean": 9.156
+   },
+   "sketch/right/untaught": {
+    "candidates": 137,
+    "mean": 4.097
+   },
+   "sketch/wrong/taught": {
+    "candidates": 2982,
+    "mean": 11.651
+   },
+   "sketch/wrong/untaught": {
+    "candidates": 916,
+    "mean": 9.989
+   }
+  }
+ },
+ "fit_on_trained_sketch_tasks": {
+  "tasks": 120,
+  "s34-k1": 90,
+  "s34-o1": 19,
+  "s34-k2": 93,
+  "s34-o2": 16,
+  "s34-k3": 95,
+  "s34-o3": 21
+ }
+}
