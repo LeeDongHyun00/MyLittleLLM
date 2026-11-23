@@ -1,0 +1,42 @@
+{
+ "name": "r35-a",
+ "kind": "reviewer-pyx",
+ "arguments": {
+  "name": "r35-a",
+  "vocabulary_from": "s12-a1",
+  "minutes": 40.0,
+  "save_every": 10.0,
+  "d_model": 320,
+  "layers": 8,
+  "heads": 10,
+  "batch": 64,
+  "synthetic": 150000,
+  "shares": "real=0.08,teacher=0.15,variant=0.08,oneliner=0.01,paraphrase=0.12,sketch=0.06",
+  "lr": 0.002,
+  "muon_lr": 0.02,
+  "seed": 0
+ },
+ "parameters": 12405840,
+ "rows": {
+  "synthetic": 150000,
+  "real": 1216,
+  "teacher": 3924,
+  "variant": 2046,
+  "oneliner": 82,
+  "paraphrase": 6482,
+  "sketch": 2316
+ },
+ "copies": {
+  "real": 20,
+  "teacher": 11,
+  "variant": 12,
+  "oneliner": 37,
+  "paraphrase": 6,
+  "sketch": 8
+ },
+ "train_rows": 302490,
+ "steps": 1897,
+ "sequences_seen": 121408,
+ "train_seconds": 2402,
+ "final_loss": 0.5197
+}
