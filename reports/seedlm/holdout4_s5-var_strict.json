@@ -54,5 +54,15 @@
   "pyx_override": 58,
   "pyx_rerank": 52,
   "pyx_margin": 55
+ },
+ "solved_contract": {
+  "engine": 55,
+  "pyx_model": 46,
+  "pyx_fill": 55,
+  "pyx_tie": 57,
+  "pyx_tie_fill": 57,
+  "pyx_override": 57,
+  "pyx_rerank": 51,
+  "pyx_margin": 54
  }
 }
