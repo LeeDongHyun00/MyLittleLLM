@@ -1,0 +1,13 @@
+{
+ "written": "2026-11-23, before the measure",
+ "theory": "A program can pass a task's three asserts by coincidence (SeedLM-36, 37). Coders trained apart rarely make the same coincidental program their first choice, so a behaviour that many of them propose independently is more likely to be the task's real one. Single-coder overrides of the engine gained under the lenient judge and nothing under the strict one (pyx_fill, pyx_override); the committee's choice is the test of whether agreement survives",
+ "rule": "the engine's program where the engine is confident (70 of the development tasks); elsewhere the first verified program (SeedLM-15's cache) that most of SeedLM-32's 24 cached coders agree with on the 24 probes (rulecoder.consensus.compare, ties to the earlier coder in the fixed list, SeedLM-10's vote); the engine's program where no coder proposes one",
+ "baseline_same_machinery": "the same rule with s5-var's cached program in place of the vote (the main system without its tie-breaking)",
+ "primary_measure": "development fifth, judged strictly (asserts, then no conflict with the reference solution on the probes) and leniently (asserts): supported if strict above 58 (the main system, reports/seedlm/holdout4_s5-var_strict.json) and lenient at least 69; not supported if strict at most 58",
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "the development fifth"
+ ]
+}
