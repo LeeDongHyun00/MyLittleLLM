@@ -101,23 +101,52 @@ def pyx_methods(task, net, vocabulary, grammar, width=32, keep=40):
     return out
 
 
+def strict_agrees(code, item, reference_results):
+    """No probe on which the code and the task's reference solution both return a value and differ
+    (SeedLM-36): three asserts pass by coincidence far more often than extended tests do."""
+    from mylittlellm.rulecoder import consensus
+    from mylittlellm.rulecoder.sandbox import run_calls
+    if reference_results is None:
+        return True
+    example = bi.parse_example(item["visible_assert"], item["entry_point"])
+    result = run_calls(code, item["entry_point"], consensus.probe_inputs(list(example["args"]), 24))
+    if result.get("status") != "ok":
+        return True
+    return consensus.compare([tuple(r) for r in result["results"]], reference_results) != "conflict"
+
+
+def reference_probe_results(item):
+    from mylittlellm.rulecoder import consensus
+    from mylittlellm.rulecoder.sandbox import run_calls
+    example = bi.parse_example(item["visible_assert"], item["entry_point"])
+    if example is None or not example["args"]:
+        return None
+    result = run_calls(item["reference_code"], item["entry_point"], consensus.probe_inputs(list(example["args"]), 24))
+    return [tuple(r) for r in result["results"]] if result.get("status") == "ok" else None
+
+
 def holdout(args, net, vocabulary, grammar, methods=None, stem="holdout3"):
     methods = methods or pyx_methods
     items = [i for i in json.loads((BANK / "all_tasks.json").read_text())
              if i["source"] == "extra" and held_out(i["task_id"])]
+    strict = getattr(args, "strict", False)
     solved = {n: 0 for n in NAMES}
+    solved_strict = {n: 0 for n in NAMES}
     versus = {n: [0, 0] for n in NAMES}     # [engine wrong -> right, engine right -> wrong]; counts only
     per_task = {}
     for item in items:
         task = {"prompt": '"""\n' + item["description"] + "\n" + item["visible_assert"] + '\n"""\n',
                 "entry_point": item["entry_point"]}
         codes = methods(task, net, vocabulary, grammar, args.width, args.keep)
-        verdicts = {}
+        verdicts, strict_verdicts = {}, {}
+        reference = reference_probe_results(item) if strict else None
         for name in NAMES:
             code = codes[name]
             if code not in verdicts:
                 verdicts[code] = bool(code) and run_public_asserts(code, "\n".join(item["asserts"]))["status"] == "pass"
+                strict_verdicts[code] = verdicts[code] and (not strict or strict_agrees(code, item, reference))
             solved[name] += verdicts[code]
+            solved_strict[name] += strict_verdicts[code]
         engine = verdicts[codes["engine"]]
         for name in NAMES:
             versus[name][0] += verdicts[codes[name]] and not engine
@@ -129,6 +158,8 @@ def holdout(args, net, vocabulary, grammar, methods=None, stem="holdout3"):
         local.mkdir(parents=True, exist_ok=True)
         (local / f"{stem}_{args.model}{args.suffix}.json").write_text(json.dumps(per_task) + "\n")
     report = {"model": args.model, "tasks": len(items), "solved": solved, "versus_engine": versus}
+    if strict:
+        report["solved_strict"] = solved_strict
     (ROOT / "reports/seedlm" / f"{stem}_{args.model}{args.suffix}.json").write_text(json.dumps(report, indent=1) + "\n")
     print(json.dumps(report))
 

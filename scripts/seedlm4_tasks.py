@@ -114,7 +114,12 @@ def main():
     parser.add_argument("--verdicts", action="store_true",
                         help="also keep per-task held-out verdicts locally (outputs/seedlm/verdicts)")
     parser.add_argument("--mbr", action="store_true", help="add the two execution-MBR methods")
+    parser.add_argument("--strict", action="store_true",
+                        help="also count, per method, the programs that never differ from the reference solution "
+                             "on the 24 probes (SeedLM-36)")
     args = parser.parse_args()
+    if args.strict:
+        args.suffix += "_strict"
     if args.mbr:
         NAMES.extend(MBR_NAMES)      # the list seedlm3_tasks' loops read
         args.suffix += "_mbr"
