@@ -16,5 +16,15 @@
   "HumanEval+",
   "the development fifth",
   "the 434 training-side real tasks (measured once, after the pack is frozen)"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-23, after the one measure",
+  "primary": "434 training-side real tasks with the shipped engine plus r5_pilot (1,057 operators): no first program changed; newly solved minus broken, strict, 0: not supported (reports/seedlm/round5_pilot_transfer.json). The development fifth was not measured, as registered",
+  "secondary": [
+   "lenient: 0 newly solved, 0 broken",
+   "the pack's own bank: 209 of 268 invented exercises newly solved, none of the 19 solved ones broken (the teacher's report, reports/seedlm/round5_pilot_teacher_report.json)",
+   "diagnosis on the 434 (exploration): a pack gate opens on 60 descriptions, and on none of them does a pack operator take part in any of the 40 programs that reproduce the example"
+  ],
+  "reading": "Knowledge written for exercises a teacher invents does not reach real tasks: the gates sometimes open, but the operators compute something other than what the real tasks ask. The exercise teacher, told not to reproduce benchmark tasks, also left out every classic topic it recognised from MBPP or HumanEval (Roman numerals, coin change, run-length encoding, palindromes ...), which removed exactly the overlap with real tasks; a second pilot would have to separate a classic concept, which is general knowledge, from a benchmark's wording"
+ }
 }

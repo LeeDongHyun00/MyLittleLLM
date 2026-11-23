@@ -1,0 +1,19 @@
+{
+ "tasks": 434,
+ "operators_loaded": 1057,
+ "changed_first_program": 0,
+ "lenient": {
+  "before": 320,
+  "after": 320,
+  "newly_solved": 0,
+  "broken": 0
+ },
+ "strict": {
+  "before": 271,
+  "after": 271,
+  "newly_solved": 0,
+  "broken": 0
+ },
+ "first_programs_using_the_pack": 0,
+ "primary_newly_solved_minus_broken_strict": 0
+}
