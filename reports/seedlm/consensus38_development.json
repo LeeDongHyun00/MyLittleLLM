@@ -1,0 +1,19 @@
+{
+ "tasks": 94,
+ "voters": 24,
+ "lenient_strict": {
+  "engine": [
+   65,
+   56
+  ],
+  "baseline_s5var": [
+   67,
+   56
+  ],
+  "committee": [
+   64,
+   55
+  ]
+ },
+ "unconfident_or_none": 24
+}

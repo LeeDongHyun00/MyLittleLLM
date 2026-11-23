@@ -9,5 +9,13 @@
   "test",
   "HumanEval+",
   "the development fifth"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-23, after the measure",
+  "primary": "development fifth: the committee rule 64 lenient, 55 strict; strict at most 58: not supported (reports/seedlm/consensus38_development.json)",
+  "secondary": [
+   "the same rule with s5-var's program: 67 lenient, 56 strict; the engine alone: 65 and 56"
+  ],
+  "reading": "On the 24 tasks where the engine is unsure or silent, the program most cached coders propose is no more often truly right than s5-var's own; the coders' first choices there are mostly the same coincidences, so their agreement is not independent evidence"
+ }
 }
