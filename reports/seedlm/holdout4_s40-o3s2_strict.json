@@ -1,0 +1,68 @@
+{
+ "model": "s40-o3s2",
+ "tasks": 94,
+ "solved": {
+  "engine": 65,
+  "pyx_model": 56,
+  "pyx_fill": 65,
+  "pyx_tie": 67,
+  "pyx_tie_fill": 67,
+  "pyx_override": 66,
+  "pyx_rerank": 62,
+  "pyx_margin": 66
+ },
+ "versus_engine": {
+  "engine": [
+   0,
+   0
+  ],
+  "pyx_model": [
+   3,
+   12
+  ],
+  "pyx_fill": [
+   0,
+   0
+  ],
+  "pyx_tie": [
+   2,
+   0
+  ],
+  "pyx_tie_fill": [
+   2,
+   0
+  ],
+  "pyx_override": [
+   3,
+   2
+  ],
+  "pyx_rerank": [
+   3,
+   6
+  ],
+  "pyx_margin": [
+   3,
+   2
+  ]
+ },
+ "solved_strict": {
+  "engine": 56,
+  "pyx_model": 50,
+  "pyx_fill": 56,
+  "pyx_tie": 59,
+  "pyx_tie_fill": 59,
+  "pyx_override": 59,
+  "pyx_rerank": 55,
+  "pyx_margin": 59
+ },
+ "solved_contract": {
+  "engine": 55,
+  "pyx_model": 49,
+  "pyx_fill": 55,
+  "pyx_tie": 58,
+  "pyx_tie_fill": 58,
+  "pyx_override": 58,
+  "pyx_rerank": 54,
+  "pyx_margin": 58
+ }
+}

@@ -1,0 +1,68 @@
+{
+ "model": "s34-o3",
+ "tasks": 94,
+ "solved": {
+  "engine": 65,
+  "pyx_model": 58,
+  "pyx_fill": 65,
+  "pyx_tie": 67,
+  "pyx_tie_fill": 67,
+  "pyx_override": 67,
+  "pyx_rerank": 66,
+  "pyx_margin": 67
+ },
+ "versus_engine": {
+  "engine": [
+   0,
+   0
+  ],
+  "pyx_model": [
+   6,
+   13
+  ],
+  "pyx_fill": [
+   0,
+   0
+  ],
+  "pyx_tie": [
+   2,
+   0
+  ],
+  "pyx_tie_fill": [
+   2,
+   0
+  ],
+  "pyx_override": [
+   4,
+   2
+  ],
+  "pyx_rerank": [
+   6,
+   5
+  ],
+  "pyx_margin": [
+   6,
+   4
+  ]
+ },
+ "solved_strict": {
+  "engine": 56,
+  "pyx_model": 51,
+  "pyx_fill": 56,
+  "pyx_tie": 59,
+  "pyx_tie_fill": 59,
+  "pyx_override": 59,
+  "pyx_rerank": 57,
+  "pyx_margin": 58
+ },
+ "solved_contract": {
+  "engine": 55,
+  "pyx_model": 50,
+  "pyx_fill": 55,
+  "pyx_tie": 58,
+  "pyx_tie_fill": 58,
+  "pyx_override": 58,
+  "pyx_rerank": 56,
+  "pyx_margin": 57
+ }
+}

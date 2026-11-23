@@ -1,0 +1,22 @@
+{
+ "name": "s40-o1s1",
+ "kind": "post-coder",
+ "base": "s12-a1",
+ "arguments": {
+  "base": "s12-a1",
+  "name": "s40-o1s1",
+  "words": "none",
+  "steps": 400,
+  "batch": 64,
+  "extra_share": 0.0,
+  "synthetic": 60000,
+  "lr_scale": 0.3,
+  "seed": 1
+ },
+ "rows": 98592,
+ "extra_rows": 0,
+ "tasks_with_words": 0,
+ "steps": 400,
+ "train_seconds": 2622,
+ "final_loss": 0.0916
+}
