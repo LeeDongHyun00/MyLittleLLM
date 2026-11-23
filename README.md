@@ -36,6 +36,9 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 - [SeedLM-35: pyx 검토기 — 설명이 프로그램에서 나올 확률로 다시 매기기](docs/seed_lm35.md)
 - [SeedLM-36~39: assert 셋을 통과한 답은 얼마나 진짜인가, 그리고 엔진은 어디까지 닿는가](docs/seed_lm36.md)
 - [5차 라운드 시범 두 번: 교사가 지어낸 연습문제로 쓴 연산은 실제 과제에 닿지 않는다](docs/rule_round5_pilot.md)
+- [SeedLM-40: 측정 기반 다지기 — 진단 분할, 시드 잡음, 계약 판정](docs/seed_lm40.md)
+- [SeedLM 다음 발전 방향 조사 보고서](reports/SeedLM%20다음%20발전%20방향%20조사.md)
+- [SeedLM 쉽게 읽기 (누구나 읽을 수 있는 설명 페이지)](docs/site/seedlm_explainer.html)
 
 ## 2026-11-18 규칙 증류 실험 (별도 트랙)
 
