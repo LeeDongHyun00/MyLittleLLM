@@ -10,6 +10,9 @@ Train tasks are judged by the hidden tests, extra-pool tasks by their own assert
 
 Round 4 (--round 4) reads outputs/rule_round4/, built by round4_bank.py from the extra pool's training part,
 and also refuses any task of the held-out development fifth the SeedLM experiments measure on.
+
+Round 5 (--round 5, the blind pilot) reads outputs/rule_round5/, built by round5_bank.py from exercises a
+teacher invented; it refuses any task that is not an invented one, so the pack never sees a real task.
 """
 import argparse
 import json
@@ -21,6 +24,7 @@ import time
 
 BANK = Path(__file__).resolve().parents[1] / "outputs/rule_pilot/teacher/round3"
 BANK4 = Path(__file__).resolve().parents[1] / "outputs/rule_round4"
+BANK5 = Path(__file__).resolve().parents[1] / "outputs/rule_round5"
 
 
 def main():
@@ -33,11 +37,11 @@ def main():
     parser.add_argument("--only", nargs="*", help="restrict to these task ids")
     parser.add_argument("--show", action="store_true", help="print the generated code of every found program")
     parser.add_argument("--output", help="write per-task results as JSON")
-    parser.add_argument("--round", type=int, default=3, choices=[3, 4])
+    parser.add_argument("--round", type=int, default=3, choices=[3, 4, 5])
     args = parser.parse_args()
-    bank_dir = BANK4 if args.round == 4 else BANK
+    bank_dir = {4: BANK4, 5: BANK5}.get(args.round, BANK)
 
-    if args.round == 4 and args.pack != "manifest":
+    if args.round >= 4 and args.pack != "manifest":
         # Round 4 packs go on top of the shipped library: its active packs, retirements and search features.
         manifest = json.loads((Path(__file__).resolve().parents[1] / "data/rule_pilot/operator_packs.json").read_text())
         os.environ["RULE_PACKS"] = ",".join(manifest.get("active", []) + args.pack.split(","))
@@ -63,13 +67,15 @@ def main():
         items = [item for item in items if item["task_id"] in set(args.only)]
     if any(item["task_id"] in held_out for item in items):
         raise SystemExit("Refusing to run: the bank contains validation or test tasks")
+    if args.round == 5 and any(item["source"] != "imagined" for item in items):
+        raise SystemExit("Refusing to run: round 5 packs are written for invented exercises only")
     if args.round == 4:
         from seedlm2_real import held_out as development_fifth
         if any(item["source"] == "extra" and development_fifth(item["task_id"]) for item in items):
             raise SystemExit("Refusing to run: the bank contains tasks of the held-out development fifth")
 
     def judge(item, found):
-        if item["source"] == "extra":
+        if item["source"] in ("extra", "imagined"):
             return run_public_asserts(found["code"], "\n".join(item["asserts"]))["status"] == "pass"
         with (BANK / "scoring" / (item["task_id"].split("/")[1] + ".pkl")).open("rb") as stream:
             stored = pickle.load(stream)
@@ -105,7 +111,7 @@ def main():
 
     print(f"\n{len(items)} tasks in {time.monotonic() - started:.0f}s, operators loaded: {len(bi.OPERATORS)} "
           f"(packs: {', '.join(bi.ACTIVE_PACKS) or 'none'})")
-    for source in ("train", "extra"):
+    for source in ("train", "extra", "imagined"):
         total = sum(r["source"] == source for r in results)
         if total:
             print(f"  {source:5s} {total:4d} tasks | newly solved {count(source, ('wrong', 'none'), 'solved'):3d} "
