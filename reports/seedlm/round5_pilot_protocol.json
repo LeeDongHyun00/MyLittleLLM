@@ -1,0 +1,20 @@
+{
+ "written": "2026-11-23, before any round-5 exercise was written",
+ "theory": "The engine's leftover failures are not compositions of its operators (opening every gate, a third search step and the best reordering add 1-3% reach, SeedLM-37~39): they need knowledge the library lacks. Round 3's operators, written for 489 real failures with shared needs, raised the locked test 57 -> 68; round 4's, written for the 114 idiosyncratic real failures left, were never used on the development fifth. The pilot asks whether knowledge can be injected blind: operators written for failures on exercises a teacher invents, measured on real tasks no teacher of this round has seen",
+ "stage_1": "one teacher (Opus 5.5) invents 300 practice exercises with a reference solution and three asserts each (docs/round5_task_guide.md, scripts/round5_task_check.py); exercises too close to an evaluation task or to a training-side real task (six-word run or content Jaccard >= 0.6, scripts/seedlm3_decontaminate.py's rules) are dropped",
+ "stage_2": "the shipped engine on the kept exercises; those it fails by their asserts form the bank, those it solves the regression set",
+ "stage_3": "one operator teacher writes a pack for the bank with the round-4 rules (docs/round4_teacher_guide.md, adapted), seeing only the invented exercises",
+ "primary_measure": "the extra pool's training part (434 real tasks with reference solutions, which no round-5 teacher sees): tasks newly solved under the strict judge (asserts, then no conflict with the reference on the probes) by the shipped engine plus the pack, minus tasks it breaks. Supported if at least 5; not supported if at most 1; inconclusive otherwise",
+ "secondary_measures": [
+  "the same count under the lenient judge",
+  "the pack's own bank: failures fixed (reported, not evidence)",
+  "only if supported: the development fifth once, both judges, the main system with the pack against 69 and 58"
+ ],
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "the development fifth",
+  "the 434 training-side real tasks (measured once, after the pack is frozen)"
+ ]
+}
