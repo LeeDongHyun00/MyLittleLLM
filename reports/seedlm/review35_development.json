@@ -1,0 +1,13 @@
+{
+ "set": "development",
+ "tasks": 93,
+ "reviewer": "r35-a-m10",
+ "rule": "coder_reviewer",
+ "lambda": 1.0,
+ "alone": 58,
+ "system": 65,
+ "system_versus_engine": [
+  1,
+  1
+ ]
+}
