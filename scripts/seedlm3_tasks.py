@@ -125,6 +125,34 @@ def reference_probe_results(item):
     return [tuple(r) for r in result["results"]] if result.get("status") == "ok" else None
 
 
+def reference_contract_results(item, count=24, pool=96):
+    """(probes, reference results) on probes that satisfy the input contract inferred from all the task's
+    asserts (SeedLM-40, mylittlellm/rulecoder/contracts.py), or None."""
+    from mylittlellm.rulecoder import consensus, contracts
+    from mylittlellm.rulecoder.sandbox import run_calls
+    visible = bi.parse_example(item["visible_assert"], item["entry_point"])
+    if visible is None or not visible["args"]:
+        return None
+    examples = [bi.parse_example(a, item["entry_point"]) for a in item.get("asserts", [])]
+    examples = [e["args"] for e in examples if e and e["args"]] or [visible["args"]]
+    probes = contracts.in_domain_probes(contracts.infer(examples),
+                                        consensus.probe_inputs(list(visible["args"]), pool), count)
+    if not probes:
+        return None
+    result = run_calls(item["reference_code"], item["entry_point"], probes)
+    return (probes, [tuple(r) for r in result["results"]]) if result.get("status") == "ok" else None
+
+
+def agrees_on(code, item, probes, reference_results):
+    """No probe in `probes` where the code and the reference both return a value and differ."""
+    from mylittlellm.rulecoder import consensus
+    from mylittlellm.rulecoder.sandbox import run_calls
+    result = run_calls(code, item["entry_point"], probes)
+    if result.get("status") != "ok":
+        return True
+    return consensus.compare([tuple(r) for r in result["results"]], reference_results) != "conflict"
+
+
 def holdout(args, net, vocabulary, grammar, methods=None, stem="holdout3"):
     methods = methods or pyx_methods
     items = [i for i in json.loads((BANK / "all_tasks.json").read_text())
@@ -132,21 +160,26 @@ def holdout(args, net, vocabulary, grammar, methods=None, stem="holdout3"):
     strict = getattr(args, "strict", False)
     solved = {n: 0 for n in NAMES}
     solved_strict = {n: 0 for n in NAMES}
+    solved_contract = {n: 0 for n in NAMES}
     versus = {n: [0, 0] for n in NAMES}     # [engine wrong -> right, engine right -> wrong]; counts only
     per_task = {}
     for item in items:
         task = {"prompt": '"""\n' + item["description"] + "\n" + item["visible_assert"] + '\n"""\n',
                 "entry_point": item["entry_point"]}
         codes = methods(task, net, vocabulary, grammar, args.width, args.keep)
-        verdicts, strict_verdicts = {}, {}
+        verdicts, strict_verdicts, contract_verdicts = {}, {}, {}
         reference = reference_probe_results(item) if strict else None
+        contract_reference = reference_contract_results(item) if strict else None
         for name in NAMES:
             code = codes[name]
             if code not in verdicts:
                 verdicts[code] = bool(code) and run_public_asserts(code, "\n".join(item["asserts"]))["status"] == "pass"
                 strict_verdicts[code] = verdicts[code] and (not strict or strict_agrees(code, item, reference))
+                contract_verdicts[code] = verdicts[code] and (
+                    not strict or contract_reference is None or agrees_on(code, item, *contract_reference))
             solved[name] += verdicts[code]
             solved_strict[name] += strict_verdicts[code]
+            solved_contract[name] += contract_verdicts[code]
         engine = verdicts[codes["engine"]]
         for name in NAMES:
             versus[name][0] += verdicts[codes[name]] and not engine
@@ -154,6 +187,7 @@ def holdout(args, net, vocabulary, grammar, methods=None, stem="holdout3"):
         per_task[item["task_id"]] = {name: verdicts[codes[name]] for name in NAMES}
         if strict:
             per_task[item["task_id"]].update({name + "_strict": strict_verdicts[codes[name]] for name in NAMES})
+            per_task[item["task_id"]].update({name + "_contract": contract_verdicts[codes[name]] for name in NAMES})
     if getattr(args, "verdicts", False):
         # Per-task verdicts stay local (outputs/ is not committed); reports carry counts only.
         local = ROOT / "outputs/seedlm/verdicts"
@@ -162,6 +196,7 @@ def holdout(args, net, vocabulary, grammar, methods=None, stem="holdout3"):
     report = {"model": args.model, "tasks": len(items), "solved": solved, "versus_engine": versus}
     if strict:
         report["solved_strict"] = solved_strict
+        report["solved_contract"] = solved_contract
     (ROOT / "reports/seedlm" / f"{stem}_{args.model}{args.suffix}.json").write_text(json.dumps(report, indent=1) + "\n")
     print(json.dumps(report))
 
