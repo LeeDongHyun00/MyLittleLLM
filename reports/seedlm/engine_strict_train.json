@@ -1,0 +1,18 @@
+{
+ "set": "extra pool, training part (434 tasks with reference solutions; the development fifth and MBPP+ splits left out)",
+ "judge": "asserts, then no conflict with the reference solution on the 24 probes",
+ "tasks": 434,
+ "first_match_right": 320,
+ "first_match_strict": 271,
+ "some_match_right": 330,
+ "some_match_strict": 283,
+ "first_right_not_strict": 49,
+ "of_those_another_match_strict": 8,
+ "first_wrong_another_match_strict": 4,
+ "sample_of_10_conflicts_read": {
+  "engine program wrong": 3,
+  "differs from the reference where hidden tests may look (trailing space, tie order)": 2,
+  "artifact: probe outside the task's domain": 4,
+  "artifact: buggy reference solution": 1
+ }
+}
