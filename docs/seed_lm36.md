@@ -1,4 +1,4 @@
-# SeedLM-36~38: assert 셋을 통과한 답은 얼마나 진짜인가 — 개발 과제를 엄격하게 채점하기
+# SeedLM-36~39: assert 셋을 통과한 답은 얼마나 진짜인가, 그리고 엔진은 어디까지 닿는가
 
 작성일: 2026-11-23. [SeedLM-34](seed_lm34.md), SeedLM-35(검토기)가 끝난 뒤, 교사 보류 과제에서 "맞는" 뼈대 후보를 직접 읽다가 시작했다. 개수를 세는 진단이라 측정 전 등록은 하지 않았다. 판정 기준을 바꾼 것이 아니라, 지금 기준이 얼마나 느슨한지 잰 것이다.
 
@@ -85,6 +85,17 @@
 
 표본이 작지만, 엄격한 판정의 어긋남 가운데 절반쯤은 진짜다. 그러니 개발 과제의 진짜 숫자는 지금 시스템 58~69, 엔진 56~65 사이 어딘가이고, 엔진이나 후보 중 누군가 맞히는 과제도 62~76 사이다. 고르기의 몫(도달과 시스템의 차이)은 어느 판정에서도 4~7개로 작고, 어디에도 맞는 답이 없는 과제는 18~32개다. "남은 틈은 고르기보다 도달"이라는 읽기는 두 판정 모두에서 선다.
 
+## 5b. 탐색을 한 단계 더 깊게 (SeedLM-39)
+
+엔진은 연산을 두 단계까지만 잇는다. 남은 실패가 지금 연산들의 세 단계 조합인지 보려고, 2단계 값을 한 번 더 펼치는 기능을 넣었다(`RULE_ENGINE=depth3`, 설명이 부르는 연산으로 만든 값부터, 기본은 꺼짐, 과제당 6초).
+
+| 학습 쪽 434 | 기본 (2초) | 관문 모두 열기 (4초) | 깊이 3 (6초) |
+|---|---|---|---|
+| 엔진의 첫 답, 느슨함 / 엄격함 | 320 / 271 | 286 / 237 | 318 / 268 |
+| 일치 40개 중 누군가, 느슨함 / 엄격함 | 330 / 283 | 333 / 279 | 334 / 289 |
+
+깊이 3은 엄격한 도달을 6개(1.4%) 늘렸지만, 늘어난 프로그램은 크기 벌점 때문에 첫 답이 되지 못했고 첫 답은 오히려 3개 줄었다. 관문, 깊이, 순서 어느 쪽으로도 엔진의 도달은 거의 늘지 않는다. 남은 실패는 지금 연산의 조합이 아니라, 라이브러리에 없는 과제별 지식(정의, 공식, 관례)을 요구한다. 이것이 4차 라운드의 연산이 처음 보는 과제로 옮겨 가지 않은 이유와 같은 현상이다.
+
 ## 6. 코더 위원회는 우연을 피하는가 (SeedLM-38)
 
 측정 전에 등록했다(`reports/seedlm/seedlm38_protocol.json`). 따로 배운 코더들이 같은 우연한 프로그램을 첫 답으로 고를 가능성은 낮으니, 많은 코더가 같은 행동을 내는 프로그램은 진짜일 가능성이 높다는 가설이다. 엔진이 확신하지 않거나 답이 없는 개발 과제 24개에서, 저장된 코더 24개의 첫 검증 프로그램 가운데 가장 많은 코더가 동의하는 것을 골랐다(`scripts/seedlm38_consensus_strict.py`).
@@ -106,4 +117,6 @@ python scripts/seedlm36_true_reach.py --judge no_conflict --output reports/seedl
 python scripts/seedlm4_tasks.py holdout --model s5-var --strict
 python scripts/seedlm37_engine_strict.py
 python scripts/seedlm38_consensus_strict.py --output reports/seedlm/consensus38_development.json
+python scripts/seedlm37_engine_strict.py --open-gates --budget 4 --output engine_train_open.json
+RULE_ENGINE=depth3 python scripts/seedlm37_engine_strict.py --budget 6 --output engine_train_depth3.json
 ```

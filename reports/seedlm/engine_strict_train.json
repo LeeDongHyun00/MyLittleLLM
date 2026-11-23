@@ -21,5 +21,12 @@
   "first_match_strict": 237,
   "some_match_right": 333,
   "some_match_strict": 279
+ },
+ "depth3": {
+  "note": "RULE_ENGINE=depth3: level-2 values expanded once more (named steps first), 6 seconds per task",
+  "first_match_right": 318,
+  "first_match_strict": 268,
+  "some_match_right": 334,
+  "some_match_strict": 289
  }
 }
