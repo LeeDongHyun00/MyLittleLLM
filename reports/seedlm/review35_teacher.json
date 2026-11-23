@@ -1,0 +1,222 @@
+{
+ "set": "teacher",
+ "tasks": 139,
+ "results": [
+  {
+   "reviewer": "r35-a",
+   "rule": "review",
+   "alone": 49,
+   "system": 51,
+   "system_versus_engine": [
+    18,
+    3
+   ]
+  },
+  {
+   "reviewer": "r35-a",
+   "rule": "coder_reviewer",
+   "lambda": 0.25,
+   "alone": 63,
+   "system": 58,
+   "system_versus_engine": [
+    22,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a",
+   "rule": "coder_reviewer",
+   "lambda": 0.5,
+   "alone": 62,
+   "system": 58,
+   "system_versus_engine": [
+    22,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a",
+   "rule": "coder_reviewer",
+   "lambda": 1.0,
+   "alone": 61,
+   "system": 58,
+   "system_versus_engine": [
+    23,
+    1
+   ]
+  },
+  {
+   "reviewer": "r35-a",
+   "rule": "coder_reviewer",
+   "lambda": 2.0,
+   "alone": 61,
+   "system": 58,
+   "system_versus_engine": [
+    23,
+    1
+   ]
+  },
+  {
+   "reviewer": "r35-a-m10",
+   "rule": "review",
+   "alone": 43,
+   "system": 48,
+   "system_versus_engine": [
+    15,
+    3
+   ]
+  },
+  {
+   "reviewer": "r35-a-m10",
+   "rule": "coder_reviewer",
+   "lambda": 0.25,
+   "alone": 64,
+   "system": 58,
+   "system_versus_engine": [
+    22,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a-m10",
+   "rule": "coder_reviewer",
+   "lambda": 0.5,
+   "alone": 64,
+   "system": 58,
+   "system_versus_engine": [
+    22,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a-m10",
+   "rule": "coder_reviewer",
+   "lambda": 1.0,
+   "alone": 67,
+   "system": 59,
+   "system_versus_engine": [
+    23,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a-m10",
+   "rule": "coder_reviewer",
+   "lambda": 2.0,
+   "alone": 63,
+   "system": 58,
+   "system_versus_engine": [
+    23,
+    1
+   ]
+  },
+  {
+   "reviewer": "r35-a-m20",
+   "rule": "review",
+   "alone": 48,
+   "system": 51,
+   "system_versus_engine": [
+    18,
+    3
+   ]
+  },
+  {
+   "reviewer": "r35-a-m20",
+   "rule": "coder_reviewer",
+   "lambda": 0.25,
+   "alone": 64,
+   "system": 58,
+   "system_versus_engine": [
+    22,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a-m20",
+   "rule": "coder_reviewer",
+   "lambda": 0.5,
+   "alone": 64,
+   "system": 59,
+   "system_versus_engine": [
+    23,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a-m20",
+   "rule": "coder_reviewer",
+   "lambda": 1.0,
+   "alone": 66,
+   "system": 59,
+   "system_versus_engine": [
+    23,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a-m20",
+   "rule": "coder_reviewer",
+   "lambda": 2.0,
+   "alone": 62,
+   "system": 59,
+   "system_versus_engine": [
+    23,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a-m30",
+   "rule": "review",
+   "alone": 44,
+   "system": 50,
+   "system_versus_engine": [
+    16,
+    2
+   ]
+  },
+  {
+   "reviewer": "r35-a-m30",
+   "rule": "coder_reviewer",
+   "lambda": 0.25,
+   "alone": 62,
+   "system": 58,
+   "system_versus_engine": [
+    22,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a-m30",
+   "rule": "coder_reviewer",
+   "lambda": 0.5,
+   "alone": 63,
+   "system": 58,
+   "system_versus_engine": [
+    22,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a-m30",
+   "rule": "coder_reviewer",
+   "lambda": 1.0,
+   "alone": 64,
+   "system": 59,
+   "system_versus_engine": [
+    23,
+    0
+   ]
+  },
+  {
+   "reviewer": "r35-a-m30",
+   "rule": "coder_reviewer",
+   "lambda": 2.0,
+   "alone": 63,
+   "system": 58,
+   "system_versus_engine": [
+    24,
+    2
+   ]
+  }
+ ]
+}

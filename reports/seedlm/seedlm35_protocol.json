@@ -14,5 +14,6 @@
   "test",
   "HumanEval+",
   "the development fifth"
- ]
+ ],
+ "choice": "2026-11-23, on the held-out teacher tasks only, before the development fifth was scored: r35-a-m10 with coder_reviewer, lambda 1 (alone 67, the unique best of 20; the six-coder mean alone 64, the reviewer alone 43-49; reports/seedlm/review35_teacher.json)"
 }
