@@ -1,4 +1,4 @@
-# SeedLM-36~37: assert 셋을 통과한 답은 얼마나 진짜인가 — 개발 과제를 엄격하게 채점하기
+# SeedLM-36~38: assert 셋을 통과한 답은 얼마나 진짜인가 — 개발 과제를 엄격하게 채점하기
 
 작성일: 2026-11-23. [SeedLM-34](seed_lm34.md), SeedLM-35(검토기)가 끝난 뒤, 교사 보류 과제에서 "맞는" 뼈대 후보를 직접 읽다가 시작했다. 개수를 세는 진단이라 측정 전 등록은 하지 않았다. 판정 기준을 바꾼 것이 아니라, 지금 기준이 얼마나 느슨한지 잰 것이다.
 
@@ -83,6 +83,19 @@
 
 표본이 작지만, 엄격한 판정의 어긋남 가운데 절반쯤은 진짜다. 그러니 개발 과제의 진짜 숫자는 지금 시스템 58~69, 엔진 56~65 사이 어딘가이고, 엔진이나 후보 중 누군가 맞히는 과제도 62~76 사이다. 고르기의 몫(도달과 시스템의 차이)은 어느 판정에서도 4~7개로 작고, 어디에도 맞는 답이 없는 과제는 18~32개다. "남은 틈은 고르기보다 도달"이라는 읽기는 두 판정 모두에서 선다.
 
+## 6. 코더 위원회는 우연을 피하는가 (SeedLM-38)
+
+측정 전에 등록했다(`reports/seedlm/seedlm38_protocol.json`). 따로 배운 코더들이 같은 우연한 프로그램을 첫 답으로 고를 가능성은 낮으니, 많은 코더가 같은 행동을 내는 프로그램은 진짜일 가능성이 높다는 가설이다. 엔진이 확신하지 않거나 답이 없는 개발 과제 24개에서, 저장된 코더 24개의 첫 검증 프로그램 가운데 가장 많은 코더가 동의하는 것을 골랐다(`scripts/seedlm38_consensus_strict.py`).
+
+| 개발 과제 94 | 느슨함 | 엄격함 |
+|---|---|---|
+| 엔진 | 65 | 56 |
+| 엔진, 확신하지 않으면 s5-var의 첫 답 | 67 | 56 |
+| 엔진, 확신하지 않으면 코더 위원회 | 64 | **55** |
+| 지금 시스템 (`pyx_override`, 동점 깨기 포함) | 69 | 58 |
+
+지지되지 않았다. 엔진이 망설이는 과제에서 코더들의 첫 답은 대부분 같은 우연이라, 그들의 동의는 독립된 증거가 아니다. 코더들은 같은 데이터에서 배웠고, 예시 하나를 맞히는 가장 그럴듯한 틀린 읽기도 함께 배웠다.
+
 ## 재현
 
 ```bash
@@ -90,4 +103,5 @@ python scripts/seedlm36_true_reach.py --output reports/seedlm/true_reach.json
 python scripts/seedlm36_true_reach.py --judge no_conflict --output reports/seedlm/true_reach_no_conflict.json
 python scripts/seedlm4_tasks.py holdout --model s5-var --strict
 python scripts/seedlm37_engine_strict.py
+python scripts/seedlm38_consensus_strict.py --output reports/seedlm/consensus38_development.json
 ```

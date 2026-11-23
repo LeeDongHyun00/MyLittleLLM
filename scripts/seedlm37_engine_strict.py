@@ -11,7 +11,9 @@ solution on the 24 probes, scripts/seedlm3_tasks.strict_agrees). Writes outputs/
 (local) and prints counts.
 
   python scripts/seedlm37_engine_strict.py
+  python scripts/seedlm37_engine_strict.py --open-gates --budget 4 --output engine_train_open.json   # gating ceiling
 """
+import argparse
 import collections
 import json
 from pathlib import Path
@@ -32,11 +34,19 @@ FEATURES = ("support", "learned", "size", "knowledge", "specific", "all_args")
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--open-gates", action="store_true",
+                        help="treat every keyword-gated operator as named by the description (a ceiling)")
+    parser.add_argument("--budget", type=float, default=2.0, help="search seconds per task")
+    parser.add_argument("--output", default="engine_train.json")
+    args = parser.parse_args()
     cap_memory()
     items = [i for i in json.loads(BANK.read_text()) if i["source"] == "extra" and not held_out(i["task_id"])]
+    every = tuple(f"{op.name}/{op.arity}" for op in bi.U + bi.B + bi.T if op.gated) if args.open_gates else ()
     rows, counts = [], collections.Counter()
     for index, item in enumerate(items):
-        found = bi.synthesize(item["description"], item["visible_assert"], item["entry_point"], weights={}, keep=40)
+        found = bi.synthesize(item["description"], item["visible_assert"], item["entry_point"], budget_seconds=args.budget,
+                              weights={}, keep=40, extra_named=every)
         row = {"task_id": item["task_id"], "matches": []}
         if found is not None:
             reference = reference_probe_results(item)
@@ -67,7 +77,7 @@ def main():
         if index % 50 == 0:
             print(index, len(items), dict(counts), flush=True)
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "engine_train.json").write_text(json.dumps(rows) + "\n")
+    (OUT / args.output).write_text(json.dumps(rows) + "\n")
     print(json.dumps(dict(counts), indent=1))
 
 
