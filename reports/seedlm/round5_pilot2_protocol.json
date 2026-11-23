@@ -1,0 +1,19 @@
+{
+ "written": "2026-11-23, before any exercise of the second pilot was written",
+ "why": "The first pilot's 277 operators changed no real task (0 of 434). Its exercise teacher read 'do not reproduce benchmark tasks' as 'avoid every topic a benchmark uses' and left out the classic textbook exercises, which is where invented and real tasks would overlap; its exercises were also harder than real ones (the engine solved 7% of them against 74% of real tasks). The user chose to run a second pilot that separates a classic concept, general knowledge, from a benchmark item's wording, examples and constants",
+ "stage_1": "one teacher invents 300 mostly introductory exercises, classic topics welcome (docs/round5_task_guide2.md); the same decontamination as the first pilot (against evaluation tasks and the 434 training-side real tasks)",
+ "stage_2": "the shipped engine on the kept exercises; failures form the bank (scripts/round5_bank.py --parts 2)",
+ "stage_3": "one operator teacher writes the pack r5_pilot2 (operator names prefixed r52_) for that bank with the round-5 operator guide, seeing neither real tasks nor the first pilot's pack",
+ "primary_measure": "the 434 training-side real tasks: newly solved minus broken under the strict judge, the shipped engine plus r5_pilot2 against the shipped engine. Supported if at least 5; not supported if at most 1; inconclusive otherwise",
+ "secondary_measures": [
+  "the same under the lenient judge",
+  "only if supported: the development fifth once, both judges, the main system with the pack against 69 and 58"
+ ],
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "the development fifth",
+  "the 434 training-side real tasks (measured once, after the pack is frozen)"
+ ]
+}

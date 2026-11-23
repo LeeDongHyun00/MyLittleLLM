@@ -8,8 +8,10 @@ Jaccard >= 0.6, after the opening boilerplate). The shipped engine then tries ea
 fails by their asserts (no program, or a wrong one) form outputs/rule_round5/bank_imagined.json, those it
 solves regression.json, in round 4's bank format. Counts only are printed.
 
-  python scripts/round5_bank.py
+  python scripts/round5_bank.py              # every tasks_part*.json
+  python scripts/round5_bank.py --parts 2     # the second pilot's exercises only
 """
+import argparse
 import json
 from pathlib import Path
 import sys
@@ -29,10 +31,15 @@ BANK = ROOT / "outputs/rule_pilot/teacher/round3/all_tasks.json"
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--parts", type=int, nargs="*")
+    args = parser.parse_args()
     cap_memory()
     tasks = []
     for path in sorted(DIR.glob("tasks_part*.json")):
         part = int(path.stem[len("tasks_part"):])
+        if args.parts and part not in args.parts:
+            continue
         tasks += [t for t in json.loads(path.read_text()) if problem(t, part) is None]
     training = [i["description"] for i in json.loads(BANK.read_text())
                 if i["source"] == "extra" and not held_out(i["task_id"])]
