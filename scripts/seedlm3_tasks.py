@@ -152,6 +152,8 @@ def holdout(args, net, vocabulary, grammar, methods=None, stem="holdout3"):
             versus[name][0] += verdicts[codes[name]] and not engine
             versus[name][1] += engine and not verdicts[codes[name]]
         per_task[item["task_id"]] = {name: verdicts[codes[name]] for name in NAMES}
+        if strict:
+            per_task[item["task_id"]].update({name + "_strict": strict_verdicts[codes[name]] for name in NAMES})
     if getattr(args, "verdicts", False):
         # Per-task verdicts stay local (outputs/ is not committed); reports carry counts only.
         local = ROOT / "outputs/seedlm/verdicts"
