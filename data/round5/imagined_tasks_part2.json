@@ -1,0 +1,3602 @@
+[
+ {
+  "task_id": "Imag/2-001",
+  "category": "numbers",
+  "description": "Write a function that adds up the decimal digits of a non-negative integer.",
+  "entry_point": "digit_total",
+  "asserts": [
+   "assert digit_total(4071) == 12",
+   "assert digit_total(0) == 0",
+   "assert digit_total(999) == 27"
+  ],
+  "reference_code": "def digit_total(n):\n    return sum(int(c) for c in str(n))\n"
+ },
+ {
+  "task_id": "Imag/2-002",
+  "category": "numbers",
+  "description": "Write a function to compute the greatest common divisor of two positive integers using the Euclidean algorithm.",
+  "entry_point": "euclid_gcd",
+  "asserts": [
+   "assert euclid_gcd(84, 36) == 12",
+   "assert euclid_gcd(17, 5) == 1",
+   "assert euclid_gcd(45, 75) == 15"
+  ],
+  "reference_code": "def euclid_gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n"
+ },
+ {
+  "task_id": "Imag/2-003",
+  "category": "numbers",
+  "description": "Write a function that converts a temperature from degrees Celsius to degrees Fahrenheit using F = C * 9 / 5 + 32, rounded to one decimal place.",
+  "entry_point": "celsius_to_fahrenheit",
+  "asserts": [
+   "assert celsius_to_fahrenheit(25) == 77.0",
+   "assert celsius_to_fahrenheit(-40) == -40.0",
+   "assert celsius_to_fahrenheit(36.6) == 97.9"
+  ],
+  "reference_code": "def celsius_to_fahrenheit(c):\n    return round(c * 9 / 5 + 32, 1)\n"
+ },
+ {
+  "task_id": "Imag/2-004",
+  "category": "sequences",
+  "description": "Write a function to return the second largest distinct value in a list of integers, or None if there is no such value.",
+  "entry_point": "second_largest_distinct",
+  "asserts": [
+   "assert second_largest_distinct([4, 9, 2, 9, 7]) == 7",
+   "assert second_largest_distinct([5, 5, 5]) == None",
+   "assert second_largest_distinct([-3, -1]) == -3"
+  ],
+  "reference_code": "def second_largest_distinct(nums):\n    values = sorted(set(nums), reverse=True)\n    return values[1] if len(values) > 1 else None\n"
+ },
+ {
+  "task_id": "Imag/2-005",
+  "category": "sequences",
+  "description": "Write a function to rotate a list to the left by k positions, so that the element at index k comes first (k may be larger than the length of the list).",
+  "entry_point": "rotate_list_left",
+  "asserts": [
+   "assert rotate_list_left([1, 2, 3, 4, 5], 2) == [3, 4, 5, 1, 2]",
+   "assert rotate_list_left(['a', 'b', 'c'], 4) == ['b', 'c', 'a']",
+   "assert rotate_list_left([], 3) == []"
+  ],
+  "reference_code": "def rotate_list_left(items, k):\n    if not items:\n        return []\n    k %= len(items)\n    return items[k:] + items[:k]\n"
+ },
+ {
+  "task_id": "Imag/2-006",
+  "category": "sequences",
+  "description": "Write a function that returns the running totals of a list of numbers, where each output element is the sum of all input elements up to and including that position.",
+  "entry_point": "running_totals",
+  "asserts": [
+   "assert running_totals([3, 1, 4, 1]) == [3, 4, 8, 9]",
+   "assert running_totals([]) == []",
+   "assert running_totals([-2, 2, 5]) == [-2, 0, 5]"
+  ],
+  "reference_code": "def running_totals(nums):\n    out, total = [], 0\n    for x in nums:\n        total += x\n        out.append(total)\n    return out\n"
+ },
+ {
+  "task_id": "Imag/2-007",
+  "category": "strings",
+  "description": "Write a function to count the vowels (a, e, i, o, u in either upper or lower case) in a string.",
+  "entry_point": "count_vowels",
+  "asserts": [
+   "assert count_vowels('Programming Is Fun') == 5",
+   "assert count_vowels('rhythm') == 0",
+   "assert count_vowels('AEIOUaeiou') == 10"
+  ],
+  "reference_code": "def count_vowels(text):\n    return sum(1 for ch in text if ch.lower() in 'aeiou')\n"
+ },
+ {
+  "task_id": "Imag/2-008",
+  "category": "strings",
+  "description": "Write a function to convert a snake_case identifier to camelCase, keeping the first word entirely in lower case.",
+  "entry_point": "snake_to_lower_camel",
+  "asserts": [
+   "assert snake_to_lower_camel('total_item_count') == 'totalItemCount'",
+   "assert snake_to_lower_camel('speed') == 'speed'",
+   "assert snake_to_lower_camel('max_x_value') == 'maxXValue'"
+  ],
+  "reference_code": "def snake_to_lower_camel(name):\n    parts = name.split('_')\n    return parts[0] + ''.join(p.capitalize() for p in parts[1:])\n"
+ },
+ {
+  "task_id": "Imag/2-009",
+  "category": "strings",
+  "description": "Write a function to run-length encode a string, writing each run of identical characters as the character followed by the length of the run (so 'aab' becomes 'a2b1').",
+  "entry_point": "run_length_encode",
+  "asserts": [
+   "assert run_length_encode('wwwxyyyy') == 'w3x1y4'",
+   "assert run_length_encode('') == ''",
+   "assert run_length_encode('abc') == 'a1b1c1'"
+  ],
+  "reference_code": "def run_length_encode(text):\n    out = []\n    i = 0\n    while i < len(text):\n        j = i\n        while j < len(text) and text[j] == text[i]:\n            j += 1\n        out.append(text[i] + str(j - i))\n        i = j\n    return ''.join(out)\n"
+ },
+ {
+  "task_id": "Imag/2-010",
+  "category": "nested",
+  "description": "Write a function to transpose a matrix given as a list of rows, returning the result as a new list of rows.",
+  "entry_point": "transpose_matrix",
+  "asserts": [
+   "assert transpose_matrix([[1, 2, 3], [4, 5, 6]]) == [[1, 4], [2, 5], [3, 6]]",
+   "assert transpose_matrix([[7]]) == [[7]]",
+   "assert transpose_matrix([[1, 2], [3, 4], [5, 6]]) == [[1, 3, 5], [2, 4, 6]]"
+  ],
+  "reference_code": "def transpose_matrix(rows):\n    return [list(col) for col in zip(*rows)]\n"
+ },
+ {
+  "task_id": "Imag/2-011",
+  "category": "nested",
+  "description": "Write a function that returns a dictionary mapping each character of a string to the number of times it occurs in the string.",
+  "entry_point": "char_counts",
+  "asserts": [
+   "assert char_counts('banana') == {'b': 1, 'a': 3, 'n': 2}",
+   "assert char_counts('') == {}",
+   "assert char_counts('zz z') == {'z': 3, ' ': 1}"
+  ],
+  "reference_code": "def char_counts(text):\n    counts = {}\n    for ch in text:\n        counts[ch] = counts.get(ch, 0) + 1\n    return counts\n"
+ },
+ {
+  "task_id": "Imag/2-012",
+  "category": "nested",
+  "description": "Write a function to sort a list of (name, score) tuples by score in ascending order, keeping the original order of tuples with equal scores.",
+  "entry_point": "sort_by_score",
+  "asserts": [
+   "assert sort_by_score([('ann', 72), ('bob', 65), ('cy', 90)]) == [('bob', 65), ('ann', 72), ('cy', 90)]",
+   "assert sort_by_score([]) == []",
+   "assert sort_by_score([('x', 3), ('y', 1), ('z', 3)]) == [('y', 1), ('x', 3), ('z', 3)]"
+  ],
+  "reference_code": "def sort_by_score(pairs):\n    return sorted(pairs, key=lambda p: p[1])\n"
+ },
+ {
+  "task_id": "Imag/2-013",
+  "category": "predicates",
+  "description": "Write a function that returns True if an integer is a prime number and False otherwise, treating numbers below 2 as not prime.",
+  "entry_point": "is_prime_number",
+  "asserts": [
+   "assert is_prime_number(97) == True",
+   "assert is_prime_number(91) == False",
+   "assert is_prime_number(1) == False"
+  ],
+  "reference_code": "def is_prime_number(n):\n    if n < 2:\n        return False\n    d = 2\n    while d * d <= n:\n        if n % d == 0:\n            return False\n        d += 1\n    return True\n"
+ },
+ {
+  "task_id": "Imag/2-014",
+  "category": "predicates",
+  "description": "Write a function to check whether a string reads the same forwards and backwards when letter case and all non-alphanumeric characters are ignored.",
+  "entry_point": "is_clean_palindrome",
+  "asserts": [
+   "assert is_clean_palindrome('Step on no pets!') == True",
+   "assert is_clean_palindrome('Palindrome') == False",
+   "assert is_clean_palindrome('No lemon, no melon') == True"
+  ],
+  "reference_code": "def is_clean_palindrome(text):\n    chars = [c.lower() for c in text if c.isalnum()]\n    return chars == chars[::-1]\n"
+ },
+ {
+  "task_id": "Imag/2-015",
+  "category": "predicates",
+  "description": "Write a function that returns True if a year is a leap year in the Gregorian calendar (divisible by 4, except century years that are not divisible by 400) and False otherwise.",
+  "entry_point": "is_leap_year",
+  "asserts": [
+   "assert is_leap_year(1996) == True",
+   "assert is_leap_year(2100) == False",
+   "assert is_leap_year(1600) == True"
+  ],
+  "reference_code": "def is_leap_year(year):\n    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)\n"
+ },
+ {
+  "task_id": "Imag/2-016",
+  "category": "numbers",
+  "description": "Write a function to return the least common multiple of two positive integers.",
+  "entry_point": "least_common_multiple",
+  "asserts": [
+   "assert least_common_multiple(8, 6) == 24",
+   "assert least_common_multiple(7, 3) == 21",
+   "assert least_common_multiple(12, 18) == 36"
+  ],
+  "reference_code": "from math import gcd\n\ndef least_common_multiple(a, b):\n    return a * b // gcd(a, b)\n"
+ },
+ {
+  "task_id": "Imag/2-017",
+  "category": "numbers",
+  "description": "Write a function to compute n! (the product of all integers from 1 to n) for a non-negative integer n, where 0! equals 1.",
+  "entry_point": "factorial_of",
+  "asserts": [
+   "assert factorial_of(6) == 720",
+   "assert factorial_of(0) == 1",
+   "assert factorial_of(10) == 3628800"
+  ],
+  "reference_code": "def factorial_of(n):\n    result = 1\n    for k in range(2, n + 1):\n        result *= k\n    return result\n"
+ },
+ {
+  "task_id": "Imag/2-018",
+  "category": "numbers",
+  "description": "Write a function to return the n-th Fibonacci number, where the sequence starts with F(0) = 0 and F(1) = 1.",
+  "entry_point": "nth_fibonacci",
+  "asserts": [
+   "assert nth_fibonacci(13) == 233",
+   "assert nth_fibonacci(0) == 0",
+   "assert nth_fibonacci(16) == 987"
+  ],
+  "reference_code": "def nth_fibonacci(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n"
+ },
+ {
+  "task_id": "Imag/2-019",
+  "category": "sequences",
+  "description": "Write a function to remove duplicate values from a list while keeping the first occurrence of each value in its original order.",
+  "entry_point": "dedupe_keep_order",
+  "asserts": [
+   "assert dedupe_keep_order([3, 1, 3, 2, 1, 5]) == [3, 1, 2, 5]",
+   "assert dedupe_keep_order([]) == []",
+   "assert dedupe_keep_order(['x', 'x', 'y']) == ['x', 'y']"
+  ],
+  "reference_code": "def dedupe_keep_order(items):\n    seen, out = set(), []\n    for x in items:\n        if x not in seen:\n            seen.add(x)\n            out.append(x)\n    return out\n"
+ },
+ {
+  "task_id": "Imag/2-020",
+  "category": "sequences",
+  "description": "Write a function to merge two lists that are each sorted in ascending order into one sorted list without calling sort or sorted.",
+  "entry_point": "merge_sorted_lists",
+  "asserts": [
+   "assert merge_sorted_lists([1, 4, 9], [2, 3, 10, 11]) == [1, 2, 3, 4, 9, 10, 11]",
+   "assert merge_sorted_lists([], [5, 6]) == [5, 6]",
+   "assert merge_sorted_lists([2, 2], [2]) == [2, 2, 2]"
+  ],
+  "reference_code": "def merge_sorted_lists(a, b):\n    i = j = 0\n    out = []\n    while i < len(a) and j < len(b):\n        if a[i] <= b[j]:\n            out.append(a[i])\n            i += 1\n        else:\n            out.append(b[j])\n            j += 1\n    return out + a[i:] + b[j:]\n"
+ },
+ {
+  "task_id": "Imag/2-021",
+  "category": "sequences",
+  "description": "Write a function to split a list into consecutive chunks of size k, where the last chunk may be shorter than k.",
+  "entry_point": "chunk_list",
+  "asserts": [
+   "assert chunk_list([1, 2, 3, 4, 5, 6, 7], 3) == [[1, 2, 3], [4, 5, 6], [7]]",
+   "assert chunk_list([8, 9], 5) == [[8, 9]]",
+   "assert chunk_list([], 2) == []"
+  ],
+  "reference_code": "def chunk_list(items, k):\n    return [items[i:i + k] for i in range(0, len(items), k)]\n"
+ },
+ {
+  "task_id": "Imag/2-022",
+  "category": "strings",
+  "description": "Write a function that reverses the letters of every word in a sentence while keeping the words in their original order, where words are separated by single spaces.",
+  "entry_point": "reverse_each_word",
+  "asserts": [
+   "assert reverse_each_word('make it work') == 'ekam ti krow'",
+   "assert reverse_each_word('a') == 'a'",
+   "assert reverse_each_word('Hello World') == 'olleH dlroW'"
+  ],
+  "reference_code": "def reverse_each_word(sentence):\n    return ' '.join(word[::-1] for word in sentence.split(' '))\n"
+ },
+ {
+  "task_id": "Imag/2-023",
+  "category": "strings",
+  "description": "Write a function that returns a sentence with its space-separated words in the opposite order.",
+  "entry_point": "reverse_word_order",
+  "asserts": [
+   "assert reverse_word_order('one two three') == 'three two one'",
+   "assert reverse_word_order('solo') == 'solo'",
+   "assert reverse_word_order('red green') == 'green red'"
+  ],
+  "reference_code": "def reverse_word_order(sentence):\n    return ' '.join(sentence.split(' ')[::-1])\n"
+ },
+ {
+  "task_id": "Imag/2-024",
+  "category": "strings",
+  "description": "Write a function that capitalizes the first letter of each space-separated word in a string and puts the remaining letters of each word in lower case.",
+  "entry_point": "capitalize_words",
+  "asserts": [
+   "assert capitalize_words('the qUICK fox') == 'The Quick Fox'",
+   "assert capitalize_words('') == ''",
+   "assert capitalize_words('x y z') == 'X Y Z'"
+  ],
+  "reference_code": "def capitalize_words(text):\n    return ' '.join(word.capitalize() for word in text.split(' '))\n"
+ },
+ {
+  "task_id": "Imag/2-025",
+  "category": "nested",
+  "description": "Write a function to return a list containing the sum of each row of a matrix given as a list of lists.",
+  "entry_point": "row_sums",
+  "asserts": [
+   "assert row_sums([[1, 2, 3], [4, 5, 6]]) == [6, 15]",
+   "assert row_sums([[10]]) == [10]",
+   "assert row_sums([[-1, 1], [0, 0], [2, 2]]) == [0, 0, 4]"
+  ],
+  "reference_code": "def row_sums(matrix):\n    return [sum(row) for row in matrix]\n"
+ },
+ {
+  "task_id": "Imag/2-026",
+  "category": "nested",
+  "description": "Write a function to return a list containing the sum of each column of a rectangular matrix given as a list of rows.",
+  "entry_point": "column_sums",
+  "asserts": [
+   "assert column_sums([[1, 2, 3], [4, 5, 6]]) == [5, 7, 9]",
+   "assert column_sums([[3], [4]]) == [7]",
+   "assert column_sums([[0, -2], [5, 2]]) == [5, 0]"
+  ],
+  "reference_code": "def column_sums(matrix):\n    return [sum(col) for col in zip(*matrix)]\n"
+ },
+ {
+  "task_id": "Imag/2-027",
+  "category": "nested",
+  "description": "Write a function to compute the sum of the main diagonal (from top-left to bottom-right) of a square matrix given as a list of rows.",
+  "entry_point": "diagonal_sum",
+  "asserts": [
+   "assert diagonal_sum([[2, 0, 1], [3, 5, 9], [4, 4, 7]]) == 14",
+   "assert diagonal_sum([[6]]) == 6",
+   "assert diagonal_sum([[1, 2], [3, 4]]) == 5"
+  ],
+  "reference_code": "def diagonal_sum(matrix):\n    return sum(matrix[i][i] for i in range(len(matrix)))\n"
+ },
+ {
+  "task_id": "Imag/2-028",
+  "category": "predicates",
+  "description": "Write a function that returns True if a non-negative integer is a perfect square and False otherwise.",
+  "entry_point": "is_square_number",
+  "asserts": [
+   "assert is_square_number(144) == True",
+   "assert is_square_number(50) == False",
+   "assert is_square_number(0) == True"
+  ],
+  "reference_code": "import math\n\ndef is_square_number(n):\n    r = math.isqrt(n)\n    return r * r == n\n"
+ },
+ {
+  "task_id": "Imag/2-029",
+  "category": "predicates",
+  "description": "Write a function that returns True if a positive integer is a power of two (1, 2, 4, 8, ...) and False otherwise.",
+  "entry_point": "is_power_of_two",
+  "asserts": [
+   "assert is_power_of_two(64) == True",
+   "assert is_power_of_two(96) == False",
+   "assert is_power_of_two(1) == True"
+  ],
+  "reference_code": "def is_power_of_two(n):\n    return n > 0 and n & (n - 1) == 0\n"
+ },
+ {
+  "task_id": "Imag/2-030",
+  "category": "predicates",
+  "description": "Write a function to check whether two strings are anagrams of each other when spaces and letter case are ignored.",
+  "entry_point": "are_anagrams",
+  "asserts": [
+   "assert are_anagrams('Dormitory', 'dirty room') == True",
+   "assert are_anagrams('hello', 'world') == False",
+   "assert are_anagrams('The eyes', 'They see') == True"
+  ],
+  "reference_code": "def are_anagrams(a, b):\n    clean = lambda s: sorted(s.replace(' ', '').lower())\n    return clean(a) == clean(b)\n"
+ },
+ {
+  "task_id": "Imag/2-031",
+  "category": "numbers",
+  "description": "Write a function that reverses the digits of a non-negative integer and returns the result as an integer, so leading zeros of the result disappear.",
+  "entry_point": "reverse_digits",
+  "asserts": [
+   "assert reverse_digits(1234) == 4321",
+   "assert reverse_digits(1200) == 21",
+   "assert reverse_digits(7) == 7"
+  ],
+  "reference_code": "def reverse_digits(n):\n    return int(str(n)[::-1])\n"
+ },
+ {
+  "task_id": "Imag/2-032",
+  "category": "numbers",
+  "description": "Write a function to count how many digits an integer has, ignoring the minus sign of negative numbers.",
+  "entry_point": "digit_count",
+  "asserts": [
+   "assert digit_count(50213) == 5",
+   "assert digit_count(-88) == 2",
+   "assert digit_count(0) == 1"
+  ],
+  "reference_code": "def digit_count(n):\n    return len(str(abs(n)))\n"
+ },
+ {
+  "task_id": "Imag/2-033",
+  "category": "numbers",
+  "description": "Write a function to return the product of the decimal digits of a positive integer.",
+  "entry_point": "digit_product",
+  "asserts": [
+   "assert digit_product(234) == 24",
+   "assert digit_product(105) == 0",
+   "assert digit_product(9) == 9"
+  ],
+  "reference_code": "def digit_product(n):\n    product = 1\n    for c in str(n):\n        product *= int(c)\n    return product\n"
+ },
+ {
+  "task_id": "Imag/2-034",
+  "category": "sequences",
+  "description": "Write a function that performs binary search on a list sorted in ascending order and returns the index of the target, or -1 if the target is not present.",
+  "entry_point": "binary_search_index",
+  "asserts": [
+   "assert binary_search_index([2, 5, 8, 12, 16, 23], 12) == 3",
+   "assert binary_search_index([1, 3, 5], 4) == -1",
+   "assert binary_search_index([7], 7) == 0"
+  ],
+  "reference_code": "def binary_search_index(items, target):\n    lo, hi = 0, len(items) - 1\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        if items[mid] == target:\n            return mid\n        if items[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1\n"
+ },
+ {
+  "task_id": "Imag/2-035",
+  "category": "sequences",
+  "description": "Write a function that returns a list with its non-zero integers first, in their original order, followed by all of its zeros.",
+  "entry_point": "zeros_to_end",
+  "asserts": [
+   "assert zeros_to_end([0, 4, 0, 2, 7]) == [4, 2, 7, 0, 0]",
+   "assert zeros_to_end([1, 2]) == [1, 2]",
+   "assert zeros_to_end([0, 0, 3]) == [3, 0, 0]"
+  ],
+  "reference_code": "def zeros_to_end(nums):\n    non_zero = [x for x in nums if x != 0]\n    return non_zero + [0] * (len(nums) - len(non_zero))\n"
+ },
+ {
+  "task_id": "Imag/2-036",
+  "category": "sequences",
+  "description": "Write a function that adds two lists of numbers of equal length element by element and returns the list of sums.",
+  "entry_point": "add_elementwise",
+  "asserts": [
+   "assert add_elementwise([1, 2, 3], [40, 50, 60]) == [41, 52, 63]",
+   "assert add_elementwise([], []) == []",
+   "assert add_elementwise([-5, 4], [5, 1]) == [0, 5]"
+  ],
+  "reference_code": "def add_elementwise(a, b):\n    return [x + y for x, y in zip(a, b)]\n"
+ },
+ {
+  "task_id": "Imag/2-037",
+  "category": "strings",
+  "description": "Write a function to convert a camelCase identifier to snake_case by putting an underscore before each upper-case letter and turning that letter to lower case.",
+  "entry_point": "camel_to_underscores",
+  "asserts": [
+   "assert camel_to_underscores('userIdNumber') == 'user_id_number'",
+   "assert camel_to_underscores('total') == 'total'",
+   "assert camel_to_underscores('xCoordValue') == 'x_coord_value'"
+  ],
+  "reference_code": "def camel_to_underscores(name):\n    out = []\n    for ch in name:\n        if ch.isupper():\n            out.append('_' + ch.lower())\n        else:\n            out.append(ch)\n    return ''.join(out)\n"
+ },
+ {
+  "task_id": "Imag/2-038",
+  "category": "strings",
+  "description": "Write a function that shifts every letter of a string forward by k places in the alphabet, wrapping around from z to a and keeping upper and lower case, while leaving all other characters unchanged.",
+  "entry_point": "caesar_shift",
+  "asserts": [
+   "assert caesar_shift('Zebra 42!', 3) == 'Cheud 42!'",
+   "assert caesar_shift('abc', 0) == 'abc'",
+   "assert caesar_shift('xyz', 27) == 'yza'"
+  ],
+  "reference_code": "def caesar_shift(text, k):\n    out = []\n    for ch in text:\n        if ch.isalpha() and ch.isascii():\n            base = ord('A') if ch.isupper() else ord('a')\n            out.append(chr((ord(ch) - base + k) % 26 + base))\n        else:\n            out.append(ch)\n    return ''.join(out)\n"
+ },
+ {
+  "task_id": "Imag/2-039",
+  "category": "strings",
+  "description": "Write a function to decode a run-length encoded string made of character-count pairs, where each count is a positive integer that may have several digits (so 'a3b12' means 3 a's followed by 12 b's).",
+  "entry_point": "run_length_decode",
+  "asserts": [
+   "assert run_length_decode('x2y1z3') == 'xxyzzz'",
+   "assert run_length_decode('') == ''",
+   "assert run_length_decode('q10') == 'qqqqqqqqqq'"
+  ],
+  "reference_code": "import re\n\ndef run_length_decode(code):\n    return ''.join(ch * int(count) for ch, count in re.findall(r'(\\D)(\\d+)', code))\n"
+ },
+ {
+  "task_id": "Imag/2-040",
+  "category": "nested",
+  "description": "Write a function to flatten a list of lists by one level into a single list, keeping the elements in their original order.",
+  "entry_point": "flatten_once",
+  "asserts": [
+   "assert flatten_once([[1, 2], [3], [], [4, 5]]) == [1, 2, 3, 4, 5]",
+   "assert flatten_once([]) == []",
+   "assert flatten_once([['a'], ['b', 'c']]) == ['a', 'b', 'c']"
+  ],
+  "reference_code": "def flatten_once(lists):\n    return [x for inner in lists for x in inner]\n"
+ },
+ {
+  "task_id": "Imag/2-041",
+  "category": "nested",
+  "description": "Write a recursive function to flatten an arbitrarily nested list of integers into a flat list, keeping the left-to-right order of the integers.",
+  "entry_point": "deep_flatten",
+  "asserts": [
+   "assert deep_flatten([1, [2, [3, [4]], 5]]) == [1, 2, 3, 4, 5]",
+   "assert deep_flatten([[], [[]]]) == []",
+   "assert deep_flatten([7, 8]) == [7, 8]"
+  ],
+  "reference_code": "def deep_flatten(items):\n    out = []\n    for x in items:\n        if isinstance(x, list):\n            out.extend(deep_flatten(x))\n        else:\n            out.append(x)\n    return out\n"
+ },
+ {
+  "task_id": "Imag/2-042",
+  "category": "nested",
+  "description": "Write a function that returns a list holding the largest number of each inner list of a list of non-empty lists.",
+  "entry_point": "max_per_sublist",
+  "asserts": [
+   "assert max_per_sublist([[3, 9, 1], [4], [-2, -7]]) == [9, 4, -2]",
+   "assert max_per_sublist([]) == []",
+   "assert max_per_sublist([[5, 5], [0, 1]]) == [5, 1]"
+  ],
+  "reference_code": "def max_per_sublist(lists):\n    return [max(inner) for inner in lists]\n"
+ },
+ {
+  "task_id": "Imag/2-043",
+  "category": "predicates",
+  "description": "Write a function that returns True if a sentence contains every letter of the English alphabet at least once, ignoring case, and False otherwise.",
+  "entry_point": "is_pangram",
+  "asserts": [
+   "assert is_pangram('Pack my box with five dozen liquor jugs') == True",
+   "assert is_pangram('Hello there') == False",
+   "assert is_pangram('Sphinx of black quartz, judge my vow') == True"
+  ],
+  "reference_code": "import string\n\ndef is_pangram(sentence):\n    return set(string.ascii_lowercase) <= set(sentence.lower())\n"
+ },
+ {
+  "task_id": "Imag/2-044",
+  "category": "predicates",
+  "description": "Write a function to check whether a list of numbers is sorted in non-decreasing order, meaning every element is at least as large as the one before it.",
+  "entry_point": "is_non_decreasing",
+  "asserts": [
+   "assert is_non_decreasing([1, 2, 2, 5]) == True",
+   "assert is_non_decreasing([3, 1, 4]) == False",
+   "assert is_non_decreasing([]) == True"
+  ],
+  "reference_code": "def is_non_decreasing(nums):\n    return all(nums[i] <= nums[i + 1] for i in range(len(nums) - 1))\n"
+ },
+ {
+  "task_id": "Imag/2-045",
+  "category": "predicates",
+  "description": "Write a function that returns True if no value appears more than once in a list and False otherwise.",
+  "entry_point": "all_distinct",
+  "asserts": [
+   "assert all_distinct([4, 8, 15, 16]) == True",
+   "assert all_distinct([2, 9, 2]) == False",
+   "assert all_distinct([]) == True"
+  ],
+  "reference_code": "def all_distinct(items):\n    return len(set(items)) == len(items)\n"
+ },
+ {
+  "task_id": "Imag/2-046",
+  "category": "numbers",
+  "description": "Write a function to convert a distance in kilometres to miles, using 1 kilometre = 0.621371 miles, and round the result to two decimal places.",
+  "entry_point": "km_to_miles",
+  "asserts": [
+   "assert km_to_miles(10) == 6.21",
+   "assert km_to_miles(0) == 0.0",
+   "assert km_to_miles(42.195) == 26.22"
+  ],
+  "reference_code": "def km_to_miles(km):\n    return round(km * 0.621371, 2)\n"
+ },
+ {
+  "task_id": "Imag/2-047",
+  "category": "numbers",
+  "description": "Write a function to compute the area of a circle from its radius using math.pi, rounded to two decimal places.",
+  "entry_point": "circle_area",
+  "asserts": [
+   "assert circle_area(3) == 28.27",
+   "assert circle_area(0) == 0.0",
+   "assert circle_area(1.5) == 7.07"
+  ],
+  "reference_code": "import math\n\ndef circle_area(radius):\n    return round(math.pi * radius ** 2, 2)\n"
+ },
+ {
+  "task_id": "Imag/2-048",
+  "category": "numbers",
+  "description": "Write a function to return the length of the hypotenuse of a right triangle given the lengths of its two legs, rounded to two decimal places.",
+  "entry_point": "hypotenuse_length",
+  "asserts": [
+   "assert hypotenuse_length(8, 15) == 17.0",
+   "assert hypotenuse_length(1, 1) == 1.41",
+   "assert hypotenuse_length(5, 9) == 10.3"
+  ],
+  "reference_code": "import math\n\ndef hypotenuse_length(a, b):\n    return round(math.sqrt(a * a + b * b), 2)\n"
+ },
+ {
+  "task_id": "Imag/2-049",
+  "category": "sequences",
+  "description": "Write a function that returns the differences between consecutive elements of a list, where each output element is the later element minus the earlier one.",
+  "entry_point": "consecutive_differences",
+  "asserts": [
+   "assert consecutive_differences([3, 8, 6, 6]) == [5, -2, 0]",
+   "assert consecutive_differences([10]) == []",
+   "assert consecutive_differences([1, 4, 9, 16]) == [3, 5, 7]"
+  ],
+  "reference_code": "def consecutive_differences(nums):\n    return [nums[i + 1] - nums[i] for i in range(len(nums) - 1)]\n"
+ },
+ {
+  "task_id": "Imag/2-050",
+  "category": "sequences",
+  "description": "Write a function to return the index of the first element of a list that is strictly greater than a given threshold, or -1 if there is no such element.",
+  "entry_point": "first_index_above",
+  "asserts": [
+   "assert first_index_above([2, 7, 1, 9], 5) == 1",
+   "assert first_index_above([1, 2, 3], 3) == -1",
+   "assert first_index_above([10, 0], 9) == 0"
+  ],
+  "reference_code": "def first_index_above(nums, threshold):\n    for i, x in enumerate(nums):\n        if x > threshold:\n            return i\n    return -1\n"
+ },
+ {
+  "task_id": "Imag/2-051",
+  "category": "sequences",
+  "description": "Write a function to count how many numbers in a list lie between lo and hi, with both bounds included.",
+  "entry_point": "count_in_range",
+  "asserts": [
+   "assert count_in_range([1, 5, 8, 12, 5], 5, 10) == 3",
+   "assert count_in_range([], 0, 1) == 0",
+   "assert count_in_range([-3, 0, 3], -1, 1) == 1"
+  ],
+  "reference_code": "def count_in_range(nums, lo, hi):\n    return sum(1 for x in nums if lo <= x <= hi)\n"
+ },
+ {
+  "task_id": "Imag/2-052",
+  "category": "strings",
+  "description": "Write a function that removes every vowel (a, e, i, o, u in either case) from a string and keeps all other characters in place.",
+  "entry_point": "strip_vowels",
+  "asserts": [
+   "assert strip_vowels('Education is key') == 'dctn s ky'",
+   "assert strip_vowels('xyz') == 'xyz'",
+   "assert strip_vowels('AEI') == ''"
+  ],
+  "reference_code": "def strip_vowels(text):\n    return ''.join(ch for ch in text if ch.lower() not in 'aeiou')\n"
+ },
+ {
+  "task_id": "Imag/2-053",
+  "category": "strings",
+  "description": "Write a function to count the words in a string, where words are separated by one or more whitespace characters.",
+  "entry_point": "word_count",
+  "asserts": [
+   "assert word_count('  the cat   sat ') == 3",
+   "assert word_count('') == 0",
+   "assert word_count('one') == 1"
+  ],
+  "reference_code": "def word_count(text):\n    return len(text.split())\n"
+ },
+ {
+  "task_id": "Imag/2-054",
+  "category": "strings",
+  "description": "Write a function that returns the longest word of a space-separated sentence, choosing the earliest word when several share the maximum length.",
+  "entry_point": "longest_word",
+  "asserts": [
+   "assert longest_word('I love sunny mornings') == 'mornings'",
+   "assert longest_word('cat dog emu') == 'cat'",
+   "assert longest_word('go') == 'go'"
+  ],
+  "reference_code": "def longest_word(sentence):\n    best = ''\n    for word in sentence.split():\n        if len(word) > len(best):\n            best = word\n    return best\n"
+ },
+ {
+  "task_id": "Imag/2-055",
+  "category": "nested",
+  "description": "Write a function that groups a list of non-empty words into a dictionary keyed by each word's first letter, keeping the words of each group in their original order.",
+  "entry_point": "group_by_initial",
+  "asserts": [
+   "assert group_by_initial(['apple', 'bean', 'avocado', 'beet', 'corn']) == {'a': ['apple', 'avocado'], 'b': ['bean', 'beet'], 'c': ['corn']}",
+   "assert group_by_initial([]) == {}",
+   "assert group_by_initial(['kiwi']) == {'k': ['kiwi']}"
+  ],
+  "reference_code": "def group_by_initial(words):\n    groups = {}\n    for word in words:\n        groups.setdefault(word[0], []).append(word)\n    return groups\n"
+ },
+ {
+  "task_id": "Imag/2-056",
+  "category": "nested",
+  "description": "Write a function that returns a dictionary counting how many times each word appears in a sentence, after converting the sentence to lower case and splitting it on whitespace.",
+  "entry_point": "word_frequencies",
+  "asserts": [
+   "assert word_frequencies('the cat and The hat') == {'the': 2, 'cat': 1, 'and': 1, 'hat': 1}",
+   "assert word_frequencies('') == {}",
+   "assert word_frequencies('Go go GO') == {'go': 3}"
+  ],
+  "reference_code": "def word_frequencies(sentence):\n    counts = {}\n    for word in sentence.lower().split():\n        counts[word] = counts.get(word, 0) + 1\n    return counts\n"
+ },
+ {
+  "task_id": "Imag/2-057",
+  "category": "nested",
+  "description": "Write a function to swap the keys and values of a dictionary whose values are all distinct.",
+  "entry_point": "invert_mapping",
+  "asserts": [
+   "assert invert_mapping({'a': 1, 'b': 2}) == {1: 'a', 2: 'b'}",
+   "assert invert_mapping({}) == {}",
+   "assert invert_mapping({'x': 'y'}) == {'y': 'x'}"
+  ],
+  "reference_code": "def invert_mapping(mapping):\n    return {value: key for key, value in mapping.items()}\n"
+ },
+ {
+  "task_id": "Imag/2-058",
+  "category": "predicates",
+  "description": "Write a function that uses a regular expression to check whether a string is a valid identifier, made only of letters, digits and underscores and not starting with a digit.",
+  "entry_point": "is_valid_identifier",
+  "asserts": [
+   "assert is_valid_identifier('_count2') == True",
+   "assert is_valid_identifier('2fast') == False",
+   "assert is_valid_identifier('my-var') == False"
+  ],
+  "reference_code": "import re\n\ndef is_valid_identifier(name):\n    return re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', name) is not None\n"
+ },
+ {
+  "task_id": "Imag/2-059",
+  "category": "predicates",
+  "description": "Write a function to check whether the round brackets '(' and ')' in an expression are balanced, ignoring all other characters.",
+  "entry_point": "brackets_balanced",
+  "asserts": [
+   "assert brackets_balanced('(a+b)*(c-(d))') == True",
+   "assert brackets_balanced('(x))(') == False",
+   "assert brackets_balanced('no brackets') == True"
+  ],
+  "reference_code": "def brackets_balanced(expr):\n    depth = 0\n    for ch in expr:\n        if ch == '(':\n            depth += 1\n        elif ch == ')':\n            depth -= 1\n            if depth < 0:\n                return False\n    return depth == 0\n"
+ },
+ {
+  "task_id": "Imag/2-060",
+  "category": "predicates",
+  "description": "Write a function that returns True if three positive lengths can form a triangle, meaning each side is shorter than the sum of the other two, and False otherwise.",
+  "entry_point": "can_form_triangle",
+  "asserts": [
+   "assert can_form_triangle(4, 5, 7) == True",
+   "assert can_form_triangle(3, 4, 8) == False",
+   "assert can_form_triangle(10, 3, 4) == False"
+  ],
+  "reference_code": "def can_form_triangle(a, b, c):\n    return a < b + c and b < a + c and c < a + b\n"
+ },
+ {
+  "task_id": "Imag/2-061",
+  "category": "numbers",
+  "description": "Write a function to return the n-th triangular number, which is the sum of the integers from 1 to n.",
+  "entry_point": "triangular_number",
+  "asserts": [
+   "assert triangular_number(7) == 28",
+   "assert triangular_number(1) == 1",
+   "assert triangular_number(20) == 210"
+  ],
+  "reference_code": "def triangular_number(n):\n    return n * (n + 1) // 2\n"
+ },
+ {
+  "task_id": "Imag/2-062",
+  "category": "numbers",
+  "description": "Write a function to count the positive divisors of a positive integer, including 1 and the number itself.",
+  "entry_point": "count_divisors",
+  "asserts": [
+   "assert count_divisors(36) == 9",
+   "assert count_divisors(13) == 2",
+   "assert count_divisors(1) == 1"
+  ],
+  "reference_code": "def count_divisors(n):\n    return sum(1 for d in range(1, n + 1) if n % d == 0)\n"
+ },
+ {
+  "task_id": "Imag/2-063",
+  "category": "numbers",
+  "description": "Write a function that returns the sum of the proper divisors of a positive integer, that is, all of its positive divisors except the number itself.",
+  "entry_point": "proper_divisor_sum",
+  "asserts": [
+   "assert proper_divisor_sum(20) == 22",
+   "assert proper_divisor_sum(13) == 1",
+   "assert proper_divisor_sum(1) == 0"
+  ],
+  "reference_code": "def proper_divisor_sum(n):\n    return sum(d for d in range(1, n) if n % d == 0)\n"
+ },
+ {
+  "task_id": "Imag/2-064",
+  "category": "sequences",
+  "description": "Write a function to return the length of the longest run of equal adjacent elements in a list, or 0 for an empty list.",
+  "entry_point": "longest_equal_run",
+  "asserts": [
+   "assert longest_equal_run([1, 1, 2, 2, 2, 3]) == 3",
+   "assert longest_equal_run([]) == 0",
+   "assert longest_equal_run(['a', 'b', 'a']) == 1"
+  ],
+  "reference_code": "def longest_equal_run(items):\n    best = current = 0\n    for i, x in enumerate(items):\n        current = current + 1 if i > 0 and items[i - 1] == x else 1\n        best = max(best, current)\n    return best\n"
+ },
+ {
+  "task_id": "Imag/2-065",
+  "category": "sequences",
+  "description": "Write a function to return the most frequent element of a non-empty list, choosing the one that appears first in the list when several are equally frequent.",
+  "entry_point": "most_frequent_item",
+  "asserts": [
+   "assert most_frequent_item([4, 6, 6, 4, 9, 4]) == 4",
+   "assert most_frequent_item(['b', 'a', 'a', 'b']) == 'b'",
+   "assert most_frequent_item([5]) == 5"
+  ],
+  "reference_code": "def most_frequent_item(items):\n    best = items[0]\n    for x in items:\n        if items.count(x) > items.count(best):\n            best = x\n    return best\n"
+ },
+ {
+  "task_id": "Imag/2-066",
+  "category": "sequences",
+  "description": "Write a function to count the elements of a list that are strictly greater than every element before them, where the first element always counts.",
+  "entry_point": "count_new_records",
+  "asserts": [
+   "assert count_new_records([3, 1, 4, 1, 5, 9, 2]) == 4",
+   "assert count_new_records([]) == 0",
+   "assert count_new_records([5, 5, 5]) == 1"
+  ],
+  "reference_code": "def count_new_records(nums):\n    count, best = 0, None\n    for x in nums:\n        if best is None or x > best:\n            count += 1\n            best = x\n    return count\n"
+ },
+ {
+  "task_id": "Imag/2-067",
+  "category": "strings",
+  "description": "Write a function to return the first character of a string that occurs only once in it, or an empty string if every character repeats.",
+  "entry_point": "first_unique_char",
+  "asserts": [
+   "assert first_unique_char('teeter') == 'r'",
+   "assert first_unique_char('aabb') == ''",
+   "assert first_unique_char('xyzx') == 'y'"
+  ],
+  "reference_code": "def first_unique_char(text):\n    for ch in text:\n        if text.count(ch) == 1:\n            return ch\n    return ''\n"
+ },
+ {
+  "task_id": "Imag/2-068",
+  "category": "strings",
+  "description": "Write a function that removes repeated characters from a string, keeping only the first occurrence of each character (upper and lower case count as different characters).",
+  "entry_point": "unique_chars_in_order",
+  "asserts": [
+   "assert unique_chars_in_order('mississippi') == 'misp'",
+   "assert unique_chars_in_order('') == ''",
+   "assert unique_chars_in_order('abcABC') == 'abcABC'"
+  ],
+  "reference_code": "def unique_chars_in_order(text):\n    out = ''\n    for ch in text:\n        if ch not in out:\n            out += ch\n    return out\n"
+ },
+ {
+  "task_id": "Imag/2-069",
+  "category": "strings",
+  "description": "Write a function that replaces each run of whitespace in a string with a single space and removes the whitespace at both ends.",
+  "entry_point": "normalize_spaces",
+  "asserts": [
+   "assert normalize_spaces('  too   many    spaces ') == 'too many spaces'",
+   "assert normalize_spaces('tab\\there') == 'tab here'",
+   "assert normalize_spaces('ok') == 'ok'"
+  ],
+  "reference_code": "def normalize_spaces(text):\n    return ' '.join(text.split())\n"
+ },
+ {
+  "task_id": "Imag/2-070",
+  "category": "nested",
+  "description": "Write a function to merge two dictionaries with numeric values into a new dictionary, adding together the values of keys that appear in both.",
+  "entry_point": "merge_add",
+  "asserts": [
+   "assert merge_add({'a': 1, 'b': 2}, {'b': 5, 'c': 7}) == {'a': 1, 'b': 7, 'c': 7}",
+   "assert merge_add({}, {}) == {}",
+   "assert merge_add({'x': 3}, {}) == {'x': 3}"
+  ],
+  "reference_code": "def merge_add(first, second):\n    merged = dict(first)\n    for key, value in second.items():\n        merged[key] = merged.get(key, 0) + value\n    return merged\n"
+ },
+ {
+  "task_id": "Imag/2-071",
+  "category": "nested",
+  "description": "Write a function that returns the key with the largest value in a non-empty dictionary, choosing the key that comes first in the dictionary when values tie.",
+  "entry_point": "key_of_max",
+  "asserts": [
+   "assert key_of_max({'red': 3, 'blue': 8, 'green': 5}) == 'blue'",
+   "assert key_of_max({'p': 2, 'q': 2}) == 'p'",
+   "assert key_of_max({'only': -1}) == 'only'"
+  ],
+  "reference_code": "def key_of_max(mapping):\n    best = None\n    for key, value in mapping.items():\n        if best is None or value > mapping[best]:\n            best = key\n    return best\n"
+ },
+ {
+  "task_id": "Imag/2-072",
+  "category": "nested",
+  "description": "Write a function that returns the keys of a dictionary sorted by their values in descending order, keeping the dictionary order for keys with equal values.",
+  "entry_point": "keys_by_value_desc",
+  "asserts": [
+   "assert keys_by_value_desc({'tom': 50, 'ann': 80, 'joe': 65}) == ['ann', 'joe', 'tom']",
+   "assert keys_by_value_desc({}) == []",
+   "assert keys_by_value_desc({'a': 1, 'b': 1, 'c': 2}) == ['c', 'a', 'b']"
+  ],
+  "reference_code": "def keys_by_value_desc(mapping):\n    return sorted(mapping, key=lambda k: -mapping[k])\n"
+ },
+ {
+  "task_id": "Imag/2-073",
+  "category": "predicates",
+  "description": "Write a function that returns True if three positive integers, given in any order, can be the side lengths of a right triangle (the squares of the two shorter sides add up to the square of the longest), and False otherwise.",
+  "entry_point": "is_right_triangle",
+  "asserts": [
+   "assert is_right_triangle(29, 20, 21) == True",
+   "assert is_right_triangle(4, 5, 6) == False",
+   "assert is_right_triangle(12, 37, 35) == True"
+  ],
+  "reference_code": "def is_right_triangle(a, b, c):\n    x, y, z = sorted((a, b, c))\n    return x * x + y * y == z * z\n"
+ },
+ {
+  "task_id": "Imag/2-074",
+  "category": "predicates",
+  "description": "Write a function to check whether every element of the first list also appears in the second list.",
+  "entry_point": "is_subset_of",
+  "asserts": [
+   "assert is_subset_of([2, 4], [1, 2, 3, 4]) == True",
+   "assert is_subset_of([2, 5], [2, 3]) == False",
+   "assert is_subset_of([], [1]) == True"
+  ],
+  "reference_code": "def is_subset_of(first, second):\n    return all(x in second for x in first)\n"
+ },
+ {
+  "task_id": "Imag/2-075",
+  "category": "predicates",
+  "description": "Write a function that returns True if the second string can be obtained by rotating the first string (moving some of its leading characters to the end), and False otherwise.",
+  "entry_point": "is_rotation_of",
+  "asserts": [
+   "assert is_rotation_of('pencil', 'cilpen') == True",
+   "assert is_rotation_of('pencil', 'pencel') == False",
+   "assert is_rotation_of('ab', 'aba') == False"
+  ],
+  "reference_code": "def is_rotation_of(a, b):\n    return len(a) == len(b) and b in a + a\n"
+ },
+ {
+  "task_id": "Imag/2-076",
+  "category": "numbers",
+  "description": "Write a function to return the largest prime factor of an integer greater than 1.",
+  "entry_point": "biggest_prime_divisor",
+  "asserts": [
+   "assert biggest_prime_divisor(84) == 7",
+   "assert biggest_prime_divisor(97) == 97",
+   "assert biggest_prime_divisor(1024) == 2"
+  ],
+  "reference_code": "def biggest_prime_divisor(n):\n    largest, d = 1, 2\n    while d * d <= n:\n        while n % d == 0:\n            largest = d\n            n //= d\n        d += 1\n    return n if n > 1 else largest\n"
+ },
+ {
+  "task_id": "Imag/2-077",
+  "category": "numbers",
+  "description": "Write a function to count the trailing zeros in the decimal representation of n! without computing the factorial itself.",
+  "entry_point": "factorial_trailing_zeros",
+  "asserts": [
+   "assert factorial_trailing_zeros(10) == 2",
+   "assert factorial_trailing_zeros(4) == 0",
+   "assert factorial_trailing_zeros(125) == 31"
+  ],
+  "reference_code": "def factorial_trailing_zeros(n):\n    count, power = 0, 5\n    while power <= n:\n        count += n // power\n        power *= 5\n    return count\n"
+ },
+ {
+  "task_id": "Imag/2-078",
+  "category": "numbers",
+  "description": "Write a function to convert a string of binary digits to its integer value without using int with base 2.",
+  "entry_point": "binary_to_int",
+  "asserts": [
+   "assert binary_to_int('1101') == 13",
+   "assert binary_to_int('0') == 0",
+   "assert binary_to_int('100000') == 32"
+  ],
+  "reference_code": "def binary_to_int(bits):\n    value = 0\n    for b in bits:\n        value = value * 2 + (b == '1')\n    return value\n"
+ },
+ {
+  "task_id": "Imag/2-079",
+  "category": "sequences",
+  "description": "Write a function that returns the values present in both lists, in the order they first appear in the first list and without repeats.",
+  "entry_point": "common_in_order",
+  "asserts": [
+   "assert common_in_order([5, 1, 3, 1, 7], [7, 1, 9]) == [1, 7]",
+   "assert common_in_order([1, 2], [3]) == []",
+   "assert common_in_order(['b', 'a', 'b'], ['b', 'a']) == ['b', 'a']"
+  ],
+  "reference_code": "def common_in_order(first, second):\n    out = []\n    for x in first:\n        if x in second and x not in out:\n            out.append(x)\n    return out\n"
+ },
+ {
+  "task_id": "Imag/2-080",
+  "category": "sequences",
+  "description": "Write a function that returns the elements of the first list that do not occur in the second list, keeping their order and repetitions.",
+  "entry_point": "list_minus",
+  "asserts": [
+   "assert list_minus([1, 2, 2, 3, 5], [2, 5]) == [1, 3]",
+   "assert list_minus([], [1]) == []",
+   "assert list_minus([5, 5], []) == [5, 5]"
+  ],
+  "reference_code": "def list_minus(first, second):\n    return [x for x in first if x not in second]\n"
+ },
+ {
+  "task_id": "Imag/2-081",
+  "category": "sequences",
+  "description": "Write a function to return the sum of the elements located at even indices (0, 2, 4, ...) of a list.",
+  "entry_point": "sum_even_positions",
+  "asserts": [
+   "assert sum_even_positions([10, 1, 20, 2, 30]) == 60",
+   "assert sum_even_positions([]) == 0",
+   "assert sum_even_positions([-4, 100]) == -4"
+  ],
+  "reference_code": "def sum_even_positions(nums):\n    return sum(nums[0::2])\n"
+ },
+ {
+  "task_id": "Imag/2-082",
+  "category": "strings",
+  "description": "Write a function to count the upper-case letters in a string.",
+  "entry_point": "count_capitals",
+  "asserts": [
+   "assert count_capitals('New York, NY') == 4",
+   "assert count_capitals('lower only') == 0",
+   "assert count_capitals('ABC') == 3"
+  ],
+  "reference_code": "def count_capitals(text):\n    return sum(1 for ch in text if ch.isupper())\n"
+ },
+ {
+  "task_id": "Imag/2-083",
+  "category": "strings",
+  "description": "Write a function that turns every lower-case letter of a string into upper case and every upper-case letter into lower case.",
+  "entry_point": "invert_case",
+  "asserts": [
+   "assert invert_case('PyThon 3') == 'pYtHON 3'",
+   "assert invert_case('') == ''",
+   "assert invert_case('abc') == 'ABC'"
+  ],
+  "reference_code": "def invert_case(text):\n    return ''.join(ch.lower() if ch.isupper() else ch.upper() for ch in text)\n"
+ },
+ {
+  "task_id": "Imag/2-084",
+  "category": "strings",
+  "description": "Write a function that returns a string made of only the digit characters of the input, in their original order.",
+  "entry_point": "digits_only",
+  "asserts": [
+   "assert digits_only('Call 555-0199 now') == '5550199'",
+   "assert digits_only('none') == ''",
+   "assert digits_only('a1b2') == '12'"
+  ],
+  "reference_code": "def digits_only(text):\n    return ''.join(ch for ch in text if ch.isdigit())\n"
+ },
+ {
+  "task_id": "Imag/2-085",
+  "category": "nested",
+  "description": "Write a function that returns a new dictionary keeping only the entries whose value is at least a given minimum.",
+  "entry_point": "entries_at_least",
+  "asserts": [
+   "assert entries_at_least({'pen': 3, 'ink': 12, 'pad': 7}, 7) == {'ink': 12, 'pad': 7}",
+   "assert entries_at_least({'a': 1}, 5) == {}",
+   "assert entries_at_least({}, 0) == {}"
+  ],
+  "reference_code": "def entries_at_least(mapping, minimum):\n    return {k: v for k, v in mapping.items() if v >= minimum}\n"
+ },
+ {
+  "task_id": "Imag/2-086",
+  "category": "nested",
+  "description": "Write a function that returns a list of (element, count) tuples telling how often each element occurs in a list, in order of first appearance.",
+  "entry_point": "occurrence_pairs",
+  "asserts": [
+   "assert occurrence_pairs(['x', 'y', 'x', 'z', 'x']) == [('x', 3), ('y', 1), ('z', 1)]",
+   "assert occurrence_pairs([]) == []",
+   "assert occurrence_pairs([2, 2]) == [(2, 2)]"
+  ],
+  "reference_code": "def occurrence_pairs(items):\n    counts = {}\n    for x in items:\n        counts[x] = counts.get(x, 0) + 1\n    return list(counts.items())\n"
+ },
+ {
+  "task_id": "Imag/2-087",
+  "category": "nested",
+  "description": "Write a function to build a dictionary from a list of keys and a list of values of the same length, pairing them by position.",
+  "entry_point": "pair_into_dict",
+  "asserts": [
+   "assert pair_into_dict(['a', 'b', 'c'], [1, 2, 3]) == {'a': 1, 'b': 2, 'c': 3}",
+   "assert pair_into_dict([], []) == {}",
+   "assert pair_into_dict(['k'], [None]) == {'k': None}"
+  ],
+  "reference_code": "def pair_into_dict(keys, values):\n    return dict(zip(keys, values))\n"
+ },
+ {
+  "task_id": "Imag/2-088",
+  "category": "predicates",
+  "description": "Write a function that returns True if the numbers at two different positions of a list add up to a given target, and False otherwise.",
+  "entry_point": "has_pair_with_sum",
+  "asserts": [
+   "assert has_pair_with_sum([3, 8, 1, 6], 9) == True",
+   "assert has_pair_with_sum([5, 2], 4) == False",
+   "assert has_pair_with_sum([4], 8) == False"
+  ],
+  "reference_code": "def has_pair_with_sum(nums, target):\n    for i in range(len(nums)):\n        for j in range(i + 1, len(nums)):\n            if nums[i] + nums[j] == target:\n                return True\n    return False\n"
+ },
+ {
+  "task_id": "Imag/2-089",
+  "category": "predicates",
+  "description": "Write a function that returns True if a positive integer is divisible by the sum of its own digits (a Harshad number), and False otherwise.",
+  "entry_point": "is_harshad",
+  "asserts": [
+   "assert is_harshad(156) == True",
+   "assert is_harshad(19) == False",
+   "assert is_harshad(7) == True"
+  ],
+  "reference_code": "def is_harshad(n):\n    return n % sum(int(c) for c in str(n)) == 0\n"
+ },
+ {
+  "task_id": "Imag/2-090",
+  "category": "predicates",
+  "description": "Write a function that returns True if a positive integer equals the sum of its proper divisors (a perfect number), and False otherwise.",
+  "entry_point": "is_perfect_number",
+  "asserts": [
+   "assert is_perfect_number(496) == True",
+   "assert is_perfect_number(12) == False",
+   "assert is_perfect_number(1) == False"
+  ],
+  "reference_code": "def is_perfect_number(n):\n    return n == sum(d for d in range(1, n) if n % d == 0) and n > 1\n"
+ },
+ {
+  "task_id": "Imag/2-091",
+  "category": "numbers",
+  "description": "Write a function to convert a non-negative integer to its binary representation as a string of 0s and 1s without the '0b' prefix.",
+  "entry_point": "to_binary_string",
+  "asserts": [
+   "assert to_binary_string(37) == '100101'",
+   "assert to_binary_string(0) == '0'",
+   "assert to_binary_string(255) == '11111111'"
+  ],
+  "reference_code": "def to_binary_string(n):\n    if n == 0:\n        return '0'\n    bits = ''\n    while n:\n        bits = str(n % 2) + bits\n        n //= 2\n    return bits\n"
+ },
+ {
+  "task_id": "Imag/2-092",
+  "category": "numbers",
+  "description": "Write a function to count how many 1 bits appear in the binary representation of a non-negative integer.",
+  "entry_point": "count_one_bits",
+  "asserts": [
+   "assert count_one_bits(13) == 3",
+   "assert count_one_bits(0) == 0",
+   "assert count_one_bits(1023) == 10"
+  ],
+  "reference_code": "def count_one_bits(n):\n    count = 0\n    while n:\n        count += n & 1\n        n >>= 1\n    return count\n"
+ },
+ {
+  "task_id": "Imag/2-093",
+  "category": "numbers",
+  "description": "Write a function to return the largest integer whose square does not exceed a given non-negative integer, without using math.sqrt or math.isqrt.",
+  "entry_point": "floor_sqrt",
+  "asserts": [
+   "assert floor_sqrt(50) == 7",
+   "assert floor_sqrt(0) == 0",
+   "assert floor_sqrt(81) == 9"
+  ],
+  "reference_code": "def floor_sqrt(n):\n    r = 0\n    while (r + 1) * (r + 1) <= n:\n        r += 1\n    return r\n"
+ },
+ {
+  "task_id": "Imag/2-094",
+  "category": "sequences",
+  "description": "Write a function that rearranges a list of integers so that all even numbers come before all odd numbers, keeping the relative order within each group.",
+  "entry_point": "evens_then_odds",
+  "asserts": [
+   "assert evens_then_odds([5, 2, 7, 4, 6, 1]) == [2, 4, 6, 5, 7, 1]",
+   "assert evens_then_odds([1, 3]) == [1, 3]",
+   "assert evens_then_odds([]) == []"
+  ],
+  "reference_code": "def evens_then_odds(nums):\n    return [x for x in nums if x % 2 == 0] + [x for x in nums if x % 2 != 0]\n"
+ },
+ {
+  "task_id": "Imag/2-095",
+  "category": "sequences",
+  "description": "Write a function to return the difference between the largest and the smallest number in a non-empty list.",
+  "entry_point": "spread_of",
+  "asserts": [
+   "assert spread_of([7, 2, 9, 4]) == 7",
+   "assert spread_of([5]) == 0",
+   "assert spread_of([-3, 3]) == 6"
+  ],
+  "reference_code": "def spread_of(nums):\n    return max(nums) - min(nums)\n"
+ },
+ {
+  "task_id": "Imag/2-096",
+  "category": "sequences",
+  "description": "Write a function to return the index of the last occurrence of a value in a list, or -1 if the value does not occur.",
+  "entry_point": "last_index_of",
+  "asserts": [
+   "assert last_index_of([4, 1, 4, 2], 4) == 2",
+   "assert last_index_of([1, 2], 3) == -1",
+   "assert last_index_of(['a'], 'a') == 0"
+  ],
+  "reference_code": "def last_index_of(items, value):\n    for i in range(len(items) - 1, -1, -1):\n        if items[i] == value:\n            return i\n    return -1\n"
+ },
+ {
+  "task_id": "Imag/2-097",
+  "category": "strings",
+  "description": "Write a function that hides all but the last four characters of a string by replacing each of them with '#', leaving strings of four or fewer characters unchanged.",
+  "entry_point": "mask_tail",
+  "asserts": [
+   "assert mask_tail('8031992047') == '######2047'",
+   "assert mask_tail('abc') == 'abc'",
+   "assert mask_tail('12345') == '#2345'"
+  ],
+  "reference_code": "def mask_tail(text):\n    if len(text) <= 4:\n        return text\n    return '#' * (len(text) - 4) + text[-4:]\n"
+ },
+ {
+  "task_id": "Imag/2-098",
+  "category": "strings",
+  "description": "Write a function that returns a non-negative integer as a string padded with leading zeros to a width of 5 characters, leaving longer numbers unchanged.",
+  "entry_point": "pad_five",
+  "asserts": [
+   "assert pad_five(42) == '00042'",
+   "assert pad_five(123456) == '123456'",
+   "assert pad_five(0) == '00000'"
+  ],
+  "reference_code": "def pad_five(n):\n    s = str(n)\n    return '0' * (5 - len(s)) + s\n"
+ },
+ {
+  "task_id": "Imag/2-099",
+  "category": "strings",
+  "description": "Write a function that formats a non-negative integer as a string with commas as thousands separators.",
+  "entry_point": "with_commas",
+  "asserts": [
+   "assert with_commas(1234567) == '1,234,567'",
+   "assert with_commas(999) == '999'",
+   "assert with_commas(1000) == '1,000'"
+  ],
+  "reference_code": "def with_commas(n):\n    s = str(n)\n    groups = []\n    while len(s) > 3:\n        groups.insert(0, s[-3:])\n        s = s[:-3]\n    groups.insert(0, s)\n    return ','.join(groups)\n"
+ },
+ {
+  "task_id": "Imag/2-100",
+  "category": "nested",
+  "description": "Write a function that builds a dictionary from a list of (key, amount) pairs, adding up the amounts of pairs that share the same key.",
+  "entry_point": "totals_by_key",
+  "asserts": [
+   "assert totals_by_key([('a', 2), ('b', 5), ('a', 4)]) == {'a': 6, 'b': 5}",
+   "assert totals_by_key([]) == {}",
+   "assert totals_by_key([('z', -1), ('z', 1)]) == {'z': 0}"
+  ],
+  "reference_code": "def totals_by_key(pairs):\n    totals = {}\n    for key, amount in pairs:\n        totals[key] = totals.get(key, 0) + amount\n    return totals\n"
+ },
+ {
+  "task_id": "Imag/2-101",
+  "category": "nested",
+  "description": "Write a function that follows a list of keys through nested dictionaries and returns the value it reaches, or None if any key along the path is missing.",
+  "entry_point": "get_by_path",
+  "asserts": [
+   "assert get_by_path({'a': {'b': {'c': 5}}}, ['a', 'b', 'c']) == 5",
+   "assert get_by_path({'a': {'b': 1}}, ['a', 'x']) == None",
+   "assert get_by_path({'k': [1, 2]}, ['k']) == [1, 2]"
+  ],
+  "reference_code": "def get_by_path(data, path):\n    current = data\n    for key in path:\n        if isinstance(current, dict) and key in current:\n            current = current[key]\n        else:\n            return None\n    return current\n"
+ },
+ {
+  "task_id": "Imag/2-102",
+  "category": "nested",
+  "description": "Write a recursive function to compute the nesting depth of a list, where a list that contains no inner lists has depth 1.",
+  "entry_point": "list_depth",
+  "asserts": [
+   "assert list_depth([1, [2, [3]], 4]) == 3",
+   "assert list_depth([]) == 1",
+   "assert list_depth([[], [[]]]) == 3"
+  ],
+  "reference_code": "def list_depth(items):\n    inner = [list_depth(x) for x in items if isinstance(x, list)]\n    return 1 + max(inner, default=0)\n"
+ },
+ {
+  "task_id": "Imag/2-103",
+  "category": "predicates",
+  "description": "Write a function that returns True if a positive integer equals the sum of its digits each raised to the power of the number of digits (an Armstrong number), and False otherwise.",
+  "entry_point": "is_armstrong",
+  "asserts": [
+   "assert is_armstrong(9474) == True",
+   "assert is_armstrong(9475) == False",
+   "assert is_armstrong(371) == True"
+  ],
+  "reference_code": "def is_armstrong(n):\n    digits = str(n)\n    return n == sum(int(d) ** len(digits) for d in digits)\n"
+ },
+ {
+  "task_id": "Imag/2-104",
+  "category": "predicates",
+  "description": "Write a function that returns True if a string is a colour code made of '#' followed by exactly six hexadecimal digits in either case, and False otherwise.",
+  "entry_point": "is_hex_colour",
+  "asserts": [
+   "assert is_hex_colour('#1A2b3C') == True",
+   "assert is_hex_colour('#12345G') == False",
+   "assert is_hex_colour('123456') == False"
+  ],
+  "reference_code": "import re\n\ndef is_hex_colour(code):\n    return re.fullmatch(r'#[0-9A-Fa-f]{6}', code) is not None\n"
+ },
+ {
+  "task_id": "Imag/2-105",
+  "category": "predicates",
+  "description": "Write a function to check whether a string is a valid IPv4 address: four decimal numbers from 0 to 255 separated by dots, with no leading zeros except for the number 0 itself.",
+  "entry_point": "is_ipv4",
+  "asserts": [
+   "assert is_ipv4('172.16.254.9') == True",
+   "assert is_ipv4('256.1.1.1') == False",
+   "assert is_ipv4('10.01.2.3') == False"
+  ],
+  "reference_code": "def is_ipv4(address):\n    parts = address.split('.')\n    if len(parts) != 4:\n        return False\n    for part in parts:\n        if not part.isdigit() or (len(part) > 1 and part[0] == '0') or int(part) > 255:\n            return False\n    return True\n"
+ },
+ {
+  "task_id": "Imag/2-106",
+  "category": "numbers",
+  "description": "Write a function to compute simple interest as principal * rate * years / 100, where rate is a percentage, rounded to two decimal places.",
+  "entry_point": "simple_interest",
+  "asserts": [
+   "assert simple_interest(1000, 5, 3) == 150.0",
+   "assert simple_interest(2500, 3.5, 2) == 175.0",
+   "assert simple_interest(800, 0, 10) == 0.0"
+  ],
+  "reference_code": "def simple_interest(principal, rate, years):\n    return round(principal * rate * years / 100, 2)\n"
+ },
+ {
+  "task_id": "Imag/2-107",
+  "category": "numbers",
+  "description": "Write a function to return the amount reached by compounding a principal once per year at an annual percentage rate for a number of years, rounded to two decimal places.",
+  "entry_point": "compound_amount",
+  "asserts": [
+   "assert compound_amount(1000, 10, 2) == 1210.0",
+   "assert compound_amount(500, 4, 0) == 500.0",
+   "assert compound_amount(1200, 5, 3) == 1389.15"
+  ],
+  "reference_code": "def compound_amount(principal, rate, years):\n    return round(principal * (1 + rate / 100) ** years, 2)\n"
+ },
+ {
+  "task_id": "Imag/2-108",
+  "category": "numbers",
+  "description": "Write a function that returns the body mass index, the weight in kilograms divided by the square of the height in metres, rounded to one decimal place.",
+  "entry_point": "body_mass_index",
+  "asserts": [
+   "assert body_mass_index(70, 1.75) == 22.9",
+   "assert body_mass_index(50, 1.6) == 19.5",
+   "assert body_mass_index(90, 1.8) == 27.8"
+  ],
+  "reference_code": "def body_mass_index(weight, height):\n    return round(weight / height ** 2, 1)\n"
+ },
+ {
+  "task_id": "Imag/2-109",
+  "category": "sequences",
+  "description": "Write a function to return the k-th smallest element of a list, where k starts at 1 and repeated values are counted separately.",
+  "entry_point": "kth_smallest",
+  "asserts": [
+   "assert kth_smallest([7, 3, 9, 3, 1], 3) == 3",
+   "assert kth_smallest([5], 1) == 5",
+   "assert kth_smallest([8, 2, 6], 3) == 8"
+  ],
+  "reference_code": "def kth_smallest(nums, k):\n    return sorted(nums)[k - 1]\n"
+ },
+ {
+  "task_id": "Imag/2-110",
+  "category": "sequences",
+  "description": "Write a function to return the product of all numbers in a list, giving 1 for an empty list.",
+  "entry_point": "list_product",
+  "asserts": [
+   "assert list_product([2, 3, 4]) == 24",
+   "assert list_product([]) == 1",
+   "assert list_product([5, -2, 0]) == 0"
+  ],
+  "reference_code": "def list_product(nums):\n    result = 1\n    for x in nums:\n        result *= x\n    return result\n"
+ },
+ {
+  "task_id": "Imag/2-111",
+  "category": "sequences",
+  "description": "Write a function to count how many numbers in a non-empty list are strictly greater than the average of the list.",
+  "entry_point": "count_above_mean",
+  "asserts": [
+   "assert count_above_mean([1, 2, 3, 4, 10]) == 1",
+   "assert count_above_mean([5, 5]) == 0",
+   "assert count_above_mean([2, 8, 6, 4]) == 2"
+  ],
+  "reference_code": "def count_above_mean(nums):\n    mean = sum(nums) / len(nums)\n    return sum(1 for x in nums if x > mean)\n"
+ },
+ {
+  "task_id": "Imag/2-112",
+  "category": "strings",
+  "description": "Write a function to convert an integer from 1 to 3999 into a Roman numeral using the standard subtractive forms IV, IX, XL, XC, CD and CM.",
+  "entry_point": "to_roman",
+  "asserts": [
+   "assert to_roman(1666) == 'MDCLXVI'",
+   "assert to_roman(49) == 'XLIX'",
+   "assert to_roman(3) == 'III'"
+  ],
+  "reference_code": "def to_roman(n):\n    table = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'), (100, 'C'), (90, 'XC'),\n             (50, 'L'), (40, 'XL'), (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')]\n    out = ''\n    for value, letters in table:\n        while n >= value:\n            out += letters\n            n -= value\n    return out\n"
+ },
+ {
+  "task_id": "Imag/2-113",
+  "category": "strings",
+  "description": "Write a function to convert a valid upper-case Roman numeral string to its integer value, handling subtractive pairs such as IV and CM.",
+  "entry_point": "from_roman",
+  "asserts": [
+   "assert from_roman('CDXLIV') == 444",
+   "assert from_roman('VIII') == 8",
+   "assert from_roman('MMXIX') == 2019"
+  ],
+  "reference_code": "def from_roman(numeral):\n    values = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n    total = 0\n    for i, ch in enumerate(numeral):\n        v = values[ch]\n        if i + 1 < len(numeral) and values[numeral[i + 1]] > v:\n            total -= v\n        else:\n            total += v\n    return total\n"
+ },
+ {
+  "task_id": "Imag/2-114",
+  "category": "strings",
+  "description": "Write a function that builds an upper-case acronym from the first letter of each space-separated word in a phrase.",
+  "entry_point": "make_acronym",
+  "asserts": [
+   "assert make_acronym('portable network graphics') == 'PNG'",
+   "assert make_acronym('As Soon As Possible') == 'ASAP'",
+   "assert make_acronym('laser') == 'L'"
+  ],
+  "reference_code": "def make_acronym(phrase):\n    return ''.join(word[0].upper() for word in phrase.split())\n"
+ },
+ {
+  "task_id": "Imag/2-115",
+  "category": "nested",
+  "description": "Write a function to count the total number of elements across all the inner lists of a list of lists.",
+  "entry_point": "total_elements",
+  "asserts": [
+   "assert total_elements([[1, 2], [3], [4, 5, 6]]) == 6",
+   "assert total_elements([]) == 0",
+   "assert total_elements([[], ['a']]) == 1"
+  ],
+  "reference_code": "def total_elements(lists):\n    return sum(len(inner) for inner in lists)\n"
+ },
+ {
+  "task_id": "Imag/2-116",
+  "category": "nested",
+  "description": "Write a function that returns the n by n identity matrix as a list of lists, with 1 on the main diagonal and 0 everywhere else.",
+  "entry_point": "identity_matrix",
+  "asserts": [
+   "assert identity_matrix(3) == [[1, 0, 0], [0, 1, 0], [0, 0, 1]]",
+   "assert identity_matrix(1) == [[1]]",
+   "assert identity_matrix(2) == [[1, 0], [0, 1]]"
+  ],
+  "reference_code": "def identity_matrix(n):\n    return [[1 if i == j else 0 for j in range(n)] for i in range(n)]\n"
+ },
+ {
+  "task_id": "Imag/2-117",
+  "category": "nested",
+  "description": "Write a function that returns an n by n multiplication table as a list of rows, where the entry in row i and column j (both counted from 1) is i * j.",
+  "entry_point": "times_table",
+  "asserts": [
+   "assert times_table(3) == [[1, 2, 3], [2, 4, 6], [3, 6, 9]]",
+   "assert times_table(1) == [[1]]",
+   "assert times_table(2) == [[1, 2], [2, 4]]"
+  ],
+  "reference_code": "def times_table(n):\n    return [[i * j for j in range(1, n + 1)] for i in range(1, n + 1)]\n"
+ },
+ {
+  "task_id": "Imag/2-118",
+  "category": "predicates",
+  "description": "Write a function that returns True if a string is non-empty and consists only of the characters '0' and '1', and False otherwise.",
+  "entry_point": "is_bit_string",
+  "asserts": [
+   "assert is_bit_string('100101') == True",
+   "assert is_bit_string('10201') == False",
+   "assert is_bit_string('') == False"
+  ],
+  "reference_code": "def is_bit_string(text):\n    return len(text) > 0 and all(ch in '01' for ch in text)\n"
+ },
+ {
+  "task_id": "Imag/2-119",
+  "category": "predicates",
+  "description": "Write a function to check whether the digits of a positive integer are strictly increasing from left to right.",
+  "entry_point": "digits_increasing",
+  "asserts": [
+   "assert digits_increasing(1359) == True",
+   "assert digits_increasing(1335) == False",
+   "assert digits_increasing(8) == True"
+  ],
+  "reference_code": "def digits_increasing(n):\n    s = str(n)\n    return all(s[i] < s[i + 1] for i in range(len(s) - 1))\n"
+ },
+ {
+  "task_id": "Imag/2-120",
+  "category": "predicates",
+  "description": "Write a function that returns True if consecutive numbers in a list always alternate between even and odd, and False otherwise.",
+  "entry_point": "alternates_parity",
+  "asserts": [
+   "assert alternates_parity([2, 7, 4, 1, 8]) == True",
+   "assert alternates_parity([3, 5, 2]) == False",
+   "assert alternates_parity([]) == True"
+  ],
+  "reference_code": "def alternates_parity(nums):\n    return all(nums[i] % 2 != nums[i + 1] % 2 for i in range(len(nums) - 1))\n"
+ },
+ {
+  "task_id": "Imag/2-121",
+  "category": "numbers",
+  "description": "Write a function to return the Euclidean distance between the points (x1, y1) and (x2, y2), rounded to two decimal places.",
+  "entry_point": "point_distance",
+  "asserts": [
+   "assert point_distance(1, 1, 4, 5) == 5.0",
+   "assert point_distance(2, 3, 2, 3) == 0.0",
+   "assert point_distance(0, 0, 1, 2) == 2.24"
+  ],
+  "reference_code": "import math\n\ndef point_distance(x1, y1, x2, y2):\n    return round(math.hypot(x2 - x1, y2 - y1), 2)\n"
+ },
+ {
+  "task_id": "Imag/2-122",
+  "category": "numbers",
+  "description": "Write a function that converts a number of seconds into a tuple (hours, minutes, seconds), where the minutes and seconds are each less than 60.",
+  "entry_point": "split_seconds",
+  "asserts": [
+   "assert split_seconds(3725) == (1, 2, 5)",
+   "assert split_seconds(59) == (0, 0, 59)",
+   "assert split_seconds(86400) == (24, 0, 0)"
+  ],
+  "reference_code": "def split_seconds(total):\n    hours, rest = divmod(total, 3600)\n    minutes, seconds = divmod(rest, 60)\n    return (hours, minutes, seconds)\n"
+ },
+ {
+  "task_id": "Imag/2-123",
+  "category": "numbers",
+  "description": "Write a function to compute the digital root of a non-negative integer by repeatedly summing its digits until a single digit remains.",
+  "entry_point": "digital_root",
+  "asserts": [
+   "assert digital_root(9875) == 2",
+   "assert digital_root(0) == 0",
+   "assert digital_root(123456) == 3"
+  ],
+  "reference_code": "def digital_root(n):\n    while n >= 10:\n        n = sum(int(c) for c in str(n))\n    return n\n"
+ },
+ {
+  "task_id": "Imag/2-124",
+  "category": "sequences",
+  "description": "Write a function that takes a list containing every integer from 1 to n except one, in any order, and returns the missing integer.",
+  "entry_point": "missing_from_sequence",
+  "asserts": [
+   "assert missing_from_sequence([3, 1, 5, 2]) == 4",
+   "assert missing_from_sequence([2]) == 1",
+   "assert missing_from_sequence([7, 2, 4, 1, 6, 3]) == 5"
+  ],
+  "reference_code": "def missing_from_sequence(nums):\n    n = len(nums) + 1\n    return n * (n + 1) // 2 - sum(nums)\n"
+ },
+ {
+  "task_id": "Imag/2-125",
+  "category": "sequences",
+  "description": "Write a function to return the first element of a list that has already appeared earlier in the list, or None if no element repeats.",
+  "entry_point": "first_repeat",
+  "asserts": [
+   "assert first_repeat([5, 3, 8, 3, 5]) == 3",
+   "assert first_repeat([1, 2, 3]) == None",
+   "assert first_repeat(['a', 'a']) == 'a'"
+  ],
+  "reference_code": "def first_repeat(items):\n    seen = set()\n    for x in items:\n        if x in seen:\n            return x\n        seen.add(x)\n    return None\n"
+ },
+ {
+  "task_id": "Imag/2-126",
+  "category": "sequences",
+  "description": "Write a function to return the index of the smallest element of a non-empty list, using the first position when the minimum occurs more than once.",
+  "entry_point": "index_of_min",
+  "asserts": [
+   "assert index_of_min([4, 2, 7, 2]) == 1",
+   "assert index_of_min([9]) == 0",
+   "assert index_of_min([3, 5, -1]) == 2"
+  ],
+  "reference_code": "def index_of_min(nums):\n    best = 0\n    for i in range(1, len(nums)):\n        if nums[i] < nums[best]:\n            best = i\n    return best\n"
+ },
+ {
+  "task_id": "Imag/2-127",
+  "category": "strings",
+  "description": "Write a function that deletes from a string every punctuation character listed in string.punctuation.",
+  "entry_point": "drop_punctuation",
+  "asserts": [
+   "assert drop_punctuation('Wait... what?!') == 'Wait what'",
+   "assert drop_punctuation('no marks') == 'no marks'",
+   "assert drop_punctuation('a-b_c') == 'abc'"
+  ],
+  "reference_code": "import string\n\ndef drop_punctuation(text):\n    return ''.join(ch for ch in text if ch not in string.punctuation)\n"
+ },
+ {
+  "task_id": "Imag/2-128",
+  "category": "strings",
+  "description": "Write a function to count how many times a substring occurs in a string, including occurrences that overlap.",
+  "entry_point": "count_overlapping",
+  "asserts": [
+   "assert count_overlapping('zzzzz', 'zz') == 4",
+   "assert count_overlapping('banana', 'nan') == 1",
+   "assert count_overlapping('abc', 'd') == 0"
+  ],
+  "reference_code": "def count_overlapping(text, sub):\n    return sum(1 for i in range(len(text) - len(sub) + 1) if text[i:i + len(sub)] == sub)\n"
+ },
+ {
+  "task_id": "Imag/2-129",
+  "category": "strings",
+  "description": "Write a function that returns the words of a space-separated sentence that start with a given letter, ignoring case, in their original order.",
+  "entry_point": "words_starting_with",
+  "asserts": [
+   "assert words_starting_with('Sam sells sea shells by the shore', 's') == ['Sam', 'sells', 'sea', 'shells', 'shore']",
+   "assert words_starting_with('Big Ben', 'x') == []",
+   "assert words_starting_with('apple Avocado', 'A') == ['apple', 'Avocado']"
+  ],
+  "reference_code": "def words_starting_with(sentence, letter):\n    return [w for w in sentence.split() if w[0].lower() == letter.lower()]\n"
+ },
+ {
+  "task_id": "Imag/2-130",
+  "category": "nested",
+  "description": "Write a function to rotate a square matrix, given as a list of rows, by 90 degrees clockwise and return the new matrix.",
+  "entry_point": "rotate_clockwise",
+  "asserts": [
+   "assert rotate_clockwise([[1, 2], [3, 4]]) == [[3, 1], [4, 2]]",
+   "assert rotate_clockwise([[5]]) == [[5]]",
+   "assert rotate_clockwise([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) == [[7, 4, 1], [8, 5, 2], [9, 6, 3]]"
+  ],
+  "reference_code": "def rotate_clockwise(matrix):\n    return [list(row) for row in zip(*matrix[::-1])]\n"
+ },
+ {
+  "task_id": "Imag/2-131",
+  "category": "nested",
+  "description": "Write a function that returns the elements of a rectangular matrix in clockwise spiral order, starting from the top-left corner.",
+  "entry_point": "spiral_order",
+  "asserts": [
+   "assert spiral_order([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) == [1, 2, 3, 6, 9, 8, 7, 4, 5]",
+   "assert spiral_order([[1, 2], [3, 4], [5, 6]]) == [1, 2, 4, 6, 5, 3]",
+   "assert spiral_order([[7]]) == [7]"
+  ],
+  "reference_code": "def spiral_order(matrix):\n    rows = [list(r) for r in matrix]\n    out = []\n    while rows:\n        out.extend(rows.pop(0))\n        rows = [list(r) for r in zip(*rows)][::-1]\n    return out\n"
+ },
+ {
+  "task_id": "Imag/2-132",
+  "category": "nested",
+  "description": "Write a function to return the index of the row with the largest sum in a non-empty matrix, choosing the first such row when sums tie.",
+  "entry_point": "richest_row",
+  "asserts": [
+   "assert richest_row([[1, 2], [5, 1], [0, 3]]) == 1",
+   "assert richest_row([[4]]) == 0",
+   "assert richest_row([[2, 2], [4, 0], [1, 1]]) == 0"
+  ],
+  "reference_code": "def richest_row(matrix):\n    best = 0\n    for i, row in enumerate(matrix):\n        if sum(row) > sum(matrix[best]):\n            best = i\n    return best\n"
+ },
+ {
+  "task_id": "Imag/2-133",
+  "category": "predicates",
+  "description": "Write a function that returns True if a square matrix given as a list of rows is an identity matrix (1 on the main diagonal and 0 elsewhere), and False otherwise.",
+  "entry_point": "is_identity",
+  "asserts": [
+   "assert is_identity([[1, 0], [0, 1]]) == True",
+   "assert is_identity([[1, 0], [1, 1]]) == False",
+   "assert is_identity([[1]]) == True"
+  ],
+  "reference_code": "def is_identity(matrix):\n    n = len(matrix)\n    return all(matrix[i][j] == (1 if i == j else 0) for i in range(n) for j in range(n))\n"
+ },
+ {
+  "task_id": "Imag/2-134",
+  "category": "predicates",
+  "description": "Write a function that returns True if a non-negative integer belongs to the Fibonacci sequence 0, 1, 1, 2, 3, 5, 8, ..., and False otherwise.",
+  "entry_point": "in_fibonacci",
+  "asserts": [
+   "assert in_fibonacci(89) == True",
+   "assert in_fibonacci(90) == False",
+   "assert in_fibonacci(0) == True"
+  ],
+  "reference_code": "def in_fibonacci(n):\n    a, b = 0, 1\n    while a < n:\n        a, b = b, a + b\n    return a == n\n"
+ },
+ {
+  "task_id": "Imag/2-135",
+  "category": "predicates",
+  "description": "Write a function that returns True if the integers year, month and day form a real calendar date, taking leap years into account, and False otherwise.",
+  "entry_point": "is_real_date",
+  "asserts": [
+   "assert is_real_date(2023, 2, 29) == False",
+   "assert is_real_date(2024, 2, 29) == True",
+   "assert is_real_date(2021, 4, 31) == False"
+  ],
+  "reference_code": "def is_real_date(year, month, day):\n    if not 1 <= month <= 12:\n        return False\n    leap = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)\n    days = [31, 29 if leap else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\n    return 1 <= day <= days[month - 1]\n"
+ },
+ {
+  "task_id": "Imag/2-136",
+  "category": "numbers",
+  "description": "Write a function to count the steps a positive integer needs to reach 1 under the Collatz rule, where an even number is halved and an odd number n is replaced by 3n + 1.",
+  "entry_point": "collatz_steps",
+  "asserts": [
+   "assert collatz_steps(6) == 8",
+   "assert collatz_steps(1) == 0",
+   "assert collatz_steps(7) == 16"
+  ],
+  "reference_code": "def collatz_steps(n):\n    steps = 0\n    while n != 1:\n        n = n // 2 if n % 2 == 0 else 3 * n + 1\n        steps += 1\n    return steps\n"
+ },
+ {
+  "task_id": "Imag/2-137",
+  "category": "numbers",
+  "description": "Write a function to return the n-th term, counting from 1, of an arithmetic progression with first term a and common difference d.",
+  "entry_point": "arithmetic_term",
+  "asserts": [
+   "assert arithmetic_term(3, 4, 5) == 19",
+   "assert arithmetic_term(10, -3, 4) == 1",
+   "assert arithmetic_term(7, 0, 100) == 7"
+  ],
+  "reference_code": "def arithmetic_term(a, d, n):\n    return a + (n - 1) * d\n"
+ },
+ {
+  "task_id": "Imag/2-138",
+  "category": "numbers",
+  "description": "Write a function to return the sum of all positive integers below n that are multiples of 4 or of 6.",
+  "entry_point": "sum_multiples_4_or_6",
+  "asserts": [
+   "assert sum_multiples_4_or_6(20) == 64",
+   "assert sum_multiples_4_or_6(5) == 4",
+   "assert sum_multiples_4_or_6(1) == 0"
+  ],
+  "reference_code": "def sum_multiples_4_or_6(n):\n    return sum(k for k in range(1, n) if k % 4 == 0 or k % 6 == 0)\n"
+ },
+ {
+  "task_id": "Imag/2-139",
+  "category": "sequences",
+  "description": "Write a function to count the pairs of positions i < j in a list whose values add up to a given target.",
+  "entry_point": "count_target_pairs",
+  "asserts": [
+   "assert count_target_pairs([1, 5, 3, 3, 7], 6) == 2",
+   "assert count_target_pairs([2, 2, 2], 4) == 3",
+   "assert count_target_pairs([], 1) == 0"
+  ],
+  "reference_code": "def count_target_pairs(nums, target):\n    count = 0\n    for i in range(len(nums)):\n        for j in range(i + 1, len(nums)):\n            if nums[i] + nums[j] == target:\n                count += 1\n    return count\n"
+ },
+ {
+  "task_id": "Imag/2-140",
+  "category": "sequences",
+  "description": "Write a function to return the largest sum of k consecutive elements in a list whose length is at least k.",
+  "entry_point": "best_window_sum",
+  "asserts": [
+   "assert best_window_sum([2, 1, 5, 1, 3, 2], 3) == 9",
+   "assert best_window_sum([4, -1], 1) == 4",
+   "assert best_window_sum([-2, -3, -1], 2) == -4"
+  ],
+  "reference_code": "def best_window_sum(nums, k):\n    return max(sum(nums[i:i + k]) for i in range(len(nums) - k + 1))\n"
+ },
+ {
+  "task_id": "Imag/2-141",
+  "category": "sequences",
+  "description": "Write a function to return the largest sum of any non-empty contiguous slice of a list of integers.",
+  "entry_point": "max_slice_sum",
+  "asserts": [
+   "assert max_slice_sum([-2, 3, -1, 4, -6, 2]) == 6",
+   "assert max_slice_sum([-5, -2, -9]) == -2",
+   "assert max_slice_sum([4, -10, 5]) == 5"
+  ],
+  "reference_code": "def max_slice_sum(nums):\n    best = current = nums[0]\n    for x in nums[1:]:\n        current = max(x, current + x)\n        best = max(best, current)\n    return best\n"
+ },
+ {
+  "task_id": "Imag/2-142",
+  "category": "strings",
+  "description": "Write a function that uses a regular expression to return all hashtags in a text, where a hashtag is '#' followed by one or more letters, digits or underscores, keeping the '#' and the original order.",
+  "entry_point": "find_hashtags",
+  "asserts": [
+   "assert find_hashtags('Loving the #sunset at #Beach_2024 today') == ['#sunset', '#Beach_2024']",
+   "assert find_hashtags('no tags here') == []",
+   "assert find_hashtags('#a#b') == ['#a', '#b']"
+  ],
+  "reference_code": "import re\n\ndef find_hashtags(text):\n    return re.findall(r'#\\w+', text)\n"
+ },
+ {
+  "task_id": "Imag/2-143",
+  "category": "strings",
+  "description": "Write a function that centres a string in a field of a given width using '*' as the fill character, putting the extra fill character on the right when the padding is odd and returning the string unchanged if it is already at least that wide.",
+  "entry_point": "center_with_stars",
+  "asserts": [
+   "assert center_with_stars('ab', 5) == '*ab**'",
+   "assert center_with_stars('hello', 3) == 'hello'",
+   "assert center_with_stars('x', 3) == '*x*'"
+  ],
+  "reference_code": "def center_with_stars(text, width):\n    pad = max(0, width - len(text))\n    left = pad // 2\n    return '*' * left + text + '*' * (pad - left)\n"
+ },
+ {
+  "task_id": "Imag/2-144",
+  "category": "strings",
+  "description": "Write a function that repeats every character of a string twice in a row.",
+  "entry_point": "double_letters",
+  "asserts": [
+   "assert double_letters('abc') == 'aabbcc'",
+   "assert double_letters('') == ''",
+   "assert double_letters('a b!') == 'aa  bb!!'"
+  ],
+  "reference_code": "def double_letters(text):\n    return ''.join(ch * 2 for ch in text)\n"
+ },
+ {
+  "task_id": "Imag/2-145",
+  "category": "nested",
+  "description": "Write a function that returns the first n rows of Pascal's triangle as a list of lists, starting with the row [1].",
+  "entry_point": "pascal_rows",
+  "asserts": [
+   "assert pascal_rows(4) == [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1]]",
+   "assert pascal_rows(1) == [[1]]",
+   "assert pascal_rows(0) == []"
+  ],
+  "reference_code": "def pascal_rows(n):\n    rows = []\n    for i in range(n):\n        if i == 0:\n            rows.append([1])\n        else:\n            prev = rows[-1]\n            rows.append([1] + [prev[j] + prev[j + 1] for j in range(len(prev) - 1)] + [1])\n    return rows\n"
+ },
+ {
+  "task_id": "Imag/2-146",
+  "category": "nested",
+  "description": "Write a function to count how many tuples in a list of tuples contain a given value at least once.",
+  "entry_point": "tuples_containing",
+  "asserts": [
+   "assert tuples_containing([(1, 2), (3, 1, 1), (4, 5)], 1) == 2",
+   "assert tuples_containing([], 0) == 0",
+   "assert tuples_containing([('a',), ('b', 'c')], 'c') == 1"
+  ],
+  "reference_code": "def tuples_containing(tuples, value):\n    return sum(1 for t in tuples if value in t)\n"
+ },
+ {
+  "task_id": "Imag/2-147",
+  "category": "nested",
+  "description": "Write a function that splits a list of 2-tuples into a tuple of two lists, the first holding the first items and the second holding the second items.",
+  "entry_point": "unzip_pairs",
+  "asserts": [
+   "assert unzip_pairs([(1, 'a'), (2, 'b'), (3, 'c')]) == ([1, 2, 3], ['a', 'b', 'c'])",
+   "assert unzip_pairs([]) == ([], [])",
+   "assert unzip_pairs([(0, 0)]) == ([0], [0])"
+  ],
+  "reference_code": "def unzip_pairs(pairs):\n    return ([p[0] for p in pairs], [p[1] for p in pairs])\n"
+ },
+ {
+  "task_id": "Imag/2-148",
+  "category": "predicates",
+  "description": "Write a function that returns True if a string is a valid 24-hour time of the form HH:MM, with two-digit hours from 00 to 23 and two-digit minutes from 00 to 59, and False otherwise.",
+  "entry_point": "is_valid_clock_time",
+  "asserts": [
+   "assert is_valid_clock_time('23:59') == True",
+   "assert is_valid_clock_time('24:00') == False",
+   "assert is_valid_clock_time('7:30') == False"
+  ],
+  "reference_code": "import re\n\ndef is_valid_clock_time(text):\n    return re.fullmatch(r'([01]\\d|2[0-3]):[0-5]\\d', text) is not None\n"
+ },
+ {
+  "task_id": "Imag/2-149",
+  "category": "predicates",
+  "description": "Write a function that returns True if a password has at least 8 characters and contains at least one upper-case letter, one lower-case letter and one digit, and False otherwise.",
+  "entry_point": "is_strong_password",
+  "asserts": [
+   "assert is_strong_password('Secur3Pass') == True",
+   "assert is_strong_password('weakpass1') == False",
+   "assert is_strong_password('Ab1') == False"
+  ],
+  "reference_code": "def is_strong_password(pw):\n    return (len(pw) >= 8 and any(c.isupper() for c in pw)\n            and any(c.islower() for c in pw) and any(c.isdigit() for c in pw))\n"
+ },
+ {
+  "task_id": "Imag/2-150",
+  "category": "predicates",
+  "description": "Write a function to check whether a list reads the same from both ends, meaning it is equal to its own reverse.",
+  "entry_point": "is_list_palindrome",
+  "asserts": [
+   "assert is_list_palindrome([1, 2, 3, 2, 1]) == True",
+   "assert is_list_palindrome([1, 2]) == False",
+   "assert is_list_palindrome([]) == True"
+  ],
+  "reference_code": "def is_list_palindrome(items):\n    return items == items[::-1]\n"
+ },
+ {
+  "task_id": "Imag/2-151",
+  "category": "numbers",
+  "description": "Write a function that rounds a non-negative integer to the nearest multiple of k, rounding halfway cases up.",
+  "entry_point": "round_to_multiple",
+  "asserts": [
+   "assert round_to_multiple(47, 10) == 50",
+   "assert round_to_multiple(12, 5) == 10",
+   "assert round_to_multiple(15, 10) == 20"
+  ],
+  "reference_code": "def round_to_multiple(n, k):\n    return (n + k // 2) // k * k\n"
+ },
+ {
+  "task_id": "Imag/2-152",
+  "category": "numbers",
+  "description": "Write a function that takes a year and a month number from 1 to 12 and returns the number of days in that month, taking Gregorian leap years into account.",
+  "entry_point": "days_in_month",
+  "asserts": [
+   "assert days_in_month(2023, 9) == 30",
+   "assert days_in_month(2024, 2) == 29",
+   "assert days_in_month(1900, 2) == 28"
+  ],
+  "reference_code": "def days_in_month(year, month):\n    if month == 2:\n        leap = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)\n        return 29 if leap else 28\n    return 30 if month in (4, 6, 9, 11) else 31\n"
+ },
+ {
+  "task_id": "Imag/2-153",
+  "category": "numbers",
+  "description": "Write a function that returns the day of the year (1 for January 1st) of a date given as year, month and day, taking leap years into account.",
+  "entry_point": "day_of_year",
+  "asserts": [
+   "assert day_of_year(2023, 3, 1) == 60",
+   "assert day_of_year(2024, 3, 1) == 61",
+   "assert day_of_year(2022, 1, 9) == 9"
+  ],
+  "reference_code": "def day_of_year(year, month, day):\n    leap = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)\n    lengths = [31, 29 if leap else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\n    return sum(lengths[:month - 1]) + day\n"
+ },
+ {
+  "task_id": "Imag/2-154",
+  "category": "sequences",
+  "description": "Write a function to return the length of the longest contiguous stretch of a list in which each element is strictly greater than the one before it, or 0 for an empty list.",
+  "entry_point": "longest_rising_stretch",
+  "asserts": [
+   "assert longest_rising_stretch([1, 3, 5, 4, 7, 8, 9, 2]) == 4",
+   "assert longest_rising_stretch([]) == 0",
+   "assert longest_rising_stretch([5, 5, 5]) == 1"
+  ],
+  "reference_code": "def longest_rising_stretch(nums):\n    best = current = 0\n    for i, x in enumerate(nums):\n        current = current + 1 if i > 0 and x > nums[i - 1] else 1\n        best = max(best, current)\n    return best\n"
+ },
+ {
+  "task_id": "Imag/2-155",
+  "category": "sequences",
+  "description": "Write a function that removes every k-th element of a list (the elements at positions k, 2k, 3k, ... counting from 1) and returns the remaining elements.",
+  "entry_point": "drop_every_kth",
+  "asserts": [
+   "assert drop_every_kth([1, 2, 3, 4, 5, 6, 7], 3) == [1, 2, 4, 5, 7]",
+   "assert drop_every_kth(['a', 'b'], 1) == []",
+   "assert drop_every_kth([9, 8], 5) == [9, 8]"
+  ],
+  "reference_code": "def drop_every_kth(items, k):\n    return [x for i, x in enumerate(items, 1) if i % k != 0]\n"
+ },
+ {
+  "task_id": "Imag/2-156",
+  "category": "sequences",
+  "description": "Write a function that splits a list into two halves and returns them as a tuple of lists, giving the extra element to the first half when the length is odd.",
+  "entry_point": "split_halves",
+  "asserts": [
+   "assert split_halves([1, 2, 3, 4, 5]) == ([1, 2, 3], [4, 5])",
+   "assert split_halves([]) == ([], [])",
+   "assert split_halves(['x', 'y']) == (['x'], ['y'])"
+  ],
+  "reference_code": "def split_halves(items):\n    middle = (len(items) + 1) // 2\n    return (items[:middle], items[middle:])\n"
+ },
+ {
+  "task_id": "Imag/2-157",
+  "category": "strings",
+  "description": "Write a function that rewrites a string so that the characters at even indices are upper case and the characters at odd indices are lower case.",
+  "entry_point": "zigzag_case",
+  "asserts": [
+   "assert zigzag_case('python') == 'PyThOn'",
+   "assert zigzag_case('ABCD') == 'AbCd'",
+   "assert zigzag_case('a b') == 'A B'"
+  ],
+  "reference_code": "def zigzag_case(text):\n    return ''.join(ch.upper() if i % 2 == 0 else ch.lower() for i, ch in enumerate(text))\n"
+ },
+ {
+  "task_id": "Imag/2-158",
+  "category": "strings",
+  "description": "Write a function that turns a space-separated full name into its initials, written as upper-case letters each followed by a full stop (so 'ada king' gives 'A.K.').",
+  "entry_point": "name_initials",
+  "asserts": [
+   "assert name_initials('mary jane watson') == 'M.J.W.'",
+   "assert name_initials('Plato') == 'P.'",
+   "assert name_initials('le corbusier') == 'L.C.'"
+  ],
+  "reference_code": "def name_initials(name):\n    return ''.join(part[0].upper() + '.' for part in name.split())\n"
+ },
+ {
+  "task_id": "Imag/2-159",
+  "category": "strings",
+  "description": "Write a function that converts a single lower-case word to Pig Latin: a word starting with a vowel gets 'way' appended, otherwise the consonants before the first vowel are moved to the end followed by 'ay'.",
+  "entry_point": "pig_latin_word",
+  "asserts": [
+   "assert pig_latin_word('string') == 'ingstray'",
+   "assert pig_latin_word('apple') == 'appleway'",
+   "assert pig_latin_word('cat') == 'atcay'"
+  ],
+  "reference_code": "def pig_latin_word(word):\n    if word[0] in 'aeiou':\n        return word + 'way'\n    for i, ch in enumerate(word):\n        if ch in 'aeiou':\n            return word[i:] + word[:i] + 'ay'\n    return word + 'ay'\n"
+ },
+ {
+  "task_id": "Imag/2-160",
+  "category": "nested",
+  "description": "Write a function that returns the sum of all numbers stored in the list values of a dictionary.",
+  "entry_point": "sum_of_list_values",
+  "asserts": [
+   "assert sum_of_list_values({'a': [1, 2], 'b': [3], 'c': []}) == 6",
+   "assert sum_of_list_values({}) == 0",
+   "assert sum_of_list_values({'x': [-5, 10]}) == 5"
+  ],
+  "reference_code": "def sum_of_list_values(mapping):\n    return sum(sum(values) for values in mapping.values())\n"
+ },
+ {
+  "task_id": "Imag/2-161",
+  "category": "nested",
+  "description": "Write a function that takes a dictionary mapping student names to non-empty lists of marks and returns a dictionary mapping each name to its average mark rounded to one decimal place.",
+  "entry_point": "average_marks",
+  "asserts": [
+   "assert average_marks({'ana': [80, 90], 'ben': [70, 75, 77]}) == {'ana': 85.0, 'ben': 74.0}",
+   "assert average_marks({}) == {}",
+   "assert average_marks({'cy': [99]}) == {'cy': 99.0}"
+  ],
+  "reference_code": "def average_marks(marks):\n    return {name: round(sum(m) / len(m), 1) for name, m in marks.items()}\n"
+ },
+ {
+  "task_id": "Imag/2-162",
+  "category": "nested",
+  "description": "Write a function that returns the names from a list of (name, mark) tuples whose mark is at least a given pass mark, in their original order.",
+  "entry_point": "passing_names",
+  "asserts": [
+   "assert passing_names([('ivy', 55), ('max', 40), ('zoe', 70)], 50) == ['ivy', 'zoe']",
+   "assert passing_names([], 10) == []",
+   "assert passing_names([('al', 50)], 50) == ['al']"
+  ],
+  "reference_code": "def passing_names(records, pass_mark):\n    return [name for name, mark in records if mark >= pass_mark]\n"
+ },
+ {
+  "task_id": "Imag/2-163",
+  "category": "predicates",
+  "description": "Write a function that returns True if the sum of the proper divisors of a positive integer is greater than the number itself (an abundant number), and False otherwise.",
+  "entry_point": "is_abundant",
+  "asserts": [
+   "assert is_abundant(18) == True",
+   "assert is_abundant(16) == False",
+   "assert is_abundant(945) == True"
+  ],
+  "reference_code": "def is_abundant(n):\n    return sum(d for d in range(1, n) if n % d == 0) > n\n"
+ },
+ {
+  "task_id": "Imag/2-164",
+  "category": "predicates",
+  "description": "Write a function that returns True if two positive integers have no common divisor other than 1, and False otherwise.",
+  "entry_point": "are_coprime",
+  "asserts": [
+   "assert are_coprime(14, 25) == True",
+   "assert are_coprime(21, 35) == False",
+   "assert are_coprime(1, 1) == True"
+  ],
+  "reference_code": "from math import gcd\n\ndef are_coprime(a, b):\n    return gcd(a, b) == 1\n"
+ },
+ {
+  "task_id": "Imag/2-165",
+  "category": "predicates",
+  "description": "Write a function that returns True if the square of a non-negative integer ends with the digits of the integer itself (an automorphic number), and False otherwise.",
+  "entry_point": "is_automorphic",
+  "asserts": [
+   "assert is_automorphic(76) == True",
+   "assert is_automorphic(7) == False",
+   "assert is_automorphic(625) == True"
+  ],
+  "reference_code": "def is_automorphic(n):\n    return str(n * n).endswith(str(n))\n"
+ },
+ {
+  "task_id": "Imag/2-166",
+  "category": "numbers",
+  "description": "Write a function that computes the area of a triangle from its three side lengths using Heron's formula, rounded to two decimal places.",
+  "entry_point": "heron_area",
+  "asserts": [
+   "assert heron_area(5, 5, 6) == 12.0",
+   "assert heron_area(2, 3, 4) == 2.9",
+   "assert heron_area(7, 8, 9) == 26.83"
+  ],
+  "reference_code": "import math\n\ndef heron_area(a, b, c):\n    s = (a + b + c) / 2\n    return round(math.sqrt(s * (s - a) * (s - b) * (s - c)), 2)\n"
+ },
+ {
+  "task_id": "Imag/2-167",
+  "category": "numbers",
+  "description": "Write a function to return the sum of the interior angles, in degrees, of a convex polygon with n sides.",
+  "entry_point": "interior_angle_sum",
+  "asserts": [
+   "assert interior_angle_sum(5) == 540",
+   "assert interior_angle_sum(3) == 180",
+   "assert interior_angle_sum(12) == 1800"
+  ],
+  "reference_code": "def interior_angle_sum(n):\n    return (n - 2) * 180\n"
+ },
+ {
+  "task_id": "Imag/2-168",
+  "category": "numbers",
+  "description": "Write a function to return the number of diagonals of a convex polygon with n sides.",
+  "entry_point": "polygon_diagonals",
+  "asserts": [
+   "assert polygon_diagonals(6) == 9",
+   "assert polygon_diagonals(3) == 0",
+   "assert polygon_diagonals(10) == 35"
+  ],
+  "reference_code": "def polygon_diagonals(n):\n    return n * (n - 3) // 2\n"
+ },
+ {
+  "task_id": "Imag/2-169",
+  "category": "sequences",
+  "description": "Write a function that collapses each run of equal adjacent elements in a list into a single element.",
+  "entry_point": "collapse_runs",
+  "asserts": [
+   "assert collapse_runs([1, 1, 2, 3, 3, 3, 1]) == [1, 2, 3, 1]",
+   "assert collapse_runs([]) == []",
+   "assert collapse_runs(['a', 'a']) == ['a']"
+  ],
+  "reference_code": "def collapse_runs(items):\n    out = []\n    for x in items:\n        if not out or out[-1] != x:\n            out.append(x)\n    return out\n"
+ },
+ {
+  "task_id": "Imag/2-170",
+  "category": "sequences",
+  "description": "Write a function that returns the running products of a list of numbers, where each output element is the product of all input elements up to and including that position.",
+  "entry_point": "running_products",
+  "asserts": [
+   "assert running_products([2, 3, 1, 4]) == [2, 6, 6, 24]",
+   "assert running_products([]) == []",
+   "assert running_products([5, 0, 7]) == [5, 0, 0]"
+  ],
+  "reference_code": "def running_products(nums):\n    out, product = [], 1\n    for x in nums:\n        product *= x\n        out.append(product)\n    return out\n"
+ },
+ {
+  "task_id": "Imag/2-171",
+  "category": "sequences",
+  "description": "Write a function that returns a list of every index at which a given value occurs in a list.",
+  "entry_point": "positions_of",
+  "asserts": [
+   "assert positions_of([7, 2, 7, 7, 3], 7) == [0, 2, 3]",
+   "assert positions_of([1, 2], 5) == []",
+   "assert positions_of(['q'], 'q') == [0]"
+  ],
+  "reference_code": "def positions_of(items, value):\n    return [i for i, x in enumerate(items) if x == value]\n"
+ },
+ {
+  "task_id": "Imag/2-172",
+  "category": "strings",
+  "description": "Write a function to count the consonants in a string, meaning the English letters other than a, e, i, o and u, in either case.",
+  "entry_point": "count_consonants",
+  "asserts": [
+   "assert count_consonants('Hello, World!') == 7",
+   "assert count_consonants('aeiou') == 0",
+   "assert count_consonants('xyz XYZ') == 6"
+  ],
+  "reference_code": "def count_consonants(text):\n    return sum(1 for ch in text if ch.isascii() and ch.isalpha() and ch.lower() not in 'aeiou')\n"
+ },
+ {
+  "task_id": "Imag/2-173",
+  "category": "strings",
+  "description": "Write a function that returns the character occurring most often in a non-empty string, choosing the one that appears first in the string when counts tie.",
+  "entry_point": "most_common_char",
+  "asserts": [
+   "assert most_common_char('tennessee') == 'e'",
+   "assert most_common_char('xyyx') == 'x'",
+   "assert most_common_char('tomato') == 't'"
+  ],
+  "reference_code": "def most_common_char(text):\n    best = text[0]\n    for ch in text:\n        if text.count(ch) > text.count(best):\n            best = ch\n    return best\n"
+ },
+ {
+  "task_id": "Imag/2-174",
+  "category": "strings",
+  "description": "Write a function that keeps only the characters at even indices (0, 2, 4, ...) of a string.",
+  "entry_point": "even_index_chars",
+  "asserts": [
+   "assert even_index_chars('keyboard') == 'kyor'",
+   "assert even_index_chars('') == ''",
+   "assert even_index_chars('xy') == 'x'"
+  ],
+  "reference_code": "def even_index_chars(text):\n    return text[::2]\n"
+ },
+ {
+  "task_id": "Imag/2-175",
+  "category": "nested",
+  "description": "Write a function that merges a list of dictionaries into one dictionary, where a key appearing in several dictionaries takes its value from the last of them.",
+  "entry_point": "merge_all_dicts",
+  "asserts": [
+   "assert merge_all_dicts([{'a': 1}, {'b': 2}, {'a': 3}]) == {'a': 3, 'b': 2}",
+   "assert merge_all_dicts([]) == {}",
+   "assert merge_all_dicts([{'x': 0}]) == {'x': 0}"
+  ],
+  "reference_code": "def merge_all_dicts(dicts):\n    merged = {}\n    for d in dicts:\n        merged.update(d)\n    return merged\n"
+ },
+ {
+  "task_id": "Imag/2-176",
+  "category": "nested",
+  "description": "Write a function that returns a sorted list of the keys present in both of two dictionaries.",
+  "entry_point": "shared_keys",
+  "asserts": [
+   "assert shared_keys({'b': 1, 'a': 2, 'c': 3}, {'c': 0, 'a': 9, 'd': 4}) == ['a', 'c']",
+   "assert shared_keys({}, {'a': 1}) == []",
+   "assert shared_keys({1: 'x', 2: 'y'}, {2: 'z'}) == [2]"
+  ],
+  "reference_code": "def shared_keys(first, second):\n    return sorted(k for k in first if k in second)\n"
+ },
+ {
+  "task_id": "Imag/2-177",
+  "category": "nested",
+  "description": "Write a function that groups a list of integers into a dictionary keyed by their remainder when divided by k, keeping the numbers of each group in their original order and including only remainders that occur.",
+  "entry_point": "group_by_remainder",
+  "asserts": [
+   "assert group_by_remainder([1, 2, 3, 4, 5, 6, 7], 3) == {1: [1, 4, 7], 2: [2, 5], 0: [3, 6]}",
+   "assert group_by_remainder([], 2) == {}",
+   "assert group_by_remainder([10, 20], 5) == {0: [10, 20]}"
+  ],
+  "reference_code": "def group_by_remainder(nums, k):\n    groups = {}\n    for x in nums:\n        groups.setdefault(x % k, []).append(x)\n    return groups\n"
+ },
+ {
+  "task_id": "Imag/2-178",
+  "category": "predicates",
+  "description": "Write a function that returns True if no letter appears more than once in a word, ignoring case, and False otherwise.",
+  "entry_point": "is_isogram",
+  "asserts": [
+   "assert is_isogram('Trampoline') == True",
+   "assert is_isogram('Banana') == False",
+   "assert is_isogram('aA') == False"
+  ],
+  "reference_code": "def is_isogram(word):\n    letters = [c.lower() for c in word if c.isalpha()]\n    return len(set(letters)) == len(letters)\n"
+ },
+ {
+  "task_id": "Imag/2-179",
+  "category": "predicates",
+  "description": "Write a function that returns True if a list of at least two numbers has the same difference between every pair of consecutive elements, and False otherwise.",
+  "entry_point": "is_arithmetic",
+  "asserts": [
+   "assert is_arithmetic([3, 7, 11, 15]) == True",
+   "assert is_arithmetic([1, 2, 4]) == False",
+   "assert is_arithmetic([5, 5]) == True"
+  ],
+  "reference_code": "def is_arithmetic(nums):\n    step = nums[1] - nums[0]\n    return all(nums[i + 1] - nums[i] == step for i in range(len(nums) - 1))\n"
+ },
+ {
+  "task_id": "Imag/2-180",
+  "category": "predicates",
+  "description": "Write a function that returns True if a list of at least two non-zero integers has the same ratio between every pair of consecutive elements, and False otherwise.",
+  "entry_point": "is_geometric",
+  "asserts": [
+   "assert is_geometric([2, 6, 18, 54]) == True",
+   "assert is_geometric([1, 2, 3]) == False",
+   "assert is_geometric([8, -4, 2]) == True"
+  ],
+  "reference_code": "def is_geometric(nums):\n    return all(nums[i + 1] * nums[0] == nums[i] * nums[1] for i in range(len(nums) - 1))\n"
+ },
+ {
+  "task_id": "Imag/2-181",
+  "category": "numbers",
+  "description": "Write a function to return the n-th pentagonal number, where the sequence begins 1, 5, 12, 22 for n = 1, 2, 3, 4.",
+  "entry_point": "pentagonal_number",
+  "asserts": [
+   "assert pentagonal_number(5) == 35",
+   "assert pentagonal_number(1) == 1",
+   "assert pentagonal_number(10) == 145"
+  ],
+  "reference_code": "def pentagonal_number(n):\n    return n * (3 * n - 1) // 2\n"
+ },
+ {
+  "task_id": "Imag/2-182",
+  "category": "numbers",
+  "description": "Write a function to compute the binomial coefficient C(n, k), the number of ways to choose k items out of n, returning 0 when k is greater than n.",
+  "entry_point": "choose_count",
+  "asserts": [
+   "assert choose_count(6, 2) == 15",
+   "assert choose_count(5, 0) == 1",
+   "assert choose_count(3, 4) == 0"
+  ],
+  "reference_code": "def choose_count(n, k):\n    if k > n:\n        return 0\n    result = 1\n    for i in range(1, k + 1):\n        result = result * (n - k + i) // i\n    return result\n"
+ },
+ {
+  "task_id": "Imag/2-183",
+  "category": "numbers",
+  "description": "Write a function that counts the different ways to climb a staircase of n steps when each move climbs either 1 or 2 steps.",
+  "entry_point": "stair_ways",
+  "asserts": [
+   "assert stair_ways(5) == 8",
+   "assert stair_ways(1) == 1",
+   "assert stair_ways(10) == 89"
+  ],
+  "reference_code": "def stair_ways(n):\n    a, b = 1, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n"
+ },
+ {
+  "task_id": "Imag/2-184",
+  "category": "sequences",
+  "description": "Write a function to return the median of a non-empty list of numbers, averaging the two middle values when the length is even.",
+  "entry_point": "list_median",
+  "asserts": [
+   "assert list_median([7, 1, 4]) == 4",
+   "assert list_median([10, 2, 8, 4]) == 6.0",
+   "assert list_median([-3]) == -3"
+  ],
+  "reference_code": "def list_median(nums):\n    s = sorted(nums)\n    mid = len(s) // 2\n    if len(s) % 2 == 1:\n        return s[mid]\n    return (s[mid - 1] + s[mid]) / 2\n"
+ },
+ {
+  "task_id": "Imag/2-185",
+  "category": "sequences",
+  "description": "Write a function that sorts a list of numbers in ascending order with selection sort and returns the sorted list, without calling sort or sorted.",
+  "entry_point": "selection_sorted",
+  "asserts": [
+   "assert selection_sorted([5, 2, 9, 1, 5]) == [1, 2, 5, 5, 9]",
+   "assert selection_sorted([]) == []",
+   "assert selection_sorted([3, -1]) == [-1, 3]"
+  ],
+  "reference_code": "def selection_sorted(nums):\n    items = list(nums)\n    for i in range(len(items)):\n        smallest = i\n        for j in range(i + 1, len(items)):\n            if items[j] < items[smallest]:\n                smallest = j\n        items[i], items[smallest] = items[smallest], items[i]\n    return items\n"
+ },
+ {
+  "task_id": "Imag/2-186",
+  "category": "sequences",
+  "description": "Write a function to return the index of the first interior element of a list that is strictly greater than both its left and right neighbours, or -1 if there is none.",
+  "entry_point": "first_peak_index",
+  "asserts": [
+   "assert first_peak_index([1, 3, 2, 5, 4]) == 1",
+   "assert first_peak_index([1, 2, 3]) == -1",
+   "assert first_peak_index([4, 4, 6, 1]) == 2"
+  ],
+  "reference_code": "def first_peak_index(nums):\n    for i in range(1, len(nums) - 1):\n        if nums[i] > nums[i - 1] and nums[i] > nums[i + 1]:\n            return i\n    return -1\n"
+ },
+ {
+  "task_id": "Imag/2-187",
+  "category": "strings",
+  "description": "Write a function that interleaves the characters of two strings, taking one from each in turn starting with the first string, and then appends whatever remains of the longer string.",
+  "entry_point": "interleave_strings",
+  "asserts": [
+   "assert interleave_strings('abc', '12345') == 'a1b2c345'",
+   "assert interleave_strings('', 'xy') == 'xy'",
+   "assert interleave_strings('hlo', 'el') == 'hello'"
+  ],
+  "reference_code": "def interleave_strings(a, b):\n    out = []\n    for i in range(max(len(a), len(b))):\n        if i < len(a):\n            out.append(a[i])\n        if i < len(b):\n            out.append(b[i])\n    return ''.join(out)\n"
+ },
+ {
+  "task_id": "Imag/2-188",
+  "category": "strings",
+  "description": "Write a function that converts a string of binary digits to the equivalent lower-case hexadecimal string without any prefix.",
+  "entry_point": "bin_to_hex",
+  "asserts": [
+   "assert bin_to_hex('11111111') == 'ff'",
+   "assert bin_to_hex('1010') == 'a'",
+   "assert bin_to_hex('100000000') == '100'"
+  ],
+  "reference_code": "def bin_to_hex(bits):\n    return format(int(bits, 2), 'x')\n"
+ },
+ {
+  "task_id": "Imag/2-189",
+  "category": "strings",
+  "description": "Write a function that converts a 24-hour time string 'HH:MM' to the 12-hour form 'H:MM AM' or 'H:MM PM', where midnight is 12 AM, noon is 12 PM and the hour has no leading zero.",
+  "entry_point": "to_twelve_hour",
+  "asserts": [
+   "assert to_twelve_hour('14:05') == '2:05 PM'",
+   "assert to_twelve_hour('00:30') == '12:30 AM'",
+   "assert to_twelve_hour('12:00') == '12:00 PM'"
+  ],
+  "reference_code": "def to_twelve_hour(time24):\n    hours, minutes = time24.split(':')\n    h = int(hours)\n    suffix = 'AM' if h < 12 else 'PM'\n    h = h % 12 or 12\n    return f'{h}:{minutes} {suffix}'\n"
+ },
+ {
+  "task_id": "Imag/2-190",
+  "category": "nested",
+  "description": "Write a function that multiplies every entry of a matrix, given as a list of rows, by a number and returns the new matrix.",
+  "entry_point": "scale_matrix",
+  "asserts": [
+   "assert scale_matrix([[1, 2], [3, 4]], 3) == [[3, 6], [9, 12]]",
+   "assert scale_matrix([[5]], 0) == [[0]]",
+   "assert scale_matrix([[-1, 0, 2]], -2) == [[2, 0, -4]]"
+  ],
+  "reference_code": "def scale_matrix(matrix, factor):\n    return [[x * factor for x in row] for row in matrix]\n"
+ },
+ {
+  "task_id": "Imag/2-191",
+  "category": "nested",
+  "description": "Write a function that returns a list holding the smallest value of each column of a non-empty rectangular matrix given as a list of rows.",
+  "entry_point": "column_minimums",
+  "asserts": [
+   "assert column_minimums([[4, 8, 1], [6, 2, 9]]) == [4, 2, 1]",
+   "assert column_minimums([[7]]) == [7]",
+   "assert column_minimums([[3, 3], [3, 0], [5, 1]]) == [3, 0]"
+  ],
+  "reference_code": "def column_minimums(matrix):\n    return [min(col) for col in zip(*matrix)]\n"
+ },
+ {
+  "task_id": "Imag/2-192",
+  "category": "nested",
+  "description": "Write a function that removes the empty inner lists from a list of lists.",
+  "entry_point": "drop_empty_lists",
+  "asserts": [
+   "assert drop_empty_lists([[1], [], [2, 3], []]) == [[1], [2, 3]]",
+   "assert drop_empty_lists([[], []]) == []",
+   "assert drop_empty_lists([['a']]) == [['a']]"
+  ],
+  "reference_code": "def drop_empty_lists(lists):\n    return [inner for inner in lists if inner]\n"
+ },
+ {
+  "task_id": "Imag/2-193",
+  "category": "predicates",
+  "description": "Write a function that returns True if two axis-aligned rectangles, each given as a tuple (x1, y1, x2, y2) of its lower-left and upper-right corners, overlap in a region of positive area, and False otherwise.",
+  "entry_point": "rectangles_overlap",
+  "asserts": [
+   "assert rectangles_overlap((0, 0, 4, 4), (2, 2, 6, 6)) == True",
+   "assert rectangles_overlap((0, 0, 2, 2), (2, 0, 4, 2)) == False",
+   "assert rectangles_overlap((0, 0, 1, 1), (5, 5, 6, 6)) == False"
+  ],
+  "reference_code": "def rectangles_overlap(r1, r2):\n    return r1[0] < r2[2] and r2[0] < r1[2] and r1[1] < r2[3] and r2[1] < r1[3]\n"
+ },
+ {
+  "task_id": "Imag/2-194",
+  "category": "predicates",
+  "description": "Write a function that returns True if the point (x, y) lies inside or on the circle with centre (cx, cy) and radius r, and False otherwise.",
+  "entry_point": "point_in_circle",
+  "asserts": [
+   "assert point_in_circle(1, 1, 0, 0, 2) == True",
+   "assert point_in_circle(3, 0, 0, 0, 2) == False",
+   "assert point_in_circle(0, 2, 0, 0, 2) == True"
+  ],
+  "reference_code": "def point_in_circle(x, y, cx, cy, r):\n    return (x - cx) ** 2 + (y - cy) ** 2 <= r ** 2\n"
+ },
+ {
+  "task_id": "Imag/2-195",
+  "category": "predicates",
+  "description": "Write a function that returns True if a positive integer has no prime factors other than 2, 3 and 5 (so 1 counts as True), and False otherwise.",
+  "entry_point": "only_factors_235",
+  "asserts": [
+   "assert only_factors_235(60) == True",
+   "assert only_factors_235(14) == False",
+   "assert only_factors_235(1) == True"
+  ],
+  "reference_code": "def only_factors_235(n):\n    for p in (2, 3, 5):\n        while n % p == 0:\n            n //= p\n    return n == 1\n"
+ },
+ {
+  "task_id": "Imag/2-196",
+  "category": "numbers",
+  "description": "Write a function to count the prime numbers that are less than or equal to n.",
+  "entry_point": "prime_count_upto",
+  "asserts": [
+   "assert prime_count_upto(30) == 10",
+   "assert prime_count_upto(1) == 0",
+   "assert prime_count_upto(2) == 1"
+  ],
+  "reference_code": "def prime_count_upto(n):\n    if n < 2:\n        return 0\n    sieve = [True] * (n + 1)\n    sieve[0] = sieve[1] = False\n    for i in range(2, int(n ** 0.5) + 1):\n        if sieve[i]:\n            for j in range(i * i, n + 1, i):\n                sieve[j] = False\n    return sum(sieve)\n"
+ },
+ {
+  "task_id": "Imag/2-197",
+  "category": "numbers",
+  "description": "Write a function to return the smallest prime number that is strictly greater than a given integer.",
+  "entry_point": "next_prime_after",
+  "asserts": [
+   "assert next_prime_after(24) == 29",
+   "assert next_prime_after(1) == 2",
+   "assert next_prime_after(13) == 17"
+  ],
+  "reference_code": "def next_prime_after(n):\n    candidate = max(n + 1, 2)\n    while any(candidate % d == 0 for d in range(2, int(candidate ** 0.5) + 1)):\n        candidate += 1\n    return candidate\n"
+ },
+ {
+  "task_id": "Imag/2-198",
+  "category": "numbers",
+  "description": "Write a function to return the smallest positive integer that is divisible by every integer from 1 to n.",
+  "entry_point": "smallest_multiple_upto",
+  "asserts": [
+   "assert smallest_multiple_upto(6) == 60",
+   "assert smallest_multiple_upto(4) == 12",
+   "assert smallest_multiple_upto(8) == 840"
+  ],
+  "reference_code": "from math import gcd\n\ndef smallest_multiple_upto(n):\n    result = 1\n    for k in range(2, n + 1):\n        result = result * k // gcd(result, k)\n    return result\n"
+ },
+ {
+  "task_id": "Imag/2-199",
+  "category": "sequences",
+  "description": "Write a function to return the sum of the k largest numbers in a list, where k is at most the length of the list.",
+  "entry_point": "sum_top_k",
+  "asserts": [
+   "assert sum_top_k([4, 9, 1, 7, 3], 2) == 16",
+   "assert sum_top_k([5, 5, 5], 3) == 15",
+   "assert sum_top_k([2, 8], 0) == 0"
+  ],
+  "reference_code": "def sum_top_k(nums, k):\n    return sum(sorted(nums, reverse=True)[:k])\n"
+ },
+ {
+  "task_id": "Imag/2-200",
+  "category": "sequences",
+  "description": "Write a function that takes a list, a target length n and a fill value, and pads the list on the right with the fill value until it has length n, returning an unchanged copy if the list is already at least that long.",
+  "entry_point": "pad_right",
+  "asserts": [
+   "assert pad_right([1, 2], 5, 0) == [1, 2, 0, 0, 0]",
+   "assert pad_right(['a', 'b', 'c'], 2, '-') == ['a', 'b', 'c']",
+   "assert pad_right([], 2, None) == [None, None]"
+  ],
+  "reference_code": "def pad_right(items, n, fill):\n    return list(items) + [fill] * max(0, n - len(items))\n"
+ },
+ {
+  "task_id": "Imag/2-201",
+  "category": "sequences",
+  "description": "Write a function to count the positions i of a list whose element is equal to i, with indices starting at 0.",
+  "entry_point": "count_fixed_points",
+  "asserts": [
+   "assert count_fixed_points([0, 2, 2, 5, 4]) == 3",
+   "assert count_fixed_points([3, 3, 3]) == 0",
+   "assert count_fixed_points([]) == 0"
+  ],
+  "reference_code": "def count_fixed_points(nums):\n    return sum(1 for i, x in enumerate(nums) if x == i)\n"
+ },
+ {
+  "task_id": "Imag/2-202",
+  "category": "strings",
+  "description": "Write a function that uses a regular expression to convert a date from the format 'YYYY-MM-DD' to the format 'DD/MM/YYYY'.",
+  "entry_point": "iso_to_dmy",
+  "asserts": [
+   "assert iso_to_dmy('2025-07-04') == '04/07/2025'",
+   "assert iso_to_dmy('1999-12-31') == '31/12/1999'",
+   "assert iso_to_dmy('2000-10-05') == '05/10/2000'"
+  ],
+  "reference_code": "import re\n\ndef iso_to_dmy(date):\n    return re.sub(r'(\\d{4})-(\\d{2})-(\\d{2})', r'\\3/\\2/\\1', date)\n"
+ },
+ {
+  "task_id": "Imag/2-203",
+  "category": "strings",
+  "description": "Write a function that returns the longest common prefix shared by all strings in a non-empty list of strings.",
+  "entry_point": "common_prefix",
+  "asserts": [
+   "assert common_prefix(['interview', 'internet', 'interval']) == 'inter'",
+   "assert common_prefix(['moon', 'sun']) == ''",
+   "assert common_prefix(['same']) == 'same'"
+  ],
+  "reference_code": "def common_prefix(words):\n    prefix = words[0]\n    for word in words[1:]:\n        while not word.startswith(prefix):\n            prefix = prefix[:-1]\n    return prefix\n"
+ },
+ {
+  "task_id": "Imag/2-204",
+  "category": "strings",
+  "description": "Write a function that replaces every digit in a string with the character '*'.",
+  "entry_point": "star_digits",
+  "asserts": [
+   "assert star_digits('PIN 4821, ok') == 'PIN ****, ok'",
+   "assert star_digits('abc') == 'abc'",
+   "assert star_digits('007') == '***'"
+  ],
+  "reference_code": "def star_digits(text):\n    return ''.join('*' if ch.isdigit() else ch for ch in text)\n"
+ },
+ {
+  "task_id": "Imag/2-205",
+  "category": "nested",
+  "description": "Write a function that returns every pair (a, b) with a taken from the first list and b from the second, as a list of tuples ordered by the first list and then by the second.",
+  "entry_point": "all_pairs",
+  "asserts": [
+   "assert all_pairs([1, 2], ['x', 'y']) == [(1, 'x'), (1, 'y'), (2, 'x'), (2, 'y')]",
+   "assert all_pairs([], [1]) == []",
+   "assert all_pairs(['a'], [0]) == [('a', 0)]"
+  ],
+  "reference_code": "def all_pairs(first, second):\n    return [(a, b) for a in first for b in second]\n"
+ },
+ {
+  "task_id": "Imag/2-206",
+  "category": "nested",
+  "description": "Write a function that returns a list of tuples pairing each element of a list with the element that follows it.",
+  "entry_point": "adjacent_pairs",
+  "asserts": [
+   "assert adjacent_pairs([4, 7, 1, 9]) == [(4, 7), (7, 1), (1, 9)]",
+   "assert adjacent_pairs([5]) == []",
+   "assert adjacent_pairs(['a', 'b']) == [('a', 'b')]"
+  ],
+  "reference_code": "def adjacent_pairs(items):\n    return [(items[i], items[i + 1]) for i in range(len(items) - 1)]\n"
+ },
+ {
+  "task_id": "Imag/2-207",
+  "category": "nested",
+  "description": "Write a function that converts a list of two-element lists [key, value] into a dictionary, where a later pair overwrites an earlier pair with the same key.",
+  "entry_point": "pairs_list_to_dict",
+  "asserts": [
+   "assert pairs_list_to_dict([['a', 1], ['b', 2], ['a', 9]]) == {'a': 9, 'b': 2}",
+   "assert pairs_list_to_dict([]) == {}",
+   "assert pairs_list_to_dict([[1, [2]]]) == {1: [2]}"
+  ],
+  "reference_code": "def pairs_list_to_dict(pairs):\n    result = {}\n    for key, value in pairs:\n        result[key] = value\n    return result\n"
+ },
+ {
+  "task_id": "Imag/2-208",
+  "category": "predicates",
+  "description": "Write a function that uses a regular expression to check whether a string looks like an email address: one or more letters, digits, dots, underscores or hyphens, then '@', then one or more groups of letters, digits or hyphens each followed by a dot, and finally 2 to 6 letters.",
+  "entry_point": "looks_like_email",
+  "asserts": [
+   "assert looks_like_email('jo.smith@mail.example.org') == True",
+   "assert looks_like_email('no-at-sign.com') == False",
+   "assert looks_like_email('a@b.c') == False"
+  ],
+  "reference_code": "import re\n\ndef looks_like_email(text):\n    return re.fullmatch(r'[A-Za-z0-9._-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,6}', text) is not None\n"
+ },
+ {
+  "task_id": "Imag/2-209",
+  "category": "predicates",
+  "description": "Write a function that returns True if every digit of a non-negative integer is even, and False otherwise.",
+  "entry_point": "all_digits_even",
+  "asserts": [
+   "assert all_digits_even(2468) == True",
+   "assert all_digits_even(2478) == False",
+   "assert all_digits_even(0) == True"
+  ],
+  "reference_code": "def all_digits_even(n):\n    return all(int(d) % 2 == 0 for d in str(n))\n"
+ },
+ {
+  "task_id": "Imag/2-210",
+  "category": "predicates",
+  "description": "Write a function that returns True if a list of length n contains each integer from 1 to n exactly once, and False otherwise.",
+  "entry_point": "is_permutation_of_n",
+  "asserts": [
+   "assert is_permutation_of_n([3, 1, 4, 2]) == True",
+   "assert is_permutation_of_n([1, 2, 2]) == False",
+   "assert is_permutation_of_n([0, 1]) == False"
+  ],
+  "reference_code": "def is_permutation_of_n(nums):\n    return sorted(nums) == list(range(1, len(nums) + 1))\n"
+ },
+ {
+  "task_id": "Imag/2-211",
+  "category": "numbers",
+  "description": "Write a function that counts the different ways to make an amount from an unlimited supply of coins of the given denominations, where the order of the coins does not matter.",
+  "entry_point": "coin_combinations",
+  "asserts": [
+   "assert coin_combinations(10, [1, 2, 5]) == 10",
+   "assert coin_combinations(3, [2]) == 0",
+   "assert coin_combinations(0, [7]) == 1"
+  ],
+  "reference_code": "def coin_combinations(amount, coins):\n    ways = [1] + [0] * amount\n    for coin in coins:\n        for a in range(coin, amount + 1):\n            ways[a] += ways[a - coin]\n    return ways[amount]\n"
+ },
+ {
+  "task_id": "Imag/2-212",
+  "category": "numbers",
+  "description": "Write a function that returns the minimum number of coins worth 25, 10, 5 and 1 cents needed to make a given number of cents.",
+  "entry_point": "fewest_coins_cents",
+  "asserts": [
+   "assert fewest_coins_cents(68) == 7",
+   "assert fewest_coins_cents(0) == 0",
+   "assert fewest_coins_cents(30) == 2"
+  ],
+  "reference_code": "def fewest_coins_cents(cents):\n    count = 0\n    for coin in (25, 10, 5, 1):\n        count += cents // coin\n        cents %= coin\n    return count\n"
+ },
+ {
+  "task_id": "Imag/2-213",
+  "category": "numbers",
+  "description": "Write a function that returns 1 for a positive number, -1 for a negative number and 0 for zero.",
+  "entry_point": "sign_of",
+  "asserts": [
+   "assert sign_of(-7.5) == -1",
+   "assert sign_of(0) == 0",
+   "assert sign_of(12) == 1"
+  ],
+  "reference_code": "def sign_of(x):\n    if x > 0:\n        return 1\n    if x < 0:\n        return -1\n    return 0\n"
+ },
+ {
+  "task_id": "Imag/2-214",
+  "category": "sequences",
+  "description": "Write a function that returns a list holding, at each position, the larger of the two elements found at that position in two lists of equal length.",
+  "entry_point": "pairwise_max",
+  "asserts": [
+   "assert pairwise_max([1, 8, 3], [4, 2, 3]) == [4, 8, 3]",
+   "assert pairwise_max([], []) == []",
+   "assert pairwise_max([-1, -5], [-2, 0]) == [-1, 0]"
+  ],
+  "reference_code": "def pairwise_max(a, b):\n    return [max(x, y) for x, y in zip(a, b)]\n"
+ },
+ {
+  "task_id": "Imag/2-215",
+  "category": "sequences",
+  "description": "Write a function that moves the first occurrence of the smallest element of a list to the front, keeping the other elements in their original order.",
+  "entry_point": "min_to_front",
+  "asserts": [
+   "assert min_to_front([4, 2, 7, 1, 9]) == [1, 4, 2, 7, 9]",
+   "assert min_to_front([3, 1, 1]) == [1, 3, 1]",
+   "assert min_to_front([]) == []"
+  ],
+  "reference_code": "def min_to_front(nums):\n    if not nums:\n        return []\n    i = nums.index(min(nums))\n    return [nums[i]] + nums[:i] + nums[i + 1:]\n"
+ },
+ {
+  "task_id": "Imag/2-216",
+  "category": "sequences",
+  "description": "Write a function that replaces each number in a list by its rank among the distinct values, where the smallest value gets rank 1 and equal values share the same rank.",
+  "entry_point": "dense_ranks",
+  "asserts": [
+   "assert dense_ranks([40, 10, 30, 10]) == [3, 1, 2, 1]",
+   "assert dense_ranks([]) == []",
+   "assert dense_ranks([5, 5]) == [1, 1]"
+  ],
+  "reference_code": "def dense_ranks(nums):\n    order = {v: i + 1 for i, v in enumerate(sorted(set(nums)))}\n    return [order[x] for x in nums]\n"
+ },
+ {
+  "task_id": "Imag/2-217",
+  "category": "strings",
+  "description": "Write a function that encodes a string with the Atbash cipher, replacing each lower-case letter a with z, b with y and so on, and leaving every other character unchanged.",
+  "entry_point": "atbash",
+  "asserts": [
+   "assert atbash('hello world') == 'svool dliow'",
+   "assert atbash('abc xyz') == 'zyx cba'",
+   "assert atbash('123') == '123'"
+  ],
+  "reference_code": "def atbash(text):\n    return ''.join(chr(ord('z') - (ord(c) - ord('a'))) if 'a' <= c <= 'z' else c for c in text)\n"
+ },
+ {
+  "task_id": "Imag/2-218",
+  "category": "strings",
+  "description": "Write a function that converts every vowel (a, e, i, o, u) in a string to upper case and every other letter to lower case.",
+  "entry_point": "shout_vowels",
+  "asserts": [
+   "assert shout_vowels('Programming') == 'prOgrAmmIng'",
+   "assert shout_vowels('SKY') == 'sky'",
+   "assert shout_vowels('audio 1') == 'AUdIO 1'"
+  ],
+  "reference_code": "def shout_vowels(text):\n    return ''.join(c.upper() if c.lower() in 'aeiou' else c.lower() for c in text)\n"
+ },
+ {
+  "task_id": "Imag/2-219",
+  "category": "strings",
+  "description": "Write a function that returns the middle character of a string of odd length, or the middle two characters of a string of even length.",
+  "entry_point": "middle_chars",
+  "asserts": [
+   "assert middle_chars('kayak') == 'y'",
+   "assert middle_chars('door') == 'oo'",
+   "assert middle_chars('ab') == 'ab'"
+  ],
+  "reference_code": "def middle_chars(text):\n    mid = len(text) // 2\n    return text[mid] if len(text) % 2 else text[mid - 1:mid + 1]\n"
+ },
+ {
+  "task_id": "Imag/2-220",
+  "category": "nested",
+  "description": "Write a recursive function that counts the values in a nested dictionary that are not themselves dictionaries.",
+  "entry_point": "count_leaf_values",
+  "asserts": [
+   "assert count_leaf_values({'a': 1, 'b': {'c': 2, 'd': {'e': 3}}}) == 3",
+   "assert count_leaf_values({}) == 0",
+   "assert count_leaf_values({'x': {'y': {}}, 'z': [1, 2]}) == 1"
+  ],
+  "reference_code": "def count_leaf_values(data):\n    total = 0\n    for value in data.values():\n        total += count_leaf_values(value) if isinstance(value, dict) else 1\n    return total\n"
+ },
+ {
+  "task_id": "Imag/2-221",
+  "category": "nested",
+  "description": "Write a recursive function that adds up all the numbers stored anywhere in a nested dictionary whose values are either numbers or dictionaries.",
+  "entry_point": "nested_value_sum",
+  "asserts": [
+   "assert nested_value_sum({'a': 5, 'b': {'c': 2, 'd': {'e': -1}}}) == 6",
+   "assert nested_value_sum({}) == 0",
+   "assert nested_value_sum({'x': {'y': 10}}) == 10"
+  ],
+  "reference_code": "def nested_value_sum(data):\n    total = 0\n    for value in data.values():\n        total += nested_value_sum(value) if isinstance(value, dict) else value\n    return total\n"
+ },
+ {
+  "task_id": "Imag/2-222",
+  "category": "nested",
+  "description": "Write a function that adds two equally shaped tuples of tuples element by element and returns the result as a tuple of tuples.",
+  "entry_point": "add_nested_pairs",
+  "asserts": [
+   "assert add_nested_pairs(((1, 2), (3, 4)), ((10, 20), (30, 40))) == ((11, 22), (33, 44))",
+   "assert add_nested_pairs((), ()) == ()",
+   "assert add_nested_pairs(((0, -1),), ((5, 1),)) == ((5, 0),)"
+  ],
+  "reference_code": "def add_nested_pairs(a, b):\n    return tuple(tuple(x + y for x, y in zip(ra, rb)) for ra, rb in zip(a, b))\n"
+ },
+ {
+  "task_id": "Imag/2-223",
+  "category": "predicates",
+  "description": "Write a function that returns True if a string is a phone number of the form ddd-ddd-dddd, where each d is a digit, and False otherwise.",
+  "entry_point": "is_phone_format",
+  "asserts": [
+   "assert is_phone_format('415-555-0132') == True",
+   "assert is_phone_format('4155550132') == False",
+   "assert is_phone_format('41-5555-0132') == False"
+  ],
+  "reference_code": "import re\n\ndef is_phone_format(text):\n    return re.fullmatch(r'\\d{3}-\\d{3}-\\d{4}', text) is not None\n"
+ },
+ {
+  "task_id": "Imag/2-224",
+  "category": "predicates",
+  "description": "Write a function that returns True if a string contains two identical characters next to each other, and False otherwise.",
+  "entry_point": "has_double_char",
+  "asserts": [
+   "assert has_double_char('balloon') == True",
+   "assert has_double_char('abcabc') == False",
+   "assert has_double_char('') == False"
+  ],
+  "reference_code": "def has_double_char(text):\n    return any(text[i] == text[i + 1] for i in range(len(text) - 1))\n"
+ },
+ {
+  "task_id": "Imag/2-225",
+  "category": "predicates",
+  "description": "Write a function that returns True if two lists have no element in common, and False otherwise.",
+  "entry_point": "no_common_elements",
+  "asserts": [
+   "assert no_common_elements([1, 2, 3], [4, 5]) == True",
+   "assert no_common_elements(['a', 'b'], ['b']) == False",
+   "assert no_common_elements([], []) == True"
+  ],
+  "reference_code": "def no_common_elements(a, b):\n    return not any(x in b for x in a)\n"
+ },
+ {
+  "task_id": "Imag/2-226",
+  "category": "numbers",
+  "description": "Write a function to return the middle value of three numbers, the one that is neither the smallest nor the largest once they are sorted.",
+  "entry_point": "middle_of_three",
+  "asserts": [
+   "assert middle_of_three(9, 2, 5) == 5",
+   "assert middle_of_three(4, 4, 1) == 4",
+   "assert middle_of_three(-1, -8, 0) == -1"
+  ],
+  "reference_code": "def middle_of_three(a, b, c):\n    return sorted((a, b, c))[1]\n"
+ },
+ {
+  "task_id": "Imag/2-227",
+  "category": "numbers",
+  "description": "Write a function to return the sum 1 + 1/2 + 1/3 + ... + 1/n for a positive integer n, rounded to three decimal places.",
+  "entry_point": "harmonic_partial_sum",
+  "asserts": [
+   "assert harmonic_partial_sum(5) == 2.283",
+   "assert harmonic_partial_sum(1) == 1.0",
+   "assert harmonic_partial_sum(10) == 2.929"
+  ],
+  "reference_code": "def harmonic_partial_sum(n):\n    return round(sum(1 / k for k in range(1, n + 1)), 3)\n"
+ },
+ {
+  "task_id": "Imag/2-228",
+  "category": "numbers",
+  "description": "Write a function to count the bit positions at which the binary representations of two non-negative integers differ.",
+  "entry_point": "bit_difference_count",
+  "asserts": [
+   "assert bit_difference_count(9, 14) == 3",
+   "assert bit_difference_count(5, 5) == 0",
+   "assert bit_difference_count(0, 255) == 8"
+  ],
+  "reference_code": "def bit_difference_count(a, b):\n    return bin(a ^ b).count('1')\n"
+ },
+ {
+  "task_id": "Imag/2-229",
+  "category": "sequences",
+  "description": "Write a function that takes k and n and returns the list [k, 2k, 3k, ..., nk] of the first n multiples of k.",
+  "entry_point": "first_multiples",
+  "asserts": [
+   "assert first_multiples(7, 4) == [7, 14, 21, 28]",
+   "assert first_multiples(3, 0) == []",
+   "assert first_multiples(-2, 3) == [-2, -4, -6]"
+  ],
+  "reference_code": "def first_multiples(k, n):\n    return [k * i for i in range(1, n + 1)]\n"
+ },
+ {
+  "task_id": "Imag/2-230",
+  "category": "sequences",
+  "description": "Write a function that returns the squares of the even numbers of a list, in their original order.",
+  "entry_point": "squares_of_evens",
+  "asserts": [
+   "assert squares_of_evens([1, 2, 3, 4, 6]) == [4, 16, 36]",
+   "assert squares_of_evens([1, 3]) == []",
+   "assert squares_of_evens([-2, 0]) == [4, 0]"
+  ],
+  "reference_code": "def squares_of_evens(nums):\n    return [x * x for x in nums if x % 2 == 0]\n"
+ },
+ {
+  "task_id": "Imag/2-231",
+  "category": "sequences",
+  "description": "Write a function that returns a copy of a list of numbers in which every negative number is replaced by 0.",
+  "entry_point": "clip_negatives",
+  "asserts": [
+   "assert clip_negatives([3, -1, 0, -7, 5]) == [3, 0, 0, 0, 5]",
+   "assert clip_negatives([]) == []",
+   "assert clip_negatives([-2.5]) == [0]"
+  ],
+  "reference_code": "def clip_negatives(nums):\n    return [x if x >= 0 else 0 for x in nums]\n"
+ },
+ {
+  "task_id": "Imag/2-232",
+  "category": "strings",
+  "description": "Write a function to count the words of a space-separated sentence that have more than k characters.",
+  "entry_point": "count_long_words",
+  "asserts": [
+   "assert count_long_words('the elephant walked slowly home', 4) == 3",
+   "assert count_long_words('a bb ccc', 3) == 0",
+   "assert count_long_words('hi', 1) == 1"
+  ],
+  "reference_code": "def count_long_words(sentence, k):\n    return sum(1 for word in sentence.split() if len(word) > k)\n"
+ },
+ {
+  "task_id": "Imag/2-233",
+  "category": "strings",
+  "description": "Write a function that abbreviates every word longer than 7 characters in a space-separated sentence as its first letter, the number of letters in between and its last letter, leaving shorter words unchanged.",
+  "entry_point": "abbreviate_long_words",
+  "asserts": [
+   "assert abbreviate_long_words('documentation is important') == 'd11n is i7t'",
+   "assert abbreviate_long_words('short words only') == 'short words only'",
+   "assert abbreviate_long_words('keyboard') == 'k6d'"
+  ],
+  "reference_code": "def abbreviate_long_words(sentence):\n    out = []\n    for word in sentence.split(' '):\n        if len(word) > 7:\n            word = word[0] + str(len(word) - 2) + word[-1]\n        out.append(word)\n    return ' '.join(out)\n"
+ },
+ {
+  "task_id": "Imag/2-234",
+  "category": "strings",
+  "description": "Write a function that swaps the first and last characters of a string, returning strings shorter than two characters unchanged.",
+  "entry_point": "swap_ends",
+  "asserts": [
+   "assert swap_ends('python') == 'nythop'",
+   "assert swap_ends('a') == 'a'",
+   "assert swap_ends('ab') == 'ba'"
+  ],
+  "reference_code": "def swap_ends(text):\n    if len(text) < 2:\n        return text\n    return text[-1] + text[1:-1] + text[0]\n"
+ },
+ {
+  "task_id": "Imag/2-235",
+  "category": "nested",
+  "description": "Write a function that applies a list of (item, change) pairs to an inventory dictionary of item counts and returns the updated copy, adding new items as needed and removing items whose count drops to 0 or below.",
+  "entry_point": "apply_stock_changes",
+  "asserts": [
+   "assert apply_stock_changes({'apple': 5, 'pear': 2}, [('apple', -3), ('pear', -2), ('plum', 4)]) == {'apple': 2, 'plum': 4}",
+   "assert apply_stock_changes({}, []) == {}",
+   "assert apply_stock_changes({'fig': 1}, [('fig', 2)]) == {'fig': 3}"
+  ],
+  "reference_code": "def apply_stock_changes(stock, changes):\n    result = dict(stock)\n    for item, change in changes:\n        result[item] = result.get(item, 0) + change\n        if result[item] <= 0:\n            del result[item]\n    return result\n"
+ },
+ {
+  "task_id": "Imag/2-236",
+  "category": "nested",
+  "description": "Write a function that returns a list of (row, column) tuples giving every position where a value occurs in a matrix, in row-major order.",
+  "entry_point": "find_in_grid",
+  "asserts": [
+   "assert find_in_grid([[1, 2, 1], [0, 1, 3]], 1) == [(0, 0), (0, 2), (1, 1)]",
+   "assert find_in_grid([[5]], 6) == []",
+   "assert find_in_grid([['x'], ['x']], 'x') == [(0, 0), (1, 0)]"
+  ],
+  "reference_code": "def find_in_grid(grid, value):\n    return [(r, c) for r, row in enumerate(grid) for c, x in enumerate(row) if x == value]\n"
+ },
+ {
+  "task_id": "Imag/2-237",
+  "category": "nested",
+  "description": "Write a function that counts the '#' characters in a grid given as a list of equal-length strings.",
+  "entry_point": "count_walls",
+  "asserts": [
+   "assert count_walls(['#..#', '.##.', '....']) == 4",
+   "assert count_walls([]) == 0",
+   "assert count_walls(['###']) == 3"
+  ],
+  "reference_code": "def count_walls(grid):\n    return sum(row.count('#') for row in grid)\n"
+ },
+ {
+  "task_id": "Imag/2-238",
+  "category": "predicates",
+  "description": "Write a function that returns True if a square matrix is a magic square, meaning every row, every column and both main diagonals have the same sum, and False otherwise.",
+  "entry_point": "is_magic_square",
+  "asserts": [
+   "assert is_magic_square([[8, 1, 6], [3, 5, 7], [4, 9, 2]]) == True",
+   "assert is_magic_square([[1, 2, 3], [2, 3, 1], [3, 1, 2]]) == False",
+   "assert is_magic_square([[16, 3, 2, 13], [5, 10, 11, 8], [9, 6, 7, 12], [4, 15, 14, 1]]) == True"
+  ],
+  "reference_code": "def is_magic_square(m):\n    n = len(m)\n    target = sum(m[0])\n    sums = [sum(row) for row in m] + [sum(col) for col in zip(*m)]\n    sums.append(sum(m[i][i] for i in range(n)))\n    sums.append(sum(m[i][n - 1 - i] for i in range(n)))\n    return all(s == target for s in sums)\n"
+ },
+ {
+  "task_id": "Imag/2-239",
+  "category": "predicates",
+  "description": "Write a function that returns True if player 'X' has three marks in a row, column or diagonal on a 3 by 3 tic-tac-toe board given as a list of three strings, and False otherwise.",
+  "entry_point": "x_has_won",
+  "asserts": [
+   "assert x_has_won(['XOX', 'OXO', 'OOX']) == True",
+   "assert x_has_won(['XXO', 'OOX', 'XOX']) == False",
+   "assert x_has_won(['...', 'XXX', 'O.O']) == True"
+  ],
+  "reference_code": "def x_has_won(board):\n    lines = [list(row) for row in board]\n    lines += [[board[r][c] for r in range(3)] for c in range(3)]\n    lines.append([board[i][i] for i in range(3)])\n    lines.append([board[i][2 - i] for i in range(3)])\n    return any(all(cell == 'X' for cell in line) for line in lines)\n"
+ },
+ {
+  "task_id": "Imag/2-240",
+  "category": "predicates",
+  "description": "Write a function that returns True if the binary representation of a positive integer, written without leading zeros, reads the same forwards and backwards, and False otherwise.",
+  "entry_point": "is_binary_palindrome",
+  "asserts": [
+   "assert is_binary_palindrome(9) == True",
+   "assert is_binary_palindrome(10) == False",
+   "assert is_binary_palindrome(1) == True"
+  ],
+  "reference_code": "def is_binary_palindrome(n):\n    bits = bin(n)[2:]\n    return bits == bits[::-1]\n"
+ },
+ {
+  "task_id": "Imag/2-241",
+  "category": "numbers",
+  "description": "Write a function that flips bit k (counting from 0 at the least significant bit) of a non-negative integer and returns the new value.",
+  "entry_point": "toggle_bit",
+  "asserts": [
+   "assert toggle_bit(10, 0) == 11",
+   "assert toggle_bit(10, 1) == 8",
+   "assert toggle_bit(0, 4) == 16"
+  ],
+  "reference_code": "def toggle_bit(n, k):\n    return n ^ (1 << k)\n"
+ },
+ {
+  "task_id": "Imag/2-242",
+  "category": "numbers",
+  "description": "Write a function that rounds a positive integer down to a power of two, returning the biggest power of two that does not exceed it.",
+  "entry_point": "power_of_two_floor",
+  "asserts": [
+   "assert power_of_two_floor(100) == 64",
+   "assert power_of_two_floor(1) == 1",
+   "assert power_of_two_floor(256) == 256"
+  ],
+  "reference_code": "def power_of_two_floor(n):\n    p = 1\n    while p * 2 <= n:\n        p *= 2\n    return p\n"
+ },
+ {
+  "task_id": "Imag/2-243",
+  "category": "numbers",
+  "description": "Write a function that returns the Gray code of a non-negative integer n, computed as n XOR (n shifted right by one bit).",
+  "entry_point": "gray_code",
+  "asserts": [
+   "assert gray_code(5) == 7",
+   "assert gray_code(0) == 0",
+   "assert gray_code(12) == 10"
+  ],
+  "reference_code": "def gray_code(n):\n    return n ^ (n >> 1)\n"
+ },
+ {
+  "task_id": "Imag/2-244",
+  "category": "sequences",
+  "description": "Write a function to return the largest product of two elements at different positions of a list of at least two integers, which may include negative numbers.",
+  "entry_point": "max_pair_product",
+  "asserts": [
+   "assert max_pair_product([3, -10, 4, -2]) == 20",
+   "assert max_pair_product([1, 5]) == 5",
+   "assert max_pair_product([-1, 0, 2, 7]) == 14"
+  ],
+  "reference_code": "def max_pair_product(nums):\n    s = sorted(nums)\n    return max(s[0] * s[1], s[-1] * s[-2])\n"
+ },
+ {
+  "task_id": "Imag/2-245",
+  "category": "sequences",
+  "description": "Write a function that returns the sorted list of all values that appear in at least one of two lists, without duplicates.",
+  "entry_point": "sorted_union",
+  "asserts": [
+   "assert sorted_union([5, 1, 3], [3, 2, 5]) == [1, 2, 3, 5]",
+   "assert sorted_union([], []) == []",
+   "assert sorted_union([2, 2], [1]) == [1, 2]"
+  ],
+  "reference_code": "def sorted_union(a, b):\n    return sorted(set(a) | set(b))\n"
+ },
+ {
+  "task_id": "Imag/2-246",
+  "category": "sequences",
+  "description": "Write a function that returns a copy of a list with every occurrence of a given value removed.",
+  "entry_point": "without_value",
+  "asserts": [
+   "assert without_value([1, 3, 1, 2, 1], 1) == [3, 2]",
+   "assert without_value(['a', 'b'], 'c') == ['a', 'b']",
+   "assert without_value([], 0) == []"
+  ],
+  "reference_code": "def without_value(items, value):\n    return [x for x in items if x != value]\n"
+ },
+ {
+  "task_id": "Imag/2-247",
+  "category": "strings",
+  "description": "Write a function that returns the characters of a string sorted in ascending order of their character codes.",
+  "entry_point": "sorted_chars",
+  "asserts": [
+   "assert sorted_chars('python') == 'hnopty'",
+   "assert sorted_chars('') == ''",
+   "assert sorted_chars('bA a') == ' Aab'"
+  ],
+  "reference_code": "def sorted_chars(text):\n    return ''.join(sorted(text))\n"
+ },
+ {
+  "task_id": "Imag/2-248",
+  "category": "strings",
+  "description": "Write a function that rearranges the words of a space-separated sentence in order of increasing length, keeping the original order of words that have the same length.",
+  "entry_point": "words_by_length",
+  "asserts": [
+   "assert words_by_length('every cat likes warm milk') == 'cat warm milk every likes'",
+   "assert words_by_length('aa b') == 'b aa'",
+   "assert words_by_length('one') == 'one'"
+  ],
+  "reference_code": "def words_by_length(sentence):\n    return ' '.join(sorted(sentence.split(), key=len))\n"
+ },
+ {
+  "task_id": "Imag/2-249",
+  "category": "strings",
+  "description": "Write a function that converts a positive integer to its spreadsheet column label, where 1 is 'A', 26 is 'Z' and 27 is 'AA'.",
+  "entry_point": "column_label",
+  "asserts": [
+   "assert column_label(52) == 'AZ'",
+   "assert column_label(1) == 'A'",
+   "assert column_label(703) == 'AAA'"
+  ],
+  "reference_code": "def column_label(n):\n    label = ''\n    while n > 0:\n        n, rem = divmod(n - 1, 26)\n        label = chr(ord('A') + rem) + label\n    return label\n"
+ },
+ {
+  "task_id": "Imag/2-250",
+  "category": "nested",
+  "description": "Write a function that sorts a list of number lists by the sum of each inner list in ascending order, keeping the original order of lists with equal sums.",
+  "entry_point": "sort_by_inner_sum",
+  "asserts": [
+   "assert sort_by_inner_sum([[3, 3], [1], [2, 2, 2], [0, 1]]) == [[1], [0, 1], [3, 3], [2, 2, 2]]",
+   "assert sort_by_inner_sum([]) == []",
+   "assert sort_by_inner_sum([[5], [-5]]) == [[-5], [5]]"
+  ],
+  "reference_code": "def sort_by_inner_sum(lists):\n    return sorted(lists, key=sum)\n"
+ },
+ {
+  "task_id": "Imag/2-251",
+  "category": "nested",
+  "description": "Write a function that maps each key of a dictionary whose values are lists to the length of its list.",
+  "entry_point": "list_lengths",
+  "asserts": [
+   "assert list_lengths({'a': [1, 2, 3], 'b': []}) == {'a': 3, 'b': 0}",
+   "assert list_lengths({}) == {}",
+   "assert list_lengths({'x': ['p']}) == {'x': 1}"
+  ],
+  "reference_code": "def list_lengths(mapping):\n    return {key: len(values) for key, values in mapping.items()}\n"
+ },
+ {
+  "task_id": "Imag/2-252",
+  "category": "nested",
+  "description": "Write a function that returns a dictionary mapping each distinct word of a space-separated sentence to its length.",
+  "entry_point": "word_lengths",
+  "asserts": [
+   "assert word_lengths('big red balloon') == {'big': 3, 'red': 3, 'balloon': 7}",
+   "assert word_lengths('') == {}",
+   "assert word_lengths('hi hi') == {'hi': 2}"
+  ],
+  "reference_code": "def word_lengths(sentence):\n    return {word: len(word) for word in sentence.split()}\n"
+ },
+ {
+  "task_id": "Imag/2-253",
+  "category": "predicates",
+  "description": "Write a function that returns True if a positive integer is a power of three (1, 3, 9, 27, ...), and False otherwise.",
+  "entry_point": "is_power_of_three",
+  "asserts": [
+   "assert is_power_of_three(243) == True",
+   "assert is_power_of_three(45) == False",
+   "assert is_power_of_three(1) == True"
+  ],
+  "reference_code": "def is_power_of_three(n):\n    while n % 3 == 0 and n > 1:\n        n //= 3\n    return n == 1\n"
+ },
+ {
+  "task_id": "Imag/2-254",
+  "category": "predicates",
+  "description": "Write a function that returns True if a string ends with a given suffix when letter case is ignored, and False otherwise.",
+  "entry_point": "ends_with_ci",
+  "asserts": [
+   "assert ends_with_ci('Report.PDF', '.pdf') == True",
+   "assert ends_with_ci('notes.txt', '.doc') == False",
+   "assert ends_with_ci('abc', '') == True"
+  ],
+  "reference_code": "def ends_with_ci(text, suffix):\n    return text.lower().endswith(suffix.lower())\n"
+ },
+ {
+  "task_id": "Imag/2-255",
+  "category": "predicates",
+  "description": "Write a function that returns True if the sum of the digits of a positive integer equals the product of its digits, and False otherwise.",
+  "entry_point": "sum_equals_product_digits",
+  "asserts": [
+   "assert sum_equals_product_digits(1124) == True",
+   "assert sum_equals_product_digits(25) == False",
+   "assert sum_equals_product_digits(22) == True"
+  ],
+  "reference_code": "def sum_equals_product_digits(n):\n    digits = [int(c) for c in str(n)]\n    product = 1\n    for d in digits:\n        product *= d\n    return sum(digits) == product\n"
+ },
+ {
+  "task_id": "Imag/2-256",
+  "category": "numbers",
+  "description": "Write a function that returns the Catalan number C(n) for a non-negative integer n, where C(0) to C(4) are 1, 1, 2, 5 and 14.",
+  "entry_point": "nth_catalan",
+  "asserts": [
+   "assert nth_catalan(5) == 42",
+   "assert nth_catalan(0) == 1",
+   "assert nth_catalan(8) == 1430"
+  ],
+  "reference_code": "from math import comb\n\ndef nth_catalan(n):\n    return comb(2 * n, n) // (n + 1)\n"
+ },
+ {
+  "task_id": "Imag/2-257",
+  "category": "numbers",
+  "description": "Write a recursive function that raises a base to a non-negative integer exponent without using ** or pow.",
+  "entry_point": "power_rec",
+  "asserts": [
+   "assert power_rec(5, 3) == 125",
+   "assert power_rec(7, 0) == 1",
+   "assert power_rec(-2, 5) == -32"
+  ],
+  "reference_code": "def power_rec(base, exp):\n    if exp == 0:\n        return 1\n    return base * power_rec(base, exp - 1)\n"
+ },
+ {
+  "task_id": "Imag/2-258",
+  "category": "numbers",
+  "description": "Write a function that returns the minimum number of moves needed to solve the Tower of Hanoi puzzle with n disks.",
+  "entry_point": "hanoi_moves",
+  "asserts": [
+   "assert hanoi_moves(3) == 7",
+   "assert hanoi_moves(0) == 0",
+   "assert hanoi_moves(10) == 1023"
+  ],
+  "reference_code": "def hanoi_moves(n):\n    return 2 ** n - 1\n"
+ },
+ {
+  "task_id": "Imag/2-259",
+  "category": "sequences",
+  "description": "Write a function that returns the elements of a list that come before the first occurrence of a stop value, or the whole list if the stop value does not occur.",
+  "entry_point": "until_stop",
+  "asserts": [
+   "assert until_stop([4, 8, -1, 3, -1], -1) == [4, 8]",
+   "assert until_stop([1, 2], 0) == [1, 2]",
+   "assert until_stop(['end'], 'end') == []"
+  ],
+  "reference_code": "def until_stop(items, stop):\n    out = []\n    for x in items:\n        if x == stop:\n            break\n        out.append(x)\n    return out\n"
+ },
+ {
+  "task_id": "Imag/2-260",
+  "category": "sequences",
+  "description": "Write a function to count how many times the largest value occurs in a non-empty list.",
+  "entry_point": "count_of_max",
+  "asserts": [
+   "assert count_of_max([3, 9, 2, 9, 9]) == 3",
+   "assert count_of_max([1]) == 1",
+   "assert count_of_max([-4, -4, -6]) == 2"
+  ],
+  "reference_code": "def count_of_max(nums):\n    return nums.count(max(nums))\n"
+ },
+ {
+  "task_id": "Imag/2-261",
+  "category": "sequences",
+  "description": "Write a function that returns the absolute differences between the elements at the same positions of two lists of equal length.",
+  "entry_point": "abs_differences",
+  "asserts": [
+   "assert abs_differences([5, 1, 8], [2, 6, 8]) == [3, 5, 0]",
+   "assert abs_differences([], []) == []",
+   "assert abs_differences([-3], [4]) == [7]"
+  ],
+  "reference_code": "def abs_differences(a, b):\n    return [abs(x - y) for x, y in zip(a, b)]\n"
+ },
+ {
+  "task_id": "Imag/2-262",
+  "category": "strings",
+  "description": "Write a function that counts the positions at which two strings of equal length have different characters.",
+  "entry_point": "char_mismatches",
+  "asserts": [
+   "assert char_mismatches('garden', 'pardon') == 2",
+   "assert char_mismatches('same', 'same') == 0",
+   "assert char_mismatches('abc', 'xyz') == 3"
+  ],
+  "reference_code": "def char_mismatches(a, b):\n    return sum(1 for x, y in zip(a, b) if x != y)\n"
+ },
+ {
+  "task_id": "Imag/2-263",
+  "category": "strings",
+  "description": "Write a function that returns the list of character codes, as given by ord, of the characters of a string.",
+  "entry_point": "char_codes",
+  "asserts": [
+   "assert char_codes('Hi!') == [72, 105, 33]",
+   "assert char_codes('') == []",
+   "assert char_codes('0') == [48]"
+  ],
+  "reference_code": "def char_codes(text):\n    return [ord(ch) for ch in text]\n"
+ },
+ {
+  "task_id": "Imag/2-264",
+  "category": "strings",
+  "description": "Write a function that converts a spreadsheet column label made of upper-case letters back to its column number, where 'A' is 1, 'Z' is 26 and 'AA' is 27.",
+  "entry_point": "column_number",
+  "asserts": [
+   "assert column_number('BC') == 55",
+   "assert column_number('A') == 1",
+   "assert column_number('ZZ') == 702"
+  ],
+  "reference_code": "def column_number(label):\n    n = 0\n    for ch in label:\n        n = n * 26 + (ord(ch) - ord('A') + 1)\n    return n\n"
+ },
+ {
+  "task_id": "Imag/2-265",
+  "category": "nested",
+  "description": "Write a function that groups words that are anagrams of each other, returning a list of groups in order of first appearance, with each group keeping its words in their original order.",
+  "entry_point": "anagram_groups",
+  "asserts": [
+   "assert anagram_groups(['stop', 'pots', 'cat', 'tops', 'act', 'dog']) == [['stop', 'pots', 'tops'], ['cat', 'act'], ['dog']]",
+   "assert anagram_groups([]) == []",
+   "assert anagram_groups(['ab', 'ba', 'ab']) == [['ab', 'ba', 'ab']]"
+  ],
+  "reference_code": "def anagram_groups(words):\n    groups = {}\n    for word in words:\n        groups.setdefault(''.join(sorted(word)), []).append(word)\n    return list(groups.values())\n"
+ },
+ {
+  "task_id": "Imag/2-266",
+  "category": "nested",
+  "description": "Write a function that turns a dictionary into a list of 'key=value' strings sorted by key.",
+  "entry_point": "as_key_value_strings",
+  "asserts": [
+   "assert as_key_value_strings({'b': 2, 'a': 1}) == ['a=1', 'b=2']",
+   "assert as_key_value_strings({}) == []",
+   "assert as_key_value_strings({'mode': 'fast', 'level': 3}) == ['level=3', 'mode=fast']"
+  ],
+  "reference_code": "def as_key_value_strings(mapping):\n    return [f'{key}={mapping[key]}' for key in sorted(mapping)]\n"
+ },
+ {
+  "task_id": "Imag/2-267",
+  "category": "nested",
+  "description": "Write a function that converts a list of (key, value) tuples into a dictionary mapping each key to the list of its values in their original order.",
+  "entry_point": "values_by_key",
+  "asserts": [
+   "assert values_by_key([('fruit', 'fig'), ('veg', 'kale'), ('fruit', 'lime')]) == {'fruit': ['fig', 'lime'], 'veg': ['kale']}",
+   "assert values_by_key([]) == {}",
+   "assert values_by_key([(1, 1), (1, 1)]) == {1: [1, 1]}"
+  ],
+  "reference_code": "def values_by_key(pairs):\n    result = {}\n    for key, value in pairs:\n        result.setdefault(key, []).append(value)\n    return result\n"
+ },
+ {
+  "task_id": "Imag/2-268",
+  "category": "predicates",
+  "description": "Write a function that returns True if a positive integer equals the sum of the factorials of its digits, and False otherwise.",
+  "entry_point": "is_factorion",
+  "asserts": [
+   "assert is_factorion(145) == True",
+   "assert is_factorion(144) == False",
+   "assert is_factorion(40585) == True"
+  ],
+  "reference_code": "from math import factorial\n\ndef is_factorion(n):\n    return n == sum(factorial(int(d)) for d in str(n))\n"
+ },
+ {
+  "task_id": "Imag/2-269",
+  "category": "predicates",
+  "description": "Write a function that returns True if a list strictly increases up to a single peak and then strictly decreases, with at least one element on each side of the peak, and False otherwise.",
+  "entry_point": "is_mountain",
+  "asserts": [
+   "assert is_mountain([1, 4, 7, 5, 2]) == True",
+   "assert is_mountain([1, 2, 2, 1]) == False",
+   "assert is_mountain([3, 2, 1]) == False"
+  ],
+  "reference_code": "def is_mountain(nums):\n    i = 0\n    while i + 1 < len(nums) and nums[i] < nums[i + 1]:\n        i += 1\n    if i == 0 or i == len(nums) - 1:\n        return False\n    while i + 1 < len(nums) and nums[i] > nums[i + 1]:\n        i += 1\n    return i == len(nums) - 1\n"
+ },
+ {
+  "task_id": "Imag/2-270",
+  "category": "predicates",
+  "description": "Write a function that returns True if a list is entirely non-increasing or entirely non-decreasing, and False otherwise.",
+  "entry_point": "is_monotone",
+  "asserts": [
+   "assert is_monotone([9, 7, 7, 2]) == True",
+   "assert is_monotone([2, 5, 3, 8]) == False",
+   "assert is_monotone([4]) == True"
+  ],
+  "reference_code": "def is_monotone(nums):\n    up = all(nums[i] <= nums[i + 1] for i in range(len(nums) - 1))\n    down = all(nums[i] >= nums[i + 1] for i in range(len(nums) - 1))\n    return up or down\n"
+ },
+ {
+  "task_id": "Imag/2-271",
+  "category": "numbers",
+  "description": "Write a function that counts how many digits are written in total when all integers from 1 to n are written out in decimal.",
+  "entry_point": "digits_written_upto",
+  "asserts": [
+   "assert digits_written_upto(12) == 15",
+   "assert digits_written_upto(9) == 9",
+   "assert digits_written_upto(100) == 192"
+  ],
+  "reference_code": "def digits_written_upto(n):\n    return sum(len(str(k)) for k in range(1, n + 1))\n"
+ },
+ {
+  "task_id": "Imag/2-272",
+  "category": "numbers",
+  "description": "Write a function that returns the number of minutes from time a to time b on the same day, where both are 'HH:MM' strings in 24-hour format and b is not earlier than a.",
+  "entry_point": "minutes_between",
+  "asserts": [
+   "assert minutes_between('09:15', '11:05') == 110",
+   "assert minutes_between('00:00', '23:59') == 1439",
+   "assert minutes_between('12:30', '12:30') == 0"
+  ],
+  "reference_code": "def minutes_between(a, b):\n    to_minutes = lambda t: int(t[:2]) * 60 + int(t[3:])\n    return to_minutes(b) - to_minutes(a)\n"
+ },
+ {
+  "task_id": "Imag/2-273",
+  "category": "numbers",
+  "description": "Write a function that returns the last decimal digit of a raised to the power b, for non-negative integers a and b, without computing the full power.",
+  "entry_point": "last_digit_of_power",
+  "asserts": [
+   "assert last_digit_of_power(7, 3) == 3",
+   "assert last_digit_of_power(12, 0) == 1",
+   "assert last_digit_of_power(9, 101) == 9"
+  ],
+  "reference_code": "def last_digit_of_power(a, b):\n    return pow(a, b, 10)\n"
+ },
+ {
+  "task_id": "Imag/2-274",
+  "category": "sequences",
+  "description": "Write a function that returns the elements of a list that are strictly greater than every element to their right, in their original order, where the last element always qualifies.",
+  "entry_point": "right_leaders",
+  "asserts": [
+   "assert right_leaders([9, 3, 7, 2, 4, 1]) == [9, 7, 4, 1]",
+   "assert right_leaders([]) == []",
+   "assert right_leaders([1, 2, 3]) == [3]"
+  ],
+  "reference_code": "def right_leaders(nums):\n    out = []\n    for i, x in enumerate(nums):\n        if all(x > y for y in nums[i + 1:]):\n            out.append(x)\n    return out\n"
+ },
+ {
+  "task_id": "Imag/2-275",
+  "category": "sequences",
+  "description": "Write a function that inserts a value into a list sorted in ascending order and returns the new list, which must still be sorted.",
+  "entry_point": "insert_sorted",
+  "asserts": [
+   "assert insert_sorted([1, 3, 5, 7], 4) == [1, 3, 4, 5, 7]",
+   "assert insert_sorted([], 2) == [2]",
+   "assert insert_sorted([2, 2], 2) == [2, 2, 2]"
+  ],
+  "reference_code": "def insert_sorted(nums, value):\n    i = 0\n    while i < len(nums) and nums[i] <= value:\n        i += 1\n    return nums[:i] + [value] + nums[i:]\n"
+ },
+ {
+  "task_id": "Imag/2-276",
+  "category": "sequences",
+  "description": "Write a function that returns the alternating sum of a list, adding the elements at even indices and subtracting the elements at odd indices.",
+  "entry_point": "alternating_total",
+  "asserts": [
+   "assert alternating_total([10, 3, 5, 1]) == 11",
+   "assert alternating_total([]) == 0",
+   "assert alternating_total([4, 9]) == -5"
+  ],
+  "reference_code": "def alternating_total(nums):\n    return sum(x if i % 2 == 0 else -x for i, x in enumerate(nums))\n"
+ },
+ {
+  "task_id": "Imag/2-277",
+  "category": "strings",
+  "description": "Write a function that shortens a string longer than n characters to its first n characters followed by '...', and returns shorter strings unchanged.",
+  "entry_point": "shorten_text",
+  "asserts": [
+   "assert shorten_text('Hello, world', 5) == 'Hello...'",
+   "assert shorten_text('short', 10) == 'short'",
+   "assert shorten_text('exact', 5) == 'exact'"
+  ],
+  "reference_code": "def shorten_text(text, n):\n    return text if len(text) <= n else text[:n] + '...'\n"
+ },
+ {
+  "task_id": "Imag/2-278",
+  "category": "strings",
+  "description": "Write a function that returns a positive integer as a string with its English ordinal suffix, as in '1st', '2nd', '3rd' and '4th', using 'th' for numbers ending in 11, 12 or 13.",
+  "entry_point": "ordinal",
+  "asserts": [
+   "assert ordinal(22) == '22nd'",
+   "assert ordinal(113) == '113th'",
+   "assert ordinal(101) == '101st'"
+  ],
+  "reference_code": "def ordinal(n):\n    if n % 100 in (11, 12, 13):\n        suffix = 'th'\n    else:\n        suffix = {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')\n    return f'{n}{suffix}'\n"
+ },
+ {
+  "task_id": "Imag/2-279",
+  "category": "strings",
+  "description": "Write a function that uses a regular expression to remove every HTML tag, meaning any text from a '<' up to the next '>', from a string.",
+  "entry_point": "strip_tags",
+  "asserts": [
+   "assert strip_tags('<p>Hello <b>there</b></p>') == 'Hello there'",
+   "assert strip_tags('plain') == 'plain'",
+   "assert strip_tags('<br/>x<hr>') == 'x'"
+  ],
+  "reference_code": "import re\n\ndef strip_tags(html):\n    return re.sub(r'<[^>]*>', '', html)\n"
+ },
+ {
+  "task_id": "Imag/2-280",
+  "category": "nested",
+  "description": "Write a function that multiplies two matrices given as lists of rows, where the number of columns of the first equals the number of rows of the second.",
+  "entry_point": "matrix_product",
+  "asserts": [
+   "assert matrix_product([[1, 2], [0, 1]], [[3, 1], [2, 4]]) == [[7, 9], [2, 4]]",
+   "assert matrix_product([[2, 0, 1]], [[1], [2], [3]]) == [[5]]",
+   "assert matrix_product([[1, 0], [0, 1]], [[9, 8], [7, 6]]) == [[9, 8], [7, 6]]"
+  ],
+  "reference_code": "def matrix_product(a, b):\n    return [[sum(a[i][k] * b[k][j] for k in range(len(b))) for j in range(len(b[0]))]\n            for i in range(len(a))]\n"
+ },
+ {
+  "task_id": "Imag/2-281",
+  "category": "nested",
+  "description": "Write a function that mirrors a matrix horizontally by reversing the order of the elements within each row.",
+  "entry_point": "mirror_rows",
+  "asserts": [
+   "assert mirror_rows([[1, 2, 3], [4, 5, 6]]) == [[3, 2, 1], [6, 5, 4]]",
+   "assert mirror_rows([]) == []",
+   "assert mirror_rows([['a', 'b']]) == [['b', 'a']]"
+  ],
+  "reference_code": "def mirror_rows(matrix):\n    return [row[::-1] for row in matrix]\n"
+ },
+ {
+  "task_id": "Imag/2-282",
+  "category": "nested",
+  "description": "Write a function that returns column k (counting from 0) of a matrix given as a list of rows.",
+  "entry_point": "get_column",
+  "asserts": [
+   "assert get_column([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 1) == [2, 5, 8]",
+   "assert get_column([[5, 6]], 0) == [5]",
+   "assert get_column([], 2) == []"
+  ],
+  "reference_code": "def get_column(matrix, k):\n    return [row[k] for row in matrix]\n"
+ },
+ {
+  "task_id": "Imag/2-283",
+  "category": "predicates",
+  "description": "Write a function that returns True if a sentence ends with a question mark once trailing whitespace is removed, and False otherwise.",
+  "entry_point": "is_question",
+  "asserts": [
+   "assert is_question('Are you coming?  ') == True",
+   "assert is_question('I am coming.') == False",
+   "assert is_question('') == False"
+  ],
+  "reference_code": "def is_question(sentence):\n    return sentence.rstrip().endswith('?')\n"
+ },
+ {
+  "task_id": "Imag/2-284",
+  "category": "predicates",
+  "description": "Write a function that returns True if two integers have the same number of digits, ignoring any minus signs, and False otherwise.",
+  "entry_point": "same_digit_count",
+  "asserts": [
+   "assert same_digit_count(123, -456) == True",
+   "assert same_digit_count(10, 9) == False",
+   "assert same_digit_count(0, 7) == True"
+  ],
+  "reference_code": "def same_digit_count(a, b):\n    return len(str(abs(a))) == len(str(abs(b)))\n"
+ },
+ {
+  "task_id": "Imag/2-285",
+  "category": "predicates",
+  "description": "Write a function that returns True if three angles in degrees can be the angles of a triangle, meaning each one is positive and together they add up to 180, and False otherwise.",
+  "entry_point": "valid_triangle_angles",
+  "asserts": [
+   "assert valid_triangle_angles(30, 65, 85) == True",
+   "assert valid_triangle_angles(90, 90, 0) == False",
+   "assert valid_triangle_angles(100, 50, 40) == False"
+  ],
+  "reference_code": "def valid_triangle_angles(a, b, c):\n    return a > 0 and b > 0 and c > 0 and a + b + c == 180\n"
+ },
+ {
+  "task_id": "Imag/2-286",
+  "category": "numbers",
+  "description": "Write a function that converts a speed in metres per second to kilometres per hour by multiplying by 3.6, rounded to one decimal place.",
+  "entry_point": "mps_to_kmh",
+  "asserts": [
+   "assert mps_to_kmh(10) == 36.0",
+   "assert mps_to_kmh(2.5) == 9.0",
+   "assert mps_to_kmh(13.9) == 50.0"
+  ],
+  "reference_code": "def mps_to_kmh(speed):\n    return round(speed * 3.6, 1)\n"
+ },
+ {
+  "task_id": "Imag/2-287",
+  "category": "numbers",
+  "description": "Write a function that returns what percentage a part is of a whole, rounded to one decimal place.",
+  "entry_point": "percent_of",
+  "asserts": [
+   "assert percent_of(45, 60) == 75.0",
+   "assert percent_of(1, 3) == 33.3",
+   "assert percent_of(0, 8) == 0.0"
+  ],
+  "reference_code": "def percent_of(part, whole):\n    return round(part / whole * 100, 1)\n"
+ },
+ {
+  "task_id": "Imag/2-288",
+  "category": "numbers",
+  "description": "Write a function to compute the volume of a sphere from its radius as (4/3) * math.pi * r**3, rounded to two decimal places.",
+  "entry_point": "sphere_volume",
+  "asserts": [
+   "assert sphere_volume(3) == 113.1",
+   "assert sphere_volume(1) == 4.19",
+   "assert sphere_volume(0) == 0.0"
+  ],
+  "reference_code": "import math\n\ndef sphere_volume(r):\n    return round(4 / 3 * math.pi * r ** 3, 2)\n"
+ },
+ {
+  "task_id": "Imag/2-289",
+  "category": "sequences",
+  "description": "Write a function to count how many different values appear in a list.",
+  "entry_point": "distinct_count",
+  "asserts": [
+   "assert distinct_count([3, 1, 3, 2, 1]) == 3",
+   "assert distinct_count([]) == 0",
+   "assert distinct_count(['a', 'A']) == 2"
+  ],
+  "reference_code": "def distinct_count(items):\n    return len(set(items))\n"
+ },
+ {
+  "task_id": "Imag/2-290",
+  "category": "sequences",
+  "description": "Write a function to return the arithmetic mean of a non-empty list of numbers, rounded to two decimal places.",
+  "entry_point": "mean_value",
+  "asserts": [
+   "assert mean_value([1, 2, 4]) == 2.33",
+   "assert mean_value([10]) == 10.0",
+   "assert mean_value([-1, 1, 3, 5]) == 2.0"
+  ],
+  "reference_code": "def mean_value(nums):\n    return round(sum(nums) / len(nums), 2)\n"
+ },
+ {
+  "task_id": "Imag/2-291",
+  "category": "sequences",
+  "description": "Write a function that splits a sorted list of distinct integers into runs of consecutive numbers and returns the runs as a list of lists.",
+  "entry_point": "consecutive_runs",
+  "asserts": [
+   "assert consecutive_runs([1, 2, 3, 5, 6, 9]) == [[1, 2, 3], [5, 6], [9]]",
+   "assert consecutive_runs([]) == []",
+   "assert consecutive_runs([4]) == [[4]]"
+  ],
+  "reference_code": "def consecutive_runs(nums):\n    runs = []\n    for x in nums:\n        if runs and x == runs[-1][-1] + 1:\n            runs[-1].append(x)\n        else:\n            runs.append([x])\n    return runs\n"
+ },
+ {
+  "task_id": "Imag/2-292",
+  "category": "strings",
+  "description": "Write a function that returns all whole numbers appearing in a text as a list of integers, in order, treating each maximal run of digits as one number.",
+  "entry_point": "numbers_in_text",
+  "asserts": [
+   "assert numbers_in_text('I bought 3 apples and 12 pears for 450 cents') == [3, 12, 450]",
+   "assert numbers_in_text('no digits') == []",
+   "assert numbers_in_text('a1b22c333') == [1, 22, 333]"
+  ],
+  "reference_code": "import re\n\ndef numbers_in_text(text):\n    return [int(m) for m in re.findall(r'\\d+', text)]\n"
+ },
+ {
+  "task_id": "Imag/2-293",
+  "category": "strings",
+  "description": "Write a function that joins a list of words into an English list phrase, separating the words with ', ' except that ' and ' goes before the last word.",
+  "entry_point": "english_join",
+  "asserts": [
+   "assert english_join(['red', 'green', 'blue']) == 'red, green and blue'",
+   "assert english_join(['tea']) == 'tea'",
+   "assert english_join([]) == ''"
+  ],
+  "reference_code": "def english_join(words):\n    if len(words) <= 1:\n        return ''.join(words)\n    return ', '.join(words[:-1]) + ' and ' + words[-1]\n"
+ },
+ {
+  "task_id": "Imag/2-294",
+  "category": "strings",
+  "description": "Write a function that converts a phrase to kebab-case by lower-casing it and joining its whitespace-separated words with hyphens.",
+  "entry_point": "to_kebab_case",
+  "asserts": [
+   "assert to_kebab_case('Hello Big World') == 'hello-big-world'",
+   "assert to_kebab_case('  Multiple   Spaces ') == 'multiple-spaces'",
+   "assert to_kebab_case('single') == 'single'"
+  ],
+  "reference_code": "def to_kebab_case(phrase):\n    return '-'.join(phrase.lower().split())\n"
+ },
+ {
+  "task_id": "Imag/2-295",
+  "category": "nested",
+  "description": "Write a function that returns a copy of a list of lists in which every None entry is replaced by 0.",
+  "entry_point": "fill_missing",
+  "asserts": [
+   "assert fill_missing([[1, None], [None, 4]]) == [[1, 0], [0, 4]]",
+   "assert fill_missing([]) == []",
+   "assert fill_missing([[None]]) == [[0]]"
+  ],
+  "reference_code": "def fill_missing(rows):\n    return [[0 if x is None else x for x in row] for row in rows]\n"
+ },
+ {
+  "task_id": "Imag/2-296",
+  "category": "nested",
+  "description": "Write a function that returns the sum of the elements on the outer border of a matrix with at least one row and one column, counting each border element once.",
+  "entry_point": "border_sum",
+  "asserts": [
+   "assert border_sum([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) == 40",
+   "assert border_sum([[7]]) == 7",
+   "assert border_sum([[1, 2], [3, 4]]) == 10"
+  ],
+  "reference_code": "def border_sum(matrix):\n    rows, cols = len(matrix), len(matrix[0])\n    return sum(matrix[r][c] for r in range(rows) for c in range(cols)\n               if r in (0, rows - 1) or c in (0, cols - 1))\n"
+ },
+ {
+  "task_id": "Imag/2-297",
+  "category": "nested",
+  "description": "Write a function that returns a tuple (value, row, column) for the largest entry of a non-empty matrix, using the first position in row-major order when the largest value occurs more than once.",
+  "entry_point": "max_with_position",
+  "asserts": [
+   "assert max_with_position([[3, 8, 1], [8, 2, 0]]) == (8, 0, 1)",
+   "assert max_with_position([[-5]]) == (-5, 0, 0)",
+   "assert max_with_position([[1, 2], [3, 4]]) == (4, 1, 1)"
+  ],
+  "reference_code": "def max_with_position(matrix):\n    best = (matrix[0][0], 0, 0)\n    for r, row in enumerate(matrix):\n        for c, x in enumerate(row):\n            if x > best[0]:\n                best = (x, r, c)\n    return best\n"
+ },
+ {
+  "task_id": "Imag/2-298",
+  "category": "predicates",
+  "description": "Write a function that returns True if an integer, which may be negative, equals k * k * k for some integer k, and False otherwise.",
+  "entry_point": "is_perfect_cube",
+  "asserts": [
+   "assert is_perfect_cube(343) == True",
+   "assert is_perfect_cube(100) == False",
+   "assert is_perfect_cube(-27) == True"
+  ],
+  "reference_code": "def is_perfect_cube(n):\n    k = round(abs(n) ** (1 / 3))\n    return any((s * c) ** 3 == n for c in (k - 1, k, k + 1) for s in (1, -1))\n"
+ },
+ {
+  "task_id": "Imag/2-299",
+  "category": "predicates",
+  "description": "Write a function that returns True if a positive integer contains no zero digit and is divisible by each of its digits, and False otherwise.",
+  "entry_point": "is_self_dividing",
+  "asserts": [
+   "assert is_self_dividing(36) == True",
+   "assert is_self_dividing(102) == False",
+   "assert is_self_dividing(26) == False"
+  ],
+  "reference_code": "def is_self_dividing(n):\n    return all(d != '0' and n % int(d) == 0 for d in str(n))\n"
+ },
+ {
+  "task_id": "Imag/2-300",
+  "category": "predicates",
+  "description": "Write a function that returns True if every bracket in a string made of the characters '()[]{}' is closed by the matching bracket type in the correct order, and False otherwise.",
+  "entry_point": "brackets_match_all",
+  "asserts": [
+   "assert brackets_match_all('{[()()]}') == True",
+   "assert brackets_match_all('[(])') == False",
+   "assert brackets_match_all('{{') == False"
+  ],
+  "reference_code": "def brackets_match_all(text):\n    pairs = {')': '(', ']': '[', '}': '{'}\n    stack = []\n    for ch in text:\n        if ch in '([{':\n            stack.append(ch)\n        elif ch in pairs:\n            if not stack or stack.pop() != pairs[ch]:\n                return False\n    return not stack\n"
+ }
+]
