@@ -13,6 +13,7 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 - [직접 설치와 RAG·장학금 계산 실행](docs/running.md)
 - [실제 예비 실행 결과와 발견한 오류](reports/pilot_report.md)
 - [규칙 증류로 CPU 코딩 LLM을 만들 수 있는가: 가능성 검토](docs/rule_distillation_feasibility.md)
+- **[SeedLM 종합 정리: 무엇이 통했고 어디서 멈췄나 (SeedLM-1~39, 교사 라운드 3~5)](docs/seedlm_summary.md)**
 - [SeedLM: 규칙 엔진이 가르친, 처음부터 만든 소형 언어 모델](docs/seed_lm.md)
 - [SeedLM-2: 설명을 읽는, 처음부터 만든 모델](docs/seed_lm2.md)
 - [SeedLM-3: 라이브러리를 파이썬 식으로 조합하는, 처음부터 만든 코더](docs/seed_lm3.md)
@@ -28,7 +29,7 @@ Qwen3-4B를 활용해 한국 대학 입시·장학 정보 접근 격차를 줄�
 - [SeedLM-21~25: 예시 하나로는 고를 수 없다 — 새 조합 데이터, 검색, 순위 학습, 검증기, 자기 설명](docs/seed_lm21.md)
 - [SeedLM-26~29: 같은 과제를 다른 말로 읽히기](docs/seed_lm26.md)
 - [4차 교사 라운드: 남은 엔진 실패는 긴 꼬리다](docs/rule_round4.md)
-- [처음부터 만든 코더에 관해 지금까지 확인한 것 (SeedLM-4~29 요약)](docs/seedlm_findings.md)
+- [처음부터 만든 코더에 관해 지금까지 확인한 것 (SeedLM-4~39 가로지른 결론)](docs/seedlm_findings.md)
 - [SeedLM 보강 설계: 데이터 엔진, 유도 탐색, 합의 위원회, 되묻기 (2026-11-22, 설계안)](docs/seedlm_design_next.md)
 - [SeedLM-30~33: 뼈대는 되풀이되고, 구멍만 채우면 닿는다 — 그러나 고르지 못한다](docs/seed_lm30.md)
 - [SeedLM-34: 교사가 뼈대마다 쓴 과제 — 코더는 과제를 외울 뿐, 구조를 고르는 법은 배우지 않는다](docs/seed_lm34.md)
