@@ -1,0 +1,2381 @@
+{
+ "operators": [
+  {
+   "name": "r5_digital_root/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-001"
+   ],
+   "why": "named definition (repeated digit sum), closed form 1 + (n - 1) % 9"
+  },
+  {
+   "name": "r5_multiplicative_persistence/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-031"
+   ],
+   "why": "named definition: digit-product steps to one digit"
+  },
+  {
+   "name": "r5_additive_persistence/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of multiplicative_persistence: digit-sum steps to one digit (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_collatz_steps/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-002"
+   ],
+   "why": "named sequence (3n + 1 / hailstone): steps to reach 1"
+  },
+  {
+   "name": "r5_collatz_sequence/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of collatz_steps: the sequence itself (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_look_and_say/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-044"
+   ],
+   "why": "named sequence (look-and-say / count-and-say), n-th term"
+  },
+  {
+   "name": "r5_totient/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-062"
+   ],
+   "why": "named function (Euler's phi), product formula over prime factors"
+  },
+  {
+   "name": "r5_factorial_trailing_zeros/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-061"
+   ],
+   "why": "standard formula (Legendre): trailing zeros of n!"
+  },
+  {
+   "name": "r5_double_factorial/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-094"
+   ],
+   "why": "named definition n!!"
+  },
+  {
+   "name": "r5_partition_count/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-275"
+   ],
+   "why": "named function p(n): integer partitions"
+  },
+  {
+   "name": "r5_next_prime/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-091"
+   ],
+   "why": "standard: smallest prime greater than n"
+  },
+  {
+   "name": "r5_twin_primes/1",
+   "gated": true,
+   "targets": [],
+   "why": "named: twin prime pairs up to n (base form of twin_prime_count) (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_twin_prime_count/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-121"
+   ],
+   "why": "count of twin prime pairs in one step; as len(twin_primes) it lost a tie to a prime-count chain"
+  },
+  {
+   "name": "r5_goldbach_pair/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-092"
+   ],
+   "why": "named (Goldbach): two primes summing to n, smallest first"
+  },
+  {
+   "name": "r5_classify_aliquot/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-032"
+   ],
+   "why": "standard classification perfect/abundant/deficient by aliquot sum"
+  },
+  {
+   "name": "r5_kaprekar_iterations/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-095"
+   ],
+   "why": "named routine (Kaprekar, 6174): iteration count"
+  },
+  {
+   "name": "r5_gray_encode/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of gray_decode: n XOR n >> 1 (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_gray_decode/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-096"
+   ],
+   "why": "named code (reflected binary Gray code) back to binary"
+  },
+  {
+   "name": "r5_swap_nibbles/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-065"
+   ],
+   "why": "standard bit operation: swap high and low 4 bits"
+  },
+  {
+   "name": "r5_reverse_binary_digits/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of reverse_bits_width without a fixed width (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_next_same_bit_count/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-276"
+   ],
+   "why": "standard (Gosper's hack): next number with the same popcount"
+  },
+  {
+   "name": "r5_smallest_arrangement/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-156"
+   ],
+   "why": "standard: smallest rearrangement of digits without a leading zero"
+  },
+  {
+   "name": "r5_largest_arrangement/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of smallest_arrangement: digits in descending order (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_reverse_add_steps/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-181"
+   ],
+   "why": "named process (reverse-and-add, Lychrel): steps to a palindrome"
+  },
+  {
+   "name": "r5_is_automorphic/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-055"
+   ],
+   "why": "named predicate: square ends in the number"
+  },
+  {
+   "name": "r5_is_strong_number/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-085"
+   ],
+   "why": "named predicate (strong number / factorion)"
+  },
+  {
+   "name": "r5_is_kaprekar_number/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-176"
+   ],
+   "why": "named predicate (Kaprekar number)"
+  },
+  {
+   "name": "r5_is_spy_number/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-177"
+   ],
+   "why": "named predicate (spy number: digit sum equals digit product)"
+  },
+  {
+   "name": "r5_is_emirp/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-178"
+   ],
+   "why": "named predicate (emirp)"
+  },
+  {
+   "name": "r5_is_square_free/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-267"
+   ],
+   "why": "named predicate (square-free); longer keywords beat the round-3 'divisible' on ties"
+  },
+  {
+   "name": "r5_has_alternating_bits/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-059"
+   ],
+   "why": "standard bit predicate"
+  },
+  {
+   "name": "r5_is_binary_palindrome/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-088"
+   ],
+   "why": "standard predicate: binary representation is a palindrome"
+  },
+  {
+   "name": "r5_interior_angle/1",
+   "gated": true,
+   "targets": [],
+   "why": "standard formula: interior angle of a regular n-gon (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_interior_angle_sum/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of interior_angle: sum of interior angles (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_polygon_diagonals/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-066"
+   ],
+   "why": "standard formula n(n - 3) / 2"
+  },
+  {
+   "name": "r5_fahrenheit_to_celsius/1",
+   "gated": true,
+   "targets": [],
+   "why": "standard unit conversion (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_celsius_to_fahrenheit/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of fahrenheit_to_celsius: the inverse conversion (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_leibniz_pi/1",
+   "gated": true,
+   "targets": [],
+   "why": "named series (Leibniz / Madhava) approximating pi (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_trimmed_mean/1",
+   "gated": true,
+   "targets": [],
+   "why": "standard statistic: mean without one minimum and one maximum (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_lattice_points_in_circle/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-124"
+   ],
+   "why": "named count (Gauss circle problem)"
+  },
+  {
+   "name": "r5_day_of_year_iso/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of day_of_year for an ISO 'YYYY-MM-DD' string (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_weekday_name_iso/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of weekday_name for an ISO string (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_is_weekend_iso/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-180"
+   ],
+   "why": "calendar predicate on an ISO date string"
+  },
+  {
+   "name": "r5_seconds_to_hms/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-016"
+   ],
+   "why": "time format H:MM:SS"
+  },
+  {
+   "name": "r5_seconds_to_hhmmss/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of seconds_to_hms with padded hours (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_seconds_to_hms_tuple/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of seconds_to_hms as an (h, m, s) tuple (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_clock_to_seconds/1",
+   "gated": true,
+   "targets": [],
+   "why": "time format: 'H:MM:SS' to seconds (no bank win; the bank item needs a difference of two) (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_clock_to_minutes/1",
+   "gated": true,
+   "targets": [],
+   "why": "time format: 'H:MM' to minutes (no bank win; same reason) (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_to_12_hour/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-076"
+   ],
+   "why": "time format: 24-hour to 12-hour with AM/PM"
+  },
+  {
+   "name": "r5_is_valid_time/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-057"
+   ],
+   "why": "validation of a 24-hour 'HH:MM' time; gate needs 'valid' (it fired on an HH:MM task otherwise)"
+  },
+  {
+   "name": "r5_ordinal/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-017"
+   ],
+   "why": "English convention: 1st, 2nd, 3rd, 11th"
+  },
+  {
+   "name": "r5_ordinal_suffix/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of ordinal: the suffix alone (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_number_to_words/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-074"
+   ],
+   "why": "English convention: number in words (American, hyphenated tens)"
+  },
+  {
+   "name": "r5_column_label/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-048"
+   ],
+   "why": "spreadsheet convention: column number to letters"
+  },
+  {
+   "name": "r5_column_number/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of column_label: letters to number (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_thousands_separator/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-108"
+   ],
+   "why": "number format with comma groups"
+  },
+  {
+   "name": "r5_atbash/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-014"
+   ],
+   "why": "named cipher"
+  },
+  {
+   "name": "r5_morse_encode/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-135"
+   ],
+   "why": "named code (international Morse)"
+  },
+  {
+   "name": "r5_morse_decode/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of morse_encode: decoding (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_pig_latin/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-046"
+   ],
+   "why": "named word game convention"
+  },
+  {
+   "name": "r5_pig_latin_sentence/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of pig_latin for every word of a sentence (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_dna_complement/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of dna_reverse_complement: complement only (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_dna_reverse_complement/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-256"
+   ],
+   "why": "named bioinformatics convention"
+  },
+  {
+   "name": "r5_rle_char_count/1",
+   "gated": true,
+   "targets": [],
+   "why": "run-length encoding as a string, character then count (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_rle_char_count_skip_one/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-015"
+   ],
+   "why": "run-length encoding as a string, counts of 1 left out"
+  },
+  {
+   "name": "r5_rle_count_char/1",
+   "gated": true,
+   "targets": [],
+   "why": "run-length encoding, count then character (also one look-and-say step) (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_rle_decode_char_count/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant: decoding of character-count run-length strings (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_rle_decode_count_char/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant: decoding of count-character run-length strings (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_missing_letters/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-047"
+   ],
+   "why": "standard: alphabet letters absent from a text (pangram complement)"
+  },
+  {
+   "name": "r5_slugify/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-106"
+   ],
+   "why": "standard URL slug convention"
+  },
+  {
+   "name": "r5_strip_html_tags/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-137"
+   ],
+   "why": "standard text clean-up"
+  },
+  {
+   "name": "r5_sentence_case/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-078"
+   ],
+   "why": "named text case convention"
+  },
+  {
+   "name": "r5_acronym/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-104"
+   ],
+   "why": "standard: initials of words, hyphens as separators (regression item: replaces a coincidence)"
+  },
+  {
+   "name": "r5_alternate_case_letters/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-257"
+   ],
+   "why": "standard alternating case counted over letters"
+  },
+  {
+   "name": "r5_alternate_case_positions/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of alternate_case_letters counted over all positions (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_file_extension/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-223"
+   ],
+   "why": "standard file-name convention"
+  },
+  {
+   "name": "r5_simplify_path/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-224"
+   ],
+   "why": "standard Unix path normalisation"
+  },
+  {
+   "name": "r5_chars_once/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-195"
+   ],
+   "why": "standard: keep characters that occur exactly once"
+  },
+  {
+   "name": "r5_min_add_to_balance/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-165"
+   ],
+   "why": "classic: parentheses to insert to balance a string"
+  },
+  {
+   "name": "r5_longest_palindromic_substring/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-134"
+   ],
+   "why": "classic: longest palindromic substring, leftmost on ties"
+  },
+  {
+   "name": "r5_longest_distinct_run/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-196"
+   ],
+   "why": "classic: longest substring without repeated characters"
+  },
+  {
+   "name": "r5_smallest_rotation/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-138"
+   ],
+   "why": "named: lexicographically minimal rotation"
+  },
+  {
+   "name": "r5_word_frequencies/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-052"
+   ],
+   "why": "standard word count after lower-casing and stripping punctuation"
+  },
+  {
+   "name": "r5_bigram_counts/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-259"
+   ],
+   "why": "standard: counts of adjacent word pairs"
+  },
+  {
+   "name": "r5_isbn13_check_digit/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-153"
+   ],
+   "why": "named checksum (ISBN-13)"
+  },
+  {
+   "name": "r5_hex_to_rgb/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-197"
+   ],
+   "why": "standard colour conversion"
+  },
+  {
+   "name": "r5_keypad_digits/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-136"
+   ],
+   "why": "standard telephone keypad mapping"
+  },
+  {
+   "name": "r5_mask_card_digits/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-255"
+   ],
+   "why": "standard card masking, last four digits kept"
+  },
+  {
+   "name": "r5_decode_ways/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-254"
+   ],
+   "why": "classic count: decodings of a digit string with A=1..Z=26"
+  },
+  {
+   "name": "r5_is_isogram/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-058"
+   ],
+   "why": "named predicate (isogram, case and non-letters ignored); beats round-3 all_unique on specificity"
+  },
+  {
+   "name": "r5_can_form_palindrome/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-236"
+   ],
+   "why": "standard predicate: some permutation is a palindrome"
+  },
+  {
+   "name": "r5_is_repeated_pattern/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-238"
+   ],
+   "why": "standard predicate: string is a repetition of a proper substring"
+  },
+  {
+   "name": "r5_is_hex_color/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-086"
+   ],
+   "why": "standard validation (CSS hex colour)"
+  },
+  {
+   "name": "r5_is_valid_mac/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-297"
+   ],
+   "why": "standard validation (MAC address)"
+  },
+  {
+   "name": "r5_is_valid_identifier/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-298"
+   ],
+   "why": "standard validation (identifier)"
+  },
+  {
+   "name": "r5_is_valid_semver/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-269"
+   ],
+   "why": "standard validation (semantic version)"
+  },
+  {
+   "name": "r5_passes_luhn/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-056"
+   ],
+   "why": "named checksum (Luhn)"
+  },
+  {
+   "name": "r5_is_valid_isbn10/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-027"
+   ],
+   "why": "named checksum (ISBN-10) (regression item: replaces a coincidence)"
+  },
+  {
+   "name": "r5_is_tautogram/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-146"
+   ],
+   "why": "named predicate (tautogram: all words share their first letter)"
+  },
+  {
+   "name": "r5_has_all_vowels/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-268"
+   ],
+   "why": "standard predicate: contains each vowel"
+  },
+  {
+   "name": "r5_row_distinct_counts/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-277"
+   ],
+   "why": "standard: distinct values per sublist (with windows: distinct per window)"
+  },
+  {
+   "name": "r5_dense_rank/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-037"
+   ],
+   "why": "named ranking (dense)"
+  },
+  {
+   "name": "r5_competition_rank/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant: standard competition ranking (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_argsort/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-100"
+   ],
+   "why": "named (argsort), stable"
+  },
+  {
+   "name": "r5_sort_by_abs/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of sort_by_abs_negative_first: stable sort by absolute value (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_sort_by_abs_negative_first/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-010"
+   ],
+   "why": "standard sort by absolute value, negative first on ties"
+  },
+  {
+   "name": "r5_leaders/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-011"
+   ],
+   "why": "named (leaders in an array)"
+  },
+  {
+   "name": "r5_next_greater/1",
+   "gated": true,
+   "targets": [],
+   "why": "named (next greater element), -1 when none (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_next_greater_distance/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-131"
+   ],
+   "why": "variant of next_greater: distance to it (days until warmer)"
+  },
+  {
+   "name": "r5_duplicate_mask/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-102"
+   ],
+   "why": "standard: flags of elements seen before (like pandas duplicated)"
+  },
+  {
+   "name": "r5_dedupe_keep_last/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-009"
+   ],
+   "why": "standard: remove duplicates keeping last occurrences"
+  },
+  {
+   "name": "r5_evens_then_odds/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-040"
+   ],
+   "why": "standard stable even/odd partition"
+  },
+  {
+   "name": "r5_odds_then_evens/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of evens_then_odds (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_cancel_adjacent_pairs/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-248"
+   ],
+   "why": "standard: remove adjacent equal pairs repeatedly (regression item: replaces a coincidence)"
+  },
+  {
+   "name": "r5_cancel_adjacent_pairs_text/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of cancel_adjacent_pairs for strings (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_sort_versions/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-250"
+   ],
+   "why": "standard numeric version sort (regression item: replaces a coincidence)"
+  },
+  {
+   "name": "r5_missing_between/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-158"
+   ],
+   "why": "standard: integers missing between min and max"
+  },
+  {
+   "name": "r5_duplicate_and_missing/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-072"
+   ],
+   "why": "classic: the repeated and the missing value of 1..n"
+  },
+  {
+   "name": "r5_modes/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of modes_sorted (statistics.multimode order) (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_modes_sorted/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-247"
+   ],
+   "why": "standard statistic: all modes, sorted"
+  },
+  {
+   "name": "r5_prefix_products/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-039"
+   ],
+   "why": "standard cumulative product"
+  },
+  {
+   "name": "r5_product_except_self/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-071"
+   ],
+   "why": "named (product of array except self)"
+  },
+  {
+   "name": "r5_max_gap/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-220"
+   ],
+   "why": "classic: largest gap between neighbours in sorted order"
+  },
+  {
+   "name": "r5_max_drawdown/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-251"
+   ],
+   "why": "named finance measure"
+  },
+  {
+   "name": "r5_trapped_water/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-192"
+   ],
+   "why": "named (trapping rain water)"
+  },
+  {
+   "name": "r5_h_index/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-132"
+   ],
+   "why": "named bibliometric index (regression item: replaces a coincidence)"
+  },
+  {
+   "name": "r5_longest_increasing_run/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-128"
+   ],
+   "why": "standard: longest strictly increasing contiguous run"
+  },
+  {
+   "name": "r5_longest_equal_run/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-188"
+   ],
+   "why": "standard: (value, length) of the longest run of equal elements"
+  },
+  {
+   "name": "r5_longest_equal_run_length/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of longest_equal_run: length only (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_min_partition_difference/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-187"
+   ],
+   "why": "named (partition problem): minimal difference of two subset sums"
+  },
+  {
+   "name": "r5_eval_rpn/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-280"
+   ],
+   "why": "named: evaluate reverse Polish notation (truncating division)"
+  },
+  {
+   "name": "r5_eval_rpn_text/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of eval_rpn for a space-separated string (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_is_mountain/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-029"
+   ],
+   "why": "named predicate (mountain array)"
+  },
+  {
+   "name": "r5_has_increasing_triplet/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-270"
+   ],
+   "why": "classic predicate: increasing triplet subsequence"
+  },
+  {
+   "name": "r5_is_arithmetic/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of can_form_arithmetic: the list as given (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_can_form_arithmetic/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-118"
+   ],
+   "why": "standard predicate: rearrangeable into an arithmetic progression"
+  },
+  {
+   "name": "r5_is_permutation_of_range/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-119"
+   ],
+   "why": "standard predicate: permutation of 1..n"
+  },
+  {
+   "name": "r5_is_zigzag/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-120"
+   ],
+   "why": "standard predicate: differences alternate in sign"
+  },
+  {
+   "name": "r5_has_overlap/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-206"
+   ],
+   "why": "standard interval predicate (touching intervals do not overlap)"
+  },
+  {
+   "name": "r5_has_overlap_closed/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of has_overlap for closed intervals (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_is_prefix_free/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-295"
+   ],
+   "why": "named predicate (prefix code)"
+  },
+  {
+   "name": "r5_spiral_order/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-020"
+   ],
+   "why": "named matrix traversal"
+  },
+  {
+   "name": "r5_determinant/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-229"
+   ],
+   "why": "standard (Bareiss, exact on integers)"
+  },
+  {
+   "name": "r5_rotate_clockwise/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-019"
+   ],
+   "why": "standard matrix rotation (regression item: replaces a coincidence)"
+  },
+  {
+   "name": "r5_rotate_counterclockwise/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of rotate_clockwise (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_life_step/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-050"
+   ],
+   "why": "named (Conway's Game of Life) next generation"
+  },
+  {
+   "name": "r5_count_islands/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-051"
+   ],
+   "why": "classic grid count (4-connected)"
+  },
+  {
+   "name": "r5_island_perimeter/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-261"
+   ],
+   "why": "classic grid measure"
+  },
+  {
+   "name": "r5_matrix_to_sparse/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-169"
+   ],
+   "why": "standard sparse (dictionary of keys) form"
+  },
+  {
+   "name": "r5_saddle_points/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-264"
+   ],
+   "why": "named matrix positions"
+  },
+  {
+   "name": "r5_anti_diagonals/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-230"
+   ],
+   "why": "standard grouping by anti-diagonal"
+  },
+  {
+   "name": "r5_minesweeper/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-290"
+   ],
+   "why": "classic board annotation"
+  },
+  {
+   "name": "r5_grid_shortest_path/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-291"
+   ],
+   "why": "standard BFS shortest path in a maze grid"
+  },
+  {
+   "name": "r5_paths_avoiding_obstacles/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-294"
+   ],
+   "why": "classic count: right/down paths avoiding obstacles"
+  },
+  {
+   "name": "r5_tictactoe_winner/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-170"
+   ],
+   "why": "classic board evaluation"
+  },
+  {
+   "name": "r5_parse_matrix_text/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-139"
+   ],
+   "why": "standard parse of whitespace-separated rows"
+  },
+  {
+   "name": "r5_is_sudoku/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-115"
+   ],
+   "why": "named predicate (complete Sudoku of size 4, 9 or 16)"
+  },
+  {
+   "name": "r5_is_toeplitz/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-116"
+   ],
+   "why": "named matrix predicate"
+  },
+  {
+   "name": "r5_is_symmetric_matrix/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-300"
+   ],
+   "why": "standard matrix predicate"
+  },
+  {
+   "name": "r5_merge_intervals/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-023"
+   ],
+   "why": "classic interval merge (touching intervals merge)"
+  },
+  {
+   "name": "r5_shoelace_area/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-263"
+   ],
+   "why": "named formula (shoelace) for polygon area"
+  },
+  {
+   "name": "r5_invert_dict_grouped/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-022"
+   ],
+   "why": "standard inversion of a dictionary with repeated values"
+  },
+  {
+   "name": "r5_invert_dict_grouped_sorted/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of invert_dict_grouped with sorted key lists (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_group_by_first_letter/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of group_by_first_letter_lower, case kept (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_group_by_first_letter_lower/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-021"
+   ],
+   "why": "standard grouping of words by lower-cased first letter"
+  },
+  {
+   "name": "r5_group_anagrams/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-293"
+   ],
+   "why": "classic grouping of anagrams"
+  },
+  {
+   "name": "r5_flatten_dict/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-054"
+   ],
+   "why": "standard dotted-key flattening of nested dictionaries"
+  },
+  {
+   "name": "r5_deep_reverse/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-113"
+   ],
+   "why": "standard recursive reversal"
+  },
+  {
+   "name": "r5_swap_dict_levels/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-199"
+   ],
+   "why": "standard transpose of a dictionary of dictionaries"
+  },
+  {
+   "name": "r5_columns_to_rows/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-114"
+   ],
+   "why": "standard dict of lists to list of dicts"
+  },
+  {
+   "name": "r5_rows_to_columns/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of columns_to_rows: the inverse (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_dict_value_means/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-082"
+   ],
+   "why": "standard per-key mean of list values"
+  },
+  {
+   "name": "r5_dict_value_sums/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of dict_value_means: per-key sum (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_positions_of_each/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-233"
+   ],
+   "why": "standard index lists per element"
+  },
+  {
+   "name": "r5_parse_query_string/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-140"
+   ],
+   "why": "standard URL query parse"
+  },
+  {
+   "name": "r5_parse_csv_records/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-141"
+   ],
+   "why": "standard CSV-with-header parse"
+  },
+  {
+   "name": "r5_is_injective/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-235"
+   ],
+   "why": "named predicate (injective mapping)"
+  },
+  {
+   "name": "r5_inorder/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-174"
+   ],
+   "why": "named tree traversal"
+  },
+  {
+   "name": "r5_preorder/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of inorder (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_postorder/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of inorder (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_is_bst/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-209"
+   ],
+   "why": "named predicate (binary search tree)"
+  },
+  {
+   "name": "r5_topological_order/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-110"
+   ],
+   "why": "named (topological sort, Kahn, smallest ready first) on task -> dependencies"
+  },
+  {
+   "name": "r5_topological_order_edges/1",
+   "gated": true,
+   "targets": [],
+   "why": "variant of topological_order on node -> successors (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_undirected_adjacency/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-084"
+   ],
+   "why": "standard adjacency lists of an undirected edge list"
+  },
+  {
+   "name": "r5_is_bipartite/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-207"
+   ],
+   "why": "named graph predicate"
+  },
+  {
+   "name": "r5_has_directed_cycle/1",
+   "gated": true,
+   "targets": [
+    "Imag/1-208"
+   ],
+   "why": "standard graph predicate (cycle in a directed graph)"
+  },
+  {
+   "name": "r5_reverse_bits_width/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-036"
+   ],
+   "why": "standard bit operation: reverse a fixed number of bits (width from the description)"
+  },
+  {
+   "name": "r5_multiplicative_order/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-214"
+   ],
+   "why": "named definition: order of a modulo n"
+  },
+  {
+   "name": "r5_round_significant/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-216"
+   ],
+   "why": "standard rounding to significant figures"
+  },
+  {
+   "name": "r5_count_digit_upto/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-154"
+   ],
+   "why": "standard count of digit d in 1..n"
+  },
+  {
+   "name": "r5_digits_in_base/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-242"
+   ],
+   "why": "standard conversion: digits of n in base b (sum etc. follow from core operators)"
+  },
+  {
+   "name": "r5_to_base/2",
+   "gated": true,
+   "targets": [],
+   "why": "variant of digits_in_base: the digits as a 0-9A-Z string (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_add_fractions/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-213"
+   ],
+   "why": "standard fraction arithmetic in lowest terms"
+  },
+  {
+   "name": "r5_interior_angle_rounded/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-006"
+   ],
+   "why": "rounded form of interior_angle: round(formula, k) in one step, so it wins over the bare formula when the description asks for k decimals and the visible value happens to be exact"
+  },
+  {
+   "name": "r5_bmi/2",
+   "gated": true,
+   "targets": [],
+   "why": "standard formula (body mass index) (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_fahrenheit_to_celsius_rounded/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-272"
+   ],
+   "why": "rounded form of fahrenheit_to_celsius: round(formula, k) in one step, so it wins over the bare formula when the description asks for k decimals and the visible value happens to be exact"
+  },
+  {
+   "name": "r5_celsius_to_fahrenheit_rounded/2",
+   "gated": true,
+   "targets": [],
+   "why": "rounded form of celsius_to_fahrenheit: round(formula, k) in one step, so it wins over the bare formula when the description asks for k decimals and the visible value happens to be exact (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_percent_change/2",
+   "gated": true,
+   "targets": [],
+   "why": "standard formula: percentage change from old to new (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_weighted_average/2",
+   "gated": true,
+   "targets": [],
+   "why": "standard formula (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_annulus_area/2",
+   "gated": true,
+   "targets": [],
+   "why": "standard formula: area of a ring (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_feet_inches_to_cm/2",
+   "gated": true,
+   "targets": [],
+   "why": "standard unit conversion (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_leibniz_pi_rounded/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-212"
+   ],
+   "why": "rounded form of leibniz_pi: round(formula, k) in one step, so it wins over the bare formula when the description asks for k decimals and the visible value happens to be exact"
+  },
+  {
+   "name": "r5_trimmed_mean_rounded/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-007"
+   ],
+   "why": "rounded form of trimmed_mean: round(formula, k) in one step, so it wins over the bare formula when the description asks for k decimals and the visible value happens to be exact"
+  },
+  {
+   "name": "r5_clock_angle/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-034"
+   ],
+   "why": "classic formula: angle between the hands of a clock"
+  },
+  {
+   "name": "r5_stair_ways/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-126"
+   ],
+   "why": "classic count: ways to climb n stairs with steps of 1..k (k from the description)"
+  },
+  {
+   "name": "r5_count_grid_rectangles/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-246"
+   ],
+   "why": "standard formula: rectangles in an r x c grid"
+  },
+  {
+   "name": "r5_days_in_month/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-004"
+   ],
+   "why": "calendar convention (Gregorian leap years)"
+  },
+  {
+   "name": "r5_leap_years_between/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-035"
+   ],
+   "why": "calendar convention: leap years in an inclusive range"
+  },
+  {
+   "name": "r5_days_between_iso/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-123"
+   ],
+   "why": "calendar convention: days between two ISO dates"
+  },
+  {
+   "name": "r5_add_days_iso/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-258"
+   ],
+   "why": "calendar convention: ISO date plus n days"
+  },
+  {
+   "name": "r5_age_on_date/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-271"
+   ],
+   "why": "standard: completed years between two (y, m, d) dates"
+  },
+  {
+   "name": "r5_vigenere_encrypt/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-043"
+   ],
+   "why": "named cipher (Vigenere)"
+  },
+  {
+   "name": "r5_vigenere_decrypt/2",
+   "gated": true,
+   "targets": [],
+   "why": "variant of vigenere_encrypt: decryption (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_keyword_cipher/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-285"
+   ],
+   "why": "named cipher (keyword / keyed alphabet)"
+  },
+  {
+   "name": "r5_rail_fence/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-253"
+   ],
+   "why": "named cipher (rail fence)"
+  },
+  {
+   "name": "r5_word_wrap/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-105"
+   ],
+   "why": "standard greedy word wrap"
+  },
+  {
+   "name": "r5_count_whole_word/2",
+   "gated": true,
+   "targets": [],
+   "why": "variant of count_whole_word_nocase (case-sensitive) (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_count_whole_word_nocase/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-226"
+   ],
+   "why": "standard: whole-word occurrences ignoring case"
+  },
+  {
+   "name": "r5_count_distinct_substrings/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-168"
+   ],
+   "why": "standard: distinct substrings of length k"
+  },
+  {
+   "name": "r5_edit_distance/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-045"
+   ],
+   "why": "named distance (Levenshtein)"
+  },
+  {
+   "name": "r5_longest_common_substring/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-286"
+   ],
+   "why": "classic: longest common substring, earliest in the first string"
+  },
+  {
+   "name": "r5_is_subsequence/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-028"
+   ],
+   "why": "standard predicate: subsequence (not necessarily contiguous)"
+  },
+  {
+   "name": "r5_one_edit_apart/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-299"
+   ],
+   "why": "classic predicate: exactly one edit apart"
+  },
+  {
+   "name": "r5_wildcard_match/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-240"
+   ],
+   "why": "standard matching with ? and *"
+  },
+  {
+   "name": "r5_windows/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-277"
+   ],
+   "why": "standard sliding windows of size k (moving sums, counts per window follow)"
+  },
+  {
+   "name": "r5_moving_average/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-041"
+   ],
+   "why": "standard moving average"
+  },
+  {
+   "name": "r5_max_window_sum/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-127"
+   ],
+   "why": "classic: largest sum of k consecutive elements"
+  },
+  {
+   "name": "r5_round_each/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-041"
+   ],
+   "why": "standard: round every number of a list"
+  },
+  {
+   "name": "r5_round_values/2",
+   "gated": true,
+   "targets": [],
+   "why": "variant of round_each for dictionary values (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_closest_index/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-038"
+   ],
+   "why": "standard: index of the element nearest a target, first on ties"
+  },
+  {
+   "name": "r5_closest_value/2",
+   "gated": true,
+   "targets": [],
+   "why": "variant of closest_index: the element itself (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_find_sublist/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-069"
+   ],
+   "why": "standard: index of a contiguous sublist, -1 if absent"
+  },
+  {
+   "name": "r5_reverse_in_groups/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-221"
+   ],
+   "why": "standard: reverse each block of k"
+  },
+  {
+   "name": "r5_shift_right_fill/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-252"
+   ],
+   "why": "standard shift without wrap, zero fill"
+  },
+  {
+   "name": "r5_shift_left_fill/2",
+   "gated": true,
+   "targets": [],
+   "why": "variant of shift_right_fill (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_split_into_parts/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-130"
+   ],
+   "why": "standard: n parts differing in length by at most one (array_split)"
+  },
+  {
+   "name": "r5_split_on_value/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-159"
+   ],
+   "why": "standard: split a list at a separator value"
+  },
+  {
+   "name": "r5_interleave_rest/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-218"
+   ],
+   "why": "standard alternate merge keeping leftovers (regression item: replaces a coincidence)"
+  },
+  {
+   "name": "r5_interleave_rest_text/2",
+   "gated": true,
+   "targets": [],
+   "why": "variant of interleave_rest for strings (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_count_subarrays_with_sum/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-161"
+   ],
+   "why": "classic: contiguous subarrays summing to k (prefix sums)"
+  },
+  {
+   "name": "r5_count_pairs_sum_divisible/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-219"
+   ],
+   "why": "standard: pairs with sum divisible by k"
+  },
+  {
+   "name": "r5_kth_permutation/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-191"
+   ],
+   "why": "named: k-th lexicographic permutation of 1..n"
+  },
+  {
+   "name": "r5_josephus_order/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-012"
+   ],
+   "why": "named (Josephus): elimination order"
+  },
+  {
+   "name": "r5_josephus_survivor/2",
+   "gated": true,
+   "targets": [],
+   "why": "variant of josephus_order: the survivor (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_has_nearby_duplicate/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-089"
+   ],
+   "why": "classic predicate: equal elements at most k apart"
+  },
+  {
+   "name": "r5_has_pair_with_difference/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-117"
+   ],
+   "why": "classic predicate: two elements differing by k"
+  },
+  {
+   "name": "r5_matrix_multiply/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-024"
+   ],
+   "why": "standard matrix product"
+  },
+  {
+   "name": "r5_dot_product/2",
+   "gated": true,
+   "targets": [],
+   "why": "variant of sparse_dot_product for lists (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_sparse_dot_product/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-144"
+   ],
+   "why": "standard dot product of dictionary vectors"
+  },
+  {
+   "name": "r5_knapsack/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-083"
+   ],
+   "why": "named (0/1 knapsack) over (weight, value) items"
+  },
+  {
+   "name": "r5_greedy_change/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-204"
+   ],
+   "why": "named greedy coin change as denomination counts"
+  },
+  {
+   "name": "r5_bucket_histogram/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-232"
+   ],
+   "why": "standard fixed-width histogram"
+  },
+  {
+   "name": "r5_flatten_dict_with/2",
+   "gated": true,
+   "targets": [],
+   "why": "variant of flatten_dict with the separator from the description (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_get_path/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-053"
+   ],
+   "why": "standard nested lookup by a key path"
+  },
+  {
+   "name": "r5_deep_merge/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-171"
+   ],
+   "why": "standard recursive dictionary merge"
+  },
+  {
+   "name": "r5_count_by_key/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-080"
+   ],
+   "why": "standard group-by count over records"
+  },
+  {
+   "name": "r5_rename_keys/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-234"
+   ],
+   "why": "standard key renaming"
+  },
+  {
+   "name": "r5_is_sub_dict/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-210"
+   ],
+   "why": "standard predicate: all pairs of one dict in another"
+  },
+  {
+   "name": "r5_bfs_order/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-109"
+   ],
+   "why": "named graph traversal (breadth first)"
+  },
+  {
+   "name": "r5_dfs_order/2",
+   "gated": true,
+   "targets": [],
+   "why": "variant of bfs_order (depth first) (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_shortest_distances/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-262"
+   ],
+   "why": "named (Dijkstra)"
+  },
+  {
+   "name": "r5_path_from_root/2",
+   "gated": true,
+   "targets": [
+    "Imag/1-173"
+   ],
+   "why": "standard ancestor chain from a parent map"
+  },
+  {
+   "name": "r5_bmi_rounded/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-033"
+   ],
+   "why": "rounded form of bmi: round(formula, k) in one step, so it wins over the bare formula when the description asks for k decimals and the visible value happens to be exact"
+  },
+  {
+   "name": "r5_percent_change_rounded/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-064"
+   ],
+   "why": "rounded form of percent_change: round(formula, k) in one step, so it wins over the bare formula when the description asks for k decimals and the visible value happens to be exact"
+  },
+  {
+   "name": "r5_weighted_average_rounded/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-093"
+   ],
+   "why": "rounded form of weighted_average: round(formula, k) in one step, so it wins over the bare formula when the description asks for k decimals and the visible value happens to be exact"
+  },
+  {
+   "name": "r5_annulus_area_rounded/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-182"
+   ],
+   "why": "rounded form of annulus_area: round(formula, k) in one step, so it wins over the bare formula when the description asks for k decimals and the visible value happens to be exact"
+  },
+  {
+   "name": "r5_feet_inches_to_cm_rounded/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-184"
+   ],
+   "why": "rounded form of feet_inches_to_cm: round(formula, k) in one step, so it wins over the bare formula when the description asks for k decimals and the visible value happens to be exact"
+  },
+  {
+   "name": "r5_quadratic_roots/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-125"
+   ],
+   "why": "standard: real roots of a quadratic, increasing, repeated root once"
+  },
+  {
+   "name": "r5_loan_payment/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-241"
+   ],
+   "why": "standard annuity formula (monthly payment)"
+  },
+  {
+   "name": "r5_day_of_year/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-063"
+   ],
+   "why": "calendar convention: ordinal day of a (y, m, d) date"
+  },
+  {
+   "name": "r5_weekday_name/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-075"
+   ],
+   "why": "calendar convention: weekday name of a (y, m, d) date"
+  },
+  {
+   "name": "r5_is_interleaving/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-239"
+   ],
+   "why": "classic predicate: interleaving of two strings"
+  },
+  {
+   "name": "r5_clamp_each/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-101"
+   ],
+   "why": "standard clamp of every element"
+  },
+  {
+   "name": "r5_clamp/3",
+   "gated": true,
+   "targets": [],
+   "why": "variant of clamp_each for one number (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_swap_items/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-099"
+   ],
+   "why": "standard: swap two positions (container type kept)"
+  },
+  {
+   "name": "r5_knapsack_lists/3",
+   "gated": true,
+   "targets": [],
+   "why": "variant of knapsack with separate weight and value lists (no bank item of its own: same-concept variant)"
+  },
+  {
+   "name": "r5_all_paths/3",
+   "gated": true,
+   "targets": [
+    "Imag/1-231"
+   ],
+   "why": "standard enumeration of paths in a DAG"
+  }
+ ],
+ "keyword_extensions": [
+  {
+   "operator": "is_isomorphic/2",
+   "added": "isomorphic&replace|isomorphic&consistent|isomorphic&map|isomorphic&equal length",
+   "why": "same_length won the specificity tie on 'two ... equal length' (Imag/1-145)"
+  },
+  {
+   "operator": "strictly_increasing/1",
+   "added": "strictly increase|strictly ascend|strictly rise|strictly grow",
+   "why": "verb forms of the rule's name (Imag/1-150)"
+  },
+  {
+   "operator": "strictly_decreasing/1",
+   "added": "strictly decrease|strictly descend|strictly fall",
+   "why": "same, for the decreasing rule"
+  },
+  {
+   "operator": "is_fibonacci_number/1",
+   "added": "belongs to the fibonacci|in the fibonacci sequence|part of the fibonacci|member of the fibonacci|appears in the fibonacci|fibonacci number",
+   "why": "usual phrasings of membership (Imag/1-179)"
+  },
+  {
+   "operator": "num_min_squares/1",
+   "added": "number of perfect squares|perfect squares&add up|perfect squares&sum to|squares&add up to|perfect squares&add to",
+   "why": "'add up to' instead of 'sum' (Imag/1-274)"
+  },
+  {
+   "operator": "seq_count_inversions/1",
+   "added": "inversion|swaps of neighbo|neighbouring swaps|neighboring swaps|adjacent swaps|swaps of adjacent|bubble sort&swap",
+   "why": "adjacent swaps that sort a list are its inversions (Imag/1-278)"
+  },
+  {
+   "operator": "argmin/1",
+   "added": "occurrence&smallest|occurrence&minimum",
+   "why": "'first occurrence of the smallest element' is argmin (Imag/1-008)"
+  },
+  {
+   "operator": "argmax/1",
+   "added": "occurrence&largest|occurrence&maximum",
+   "why": "same, for argmax"
+  },
+  {
+   "operator": "is_palindrome/1",
+   "added": "reads the same backward|reads the same forward|same forwards and backwards|same when reversed",
+   "why": "palindrome described without the word"
+  }
+ ],
+ "not_addressed": [
+  {
+   "task_id": "Imag/1-003",
+   "reason": "compound interest is a three-argument formula; the visible value is exact, so the unrounded form wins and a rounded form would need a fourth argument"
+  },
+  {
+   "task_id": "Imag/1-005",
+   "reason": "count of Euclid steps is a loop counter, not a library entry"
+  },
+  {
+   "task_id": "Imag/1-013",
+   "reason": "title case with a task-specific list of minor words"
+  },
+  {
+   "task_id": "Imag/1-030",
+   "reason": "chess-specific predicate; left out as too narrow"
+  },
+  {
+   "task_id": "Imag/1-042",
+   "reason": "partial insertion sort state after k passes: a simulation"
+  },
+  {
+   "task_id": "Imag/1-049",
+   "reason": "tuple of two derived sums; the engine never combines two derived values"
+  },
+  {
+   "task_id": "Imag/1-070",
+   "reason": "last-stone-weight simulation"
+  },
+  {
+   "task_id": "Imag/1-073",
+   "reason": "byte-size format with task-specific units and precision"
+  },
+  {
+   "task_id": "Imag/1-077",
+   "reason": "summary-ranges string with a task-specific format"
+  },
+  {
+   "task_id": "Imag/1-079",
+   "reason": "ad-hoc stock/order dictionary difference"
+  },
+  {
+   "task_id": "Imag/1-097",
+   "reason": "minimum-length subarray with sum >= target: sliding-window algorithm, not asked for by a name"
+  },
+  {
+   "task_id": "Imag/1-103",
+   "reason": "mixed-number string format"
+  },
+  {
+   "task_id": "Imag/1-107",
+   "reason": "four arguments; the engine has at most ternary operators"
+  },
+  {
+   "task_id": "Imag/1-112",
+   "reason": "depth-weighted nested sum: ad-hoc recursion"
+  },
+  {
+   "task_id": "Imag/1-122",
+   "reason": "prime factorisation in a task-specific 'p^e * q' string format"
+  },
+  {
+   "task_id": "Imag/1-133",
+   "reason": "nested k[text] decoding: a stack parser for one format"
+  },
+  {
+   "task_id": "Imag/1-142",
+   "reason": "nested per-region totals: ad-hoc pivot"
+  },
+  {
+   "task_id": "Imag/1-143",
+   "reason": "competition ranking of (name, score) pairs in a task-specific output shape"
+  },
+  {
+   "task_id": "Imag/1-148",
+   "reason": "three double letters in a row: one exercise's property"
+  },
+  {
+   "task_id": "Imag/1-149",
+   "reason": "vowel/consonant alternation: one exercise's property"
+  },
+  {
+   "task_id": "Imag/1-151",
+   "reason": "difference of two parsed times combines two derived values (engine limit); the parse is available"
+  },
+  {
+   "task_id": "Imag/1-152",
+   "reason": "four arguments"
+  },
+  {
+   "task_id": "Imag/1-155",
+   "reason": "divisible by exactly one of two numbers in 1..n: ad-hoc count"
+  },
+  {
+   "task_id": "Imag/1-160",
+   "reason": "longest subarray with at most two distinct values: sliding window, no common name"
+  },
+  {
+   "task_id": "Imag/1-164",
+   "reason": "zero-padding digit runs inside text: ad-hoc regex"
+  },
+  {
+   "task_id": "Imag/1-166",
+   "reason": "censoring with a word list: ad-hoc conventions"
+  },
+  {
+   "task_id": "Imag/1-167",
+   "reason": "leetspeak mapping varies between sources"
+  },
+  {
+   "task_id": "Imag/1-172",
+   "reason": "transitive report counts: ad-hoc recursion"
+  },
+  {
+   "task_id": "Imag/1-175",
+   "reason": "lucky ticket: one exercise's property"
+  },
+  {
+   "task_id": "Imag/1-183",
+   "reason": "three-argument volume with rounding; exact visible value, same limit as Imag/1-003"
+  },
+  {
+   "task_id": "Imag/1-185",
+   "reason": "price thresholds are task constants"
+  },
+  {
+   "task_id": "Imag/1-186",
+   "reason": "tax brackets are task constants"
+  },
+  {
+   "task_id": "Imag/1-189",
+   "reason": "repeated neighbour sums: a simulation"
+  },
+  {
+   "task_id": "Imag/1-193",
+   "reason": "Oxford-comma English list: formatting rules of one style"
+  },
+  {
+   "task_id": "Imag/1-194",
+   "reason": "pluralisation rules vary; left out"
+  },
+  {
+   "task_id": "Imag/1-198",
+   "reason": "e-mail masking format is task-specific"
+  },
+  {
+   "task_id": "Imag/1-200",
+   "reason": "league points: task-specific scoring"
+  },
+  {
+   "task_id": "Imag/1-202",
+   "reason": "filter, sort and project records: three steps of one exercise"
+  },
+  {
+   "task_id": "Imag/1-203",
+   "reason": "cart total over two structures: ad-hoc"
+  },
+  {
+   "task_id": "Imag/1-205",
+   "reason": "opening hours across midnight: task-specific"
+  },
+  {
+   "task_id": "Imag/1-211",
+   "reason": "parking fee tariff: task constants"
+  },
+  {
+   "task_id": "Imag/1-217",
+   "reason": "binary-search probe count: a simulation"
+  },
+  {
+   "task_id": "Imag/1-222",
+   "reason": "minimum increments to non-decreasing: three steps (running max, differences, sum)"
+  },
+  {
+   "task_id": "Imag/1-225",
+   "reason": "centring with the extra pad on the right differs from str.center"
+  },
+  {
+   "task_id": "Imag/1-227",
+   "reason": "minutes in words: task-specific phrasing"
+  },
+  {
+   "task_id": "Imag/1-228",
+   "reason": "comment stripping: task-specific rules"
+  },
+  {
+   "task_id": "Imag/1-237",
+   "reason": "proper sentence: one exercise's property"
+  },
+  {
+   "task_id": "Imag/1-243",
+   "reason": "discount then tax then rounding: three steps"
+  },
+  {
+   "task_id": "Imag/1-244",
+   "reason": "bill split rounded up to cents: ad-hoc"
+  },
+  {
+   "task_id": "Imag/1-245",
+   "reason": "two ceiling divisions multiplied: combines two derived values"
+  },
+  {
+   "task_id": "Imag/1-265",
+   "reason": "robot moves back to origin: one exercise's property"
+  },
+  {
+   "task_id": "Imag/1-273",
+   "reason": "smallest number with a given digit product: one exercise"
+  },
+  {
+   "task_id": "Imag/1-279",
+   "reason": "stack command interpreter: a simulation"
+  },
+  {
+   "task_id": "Imag/1-282",
+   "reason": "fold sums: one exercise's transformation"
+  },
+  {
+   "task_id": "Imag/1-284",
+   "reason": "phone number format is locale-specific"
+  },
+  {
+   "task_id": "Imag/1-287",
+   "reason": "backspace simulation with '#': left out as one exercise's convention"
+  },
+  {
+   "task_id": "Imag/1-288",
+   "reason": "duration string format is task-specific"
+  },
+  {
+   "task_id": "Imag/1-289",
+   "reason": "tuple of row sums and column sums combines two derived values"
+  },
+  {
+   "task_id": "Imag/1-296",
+   "reason": "word chain: one exercise's property"
+  }
+ ],
+ "final_check": {
+  "newly_solved": 209,
+  "broken": 0
+ },
+ "memory": [],
+ "notes": "Size: 277 operators, all gated (no ungated rule), plus 9 keyword extensions. This is far above the 20-60 guideline because the bank's failures are almost all distinct named concepts: 212 operators each solve their own bank or regression item (209 bank items newly solved). The other 65 have no bank item of their own; they are same-concept variants of a solving operator (inverse direction or decoding, other traversal order, other output shape, or the unrounded form of a formula whose rounded form solved the item). They are marked '(no bank item of its own: same-concept variant)' in this report and can be retired as a group if only bank-solving rules are wanted; none was written from memory of a benchmark task. Regression: BROKEN 0; 7 regression items that were solved by coincidental programs (1-019, 1-027, 1-104, 1-132, 1-218, 1-248, 1-250) are now solved by the named rule (rotate, ISBN-10, acronym, h-index, alternate merge, cancel pairs, version sort). Robustness checks in scratch_pilot/: (a) 190 re-phrasings of solved bank items in my own wording (paraphrase_bank*.json, judged by the same asserts): 190/190 solved; (b) 34 simple negative-control tasks whose descriptions contain words my gates react to, which the library solved before: no program changed. Every emitted template was tested on edge cases (empty input, ties, negatives) in edge_tests.py. Risks: predicates that are False on almost any input could fit a False example by accident when their gate opens; their gates are kept to phrases (one such case, 'HH:MM' opening is_valid_time, was found and fixed). Broader gates that remain: windows (window/sliding), closest_value (closest|nearest with target words), missing_between ('missing', list output only), modes ('most common', list output only). Engine ideas: (1) when a description asks for rounding to k places, prefer programs that end in round(..., k): an exact visible value lets the unrounded formula win and fail the hidden tests (Imag/1-003, 1-183 are ternary formulas, where the rounded-variant workaround used here would need four arguments); (2) quaternary operators (1-107, 1-152); (3) the named_pairs feature would solve differences of two named derived values such as two parsed clock times (1-151). Rounded variants accept only 0-4 places because other numbers in such descriptions are part of the formula ('* 5 / 9')."
+}
