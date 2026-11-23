@@ -14,5 +14,12 @@
   "differs from the reference where hidden tests may look (trailing space, tie order)": 2,
   "artifact: probe outside the task's domain": 4,
   "artifact: buggy reference solution": 1
+ },
+ "gates_open": {
+  "note": "every keyword-gated operator (548 of 780) treated as named, 4 seconds per task, up to 40 matches",
+  "first_match_right": 286,
+  "first_match_strict": 237,
+  "some_match_right": 333,
+  "some_match_strict": 279
  }
 }
