@@ -1,0 +1,18 @@
+{
+ "written": "2026-11-23, before the reviewer was trained",
+ "theory": "Candidates of one sketch share its fixed tokens and differ only inside the holes; a coder's preference for the structure lifts right and wrong fillings together (SeedLM-34). Whether a program accounts for the description's words is the reverse question, P(description | program, example): coder-reviewer reranking (Zhang et al., 2022). A reviewer reads the same tasks in the other direction, so its errors need not be the coders'",
+ "model": "r35-a: a reviewer of the coders' size (d 320, 8 layers, 10 heads) with s12-a1's vocabulary, trained from scratch for 40 minutes, checkpoints at 10, 20 and 30 minutes (scripts/seedlm35_review_train.py)",
+ "data": "the coders' training sources read in reverse: 150,000 synthetic rows, real training tasks, training teacher tasks, training variants, training one-liners (three views where they exist), the teacher's 2,400 paraphrases of 1,200 training tasks, the 772 SeedLM-34 sketch tasks; shares real 0.08, teacher 0.15, variant 0.08, one-liner 0.01, paraphrase 0.12, sketch 0.06, synthetic the rest. Held-out teacher tasks, the development fifth, validation, test and HumanEval+ are never used",
+ "exploration": "on the held-out teacher tasks only (SeedLM-32's candidates, unchanged): the checkpoint (m10, m20, m30, final) and the rule, either the reviewer alone or the six-coder mean (SeedLM-32's scores) plus lambda times the reviewer's log-probability with lambda in 0.25, 0.5, 1, 2, chosen by the number of tasks whose chosen candidate is right (candidates alone); ties go to the smaller lambda, then the earlier checkpoint",
+ "primary_measure": "development fifth, the system (the engine where confident, else the chosen rule over the candidates and the engine's program): supported if at least 68 (three more than SeedLM-32's system on the same candidates, 65); not supported if at most 65; inconclusive otherwise. Adoption needs more than 69, then the validation gate and one locked test",
+ "secondary_measures": [
+  "development fifth, candidates alone, against SeedLM-32's 59",
+  "held-out teacher tasks, candidates alone, against 64 (the tuning set; reported, not evidence)"
+ ],
+ "not_tuned_on": [
+  "validation",
+  "test",
+  "HumanEval+",
+  "the development fifth"
+ ]
+}
