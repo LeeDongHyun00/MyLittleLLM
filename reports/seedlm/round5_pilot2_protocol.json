@@ -15,5 +15,15 @@
   "HumanEval+",
   "the development fifth",
   "the 434 training-side real tasks (measured once, after the pack is frozen)"
- ]
+ ],
+ "outcome": {
+  "written": "2026-11-23, after the one measure",
+  "primary": "434 training-side real tasks with the shipped engine plus r5_pilot2 (1,146 operators): 5 first programs changed; strict newly solved 1, broken 1, net 0: not supported (reports/seedlm/round5_pilot2_transfer.json). The development fifth was not measured, as registered",
+  "secondary": [
+   "lenient: newly solved 1, broken 0",
+   "the pack's own bank: 160 of 168 invented exercises newly solved, none of the 119 solved ones broken (reports/seedlm/round5_pilot2_teacher_report.json)",
+   "reading the 5 changed tasks (exploration, training data): one new solve (password validity, nothing found before), one break under the strict judge (largest product of adjacent elements became the largest product of any two after sorting, which passes the three asserts by coincidence), three equivalent rewrites of programs that were already right; a pack gate opens on 100 of the 434 descriptions"
+  ],
+  "reading": "With classic concepts allowed and introductory difficulty, the invented exercises sit much closer to real ones (the engine solves 41% of them, against 7% in the first pilot and 74% of real tasks) and the pack's gates open on a quarter of real descriptions; but the real tasks those concepts describe are already solved by the shipped library, so the new operators only rewrite them, once wrongly. The knowledge that would help is in the failures, and failures are idiosyncratic"
+ }
 }
